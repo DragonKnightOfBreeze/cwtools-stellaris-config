@@ -7,6 +7,11 @@ types = {
 			## required
 			Description = "$_desc"
 		}
+		# ADDED BY PLS
+		pictures = {
+			## primary
+			icon = "#icon" # <sprite>
+		}
 	}
 	type[colony_automation] = {
 		path = "game/common/colony_automation"

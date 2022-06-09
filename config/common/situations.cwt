@@ -10,6 +10,10 @@ types = {
 			## optional
 			description = "$_desc"
 		}
+		# ADDED BY PLS
+		pictures = {
+			picture = "#picture" # <sprite>
+		}
 	}
 }
 
@@ -176,7 +180,7 @@ situation_type = {
 
 	## cardinality = 0..1
 	start_value = int
-	
+
 	## cardinality = 0..1
 	progress_direction = monodirectional
 	## cardinality = 0..1
@@ -188,7 +192,7 @@ situation_type = {
 	fail_icon = <sprite>
 	## cardinality = 0..1
 	fail_icon_frame = <sprite>
-	
+
 	## cardinality = 0..1
 	stages = {
 		## cardinality = 1..inf

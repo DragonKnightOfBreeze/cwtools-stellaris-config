@@ -2,6 +2,12 @@
 types = {
 	type[first_contact_stage] = {
 		path = "game/common/first_contact"
+		# ADDED BY PLS
+		pictures = {
+			## primary
+			icon = "#icon" # <sprite>
+			picture = "#picture" # <sprite>
+		}
 	}
 	type[intel_category] = {
 		path = "game/common/intel_categories"
@@ -51,7 +57,7 @@ first_contact_stage = {
 		min = int[-inf..inf]
 		max = int[-inf..inf]
 	}
-	
+
 	## cardinality = 1..inf
 	stage_event = {
 		## cardinality = 0..1

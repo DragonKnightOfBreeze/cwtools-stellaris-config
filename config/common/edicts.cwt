@@ -12,6 +12,11 @@ types = {
 			## required
 			Description = "edict_$_desc"
 		}
+		# ADDED BY PLS
+		pictures = {
+			## primary
+			icon = "#icon" # <sprite>
+		}
 	}
 }
 

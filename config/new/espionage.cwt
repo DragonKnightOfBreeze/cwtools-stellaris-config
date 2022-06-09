@@ -41,6 +41,10 @@ types = {
 		subtype[spynetwork] = {
 			target = spynetwork
 		}
+		# ADDED BY PLS
+		pictures = {
+			picture = "#picture" # <sprite>
+		}
 	}
 }
 
@@ -70,7 +74,7 @@ espionage_asset = {
     categories = {
 		## cardinality = 1..inf
 		<espionage_category>
-	} 
+	}
 }
 
 espionage_operation = {
@@ -107,7 +111,7 @@ espionage_operation = {
     abort = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	subtype[megastructure] = {
 		## cardinality = 0..1
 		## replace_scope = { this = megastructure root = megastructure }
@@ -204,14 +208,14 @@ espionage_operation = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 	}
-	
+
 	## cardinality = 1..inf
 	stage = {
         difficulty = int
         icon = <sprite>
         event = <event.espionage_operation>
 	}
-	
+
     on_roll_failed = {
 		alias_name[effect] = alias_match_left[effect]
     }

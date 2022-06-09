@@ -7,6 +7,11 @@ types = {
 			## required
 			desc = "mission_$_desc"
 		}
+		# ADDED BY PLS
+		pictures = {
+			## primary
+			icon = "#icon" # <sprite>
+		}
 	}
 }
 

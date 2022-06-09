@@ -7,6 +7,14 @@ types = {
 			## required
 			Description = "$_desc"
 		}
+		# ADDED BY PLS
+		pictures = {
+			## primary
+			## optional
+			icon = "#icon" # filepath
+			## primary
+			icon = "gfx/interface/icons/governments/authorities/$.dds" # inferred
+		}
 	}
 	type[government] = {
 		path = "game/common/governments"
@@ -25,6 +33,7 @@ types = {
 			Name = "$"
 			## required
 			Description = "$_desc"
+			Effect = "#description"
 		}
 		subtype[origin] = {
 			is_origin = yes
@@ -32,6 +41,21 @@ types = {
 		subtype[civic] = {
 			## cardinality = 0..1
 			is_origin = no
+		}
+		# ADDED BY PLS
+		pictures = {
+			## primary
+			## optional
+			icon = "#icon" # filepath
+			subtype[civic] = {
+				## primary
+				icon = "gfx/interface/icons/governments/civics/$.dds" # inferred
+			}
+			subtype[origin] = {
+				## primary
+				icon = "gfx/interface/icons/origins/$.dds" # inferred
+				picture = "#picture" # <sprite>
+			}
 		}
 	}
 	## type_key_filter = swap_type
@@ -251,7 +275,7 @@ civic_or_origin = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 	}
-	
+
 	subtype[origin] = {
 		is_origin = yes
 		picture = <sprite>
@@ -300,7 +324,7 @@ civic_or_origin = {
 		playable = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
-		
+
 		## cardinality = 0..1
 		###default: yes
 		pickable_at_start = bool
@@ -312,7 +336,7 @@ civic_or_origin = {
 		## cardinality = 0..1
 		###default: no
 		can_build_ruler_ship = bool
-		
+
 		## cardinality = 0..1
 		### default: empty; trait set to enforce on the primary species
 		traits = {

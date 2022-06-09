@@ -85,6 +85,11 @@ types = {
 			## required
 			desc = "$_desc"
 		}
+		# ADDED BY PLS
+		pictures = {
+			## primary
+			icon = "#icon" # <sprite>
+		}
 	}
 	type[ai_budget] = {
 		path = "game/common/ai_budget"
@@ -297,7 +302,7 @@ sector_focus = {
 	hidden = yes
 	## cardinality = 0..1
 	clear_blockers = bool
-	
+
 	## cardinality = 0..1
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -455,7 +460,7 @@ economic_plan = {
 			## cardinality = 1..inf
 			<resource> = int
 		}
-	
+
 		## cardinality = 0..1
 		focus = {
 			## cardinality = 1..inf

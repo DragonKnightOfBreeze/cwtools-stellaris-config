@@ -33,7 +33,11 @@ types = {
 				"Preference trait description" = "trait_$_preference_desc"
 			}
 		}
-
+		# ADDED BY PLS
+		pictures = {
+			## primary
+			icon = "#icon" # <sprite>
+		}
 	}
 	## type_key_filter = random_list
 	type[planet_class_random_list] = {
@@ -158,17 +162,17 @@ planet_class = {
 
 	## cardinality = 0..1
 	fixed_city_level = int
-	
+
 	## cardinality = 0..1
 	is_artificial_planet = bool
 
 	## cardinality = 0..1
 	colonizable = bool
-	
+
 	subtype[habitable_planet] = {
 		## severity = warning
 		district_set = enum[district_sets]
-		
+
 		## cardinality = 0..1
 		climate = localisation
 		## cardinality = 0..1
@@ -179,7 +183,7 @@ planet_class = {
 		show_city = bool
 		## cardinality = 0..1
 		ideal = bool
-		
+
 		## cardinality = 0..1
 		initial = yes
 		## cardinality = 0..1

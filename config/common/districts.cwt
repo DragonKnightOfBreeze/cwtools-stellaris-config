@@ -17,6 +17,13 @@ types = {
 			## required
 			Plural = "$_plural"
 		}
+		# ADDED BY PLS
+		pictures = {
+			## primary
+			icon = "#icon" # icon[gfx/interface/icons/districts]
+			## primary
+			icon = "gfx/interface/icons/districts/$.dds" # inferred
+		}
 	}
 }
 
@@ -70,7 +77,7 @@ district = {
 	allow = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	## cardinality = 0..1
 	on_queued = {
 		alias_name[effect] = alias_match_left[effect]
