@@ -114,6 +114,12 @@ types = {
 			## required
 			name = "mod_$"
 		}
+		pictures = {
+			## primary
+			icon = "#icon" # icon[gfx/interface/icons/modifiers]
+			## primary
+			icon = "gfx/interface/icons/modifiers/mod_$.dds" # inferred
+		}
 	}
 }
 
@@ -537,7 +543,7 @@ message_type = {
 scripted_modifier = {
 	## cardinality = 0..1
 	###name of file in gfx\interface\icons\modifiers (without the .dds). Default is "mod_" + key
-	icon = scalar
+	icon = icon[gfx/interface/icons/modifiers]
 	## cardinality = 0..1
 	###show as a % or not (default: no)
 	percentage = bool
