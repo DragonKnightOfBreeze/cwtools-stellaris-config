@@ -296,7 +296,7 @@ alias[gui:iconType] = {
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
 	}
-	
+
 	alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 	alias_name[gui_localisation] = alias_match_left[gui_localisation]
 	alias_name[gui_sprite] = alias_match_left[gui_sprite]
@@ -322,7 +322,7 @@ alias[gui_button:buttonType] = {
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
 	}
-	
+
 	## cardinality = 0..1
 	multiline = bool
 
@@ -685,7 +685,7 @@ alias[gui_sound:no_clicksound] = bool
 alias[gui_localisation:tooltip_mode_enabled] = bool
 alias[gui_localisation:font] = <bitmapfont>
 alias[gui_localisation:text] = scalar #since many are not defined anyway but are hardcoded.
-alias[gui_localisation:text_color_code] = enum[textcolors]
+alias[gui_localisation:text_color_code] = <textcolor>
 alias[gui_localisation:tooltip] = localisation
 alias[gui_localisation:tooltipText] = localisation
 alias[gui_localisation:delayedTooltipText] = localisation

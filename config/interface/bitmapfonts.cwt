@@ -12,11 +12,11 @@ types = {
 		skip_root_key = bitmapfonts
 		path = "game/interface" #see game/interface/fonts.gfx
 	}
-	## type_key_filter = textcolors
-	type[textcolors] = {
-		skip_root_key = bitmapfonts
-		path = "game/interface"
-	}
+	# ## type_key_filter = textcolors
+	# type[textcolors] = {
+	# 	skip_root_key = bitmapfonts
+	# 	path = "game/interface"
+	# }
 }
 #these are the defines for the text coloring used in localisations. For example in the localisation "§HGhost Signal§!" the
 #H color code refers to what is defined in the example below from vanilla. Text colors should be thus parsed and checked against
@@ -37,14 +37,14 @@ types = {
 #}
 
 enums = {
-	complex_enum[textcolors] = {
-		path = "game/interface"
-		name = {
-			textcolors = {
-				enum_name = { }
-			}
-		}
-	}
+	# complex_enum[textcolors] = {
+	# 	path = "game/interface"
+	# 	name = {
+	# 		textcolors = {
+	# 			enum_name = { }
+	# 		}
+	# 	}
+	# }
 
 	enum[font_languages] = {
 		l_braz_por
@@ -61,14 +61,14 @@ enums = {
 }
 
 
-textcolors = {
-	## cardinality = 14..inf
-	## color_type = rgb
-	scalar = {  #these should really have a unique ID each - so they can be refered to. They are linked to in GUI files in /interface.
-		## cardinality = 3..3
-		int[0..255]
-	}
-}
+# textcolors = {
+# 	## cardinality = 14..inf
+# 	## color_type = rgb
+# 	scalar = {  #these should really have a unique ID each - so they can be refered to. They are linked to in GUI files in /interface.
+# 		## cardinality = 3..3
+# 		int[0..255]
+# 	}
+# }
 
 bitmapfont = {
 	name = scalar
