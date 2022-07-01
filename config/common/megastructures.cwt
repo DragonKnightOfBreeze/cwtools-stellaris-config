@@ -26,7 +26,7 @@ types = {
 				"Delayed info" = "$_CONSTRUCTION_INFO_DELAYED"
 			}
 		}
-		pictures = {
+		images = {
 			## primary
 			portrait = "#portrait" # <sprite>
 		}

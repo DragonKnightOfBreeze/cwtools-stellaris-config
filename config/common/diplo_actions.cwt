@@ -13,7 +13,7 @@ types = {
 			## optional
 			"Type desc" = "$_TYPE_DESC"
 		}
-		pictures = {
+		images = {
 			## primary
 			icon = "#icon" # <sprite>
 		}

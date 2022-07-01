@@ -7,7 +7,7 @@ types = {
 			## required
 			Desc = "bombardment_$_desc"
 		}
-		pictures = {
+		images = {
 			fleet_view = "gfx/interface/fleet_view/fleet_task_group_support_$_action.dds" # inferred
 			fleet_view_selected = "gfx/interface/fleet_view/fleet_task_group_support_$_selected.dds" # inferred
 		}

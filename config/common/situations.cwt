@@ -10,7 +10,7 @@ types = {
 			## optional
 			description = "$_desc"
 		}
-		pictures = {
+		images = {
 			picture = "#picture" # <sprite>
 		}
 	}

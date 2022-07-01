@@ -32,7 +32,7 @@ types = {
 				always = no
 			}
 		}
-		pictures = {
+		images = {
 			## primary
 			icon = "#icon" # icon[gfx/interface/icons/deposits]
 			## primary

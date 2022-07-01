@@ -7,7 +7,7 @@ types = {
 			## required
 			Description = "$_desc"
 		}
-		pictures = {
+		images = {
 			## primary
 			## optional
 			icon = "#icon" # filepath
@@ -41,7 +41,7 @@ types = {
 			## cardinality = 0..1
 			is_origin = no
 		}
-		pictures = {
+		images = {
 			## primary
 			## optional
 			icon = "#icon" # filepath

@@ -17,7 +17,7 @@ types = {
 			## required
 			Plural = "$_plural"
 		}
-		pictures = {
+		images = {
 			## primary
 			icon = "#icon" # icon[gfx/interface/icons/districts]
 			## primary

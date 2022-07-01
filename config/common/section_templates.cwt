@@ -11,7 +11,7 @@ types = {
 				Name = "$"
 			}
 		}
-		pictures = {
+		images = {
 			# ## primary
 			# icon = "#icon" # from cwtools: unused
 		}

@@ -6,7 +6,7 @@ types = {
 		path_file = "alerts.txt"
 
 		skip_root_key = alerts
-		pictures = {
+		images = {
 			## primary
 			icon = "#icon" # <sprite>
 			category = "#category" # <alert_icon>
@@ -17,7 +17,7 @@ types = {
 		block = no
 		path = "game/common"
 		skip_root_key = icon
-		pictures = {
+		images = {
 			## primary
 			icon = "#" # the string value (not some property value in the block value) of the definition
 		}

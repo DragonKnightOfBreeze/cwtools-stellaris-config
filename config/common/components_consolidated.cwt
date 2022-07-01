@@ -16,7 +16,7 @@ types = {
 			## optional
 			"Station Description" = "station_$_DESC"
 		}
-		pictures = {
+		images = {
 			## primary
 			icon = "#icon|#icon_frame" # <sprite>
 		}
@@ -41,7 +41,7 @@ types = {
 			## required
 			Name = "$"
 		}
-		pictures = {
+		images = {
 			## primary
 			icon = "#icon|#icon_frame" # <sprite>
 		}
