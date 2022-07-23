@@ -18,7 +18,7 @@ types = {
 		}
 		images = {
 			## primary
-			icon = "#icon|#icon_frame" # <sprite>
+			icon = "#icon" # <sprite>
 		}
 	}
 	type[component_template] = {
@@ -43,7 +43,7 @@ types = {
 		}
 		images = {
 			## primary
-			icon = "#icon|#icon_frame" # <sprite>
+			icon = "#icon" # <sprite>
 		}
 	}
 }
