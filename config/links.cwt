@@ -311,4 +311,10 @@ links = {
 		prefix = modifier:
 		data_source = alias_keys_field[modifier]
     }
+	trigger = {
+		from_data = yes
+		type = value
+		prefix = trigger:
+		data_source = alias_keys_field[trigger]
+	}
 }
