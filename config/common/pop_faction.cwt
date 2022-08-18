@@ -9,7 +9,7 @@ types = {
 		}
 		images = {
 			## primary
-			icon = "gfx/interface/icons/faction_icons/faction_icons_$s.dds" # inferred
+			icon = "gfx/interface/icons/faction_icons/faction_icons_$.dds" # inferred
 			# election_header = "#election_header" # <sprite>
 		}
 	}
