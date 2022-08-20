@@ -317,4 +317,12 @@ links = {
 		prefix = trigger:
 		data_source = alias_keys_field[trigger]
 	}
+	parameter = {
+		from_data = yes
+		type = scope
+		prefix = parameter:
+		data_source = value[parameter]
+		input_scopes = { pop_faction }
+		output_scope = country
+	}
 }
