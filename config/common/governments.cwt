@@ -9,7 +9,6 @@ types = {
 		}
 		images = {
 			## primary
-			## optional
 			icon = "#icon" # filepath
 			## primary
 			icon = "gfx/interface/icons/governments/authorities/$.dds" # inferred
@@ -43,7 +42,6 @@ types = {
 		}
 		images = {
 			## primary
-			## optional
 			icon = "#icon" # filepath
 			subtype[civic] = {
 				## primary
