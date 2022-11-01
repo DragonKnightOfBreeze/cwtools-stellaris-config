@@ -6,9 +6,11 @@ types = {
 		path = "game/events"
 
 		localisation = {
-			## primary
-			title = "#title"
-			desc = "#desc"
+			subtype[!hidden] = {
+				## primary
+				title = "#title"
+				desc = "#desc"
+			}
 		}
 		## type_key_filter = country_event
 		## push_scope = country
