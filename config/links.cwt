@@ -317,6 +317,11 @@ links = {
 		prefix = trigger:
 		data_source = alias_keys_field[trigger]
 	}
+	variable = {
+		from_data = yes
+		type = value
+		data_source = value[variable]
+	}
 	parameter = {
 		from_data = yes
 		type = scope
