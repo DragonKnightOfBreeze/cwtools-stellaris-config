@@ -24,6 +24,7 @@ enums = {
 				enum_name = {}
 			}
 		}
+		search_scope = definition
 	}
 }
 
