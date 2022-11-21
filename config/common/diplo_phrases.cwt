@@ -2,7 +2,7 @@ types = {
 	type[diplo_phrase] = {
 		path = "game/common/diplo_phrases"
 
-		type_per_file = yes
+		name_from_file = yes
 
 		## type_key_filter = greetings
 		subtype[greetings] = {
