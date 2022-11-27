@@ -1,19 +1,27 @@
 #this file contains all elements that are stored in the common folder itself!
 
 types = {
-	## type_key_filter = alert
 	type[alert] = {
 		path = "game/common"
 		path_file = "alerts.txt"
 
 		skip_root_key = alerts
+		images = {
+			## primary
+			icon = "#icon" # <sprite>
+			category = "#category" # <alert_icon>
+		}
 	}
-	## type_key_filter = icon
 	type[alert_icon] = {
 		path_file = "alerts.txt"
+		block = no
 		path = "game/common"
+		skip_root_key = icon
+		images = {
+			## primary
+			icon = "#" # the string value (not some property value in the block value) of the definition
+		}
 	}
-	## type_key_filter = achievement
 	type[achievement] = {
 		path = "game/common"
 		path_file = "achievements.txt"
@@ -21,16 +29,13 @@ types = {
 }
 
 alert = {
-	alias_name[alert_category] = alias_match_left[alert_category]
+	category = <alert_icon>
+	category = DISABLED
 	sound = <sound_effect>
+	icon = <sprite>
 }
-alert_icon = {
-	## cardinality = 0..inf
-	scalar = <sprite>
-}
-alias[alert_category:category] = <alert_icon>
-alias[alert_category:category] = DISABLED
 
+alert_icon = <sprite>
 
 achievement = {
 	id = int

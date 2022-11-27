@@ -22,6 +22,13 @@ types = {
 				per_pop_modifier_short = mod_job_$_per_pop_short
 			}
 		}
+		images = {
+			## primary
+			icon = "#icon" # filepath[gfx/interface/icons/jobs/job_,.dds]
+			## primary
+			icon = "gfx/interface/icons/jobs/job_$.dds" # inferred
+			building_icon = "#building_icon" #  <building> | icon[gfx/interface/icons/buildings]
+		}
 	}
 	type[social_strata] = {
 		path = "game/common/pop_categories"
@@ -32,6 +39,10 @@ types = {
 			plural = "pop_cat_$_plural"
 			## required
 			desc = "pop_cat_$_desc"
+		}
+		images = {
+			## primary
+			icon = "gfx/interface/icons/pop_categories/pop_cat_$.dds" # inferred
 		}
 	}
 }
@@ -96,7 +107,7 @@ job = {
 	possible_pre_triggers = {
 		alias_name[pop_pre_trigger] = alias_match_left[pop_pre_trigger]
 	}
-	
+
 	## cardinality = 0..1
 	possible_precalc = can_fill_ruler_job
 	## cardinality = 0..1

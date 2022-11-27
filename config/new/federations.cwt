@@ -26,6 +26,11 @@ types = {
 			## required
 			Description = "$_desc"
 		}
+		images = {
+			## primary
+			## optional
+			icon = "gfx/interface/icons/federation/federation_perks/$.dds" # inferred
+		}
 	}
 	type[federation_type] = {
 		path = "game/common/federation_types"
@@ -34,6 +39,10 @@ types = {
 			Name = "$"
 			## required
 			Description = "$_desc"
+		}
+		images = {
+			## primary
+			icon = "#icon" # <sprite>
 		}
 	}
 }

@@ -1793,7 +1793,7 @@ alias[effect:add_ship_design] = scope[design]
 ### Adds a specific ship design to the scoped country
 alias[effect:add_ship_design] = last_created_design
 ### Adds a sum of experience points to the scoped leader
-alias[effect:add_skill] = int_value_field[-10..20]#check the interval
+alias[effect:add_skill] = int_value_field[-10..20] #check the interval
 ### Gives percentage progress (0.0-1.0) in a specific tech to the scoped country
 alias[effect:add_tech_progress] = {
 	tech = <technology>
@@ -3485,7 +3485,7 @@ alias[effect:set_rule_join_subject_wars] = enum[agreement_wars]
 alias[effect:set_rule_subject_has_access] = bool
 ###Changes the agreement term for whether the Subject gets sensors data from Overlord
 alias[effect:set_rule_subject_has_sensors] = bool
-###Passes the scoped debris ownership to the specified country 
+###Passes the scoped debris ownership to the specified country
 alias[effect:pass_debris_ownership] = {
 	owner = scope_group[target_country]
 }
@@ -3570,14 +3570,14 @@ alias[effect:get_trade_data] = {
 alias[effect:make_special_trade] = {
 	target = scope_group[target_country]
 }
-###Leases fleet out to the new controller country for a numbed of days 
+###Leases fleet out to the new controller country for a numbed of days
 alias[effect:give_fleet] = {
 	controller = scope_group[target_country]
 	days = int_value_field
 }
-###Breaks fleet lease contract 
+###Breaks fleet lease contract
 alias[effect:break_fleet_contract] = bool
-###Prolongs fleet's lease contract for a numbed of days 
+###Prolongs fleet's lease contract for a numbed of days
 alias[effect:prolong_fleet_contract] = {
 	days = int_value_field
 }

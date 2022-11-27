@@ -1,4 +1,3 @@
-
 types = {
 	type[galactic_focus] = {
 		path = "game/common/galactic_focuses"
@@ -15,6 +14,10 @@ types = {
 			## required
 			Name = "$"
 		}
+		images = {
+			## primary
+			icon = "#icon" <sprite>
+		}
 	}
 	## replace_scope = { this = country root = country }
 	type[resolution] = {
@@ -25,6 +28,14 @@ types = {
 			## required
 			Description = "$_desc"
 		}
+		images = {
+			## primary
+			icon = "#icon" # <sprite> | scalar
+		}
+	}
+	images = {
+		## primary
+		icon = "#icon" # <sprite>
 	}
 }
 

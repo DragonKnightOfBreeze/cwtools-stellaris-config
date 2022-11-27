@@ -2,16 +2,16 @@ types = {
 	type[diplo_phrase] = {
 		path = "game/common/diplo_phrases"
 
-		type_per_file = yes
-		
+		name_from_file = yes
+
 		## type_key_filter = greetings
 		subtype[greetings] = {
 		}
-		
+
 		## type_key_filter = action_ask_to_become
 		subtype[action_ask] = {
 		}
-		
+
 		## type_key_filter = action_demand_
 		subtype[action_demand] = {
 		}
@@ -23,7 +23,7 @@ types = {
 		## type_key_filter = action_declare_war
 		subtype[declare_war] = {
 		}
-		
+
 	}
 }
 
@@ -86,8 +86,8 @@ diplo_phrase = {
 			}
 		}
 	}
-	
-	
+
+
 	## cardinality = 0..inf
 	<diplomatic_action> = {
 		## cardinality = 0..inf
@@ -109,7 +109,7 @@ diplo_phrase = {
 			}
 		}
 	}
-	
+
 }
 
 enums = {

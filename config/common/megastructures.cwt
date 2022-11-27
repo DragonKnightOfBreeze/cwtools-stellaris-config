@@ -26,6 +26,10 @@ types = {
 				"Delayed info" = "$_CONSTRUCTION_INFO_DELAYED"
 			}
 		}
+		images = {
+			## primary
+			portrait = "#portrait" # <sprite>
+		}
 	}
 }
 
@@ -107,7 +111,7 @@ megastructure = {
 		## cardinality = 0..inf
 		alias_name[modifier] = alias_match_left[modifier]
 	}
-	
+
 	## cardinality = 0..1
 	## replace_scope = { this = ship root = ship }
 	ship_modifier = {
@@ -162,7 +166,7 @@ megastructure = {
 	## cardinality = 0..1
 	### the type of constructions that block (and are in turn blocked by) this construction, default: multi_stage_type
 	construction_blocks_and_blocked_by = enum[megastructure_block_type]
-	
+
 	## cardinality = 0..1
 	victory_score = int
 }

@@ -85,6 +85,10 @@ types = {
 			## required
 			desc = "$_desc"
 		}
+		images = {
+			## primary
+			icon = "#icon" # <sprite>
+		}
 	}
 	type[ai_budget] = {
 		path = "game/common/ai_budget"
@@ -97,8 +101,8 @@ types = {
 	}
 	type[diplomacy_economy] = {
         path = "game/common/diplomacy_economy"
-#        name_from_file = yes
-        type_per_file = yes
+        name_from_file = yes
+        # type_per_file = yes
 	}
 	type[message_type] = {
 		name_field = key
@@ -109,6 +113,12 @@ types = {
 		localisation = {
 			## required
 			name = "mod_$"
+		}
+		images = {
+			## primary
+			icon = "#icon" # icon[gfx/interface/icons/modifiers]
+			## primary
+			icon = "gfx/interface/icons/modifiers/mod_$.dds" # inferred
 		}
 	}
 }
@@ -297,7 +307,7 @@ sector_focus = {
 	hidden = yes
 	## cardinality = 0..1
 	clear_blockers = bool
-	
+
 	## cardinality = 0..1
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -456,7 +466,7 @@ economic_plan = {
 			## cardinality = 1..inf
 			<resource> = int
 		}
-	
+
 		## cardinality = 0..1
 		focus = {
 			## cardinality = 1..inf
@@ -538,7 +548,7 @@ message_type = {
 scripted_modifier = {
 	## cardinality = 0..1
 	###name of file in gfx\interface\icons\modifiers (without the .dds). Default is "mod_" + key
-	icon = scalar
+	icon = icon[gfx/interface/icons/modifiers]
 	## cardinality = 0..1
 	###show as a % or not (default: no)
 	percentage = bool

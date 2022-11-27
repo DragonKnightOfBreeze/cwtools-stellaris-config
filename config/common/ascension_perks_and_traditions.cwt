@@ -8,6 +8,10 @@ types = {
 			## required
 			Desc = "$_desc"
 		}
+		images = {
+			## primary
+			icon = "gfx/interface/icons/ascension_perks/$.dds" # inferred
+		}
 	}
 	type[tradition] = {
 		path = "game/common/traditions"
@@ -18,6 +22,11 @@ types = {
 			Flavor = "$_delayed"
 			## optional
 			Effects = "$_desc"
+		}
+		images = {
+			## primary
+			## optional
+			icon = "gfx/interface/icons/traditions/$.dds" # inferred
 		}
 	}
 	## type_key_filter = tradition_swap
@@ -45,6 +54,11 @@ types = {
 				Effects = "$_desc"
 			}
 		}
+		images = {
+			## primary
+			icon = "gfx/interface/icons/traditions/$.dds" # inferred
+			# TODO inherit icon from parent original tradition if inherit_icon = yes
+		}
 	}
 	type[tradition_category] = { #this defines the contents of tradition trees
 		path = "game/common/tradition_categories"
@@ -59,7 +73,7 @@ types = {
 
 enums = {
 	complex_enum[tradition_swap] = {
-		path = "game/common/tradition"
+		path = "game/common/traditions"
 		name = {
 			tradition_swap = {
 				name = enum_name
@@ -146,7 +160,7 @@ tradition = {
 		inherit_name = bool
 		## cardinality = 0..1
 		inherit_effects = bool
-	
+
 		#Should be only if not inheriting effects
 		## cardinality = 0..1
 		###accepts only country modifiers
@@ -162,7 +176,7 @@ tradition = {
 			## cardinality = 0..inf
 			alias_name[effect] = alias_match_left[effect]
 		}
-		
+
 		## replace_scope = { this = country root = country }
 		## cardinality = 0..1
 		###this determines the chances of a tradition swap appearing for a given empire IF multiple swaps are potential.
@@ -201,7 +215,7 @@ tradition_category = {
 		## cardinality = 0..inf
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	## replace_scope = { this = country root = country }
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]

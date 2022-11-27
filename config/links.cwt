@@ -311,4 +311,19 @@ links = {
 		prefix = modifier:
 		data_source = alias_keys_field[modifier]
     }
+	trigger = {
+		from_data = yes
+		type = value
+		prefix = trigger:
+		data_source = alias_keys_field[trigger]
+	}
+	pop_faction_parameter = {
+		from_data = yes
+		type = scope
+		prefix = parameter:
+		data_source = enum[pop_faction_parameters]
+		input_scopes = { pop_faction }
+		output_scope = country
+		for_definition = pop_faction
+	}
 }

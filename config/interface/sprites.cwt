@@ -7,6 +7,11 @@ types = {
 		path = "game/interface"
 		skip_root_key = spriteTypes
 		severity = warning
+		images = {
+			textureFile = "#textureFile" # filepath
+			textureFile1 = "#textureFile1" # filepath
+			textureFile2 = "#textureFile2" # filepath
+		}
 	}
 	## type_key_filter = PieChartType
 	type[piechart] = { #these are links that start with the GFX_ prefix in vanilla
@@ -32,6 +37,13 @@ types = {
 		subtype[framed_animated_sprite] = {}
 		## type_key_filter = textSpriteType
 		subtype[text_sprite] = {}
+		images = {
+			## primary
+			texture = "#textureFile" # filepath
+			## primary
+			texture = "#sprite_sheet_sprite_type|#default_frame" # <sprite>
+			masking_texture = "#masking_texture" # filepath
+		}
 	}
 }
 
@@ -51,10 +63,12 @@ progressbartype = {
 
 	effectFile = filepath #shader file
 
+	## color_type = rgb
 	color = {
 		## cardinality = 3..3
 		float
 	}
+	## color_type = rgb
 	colortwo = {
 		## cardinality = 3..3
 		float

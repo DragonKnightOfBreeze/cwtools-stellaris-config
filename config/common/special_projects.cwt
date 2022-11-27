@@ -13,6 +13,11 @@ types = {
 			## optional
 			Description = "$_DESC"
 		}
+		images = {
+			## primary
+			icon = "#icon" # filepath
+			picture = "#picture" # <sprite>
+		}
 	}
 }
 
@@ -37,7 +42,7 @@ special_project = {
 	## cardinality = 0..inf
 	desc = {
 		text = localisation
-		trigger = {	
+		trigger = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 	}
