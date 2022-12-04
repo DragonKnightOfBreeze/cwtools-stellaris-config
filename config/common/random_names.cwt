@@ -70,7 +70,7 @@ empire_name_format = {
 	format = localisation
 	### String used to determine prefix for empire's ship. (Default being ISS). Usually matches name format. Optional for countries that would not ever have ships, e. g. Primitives.
 	## cardinality = 0..1
-	prefix_format = scalar
+	prefix_format = stellaris_name_format[empire_name_parts]
 	noun = stellaris_name_format[empire_name_parts]
 	lookups = scalar
 }
