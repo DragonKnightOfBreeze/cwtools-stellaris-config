@@ -15,7 +15,6 @@ types = {
 	## type_key_filter = namespace
 	type[event_namespace] = {
 		path = "game/events"
-		block = no
 		name_field = ""
 	}
 }
