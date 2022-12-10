@@ -2,6 +2,7 @@ types = {
 	## type_key_filter = guiTypes
 	type[gui_type] = {
 		path = "game/interface"
+		path_extension = .gui
 		severity = warning
 	}
 }
