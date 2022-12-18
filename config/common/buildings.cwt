@@ -3,6 +3,13 @@ types = {
 	## graph_related_types = { technology }
 	type[building] = {
 		path = "game/common/buildings"
+		subtype[capped] = {
+			## cardinality = 0..1
+			is_capped_by_modifier = yes
+		}
+		subtype[uncapped] = {
+			is_capped_by_modifier = no
+		}
 		subtype[corporate] = {
 			owner_type = corporate
 		}

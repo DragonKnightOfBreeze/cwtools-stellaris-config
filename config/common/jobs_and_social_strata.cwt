@@ -2,9 +2,12 @@
 types = {
 	type[job] = {
 		path = "game/common/pop_jobs"
-		subtype[uncapped_by_modifier] = {
+		subtype[capped] = {
 			## cardinality = 0..1
 			is_capped_by_modifier = yes
+		}
+		subtype[uncapped] = {
+			is_capped_by_modifier = no
 		}
 		localisation = {
 			## required
