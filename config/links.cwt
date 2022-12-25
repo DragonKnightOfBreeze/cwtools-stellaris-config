@@ -322,8 +322,8 @@ links = {
 		type = scope
 		prefix = parameter:
 		data_source = enum[pop_faction_parameters]
+		for_definition_type = pop_faction
 		input_scopes = { pop_faction }
 		output_scope = country
-		for_definition = pop_faction
 	}
 }
