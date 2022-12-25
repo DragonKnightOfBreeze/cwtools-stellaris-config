@@ -17,24 +17,24 @@ modifier_categories = {
     "Pop Factions" = {
         supported_scopes = { popfaction country }
     }
-	"Military Ships" = {
+    "Military Ships" = {
         supported_scopes = { ship starbase fleet country }
     }
-	"Civilian Ships" = {
+    "Civilian Ships" = {
         supported_scopes = { ship starbase fleet country }
     }
-	"Science Ships" = {
+    "Science Ships" = {
         supported_scopes = { ship starbase fleet country }
     }
-	"Transport Ships" = {
+    "Transport Ships" = {
         supported_scopes = { ship starbase fleet country }
     }
     Ships = {
         supported_scopes = { ship starbase fleet country }
     }
-	Fleets = {
+    Fleets = {
         supported_scopes = { fleet country }
-	}
+    }
     Megastructures = {
         supported_scopes = { megastructure country }
     }
@@ -58,5 +58,17 @@ modifier_categories = {
     }
     Espionage = {
         supported_scopes = { country spynetwork }
+    }
+    "AI Economy" = {
+        supported_scopes = { any }
+    }
+    "Orbital Stations" = {
+        supported_scopes = { any }
+    }
+    "Space Stations" = {
+        supported_scopes = { any }
+    }
+    Deposits = {
+        supported_scopes = { any }
     }
 }
