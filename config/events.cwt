@@ -12,6 +12,12 @@ types = {
 				desc = "#desc"
 			}
 		}
+		images = {
+			subtype[default] = {
+				picture = "#picture" # <sprite>, can be triggered
+			}
+		}
+
 		## type_key_filter = country_event
 		## push_scope = country
 		## display_name = Country Event
