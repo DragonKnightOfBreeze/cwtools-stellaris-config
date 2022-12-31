@@ -32,6 +32,11 @@ types = {
 			icon = "gfx/interface/icons/jobs/job_$.dds" # inferred
 			building_icon = "#building_icon" #  <building> | icon[gfx/interface/icons/buildings]
 		}
+		modifiers = {
+			"job_$_add" = Planets
+			"job_$_per_pop" = Planets
+			"job_$_per_crime" = Planets
+		}
 	}
 	type[social_strata] = {
 		path = "game/common/pop_categories"
@@ -46,6 +51,10 @@ types = {
 		images = {
 			## primary
 			icon = "gfx/interface/icons/pop_categories/pop_cat_$.dds" # inferred
+		}
+		modifiers = {
+			"pop_cat_$_happiness" = Pops
+			"pop_cat_$_political_power" = Pops
 		}
 	}
 }
@@ -99,7 +108,7 @@ job = {
 	## cardinality = 0..1
 	ignores_favorite = bool
 	## cardinality = 0..1
-	purge = enum[purge_types]
+	purge = <purge_type>
 
 	## cardinality = 0..1
 	###Sets whether the job contributes to diplo weight. Default = yes
