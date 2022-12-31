@@ -2,9 +2,6 @@
 types = {
 	type[district] = {
 		path = "game/common/districts"
-		modifiers = {
-			"planet_$_build_speed_mult" = Planets
-		}
 		subtype[capped] = {
 			## cardinality = 0..1
 			is_capped_by_modifier = yes
@@ -25,6 +22,9 @@ types = {
 			icon = "#icon" # icon[gfx/interface/icons/districts]
 			## primary
 			icon = "gfx/interface/icons/districts/$.dds" # inferred
+		}
+		modifiers = {
+			"planet_$_build_speed_mult" = Planets
 		}
 	}
 }
