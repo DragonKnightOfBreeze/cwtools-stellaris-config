@@ -1,0 +1,18 @@
+types = {
+	type[inline_script] = {
+		path = "game/common/inline_scripts"
+		path_extension = .txt
+		path_strict = false
+		name_from_file = yes
+	}
+}
+
+## Use an inline script.
+inline[inline_script] = filepath[common/inline_scripts/,.txt]
+
+## Use an inline script with parameters.
+## Inline script parameters accept strings so it's possible to swap in a full statement or even several statements by enclosing it in "".
+inline[inline_script] = {
+	script = filepath[common/inline_scripts/,.txt]
+	enum[scripted_effect_params] = scalar # accept several statements
+}
