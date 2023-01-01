@@ -586,7 +586,6 @@ alias[trigger:has_technology] = <technology>
 
 ###Checks if a country has the given tradition or tradition swap. Tradition specified must be the one giving effects, i.e. tradition swaps with 'inherit_effects = yes' are ignored and the base tradition should be specified in those cases.
 alias[trigger:has_active_tradition] = <tradition>
-alias[trigger:has_active_tradition] = enum[tradition_swap]
 
 
 ###Checks a variable for the country/leader/planet/system/fleet against a specified value or another variable on the same scope

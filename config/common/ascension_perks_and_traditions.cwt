@@ -31,6 +31,7 @@ types = {
 	}
 	## type_key_filter = tradition_swap
 	type[tradition_swap] = {
+		base_type = tradition
 		path = "game/common/traditions"
 		skip_root_key = any
 		name_field = name
@@ -70,19 +71,6 @@ types = {
 		}
 	}
 }
-
-enums = {
-	complex_enum[tradition_swap] = {
-		path = "game/common/traditions"
-		name = {
-			tradition_swap = {
-				name = enum_name
-			}
-		}
-	}
-}
-
-
 
 ascension_perk = {
 	## cardinality = 0..1

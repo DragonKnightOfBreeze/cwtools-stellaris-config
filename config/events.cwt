@@ -148,6 +148,7 @@ event = {
 		title = localisation
 		desc = localisation
 
+		## cardinality = 0..inf
 		desc = {
 			## cardinality = 0..1
 			trigger = {
