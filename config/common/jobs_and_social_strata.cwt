@@ -10,13 +10,16 @@ types = {
 			is_capped_by_modifier = no
 		}
 		localisation = {
+			## primary
 			## required
 			name = "job_$"
 			## required
 			plural = "job_$_plural"
 			## required
 			desc = "job_$_desc"
-			subtype[uncapped_by_modifier] = {
+			## optional
+			effect = "job_$_effect_desc" # inferred
+			subtype[uncapped] = {
 				## required
 				modifier = mod_job_$_add
 				## optional
@@ -41,6 +44,7 @@ types = {
 	type[social_strata] = {
 		path = "game/common/pop_categories"
 		localisation = {
+			## primary
 			## required
 			name = "pop_cat_$"
 			## required
@@ -138,9 +142,6 @@ job = {
 
 	## cardinality = 0..1
 	resources = {
-	}
-	## cardinality = 0..1
-	resources = {
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
@@ -156,24 +157,21 @@ job = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
-	## replace_scope = { this = country root = country }
 	## cardinality = 0..1
+	## replace_scope = { this = country root = country }
 	country_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
-	## replace_scope = { this = planet root = planet }
 	## cardinality = 0..1
+	## replace_scope = { this = planet root = planet }
 	### Multiple planet_modifiers blocks result in only the last one applying
 	planet_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
-	## cardinality = 0..1
 	alias_name[triggered_planet_modifier_pop] = alias_match_left[triggered_planet_modifier_pop]
-	## cardinality = 0..1
 	alias_name[triggered_country_modifier_pop] = alias_match_left[triggered_country_modifier_pop]
-	## cardinality = 0..1
 	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
 
 	weight = {
