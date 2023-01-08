@@ -51,7 +51,7 @@ pop_faction = {
 
 	## cardinality = 0..1
 	### Primary ethic for this faction
-	guiding_ethic = <ethos>
+	guiding_ethic = <ethic>
 
 	## cardinality = 0..1
 	use_guiding_ethic_as_pop_filter = bool

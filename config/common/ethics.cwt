@@ -1,6 +1,6 @@
 
 types = {
-	type[ethos] = {
+	type[ethic] = {
 		path = "game/common/ethics"
 		localisation = {
 			## required
@@ -12,6 +12,9 @@ types = {
 			## primary
 			icon = "gfx/interface/icons/ethics/$.dds" # inferred
 		}
+		modifiers = {
+			pop_ethic_$_attraction_mult = Pops
+		}
 	}
 	type[ethic_category] = {
 		path = "game/common/ethic_categories"
@@ -21,7 +24,7 @@ types = {
 ethic_category = {
 }
 
-ethos = {
+ethic = {
 	cost = int
 
 	#theoretically this should link to the ethic categories, not sure how to do that though (or whether it is worth it)
@@ -42,10 +45,10 @@ ethos = {
 	category_opposite = bool
 
 	## cardinality = 0..1
-	regular_variant = <ethos>
+	regular_variant = <ethic>
 
 	## cardinality = 0..1
-	fanatic_variant = <ethos>
+	fanatic_variant = <ethic>
 
 	## cardinality = 0..1
 	###always = yes by default

@@ -202,9 +202,9 @@ alias[trigger:used_naval_capacity_percent] == value_field
 ###Checks if the country is a specific type
 alias[trigger:is_country_type] = <country_type>
 ###Checks if a country has a certain ethos
-alias[trigger:has_ethic] = <ethos>
+alias[trigger:has_ethic] = <ethic>
 ###Checks if the pop has a specific ethos
-alias[trigger:pop_has_ethic] = <ethos>
+alias[trigger:pop_has_ethic] = <ethic>
 
 ###Checks the country's used starbase capacity in relative terms (0.00-1.00)
 alias[trigger:used_starbase_capacity_percent] == value_field

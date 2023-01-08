@@ -666,13 +666,13 @@ alias[effect:kill_leader] = {
 }
 
 ###Shifts an empire towards a specific ethic, adjusting aferwards to keep number of ethics points consistent
-alias[effect:shift_ethic] = <ethos>
+alias[effect:shift_ethic] = <ethic>
 ###Adds a specific ethic to the scoped country
-alias[effect:country_add_ethic] = <ethos>
+alias[effect:country_add_ethic] = <ethic>
 ###Adds a specific ethic to the scoped country
 alias[effect:country_add_ethic] = random
 ###Removes a specific ethic from the scoped country
-alias[effect:country_remove_ethic] = <ethos>
+alias[effect:country_remove_ethic] = <ethic>
 ###Instantly destroys the scoped pop
 alias[effect:kill_pop] = yes
 # alias[effect:enslave_pop] = bool	#deprecated
@@ -1231,11 +1231,11 @@ alias[effect:create_species] = {
 	## cardinality = 0..1
 	pop_ethics = random
 	## cardinality = 0..1
-	pop_ethics = <ethos>
+	pop_ethics = <ethic>
 	## cardinality = 0..1
 	pop_ethics = {
 		## cardinality = 1..3
-		<ethos>
+		<ethic>
 		## cardinality = 0..1
 		random
 	}
@@ -1316,7 +1316,7 @@ alias[effect:create_country] = {
 	## cardinality = 0..1
 	ethos = {
 		## cardinality = 1..3
-		ethic = <ethos>
+		ethic = <ethic>
 		## cardinality = 1..3
 		ethic = random
 	}
@@ -1396,7 +1396,7 @@ alias[effect:create_rebels] = {
 	## cardinality = 0..1
 	ethos = {
 		## cardinality = 1..3
-		ethic = <ethos>
+		ethic = <ethic>
 	}
 	## cardinality = 0..1
 	flag = scope_group[target_country]
@@ -1650,7 +1650,7 @@ alias[effect:establish_contact] = {
 }
 
 ###Changes scoped pop to chosen ethic
-alias[effect:pop_change_ethic] = <ethos>
+alias[effect:pop_change_ethic] = <ethic>
 ### Starts a situation log event chain for target country
 alias[effect:begin_event_chain] = {
 	event_chain = <event_chain>
@@ -2017,7 +2017,7 @@ alias[effect:create_colony] = {
 	##cardinality = 0..1
 	ethos = {
 		##cardinality = 2..3
-		ethic = <ethos>
+		ethic = <ethic>
 	}
 }
 
@@ -2139,7 +2139,7 @@ alias[effect:create_pop] = {
 	## cardinality = 0..1
 	ethos = {
 		## cardinality = 1..1
-		ethic = <ethos>
+		ethic = <ethic>
 	}
 	## cardinality = 0..1
 	## push_scope = pop
@@ -2340,9 +2340,9 @@ alias[effect:order_forced_return] = yes
 ### Play the defined sound effect
 alias[effect:play_sound] = <sound_effect>
 ### Adds a specific ethic to the scoped pop regardless if pop-species allows ethic divergence or not.
-alias[effect:pop_force_add_ethic] = <ethos>
+alias[effect:pop_force_add_ethic] = <ethic>
 ### Removes a specific ethic from the scoped pop
-alias[effect:pop_remove_ethic] = <ethos>
+alias[effect:pop_remove_ethic] = <ethic>
 ### Disables or enables anomaly generation for the scoped planet
 alias[effect:prevent_anomaly] = bool
 #randomize_flag_symbol = pirate
@@ -2674,7 +2674,7 @@ alias[effect:start_colony] = {
 	## cardinality = 0..1
 	ethos = {
 		## cardinality = 1..10
-		ethic = <ethos>
+		ethic = <ethic>
 	}
 	## cardinality = 0..1
 	ethos = random
@@ -3595,5 +3595,5 @@ alias[effect:multiply_crisis_strength] = value_field
 ###Sets the scoped leader immortal. The 'no' case will not override immortality granted by species characteristics (but will disable immortality granted by this effect).
 alias[effect:set_immortal] = bool
 
-### Used with enclave_mercenary to remove fleet contract modifiers. 
+### Used with enclave_mercenary to remove fleet contract modifiers.
 alias[effect:remove_fleet_contract_modifiers] = bool

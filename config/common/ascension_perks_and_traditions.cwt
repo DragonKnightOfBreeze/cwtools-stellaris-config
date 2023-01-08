@@ -162,7 +162,6 @@ tradition = {
 		###accepts only country modifiers
 		## replace_scope = { this = country root = country }
 		modifier = {
-			## cardinality = 0..1
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		#Should be only if not inheriting effects

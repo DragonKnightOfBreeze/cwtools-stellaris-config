@@ -411,7 +411,7 @@ alias[government_trigger:country_type] = {
 }
 alias[government_trigger:ethics] = {
 	## cardinality = 0..3
-	value = <ethos>
+	value = <ethic>
 
 	## cardinality = 0..inf
 	OR = {
@@ -419,13 +419,13 @@ alias[government_trigger:ethics] = {
 		text = localisation
 		## severity = info
 		## cardinality = 2..99
-		value = <ethos>
+		value = <ethic>
 	}
 	## cardinality = 0..inf
 	NOT = {
 		## cardinality = 0..1
 		text = localisation
-		value = <ethos>
+		value = <ethic>
 	}
 	## cardinality = 0..inf
 	NOR = {
@@ -433,7 +433,7 @@ alias[government_trigger:ethics] = {
 		text = localisation
 		## severity = info
 		## cardinality = 2..99
-		value = <ethos>
+		value = <ethic>
 	}
 }
 alias[government_trigger:civics] = {

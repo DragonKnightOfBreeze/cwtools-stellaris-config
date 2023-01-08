@@ -63,7 +63,7 @@ trait = {
 		###This only does something if valid_for_all_ethics is set to no
 		allowed_ethics = {
 			## cardinality = 1..inf
-			<ethos>
+			<ethic>
 		}
 		## cardinality = 0..1
 		###This only does something if valid_for_origins is set to no
