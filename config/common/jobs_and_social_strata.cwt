@@ -36,7 +36,7 @@ types = {
 			building_icon = "#building_icon" #  <building> | icon[gfx/interface/icons/buildings]
 		}
 	}
-	type[social_strata] = {
+	type[pop_category] = {
 		path = "game/common/pop_categories"
 		localisation = {
 			## primary
@@ -77,7 +77,7 @@ job = {
 		text = localisation
 	}
 
-	category = <social_strata>
+	category = <pop_category>
 	## cardinality = 0..1
 	condition_string = localisation
 	## cardinality = 0..1
@@ -175,7 +175,7 @@ job = {
 
 
 ## push_scope = pop
-social_strata = {
+pop_category = {
 	rank = int
 
 	## cardinality = 0..1
@@ -241,7 +241,7 @@ social_strata = {
 	## cardinality = 0..1
 	change_job_threshold = float
 	## cardinality = 0..1
-	display_category = <social_strata>
+	display_category = <pop_category>
 	## cardinality = 0..1
 	display_unemployment = bool
 

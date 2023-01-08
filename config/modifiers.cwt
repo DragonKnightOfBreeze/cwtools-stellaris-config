@@ -5,6 +5,6 @@ modifiers = {
 	job_<job>_add = Planets
 	job_<job>_per_pop = Planets
 	job_<job>_per_crime = Planets
-	pop_cat_<social_strata>_happiness = Pops
-	pop_cat_<social_strata>_political_power = Pops
+	pop_cat_<pop_category>_happiness = Pops
+	pop_cat_<pop_category>_political_power = Pops
 }
