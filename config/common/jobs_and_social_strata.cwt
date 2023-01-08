@@ -35,11 +35,6 @@ types = {
 			icon = "gfx/interface/icons/jobs/job_$.dds" # inferred
 			building_icon = "#building_icon" #  <building> | icon[gfx/interface/icons/buildings]
 		}
-		modifiers = {
-			"job_$_add" = Planets
-			"job_$_per_pop" = Planets
-			"job_$_per_crime" = Planets
-		}
 	}
 	type[social_strata] = {
 		path = "game/common/pop_categories"
@@ -55,10 +50,6 @@ types = {
 		images = {
 			## primary
 			icon = "gfx/interface/icons/pop_categories/pop_cat_$.dds" # inferred
-		}
-		modifiers = {
-			"pop_cat_$_happiness" = Pops
-			"pop_cat_$_political_power" = Pops
 		}
 	}
 }

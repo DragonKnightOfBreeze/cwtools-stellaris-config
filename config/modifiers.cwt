@@ -1,0 +1,10 @@
+modifiers = {
+	planet_<building>_build_speed_mult = Planets
+	planet_<district>_build_speed_mult = Planets
+	pop_ethic_<ethic>_attraction_mult = Pops
+	job_<job>_add = Planets
+	job_<job>_per_pop = Planets
+	job_<job>_per_crime = Planets
+	pop_cat_<social_strata>_happiness = Pops
+	pop_cat_<social_strata>_political_power = Pops
+}

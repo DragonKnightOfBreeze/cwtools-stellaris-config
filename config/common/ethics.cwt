@@ -12,9 +12,6 @@ types = {
 			## primary
 			icon = "gfx/interface/icons/ethics/$.dds" # inferred
 		}
-		modifiers = {
-			pop_ethic_$_attraction_mult = Pops
-		}
 	}
 	type[ethic_category] = {
 		path = "game/common/ethic_categories"
