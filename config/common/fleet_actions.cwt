@@ -1,22 +1,15 @@
-
-### Adds actions to the scoped fleet's action queue
-alias[effect:queue_actions] = {
-	alias_name[fleet_action] = alias_match_left[fleet_action]
-}
-
 alias[fleet_action:repeat] = {
-    
 	## cardinality = 0..1
     max_iterations = int
-    
+
 	## cardinality = 0..1
     while = {
 		###TODO: ID seems to have to be in quotes (Vanilla also does that). Also, I think they are meant to be unique ideas, but I'm not sure about that. -Caligula
 		id = scalar
         alias_name[trigger] = alias_match_left[trigger]
-    }   
+    }
 
-    alias_name[fleet_action] = alias_match_left[fleet_action]    
+    alias_name[fleet_action] = alias_match_left[fleet_action]
 }
 
 ###This requires the fleet to be a planet destroyer
@@ -40,12 +33,12 @@ alias[fleet_action:find_random_system] = {
     }
     ## push_scope = system
     found_system = {
-        alias_name[fleet_action] = alias_match_left[fleet_action] 
+        alias_name[fleet_action] = alias_match_left[fleet_action]
     }
-   
+
 	## cardinality = 0..1
     failed = {
-        alias_name[fleet_action] = alias_match_left[fleet_action] 
+        alias_name[fleet_action] = alias_match_left[fleet_action]
     }
 }
 
@@ -59,12 +52,12 @@ alias[fleet_action:find_random_planet] = {
     }
     ## push_scope = planet
     found_planet = {
-        alias_name[fleet_action] = alias_match_left[fleet_action] 
+        alias_name[fleet_action] = alias_match_left[fleet_action]
     }
-	
+
 	## cardinality = 0..1
     failed = {
-        alias_name[fleet_action] = alias_match_left[fleet_action] 
+        alias_name[fleet_action] = alias_match_left[fleet_action]
     }
 }
 
@@ -78,12 +71,12 @@ alias[fleet_action:find_random_fleet] = {
     }
     ## push_scope = fleet
     found_fleet = {
-        alias_name[fleet_action] = alias_match_left[fleet_action] 
+        alias_name[fleet_action] = alias_match_left[fleet_action]
     }
-	
+
 	## cardinality = 0..1
     failed = {
-        alias_name[fleet_action] = alias_match_left[fleet_action] 
+        alias_name[fleet_action] = alias_match_left[fleet_action]
     }
 
     ## cardinality = 0..1
@@ -100,12 +93,12 @@ alias[fleet_action:find_closest_system] = {
     }
     ## push_scope = system
     found_system = {
-        alias_name[fleet_action] = alias_match_left[fleet_action] 
+        alias_name[fleet_action] = alias_match_left[fleet_action]
     }
-    
+
 	## cardinality = 0..1
     failed = {
-        alias_name[fleet_action] = alias_match_left[fleet_action] 
+        alias_name[fleet_action] = alias_match_left[fleet_action]
     }
 }
 
@@ -119,13 +112,13 @@ alias[fleet_action:find_closest_planet] = {
     }
     ## push_scope = planet
     found_planet = {
-        alias_name[fleet_action] = alias_match_left[fleet_action] 
+        alias_name[fleet_action] = alias_match_left[fleet_action]
     }
-    
+
 	## cardinality = 0..1
     failed = {
-        alias_name[fleet_action] = alias_match_left[fleet_action] 
-    }    
+        alias_name[fleet_action] = alias_match_left[fleet_action]
+    }
 }
 
 alias[fleet_action:find_closest_fleet] = {
@@ -138,16 +131,16 @@ alias[fleet_action:find_closest_fleet] = {
     }
     ## push_scope = fleet
     found_fleet = {
-        alias_name[fleet_action] = alias_match_left[fleet_action] 
+        alias_name[fleet_action] = alias_match_left[fleet_action]
     }
-    
+
 	## cardinality = 0..1
     failed = {
-        alias_name[fleet_action] = alias_match_left[fleet_action] 
+        alias_name[fleet_action] = alias_match_left[fleet_action]
     }
-    
+
     ## cardinality = 0..1
-    system_only = bool   
+    system_only = bool
 }
 
 alias[fleet_action:effect] = {
