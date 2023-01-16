@@ -1,5 +1,3 @@
-
-
 alias[trigger:scope_field] = { alias_name[trigger] = alias_match_left[trigger] }
 
 ###An inverted trigger, functionally the same as NOR
