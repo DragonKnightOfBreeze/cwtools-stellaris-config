@@ -4222,8 +4222,8 @@ alias[effect:every_owned_ship] = {
 }
 
 ### Iterate through each ship in the fleet or controlled by the country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = ship
 ## scopes = { country fleet }
+## push_scope = ship
 alias[effect:random_owned_ship] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4237,8 +4237,8 @@ alias[effect:random_owned_ship] = {
 }
 
 ### Iterate through all countries - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = country
 ## scopes = any
+## push_scope = country
 alias[effect:random_country] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4252,8 +4252,8 @@ alias[effect:random_country] = {
 }
 
 ### Executes enclosed effects on a random pop that meets the limit criteria. Warning: deprecated, use random_owned_pop
-## push_scope = pop
 ## scopes = { planet }
+## push_scope = pop
 alias[effect:random_pop] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4261,8 +4261,8 @@ alias[effect:random_pop] = {
 }
 
 ### Iterate through all owned pops - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = pop
 ## scopes = { planet country pop_faction sector }
+## push_scope = pop
 alias[effect:every_owned_pop] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4270,8 +4270,8 @@ alias[effect:every_owned_pop] = {
 }
 
 ### Executes enclosed effects for every pop in the game that meet the limit criteria
-## push_scope = pop
 ## scopes = any
+## push_scope = pop
 alias[effect:every_galaxy_pop] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4279,8 +4279,8 @@ alias[effect:every_galaxy_pop] = {
 }
 
 ### Iterate through all countries - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = country
 ## scopes = any
+## push_scope = country
 alias[effect:every_country] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4288,8 +4288,8 @@ alias[effect:every_country] = {
 }
 
 ### Iterate through all playable countries - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = country
 ## scopes = any
+## push_scope = country
 alias[effect:every_playable_country] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4297,8 +4297,8 @@ alias[effect:every_playable_country] = {
 }
 
 ### Iterate through all playable countries - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = country
 ## scopes = any
+## push_scope = country
 alias[effect:random_playable_country] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4312,8 +4312,8 @@ alias[effect:random_playable_country] = {
 }
 
 ### Iterate through each planet (colony or not) in the current system - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = planet
 ## scopes = { galactic_object }
+## push_scope = planet
 alias[effect:random_system_planet] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4327,8 +4327,8 @@ alias[effect:random_system_planet] = {
 }
 
 ### Iterate through each deposit on the planet - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = deposit
 ## scopes = { planet }
+## push_scope = deposit
 alias[effect:every_deposit] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4336,8 +4336,8 @@ alias[effect:every_deposit] = {
 }
 
 ### Iterate through each deposit on the planet - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = deposit
 ## scopes = { planet }
+## push_scope = deposit
 alias[effect:random_deposit] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4351,8 +4351,8 @@ alias[effect:random_deposit] = {
 }
 
 ### Iterate through each moon of the planet - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = planet
 ## scopes = { planet }
+## push_scope = planet
 alias[effect:random_moon] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4366,8 +4366,8 @@ alias[effect:random_moon] = {
 }
 
 ### Iterate through each moon of the planet - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = planet
 ## scopes = { planet }
+## push_scope = planet
 alias[effect:every_moon] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4375,8 +4375,8 @@ alias[effect:every_moon] = {
 }
 
 ### Iterate through each planet within the current empire's borders - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = planet
 ## scopes = { country }
+## push_scope = planet
 alias[effect:every_planet_within_border] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4384,8 +4384,8 @@ alias[effect:every_planet_within_border] = {
 }
 
 ### Iterate through all rim systems - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = system
 ## scopes = any
+## push_scope = system
 alias[effect:every_rim_system] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4393,8 +4393,8 @@ alias[effect:every_rim_system] = {
 }
 
 ### Iterate through all rim systems - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = system
 ## scopes = any
+## push_scope = system
 alias[effect:random_rim_system] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4408,8 +4408,8 @@ alias[effect:random_rim_system] = {
 }
 
 ### Iterate through each leader that is owned by the country - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = leader
 ## scopes = { country }
+## push_scope = leader
 alias[effect:every_owned_leader] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4417,8 +4417,8 @@ alias[effect:every_owned_leader] = {
 }
 
 ### Iterate through each leader that is owned by the country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = leader
 ## scopes = { country }
+## push_scope = leader
 alias[effect:random_owned_leader] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4433,8 +4433,8 @@ alias[effect:random_owned_leader] = {
 }
 
 ### Iterate through all owned pops - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = pop
 ## scopes = { planet country pop_faction sector }
+## push_scope = pop
 alias[effect:random_owned_pop] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4449,8 +4449,8 @@ alias[effect:random_owned_pop] = {
 }
 
 ### Executes enclosed effects on a system -within a specific number of jumps span- that meets the limit criteria. This completely ignores bypasses (wormholes and gateways)
-## push_scope = system
 ## scopes = any
+## push_scope = system
 alias[effect:closest_system] = {
 	## cardinality = 0..1
 	min_steps = int
@@ -4464,8 +4464,8 @@ alias[effect:closest_system] = {
 }
 
 ### Iterate through each fleet owned by the country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = fleet
 ## scopes = { country }
+## push_scope = fleet
 alias[effect:random_owned_fleet] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4479,8 +4479,8 @@ alias[effect:random_owned_fleet] = {
 }
 
 ### Iterate through every ambient object in the game - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = ambient_object
 ## scopes = any
+## push_scope = ambient_object
 alias[effect:random_ambient_object] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4494,8 +4494,8 @@ alias[effect:random_ambient_object] = {
 }
 
 ### Iterate through every ambient object in the solar system - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = ambient_object
 ## scopes = { galactic_object }
+## push_scope = ambient_object
 alias[effect:random_system_ambient_object] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4509,8 +4509,8 @@ alias[effect:random_system_ambient_object] = {
 }
 
 ### Iterate through every ambient object in the game - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = ambient_object
 ## scopes = any
+## push_scope = ambient_object
 alias[effect:every_ambient_object] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4518,8 +4518,8 @@ alias[effect:every_ambient_object] = {
 }
 
 ### Iterate through every ambient object in the solar system - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = ambient_object
 ## scopes = { galactic_object }
+## push_scope = ambient_object
 alias[effect:every_system_ambient_object] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4527,8 +4527,8 @@ alias[effect:every_system_ambient_object] = {
 }
 
 ### Iterate through each fleet in the current system - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = fleet
 ## scopes = { galactic_object }
+## push_scope = fleet
 alias[effect:every_fleet_in_system] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4536,8 +4536,8 @@ alias[effect:every_fleet_in_system] = {
 }
 
 ### Iterate through each fleet in the current system - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = fleet
 ## scopes = { galactic_object }
+## push_scope = fleet
 alias[effect:random_fleet_in_system] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4551,8 +4551,8 @@ alias[effect:random_fleet_in_system] = {
 }
 
 ### Iterate through all a system's neighboring systems by hyperlane - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = system
 ## scopes = { galactic_object }
+## push_scope = system
 alias[effect:every_neighbor_system] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4560,8 +4560,8 @@ alias[effect:every_neighbor_system] = {
 }
 
 ### Iterate through all a system's neighboring systems by hyperlane - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = system
 ## scopes = { galactic_object }
+## push_scope = system
 alias[effect:random_neighbor_system] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4575,8 +4575,8 @@ alias[effect:random_neighbor_system] = {
 }
 
 ### Iterate through all war participants - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = country
 ## scopes = { war }
+## push_scope = country
 alias[effect:every_war_participant] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4584,8 +4584,8 @@ alias[effect:every_war_participant] = {
 }
 
 ### Iterate through each fleet owned by the country - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = fleet
 ## scopes = { country }
+## push_scope = fleet
 alias[effect:every_owned_fleet] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4593,8 +4593,8 @@ alias[effect:every_owned_fleet] = {
 }
 
 ### Iterate through all subjects of the scoped country - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = country
 ## scopes = { country }
+## push_scope = country
 alias[effect:every_subject] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4602,8 +4602,8 @@ alias[effect:every_subject] = {
 }
 
 ### Iterate through all subjects of the scoped country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = country
 ## scopes = { country }
+## push_scope = country
 ###Scopes to a random Subject
 alias[effect:random_subject] = {
 	## cardinality = 0..1
@@ -4618,8 +4618,8 @@ alias[effect:random_subject] = {
 }
 
 ### Iterate through each planet within the current empire's borders - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = planet
 ## scopes = { country }
+## push_scope = planet
 alias[effect:random_planet_within_border] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4633,8 +4633,8 @@ alias[effect:random_planet_within_border] = {
 }
 
 ### Executes enclosed effects on every system in the cluster that meet the limit criteria
-## push_scope = system
 ## scopes = any
+## push_scope = system
 alias[effect:every_system_in_cluster] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4642,8 +4642,8 @@ alias[effect:every_system_in_cluster] = {
 }
 
 ### Iterate through all the country's pop factions - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = pop_faction
 ## scopes = { country }
+## push_scope = pop_faction
 alias[effect:every_pop_faction] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4651,8 +4651,8 @@ alias[effect:every_pop_faction] = {
 }
 
 ### Iterate through all the country's pop factions - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = pop_faction
 ## scopes = { country }
+## push_scope = pop_faction
 alias[effect:random_pop_faction] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4667,8 +4667,8 @@ alias[effect:random_pop_faction] = {
 }
 
 ### Iterate through each planet (colony or not) in the current system - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = planet
 ## scopes = { galactic_object }
+## push_scope = planet
 alias[effect:every_system_planet] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4676,8 +4676,8 @@ alias[effect:every_system_planet] = {
 }
 
 ### Iterate through each agreement - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = agreement
 ## scopes = { country no_scope }
+## push_scope = agreement
 alias[effect:random_agreement] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4691,8 +4691,8 @@ alias[effect:random_agreement] = {
 }
 
 ### Iterate through each agreement - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = agreement
 ## scopes = { country no_scope }
+## push_scope = agreement
 alias[effect:ordered_agreement] = {
 	position = int
 	order_by = value_field
@@ -4704,8 +4704,8 @@ alias[effect:ordered_agreement] = {
 }
 
 ### Iterate through each agreement - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = agreement
 ## scopes = { country no_scope }
+## push_scope = agreement
 alias[effect:every_agreement] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4713,8 +4713,8 @@ alias[effect:every_agreement] = {
 }
 
 ### Iterate through every ambient object in the game - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = ambient_object
 ## scopes = any
+## push_scope = ambient_object
 alias[effect:ordered_ambient_object] = {
 	position = int
 	order_by = value_field
@@ -4726,8 +4726,8 @@ alias[effect:ordered_ambient_object] = {
 }
 
 ### Iterate through every ambient object in the solar system - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = ambient_object
 ## scopes = { galactic_object }
+## push_scope = ambient_object
 alias[effect:ordered_system_ambient_object] = {
 	position = int
 	order_by = value_field
@@ -4739,8 +4739,8 @@ alias[effect:ordered_system_ambient_object] = {
 }
 
 ### Iterate through every archaeological sites - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = archaeological_site
 ## scopes = any
+## push_scope = archaeological_site
 alias[effect:random_archaeological_site] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4754,8 +4754,8 @@ alias[effect:random_archaeological_site] = {
 }
 
 ### Iterate through every archaeological sites - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = archaeological_site
 ## scopes = any
+## push_scope = archaeological_site
 alias[effect:ordered_archaeological_site] = {
 	position = int
 	order_by = value_field
@@ -4767,8 +4767,8 @@ alias[effect:ordered_archaeological_site] = {
 }
 
 ### Iterate through every archaeological sites - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = archaeological_site
 ## scopes = any
+## push_scope = archaeological_site
 alias[effect:every_archaeological_site] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4776,8 +4776,8 @@ alias[effect:every_archaeological_site] = {
 }
 
 ### Iterate through each army that is owned by the country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = army
 ## scopes = { country }
+## push_scope = army
 alias[effect:random_owned_army] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4792,8 +4792,8 @@ alias[effect:random_owned_army] = {
 }
 
 ### Iterate through each army that is owned by the country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = army
 ## scopes = { country }
+## push_scope = army
 alias[effect:ordered_owned_army] = {
 	position = int
 	order_by = value_field
@@ -4805,8 +4805,8 @@ alias[effect:ordered_owned_army] = {
 }
 
 ### Iterate through each army that is owned by the country - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = army
 ## scopes = { country }
+## push_scope = army
 alias[effect:every_owned_army] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4814,8 +4814,8 @@ alias[effect:every_owned_army] = {
 }
 
 ### Iterate through each army on the planet (not in ground combat), regardless of owner. - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = army
 ## scopes = { planet }
+## push_scope = army
 alias[effect:random_planet_army] = {
 	## cardinality = 0..1
 	limit = {
@@ -4831,8 +4831,8 @@ alias[effect:random_planet_army] = {
 }
 
 ### Iterate through each army on the planet (not in ground combat), regardless of owner. - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = army
 ## scopes = { planet }
+## push_scope = army
 alias[effect:ordered_planet_army] = {
 	position = int
 	order_by = value_field
@@ -4845,8 +4845,8 @@ alias[effect:ordered_planet_army] = {
 
 
 ### Iterate through each army on the planet (not in ground combat), regardless of owner. - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = army
 ## scopes = { planet }
+## push_scope = army
 alias[effect:every_planet_army] = {
 	## cardinality = 0..1
 	limit = {
@@ -4857,8 +4857,8 @@ alias[effect:every_planet_army] = {
 
 
 ### Iterate through each army currently defending the planet in ground combat - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = army
 ## scopes = { planet }
+## push_scope = army
 alias[effect:random_ground_combat_defender] = {
 	## cardinality = 0..1
 	limit = {
@@ -4874,8 +4874,8 @@ alias[effect:random_ground_combat_defender] = {
 }
 
 ### Iterate through each army currently defending the planet in ground combat - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = army
 ## scopes = { planet }
+## push_scope = army
 alias[effect:ordered_ground_combat_defender] = {
 	position = int
 	order_by = value_field
@@ -4887,8 +4887,8 @@ alias[effect:ordered_ground_combat_defender] = {
 }
 
 ### Iterate through each army currently defending the planet in ground combat - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = army
 ## scopes = { planet }
+## push_scope = army
 alias[effect:every_ground_combat_defender] = {
 	## cardinality = 0..1
 	limit = {
@@ -4898,8 +4898,8 @@ alias[effect:every_ground_combat_defender] = {
 }
 
 ### Iterate through each army currently attacking the planet in ground combat - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = army
 ## scopes = { planet }
+## push_scope = army
 alias[effect:random_ground_combat_attacker] = {
 	## cardinality = 0..1
 	limit = {
@@ -4915,8 +4915,8 @@ alias[effect:random_ground_combat_attacker] = {
 }
 
 ### Iterate through each army currently attacking the planet in ground combat - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = army
 ## scopes = { planet }
+## push_scope = army
 alias[effect:ordered_ground_combat_attacker] = {
 	position = int
 	order_by = value_field
@@ -4928,8 +4928,8 @@ alias[effect:ordered_ground_combat_attacker] = {
 }
 
 ### Iterate through each army currently attacking the planet in ground combat - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = army
 ## scopes = { planet }
+## push_scope = army
 alias[effect:every_ground_combat_attacker] = {
 	## cardinality = 0..1
 	limit = {
@@ -4939,8 +4939,8 @@ alias[effect:every_ground_combat_attacker] = {
 }
 
 ### Iterate through all countries - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = country
 ## scopes = any
+## push_scope = country
 alias[effect:ordered_country] = {
 	position = int
 	order_by = value_field
@@ -4952,8 +4952,8 @@ alias[effect:ordered_country] = {
 }
 
 ### Iterate through all relations - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = country
 ## scopes = { country }
+## push_scope = country
 alias[effect:random_relation] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4967,8 +4967,8 @@ alias[effect:random_relation] = {
 }
 
 ### Iterate through all relations - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = country
 ## scopes = { country }
+## push_scope = country
 alias[effect:ordered_relation] = {
 	position = int
 	order_by = value_field
@@ -4980,8 +4980,8 @@ alias[effect:ordered_relation] = {
 }
 
 ### Iterate through all relations - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = country
 ## scopes = { country }
+## push_scope = country
 alias[effect:every_relation] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -4989,8 +4989,8 @@ alias[effect:every_relation] = {
 }
 
 ### Iterate through all neighbor countries - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = country
 ## scopes = { country }
+## push_scope = country
 alias[effect:random_neighbor_country] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5003,8 +5003,8 @@ alias[effect:random_neighbor_country] = {
 }
 
 ### Iterate through all neighbor countries - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = country
 ## scopes = { country }
+## push_scope = country
 alias[effect:ordered_neighbor_country] = {
 	position = int
 	order_by = value_field
@@ -5016,8 +5016,8 @@ alias[effect:ordered_neighbor_country] = {
 }
 
 ### Iterate through all neighbor countries - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = country
 ## scopes = { country }
+## push_scope = country
 alias[effect:every_neighbor_country] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5025,8 +5025,8 @@ alias[effect:every_neighbor_country] = {
 }
 
 ### Iterate through all countries that own system 1 jump away from current system (bypasses included) - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = country
 ## scopes = { galactic_object }
+## push_scope = country
 alias[effect:random_country_neighbor_to_system] = {
 	## cardinality = 0..1
 	limit = {
@@ -5041,8 +5041,8 @@ alias[effect:random_country_neighbor_to_system] = {
 }
 
 ### Iterate through all countries that own system 1 jump away from current system (bypasses included) - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = country
 ## scopes = { galactic_object }
+## push_scope = country
 alias[effect:ordered_country_neighbor_to_system] = {
 	position = int
 	order_by = value_field
@@ -5054,8 +5054,8 @@ alias[effect:ordered_country_neighbor_to_system] = {
 }
 
 ### Iterate through all countries that own system 1 jump away from current system (bypasses included) - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = country
 ## scopes = { galactic_object }
+## push_scope = country
 alias[effect:every_country_neighbor_to_system] = {
 	## cardinality = 0..1
 	limit = {
@@ -5065,8 +5065,8 @@ alias[effect:every_country_neighbor_to_system] = {
 }
 
 ### Iterate through all countries rivalled by the scoped country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = country
 ## scopes = { country }
+## push_scope = country
 alias[effect:random_rival_country] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5079,8 +5079,8 @@ alias[effect:random_rival_country] = {
 }
 
 ### Iterate through all countries rivalled by the scoped country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = country
 ## scopes = { country }
+## push_scope = country
 alias[effect:ordered_rival_country] = {
 	position = int
 	order_by = value_field
@@ -5092,8 +5092,8 @@ alias[effect:ordered_rival_country] = {
 }
 
 ### Iterate through all countries rivalled by the scoped country - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = country
 ## scopes = { country }
+## push_scope = country
 alias[effect:every_rival_country] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5101,8 +5101,8 @@ alias[effect:every_rival_country] = {
 }
 
 ### Iterate through all countries in a federation with the scoped country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = country
 ## scopes = { country }
+## push_scope = country
 alias[effect:random_federation_ally] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5115,8 +5115,8 @@ alias[effect:random_federation_ally] = {
 }
 
 ### Iterate through all countries in a federation with the scoped country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = country
 ## scopes = { country }
+## push_scope = country
 alias[effect:ordered_federation_ally] = {
 	position = int
 	order_by = value_field
@@ -5128,8 +5128,8 @@ alias[effect:ordered_federation_ally] = {
 }
 
 ### Iterate through all countries in a federation with the scoped country - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = country
 ## scopes = { country }
+## push_scope = country
 alias[effect:every_federation_ally] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5137,8 +5137,8 @@ alias[effect:every_federation_ally] = {
 }
 
 ### Iterate through all playable countries - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = country
 ## scopes = any
+## push_scope = country
 alias[effect:ordered_playable_country] = {
 	position = int
 	order_by = value_field
@@ -5150,8 +5150,8 @@ alias[effect:ordered_playable_country] = {
 }
 
 ### Iterate through all subjects of the scoped country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = country
 ## scopes = { country }
+## push_scope = country
 alias[effect:ordered_subject] = {
 	position = int
 	order_by = value_field
@@ -5163,8 +5163,8 @@ alias[effect:ordered_subject] = {
 }
 
 ### Iterate through all debris belong to available special projects of the scoped country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = debris
 ## scopes = { country }
+## push_scope = debris
 alias[effect:random_available_debris] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5177,8 +5177,8 @@ alias[effect:random_available_debris] = {
 }
 
 ### Iterate through all debris belong to available special projects of the scoped country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = debris
 ## scopes = { country }
+## push_scope = debris
 alias[effect:ordered_available_debris] = {
 	position = int
 	order_by = value_field
@@ -5190,8 +5190,8 @@ alias[effect:ordered_available_debris] = {
 }
 
 ### Iterate through all debris belong to available special projects of the scoped country - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = debris
 ## scopes = { country }
+## push_scope = debris
 alias[effect:every_available_debris] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5200,8 +5200,8 @@ alias[effect:every_available_debris] = {
 
 
 ### Iterate through all designs owned by the current country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = design
 ## scopes = { country }
+## push_scope = design
 alias[effect:random_owned_design] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5214,8 +5214,8 @@ alias[effect:random_owned_design] = {
 }
 
 ### Iterate through all designs owned by the current country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = design
 ## scopes = { country }
+## push_scope = design
 alias[effect:ordered_owned_design] = {
 	position = int
 	order_by = value_field
@@ -5227,8 +5227,8 @@ alias[effect:ordered_owned_design] = {
 }
 
 ### Iterate through all designs owned by the current country - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = design
 ## scopes = { country }
+## push_scope = design
 alias[effect:every_owned_design] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5236,8 +5236,8 @@ alias[effect:every_owned_design] = {
 }
 
 ### Iterate through each spynetwork - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = spy_network
 ## scopes = { country no_scope }
+## push_scope = spy_network
 alias[effect:random_spynetwork] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5250,8 +5250,8 @@ alias[effect:random_spynetwork] = {
 }
 
 ### Iterate through each spynetwork - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = spy_network
 ## scopes = { country no_scope }
+## push_scope = spy_network
 alias[effect:ordered_spynetwork] = {
 	position = int
 	order_by = value_field
@@ -5263,8 +5263,8 @@ alias[effect:ordered_spynetwork] = {
 }
 
 ### Iterate through each spynetwork - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = spy_network
 ## scopes = { country no_scope }
+## push_scope = spy_network
 alias[effect:every_spynetwork] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5272,8 +5272,8 @@ alias[effect:every_spynetwork] = {
 }
 
 ### Iterate through each espionage operation - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = espionage_operation
 ## scopes = { country no_scope spy_network }
+## push_scope = espionage_operation
 alias[effect:random_espionage_operation] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5286,8 +5286,8 @@ alias[effect:random_espionage_operation] = {
 }
 
 ### Iterate through each espionage operation - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = espionage_operation
 ## scopes = { country no_scope spy_network }
+## push_scope = espionage_operation
 alias[effect:ordered_espionage_operation] = {
 	position = int
 	order_by = value_field
@@ -5299,8 +5299,8 @@ alias[effect:ordered_espionage_operation] = {
 }
 
 ### Iterate through each espionage operation - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = espionage_operation
 ## scopes = { country no_scope spy_network }
+## push_scope = espionage_operation
 alias[effect:every_espionage_operation] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5308,8 +5308,8 @@ alias[effect:every_espionage_operation] = {
 }
 
 ### Iterate through each espionage asset - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = espionage_asset
 ## scopes = { no_scope spy_network espionage_operation }
+## push_scope = espionage_asset
 alias[effect:random_espionage_asset] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5322,8 +5322,8 @@ alias[effect:random_espionage_asset] = {
 }
 
 ### Iterate through each espionage asset - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = espionage_asset
 ## scopes = { no_scope spy_network espionage_operation }
+## push_scope = espionage_asset
 alias[effect:ordered_espionage_asset] = {
 	position = int
 	order_by = value_field
@@ -5335,8 +5335,8 @@ alias[effect:ordered_espionage_asset] = {
 }
 
 ### Iterate through each espionage asset - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = espionage_asset
 ## scopes = { no_scope spy_network espionage_operation }
+## push_scope = espionage_asset
 alias[effect:every_espionage_asset] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5344,8 +5344,8 @@ alias[effect:every_espionage_asset] = {
 }
 
 ### Iterate through each federation - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = federation
 ## scopes = any
+## push_scope = federation
 alias[effect:random_federation] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5359,8 +5359,8 @@ alias[effect:random_federation] = {
 
 
 ### Iterate through each federation - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = federation
 ## scopes = any
+## push_scope = federation
 alias[effect:ordered_federation] = {
 	position = int
 	order_by = value_field
@@ -5372,8 +5372,8 @@ alias[effect:ordered_federation] = {
 }
 
 ### Iterate through each federation - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = federation
 ## scopes = any
+## push_scope = federation
 alias[effect:every_federation] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5381,8 +5381,8 @@ alias[effect:every_federation] = {
 }
 
 ### Iterate through each first contact (both active and complete) that this country is engaging in - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = first_contact
 ## scopes = { country }
+## push_scope = first_contact
 alias[effect:random_first_contact] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5395,8 +5395,8 @@ alias[effect:random_first_contact] = {
 }
 
 ### Iterate through each first contact (both active and complete) that this country is engaging in - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = first_contact
 ## scopes = { country }
+## push_scope = first_contact
 alias[effect:ordered_first_contact] = {
 	position = int
 	order_by = value_field
@@ -5408,8 +5408,8 @@ alias[effect:ordered_first_contact] = {
 }
 
 ### Iterate through each first contact (both active and complete) that this country is engaging in - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = first_contact
 ## scopes = { country }
+## push_scope = first_contact
 alias[effect:every_first_contact] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5417,8 +5417,8 @@ alias[effect:every_first_contact] = {
 }
 
 ### Iterate through each active (non-completed) first contact that this country is engaging in - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = first_contact
 ## scopes = { country }
+## push_scope = first_contact
 alias[effect:random_active_first_contact] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5431,8 +5431,8 @@ alias[effect:random_active_first_contact] = {
 }
 
 ### Iterate through each active (non-completed) first contact that this country is engaging in - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = first_contact
 ## scopes = { country }
+## push_scope = first_contact
 alias[effect:ordered_active_first_contact] = {
 	position = int
 	order_by = value_field
@@ -5444,8 +5444,8 @@ alias[effect:ordered_active_first_contact] = {
 }
 
 ### Iterate through each active (non-completed) first contact that this country is engaging in - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = first_contact
 ## scopes = { country }
+## push_scope = first_contact
 alias[effect:every_active_first_contact] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5453,8 +5453,8 @@ alias[effect:every_active_first_contact] = {
 }
 
 ### Iterate through each fleet in the entire game - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = fleet
 ## scopes = any
+## push_scope = fleet
 alias[effect:random_galaxy_fleet] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5467,8 +5467,8 @@ alias[effect:random_galaxy_fleet] = {
 }
 
 ### Iterate through each fleet in the entire game - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = fleet
 ## scopes = any
+## push_scope = fleet
 alias[effect:ordered_galaxy_fleet] = {
 	position = int
 	order_by = value_field
@@ -5480,8 +5480,8 @@ alias[effect:ordered_galaxy_fleet] = {
 }
 
 ### Iterate through each fleet in the entire game - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = fleet
 ## scopes = any
+## push_scope = fleet
 alias[effect:every_galaxy_fleet] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5489,8 +5489,8 @@ alias[effect:every_galaxy_fleet] = {
 }
 
 ### Iterate through each fleet this fleet is in combat with - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = fleet
 ## scopes = { fleet }
+## push_scope = fleet
 alias[effect:random_combatant_fleet] = {
 	## cardinality = 0..1
 	limit = {
@@ -5505,8 +5505,8 @@ alias[effect:random_combatant_fleet] = {
 }
 
 ### Iterate through each fleet this fleet is in combat with - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = fleet
 ## scopes = { fleet }
+## push_scope = fleet
 alias[effect:ordered_combatant_fleet] = {
 	position = int
 	order_by = value_field
@@ -5518,8 +5518,8 @@ alias[effect:ordered_combatant_fleet] = {
 }
 
 ### Iterate through each fleet this fleet is in combat with - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = fleet
 ## scopes = { fleet }
+## push_scope = fleet
 alias[effect:every_combatant_fleet] = {
 	## cardinality = 0..1
 	limit = {
@@ -5529,8 +5529,8 @@ alias[effect:every_combatant_fleet] = {
 }
 
 ### Iterate through each fleet in the current system - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = fleet
 ## scopes = { galactic_object }
+## push_scope = fleet
 alias[effect:ordered_fleet_in_system] = {
 	position = int
 	order_by = value_field
@@ -5542,8 +5542,8 @@ alias[effect:ordered_fleet_in_system] = {
 }
 
 ### Iterate through each fleet owned by the country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = fleet
 ## scopes = { country }
+## push_scope = fleet
 alias[effect:ordered_owned_fleet] = {
 	position = int
 	order_by = value_field
@@ -5555,8 +5555,8 @@ alias[effect:ordered_owned_fleet] = {
 }
 
 ### Iterate through each fleet controlled by the country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = fleet
 ## scopes = { country }
+## push_scope = fleet
 alias[effect:random_controlled_fleet] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5569,8 +5569,8 @@ alias[effect:random_controlled_fleet] = {
 }
 
 ### Iterate through each fleet controlled by the country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = fleet
 ## scopes = { country }
+## push_scope = fleet
 alias[effect:ordered_controlled_fleet] = {
 	position = int
 	order_by = value_field
@@ -5582,8 +5582,8 @@ alias[effect:ordered_controlled_fleet] = {
 }
 
 ### Iterate through each fleet controlled by the country - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = fleet
 ## scopes = { country }
+## push_scope = fleet
 alias[effect:every_controlled_fleet] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5591,8 +5591,8 @@ alias[effect:every_controlled_fleet] = {
 }
 
 ### Iterate through each fleet orbiting the current planet/starbase/megastructure - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = fleet
 ## scopes = { megastructure planet starbase }
+## push_scope = fleet
 alias[effect:random_fleet_in_orbit] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5605,8 +5605,8 @@ alias[effect:random_fleet_in_orbit] = {
 }
 
 ### Iterate through each fleet orbiting the current planet/starbase/megastructure - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = fleet
 ## scopes = { megastructure planet starbase }
+## push_scope = fleet
 alias[effect:ordered_fleet_in_orbit] = {
 	position = int
 	order_by = value_field
@@ -5618,8 +5618,8 @@ alias[effect:ordered_fleet_in_orbit] = {
 }
 
 ### Iterate through each fleet orbiting the current planet/starbase/megastructure - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = fleet
 ## scopes = { megastructure planet starbase }
+## push_scope = fleet
 alias[effect:every_fleet_in_orbit] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5627,8 +5627,8 @@ alias[effect:every_fleet_in_orbit] = {
 }
 
 ### Iterate through each orbital station owned by the current country or in the current system - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = fleet
 ## scopes = { country galactic_object }
+## push_scope = fleet
 alias[effect:random_orbital_station] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5641,8 +5641,8 @@ alias[effect:random_orbital_station] = {
 }
 
 ### Iterate through each orbital station owned by the current country or in the current system - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = fleet
 ## scopes = { country galactic_object }
+## push_scope = fleet
 alias[effect:ordered_orbital_station] = {
 	position = int
 	order_by = value_field
@@ -5654,8 +5654,8 @@ alias[effect:ordered_orbital_station] = {
 }
 
 ### Iterate through each orbital station owned by the current country or in the current system - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = fleet
 ## scopes = { country galactic_object }
+## push_scope = fleet
 alias[effect:every_orbital_station] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5663,8 +5663,8 @@ alias[effect:every_orbital_station] = {
 }
 
 ### Iterate through each member of the galactic community - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = country
 ## scopes = any
+## push_scope = country
 alias[effect:random_galcom_member] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5677,8 +5677,8 @@ alias[effect:random_galcom_member] = {
 }
 
 ### Iterate through each member of the galactic community - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = country
 ## scopes = any
+## push_scope = country
 alias[effect:ordered_galcom_member] = {
 	position = int
 	order_by = value_field
@@ -5690,8 +5690,8 @@ alias[effect:ordered_galcom_member] = {
 }
 
 ### Iterate through each member of the galactic community - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = country
 ## scopes = any
+## push_scope = country
 alias[effect:every_galcom_member] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5700,8 +5700,8 @@ alias[effect:every_galcom_member] = {
 
 
 ### Iterate through each member of the galactic council - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = country
 ## scopes = any
+## push_scope = country
 alias[effect:random_council_member] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5714,8 +5714,8 @@ alias[effect:random_council_member] = {
 }
 
 ### Iterate through each member of the galactic council - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = country
 ## scopes = any
+## push_scope = country
 alias[effect:ordered_council_member] = {
 	position = int
 	order_by = value_field
@@ -5727,8 +5727,8 @@ alias[effect:ordered_council_member] = {
 }
 
 ### Iterate through each member of the galactic council - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = country
 ## scopes = any
+## push_scope = country
 alias[effect:every_council_member] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5736,8 +5736,8 @@ alias[effect:every_council_member] = {
 }
 
 ### Iterate through each leader that is owned by the country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = leader
 ## scopes = { country }
+## push_scope = leader
 alias[effect:ordered_owned_leader] = {
 	position = int
 	order_by = value_field
@@ -5749,8 +5749,8 @@ alias[effect:ordered_owned_leader] = {
 }
 
 ### Iterate through each leader that is recruitable for the country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = leader
 ## scopes = { country }
+## push_scope = leader
 alias[effect:random_pool_leader] = {
 	## cardinality = 0..1
 	limit = {
@@ -5765,8 +5765,8 @@ alias[effect:random_pool_leader] = {
 }
 
 ### Iterate through each leader that is recruitable for the country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = leader
 ## scopes = { country }
+## push_scope = leader
 alias[effect:ordered_pool_leader] = {
 	position = int
 	order_by = value_field
@@ -5778,8 +5778,8 @@ alias[effect:ordered_pool_leader] = {
 }
 
 ### Iterate through each leader that is recruitable for the country - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = leader
 ## scopes = { country }
+## push_scope = leader
 alias[effect:every_pool_leader] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5787,8 +5787,8 @@ alias[effect:every_pool_leader] = {
 }
 
 ### Iterate through each envoy available to the country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = leader
 ## scopes = { country }
+## push_scope = leader
 alias[effect:random_envoy] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5801,8 +5801,8 @@ alias[effect:random_envoy] = {
 }
 
 ### Iterate through each envoy available to the country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = leader
 ## scopes = { country }
+## push_scope = leader
 alias[effect:ordered_envoy] = {
 	position = int
 	order_by = value_field
@@ -5814,8 +5814,8 @@ alias[effect:ordered_envoy] = {
 }
 
 ### Iterate through each envoy available to the country - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = leader
 ## scopes = { country }
+## push_scope = leader
 alias[effect:every_envoy] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5823,8 +5823,8 @@ alias[effect:every_envoy] = {
 }
 
 ### Iterate through each megastructure - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = megastructure
 ## scopes = any
+## push_scope = megastructure
 ###Iterate through each megastructure
 alias[effect:random_megastructure] = {
 	##cardinality = 0..1
@@ -5838,8 +5838,8 @@ alias[effect:random_megastructure] = {
 }
 
 ### Iterate through each megastructure - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = megastructure
 ## scopes = any
+## push_scope = megastructure
 alias[effect:ordered_megastructure] = {
 	position = int
 	order_by = value_field
@@ -5851,8 +5851,8 @@ alias[effect:ordered_megastructure] = {
 }
 
 ### Iterate through each megastructure - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = megastructure
 ## scopes = any
+## push_scope = megastructure
 alias[effect:every_megastructure] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5860,8 +5860,8 @@ alias[effect:every_megastructure] = {
 }
 
 ### Iterate through each owned megastructure - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = megastructure
 ## scopes = { country }
+## push_scope = megastructure
 alias[effect:random_owned_megastructure] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5874,8 +5874,8 @@ alias[effect:random_owned_megastructure] = {
 }
 
 ### Iterate through each owned megastructure - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = megastructure
 ## scopes = { country }
+## push_scope = megastructure
 alias[effect:ordered_owned_megastructure] = {
 	position = int
 	order_by = value_field
@@ -5887,8 +5887,8 @@ alias[effect:ordered_owned_megastructure] = {
 }
 
 ### Iterate through each owned megastructure - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = megastructure
 ## scopes = { country }
+## push_scope = megastructure
 alias[effect:every_owned_megastructure] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5896,8 +5896,8 @@ alias[effect:every_owned_megastructure] = {
 }
 
 ### Iterate through each megastructure in system - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = megastructure
 ## scopes = any
+## push_scope = megastructure
 alias[effect:random_system_megastructure] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5910,8 +5910,8 @@ alias[effect:random_system_megastructure] = {
 }
 
 ### Iterate through each megastructure in system - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = megastructure
 ## scopes = any
+## push_scope = megastructure
 alias[effect:ordered_system_megastructure] = {
 	position = int
 	order_by = value_field
@@ -5923,8 +5923,8 @@ alias[effect:ordered_system_megastructure] = {
 }
 
 ### Iterate through each megastructure in system - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = megastructure
 ## scopes = any
+## push_scope = megastructure
 alias[effect:every_system_megastructure] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5932,8 +5932,8 @@ alias[effect:every_system_megastructure] = {
 }
 
 ### Iterate through each member of the federation - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = country
 ## scopes = { federation }
+## push_scope = country
 alias[effect:random_member] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5946,8 +5946,8 @@ alias[effect:random_member] = {
 }
 
 ### Iterate through each member of the federation - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = country
 ## scopes = { federation }
+## push_scope = country
 alias[effect:ordered_member] = {
 	position = int
 	order_by = value_field
@@ -5959,8 +5959,8 @@ alias[effect:ordered_member] = {
 }
 
 ### Iterate through each member of the federation - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = country
 ## scopes = { federation }
+## push_scope = country
 alias[effect:every_member] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5968,8 +5968,8 @@ alias[effect:every_member] = {
 }
 
 ### Iterate through each associate member of the federation - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = country
 ## scopes = { federation }
+## push_scope = country
 alias[effect:random_associate] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -5982,8 +5982,8 @@ alias[effect:random_associate] = {
 }
 
 ### Iterate through each associate member of the federation - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = country
 ## scopes = { federation }
+## push_scope = country
 alias[effect:ordered_associate] = {
 	position = int
 	order_by = value_field
@@ -5995,8 +5995,8 @@ alias[effect:ordered_associate] = {
 }
 
 ### Iterate through each associate member of the federation - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = country
 ## scopes = { federation }
+## push_scope = country
 alias[effect:every_associate] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6004,8 +6004,8 @@ alias[effect:every_associate] = {
 }
 
 ### Iterate through each planet (colony or not) in the current system - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = planet
 ## scopes = { galactic_object }
+## push_scope = planet
 alias[effect:ordered_system_planet] = {
 	position = int
 	order_by = value_field
@@ -6017,8 +6017,8 @@ alias[effect:ordered_system_planet] = {
 }
 
 ### Iterate through each colony in the current system - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = planet
 ## scopes = { galactic_object }
+## push_scope = planet
 alias[effect:random_system_colony] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6031,8 +6031,8 @@ alias[effect:random_system_colony] = {
 }
 
 ### Iterate through each colony in the current system - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = planet
 ## scopes = { galactic_object }
+## push_scope = planet
 alias[effect:ordered_system_colony] = {
 	position = int
 	order_by = value_field
@@ -6044,8 +6044,8 @@ alias[effect:ordered_system_colony] = {
 }
 
 ### Iterate through each colony in the current system - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = planet
 ## scopes = { galactic_object }
+## push_scope = planet
 alias[effect:every_system_colony] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6053,8 +6053,8 @@ alias[effect:every_system_colony] = {
 }
 
 ### Iterate through each planet within the current empire's borders - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = planet
 ## scopes = { country }
+## push_scope = planet
 alias[effect:ordered_planet_within_border] = {
 	position = int
 	order_by = value_field
@@ -6066,8 +6066,8 @@ alias[effect:ordered_planet_within_border] = {
 }
 
 ### Iterate through each inhabited planet owned by the current empire - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = planet
 ## scopes = { country sector }
+## push_scope = planet
 alias[effect:random_owned_planet] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6080,8 +6080,8 @@ alias[effect:random_owned_planet] = {
 }
 
 ### Iterate through each inhabited planet owned by the current empire - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = planet
 ## scopes = { country sector }
+## push_scope = planet
 alias[effect:ordered_owned_planet] = {
 	position = int
 	order_by = value_field
@@ -6094,8 +6094,8 @@ alias[effect:ordered_owned_planet] = {
 
 
 ### Iterate through each inhabited planet owned by the current empire - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = planet
 ## scopes = { country sector }
+## push_scope = planet
 alias[effect:every_owned_planet] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6103,8 +6103,8 @@ alias[effect:every_owned_planet] = {
 }
 
 ### Iterate through each inhabited planet controlled by the current empire - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = planet
 ## scopes = { country }
+## push_scope = planet
 alias[effect:random_controlled_planet] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6118,8 +6118,8 @@ alias[effect:random_controlled_planet] = {
 
 
 ### Iterate through each inhabited planet controlled by the current empire - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = planet
 ## scopes = { country }
+## push_scope = planet
 alias[effect:ordered_controlled_planet] = {
 	position = int
 	order_by = value_field
@@ -6131,8 +6131,8 @@ alias[effect:ordered_controlled_planet] = {
 }
 
 ### Iterate through each inhabited planet controlled by the current empire - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = planet
 ## scopes = { country }
+## push_scope = planet
 alias[effect:every_controlled_planet] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6140,8 +6140,8 @@ alias[effect:every_controlled_planet] = {
 }
 
 ### Iterate through each planet ANYWHERE in the game; warning: resource intensive! - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = planet
 ## scopes = any
+## push_scope = planet
 alias[effect:random_galaxy_planet] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6154,8 +6154,8 @@ alias[effect:random_galaxy_planet] = {
 }
 
 ### Iterate through each planet ANYWHERE in the game; warning: resource intensive! - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = planet
 ## scopes = any
+## push_scope = planet
 alias[effect:ordered_galaxy_planet] = {
 	position = int
 	order_by = value_field
@@ -6167,8 +6167,8 @@ alias[effect:ordered_galaxy_planet] = {
 }
 
 ### Iterate through each planet ANYWHERE in the game; warning: resource intensive! - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = planet
 ## scopes = any
+## push_scope = planet
 alias[effect:every_galaxy_planet] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6176,8 +6176,8 @@ alias[effect:every_galaxy_planet] = {
 }
 
 ### Iterate through each deposit on the planet - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = deposit
 ## scopes = { planet }
+## push_scope = deposit
 alias[effect:ordered_deposit] = {
 	position = int
 	order_by = value_field
@@ -6189,8 +6189,8 @@ alias[effect:ordered_deposit] = {
 }
 
 ### Iterate through each moon of the planet - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = planet
 ## scopes = { planet }
+## push_scope = planet
 alias[effect:ordered_moon] = {
 	position = int
 	order_by = value_field
@@ -6202,8 +6202,8 @@ alias[effect:ordered_moon] = {
 }
 
 ### Iterate through all owned pops - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = pop
 ## scopes = { planet country pop_faction sector }
+## push_scope = pop
 alias[effect:ordered_owned_pop] = {
 	position = int
 	order_by = value_field
@@ -6215,8 +6215,8 @@ alias[effect:ordered_owned_pop] = {
 }
 
 ### Iterate through each pop that belongs to this species; warning: resource-intensive! - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = pop
 ## scopes = { species }
+## push_scope = pop
 alias[effect:random_species_pop] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6229,8 +6229,8 @@ alias[effect:random_species_pop] = {
 }
 
 ### Iterate through each pop that belongs to this species; warning: resource-intensive! - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = pop
 ## scopes = { species }
+## push_scope = pop
 alias[effect:ordered_species_pop] = {
 	position = int
 	order_by = value_field
@@ -6242,8 +6242,8 @@ alias[effect:ordered_species_pop] = {
 }
 
 ### Iterate through each pop that belongs to this species; warning: resource-intensive! - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = pop
 ## scopes = { species }
+## push_scope = pop
 alias[effect:every_species_pop] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6251,8 +6251,8 @@ alias[effect:every_species_pop] = {
 }
 
 ### Iterate through all the country's pop factions - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = pop_faction
 ## scopes = { country }
+## push_scope = pop_faction
 alias[effect:ordered_pop_faction] = {
 	position = int
 	order_by = value_field
@@ -6264,8 +6264,8 @@ alias[effect:ordered_pop_faction] = {
 }
 
 ### Iterate through all sectors in the game - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = sector
 ## scopes = any
+## push_scope = sector
 alias[effect:random_galaxy_sector] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6278,8 +6278,8 @@ alias[effect:random_galaxy_sector] = {
 }
 
 ### Iterate through all sectors in the game - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = sector
 ## scopes = any
+## push_scope = sector
 alias[effect:ordered_galaxy_sector] = {
 	position = int
 	order_by = value_field
@@ -6291,8 +6291,8 @@ alias[effect:ordered_galaxy_sector] = {
 }
 
 ### Iterate through all sectors in the game - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = sector
 ## scopes = any
+## push_scope = sector
 alias[effect:every_galaxy_sector] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6300,8 +6300,8 @@ alias[effect:every_galaxy_sector] = {
 }
 
 ### Iterate through every owned sector - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = sector
 ## scopes = { country }
+## push_scope = sector
 alias[effect:random_owned_sector] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6314,8 +6314,8 @@ alias[effect:random_owned_sector] = {
 }
 
 ### Iterate through every owned sector - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = sector
 ## scopes = { country }
+## push_scope = sector
 alias[effect:ordered_owned_sector] = {
 	position = int
 	order_by = value_field
@@ -6327,8 +6327,8 @@ alias[effect:ordered_owned_sector] = {
 }
 
 ### Iterate through every owned sector - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = sector
 ## scopes = { country }
+## push_scope = sector
 alias[effect:every_owned_sector] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6336,8 +6336,8 @@ alias[effect:every_owned_sector] = {
 }
 
 ### Iterate through each ship in the fleet or controlled by the country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = ship
 ## scopes = { country fleet }
+## push_scope = ship
 alias[effect:ordered_owned_ship] = {
 	position = int
 	order_by = value_field
@@ -6350,8 +6350,8 @@ alias[effect:ordered_owned_ship] = {
 
 
 ### Iterate through each ship in the fleet or controlled by the country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = ship
 ## scopes = { country fleet }
+## push_scope = ship
 alias[effect:random_controlled_ship] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6364,8 +6364,8 @@ alias[effect:random_controlled_ship] = {
 }
 
 ### Iterate through each ship in the fleet or controlled by the country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = ship
 ## scopes = { country fleet }
+## push_scope = ship
 alias[effect:ordered_controlled_ship] = {
 	position = int
 	order_by = value_field
@@ -6377,8 +6377,8 @@ alias[effect:ordered_controlled_ship] = {
 }
 
 ### Iterate through each ship in the fleet or controlled by the country - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = ship
 ## scopes = { country fleet }
+## push_scope = ship
 alias[effect:every_controlled_ship] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6386,8 +6386,8 @@ alias[effect:every_controlled_ship] = {
 }
 
 ### Iterate through each ship in the current system - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = ship
 ## scopes = { galactic_object }
+## push_scope = ship
 alias[effect:random_ship_in_system] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6400,8 +6400,8 @@ alias[effect:random_ship_in_system] = {
 }
 
 ### Iterate through each ship in the current system - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = ship
 ## scopes = { galactic_object }
+## push_scope = ship
 alias[effect:ordered_ship_in_system] = {
 	position = int
 	order_by = value_field
@@ -6413,8 +6413,8 @@ alias[effect:ordered_ship_in_system] = {
 }
 
 ### Iterate through each ship in the current system - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = ship
 ## scopes = { galactic_object }
+## push_scope = ship
 alias[effect:every_ship_in_system] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6422,8 +6422,8 @@ alias[effect:every_ship_in_system] = {
 }
 
 ### Iterate through each situation a country is experiencing - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = situation
 ## scopes = { country }
+## push_scope = situation
 alias[effect:random_situation] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6436,8 +6436,8 @@ alias[effect:random_situation] = {
 }
 
 ### Iterate through each situation a country is experiencing - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = situation
 ## scopes = { country }
+## push_scope = situation
 alias[effect:ordered_situation] = {
 	position = int
 	order_by = value_field
@@ -6449,8 +6449,8 @@ alias[effect:ordered_situation] = {
 }
 
 ### Iterate through each situation a country is experiencing - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = situation
 ## scopes = { country }
+## push_scope = situation
 alias[effect:every_situation] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6458,8 +6458,8 @@ alias[effect:every_situation] = {
 }
 
 ### Iterate through each situation that is targeting the current planet - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = situation
 ## scopes = { planet }
+## push_scope = situation
 alias[effect:random_targeting_situation] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6472,8 +6472,8 @@ alias[effect:random_targeting_situation] = {
 }
 
 ### Iterate through each situation that is targeting the current planet - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = situation
 ## scopes = { planet }
+## push_scope = situation
 alias[effect:ordered_targeting_situation] = {
 	position = int
 	order_by = value_field
@@ -6485,8 +6485,8 @@ alias[effect:ordered_targeting_situation] = {
 }
 
 ### Iterate through each situation that is targeting the current planet - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = situation
 ## scopes = { planet }
+## push_scope = situation
 alias[effect:every_targeting_situation] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6494,8 +6494,8 @@ alias[effect:every_targeting_situation] = {
 }
 
 ### Iterate through each species of a country's owned pops - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = species
 ## scopes = { country }
+## push_scope = species
 alias[effect:random_owned_pop_species] = {
 	## cardinality = 0..1
 	limit = {
@@ -6510,8 +6510,8 @@ alias[effect:random_owned_pop_species] = {
 }
 
 ### Iterate through each species of a country's owned pops - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = species
 ## scopes = { country }
+## push_scope = species
 alias[effect:ordered_owned_pop_species] = {
 	position = int
 	order_by = value_field
@@ -6523,8 +6523,8 @@ alias[effect:ordered_owned_pop_species] = {
 }
 
 ### Iterate through each species of a country's owned pops - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = species
 ## scopes = { country }
+## push_scope = species
 alias[effect:every_owned_pop_species] = {
 	## cardinality = 0..1
 	limit = {
@@ -6534,8 +6534,8 @@ alias[effect:every_owned_pop_species] = {
 }
 
 ### Check if any species in the galaxy meet the specified criteria - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = species
 ## scopes = any
+## push_scope = species
 alias[effect:random_galaxy_species] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6548,8 +6548,8 @@ alias[effect:random_galaxy_species] = {
 }
 
 ### Check if any species in the galaxy meet the specified criteria - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = species
 ## scopes = any
+## push_scope = species
 alias[effect:ordered_galaxy_species] = {
 	position = int
 	order_by = value_field
@@ -6561,8 +6561,8 @@ alias[effect:ordered_galaxy_species] = {
 }
 
 ### Check if any species in the galaxy meet the specified criteria - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = species
 ## scopes = any
+## push_scope = species
 alias[effect:every_galaxy_species] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6570,8 +6570,8 @@ alias[effect:every_galaxy_species] = {
 }
 
 ### Check if any of the species <on the planet/in the country> meet the specified criteria - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = species
 ## scopes = { planet country }
+## push_scope = species
 alias[effect:random_owned_species] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6584,8 +6584,8 @@ alias[effect:random_owned_species] = {
 }
 
 ### Check if any of the species <on the planet/in the country> meet the specified criteria - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = species
 ## scopes = { planet country }
+## push_scope = species
 alias[effect:ordered_owned_species] = {
 	position = int
 	order_by = value_field
@@ -6597,8 +6597,8 @@ alias[effect:ordered_owned_species] = {
 }
 
 ### Check if any of the species <on the planet/in the country> meet the specified criteria - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = species
 ## scopes = { planet country }
+## push_scope = species
 alias[effect:every_owned_species] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6606,8 +6606,8 @@ alias[effect:every_owned_species] = {
 }
 
 ### Check if any of the species with enslaved pops <on the planet/in the country> meet the specified criteria - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = species
 ## scopes = { planet country }
+## push_scope = species
 alias[effect:random_enslaved_species] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6620,8 +6620,8 @@ alias[effect:random_enslaved_species] = {
 }
 
 ### Check if any of the species with enslaved pops <on the planet/in the country> meet the specified criteria - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = species
 ## scopes = { planet country }
+## push_scope = species
 alias[effect:ordered_enslaved_species] = {
 	position = int
 	order_by = value_field
@@ -6633,8 +6633,8 @@ alias[effect:ordered_enslaved_species] = {
 }
 
 ### Check if any of the species with enslaved pops <on the planet/in the country> meet the specified criteria - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = species
 ## scopes = { planet country }
+## push_scope = species
 alias[effect:every_enslaved_species] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6642,8 +6642,8 @@ alias[effect:every_enslaved_species] = {
 }
 
 ### Iterate through every owned primary starbase - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = starbase
 ## scopes = { country }
+## push_scope = starbase
 alias[effect:random_owned_starbase] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6656,8 +6656,8 @@ alias[effect:random_owned_starbase] = {
 }
 
 ### Iterate through every owned primary starbase - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = starbase
 ## scopes = { country }
+## push_scope = starbase
 alias[effect:ordered_owned_starbase] = {
 	position = int
 	order_by = value_field
@@ -6669,8 +6669,8 @@ alias[effect:ordered_owned_starbase] = {
 }
 
 ### Iterate through every owned primary starbase - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = starbase
 ## scopes = { country }
+## push_scope = starbase
 alias[effect:every_owned_starbase] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6678,8 +6678,8 @@ alias[effect:every_owned_starbase] = {
 }
 
 ### Iterate through every owned non-primary starbase (e.g. orbital rings), not including juggernauts - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = starbase
 ## scopes = { country }
+## push_scope = starbase
 alias[effect:random_owned_nonprimary_starbase] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6692,8 +6692,8 @@ alias[effect:random_owned_nonprimary_starbase] = {
 }
 
 ### Iterate through every owned non-primary starbase (e.g. orbital rings), not including juggernauts - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = starbase
 ## scopes = { country }
+## push_scope = starbase
 alias[effect:ordered_owned_nonprimary_starbase] = {
 	position = int
 	order_by = value_field
@@ -6705,8 +6705,8 @@ alias[effect:ordered_owned_nonprimary_starbase] = {
 }
 
 ### Iterate through every owned non-primary starbase (e.g. orbital rings), not including juggernauts - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = starbase
 ## scopes = { country }
+## push_scope = starbase
 alias[effect:every_owned_nonprimary_starbase] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6714,8 +6714,8 @@ alias[effect:every_owned_nonprimary_starbase] = {
 }
 
 ### Iterate through all systems - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = system
 ## scopes = any
+## push_scope = system
 alias[effect:random_system] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6728,8 +6728,8 @@ alias[effect:random_system] = {
 }
 
 ### Iterate through all systems - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = system
 ## scopes = any
+## push_scope = system
 alias[effect:ordered_system] = {
 	position = int
 	order_by = value_field
@@ -6741,8 +6741,8 @@ alias[effect:ordered_system] = {
 }
 
 ### Iterate through all systems - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = system
 ## scopes = any
+## push_scope = system
 alias[effect:every_system] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6750,8 +6750,8 @@ alias[effect:every_system] = {
 }
 
 ### Iterate through all rim systems - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = system
 ## scopes = any
+## push_scope = system
 alias[effect:ordered_rim_system] = {
 	position = int
 	order_by = value_field
@@ -6764,8 +6764,8 @@ alias[effect:ordered_rim_system] = {
 
 
 ### Iterate through all systems within the country's or sector's borders - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = system
 ## scopes = { country sector }
+## push_scope = system
 alias[effect:random_system_within_border] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6778,8 +6778,8 @@ alias[effect:random_system_within_border] = {
 }
 
 ### Iterate through all systems within the country's or sector's borders - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = system
 ## scopes = { country sector }
+## push_scope = system
 alias[effect:ordered_system_within_border] = {
 	position = int
 	order_by = value_field
@@ -6791,8 +6791,8 @@ alias[effect:ordered_system_within_border] = {
 }
 
 ### Iterate through all systems within the country's or sector's borders - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = system
 ## scopes = { country sector }
+## push_scope = system
 alias[effect:every_system_within_border] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6800,8 +6800,8 @@ alias[effect:every_system_within_border] = {
 }
 
 ### Iterate through all a system's neighboring systems by hyperlane - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = system
 ## scopes = { galactic_object }
+## push_scope = system
 alias[effect:ordered_neighbor_system] = {
 	position = int
 	order_by = value_field
@@ -6813,8 +6813,8 @@ alias[effect:ordered_neighbor_system] = {
 }
 
 ### Iterate through all a system's neigboring systems (by closeness, not by hyperlanes) - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = system
 ## scopes = { galactic_object }
+## push_scope = system
 alias[effect:random_neighbor_system_euclidean] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6827,8 +6827,8 @@ alias[effect:random_neighbor_system_euclidean] = {
 }
 
 ### Iterate through all a system's neigboring systems (by closeness, not by hyperlanes) - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = system
 ## scopes = { galactic_object }
+## push_scope = system
 alias[effect:ordered_neighbor_system_euclidean] = {
 	position = int
 	order_by = value_field
@@ -6840,8 +6840,8 @@ alias[effect:ordered_neighbor_system_euclidean] = {
 }
 
 ### Iterate through all a system's neigboring systems (by closeness, not by hyperlanes) - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = system
 ## scopes = { galactic_object }
+## push_scope = system
 alias[effect:every_neighbor_system_euclidean] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6849,8 +6849,8 @@ alias[effect:every_neighbor_system_euclidean] = {
 }
 
 ### Iterate through all war participants - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = country
 ## scopes = { war }
+## push_scope = country
 alias[effect:random_war_participant] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6864,8 +6864,8 @@ alias[effect:random_war_participant] = {
 }
 
 ### Iterate through all war participants - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = country
 ## scopes = { war }
+## push_scope = country
 alias[effect:ordered_war_participant] = {
 	position = int
 	order_by = value_field
@@ -6877,8 +6877,8 @@ alias[effect:ordered_war_participant] = {
 }
 
 ### Iterate through all attackers in the current war - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = country
 ## scopes = { war }
+## push_scope = country
 alias[effect:random_attacker] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6891,8 +6891,8 @@ alias[effect:random_attacker] = {
 }
 
 ### Iterate through all attackers in the current war - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = country
 ## scopes = { war }
+## push_scope = country
 alias[effect:ordered_attacker] = {
 	position = int
 	order_by = value_field
@@ -6904,8 +6904,8 @@ alias[effect:ordered_attacker] = {
 }
 
 ### Iterate through all attackers in the current war - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = country
 ## scopes = { war }
+## push_scope = country
 alias[effect:every_attacker] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6913,8 +6913,8 @@ alias[effect:every_attacker] = {
 }
 
 ### Iterate through all defenders in the current war - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = country
 ## scopes = { war }
+## push_scope = country
 alias[effect:random_defender] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6927,8 +6927,8 @@ alias[effect:random_defender] = {
 }
 
 ### Iterate through all defenders in the current war - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = country
 ## scopes = { war }
+## push_scope = country
 alias[effect:ordered_defender] = {
 	position = int
 	order_by = value_field
@@ -6940,8 +6940,8 @@ alias[effect:ordered_defender] = {
 }
 
 ### Iterate through all defenders in the current war - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = country
 ## scopes = { war }
+## push_scope = country
 alias[effect:every_defender] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6949,8 +6949,8 @@ alias[effect:every_defender] = {
 }
 
 ### Iterate through all wars the country is engaged in - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## push_scope = war
 ## scopes = { country }
+## push_scope = war
 alias[effect:random_war] = {
 	##cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
@@ -6963,8 +6963,8 @@ alias[effect:random_war] = {
 }
 
 ### Iterate through all wars the country is engaged in - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## push_scope = war
 ## scopes = { country }
+## push_scope = war
 alias[effect:ordered_war] = {
 	position = int
 	order_by = value_field
@@ -6976,8 +6976,8 @@ alias[effect:ordered_war] = {
 }
 
 ### Iterate through all wars the country is engaged in - executes the enclosed effects on all of them for which the limit triggers return true
-## push_scope = war
 ## scopes = { country }
+## push_scope = war
 alias[effect:every_war] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
