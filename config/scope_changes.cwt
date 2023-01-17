@@ -1047,8 +1047,8 @@ alias[effect:scope_field] = { alias_name[effect] = alias_match_left[effect] }
 # 	alias_name[effect] = alias_match_left[effect]
 # }
 
+# ### Iterate through systems in the cluster - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
 # ## push_scope = system
-# ###Iterate through systems in the cluster - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
 # alias[effect:ordered_system_in_cluster] = {
 # 	position = int
 # 	order_by = value_field
