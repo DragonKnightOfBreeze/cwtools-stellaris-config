@@ -711,6 +711,7 @@ alias[trigger:is_ship_class] = enum[shipsize_classes]
 ### Checks the scientist's field of research
 ## scopes = { leader }
 alias[trigger:is_researching_area] = enum[research_areas]
+
 #should have < >
 ### Checks the country's number available tech research options in a specific field
 ## scopes = { country }
@@ -728,7 +729,6 @@ alias[trigger:research_leader] = {
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
-
 ### Checks the average ethics divergence on the planet, i.e. num of pops not of the country's ethics / total num of pops
 ## scopes = { planet }
 alias[trigger:ethos] == value_field[0.0..1.0]
@@ -736,9 +736,11 @@ alias[trigger:ethos] == value_field[0.0..1.0]
 ### Checks the leader's gender
 ## scopes = { leader }
 alias[trigger:gender] = enum[genders_not_set]
+
 ### Checks what gender settings the species allows.
 ## scopes = { species }
 alias[trigger:species_gender] = enum[genders_not_set]
+
 ### Checks if scoped leader is idle
 ## scopes = { leader }
 alias[trigger:is_idle] = bool
@@ -746,28 +748,36 @@ alias[trigger:is_idle] = bool
 ### Checks if the country is a primitive, pre-FTL civilization
 ## scopes = { country }
 alias[trigger:is_primitive] = bool
+
 ### Checks if the pop is sapient
 ## scopes = { pop species }
 alias[trigger:is_sapient] = bool
+
 ### Checks if the planet is prevented from generating anomalies
 ## scopes = { planet }
 alias[trigger:is_preventing_anomaly] = bool
+
 ### Checks if the planet has an observation post
 ## scopes = { planet }
 alias[trigger:has_observation_outpost] = bool
+
 ### Checks if the system is the starting system for any country
 ## scopes = { galactic_object }
 alias[trigger:starting_system] = bool
+
 ### Checks if the planet is still owned by its first colonizer
 ### original owner = yes
 ## scopes = { planet }
 alias[trigger:original_owner] = bool
+
 ### Checks if the pop is a robot
 ## scopes = { pop }
 alias[trigger:is_robot_pop] = bool
+
 ### Checks if the scoped fleet is an alliance fleet.
 ## scopes = { fleet }
 alias[trigger:is_alliance_fleet] = bool
+
 ### Checks if the planet is its owner's capital
 ## scopes = { planet }
 alias[trigger:is_capital] = bool
@@ -781,6 +791,7 @@ alias[trigger:can_colonize] = {
 	who = scope_group[target_country]
 	status = bool
 }
+
 ### Checks the relative amount of already-researched tech between the country and target country
 ## scopes = { country }
 alias[trigger:tech_unlocked_ratio] = {
@@ -2263,7 +2274,7 @@ alias[trigger:has_unlocked_all_traditions] = bool
 ## scopes = any
 alias[trigger:is_scope_type] = enum[scope_type_tokens]
 
-## 2.5.1 (or missing from earlier)
+# 2.5.1 (or missing from earlier)
 
 ### Checks if Caravaneers are enabled in game setup
 ## scopes = any
@@ -2466,6 +2477,13 @@ alias[trigger:num_favors] = {
 	value = int_value_field
 }
 
+### Checks the number of ships of a ship size in debris
+## scopes = { debris }
+alias[trigger:num_ships_in_debris] = {
+	ship_size = <ship_size>
+	value == int_value_field
+}
+
 ### Checks whether the galaxy size if of a certain type
 ### galaxy_size=medium
 ## scopes = any
@@ -2563,6 +2581,10 @@ alias[trigger:has_any_federation_law_in_category] = <federation_law_category>
 ### Check that you have available job of a specific type
 ## scopes = { planet }
 alias[trigger:has_available_jobs] = <job>
+
+### Check that you have forbidden job of a specific type
+## scopes = { planet }
+alias[trigger:has_forbidden_jobs] = <job>
 
 ### Checks if Xeno Compatibility are enabled in game setup
 ## scopes = any
@@ -3269,295 +3291,315 @@ alias[trigger:enclave_capacity_left] == int_value_field[0..inf]
 ## scopes = any
 alias[trigger:additional_crisis_strength] == int_value_field[0..inf]
 
-# Missing triggers:
-
-### An inverted trigger
-## scopes = any
-alias[trigger:not] = {
-}
-
-### Iterate through all playable countries - checks whether the enclosed triggers return true for any of them
-## scopes = any
-alias[trigger:any_playable_country] = {
-# any_playable_country = { <triggers> }
-}
-
-### Finds the closest system within the given hyperlane steps and limit = { <triggers> }. If this system does not exist, it returns false. If it does exist, it is checked against the triggers outside of the limit = {}.
-## scopes = any
-alias[trigger:closest_system] = {
-# closest_system = {
-# 	limit = { <triggers> }
-# 	min_steps = 2
-# 	max_steps = 20
-# 	use_bypasses = yes/no (default: no)
-# 	<triggers>
-# }
-}
-
-### Iterate through each fleet owned by the country - checks whether the enclosed triggers return true for any of them
-## scopes = { country }
-alias[trigger:any_owned_fleet] = {
-# any_owned_fleet = { <triggers> }
-}
-
-### Iterate through each orbital station owned by the current country or in the current system - checks whether the enclosed triggers return true for any of them
-## scopes = { country galactic_object }
-alias[trigger:any_orbital_station] = {
-# any_orbital_station = { <triggers> }
-}
-
-### Checks the number of ships of a ship size in debris
-## scopes = { debris }
-alias[trigger:num_ships_in_debris] = {
-# num_ships_in_debris = { ship_size = corvette value > 15 }
-}
-
-### Iterate through each planet within the current empire's borders - checks whether the enclosed triggers return true for any of them
-## scopes = { country }
-alias[trigger:any_planet_within_border] = {
-# any_planet_within_border = { <triggers> }
-}
-
-### Iterate through each ship in the fleet or controlled by the country - checks whether the enclosed triggers return true for any of them
-## scopes = { country fleet }
-alias[trigger:any_owned_ship] = {
-# any_owned_ship = { <triggers> }
-}
-
-### Iterate through each moon of the planet - checks whether the enclosed triggers return true for any of them
-## scopes = { planet }
-alias[trigger:any_moon] = {
-# any_moon = { <triggers> }
-}
-
-### Iterate through all wars the country is engaged in - checks whether the enclosed triggers return true for any of them
-## scopes = { country }
-alias[trigger:any_war] = {
-# any_war = { <triggers> }
-}
-
-### Iterate through all defenders in the current war - checks whether the enclosed triggers return true for any of them
-## scopes = { war }
-alias[trigger:any_defender] = {
-# any_defender = { <triggers> }
-}
-
-### Iterate through all attackers in the current war - checks whether the enclosed triggers return true for any of them
-## scopes = { war }
-alias[trigger:any_attacker] = {
-# any_attacker = { <triggers> }
-}
-
-### Check that you have forbidden job of a specific type
-## scopes = { planet }
-alias[trigger:has_forbidden_jobs] = {
-# has_forbidden_jobs = "miner"
-}
-
-### Iterate through each planet (colony or not) in the current system - checks whether the enclosed triggers return true for any of them
-## scopes = { galactic_object }
-alias[trigger:any_system_planet] = {
-# any_system_planet = { <triggers> }
-}
-
 ### Checks the countrys' number of civics
 ## scopes = { country }
-alias[trigger:civics_count] = {
-# civics_count < 3
-}
-
-### all inside trigger must be true
-## scopes = any
-alias[trigger:and] = {
-}
-
-### At least one entry inside the trigger must be true
-## scopes = any
-alias[trigger:or] = {
-}
-
-### Hides the tooltip for the triggers within
-## scopes = any
-alias[trigger:hidden_trigger] = {
-# hidden_trigger = { <triggers> }
-}
-
-### Iterate through each fleet orbiting the current planet/starbase/megastructure - checks whether the enclosed triggers return true for any of them
-## scopes = { megastructure planet starbase }
-alias[trigger:any_fleet_in_orbit] = {
-# any_fleet_in_orbit = { <triggers> }
-}
+alias[trigger:civics_count] == int_value_field[0..inf]
 
 ### Checks if the empire has activated as many ascension tiers as specified:
 ## scopes = { country }
-alias[trigger:num_planetary_ascension_tiers] = {
-# num_planetary_ascension_tiers >= 15
-}
-
-### Iterate through all countries - checks whether the enclosed triggers return true for any of them
-## scopes = any
-alias[trigger:any_country] = {
-# any_country = { <triggers> }
-}
-
-### Checks if any of the planet/species/pop faction pops meet the specified criteria. Warning: deprecated, use any_owned_pop/any_species_pop
-## scopes = { planet species pop_faction }
-alias[trigger:any_pop] = {
-# any_pop = { <triggers> }
-}
-
-### Checks the number of pops in the scope that fulfill the specified criteria. Warning: deprecated, use count_owned_pop/count_species_pop
-## scopes = { planet species pop_faction }
-alias[trigger:count_pops] = {
-# count_pops = { limit = { <triggers> } count < 6 }
-}
-
-### Iterate through each deposit on the planet - checks whether the enclosed triggers return true for any of them
-## scopes = { planet }
-alias[trigger:any_deposit] = {
-# any_deposit = { <triggers> }
-}
-
-### Iterate through all rim systems - checks whether the enclosed triggers return true for any of them
-## scopes = any
-alias[trigger:any_rim_system] = {
-# any_rim_system = { <triggers> }
-}
-
-### Iterate through each ship in the current system - checks whether the enclosed triggers return true for any of them
-## scopes = { galactic_object }
-alias[trigger:any_ship_in_system] = {
-# any_ship_in_system = { <triggers> }
-}
-
-### Iterate through each leader that is owned by the country - checks whether the enclosed triggers return true for any of them
-## scopes = { country }
-alias[trigger:any_owned_leader] = {
-# any_owned_leader = { <triggers> }
-}
-
-### Iterate through all owned pops - checks whether the enclosed triggers return true for any of them
-## scopes = { planet country pop_faction sector }
-alias[trigger:any_owned_pop] = {
-# any_owned_pop = { <triggers> }
-}
-
-### Count the number of owned pops in the country that fulfill the specified criteria. Warning: deprecated, use count_owned_pop
-## scopes = { planet country pop_faction }
-alias[trigger:count_owned_pops] = {
-# count_owned_pops = { limit = { <triggers> } count > 12 }
-}
-
-### Checks the number of deposits on the planet that meet the specified criteria
-## scopes = { planet }
-alias[trigger:count_deposits] = {
-# count_deposits = { type = <deposit> count < 2 }
-}
-
-### Iterate through every ambient object in the game - checks whether the enclosed triggers return true for any of them
-## scopes = any
-alias[trigger:any_ambient_object] = {
-# any_ambient_object = { <triggers> }
-}
-
-### Iterate through every ambient object in the solar system - checks whether the enclosed triggers return true for any of them
-## scopes = { galactic_object }
-alias[trigger:any_system_ambient_object] = {
-# any_system_ambient_object = { <triggers> }
-}
-
-### Iterate through each member of the federation - checks whether the enclosed triggers return true for any of them
-## scopes = { federation }
-alias[trigger:any_member] = {
-# any_member = { <triggers> }
-}
-
-### Checks the number of participants in the war on a specific side that meet the specified criteria
-## scopes = { war }
-alias[trigger:count_war_participants] = {
-# count_war_participants = { limit = { <triggers> } side = target count < 4/variable
-}
-
-### Checks the amount of potential war participants in a specific war that meet the specified criteria
-## scopes = any
-alias[trigger:count_potential_war_participants] = {
-# count_potential_war_participants = { attacker = <target> defender = <target> side = <target> limit = { <triggers> } count > 2/variable
-}
-
-### Iterate through all a system's neighboring systems by hyperlane - checks whether the enclosed triggers return true for any of them
-## scopes = { galactic_object }
-alias[trigger:any_neighbor_system] = {
-# any_neighbor_system = { <triggers> }
-}
-
-### An inverted OR trigger
-## scopes = any
-alias[trigger:nor] = {
-}
-
-### An inverted AND trigger
-## scopes = any
-alias[trigger:nand] = {
-}
-
-### Iterate through all subjects of the scoped country - checks whether the enclosed triggers return true for any of them
-## scopes = { country }
-alias[trigger:any_subject] = {
-# any_subject = { <triggers> }
-}
-
-### Iterate through all relations - checks whether the enclosed triggers return true for any of them
-## scopes = { country }
-alias[trigger:any_relation] = {
-# any_relation = { <triggers> }
-}
+alias[trigger:num_planetary_ascension_tiers] == int_value_field[0..inf]
 
 ### Checks if a job is of a certain pop category. Note that the result for this trigger is not dependent on where it is used - so it's for use in e.g. templated script values.
-### is_job_of_category = { job = <job> category = <category> }
 ## scopes = any
 alias[trigger:is_job_of_pop_category] = {
+	job = <job>
+	category = <pop_category>
 }
 
 ### Compares the former migration control type with the given one.
 ## scopes = { pop }
-alias[trigger:former_colonization_control_type] = {
-# former_colonization_control_type = colonization_control_yes
+alias[trigger:former_colonization_control_type] = <colonization_control>
+
+### Checks if the scoped megastructure is built on a planet
+## scopes = { megastructure }
+alias[trigger:built_on_planet] = bool
+
+### Checks if the last resolution the Galactic Community voted on or otherwise passed or failed is as specified.
+## scopes = any
+alias[trigger:last_resolution_changed] = <resolution>
+
+### Checks if the current country is supporting, opposing or abstaining from the currently proposed galcom resolution.
+## scopes = { country }
+alias[trigger:position_on_current_resolution] = enum[resolution_position]
+
+### Checks if the current country was supporting, opposing or abstaining from the last proposed galcom resolution.
+## scopes = { country }
+alias[trigger:position_on_last_resolution] = enum[resolution_position]
+
+enums = {
+	enum[resolution_position] = {
+		support
+		oppose
+		abstain
+	}
+}
+
+# TODO missing triggers
+
+# scope links
+
+### Iterate through all playable countries - checks whether the enclosed triggers return true for any of them
+## push_scope = country
+## scopes = any
+alias[trigger:any_playable_country] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Finds the closest system within the given hyperlane steps and limit = { <triggers> }. If this system does not exist, it returns false. If it does exist, it is checked against the triggers outside of the limit = {}.
+### Conditions outside of the limit = { } will check whether these conditions are true for *the closest* system for which the trigger conditions and min_steps conditions.
+## scopes = any
+## push_scope = system
+alias[trigger:closest_system] = {
+	##cardinality = 0..1
+	min_steps = int
+	##cardinality = 0..1
+	max_steps = int
+	##cardinality = 0..1
+	use_bypasses = bool
+	##cardinality = 0..1
+	limit = { alias_name[trigger] = alias_match_left[trigger] }
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through each fleet owned by the country - checks whether the enclosed triggers return true for any of them
+## scopes = { country }
+## push_scope = fleet
+alias[trigger:any_owned_fleet] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through each orbital station owned by the current country or in the current system - checks whether the enclosed triggers return true for any of them
+## scopes = { country galactic_object }
+## push_scope = fleet
+alias[trigger:any_orbital_station] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through each planet within the current empire's borders - checks whether the enclosed triggers return true for any of them
+## scopes = { country }
+## push_scope = planet
+alias[trigger:any_planet_within_border] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through each ship in the fleet or controlled by the country - checks whether the enclosed triggers return true for any of them
+## scopes = { country fleet }
+## push_scope = ship
+alias[trigger:any_owned_ship] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through each moon of the planet - checks whether the enclosed triggers return true for any of them
+## scopes = { planet }
+## push_scope = planet
+alias[trigger:any_moon] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through all wars the country is engaged in - checks whether the enclosed triggers return true for any of them
+## scopes = { country }
+## push_scope = war
+alias[trigger:any_war] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through all defenders in the current war - checks whether the enclosed triggers return true for any of them
+## scopes = { war }
+## push_scope = country
+alias[trigger:any_defender] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through all attackers in the current war - checks whether the enclosed triggers return true for any of them
+## scopes = { war }
+## push_scope = country
+alias[trigger:any_attacker] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through each planet (colony or not) in the current system - checks whether the enclosed triggers return true for any of them
+## scopes = { galactic_object }
+## push_scope = planet
+alias[trigger:any_system_planet] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through each fleet orbiting the current planet/starbase/megastructure - checks whether the enclosed triggers return true for any of them
+## scopes = { megastructure planet starbase }
+## push_scope = fleet
+alias[trigger:any_fleet_in_orbit] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through all countries - checks whether the enclosed triggers return true for any of them
+## scopes = any
+## push_scope = country
+alias[trigger:any_country] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Checks if any of the planet/species/pop faction pops meet the specified criteria. Warning: deprecated, use any_owned_pop/any_species_pop
+## scopes = { planet species pop_faction }
+## push_scope = pop
+alias[trigger:any_pop] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Checks the number of pops in the scope that fulfill the specified criteria. Warning: deprecated, use count_owned_pop/count_species_pop
+## scopes = { planet species pop_faction }
+## push_scope = pop
+alias[trigger:count_pops] = {
+	count = int
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+}
+
+### Iterate through each deposit on the planet - checks whether the enclosed triggers return true for any of them
+## scopes = { planet }
+## push_scope = deposit
+alias[trigger:any_deposit] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through all rim systems - checks whether the enclosed triggers return true for any of them
+## scopes = any
+## push_scope = system
+alias[trigger:any_rim_system] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through each ship in the current system - checks whether the enclosed triggers return true for any of them
+## scopes = { galactic_object }
+## push_scope = ship
+alias[trigger:any_ship_in_system] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through each leader that is owned by the country - checks whether the enclosed triggers return true for any of them
+## scopes = { country }
+## push_scope = leader
+alias[trigger:any_owned_leader] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through all owned pops - checks whether the enclosed triggers return true for any of them
+## scopes = { planet country pop_faction sector }
+## push_scope = pop
+alias[trigger:any_owned_pop] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Count the number of owned pops in the country that fulfill the specified criteria. Warning: deprecated, use count_owned_pop
+## scopes = { planet country pop_faction }
+## push_scope = pop
+alias[trigger:count_owned_pops] = {
+	count = int
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+}
+
+### Checks the number of deposits on the planet that meet the specified criteria
+## scopes = { planet }
+alias[trigger:count_deposits] =  {
+	count = int_value_field
+	type = <deposit>
+}
+
+### Iterate through every ambient object in the game - checks whether the enclosed triggers return true for any of them
+## scopes = any
+## push_scope = ambient_object
+alias[trigger:any_ambient_object] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through every ambient object in the solar system - checks whether the enclosed triggers return true for any of them
+## scopes = { galactic_object }
+## push_scope = ambient_object
+alias[trigger:any_system_ambient_object] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through each member of the federation - checks whether the enclosed triggers return true for any of them
+## scopes = { federation }
+## push_scope = country
+alias[trigger:any_member] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Checks the number of participants in the war on a specific side that meet the specified criteria
+## scopes = { war }
+## push_scope = country
+alias[trigger:count_war_participants] = {
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	side = scope[country]
+	count = int
+}
+
+# Side should be one of the previous two scopes
+### Checks the amount of potential war participants in a specific war that meet the specified criteria
+## scopes = any
+## push_scope = country
+alias[trigger:count_potential_war_participants] = {
+	attacker = scope[country]
+	defender = scope[country]
+	side = scope[country]
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	count = int
+}
+
+### Iterate through all a system's neighboring systems by hyperlane - checks whether the enclosed triggers return true for any of them
+## scopes = { galactic_object }
+## push_scope = system
+alias[trigger:any_neighbor_system] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through all subjects of the scoped country - checks whether the enclosed triggers return true for any of them
+## scopes = { country }
+## push_scope = country
+alias[trigger:any_subject] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through all relations - checks whether the enclosed triggers return true for any of them
+## scopes = { country }
+## push_scope = country
+alias[trigger:any_relation] = {
+	alias_name[trigger] = alias_match_left[trigger]
 }
 
 ### Counts the number of species in the scope that fulfill the specified criteria, not counting sub-species as unique.
 ## scopes = { planet country }
+## push_scope = species
 alias[trigger:count_species] = {
-# count_species = { count > 4 limit = { <triggers> } }
+	count = int_value_field
+	count = all
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 }
 
 ### Counts the number of species in the scope that fulfill the specified criteria, counting sub-species as unique.
 ## scopes = { planet country }
+## push_scope = species
 alias[trigger:count_exact_species] = {
-# count_exact_species = { count > 4 limit = { <triggers> } }
-}
-
-### Checks if the scoped megastructure is built on a planet
-## scopes = { megastructure }
-alias[trigger:built_on_planet] = {
-# built_on_planet = yes
-}
-
-### Checks if the last resolution the Galactic Community voted on or otherwise passed or failed is as specified.
-## scopes = any
-alias[trigger:last_resolution_changed] = {
-# last_resolution_changed = <resolution>
-}
-
-### Checks if the current country is supporting, opposing or abstaining from the currently proposed galcom resolution.
-## scopes = { country }
-alias[trigger:position_on_current_resolution] = {
-# position_on_current_resolution = support/oppose/abstain
-}
-
-### Checks if the current country was supporting, opposing or abstaining from the last proposed galcom resolution.
-## scopes = { country }
-alias[trigger:position_on_last_resolution] = {
-# position_on_last_resolution = support/oppose/abstain
+	count = int_value_field
+	count = all
+	## cardinality = 0..1
+	limit = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 }
 
 ### Check if any of the species <on the planet/in the country> meet the specified criteria - checks whether the enclosed triggers return true for any of them
