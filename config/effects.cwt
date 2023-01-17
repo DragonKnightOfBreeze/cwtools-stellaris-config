@@ -4232,7 +4232,7 @@ alias[effect:queue_actions] = {
 	alias_name[fleet_action] = alias_match_left[fleet_action]
 }
 
-# scope changes
+# scope links
 
 ### Iterate through each ship in the fleet or controlled by the country - executes the enclosed effects on all of them for which the limit triggers return true
 ## scopes = { country fleet }

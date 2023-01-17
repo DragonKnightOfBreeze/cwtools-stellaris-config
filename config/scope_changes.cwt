@@ -17,17 +17,17 @@ alias[trigger:OR] = { alias_name[trigger] = alias_match_left[trigger] }
 ###Hides the enclosed triggers from any generated tooltips
 alias[trigger:hidden_trigger] = { alias_name[trigger] = alias_match_left[trigger] }
 
-## push_scope = country
-###Checks if any playable country meet the specified criteria
-alias[trigger:any_playable_country] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = country
+# ###Checks if any playable country meet the specified criteria
+# alias[trigger:any_playable_country] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
-## push_scope = fleet
-###Checks if any of the country's owned fleets meet the specified criteria
-alias[trigger:any_owned_fleet] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = fleet
+# ###Checks if any of the country's owned fleets meet the specified criteria
+# alias[trigger:any_owned_fleet] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
 ## push_scope = fleet
 ###Checks if any of the country's controlled fleets meet the specified criteria
@@ -35,23 +35,23 @@ alias[trigger:any_controlled_fleet] = {
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
-## push_scope = fleet
-###Checks if the planet's orbital station meets the specified criteria
-alias[trigger:any_orbital_station] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = fleet
+# ###Checks if the planet's orbital station meets the specified criteria
+# alias[trigger:any_orbital_station] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
-## push_scope = planet
-###Checks if any planets within the country's borders meet the specified criteria
-alias[trigger:any_planet_within_border] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = planet
+# ###Checks if any planets within the country's borders meet the specified criteria
+# alias[trigger:any_planet_within_border] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
-## push_scope = ship
-###Checks if any of the country's ships meet the specified criteria
-alias[trigger:any_owned_ship] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = ship
+# ###Checks if any of the country's ships meet the specified criteria
+# alias[trigger:any_owned_ship] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
 ## push_scope = ship
 ###Checks if any of the country's controlled ships meet the specified criteria
@@ -65,11 +65,11 @@ alias[trigger:any_galaxy_planet] = {
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
-## push_scope = planet
-###Checks if any planet in the system meets the specified criteria
-alias[trigger:any_system_planet] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = planet
+# ###Checks if any planet in the system meets the specified criteria
+# alias[trigger:any_system_planet] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
 ## push_scope = planet
 ###Checks if any of the country's owned planets meet the specified criteria
@@ -89,23 +89,23 @@ alias[trigger:any_country] = {
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
-## push_scope = system
-###Iterate through all rim systems
-alias[trigger:any_rim_system] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = system
+# ###Iterate through all rim systems
+# alias[trigger:any_rim_system] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
-## push_scope = leader
-###Checks if any of the country's leaders meet the specified criteria
-alias[trigger:any_owned_leader] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = leader
+# ###Checks if any of the country's leaders meet the specified criteria
+# alias[trigger:any_owned_leader] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
-## push_scope = pop
-###Iterate through all owned pops
-alias[trigger:any_owned_pop] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = pop
+# ###Iterate through all owned pops
+# alias[trigger:any_owned_pop] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
 ## push_scope = sector
 ###Iterate through every owned sector
@@ -113,17 +113,17 @@ alias[trigger:any_owned_sector] = {
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
-## push_scope = ambient_object
-###Checks if any ambient objects in the game meet the specified criteria
-alias[trigger:any_ambient_object] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = ambient_object
+# ###Checks if any ambient objects in the game meet the specified criteria
+# alias[trigger:any_ambient_object] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
-## push_scope = ambient_object
-###Checks if any ambient objects in the system meet the specified criteria
-alias[trigger:any_system_ambient_object] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = ambient_object
+# ###Checks if any ambient objects in the system meet the specified criteria
+# alias[trigger:any_system_ambient_object] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
 ## push_scope = country
 ###Iterate through all bordering countries of a system
@@ -131,17 +131,17 @@ alias[trigger:any_country_neighbor_to_system] = {
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
-## push_scope = country
-###Checks if any of the country's subject states meet the specified criteria
-alias[trigger:any_subject] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = country
+# ###Checks if any of the country's subject states meet the specified criteria
+# alias[trigger:any_subject] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
-## push_scope = country
-###Iterate through all relations
-alias[trigger:any_relation] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = country
+# ###Iterate through all relations
+# alias[trigger:any_relation] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
 ## push_scope = army
 ###Iterate through each army that is owned by the country
@@ -221,22 +221,22 @@ alias[trigger:any_war_participant] = {
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
-## push_scope = system
-###Checks if any close-by systems meet the criteria. Conditions in limit = { } filters the systems within the min/max steps limits. If no system meets the condition, the trigger will return as false. Conditions outside of the limit = { } will check whether these conditions are true for *the closest* system for which the trigger conditions and min_steps conditions.
-alias[trigger:closest_system] = {
-	##cardinality = 0..1
-	min_steps = int
-	##cardinality = 0..1
-	max_steps = int
-
-	##cardinality = 0..1
-	use_bypasses = bool
-
-	##cardinality = 0..1
-	limit = { alias_name[trigger] = alias_match_left[trigger] }
-
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = system
+# ###Checks if any close-by systems meet the criteria. Conditions in limit = { } filters the systems within the min/max steps limits. If no system meets the condition, the trigger will return as false. Conditions outside of the limit = { } will check whether these conditions are true for *the closest* system for which the trigger conditions and min_steps conditions.
+# alias[trigger:closest_system] = {
+# 	##cardinality = 0..1
+# 	min_steps = int
+# 	##cardinality = 0..1
+# 	max_steps = int
+#
+# 	##cardinality = 0..1
+# 	use_bypasses = bool
+#
+# 	##cardinality = 0..1
+# 	limit = { alias_name[trigger] = alias_match_left[trigger] }
+#
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
 
 
@@ -438,16 +438,16 @@ alias[trigger:count_war_participant] =  {
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 }
 
-## push_scope = country
-### Checks the number of participants in the war on a specific side that meet the specified criteria
-alias[trigger:count_war_participants] = {
-	## cardinality = 0..1
-	limit = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-	side = scope[country]
-	count = int
-}
+# ## push_scope = country
+# ### Checks the number of participants in the war on a specific side that meet the specified criteria
+# alias[trigger:count_war_participants] = {
+# 	## cardinality = 0..1
+# 	limit = {
+# 		alias_name[trigger] = alias_match_left[trigger]
+# 	}
+# 	side = scope[country]
+# 	count = int
+# }
 
 #Count triggers: Should all check for < > on the ints
 ## push_scope = pop_faction
@@ -460,25 +460,25 @@ alias[trigger:count_pop_faction] = {
 	}
 }
 
-## push_scope = species
-alias[trigger:count_species] = {
-	count = int_value_field
-	count = all
-	## cardinality = 0..1
-	limit = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-}
+# ## push_scope = species
+# alias[trigger:count_species] = {
+# 	count = int_value_field
+# 	count = all
+# 	## cardinality = 0..1
+# 	limit = {
+# 		alias_name[trigger] = alias_match_left[trigger]
+# 	}
+# }
 
-## push_scope = species
-alias[trigger:count_exact_species] = {
-	count = int_value_field
-	count = all
-	## cardinality = 0..1
-	limit = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-}
+# ## push_scope = species
+# alias[trigger:count_exact_species] = {
+# 	count = int_value_field
+# 	count = all
+# 	## cardinality = 0..1
+# 	limit = {
+# 		alias_name[trigger] = alias_match_left[trigger]
+# 	}
+# }
 
 ## push_scope = army
 alias[trigger:count_armies] = {
@@ -511,18 +511,18 @@ alias[trigger:count_controlled_ship] = {
 
 #side should be one of the previous two scopes
 #< >
-## push_scope = country
-###Checks the amount of potential war participants in a specific war that meet the specified criteria
-alias[trigger:count_potential_war_participants] = {
-	attacker = scope[country]
-	defender = scope[country]
-	side = scope[country]
-	## cardinality = 0..1
-	limit = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-	count = int
-}
+# ## push_scope = country
+# ###Checks the amount of potential war participants in a specific war that meet the specified criteria
+# alias[trigger:count_potential_war_participants] = {
+# 	attacker = scope[country]
+# 	defender = scope[country]
+# 	side = scope[country]
+# 	## cardinality = 0..1
+# 	limit = {
+# 		alias_name[trigger] = alias_match_left[trigger]
+# 	}
+# 	count = int
+# }
 
 ## push_scope = ambient_object
 ###Iterate through every ambient object in the game
@@ -1869,11 +1869,11 @@ alias[effect:scope_field] = { alias_name[effect] = alias_match_left[effect] }
 
 #2.2
 
-## push_scope = deposit
-###Checks if any deposits on the planet meet the criteria
-alias[trigger:any_deposit] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = deposit
+# ###Checks if any deposits on the planet meet the criteria
+# alias[trigger:any_deposit] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
 # ## push_scope = deposit
 # ###Executes on every deposit on planet
@@ -1957,11 +1957,11 @@ alias[trigger:count_deposit] = {
 # 	alias_name[effect] = alias_match_left[effect]
 # }
 
-## push_scope = country
-###Iterate through each member of the federation
-alias[trigger:any_member] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = country
+# ###Iterate through each member of the federation
+# alias[trigger:any_member] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
 ## push_scope = country
 ###Iterate through each member of the federation
@@ -2006,11 +2006,11 @@ alias[trigger:count_member] = {
 # 	}
 # }
 
-## push_scope = war
-###Checks if any wars meet the specified criteria
-alias[trigger:any_war] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = war
+# ###Checks if any wars meet the specified criteria
+# alias[trigger:any_war] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
 ## push_scope = war
 ###Iterate through each war the country is fighting in
@@ -2640,11 +2640,11 @@ alias[trigger:count_espionage_asset] = {
 # }
 
 
-## push_scope = ship
-###Iterate through each ship in the system
-alias[trigger:any_ship_in_system] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = ship
+# ###Iterate through each ship in the system
+# alias[trigger:any_ship_in_system] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
 ## push_scope = ship
 ###Iterate through each ship in the system
@@ -2775,11 +2775,11 @@ alias[trigger:count_galaxy_fleet] = {
 # 	alias_name[effect] = alias_match_left[effect]
 # }
 
-## push_scope = planet
-###Checks if any of the planet's moons meet the specified criteria
-alias[trigger:any_moon] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = planet
+# ###Checks if any of the planet's moons meet the specified criteria
+# alias[trigger:any_moon] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
 ## push_scope = planet
 ###Iterate through the planet's moons
@@ -2874,11 +2874,11 @@ alias[trigger:count_galaxy_sector] = {
 # 	}
 # }
 
-## push_scope = system
-###Checks if any of the system's neighboring systems by hyperlane - meet the specified criteria, bypasses not included
-alias[trigger:any_neighbor_system] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = system
+# ###Checks if any of the system's neighboring systems by hyperlane - meet the specified criteria, bypasses not included
+# alias[trigger:any_neighbor_system] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
 ## push_scope = system
 ###Checks if X of the system's neighboring systems by hyperlane - meet the specified criteria, bypasses not included
@@ -3006,17 +3006,17 @@ alias[trigger:count_neighbor_system_euclidean] = {
 # 	}
 # }
 
-## push_scope = country
-###Checks if any of the defenders in the war meet the specified criteria
-alias[trigger:any_defender] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
-
-## push_scope = country
-###Checks if any attackers in the war meet the specified criteria
-alias[trigger:any_attacker] = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+# ## push_scope = country
+# ###Checks if any of the defenders in the war meet the specified criteria
+# alias[trigger:any_defender] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
+#
+# ## push_scope = country
+# ###Checks if any attackers in the war meet the specified criteria
+# alias[trigger:any_attacker] = {
+# 	alias_name[trigger] = alias_match_left[trigger]
+# }
 
 ## push_scope = country
 ###Checks if X defenders in the war meet the specified criteria
