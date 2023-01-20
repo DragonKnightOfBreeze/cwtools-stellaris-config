@@ -1,304 +1,373 @@
 links = {
+	### Scopes from an object to the owner of the space it is in. Works on all objects visible in star system view.
 	space_owner = {
-		input_scopes = { Ship Fleet System Planet Megastructure Starbase Country archaeological_site first_contact spy_network debris }
-		output_scope = Country
+		input_scopes = { megastructure planet country ship fleet galactic_object army ambient_object starbase archaeological_site spy_network debris }
+		output_scope = country
 	}
+	### Scopes from a country to its overlord.
 	overlord = {
-		input_scopes = { Country }
-		output_scope = Country
+		input_scopes = { country }
+		output_scope = country
 	}
-	defender = {
-		input_scopes = { War }
-		output_scope = Country
-	}
+	### Scopes from a war to its main attacker.
 	attacker = {
-		input_scopes = { War }
-		output_scope = Country
+		input_scopes = { war }
+		output_scope = country
 	}
+	### Scopes from a war to its main defender.
+	defender = {
+		input_scopes = { war }
+		output_scope = country
+	}
+	### Scopes to the owner of the current object. Works on any object that could be construed as being owned by a country (incl. planets, ships, fleets, leaders, pops, solar systems, pop factions, megastructures, first contacts, spy networks, espionage operations, armies, starbases, deposits, sectors, arc sites)
 	owner = {
 		input_scopes = {
-			Species Ship Pop Fleet Planet PopFaction Sector Leader Country Starbase System first_contact Megastructure Army
-			Deposit archaeological_site spy_network espionage_operation situation agreement debris
+			megastructure planet country ship pop fleet galactic_object leader army pop_faction starbase deposit
+			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris
 		}
-		output_scope = Country
+		output_scope = country
 	}
+	### Scopes from a planet (or starbase) to the empire controlling it (not necessarily the owner: a country occupying a planet is its controller).
 	controller = {
-		input_scopes = { Planet Starbase Fleet Ship debris }
-		output_scope = Country
+		input_scopes = { planet ship fleet starbase debris }
+		output_scope = country
 	}
+	### Scopes from an object to the owner of the planet it is on. Works from army, megastructure, deposit and arc site scopes.
 	planet_owner = {
-		input_scopes = { Planet Army Megastructure Deposit archaeological_site }
-		output_scope = Country
+		input_scopes = { megastructure planet pop army starbase deposit archaeological_site }
+		output_scope = country
 	}
+	### Scopes to the last country that was created anywhere in the game.
 	last_created_country = {
 		input_scopes = { all }
-		output_scope = Country
+		output_scope = country
 	}
+	### Scopes to the last country from which a pop fled to escape purge (via on_pop_displaced).
 	last_refugee_country = {
 		input_scopes = { all }
-		output_scope = Country
+		output_scope = country
 	}
+	### Scopes from an object to its leader, e.g. country->ruler, fleet->admiral/scientist, sector->governor, army->general, arc site->scientist...
 	leader = {
-		input_scopes = { Ship Planet Country PopFaction Fleet Sector Army first_contact archaeological_site spy_network espionage_operation }
-		output_scope = Leader
+		input_scopes = { country ship fleet leader army pop_faction federation sector archaeological_site first_contact spy_network espionage_operation }
+		output_scope = leader
 	}
+	### Scopes to the last leader that was created anywhere in the game.
 	last_created_leader = {
 		input_scopes = { all }
-		output_scope = Leader
+		output_scope = leader
 	}
+	### Scopes from an object to the solar system it is in. Works on all objects visible in star system view.
 	solar_system = {
 		input_scopes = { #matches celestial_coordinate scope_group
-			planet ship fleet system ambient_object megastructure starbase archaeological_site first_contact
-			deposit pop army country leader debris
+			megastructure planet country ship pop fleet galactic_object leader army ambient_object starbase deposit
+			archaeological_site first_contact debris
 		}
-		output_scope = System
+		output_scope = galactic_object
 	}
+	### Scopes to the last fleet that was created anywhere in the game.
 	last_created_system = {
 		input_scopes = { all }
-		output_scope = System
+		output_scope = galactic_object
 	}
+	### Scopes from an object to the planet it is on. Works from army, megastructure, deposit and arc site scopes.
 	planet = {
-		input_scopes = { Pop Planet System Army Megastructure Deposit archaeological_site Starbase }
-		output_scope = Planet
+		input_scopes = { megastructure planet pop army starbase deposit archaeological_site }
+		output_scope = planet
 	}
+	### Scopes from an empire to its capital planet.
 	capital_scope = {
-		input_scopes = { Country Sector }
-		output_scope = Planet
+		input_scopes = { country }
+		output_scope = planet
 	}
+	### Scopes to the planet the current object is in orbit of. Works on ships, fleets, starbases, armies (when in military transports) and moons (scopes to the planet that a moon orbits).
 	orbit = {
-		input_scopes = { Fleet Ship Megastructure Army Planet Starbase }
-		output_scope = Planet
+		input_scopes = { planet ship fleet army starbase }
+		output_scope = planet
 	}
+	### Scopes to a species' home planet (also works from country, pop and leader; scopes to that object's species's home planet).
 	home_planet = {
-		input_scopes = { Country Species Pop Leader }
-		output_scope = Planet
+		input_scopes = { country pop leader species }
+		output_scope = planet
 	}
+	### Scopes to the last ship that was created anywhere in the game.
 	last_created_ship = {
 		input_scopes = { all }
-		output_scope = Ship
+		output_scope = ship
 	}
+	### Scopes from a planet to the mining station in orbit of it.
 	mining_station = {
-		input_scopes = { Planet }
-		output_scope = Fleet
+		input_scopes = { planet }
+		output_scope = fleet
 	}
+	### Scopes from a planet to the research station in orbit of it.
 	research_station = {
-		input_scopes = { Planet }
-		output_scope = Fleet
+		input_scopes = { planet }
+		output_scope = fleet
 	}
+	### Scopes to the last fleet that was created anywhere in the game.
 	last_created_fleet = {
 		input_scopes = { all }
-		output_scope = Fleet
+		output_scope = fleet
 	}
+	### Scopes from a ship, starbase or leader to its fleet, or from an army to the fleet its army transport is part of.
 	fleet = {
-		input_scopes = { Ship Starbase Leader Army Fleet }
-		output_scope = Fleet
+		input_scopes = { ship fleet leader army starbase }
+		output_scope = fleet
 	}
+	### Scopes from an arc site to the fleet whose leader is currently investigating it.
 	excavator_fleet = {
 		input_scopes = { archaeological_site }
-		output_scope = Fleet
+		output_scope = fleet
 	}
+	### Scopes from an army to the pop that spawned it.
 	pop = {
-		input_scopes = { Pop Army }
-		output_scope = Pop
+		input_scopes = { pop army }
+		output_scope = pop
 	}
+	### Scopes from a country or planet to its unhappiest pop.
 	unhappiest_pop = {
-		input_scopes = { Planet Country }
-		output_scope = Pop
+		input_scopes = { planet country }
+		output_scope = pop
 	}
+	### Scopes to the last pop that was created anywhere in the game.
 	last_created_pop = {
 		input_scopes = { all }
-		output_scope = Pop
+		output_scope = pop
 	}
+	### Scopes to the last ambient object that was created anywhere in the game.
 	last_created_ambient_object = {
 		input_scopes = { all }
-		output_scope = AmbientObject
+		output_scope = ambient_object
 	}
+	### Scopes to the last army that was created anywhere in the game.
 	last_created_army = {
 		input_scopes = { all }
-		output_scope = Army
+		output_scope = army
 	}
+	### Scopes to the main species of the owner of the current object. Works in every scope that 'owner' would work in.
 	owner_species = {
 		input_scopes = { #matches owner
-			Species Ship Pop Fleet Planet PopFaction Sector Leader Country Starbase System first_contact Megastructure Army
-			Deposit archaeological_site spy_network espionage_operation situation agreement debris
+			megastructure planet country ship pop fleet galactic_object leader army species pop_faction starbase deposit
+			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris
 		}
-		output_scope = Species
+		output_scope = species
 	}
+	### Scopes to the main species of the owner of the current object. Works in every scope that 'owner' would work in.
 	owner_main_species = {
 		input_scopes = { #matches owner
-			Species Ship Pop Fleet Planet PopFaction Sector Leader Country Starbase System first_contact Megastructure Army
-			Deposit archaeological_site spy_network espionage_operation situation agreement debris
+			megastructure planet country ship pop fleet galactic_object leader army species pop_faction starbase deposit
+			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris
 		}
-		output_scope = Species
+		output_scope = species
 	}
+	### Scopes to the last species that was created anywhere in the game.
 	last_created_species = {
 		input_scopes = { all }
-		output_scope = Species
+		output_scope = species
 	}
+	### Scopes from a country to its built species.
 	built_species = {
-		input_scopes = { Country }
-		output_scope = Species
+		input_scopes = { country }
+		output_scope = species
 	}
+	### Scopes from a country, leader, pop, army or (colonist) ship to its species.
 	species = {
-		input_scopes = { Country Ship Leader Pop Army Species }
-		output_scope = Species
+		input_scopes = { country ship pop leader army species }
+		output_scope = species
 	}
+	### Scopes from a pop or leader to its pop faction.
 	pop_faction = {
-		input_scopes = { Pop Leader PopFaction }
-		output_scope = PopFaction
+		input_scopes = { pop leader pop_faction }
+		output_scope = pop_faction
 	}
+	### Scopes to the last pop faction that was created anywhere in the game.
 	last_created_pop_faction = {
 		input_scopes = { all }
-		output_scope = PopFaction
+		output_scope = pop_faction
 	}
+	# TODO check whether it exists in scopes.log
 	default_pop_faction = {
 		input_scopes = { pop }
-		output_scope = PopFaction
+		output_scope = pop_faction
 	}
+	### Scopes from an object to the sector it is in. Works on all objects visible objects visible in star system view, plus star systems themselves and leaders (scopes to the sector the leader is currently located in, not necessarily the one they are assigned to as a governor).
 	sector = {
 		input_scopes = {
-			Planet System Leader Ship Fleet ambient_object Megastructure Starbase archaeological_site first_contact
-			system sector pop army deposit debris
+			megastructure planet ship pop fleet galactic_object leader army ambient_object starbase deposit
+			sector archaeological_site first_contact debris
 		}
-		output_scope = Sector
+		output_scope = sector
 	}
+	# TODO check whether it exists in scopes.log
 	core_sector = {
-		input_scopes = { Country }
-		output_scope = Sector
+		input_scopes = { country }
+		output_scope = sector
 	}
+	### Scopes to the ruler of a country (or the ruler of the object's owner).
 	ruler = {
 		input_scopes = { #matches owner
-			Species Ship Pop Fleet Planet PopFaction Sector Leader Country Starbase System first_contact Megastructure Army
-			Deposit archaeological_site spy_network espionage_operation situation agreement debris
+			megastructure planet country ship pop fleet galactic_object leader army pop_faction starbase deposit
+			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris
 		}
-		output_scope = Leader
+		output_scope = leader
 	}
+	### Scopes to the heir of a country (or the heir of the object's owner).
 	heir = {
 		input_scopes = { #matches owner
-			Species Ship Pop Fleet Planet PopFaction Sector Leader Country Starbase System first_contact Megastructure Army
-			Deposit archaeological_site spy_network espionage_operation situation agreement debris
+			megastructure planet country ship pop fleet galactic_object leader army pop_faction starbase deposit sector archaeological_site first_contact spy_network espionage_operation agreement situation debris
 		}
-		output_scope = Leader
+		output_scope = leader
 	}
+	### Scopes from an object to the primary star (planet scope) of the system it is in. Works on all objects visible in star system view.
 	star = {
-		input_scopes = { Planet Ship Fleet System ambient_object Megastructure Starbase archaeological_site first_contact debris }
-		output_scope = Planet
+		input_scopes = { megastructure planet ship fleet galactic_object ambient_object starbase archaeological_site first_contact debris }
+		output_scope = planet
 	}
+	### Scopes to the last created ship design
 	last_created_design = {
 		input_scopes = { all }
-		output_scope = Design
+		output_scope = design
 	}
+	### Scopes from a solar system or planet to that system's starbase. Alternatively, scopes from a fleet or ship that is a starbase to its matching starbase scope.
 	starbase = {
-		input_scopes = { System Planet Ship Fleet Starbase }
-		output_scope = Starbase
+		input_scopes = { planet ship fleet galactic_object starbase }
+		output_scope = starbase
 	}
+	### Scopes from an empire to the primary star (planet scope) of its capital's system.
 	capital_star = {
-		input_scopes = { Country }
-		output_scope = Planet
+		input_scopes = { country }
+		output_scope = planet
 	}
+	### Sets the scope to no scope (empty scope used for certain generalized behavior).
 	no_scope = {
 		input_scopes = { all }
-		output_scope = Any
+		output_scope = no_scope
 	}
+	# TODO check whether it exists in scopes.log
 	megastructure = {
 		input_scopes = { all }
 		output_scope = Megastructure
 	}
+	### Scopes from an object to the primary star (planet scope) of the system it is in. Works on all objects visible in star system view.
 	system_star = {
 		input_scopes = { #matches celestial_coordinate scope_group
-			planet ship fleet system ambient_object megastructure starbase archaeological_site first_contact
-			deposit pop army country leader debris
+			megastructure planet country ship pop fleet galactic_object leader army ambient_object starbase deposit
+			archaeological_site first_contact debris
 		}
 		output_scope = Planet
 	}
+	### Scopes from a planet to the owner of the observation outpost in orbit of it.
 	observation_outpost_owner = {
 		input_scopes = { planet }
-		output_scope = Country
+		output_scope = country
 	}
+	### Scopes from a planet to the observation outpost in orbit of it.
 	observation_outpost = {
 		input_scopes = { planet }
 		output_scope = fleet
 	}
+	### Scopes from a planet to the owner of a branch office.
 	branch_office_owner = {
-		input_scopes = { Planet }
-		output_scope = Country
+		input_scopes = { planet }
+		output_scope = country
 	}
+	### Scopes from an object (e.g. planet) in star system view to the arc site in the same location.
 	archaeological_site = {
-		input_scopes = { planet ship fleet ambient_object megastructure starbase system archaeological_site debris }
+		input_scopes = { megastructure planet ship fleet galactic_object ambient_object starbase archaeological_site debris }
 		output_scope = archaeological_site
 	}
+	### Scopes from a country to the federation it is a member of.
 	alliance = {
-		input_scopes = { Country }
+		input_scopes = { country }
 		output_scope = federation
 	}
+	### Scopes from a country to the federation it is a member of.
 	federation = {
 		input_scopes = { country }
 		output_scope = federation
 	}
+	### Scopes from a federation to the empire leading it.
 	federation_leader = {
 		input_scopes = { federation }
 		output_scope = country
 	}
+	### Scopes from a country to the federation it is an associate of.
 	associated_federation = {
 		input_scopes = { country }
 		output_scope = federation
 	}
+	### Scopes to the last deposit added to the current planet
 	last_added_deposit = {
 		input_scopes = { planet }
 		output_scope = deposit
 	}
+	### Scopes from an envoy to the empire it is appointed to.
 	envoy_location_country = {
 		input_scopes = { leader }
 		output_scope = country
 	}
+	### Scopes from a sector to its capital planet.
 	sector_capital = {
 		input_scopes = { sector }
 		output_scope = planet
 	}
+	### Scopes from a planet to the station (mining station, research station, observation outpost) orbiting it.
 	orbital_station = {
 		input_scopes = { planet }
 		output_scope = fleet
 	}
+	### Scopes from a first contact site to the country that the owner of the site is seeking to establish communications with.
 	contact_country = {
 		input_scopes = { first_contact }
 		output_scope = country
 	}
+	### Scopes from a first contact site to the equivalent one that the contact_country has on the site's owner.
 	reverse_first_contact = {
 		input_scopes = { first_contact }
 		output_scope = first_contact
 	}
+	### Scopes from an espionage operation or spymaster envoy to its spy network.
 	spynetwork = {
-		input_scopes = { espionage_operation }
+		input_scopes = { leader espionage_operation }
 		output_scope = spy_network
 	}
+	### Scopes from a spy network to its target country, or from an espionage operation to its target (can be various objects, as set in common/espionage_operation_types).
 	target = {
-		input_scopes = { espionage_operation spy_network situation agreement }
+		input_scopes = { spy_network espionage_operation agreement situation }
 		output_scope = any
 	}
+	### Scopes from a planet to the species currently growing (not assembling) on it.
 	growing_species = {
 		input_scopes = { planet }
 		output_scope = species
 	}
+	### Scopes from a planet to the species currently being assembled on it.
 	assembling_species = {
 		input_scopes = { planet }
 		output_scope = species
 	}
+	### Scopes from a planet to the species currently declining on it.
 	declining_species = {
 		input_scopes = { planet }
 		output_scope = species
 	}
+	### Scopes to the ruling empire of the Galactic Imperium.
 	galactic_emperor = {
 		input_scopes = { all }
 		output_scope = country
 	}
+	### Scopes to the Custodian empire of the Galactic Community.
 	galactic_custodian = {
 		input_scopes = { all }
 		output_scope = country
 	}
+	### Scopes from a planet to the orbital defence station (orbital ring, starbase) orbiting the planet
 	orbital_defence = {
 		input_scopes = { planet }
 		output_scope = fleet
 	}
+
 	script_value = {
 		from_data = yes
 		type = value
