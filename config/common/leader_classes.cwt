@@ -1,0 +1,25 @@
+types = {
+	type[leader_class] = {
+		path = "game/common/leader_classes"
+		localisation = {
+			## required
+			name = "$"
+		}
+	}
+}
+
+leader_class = {
+	can_lead_navy = bool
+	can_lead_army = bool
+	can_research = bool
+	can_govern_planet = bool
+	can_rule_empire = bool
+	can_be_envoy = bool
+	max_trait_points = int[0..inf]
+	can_have_traits = bool
+	resources = {
+		<resource> = float
+	}
+	default_category = <leader_class>
+	assignment_cooldown = int[0..inf]
+}
