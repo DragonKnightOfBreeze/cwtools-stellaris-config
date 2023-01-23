@@ -70,9 +70,18 @@ types = {
 	}
 	type[species_archetype] = {
 		path = "game/common/species_archetypes"
-	}
-	type[species_archetype] = {
-		path = "game/common/species_archetypes"
+		subtype[not_robotic] = {
+			## cardinality = 0..1
+			robotic = no
+		}
+		subtype[robotic] = {
+			## cardinality = 1..1
+			robotic = yes
+		}
+		subtype[use_modifiers] = {
+			## cardinality = 0..1
+			uses_modifiers = yes
+		}
 	}
 	type[citizenship_type] = {
 		path = "game/common/species_rights/citizenship_types"
@@ -729,7 +738,7 @@ purge_type = {
 			key = <resolution>
 		}
 	}
-	
+
 	pop_escape_chance = float
 	### Divide by 100 for monthy reduction, overrides BASE_POP_DECLINE
 	pop_decline_rate = float
@@ -803,7 +812,7 @@ slavery_type = {
 	## cardinality 0..1
 	### otherwise, AI will not colonise with enslaved species
 	ai_can_colonize = yes
-	
+
 	## cardinality = 0..1
 	## replace_scope = { this = army root = army }
 	modifier = {
