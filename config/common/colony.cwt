@@ -16,38 +16,12 @@ types = {
 		path = "game/common/colony_automation"
 		path_strict = yes
 	}
+	type[colony_automation_category] = {
+		path = "game/common/colony_automation_categories"
+	}
 	type[colony_automation_exception] = {
-		path = "game/common/colony_automation_exception"
+		path = "game/common/colony_automation_exceptions"
 	}
-}
-
-## push_scope = planet
-colony_automation = {
-	# this is a scalar rather than an enum, because the category strings themselves are defined in 00_defines.txt
-	category = scalar
-
-	available = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-
-	## cardinality = 0..1
-	prio_districts = {
-		## cardinality = 0..inf
-		<district>
-	}
-
-	buildings = {
-		## cardinality = 1..inf
-		int[1..inf] = {
-			building = <building>
-			## cardinality = 0..1
-			available = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
-
-		}
-	}
-
 }
 
 colony_type = {
@@ -95,5 +69,87 @@ colony_type = {
 	weight_modifier = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
+}
 
+## push_scope = planet
+colony_automation = {
+	category = <colony_automation_category>
+
+	available = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	## cardinality = 0..1
+	prio_districts = {
+		## cardinality = 0..inf
+		<district>
+	}
+
+	buildings = {
+		## cardinality = 1..inf
+		int[1..inf] = {
+			building = <building>
+			## cardinality = 0..1
+			available = {
+				alias_name[trigger] = alias_match_left[trigger]
+			}
+		}
+	}
+}
+
+## push_scope = planet
+colony_automation_category = {
+	## cardinality = 0..1
+	available = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+}
+
+## push_scope = planet
+colony_automation_exception = {
+	category = <colony_automation_category>
+	### default: no
+	## cardinality = 0..1
+	emergency = bool
+	### default: no
+	## cardinality = 0..1
+	empire_wide_emergency = bool
+
+	available = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	## cardinality = 0..1
+	prio_districts = {
+		## cardinality = 0..inf
+		<district>
+	}
+
+	## cardinality = 0..1
+	buildings = {
+		## cardinality = 1..inf
+		scalar = {
+			building = <building>
+			## cardinality = 0..1
+			available = {
+				alias_name[trigger] = alias_match_left[trigger]
+			}
+			## cardinality = 0..1
+			upgrade_trigger = {
+				alias_name[trigger] = alias_match_left[trigger]
+			}
+		}
+	}
+
+	## cardinality = 0..1
+	job_changes = {
+		scalar = {
+			## cardinality = 0..1
+			available = {
+				alias_name[trigger] = alias_match_left[trigger]
+			}
+			job = <job>
+			amount = int
+		}
+	}
 }
