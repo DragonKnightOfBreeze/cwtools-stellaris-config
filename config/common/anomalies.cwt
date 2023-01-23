@@ -1,0 +1,94 @@
+types = {
+	## graph_related_types = { event special_project }
+	type[anomaly_category] = {
+		path = "game/common/anomalies"
+		localisation = {
+			## required
+			Name = "$"
+			## required
+			Desc = "$_desc"
+			## required
+			Desc = "#desc" # localisation
+		}
+		images = {
+			## primary
+			picture = "#picture" # <sprite>
+		}
+	}
+}
+
+anomaly_category = {
+	### Yes makes the anomaly exclusively used by the AI, no by the player. Default: no
+	## cardinality = 0..1
+	should_ai_use = bool
+
+	### If yes, both AI and human empires can use this anomaly (overrides should_ai_use)
+	## cardinality = 0..1
+	should_ai_and_humans_use = bool
+
+	### Optional, if no desc is given "<category key>_desc" is assumed
+	## cardinality = 0..1
+	desc = localisation
+	### Can also use triggered descs. First valid entry will be used.
+	## cardinality = 0..inf
+	## replace_scope = { root = planet this = planet from = ship }
+	desc = {
+		### Scope: planet, from = ship
+		trigger = { alias_name[trigger] = alias_match_left[trigger] }
+		### Localization key for description
+		text = localisation
+	}
+
+	### Picture displayed in category window
+	## cardinality = 0..1
+	picture = <sprite>
+
+	### Anomaly level, 1 to 10
+	level = int[1..10]
+
+	### Default 0. 0.0 - 1.0 (0 to 100%) chance category will NOT spawn even if it is picked by the anomaly die roll. Used to make categories for unusual objects (e.g. black holes) actually rare.
+	## cardinality = 0..1
+	null_spawn_chance = float[0.0...1.0]
+
+	### default NO, if true will spawn category only once per empire
+	## cardinality = 0..1
+	max_once = bool
+
+	### default NO, if true will spawn category only once per game
+	## cardinality = 0..1
+	max_once_global = bool
+
+	### Chance for this anomaly category to spawn, relative to other valid categories. Default: base = 0. Scope: planet, from = ship
+	## cardinality = 0..1
+	## replace_scope = { root = planet this = planet from = ship }
+	spawn_chance = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	### Executes immediately when anomaly category is spawned. Scopes are this/root: planet, from: ship. NOTE: on_spawn effects will not run if category is spawned through console
+	## cardinality = 0..1
+	## replace_scope = { root = planet this = planet from = ship }
+	on_spawn = { alias_name[effect] = alias_match_left[effect] }
+
+	### Shorthand for on_success = { 1 = { anomaly_event = <event id> } }
+	### Only use if there is only one outcome in the category
+	on_success = <event.ship>
+	### Picks anomaly event to fire; similar to random_list
+	on_success = {
+		## cardinality = 0..100
+		int = <event.ship>
+		## cardinality = 0..100
+		int = {
+			### Individual outcomes default to max_once = yes
+			## cardinality = 0..1
+			max_once = bool
+			### Individual outcomes default to max_once_global = no
+			## cardinality = 0..1
+			max_once_global = bool
+
+			alias_name[modifier_rule] = alias_match_left[modifier_rule]
+
+			anomaly_event = <event.ship>
+		}
+	}
+}

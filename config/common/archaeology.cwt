@@ -1,0 +1,167 @@
+types = {
+	type[archaeological_site_type] = {
+		path = "game/common/archaeological_site_types"
+		localisation = {
+			## required
+			Name = "$"
+			## required
+			Desc = "#desc"
+		}
+		images = {
+			## primary
+			picture = "#picture" # <sprite>
+		}
+	}
+	type[relic] = {
+		path = "game/common/relics"
+		localisation = {
+			## required
+			Name = "$"
+			## required
+			Desc = "$_desc"
+		}
+		images = {
+			## primary
+			portrait = "portrait" # <sprite>
+		}
+	}
+	type[artifact_action] = {
+		path = "game/common/artifact_actions"
+		localisation = {
+			## required
+			Name = "$"
+			## required
+			Desc = "$_desc"
+		}
+	}
+}
+
+## push_scope = archaeological_site
+archaeological_site_type = {
+	## cardinality = 0..1
+	picture = <sprite>
+	## cardinality = 0..1
+	desc = localisation
+	## cardinality = 0..inf
+	desc = {
+		## replace_scope = { this = archaeological_site root = archaeological_site }
+		trigger = {
+			alias_name[trigger] = alias_match_left[trigger]
+		}
+		text = localisation
+	}
+	## cardinality = 0..1
+	max_instances = int[1..inf]
+	## cardinality = 0..1
+	## replace_scope = { root = planet this = planet }
+	weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+	## cardinality = 0..1
+	weight = int
+	stages = int[1..inf]
+
+	## cardinality = 0..1
+	## replace_scope = { root = fleet this = fleet from = archaeological_site }
+	potential = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	## replace_scope = { root = fleet this = fleet from = archaeological_site }
+	allow = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	## replace_scope = { root = country this = country from = archaeological_site }
+	visible = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	## cardinality = 0..inf
+	stage = {
+		difficulty = int[-inf..inf]
+		difficulty = {
+			min = int[-inf..inf]
+			max = int[-inf..inf]
+		}
+		icon = <sprite>
+		event = <event.fleet>
+	}
+
+	## replace_scope = { root = fleet this = fleet from = archaeological_site }
+	on_roll_failed = {
+		alias_name[effect] = alias_match_left[effect]
+	}
+
+	## cardinality = 0..1
+	## replace_scope = { root = archaeological_site this = archaeological_site }
+	on_create = {
+		alias_name[effect] = alias_match_left[effect]
+	}
+
+	## cardinality = 0..1
+	## replace_scope = { root = country this = country from = archaeological_site }
+	on_visible = {
+		alias_name[effect] = alias_match_left[effect]
+	}
+}
+
+relic = {
+	activation_duration = int[0..inf]
+	portrait = <sprite>
+	sound = <sound_effect>
+
+	resources = {
+		category = <economic_category>
+		alias_name[economic_template] = alias_match_left[economic_template]
+	}
+
+
+	## cardinality = 0..1
+	ai_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	alias_name[triggered_country_modifier_country] = alias_match_left[triggered_country_modifier_country]
+
+	score = int[0..inf]
+
+	## replace_scope = { root = country this = country }
+	active_effect = {
+		alias_name[effect] = alias_match_left[effect]
+	}
+
+	### Possible check for activation
+	## replace_scope = { root = country this = country }
+	possible = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+}
+
+## push_scope = country
+artifact_action = {
+	## cardinality = 0..1
+	resources = {
+		category = <economic_category>
+		alias_name[economic_template] = alias_match_left[economic_template]
+	}
+
+	## cardinality = 0..1
+	ai_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	potential = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	## cardinality = 0..1
+	effect = {
+		alias_name[effect] = alias_match_left[effect]
+	}
+
+	## cardinality = 0..1
+	allow = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+}
