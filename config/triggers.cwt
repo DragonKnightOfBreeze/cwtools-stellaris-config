@@ -514,7 +514,7 @@ alias[trigger:num_ethics] == int_value_field
 alias[trigger:is_ship_size] = <ship_size>
 
 ###Checks if the ship/fleet/design is a specific class
-alias[trigger:is_ship_class] = enum[shipsize_classes]
+alias[trigger:is_ship_class] = enum[ship_class]
 
 ###Checks the scientist's field of research
 alias[trigger:is_researching_area] = enum[research_areas]
@@ -762,7 +762,7 @@ alias[trigger:has_deposit] = bool
 alias[trigger:has_deposit] = <deposit>
 
 ###Checks if the planet has a deposit for a specific ship class
-alias[trigger:has_deposit_for] = enum[shipsize_classes]
+alias[trigger:has_deposit_for] = enum[ship_class]
 
 ###Checks if the country has claims on the given country or system.
 alias[trigger:has_claim] = scope_group[target_country]
