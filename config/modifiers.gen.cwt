@@ -359,6 +359,13 @@ modifiers = {
 	habitability_floor_mult = { Habitability }
 	habitability_ceil_add = { Habitability }
 	habitability_ceil_mult = { Habitability }
+	# region ship_class modifiers
+	# enum[ship_class]_build_cost_mult = { Planets Megastructures Starbases }
+	# enum[ship_class]_build_speed_mult = { Planets Megastructures Starbases }
+	# enum[ship_class]_hull_mult = { Ships }
+	# enum[ship_class]_damage_mult = { Ships }
+	# enum[ship_class]_evasion_add = { Ships }
+	# enum[ship_class]_disengage_mult = { Ships }
 	shipclass_military_build_cost_mult = { Planets Megastructures Starbases }
 	shipclass_military_build_speed_mult = { Planets Megastructures Starbases }
 	shipclass_military_hull_mult = { Ships }
@@ -425,6 +432,11 @@ modifiers = {
 	shipclass_military_special_damage_mult = { Ships }
 	shipclass_military_special_evasion_add = { Ships }
 	shipclass_military_special_disengage_mult = { Ships }
+	# endregion
+	# region weapon_type modifiers
+	# weapon_type_enum[component_tags]_weapon_damage_mult = { Ships }
+	# weapon_type_enum[component_tags]_weapon_fire_rate_mult = { Ships }
+	# weapon_type_enum[component_tags]_speed_mult = { Ships }
 	weapon_type_energy_weapon_damage_mult = { Ships }
 	weapon_type_energy_weapon_fire_rate_mult = { Ships }
 	weapon_type_energy_speed_mult = { Ships }
@@ -482,6 +494,9 @@ modifiers = {
 	energy_torpedoes_weapon_damage_mult = { Ships }
 	energy_torpedoes_weapon_fire_rate_mult = { Ships }
 	energy_torpedoes_speed_mult = { Ships }
+	# endregion
+	# region country_resource_max modifiers
+	# country_resource_max_<resource>_add = { Countries }
 	country_resource_max_time_add = { Countries }
 	country_resource_max_energy_add = { Countries }
 	country_resource_max_minerals_add = { Countries }
@@ -502,6 +517,15 @@ modifiers = {
 	country_resource_max_nanites_add = { Countries }
 	country_resource_max_minor_artifacts_add = { Countries }
 	country_resource_max_menace_add = { Countries }
+	# endregion
+	# region espionage_category modifiers
+	# <espionage_category>_speed_mult = { Espionage }
+	# <espionage_category>_difficulty_add = { Espionage }
+	# <espionage_category>_difficulty_mult = { Espionage }
+	# hostile_<espionage_category>_difficulty_add = { Espionage }
+	# hostile_<espionage_category>_difficulty_mult = { Espionage }
+	# <espionage_category>_skill_add = { Espionage }
+	# <espionage_category>_skill_mult = { Espionage }
 	op_cat_manipulation_speed_mult = { Espionage }
 	op_cat_manipulation_difficulty_add = { Espionage }
 	op_cat_manipulation_difficulty_mult = { Espionage }
@@ -565,6 +589,9 @@ modifiers = {
 	hostile_op_cat_military_difficulty_mult = { Espionage }
 	op_cat_military_skill_add = { Espionage }
 	op_cat_military_skill_mult = { Espionage }
+	# endregion
+	# region economic_category modifiers
+	# <economic_category>_<resource>_enum[economic_modifier_categories]_enum[economic_modifier_types] = { "(based on modifier_category)" "AI Economy" }
 	country_time_cost_mult = { "Economic Units" "AI Economy" }
 	country_time_produces_mult = { "Economic Units" "AI Economy" }
 	country_energy_cost_mult = { "Economic Units" "AI Economy" }
@@ -3617,6 +3644,8 @@ modifiers = {
 	monthly_trades_nanites_produces_add = { Countries "AI Economy" }
 	monthly_trades_minor_artifacts_produces_add = { Countries "AI Economy" }
 	monthly_trades_menace_produces_add = { Countries "AI Economy" }
+	# region economic_category modifiers: operations
+	# operations_<resource>_enum[economic_modifier_categories]_enum[economic_modifier_types] = { Countries "AI Economy" }
 	operations_time_cost_mult = { Espionage "AI Economy" }
 	operations_time_upkeep_mult = { Espionage "AI Economy" }
 	operations_energy_cost_mult = { Espionage "AI Economy" }
@@ -3659,6 +3688,9 @@ modifiers = {
 	operations_menace_upkeep_mult = { Espionage "AI Economy" }
 	operations_cost_mult = { Espionage "AI Economy" }
 	operations_upkeep_mult = { Espionage "AI Economy" }
+	# endregion
+	# region economic_category modifiers: country_situations
+	# country_situations_<resource>_[produces/cost/upkeep]_[add/mult] = { Countries "AI Economy" }
 	country_situations_time_produces_add = { Countries "AI Economy" }
 	country_situations_energy_produces_add = { Countries "AI Economy" }
 	country_situations_minerals_produces_add = { Countries "AI Economy" }
@@ -3679,6 +3711,15 @@ modifiers = {
 	country_situations_nanites_produces_add = { Countries "AI Economy" }
 	country_situations_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_situations_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# endregion
+	# region ship_size modifiers
+	# shipsize_<ship_shze>_build_speed_mult = { Planets Megastructures Starbases }
+	# shipsize_<ship_shze>_hull_mult = { Ships }
+	# shipsize_<ship_shze>_hull_add = { Ships }
+	# shipsize_<ship_shze>_evasion_mult = { Ships }
+	# shipsize_<ship_shze>_disengage_chance_mult = { Ships }
+	# shipsize_<ship_shze>_tracking_mult = { Ships }
 	shipsize_orbital_ring_tier_1_build_speed_mult = { Planets Megastructures Starbases }
 	shipsize_orbital_ring_tier_1_hull_mult = { Ships }
 	shipsize_orbital_ring_tier_1_hull_add = { Ships }
@@ -4933,6 +4974,9 @@ modifiers = {
 	shipsize_reanimated_space_whale_4_evasion_mult = { Ships }
 	shipsize_reanimated_space_whale_4_disengage_chance_mult = { Ships }
 	shipsize_reanimated_space_whale_4_tracking_mult = { Ships }
+	# endregion
+	# region damage_vs_country_type modifiers
+	# damage_vs_country_type_<country_type>_mult = { Ships }
 	damage_vs_country_type_default_mult = { Ships }
 	damage_vs_country_type_global_event_mult = { Ships }
 	damage_vs_country_type_faction_mult = { Ships }
@@ -5002,6 +5046,14 @@ modifiers = {
 	damage_vs_country_type_guardian_hatchling_mult = { Ships }
 	damage_vs_country_type_caravaneer_home_mult = { Ships }
 	damage_vs_country_type_caravaneer_fleet_mult = { Ships }
+	# endregion
+	# region species_archetype modifiers
+	# <species_archetype.use_modifiers>_species_trait_points_add = { Countries }
+	# <species_archetype.use_modifiers>_species_trait_picks_add = { Countries }
+	# <species_archetype.use_modifiers>_pop_happiness = { Pops } # all lowercase
+	# <species_archetype.not_robotic.use_modifiers>_pop_growth_from_immigration = { Planets }
+	# <species_archetype.not_robotic.use_modifiers>_pop_growth_speed = { Planets }
+	# <species_archetype.not_robotic.use_modifiers>_pop_growth_speed_reduction = { Planets }
 	BIOLOGICAL_species_trait_points_add = { Countries }
 	BIOLOGICAL_species_trait_picks_add = { Countries }
 	biological_pop_happiness = { Pops }
@@ -5020,6 +5072,9 @@ modifiers = {
 	LITHOID_pop_growth_from_immigration = { Planets }
 	LITHOID_pop_growth_speed = { Planets }
 	LITHOID_pop_growth_speed_reduction = { Planets }
+	# endregion
+	# region ethic modifiers
+	# pop_ethic_<ethic>_attraction_mult = { Pops }
 	pop_ethic_fanatic_authoritarian_attraction_mult = { Pops }
 	pop_ethic_authoritarian_attraction_mult = { Pops }
 	pop_ethic_fanatic_egalitarian_attraction_mult = { Pops }
@@ -5037,6 +5092,9 @@ modifiers = {
 	pop_ethic_fanatic_materialist_attraction_mult = { Pops }
 	pop_ethic_materialist_attraction_mult = { Pops }
 	pop_ethic_gestalt_consciousness_attraction_mult = { Pops }
+	# endregion
+	# region planet_class modifiers
+	# <planet_class>_habitability = { Habitability }
 	pc_desert_habitability = { Habitability }
 	pc_arid_habitability = { Habitability }
 	pc_savannah_habitability = { Habitability }
@@ -5095,6 +5153,9 @@ modifiers = {
 	pc_city_habitability = { Habitability }
 	pc_relic_habitability = { Habitability }
 	pc_shattered_2_habitability = { Habitability }
+	# endregion
+	# region technology_category modifiers
+	# category_<technology_category>_research_speed_mult = { Countries }
 	category_materials_research_speed_mult = { Countries }
 	category_propulsion_research_speed_mult = { Countries }
 	category_voidcraft_research_speed_mult = { Countries }
@@ -5107,6 +5168,11 @@ modifiers = {
 	category_statecraft_research_speed_mult = { Countries }
 	category_biology_research_speed_mult = { Countries }
 	category_military_theory_research_speed_mult = { Countries }
+	# endregion
+	# region district modifiers
+	# <district.capped>_max = { Planets }
+	# planet_<district>_build_speed_mult = { Planets }
+	# planet_<district.capped>_uncapped_build_speed_mult = { Planets }
 	district_generator_max = { Planets }
 	district_mining_max = { Planets }
 	district_farming_max = { Planets }
@@ -5144,6 +5210,11 @@ modifiers = {
 	planet_district_rw_science_build_speed_mult = { Planets }
 	planet_district_rw_farming_build_speed_mult = { Planets }
 	planet_district_rw_industrial_build_speed_mult = { Planets }
+	# endregion
+	# region bypass modifiers
+	# <bypass>_empire_windup_mult = { Countries }
+	# <bypass>_ship_windup_mult = { Ships }
+	# <bypass>_megastructure_bypass_windup_mult = { Megastructures }
 	gateway_empire_windup_mult = { Countries }
 	gateway_ship_windup_mult = { Ships }
 	gateway_megastructure_bypass_windup_mult = { Megastructures }
@@ -5167,6 +5238,9 @@ modifiers = {
 	building_crystal_mines_max = { Planets }
 	building_betharian_power_plant_max = { Planets }
 	building_xeno_zoo_max = { Planets }
+	# endregion
+	# region building modifiers
+	# planet_<building>_build_speed_mult = { Planets }
 	planet_building_colony_shelter_build_speed_mult = { Planets }
 	planet_building_capital_build_speed_mult = { Planets }
 	planet_building_major_capital_build_speed_mult = { Planets }
@@ -5398,6 +5472,10 @@ modifiers = {
 	planet_holding_toxic_bath_hive_build_speed_mult = { Planets }
 	planet_holding_toxic_bath_machine_build_speed_mult = { Planets }
 	planet_holding_knight_commandery_build_speed_mult = { Planets }
+	# endregion
+	# region pop_category modifiers
+	# pop_cat_<pop_category>_happiness = { Pops }
+	# pop_cat_<pop_category>_political_power = { Pops }
 	pop_cat_ruler_happiness = { Pops }
 	pop_cat_ruler_political_power = { Pops }
 	pop_cat_specialist_happiness = { Pops }
@@ -5430,6 +5508,11 @@ modifiers = {
 	pop_cat_xeno_ward_political_power = { Pops }
 	pop_cat_pre_sapients_happiness = { Pops }
 	pop_cat_pre_sapients_political_power = { Pops }
+	# endregion
+	# region job modifiers
+	# job_<job>_add = { Planets }
+	# job_<job>_per_pop = { Planets }
+	# job_<job>_per_crime = { Planets }
 	job_servant_add = { Planets }
 	job_servant_per_pop = { Planets }
 	job_servant_per_crime = { Planets }
@@ -5991,6 +6074,9 @@ modifiers = {
 	job_overlord_knight_drone_add = { Planets }
 	job_overlord_knight_drone_per_pop = { Planets }
 	job_overlord_knight_drone_per_crime = { Planets }
+	# endregion
+	# region resolution_category modifiers
+	# <resolution_category>_vote_strength_mult = { Countries }
 	resolution_category_commerce_vote_strength_mult = { Countries }
 	resolution_category_industry_vote_strength_mult = { Countries }
 	resolution_category_market_vote_strength_mult = { Countries }
@@ -6020,6 +6106,9 @@ modifiers = {
 	resolution_category_defenseprivatization_vote_strength_mult = { Countries }
 	resolution_category_intergalacticdirective_vote_strength_mult = { Countries }
 	resolution_category_bureaucraticsurveillance_vote_strength_mult = { Countries }
+	# endregion
+	# region anomaly_category modifiers
+	# <anomaly_category>_research_speed_mult = { Leaders }
 	crashed_ship_asteroid_category_research_speed_mult = { Leaders }
 	origin_asteroid_category_research_speed_mult = { Leaders }
 	debris_asteroid_category_research_speed_mult = { Leaders }
@@ -6276,6 +6365,13 @@ modifiers = {
 	AIANOM_MININGDEPO_CAT_research_speed_mult = { Leaders }
 	AIANOM_RESEARCHDEPO_CAT_research_speed_mult = { Leaders }
 	AIANOM_CLUE_CAT_research_speed_mult = { Leaders }
+	# endregion
+	# region espionage_operation modifiers
+	# <espionage_operation>_speed_mult = { Espionage }
+	# <espionage_operation>_difficulty_add = { Espionage }
+	# <espionage_operation>_difficulty_mult = { Espionage }
+	# hostile_<espionage_operation>_difficulty_add = { Espionage }
+	# hostile_<espionage_operation>_difficulty_mult = { Espionage }
 	operation_gather_information_speed_mult = { Espionage }
 	operation_gather_information_difficulty_add = { Espionage }
 	operation_gather_information_difficulty_mult = { Espionage }
@@ -6374,6 +6470,7 @@ modifiers = {
 	hostile_operation_consume_star_difficulty_mult = { Espionage }
 	operation_consume_star_skill_add = { Espionage }
 	operation_consume_star_skill_mult = { Espionage }
+	# endregion
 	pop_job_amenities_mult = { Pops }
 	pop_job_trade_mult = { Pops }
 	pop_lifestyle_trade_mult = { Pops }

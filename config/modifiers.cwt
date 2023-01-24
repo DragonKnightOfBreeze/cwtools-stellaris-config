@@ -1,10 +1,93 @@
 modifiers = {
-	planet_<building>_build_speed_mult = Planets
-	planet_<district>_build_speed_mult = Planets
-	pop_ethic_<ethic>_attraction_mult = Pops
-	job_<job>_add = Planets
-	job_<job>_per_pop = Planets
-	job_<job>_per_crime = Planets
-	pop_cat_<pop_category>_happiness = Pops
-	pop_cat_<pop_category>_political_power = Pops
+	# ship_class modifiers
+	enum[ship_class]_build_cost_mult = { Planets Megastructures Starbases }
+	enum[ship_class]_build_speed_mult = { Planets Megastructures Starbases }
+	enum[ship_class]_hull_mult = { Ships }
+	enum[ship_class]_damage_mult = { Ships }
+	enum[ship_class]_evasion_add = { Ships }
+	enum[ship_class]_disengage_mult = { Ships }
+
+	# weapon_type modifiers
+	weapon_type_enum[component_tags]_weapon_damage_mult = { Ships }
+	weapon_type_enum[component_tags]_weapon_fire_rate_mult = { Ships }
+	weapon_type_enum[component_tags]_speed_mult = { Ships }
+
+	# country_resource_max modifiers
+	country_resource_max_<resource>_add = { Countries }
+
+	# espionage_category modifiers
+	<espionage_category>_speed_mult = { Espionage }
+	<espionage_category>_difficulty_add = { Espionage }
+	<espionage_category>_difficulty_mult = { Espionage }
+	hostile_<espionage_category>_difficulty_add = { Espionage }
+	hostile_<espionage_category>_difficulty_mult = { Espionage }
+	<espionage_category>_skill_add = { Espionage }
+	<espionage_category>_skill_mult = { Espionage }
+
+	# economic_category modifiers
+	# actual generated modifiers and their modifier_category are based on detailed declaration
+	# <economic_category>_<resource>_enum[economic_modifier_categories]_enum[economic_modifier_types] = { "(based on modifier_category)" "AI Economy" }
+
+	# ship_size modifiers
+	shipsize_<ship_shze>_build_speed_mult = { Planets Megastructures Starbases }
+	shipsize_<ship_shze>_hull_mult = { Ships }
+	shipsize_<ship_shze>_hull_add = { Ships }
+	shipsize_<ship_shze>_evasion_mult = { Ships }
+	shipsize_<ship_shze>_disengage_chance_mult = { Ships }
+	shipsize_<ship_shze>_tracking_mult = { Ships }
+
+	# damage_vs_country_type modifiers
+	damage_vs_country_type_<country_type>_mult = { Ships }
+
+	# species_archetype modifiers
+	<species_archetype.use_modifiers>_species_trait_points_add = { Countries }
+	<species_archetype.use_modifiers>_species_trait_picks_add = { Countries }
+	<species_archetype.use_modifiers>_pop_happiness = { Pops } # all lowercase
+	<species_archetype.not_robotic.use_modifiers>_pop_growth_from_immigration = { Planets }
+	<species_archetype.not_robotic.use_modifiers>_pop_growth_speed = { Planets }
+	<species_archetype.not_robotic.use_modifiers>_pop_growth_speed_reduction = { Planets }
+
+	# ethic modifiers
+	pop_ethic_<ethic>_attraction_mult = { Pops }
+
+	# planet_class modifiers
+	<planet_class>_habitability = { Habitability }
+
+	# technology_category modifiers
+	category_<technology_category>_research_speed_mult = { Countries }
+
+	# district modifiers
+	<district.capped>_max = { Planets }
+	planet_<district>_build_speed_mult = { Planets }
+	planet_<district.capped>_uncapped_build_speed_mult = { Planets }
+
+	# bypass modifiers
+	<bypass>_empire_windup_mult = { Countries }
+	<bypass>_ship_windup_mult = { Ships }
+	<bypass>_megastructure_bypass_windup_mult = { Megastructures }
+
+	# building modifiers
+	planet_<building>_build_speed_mult = { Planets }
+
+	# pop_category modifiers
+	pop_cat_<pop_category>_happiness = { Pops }
+	pop_cat_<pop_category>_political_power = { Pops }
+
+	# job modifiers
+	job_<job>_add = { Planets }
+	job_<job>_per_pop = { Planets }
+	job_<job>_per_crime = { Planets }
+
+	# region resolution_category modifiers
+	<resolution_category>_vote_strength_mult = { Countries }
+
+	# anomaly_category modifiers
+	<anomaly_category>_research_speed_mult = { Leaders }
+
+	# espionage_operation modifiers
+	<espionage_operation>_speed_mult = { Espionage }
+	<espionage_operation>_difficulty_add = { Espionage }
+	<espionage_operation>_difficulty_mult = { Espionage }
+	hostile_<espionage_operation>_difficulty_add = { Espionage }
+	hostile_<espionage_operation>_difficulty_mult = { Espionage }
 }
