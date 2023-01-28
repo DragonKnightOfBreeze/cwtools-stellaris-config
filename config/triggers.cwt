@@ -706,7 +706,7 @@ alias[trigger:is_ship_size] = <ship_size>
 
 ### Checks if the ship/fleet/design is a specific class
 ## scopes = { ship fleet design }
-alias[trigger:is_ship_class] = enum[shipsize_classes]
+alias[trigger:is_ship_class] = enum[ship_class]
 
 ### Checks the scientist's field of research
 ## scopes = { leader }
@@ -1025,7 +1025,7 @@ alias[trigger:has_deposit] = <deposit>
 
 ### Checks if the planet has a deposit for a specific ship class
 ## scopes = { planet }
-alias[trigger:has_deposit_for] = enum[shipsize_classes]
+alias[trigger:has_deposit_for] = enum[ship_class]
 
 ### Checks if the country has claims on the given country or system.
 ## scopes = { country }
