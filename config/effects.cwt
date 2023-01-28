@@ -3905,9 +3905,6 @@ alias[effect:export_modifier_to_variable] = {
 	variable = value_set[variable]
 }
 
-### Finish the current operation phase
-alias[effect:finish_current_operaton_stage] = yes
-
 ### Sets the target country as hostile. This will work on countries you don't have comms with, unlike set_faction_hostility.
 ## scopes = { country }
 alias[effect:set_hostile] = scope_group[target_country]

@@ -1,6 +1,6 @@
 types = {
-	type[map_galaxy_setting] = {
-		path = "game/map/galaxy" #no key! read the note.
+	type[galaxy_shape] = {
+		path = "game/map/galaxy"
 	}
 	type[map_setup_scenario] = {
 		path = "game/map/setup_scenarios"
@@ -8,29 +8,18 @@ types = {
 	}
 }
 
-#NOTE 1
-#the map component has two sub-folders. With the setup_scenarios folder there should be no problem as it is.
-#but the game/map/galaxy folder poses two problems: there is one file there called base.txt
-#this was formarly a lua file - so its a sort of defines file. The way it works is that it has overwrites within the same folder
-#each file - elliptical.txt, ring.txt, spiral_2.txt and spiral_4.txt has a value, and potentially more
-#that overwrites the values in base.txt. It seems to me that the filename for these acts as a key, and that key is loaded from a setup scenario
-#in what i so far defined as an enum[galaxy_shapes]. Thus there is a different verification procedure necessary for this folder.
-
-#NOTE 2
-#some settings in this folder have no containers at all. This poses a problem.
-
-map_galaxy_setting = { #this one is just a dummy container. In effect there is no container in these files! Container is filename.
+galaxy_shape = {
 	### Core radius is x% of the galaxy radius
-	##cardinality = 0..1
+	## cardinality = 0..1
 	core_radius_perc = float
 	### Number of stars in core
-	##cardinality = 0..1
+	## cardinality = 0..1
 	num_stars_core_perc = float
 	### Min distance between stars
-	##cardinality = 0..1
+	## cardinality = 0..1
 	stars_min_dist = float
 
-	##cardinality = 0..1
+	## cardinality = 0..1
 	countries = {
 		### int*int Ideal square distance between countries
 		ideal_sq_dist_between = int
@@ -38,18 +27,18 @@ map_galaxy_setting = { #this one is just a dummy container. In effect there is n
 		min_sq_dist_between = int
 	}
 
-	##cardinality = 0..1
+	## cardinality = 0..1
 	fallen_empires = {
 		### int*int Ideal square distance between countries
 		ideal_sq_dist_between = int
 		### int*int Min square distance between countries
 		min_sq_dist_between = int
-		### Number of military fleets the empire will start with
-		max_military_fleet_count = int
-		ships_per_fleet = int
 	}
 
-	##cardinality = 0..1
+	## cardinality = 0..1
+	num_arms = int
+
+	## cardinality = 0..1
 	alias_name[galaxy_shape] = alias_match_left[galaxy_shape]
 }
 
@@ -92,7 +81,7 @@ map_setup_scenario = {
 	colonizable_planet_odds = float
 	primitive_odds = float
 	crisis_strength = float
-	##cardinality = 0..1
+	## cardinality = 0..1
 	default = bool
 
 	cluster_count = {
@@ -145,8 +134,8 @@ map_setup_scenario = {
 	}
 	num_hyperlanes_default = float
 
-	##cardinality = 1..inf
-	supports_shape = enum[galaxy_shapes]
+	## cardinality = 1..inf
+	supports_shape = <galaxy_shape>
 }
 
 enums = {
@@ -159,11 +148,5 @@ enums = {
 	}
 	enum[open_space_method] = {
 		depth_first
-	}
-	enum[galaxy_shapes] = {
-		elliptical
-		spiral_2
-		spiral_4
-		ring
 	}
 }
