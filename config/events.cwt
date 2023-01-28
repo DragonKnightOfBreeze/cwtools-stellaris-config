@@ -340,10 +340,7 @@ event = {
 			## cardinality = 0..1
 			custom_gui = scalar #points to a gui_type, currently all are defined as aliases but this needs to be updated
 
-			## cardinality = 0..1
 			alias_name[effect] = alias_match_left[effect]
-
-
 		}
 	}
 

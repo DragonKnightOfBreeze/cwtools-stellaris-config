@@ -223,30 +223,26 @@ country_type = {
 	## cardinality = 0..1
 	fleet_manager = {
 		on_contract_started = {
-			## cardinality = 0..1
 			alias_name[effect] = alias_match_left[effect]
 		}
 		on_contract_expired = {
-			## cardinality = 0..1
 			alias_name[effect] = alias_match_left[effect]
 		}
 		on_contract_cancelled = {
-			## cardinality = 0..1
 			alias_name[effect] = alias_match_left[effect]
 		}
 		on_contract_broken = {
-			## cardinality = 0..1
 			alias_name[effect] = alias_match_left[effect]
 		}
 	}
-	
+
 	### used with extradimensional invaders
 	## cardinality = 0..1
 	targets = {
 		## cardinality = 0..inf
 		<country_type>
 	}
-	
+
 	## cardinality = 0..1
 	replace_scope = { this = country root = country }
 	## cardinality = 0..1
