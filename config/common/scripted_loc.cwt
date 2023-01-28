@@ -1,6 +1,5 @@
-
-
 types = {
+	## type_key_filter = defined_text
 	type[scripted_loc] = {
 		name_field = "name"
 		path = "game/common/scripted_loc"

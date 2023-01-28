@@ -365,7 +365,9 @@ event = {
 
 
 	subtype[default] = {
+		## cardinality = 1..inf
 		picture = <sprite>
+		## cardinality = 0..inf
 		picture = {
 			picture = <sprite>
 			## cardinality = 0..1
