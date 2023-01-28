@@ -69,7 +69,7 @@ alias[trigger:has_modifier] = <static_modifier>
 alias[trigger:has_opinion_modifier] = {
 	who = scope_group[target_country]
 	modifier = <opinion_modifier>
-	##cardinality = 0..1
+	## cardinality = 0..1
 	is_reverse = bool
 }
 
@@ -239,7 +239,7 @@ alias[trigger:pop_percentage] = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality = 0..1
-	###(optional: specifies pops to exclude from the calculation)
+	### (optional: specifies pops to exclude from the calculation)
 	exclude = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -596,7 +596,7 @@ alias[trigger:subjects] == int_value_field
 ### Checks the number of regular empires in the galaxy
 ## scopes = { country }
 alias[trigger:num_empires] == int_value_field
-# ###Checks the number of members in the alliance
+# ### Checks the number of members in the alliance
 #alias[trigger:members] == int_value_field
 ### Checks the country's number of established communications
 ## scopes = { country }
@@ -654,7 +654,7 @@ alias[trigger:is_moon] = bool
 ### Checks if the country is a pirate country
 ## scopes = { country }
 alias[trigger:is_pirate] = bool
-# ###Checks if the planet/fleet is controlled by a sector
+# ### Checks if the planet/fleet is controlled by a sector
 #alias[trigger:sector_controlled] = bool
 ### Checks if the scoped ship design, ship or fleet (all ships) has a designable ship size.
 ## scopes = { ship fleet design }
@@ -825,19 +825,19 @@ alias[trigger:check_variable] = {
 alias[trigger:distance] = {
 	source = scope_group[celestial_coordinate]
 	## cardinality = 0..1
-	###Must use >= or will create error log entry
+	### Must use >= or will create error log entry
 	min_distance = int
 	## cardinality = 0..1
-	###Must use <= or will create error log entry
+	### Must use <= or will create error log entry
 	max_distance = int
 	## cardinality = 0..1
-	###Euclidean means the shortest distance from A to B, "as the crow flies" (hyperlane by default)
+	### Euclidean means the shortest distance from A to B, "as the crow flies" (hyperlane by default)
 	type = enum[hyperlane_euclidean]
 	## cardinality = 0..1
-	###Whether to use bypasses (wormholes/gateways) when evaluating distance (yes by default). Caligula's note: I think it is no by default. If it is "yes", it requires bypass_empire to work
+	### Whether to use bypasses (wormholes/gateways) when evaluating distance (yes by default). Caligula's note: I think it is no by default. If it is "yes", it requires bypass_empire to work
 	use_bypasses = bool
 	## cardinality = 0..1
-	###Determines what bypass can be used. This parameter is ignored if uses_bypass=false. If unset, bypasses will be ignored. It will check the bypasses available to the specified country. To check all possible bypasses, use e.g. the global event country.
+	### Determines what bypass can be used. This parameter is ignored if uses_bypass=false. If unset, bypasses will be ignored. It will check the bypasses available to the specified country. To check all possible bypasses, use e.g. the global event country.
 	bypass_empire = scope_group[target_country]
 	## cardinality = 0..1
 	min_jumps = int
@@ -2023,13 +2023,13 @@ alias[trigger:perc_communications_with_playable] == value_field[0.0..1.0]
 ## scopes = { planet }
 alias[trigger:planet_crime] == value_field[0.0..100.0]
 
-###Checks if the pop has a specific job, or any job if set to "yes/no", or none if set to "unemployed"
+### Checks if the pop has a specific job, or any job if set to "yes/no", or none if set to "unemployed"
 ## scopes = { pop }
 alias[trigger:has_job] = <job>
-###Checks if the pop has a specific job, or any job if set to "yes/no", or none if set to "unemployed"
+### Checks if the pop has a specific job, or any job if set to "yes/no", or none if set to "unemployed"
 ## scopes = { pop }
 alias[trigger:has_job] = bool
-###Checks if the pop has a specific job, or any job if set to "yes/no", or none if set to "unemployed"
+### Checks if the pop has a specific job, or any job if set to "yes/no", or none if set to "unemployed"
 ## scopes = { pop }
 alias[trigger:has_job] = unemployed
 
@@ -2502,7 +2502,7 @@ alias[trigger:num_fallen_empires_setting] == int_value_field
 ### Checks the scoped envoy's task.
 ## scopes = { leader }
 alias[trigger:has_envoy_task] = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	target = scope[country]
 	task = enum[envoy_tasks]
 }
@@ -2568,7 +2568,7 @@ alias[trigger:uses_district_set] = enum[district_sets]
 ## scopes = { planet }
 alias[trigger:planet_resource_compare] = {
 	## cardinality = 0..1
-	###Default: Balance
+	### Default: Balance
 	type = enum[planet_resource_compare_types]
 	resource = <resource>
 	value = value_field
@@ -2716,7 +2716,7 @@ alias[trigger:check_variable_arithmetic] = {
 	which = value_field
 	## cardinality = 0..inf
 	enum[maths] = value_field
-	###Specify >/< on the value or variable fields
+	### Specify >/< on the value or variable fields
 	value = value_field
 }
 
@@ -2944,10 +2944,10 @@ alias[trigger:num_repeatable_techs] == int_value_field
 alias[trigger:market_resource_price] = {
 	resource = <resource_name>
 	## cardinality = 0..1
-	###Default = 1; basically a mult factor
+	### Default = 1; basically a mult factor
 	amount = int #no variables here
 	## cardinality = 0..1
-	###market_buy/market_sell/not_set (i.e. price without market fees)
+	### market_buy/market_sell/not_set (i.e. price without market fees)
 	trade_type = enum[trade_types]
 	value = value_field
 }
@@ -3061,7 +3061,7 @@ alias[trigger:current_situation_approach] = enum[situation_approaches]
 ## scopes = { situation }
 alias[trigger:can_set_situation_approach] = enum[situation_approaches]
 
-# ###Checks if the specified severity level is currently active in the scoped situation.
+# ### Checks if the specified severity level is currently active in the scoped situation.
 ### Checks if the specified stage is currently active in the scoped situation.
 ## scopes = { situation }
 alias[trigger:current_stage] = enum[situation_stages]
@@ -3114,7 +3114,7 @@ alias[trigger:has_unemployed_pop_of_category] = <pop_category>
 
 # 3.4
 
-###Checks if the planet's ascension tier is as specified.
+### Checks if the planet's ascension tier is as specified.
 alias[trigger:check_economic_modifier_for_job] = {
 	job = <job>
 	resource = <resource>
@@ -3358,13 +3358,13 @@ alias[trigger:any_playable_country] = {
 ## scopes = any
 ## push_scope = system
 alias[trigger:closest_system] = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	min_steps = int
-	##cardinality = 0..1
+	## cardinality = 0..1
 	max_steps = int
-	##cardinality = 0..1
+	## cardinality = 0..1
 	use_bypasses = bool
-	##cardinality = 0..1
+	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 	alias_name[trigger] = alias_match_left[trigger]
 }
@@ -3818,7 +3818,7 @@ alias[trigger:any_rival_country] = {
 ## scopes = { country }
 ## push_scope = country
 alias[trigger:count_rival_country] = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 	count = int_value_field
 	count = all
@@ -3835,7 +3835,7 @@ alias[trigger:any_federation_ally] = {
 ## scopes = { country }
 ## push_scope = country
 alias[trigger:count_federation_ally] = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 	count = int_value_field
 	count = all
@@ -3845,7 +3845,7 @@ alias[trigger:count_federation_ally] = {
 ## scopes = any
 ## push_scope = country
 alias[trigger:count_playable_country] = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 	count = int_value_field
 	count = all
@@ -3908,7 +3908,7 @@ alias[trigger:any_spynetwork] = {
 ## scopes = { country no_scope }
 ## push_scope = spy_network
 alias[trigger:count_spynetwork] = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 	count = int_value_field
 	count = all
@@ -3925,7 +3925,7 @@ alias[trigger:any_espionage_operation] = {
 ## scopes = { country no_scope spy_network }
 ## push_scope = espionage_operation
 alias[trigger:count_espionage_operation] = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 	count = int_value_field
 	count = all
@@ -3942,7 +3942,7 @@ alias[trigger:any_espionage_asset] = {
 ## scopes = { no_scope spy_network espionage_operation }
 ## push_scope = espionage_asset
 alias[trigger:count_espionage_asset] = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 	count = int_value_field
 	count = all
@@ -3959,7 +3959,7 @@ alias[trigger:any_federation] = {
 ## scopes = any
 ## push_scope = federation
 alias[trigger:count_federation] = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	limit = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -3978,7 +3978,7 @@ alias[trigger:any_first_contact] = {
 ## scopes = { country }
 ## push_scope = first_contact
 alias[trigger:count_first_contact] = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 	count = int_value_field
 	count = all
@@ -3995,7 +3995,7 @@ alias[trigger:any_active_first_contact] = {
 ## scopes = { country }
 ## push_scope = first_contact
 alias[trigger:count_active_first_contact] = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 	count = int_value_field
 	count = all
@@ -4048,7 +4048,7 @@ alias[trigger:any_fleet_in_system] = {
 ## scopes = { galactic_object }
 ## push_scope = fleet
 alias[trigger:count_fleet_in_system] = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 	count = int_value_field
 	count = all
@@ -4179,7 +4179,7 @@ alias[trigger:any_envoy] = {
 ## scopes = { country }
 ## push_scope = leader
 alias[trigger:count_envoy] = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 	count = int_value_field
 	count = all
@@ -4564,7 +4564,7 @@ alias[trigger:any_galaxy_species] = {
 ## scopes = any
 ## push_scope = species
 alias[trigger:count_galaxy_species] = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 	count = int_value_field
 	count = all
@@ -4574,7 +4574,7 @@ alias[trigger:count_galaxy_species] = {
 ## scopes = { planet country }
 ## push_scope = species
 alias[trigger:count_owned_species] = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 	count = int_value_field
 	count = all
@@ -4584,7 +4584,7 @@ alias[trigger:count_owned_species] = {
 ## scopes = { planet country }
 ## push_scope = species
 alias[trigger:count_enslaved_species] = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 	count = int_value_field
 	count = all
@@ -4736,7 +4736,7 @@ alias[trigger:count_defender] = {
 ## scopes = { country }
 ## push_scope = war
 alias[trigger:count_war] = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 	count = value_field
 	count = all
