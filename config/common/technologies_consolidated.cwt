@@ -1,5 +1,5 @@
 types = {
-	## graph_related_types = { }
+	## graph_related_types = {}
 	type[technology] = {
 		path = "game/common/technology"
 		path_strict = yes
@@ -42,9 +42,6 @@ types = {
 		}
 	}
 }
-
-
-
 
 technology = {
 	area = enum[research_areas]
@@ -228,8 +225,8 @@ technology_tier = {
 
 
 technology_category = {
-  icon = filepath
-  ## cardinality = 0..1
+	icon = filepath
+	## cardinality = 0..1
 	## replace_scope = { this = country root = country }
 	weight_modifier = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]

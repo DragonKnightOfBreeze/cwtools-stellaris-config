@@ -1,0 +1,12 @@
+types = {
+	type[galactic_community_action] = {
+		path = "game/common/galactic_community_actions"
+	}
+}
+
+galactic_community_action = {
+	resources = {
+		## cardinality = ~1..inf
+		<resource> = float
+	}
+}
