@@ -3604,8 +3604,9 @@ alias[trigger:count_exact_species] = {
 
 ### Check if any of the species <on the planet/in the country> meet the specified criteria - checks whether the enclosed triggers return true for any of them
 ## scopes = { planet country }
+## push_scope = species
 alias[trigger:any_owned_species] = {
-# any_owned_species = { <triggers> }
+	alias_name[trigger] = alias_match_left[trigger]
 }
 
 ### Check if any of the species with enslaved pops <on the planet/in the country> meet the specified criteria - checks whether the enclosed triggers return true for any of them
