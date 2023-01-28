@@ -5156,7 +5156,7 @@ modifiers = {
 	LITHOID_pop_growth_speed_reduction = { Planets }
 	# endregion
 	# region ethic modifiers
-	# pop_ethic_<ethic>_attraction_mult = { Pops }
+	# pop_<ethic>_attraction_mult = { Pops }
 	pop_ethic_fanatic_authoritarian_attraction_mult = { Pops }
 	pop_ethic_authoritarian_attraction_mult = { Pops }
 	pop_ethic_fanatic_egalitarian_attraction_mult = { Pops }

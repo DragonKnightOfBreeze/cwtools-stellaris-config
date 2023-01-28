@@ -57,7 +57,7 @@ modifiers = {
 	<species_archetype.not_robotic.use_modifiers>_pop_growth_speed_reduction = { Planets }
 
 	# ethic modifiers
-	pop_ethic_<ethic>_attraction_mult = { Pops }
+	pop_<ethic>_attraction_mult = { Pops }
 
 	# planet_class modifiers
 	<planet_class>_habitability = { Habitability }
