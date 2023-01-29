@@ -121,6 +121,10 @@ prescripted_country = {
 
 	ruler = {
 		name = localisation
+		name = {
+			first_name = localisation
+			last_name = localisation
+		}
 		gender = enum[genders_not_set]
 		portrait = <portrait>
 		portrait = <portrait_group>
