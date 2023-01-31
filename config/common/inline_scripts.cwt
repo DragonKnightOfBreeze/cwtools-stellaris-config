@@ -1,12 +1,3 @@
-types = {
-	type[inline_script] = {
-		path = "game/common/inline_scripts"
-		path_extension = .txt
-		path_strict = false
-		name_from_file = yes
-	}
-}
-
 ### Use an inline script.
 inline[inline_script] = filepath[common/inline_scripts/,.txt]
 
