@@ -28,6 +28,7 @@ enums = {
 	enum[direction] = {
 	    UPPER_LEFT #can be lower case as well! Vanilla has a mix of the two for no reason.
 	    UPPER_RIGHT
+	    UPPER_CENTER
 		LEFT_UP
 	    CENTER_DOWN
 		CENTER_UP
@@ -144,6 +145,8 @@ alias[gui:instantTextboxType] = {
 # Text type area
 alias[gui:editBoxType] = {
 	name = scalar
+	## cardinality = 0..1
+	textureFile = ""
 	## cardinality = 0..1
 	textureFile = filepath
 	## cardinality = 0..1
@@ -763,6 +766,8 @@ alias[gui_navigation:navDown] = scalar
 alias[gui_navigation:navLeft] = scalar
 alias[gui_navigation:navRight] = scalar
 
+alias[gui_background:background] = ""
+alias[gui_background:background] = <sprite>
 alias[gui_background:background] = {
 	name = scalar
 	alias_name[gui_sprite] = alias_match_left[gui_sprite]
