@@ -8,9 +8,9 @@ modifiers = {
 	enum[ship_class]_disengage_mult = { Ships }
 
 	# weapon_type modifiers
-	weapon_type_enum[component_tags]_weapon_damage_mult = { Ships }
-	weapon_type_enum[component_tags]_weapon_fire_rate_mult = { Ships }
-	weapon_type_enum[component_tags]_speed_mult = { Ships }
+	enum[component_tags]_weapon_damage_mult = { Ships }
+	enum[component_tags]_weapon_fire_rate_mult = { Ships }
+	enum[component_tags]_speed_mult = { Ships }
 
 	# country_resource_max modifiers
 	country_resource_max_<resource>_add = { Countries }
