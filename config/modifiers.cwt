@@ -29,13 +29,14 @@ modifiers = {
 	# actual generated modifiers are based on detailed declaration
 	# actual modifier categories are from modifier_category property + "AI Economy", see enum[scripted_modifier_categories]
 	#
-	# enum[economic_modifier_categories]_enum[economic_modifier_types] - actual allowed values are from
-	# generate_mult_modifiers = {...} and generate_add_modifiers = {...}
+	# enum[economic_modifier_categories]_enum[economic_modifier_types] - actual allowed values are:
+	# from generate_mult_modifiers = {...}, generate_add_modifiers = {...}
+	# from triggered_produces_modifier = {...}, triggered_cost_modifier = {...}, triggered_upkeep_modifier = {...}
 	#
-	# <economic_category>_<resource>_enum[economic_modifier_categories]_enum[economic_modifier_types] = { "AI Economy" }
-	#
-	# will be generated if use_for_ai_budget = yes
+	# will generate if use_for_ai_budget = yes (inherited by parent property for _mult modifiers)
 	# <economic_category>_enum[economic_modifier_categories]_enum[economic_modifier_types] = { "AI Economy" }
+	# will generate:
+	# <economic_category>_<resource>_enum[economic_modifier_categories]_enum[economic_modifier_types] = { "AI Economy" }
 
 	# ship_size modifiers
 	shipsize_<ship_shze>_build_speed_mult = { Planets Megastructures Starbases }

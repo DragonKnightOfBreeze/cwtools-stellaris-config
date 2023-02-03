@@ -590,9 +590,7 @@ modifiers = {
 	op_cat_military_skill_add = { Espionage }
 	op_cat_military_skill_mult = { Espionage }
 	# endregion
-	# region economic_category modifiers (economic_category: country, modifier_category: economic_unit)
-	# country_enum[economic_modifier_categories]_enum[economic_modifier_types] = { "Economic Units" "AI Economy" }
-	# country_<resource>_enum[economic_modifier_categories]_enum[economic_modifier_types] = { "Economic Units" "AI Economy" }
+	# region economic_category modifiers country
 	country_time_cost_mult = { "Economic Units" "AI Economy" }
 	country_time_produces_mult = { "Economic Units" "AI Economy" }
 	country_energy_cost_mult = { "Economic Units" "AI Economy" }
@@ -636,8 +634,7 @@ modifiers = {
 	country_cost_mult = { "Economic Units" "AI Economy" }
 	country_produces_mult = { "Economic Units" "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: country_base, modifier_category: country)
-	# country_base_<resource>_enum[economic_modifier_categories]_enum[economic_modifier_types] = { Countries "AI Economy" }
+	# region economic_category modifiers country_base
 	country_base_time_produces_add = { Countries "AI Economy" }
 	country_base_energy_produces_add = { Countries "AI Economy" }
 	country_base_minerals_produces_add = { Countries "AI Economy" }
@@ -659,9 +656,7 @@ modifiers = {
 	country_base_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_base_menace_produces_add = { Countries "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: resolutions, modifier_category: economic_unit)
-	# economic_category_enum[economic_modifier_categories]_enum[economic_modifier_types] = { "Economic Units" "AI Economy" }
-	# economic_category_<resource>_enum[economic_modifier_categories]_enum[economic_modifier_types] = { "Economic Units" "AI Economy" }
+	# region economic_category modifiers resolutions
 	resolutions_time_cost_mult = { "Economic Units" "AI Economy" }
 	resolutions_energy_cost_mult = { "Economic Units" "AI Economy" }
 	resolutions_minerals_cost_mult = { "Economic Units" "AI Economy" }
@@ -684,9 +679,7 @@ modifiers = {
 	resolutions_menace_cost_mult = { "Economic Units" "AI Economy" }
 	resolutions_cost_mult = { "Economic Units" "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: edicts, modifier_category: country)
-	# edicts_enum[economic_modifier_categories]_enum[economic_modifier_types] = { Countries "AI Economy" }
-	# edicts_<resource>_enum[economic_modifier_categories]_enum[economic_modifier_types] = { Countries "AI Economy" }
+	# region economic_category modifiers edicts
 	edicts_time_cost_mult = { Countries "AI Economy" }
 	edicts_time_upkeep_mult = { Countries "AI Economy" }
 	edicts_energy_cost_mult = { Countries "AI Economy" }
@@ -730,9 +723,7 @@ modifiers = {
 	edicts_cost_mult = { Countries "AI Economy" }
 	edicts_upkeep_mult = { Countries "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: megastructures_habitat, modifier_category: megastructure)
-	# megastructures_habitat_enum[economic_modifier_categories]_enum[economic_modifier_types] = { Megastructures "AI Economy" }
-	# megastructures_habitat_<resource>_enum[economic_modifier_categories]_enum[economic_modifier_types] = { Megastructures "AI Economy" }
+	# region economic_category modifiers megastructures_habitat
 	megastructures_habitat_time_cost_mult = { Megastructures "AI Economy" }
 	megastructures_habitat_energy_cost_mult = { Megastructures "AI Economy" }
 	megastructures_habitat_minerals_cost_mult = { Megastructures "AI Economy" }
@@ -755,9 +746,7 @@ modifiers = {
 	megastructures_habitat_menace_cost_mult = { Megastructures "AI Economy" }
 	megastructures_habitat_cost_mult = { Megastructures "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: megastructures_hyper_relay, modifier_category: megastructure)
-	# megastructures_hyper_relay_enum[economic_modifier_categories]_enum[economic_modifier_types] = { Megastructures "AI Economy" }
-	# megastructures_hyper_relay_<resource>_enum[economic_modifier_categories]_enum[economic_modifier_types] = { Megastructures "AI Economy" }
+	# region economic_category modifiers megastructures_hyper_relay
 	megastructures_hyper_relay_time_upkeep_add = { Megastructures "AI Economy" }
 	megastructures_hyper_relay_energy_upkeep_add = { Megastructures "AI Economy" }
 	megastructures_hyper_relay_minerals_upkeep_add = { Megastructures "AI Economy" }
@@ -779,7 +768,7 @@ modifiers = {
 	megastructures_hyper_relay_minor_artifacts_upkeep_add = { Megastructures "AI Economy" }
 	megastructures_hyper_relay_menace_upkeep_add = { Megastructures "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: ships, modifier_category: ship)
+	# region economic_category modifiers ships
 	starbase_shipyard_build_time_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	starbase_shipyard_build_energy_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	starbase_shipyard_build_minerals_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
@@ -1032,7 +1021,7 @@ modifiers = {
 	ships_menace_upkeep_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	ships_upkeep_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: colonies, modifier_category: ship)
+	# region economic_category modifiers colonies
 	ship_colonizer_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	ship_colonizer_time_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	ship_colonizer_energy_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
@@ -1055,7 +1044,7 @@ modifiers = {
 	ship_colonizer_minor_artifacts_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	ship_colonizer_menace_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: stations, modifier_category: deposit)
+	# region economic_category modifiers stations
 	stations_time_produces_mult = { Deposits "AI Economy" }
 	stations_energy_produces_mult = { Deposits "AI Economy" }
 	stations_minerals_produces_mult = { Deposits "AI Economy" }
@@ -1078,7 +1067,7 @@ modifiers = {
 	stations_menace_produces_mult = { Deposits "AI Economy" }
 	stations_produces_mult = { Deposits "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: station_gatherers, modifier_category: deposit)
+	# region economic_category modifiers station_gatherers
 	station_gatherers_time_cost_mult = { Deposits "AI Economy" }
 	station_gatherers_time_produces_mult = { Deposits "AI Economy" }
 	station_gatherers_energy_cost_mult = { Deposits "AI Economy" }
@@ -1122,7 +1111,7 @@ modifiers = {
 	station_gatherers_cost_mult = { Deposits "AI Economy" }
 	station_gatherers_produces_mult = { Deposits "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: station_researchers, modifier_category: deposit)
+	# region economic_category modifiers station_researchers
 	station_researchers_time_produces_mult = { Deposits "AI Economy" }
 	station_researchers_energy_produces_mult = { Deposits "AI Economy" }
 	station_researchers_minerals_produces_mult = { Deposits "AI Economy" }
@@ -1145,7 +1134,7 @@ modifiers = {
 	station_researchers_menace_produces_mult = { Deposits "AI Economy" }
 	station_researchers_produces_mult = { Deposits "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: starbases, modifier_category: starbase)
+	# region economic_category modifiers starbases
 	starbases_time_upkeep_mult = { Starbases "AI Economy" }
 	starbases_energy_upkeep_mult = { Starbases "AI Economy" }
 	starbases_minerals_upkeep_mult = { Starbases "AI Economy" }
@@ -1168,7 +1157,7 @@ modifiers = {
 	starbases_menace_upkeep_mult = { Starbases "AI Economy" }
 	starbases_upkeep_mult = { Starbases "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: starbase_stations, modifier_category: starbase)
+	# region economic_category modifiers starbase_stations
 	starbase_outpost_cost_mult = { Starbases "AI Economy" }
 	starbase_outpost_time_cost_mult = { Starbases "AI Economy" }
 	starbase_outpost_energy_cost_mult = { Starbases "AI Economy" }
@@ -1191,7 +1180,7 @@ modifiers = {
 	starbase_outpost_minor_artifacts_cost_mult = { Starbases "AI Economy" }
 	starbase_outpost_menace_cost_mult = { Starbases "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: starbase_constructions, modifier_category: starbase)
+	# region economic_category modifiers starbase_constructions
 	starbase_constructions_time_produces_mult = { Starbases "AI Economy" }
 	starbase_constructions_energy_produces_mult = { Starbases "AI Economy" }
 	starbase_constructions_minerals_produces_mult = { Starbases "AI Economy" }
@@ -1214,7 +1203,7 @@ modifiers = {
 	starbase_constructions_menace_produces_mult = { Starbases "AI Economy" }
 	starbase_constructions_produces_mult = { Starbases "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: starbase_buildings, modifier_category: starbase)
+	# region economic_category modifiers starbase_buildings
 	starbase_buildings_time_cost_mult = { Starbases "AI Economy" }
 	starbase_buildings_energy_cost_mult = { Starbases "AI Economy" }
 	starbase_buildings_minerals_cost_mult = { Starbases "AI Economy" }
@@ -1237,7 +1226,7 @@ modifiers = {
 	starbase_buildings_menace_cost_mult = { Starbases "AI Economy" }
 	starbase_buildings_cost_mult = { Starbases "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: starbase_modules, modifier_category: starbase)
+	# region economic_category modifiers starbase_modules
 	starbase_modules_time_cost_mult = { Starbases "AI Economy" }
 	starbase_modules_energy_cost_mult = { Starbases "AI Economy" }
 	starbase_modules_minerals_cost_mult = { Starbases "AI Economy" }
@@ -1260,7 +1249,7 @@ modifiers = {
 	starbase_modules_menace_cost_mult = { Starbases "AI Economy" }
 	starbase_modules_cost_mult = { Starbases "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: terraforming, modifier_category: planet)
+	# region economic_category modifiers terraforming
 	terraforming_time_cost_mult = { Planets "AI Economy" }
 	terraforming_energy_cost_mult = { Planets "AI Economy" }
 	terraforming_minerals_cost_mult = { Planets "AI Economy" }
@@ -1282,7 +1271,7 @@ modifiers = {
 	terraforming_minor_artifacts_cost_mult = { Planets "AI Economy" }
 	terraforming_menace_cost_mult = { Planets "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: terraforming_ocean, modifier_category: planet)
+	# region economic_category modifiers terraforming_ocean
 	terraforming_ocean_time_cost_mult = { Planets "AI Economy" }
 	terraforming_ocean_energy_cost_mult = { Planets "AI Economy" }
 	terraforming_ocean_minerals_cost_mult = { Planets "AI Economy" }
@@ -1305,7 +1294,7 @@ modifiers = {
 	terraforming_ocean_menace_cost_mult = { Planets "AI Economy" }
 	terraforming_ocean_cost_mult = { Planets "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_structures, modifier_category: planet)
+	# region economic_category modifiers planet_structures
 	planet_structures_time_cost_mult = { Planets "AI Economy" }
 	planet_structures_time_upkeep_mult = { Planets "AI Economy" }
 	planet_structures_energy_cost_mult = { Planets "AI Economy" }
@@ -1349,7 +1338,7 @@ modifiers = {
 	planet_structures_cost_mult = { Planets "AI Economy" }
 	planet_structures_upkeep_mult = { Planets "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_buildings, modifier_category: planet)
+	# region economic_category modifiers planet_buildings
 	planet_buildings_time_cost_mult = { Planets "AI Economy" }
 	planet_buildings_time_upkeep_mult = { Planets "AI Economy" }
 	planet_buildings_energy_cost_mult = { Planets "AI Economy" }
@@ -1393,7 +1382,7 @@ modifiers = {
 	planet_buildings_cost_mult = { Planets "AI Economy" }
 	planet_buildings_upkeep_mult = { Planets "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_branch_offices, modifier_category: planet)
+	# region economic_category modifiers planet_branch_offices
 	planet_branch_offices_time_cost_mult = { Planets "AI Economy" }
 	planet_branch_offices_time_produces_add = { Planets "AI Economy" }
 	planet_branch_offices_energy_cost_mult = { Planets "AI Economy" }
@@ -1436,7 +1425,7 @@ modifiers = {
 	planet_branch_offices_menace_produces_add = { Planets "AI Economy" }
 	planet_branch_offices_cost_mult = { Planets "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_buildings_hab_capital, modifier_category: planet)
+	# region economic_category modifiers planet_buildings_hab_capital
 	planet_buildings_hab_capital_time_upkeep_mult = { Planets "AI Economy" }
 	planet_buildings_hab_capital_energy_upkeep_mult = { Planets "AI Economy" }
 	planet_buildings_hab_capital_minerals_upkeep_mult = { Planets "AI Economy" }
@@ -1459,7 +1448,7 @@ modifiers = {
 	planet_buildings_hab_capital_menace_upkeep_mult = { Planets "AI Economy" }
 	planet_buildings_hab_capital_upkeep_mult = { Planets "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_districts, modifier_category: planet)
+	# region economic_category modifiers planet_districts
 	planet_districts_time_cost_mult = { Planets "AI Economy" }
 	planet_districts_time_upkeep_mult = { Planets "AI Economy" }
 	planet_districts_energy_cost_mult = { Planets "AI Economy" }
@@ -1503,7 +1492,7 @@ modifiers = {
 	planet_districts_cost_mult = { Planets "AI Economy" }
 	planet_districts_upkeep_mult = { Planets "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_jobs, modifier_category: pop)
+	# region economic_category modifiers planet_jobs
 	planet_jobs_slave_produces_mult = { Pops "AI Economy" }
 	planet_jobs_slave_time_produces_mult = { Pops "AI Economy" }
 	planet_jobs_slave_energy_produces_mult = { Pops "AI Economy" }
@@ -1862,7 +1851,7 @@ modifiers = {
 	planet_jobs_produces_mult = { Pops "AI Economy" }
 	planet_jobs_upkeep_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_jobs_productive, modifier_category: pop)
+	# region economic_category modifiers planet_jobs_productive
 	planet_jobs_productive_time_produces_mult = { Pops "AI Economy" }
 	planet_jobs_productive_time_upkeep_mult = { Pops "AI Economy" }
 	planet_jobs_productive_energy_produces_mult = { Pops "AI Economy" }
@@ -1906,7 +1895,7 @@ modifiers = {
 	planet_jobs_productive_produces_mult = { Pops "AI Economy" }
 	planet_jobs_productive_upkeep_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_bio_trophies, modifier_category: pop)
+	# region economic_category modifiers planet_bio_trophies
 	planet_bio_trophies_time_produces_mult = { Pops "AI Economy" }
 	planet_bio_trophies_energy_produces_mult = { Pops "AI Economy" }
 	planet_bio_trophies_minerals_produces_mult = { Pops "AI Economy" }
@@ -1929,7 +1918,7 @@ modifiers = {
 	planet_bio_trophies_menace_produces_mult = { Pops "AI Economy" }
 	planet_bio_trophies_produces_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_pop_assemblers, modifier_category: pop)
+	# region economic_category modifiers planet_pop_assemblers
 	planet_pop_assemblers_time_upkeep_mult = { Pops "AI Economy" }
 	planet_pop_assemblers_energy_upkeep_mult = { Pops "AI Economy" }
 	planet_pop_assemblers_minerals_upkeep_mult = { Pops "AI Economy" }
@@ -1952,7 +1941,7 @@ modifiers = {
 	planet_pop_assemblers_menace_upkeep_mult = { Pops "AI Economy" }
 	planet_pop_assemblers_upkeep_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_farmers, modifier_category: pop)
+	# region economic_category modifiers planet_farmers
 	planet_farmers_time_produces_add = { Pops "AI Economy" }
 	planet_farmers_time_produces_mult = { Pops "AI Economy" }
 	planet_farmers_time_upkeep_add = { Pops "AI Economy" }
@@ -2015,7 +2004,7 @@ modifiers = {
 	planet_farmers_menace_upkeep_add = { Pops "AI Economy" }
 	planet_farmers_produces_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_miners, modifier_category: pop)
+	# region economic_category modifiers planet_miners
 	planet_miners_time_produces_add = { Pops "AI Economy" }
 	planet_miners_time_produces_mult = { Pops "AI Economy" }
 	planet_miners_time_upkeep_add = { Pops "AI Economy" }
@@ -2078,7 +2067,7 @@ modifiers = {
 	planet_miners_menace_upkeep_add = { Pops "AI Economy" }
 	planet_miners_produces_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_sr_miners, modifier_category: pop)
+	# region economic_category modifiers planet_sr_miners
 	planet_sr_miners_time_produces_mult = { Pops "AI Economy" }
 	planet_sr_miners_time_upkeep_add = { Pops "AI Economy" }
 	planet_sr_miners_energy_produces_mult = { Pops "AI Economy" }
@@ -2121,7 +2110,7 @@ modifiers = {
 	planet_sr_miners_menace_upkeep_add = { Pops "AI Economy" }
 	planet_sr_miners_produces_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_livestock, modifier_category: pop)
+	# region economic_category modifiers planet_livestock
 	planet_livestock_time_produces_add = { Pops "AI Economy" }
 	planet_livestock_energy_produces_add = { Pops "AI Economy" }
 	planet_livestock_minerals_produces_add = { Pops "AI Economy" }
@@ -2143,7 +2132,7 @@ modifiers = {
 	planet_livestock_minor_artifacts_produces_add = { Pops "AI Economy" }
 	planet_livestock_menace_produces_add = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_technician, modifier_category: pop)
+	# region economic_category modifiers planet_technician
 	planet_technician_time_produces_add = { Pops "AI Economy" }
 	planet_technician_time_produces_mult = { Pops "AI Economy" }
 	planet_technician_time_upkeep_add = { Pops "AI Economy" }
@@ -2206,7 +2195,7 @@ modifiers = {
 	planet_technician_menace_upkeep_add = { Pops "AI Economy" }
 	planet_technician_produces_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_administrators, modifier_category: pop)
+	# region economic_category modifiers planet_administrators
 	planet_administrators_time_produces_add = { Pops "AI Economy" }
 	planet_administrators_time_produces_mult = { Pops "AI Economy" }
 	planet_administrators_time_upkeep_mult = { Pops "AI Economy" }
@@ -2270,7 +2259,7 @@ modifiers = {
 	planet_administrators_produces_mult = { Pops "AI Economy" }
 	planet_administrators_upkeep_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_executives, modifier_category: pop)
+	# region economic_category modifiers planet_executives
 	planet_executives_time_produces_mult = { Pops "AI Economy" }
 	planet_executives_energy_produces_mult = { Pops "AI Economy" }
 	planet_executives_minerals_produces_mult = { Pops "AI Economy" }
@@ -2293,7 +2282,7 @@ modifiers = {
 	planet_executives_menace_produces_mult = { Pops "AI Economy" }
 	planet_executives_produces_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_managers, modifier_category: pop)
+	# region economic_category modifiers planet_managers
 	planet_managers_time_produces_add = { Pops "AI Economy" }
 	planet_managers_time_produces_mult = { Pops "AI Economy" }
 	planet_managers_energy_produces_add = { Pops "AI Economy" }
@@ -2336,7 +2325,7 @@ modifiers = {
 	planet_managers_menace_produces_mult = { Pops "AI Economy" }
 	planet_managers_produces_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers (economic_category: planet_researchers, modifier_category: pop)
+	# region economic_category modifiers planet_researchers
 	planet_researchers_time_produces_mult = { Pops "AI Economy" }
 	planet_researchers_time_upkeep_add = { Pops "AI Economy" }
 	planet_researchers_time_upkeep_mult = { Pops "AI Economy" }
@@ -3727,7 +3716,6 @@ modifiers = {
 	monthly_trades_minor_artifacts_produces_add = { Countries "AI Economy" }
 	monthly_trades_menace_produces_add = { Countries "AI Economy" }
 	# region economic_category modifiers: operations
-	# operations_<resource>_enum[economic_modifier_categories]_enum[economic_modifier_types] = { Countries "AI Economy" }
 	operations_time_cost_mult = { Espionage "AI Economy" }
 	operations_time_upkeep_mult = { Espionage "AI Economy" }
 	operations_energy_cost_mult = { Espionage "AI Economy" }

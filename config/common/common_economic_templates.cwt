@@ -11,7 +11,7 @@ types = {
 		images = {
 			subtype[!hidden] = {
 				## primary
-				icon = "#icon" # icon[gfx/interface/icons/modifiers]
+				icon = "#icon" # icon[gfx/interface/icons/jobs]
 			}
 		}
 	}
@@ -24,7 +24,7 @@ economic_category = {
 	use_for_ai_budget = bool
 	subtype[!hidden] = {
 		## cardinality = 0..1
-		icon = icon[gfx/interface/icons/modifiers]
+		icon = icon[gfx/interface/icons/jobs]
 	}
 	subtype[hidden] = {
 		hidden = yes
