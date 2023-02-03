@@ -48,7 +48,7 @@ modifier_categories = {
 		supported_scopes = { any }
 	}
 	"AI Economy" = {
-		supported_scopes = { any }
+		supported_scopes = { } # leave empty for scope inspection
 	}
 	"Star Systems" = {
 		supported_scopes = { galacticobject }
@@ -63,12 +63,12 @@ modifier_categories = {
 		supported_scopes = { country spynetwork }
 	}
 	"Orbital Stations" = {
-		supported_scopes = { any }
+		supported_scopes = { ship starbase fleet country }
 	}
 	"Space Stations" = {
-		supported_scopes = { any }
+		supported_scopes = { ship starbase fleet country }
 	}
 	Deposits = {
-		supported_scopes = { any }
+		supported_scopes = { deposit }
 	}
 }

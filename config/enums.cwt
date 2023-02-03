@@ -281,26 +281,41 @@ enums = {
 		starbase
 		spynetwork
 	}
+	# these modifier_categories options are used to get modifier categories of generated modifiers from economic categories
 	enum[scripted_modifier_categories] = {
 		all
+		## modifier_categories = { Countries "AI Economy" }
 		pop
+		## modifier_categories = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 		ship
+		## modifier_categories = { "Orbital Stations" "Space Stations" "AI Economy" }
 		station
+		## modifier_categories = { Fleets "AI Economy" }
 		fleet
+		## modifier_categories = { Countries "AI Economy" }
 		country
+		## modifier_categories = { Armies "AI Economy" }
 		army
+		## modifier_categories = { Leaders "AI Economy" }
 		leader
+		## modifier_categories = { Planets "AI Economy" }
 		planet
 		component
 		pop_faction
+		## modifier_categories = { Deposits "AI Economy" }
 		deposit
+		## modifier_categories = { Megastructures "AI Economy" }
 		megastructure
 		habitability
+		## modifier_categories = { Starbases "AI Economy" }
 		starbase
+		## modifier_categories = { "Economic Units" "AI Economy" }
 		economic_unit
+		## modifier_categories = { "Star Systems" "AI Economy" }
 		system
 		trade
 		federation
+		## modifier_categories = { Espionage "AI Economy" }
 		espionage
 	}
 	enum[job_triggers] = {
