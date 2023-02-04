@@ -251,11 +251,7 @@ model_entity = {
 		## cardinality = 0..1
 		dissolve_on_death = float
 		## cardinality = 0..1
-		## color_type = rgba
-		ship_color = {
-			## cardinality = 3..4
-			float
-		}
+		ship_color = colour_field
 	}
 	#locator here is linked to both attach = { in the same files and ship_sizes under common!
 	## cardinality = 0..inf

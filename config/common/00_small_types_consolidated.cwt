@@ -370,6 +370,8 @@ map_mode = {
 		zoom = int
 
 		## cardinality = 1..1
+		value = colour_field
+		## cardinality = 1..1
         value = country
 		## cardinality = 1..1
 		value = {

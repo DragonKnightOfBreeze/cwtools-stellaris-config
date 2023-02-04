@@ -66,12 +66,12 @@ progressbartype = {
 
 	effectFile = filepath #shader file
 
-	## color_type = rgb
+	## color_type = hsv
 	color = {
 		## cardinality = 3..3
 		float
 	}
-	## color_type = rgb
+	## color_type = hsv
 	colortwo = {
 		## cardinality = 3..3
 		float
