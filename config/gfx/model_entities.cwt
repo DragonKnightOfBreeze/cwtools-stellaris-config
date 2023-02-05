@@ -2,53 +2,34 @@ types = {
 	## type_key_filter = entity
 	type[model_entity] = {
 		name_field = name
-		path = "gfx" #need to add subfolder to the parsing here! - these are stored in *.asset files!
+		path = "gfx"
+		path_extension = .asset
 		severity = warning
    }
    ## type_key_filter = pdxmesh
 	type[model_mesh] = {
 		name_field = name
 		skip_root_key = objectTypes
-		path = "gfx/models" #need to add subfolder to the parsing here! - these are stored in *.gfx files!
+		path = "gfx/models"
+		path_extension = .gfx
 		severity = warning
    }
    ## type_key_filter = animation
 	type[model_animation] = {
 		name_field = name
-		path = "gfx/models" #need to add subfolder to the parsing here! - these are stored in *.asset files!
+		path = "gfx/models"
+		path_extension = .asset
 		severity = warning
    }
 }
 
-  #the container for each entry is called "entity = {" in the asset file
-  #the names for planet entities are connected to the planet_classes files and have a serialized naming scheme
-  #the naming scheme is <planet_name without pc_>_int_entity and planets can have multiple entities, with the game spawning one of the entities.
-  #ships naming scheme is <species_class>int_shipsize_entity
-  #examples: toxic_planet_01_entity toxic_planet_02_entity toxic_planet_03_entity toxic_planet_04_entity - all connected to the planet_class files entry for pc_toxic, where entity is defined as "toxic_planet"
-  #arthropoid_01_military_station_large_entity
+#the container for each entry is called "entity = {" in the asset file
+#the names for planet entities are connected to the planet_classes files and have a serialized naming scheme
+#the naming scheme is <planet_name without pc_>_int_entity and planets can have multiple entities, with the game spawning one of the entities.
+#ships naming scheme is <species_class>int_shipsize_entity
+#examples: toxic_planet_01_entity toxic_planet_02_entity toxic_planet_03_entity toxic_planet_04_entity - all connected to the planet_class files entry for pc_toxic, where entity is defined as "toxic_planet"
+#arthropoid_01_military_station_large_entity
 
-  enums = {
-	  enum[model_animation_types] = {
-		  idle
-		  idle2
-		  sad
-		  sad2
-		  death
-		  death2
-		  death3
-		  attack
-		  moving
-		  survey
-		  scan
-		  miss
-		  miss2
-		  miss_reversed
-		  miss2_reversed
-		  start
-		  fly
-		  working
-	  }
-  }
 model_entity = {
   name = scalar
   ## cardinality = 0..1
@@ -153,7 +134,7 @@ model_entity = {
 			## cardinality = 0..1
 			time = float
 			## cardinality = 0..1
-			node = scalar #"bombardment_location_2" for example, this seem to point to a *.mesh file
+			node = enum[locators] #"bombardment_location_2" for example, this seem to point to a *.mesh file
 			## cardinality = 0..1
 			light = <light>
 			## cardinality = 0..1
@@ -182,7 +163,7 @@ model_entity = {
 			## cardinality = 0..1
 			trigger_once = bool
 			## cardinality = 0..1
-			node = scalar #"bombardment_location_2" for example, this seem to point to a *.mesh file
+			node = enum[locators] #"bombardment_location_2" for example, this seem to point to a *.mesh file
 			## cardinality = 0..1
 			light = <light>
 			## cardinality = 0..1
@@ -202,8 +183,7 @@ model_entity = {
 	## cardinality = 0..inf
 	attach = {
 		## cardinality = 0..4
-		# TODO: Make this smarter, left side is locators
-		scalar = <model_entity> #see locator in this file.
+		enum[locators] = <model_entity> #see locator in this file.
 		## cardinality = 0..1
 		name = scalar
 		## cardinality = 0..1
@@ -278,48 +258,23 @@ model_entity = {
 		name = scalar #examples: "planet_geosphereShape" "polesShape" "clouds_geosphereShape"
 		## cardinality = 0..1
 		index = int
-		#The links below link to files stored under game/gfx/models/planets + subfolders!
+		## file_extensions = .dds
 		## cardinality = 0..1
-		texture_diffuse = scalar ##TODO filepath #example: "toxic_01_purple_diffuse.dds"
+		texture_diffuse = filename
+		## file_extensions = .dds
 		## cardinality = 0..1
-		texture_normal = scalar ##TODO filepath #example: "toxic_01_normal.dds"
+		texture_normal = filename
+		## file_extensions = .dds
 		## cardinality = 0..1
-		texture_specular = scalar ##TODO filepath #example: "toxic_01_spec.dds"
+		texture_specular = filename
 		## cardinality = 0..1
 		shader = scalar #this seems to point to a shader mesh, dunno where its stored. example: "PdxMeshPlanetEmissive". I believe this is stored in a *.mesh file
 	}
 }
 
-enums = {
-
-  #these are tied to bombardment stances somehow, but I have no idea how - exnihil
-  #TODO - link this to bombardment stances
-  complex_enum[model_states] = {
-		path = "game/gfx"
-		name = {
-			state = {
-				name = enum_name
-			}
-		}
-	}
-	complex_enum[locators] = {
-		path = "game/gfx/models"
-		name = {
-			locator = {
-				name = enum_name
-			}
-			#TODO: support multiple routes
-			state = {
-				locator = {
-					name = enum_name
-				}
-			}
-		}
-	}
- }
-
 model_mesh = { #the container for all meshes is defined as objectTypes = { at the top of the file, please check, with each entry being defined under pdxmesh = {
 	name = scalar
+	## file_extensions = .mesh
 	file = filepath #there is a full path string here - the path should be parsed. Example: file = "gfx/models/planets/shielded_planet.mesh"
 	## cardinality = 0..1
 	scale = float
@@ -331,13 +286,15 @@ model_mesh = { #the container for all meshes is defined as objectTypes = { at th
 		index = int
 		## cardinality = 0..1
 		shader = scalar #Shader
+		## file_extensions = .dds
 		## cardinality = 0..1
-		texture_diffuse = scalar #filepath
+		texture_diffuse = filename
+		## file_extensions = .dds
 		## cardinality = 0..1
-		texture_normal = scalar #filepath
+		texture_normal = filename
+		## file_extensions = .dds
 		## cardinality = 0..1
-		texture_specular = scalar #filepath
-
+		texture_specular = filename
 	}
 	## cardinality = 0..inf
 	animation = {
@@ -351,5 +308,58 @@ model_mesh = { #the container for all meshes is defined as objectTypes = { at th
 
 model_animation = { #the container here is called animation = { for each animation
 	name = scalar #example: "neutron_star_idle_animation"
-	file = scalar ##TODO make it filepath #this connects to *.anim file stored in the same folder as the asset file, it seems. Example: "neutron_star_idle.anim"
+	## file_extensions = .dds
+	file = filename
+}
+
+enums = {
+	enum[model_animation_types] = {
+		idle
+		idle2
+		sad
+		sad2
+		death
+		death2
+		death3
+		attack
+		moving
+		survey
+		scan
+		miss
+		miss2
+		miss_reversed
+		miss2_reversed
+		start
+		fly
+		working
+	}
+}
+
+enums = {
+	#these are tied to bombardment stances somehow, but I have no idea how - exnihil
+	#TODO - link this to bombardment stances
+	complex_enum[model_states] = {
+		path = "game/gfx"
+		search_scope = definition
+		name = {
+			state = {
+				name = enum_name
+			}
+		}
+	}
+	complex_enum[locators] = {
+		path = "game/gfx/models"
+		search_scope = definition
+		name = {
+			locator = {
+				name = enum_name
+			}
+			#TODO: support multiple routes
+			state = {
+				locator = {
+					name = enum_name
+				}
+			}
+		}
+	}
 }

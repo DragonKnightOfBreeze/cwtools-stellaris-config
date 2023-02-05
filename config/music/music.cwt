@@ -19,8 +19,8 @@ song = {
 	name = scalar
 }
 music = {
-	name = <song>	
-	file = scalar 
+	name = <song>
+	file = filepath #.ogg
 	## cardinality = 0..1
 	volume = float
 }

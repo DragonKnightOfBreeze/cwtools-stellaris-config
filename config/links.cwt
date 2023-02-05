@@ -368,6 +368,12 @@ links = {
 		output_scope = fleet
 	}
 
+	variable = {
+		desc = "Variable"
+		from_data = yes
+		type = value
+		data_source = value[variable]
+	}
 	script_value = {
 		from_data = yes
 		type = value
