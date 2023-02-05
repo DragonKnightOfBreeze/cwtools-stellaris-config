@@ -3,7 +3,7 @@ alias[effect:scope_field] = { alias_name[effect] = alias_match_left[effect] }
 
 ### An inverted trigger, functionally the same as NOR
 alias[trigger:NOT] = {
-	## cardinality = 1..1
+	# ## cardinality = 1..1
 	alias_name[trigger] = alias_match_left[trigger]
 }
 ### An inverted OR trigger
