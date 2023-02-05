@@ -460,20 +460,21 @@ alias[subsystem_color:color] = {
 		## cardinality = 0..2
 		scalar
 	}
-	 
-	 
+
 	## cardinality = 0..1
-	#x = float[0.0..255.0]
+	# x = float[0.0..255.0]
 	x = scalar
 	## cardinality = 0..1
-	#y = float[0.0..255.0]
+	# y = float[0.0..255.0]
 	y = scalar
 	## cardinality = 0..1
-	#z = float[0.0..255.0]
+	# z = float[0.0..255.0]
 	z = scalar
 	## cardinality = 0..1
+	# float
+	# float,<particle_animation>
+	# alpha = float[0.0..255.0]
 	alpha = scalar
-	#alpha = float[0.0..255.0] #float,<particle_animation>
 }
 
 #Better to split in two aliases, but it was defaulting to the first as alpha = { scalar ... } was correct
