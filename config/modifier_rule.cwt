@@ -56,7 +56,9 @@ alias[modifier_rule:complex_trigger_modifier] = {
 	}
 	mode = enum[complex_maths_enum]
 	## cardinality = 0..1
-	mult = float
+	mult = value_field
+	## cardinality = 0..1
+	multiplier = value_field
 	## cardinality = 0..1
 	desc = localisation
 	## cardinality = 0..1
@@ -92,7 +94,9 @@ alias[modifier_rule_with_loc:complex_trigger_modifier] = {
 	}
 	mode = enum[complex_maths_enum]
 	## cardinality = 0..1
-	mult = float
+	mult = value_field
+	## cardinality = 0..1
+	multiplier = value_field
 	desc = localisation
 	## cardinality = 0..1
 	potential = {
