@@ -57,14 +57,17 @@ progressbartype = {
 
 	#either texturefile, or both texturefile1 and 2 - need to be worked out.
 
+	## file_extensions = { .dds .png }
 	## cardinality = 0..1
 	textureFile = filepath
+	## file_extensions = { .dds .png }
 	## cardinality = 0..1
 	textureFile1 = filepath
+	## file_extensions = { .dds .png }
 	## cardinality = 0..1
 	textureFile2 = filepath
-
-	effectFile = filepath #shader file
+	## file_extensions = .shader
+	effectFile = filepath
 
 	## color_type = hsv
 	color = {
@@ -83,10 +86,13 @@ progressbartype = {
 
 sprite = {
 	name = scalar
+	## file_extensions = { .dds .png }
 	## cardinality = 0..1
 	textureFile = filepath
+	## file_extensions = { .dds .png }
 	## cardinality = 0..1
 	masking_texture = filepath
+	## file_extensions = .shader
 	## cardinality = 0..1
 	effectFile = filepath
 	## cardinality = 0..1
@@ -113,8 +119,10 @@ sprite = {
 	legacy_lazy_load = bool
 	## cardinality = 0..inf
 	animation = {
+		## file_extensions = { .dds .png }
 		## cardinality = 0..1
 		animationmaskfile = filepath
+		## file_extensions = { .dds .png }
 		## cardinality = 0..1
 		animationtexturefile = filepath
 		## cardinality = 0..1
