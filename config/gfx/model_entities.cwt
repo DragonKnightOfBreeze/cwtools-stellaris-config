@@ -340,7 +340,7 @@ enums = {
 	#TODO - link this to bombardment stances
 	complex_enum[model_states] = {
 		path = "game/gfx"
-		search_scope = definition
+		search_scope_type = definition
 		name = {
 			state = {
 				name = enum_name
@@ -349,7 +349,7 @@ enums = {
 	}
 	complex_enum[locators] = {
 		path = "game/gfx/models"
-		search_scope = definition
+		search_scope_type = definition
 		name = {
 			locator = {
 				name = enum_name
