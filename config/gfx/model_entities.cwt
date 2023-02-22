@@ -260,13 +260,13 @@ model_entity = {
 		index = int
 		## file_extensions = .dds
 		## cardinality = 0..1
-		texture_diffuse = filename
+		texture_diffuse = filename[gfx/models]
 		## file_extensions = .dds
 		## cardinality = 0..1
-		texture_normal = filename
+		texture_normal = filename[gfx/models]
 		## file_extensions = .dds
 		## cardinality = 0..1
-		texture_specular = filename
+		texture_specular = filename[gfx/models]
 		## cardinality = 0..1
 		shader = scalar #this seems to point to a shader mesh, dunno where its stored. example: "PdxMeshPlanetEmissive". I believe this is stored in a *.mesh file
 	}
@@ -288,13 +288,13 @@ model_mesh = { #the container for all meshes is defined as objectTypes = { at th
 		shader = scalar #Shader
 		## file_extensions = .dds
 		## cardinality = 0..1
-		texture_diffuse = filename
+		texture_diffuse = filename[gfx/models]
 		## file_extensions = .dds
 		## cardinality = 0..1
-		texture_normal = filename
+		texture_normal = filename[gfx/models]
 		## file_extensions = .dds
 		## cardinality = 0..1
-		texture_specular = filename
+		texture_specular = filename[gfx/models]
 	}
 	## cardinality = 0..inf
 	animation = {
