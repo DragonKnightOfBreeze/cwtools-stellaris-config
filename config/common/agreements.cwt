@@ -196,12 +196,12 @@ agreement_term_value = {
 	}
 	## cardinality = 0..1
 	## replace_scope = { this = agreement root = agreement }
-	possible = {
+	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	## replace_scope = { this = agreement root = agreement }
-	potential = {
+	possible = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality = 0..1

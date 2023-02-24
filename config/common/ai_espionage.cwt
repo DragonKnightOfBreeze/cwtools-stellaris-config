@@ -1,0 +1,35 @@
+types = {
+	type[espionage_operation_policy] = {
+		path = "game/common/ai_espionage/operations"
+	}
+	type[espionage_spynetwork] = {
+		path = "game/common/ai_espionage/spynetworks"
+	}
+}
+
+espionage_operation_policy = {
+	## replace_scopes = { this = spy_network root = spy_network }
+	weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+}
+
+espionage_spynetwork = {
+	## replace_scopes = { this = country root = country }
+	strategy_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+	## replace_scopes = { this = spy_network root = spy_network }
+	network_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+	operation_selector = weighted_random_available
+	operations = {
+		<espionage_operation> = {
+			operation_policy = <espionage_operation_policy>
+			target_value = {
+				min = int
+			}
+		}
+	}
+}
