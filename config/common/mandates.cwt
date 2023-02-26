@@ -1,12 +1,4 @@
-
 types = {
-	type[agenda] = {
-		path = "game/common/agendas"
-		localisation = {
-			## required
-			Name = "$"
-		}
-	}
 	type[mandate] = {
 		path = "game/common/mandates"
 		localisation = {
@@ -15,17 +7,6 @@ types = {
 			## required
 			Desc = "MANDATE_$_DESC"
 		}
-	}
-}
-
-agenda = {
-	## replace_scope = { this = leader root = leader from = country }
-	weight_modifier = {
-		alias_name[modifier_rule] = alias_match_left[modifier_rule]
-	}
-	## replace_scope = { this = country root = country }
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
 	}
 }
 

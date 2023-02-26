@@ -202,13 +202,15 @@ ambient_object = {
 #	}
 #}
 
-#TODO Confirm
-#TODO Add mesh/shader references
 asteroid_belt_type = {
 	## cardinality = 1..inf
-	mesh = scalar
+	mesh = <model_mesh>
 	## cardinality = 0..1
-	shader = scalar
+	shader = $shader_effect
+	## cardinality = 0..1
+	width = float
+	## cardinality = 0..1
+	density = float
 }
 
 ##TODO confirm and refine
