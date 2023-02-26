@@ -1,0 +1,45 @@
+types = {
+	type[country_ownership_limit] = {
+		path = "game/common/country_limits/ownership_limits"
+		file_extension = .txt
+	}
+	type[country_ship_of_size_limit] = {
+		path = "game/common/country_limits/ship_of_size_limits"
+		file_extension = .txt
+	}
+}
+
+country_ownership_limit = {
+	ship_of_size_limits = {
+		## cardinality = 0..inf
+		<country_ship_of_size_limit>
+	}
+	# not implemented yet
+	# building_of_type_limits = {
+	# 	## cardinality = 0..inf
+	# 	<country_building_of_type_limit>
+	# }
+}
+
+country_ship_of_size_limit = {
+	### # list of keys to ship_sizes database, these ship_sizes will share the calculated capacity
+	ship_types = {
+		## cardinality = 0..inf
+		<ship_size>
+	}
+	# Defines the shared capacity of the specified ships that country is allowed to own
+	# capacity = min( max, base + naval_cap_fraction * current_naval_cap )
+	# where current_naval_cap is current naval capacity of the country
+	### Base (minimal) shared capacity of ships
+	base = int
+	### Maximal shared capacity of ships
+	## cardinality = 0..1
+	max = int
+	### Fraction of current naval capacity of the country
+	## cardinality = 0..1
+	naval_cap_fraction = int
+	### Trigger that defines if tooltip for naval capacity icon on the top bar should be shown
+	show = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+}

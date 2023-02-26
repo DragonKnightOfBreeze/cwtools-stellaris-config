@@ -2,85 +2,119 @@
 types = {
 	type[country_type] = {
 		path = "game/common/country_types"
+		file_extension = .txt
 	}
 	type[dp_diplo_phrase] = {
 		path = "game/common/diplo_phrases"
+		file_extension = .txt
 	}
 }
 
 country_type = {
-
+	### if this type gets checked for country-specific pulse events from on_action
 	## cardinality = 0..1
 	has_pulse_events = bool
+	### if this is set to no, there will be a hardcoded block on assigning tech whose potential trigger does not evaluate to the country
 	## cardinality = 0..1
 	can_use_invalid_technology = bool
-
 	## cardinality = 0..1
 	can_receive_envoys = bool
 	## cardinality = 0..1
 	ownership_limits = default
+	### no by default, decides if empty planets belonging to country are automatically removed from the country
 	## cardinality = 0..1
 	can_own_empty_planets = bool
+	### if this type is available for players. used when listing countries for hot-joining players
 	## cardinality = 0..1
 	playable = bool
+	### does this empire have a randomly generated ethos?
  	## cardinality = 0..1
 	randomize_ethos = bool
+	### if pops belonging to this country type should mutate their ethos every now and then
 	## cardinality = 0..1
 	shuffle_pop_ethos = bool
+	### sub title that will be shown for this empire. Like "Example Federation - Fallen Empire"
 	## cardinality = 0..1
 	sub_title = localisation
+	### description for the sub title. used in tooltips
 	## cardinality = 0..1
 	sub_title_desc = localisation
+	### default no, if yes then planets must be surveyed before they can be colonized, also if yes a science ship is needed for exploration.
 	## cardinality = 0..1
 	needs_survey = bool
+	### default no, if yes then empire has complete sensor of the galaxy
  	## cardinality = 0..1
 	has_complete_sensor = bool
+	### default is yes, capital always exists but toggling this no hides any mention of the capital planet being a capital.
 	## cardinality = 0..1
 	has_capital = bool
+	### default is yes, if the country doesn't enforce it's borders people are always free to enter.
 	## cardinality = 0..1
 	enforces_borders = bool
+	### default yes, if no then planets owned by this country type can not be attacked
 	## cardinality = 0..1
 	can_planets_be_attacked = bool
+	### localization key for colonization view title
 	## cardinality = 0..1
 	colonizing_title = localisation
+	### localization key for colonization view desc
 	## cardinality = 0..1
 	colonizing_desc = localisation
+	### default yes, does orbital bombardment
 	## cardinality = 0..1
 	orbital_bombardment = bool
+	### default no, decides if the country needs to declare war to be hostile, only works against countries who also have diplomatic wars toggled on
 	## cardinality = 0..1
 	diplomatic_wars = bool
+	### default no, decides if the country should attack unarmed orbital (mining, research & observation stations) without explicit orders to do so
 	## cardinality = 0..1
 	attack_unarmed_orbital_stations = bool
+	### default no, decides if the country's ships can flee from battle instead of fighting to the death
 	## cardinality = 0..1
 	ship_disengagement = bool
+	### default no, decides if the country's armies can flee from battle instead of fighting to the death
 	## cardinality = 0..1
 	army_disengagement = bool
+	### default 0, decides how large a navy this country wants (out of desired size) before declaring any wars
 	## cardinality = 0..1
 	min_navy_for_wars = int
+	### default 1, deciades how many assault armies the country wants before declaring any wars
  	## cardinality = 0..1
 	min_assault_armies_for_wars = int
+	### default yes, decides if they share communciations with anyone you have contact with
  	## cardinality = 0..1
 	share_communications = bool
+	### default no, this controls whether the country makes us of opinion
 	## cardinality = 0..1
 	relations = bool
+	### default no, this controls whether the empire uses the special Fallen Empire AI
 	## cardinality = 0..1
 	fallen_empire = bool
+	### default no, this controls whether the empire uses the special Awakened Fallen Empire AI
 	## cardinality = 0..1
 	awakened_fallen_empire = bool
+	### default no, this controls whether the empire has piracy risk
 	## cardinality = 0..1
 	piracy_risk	= bool
+	### default no, this controls whether this empire builds global ship designs that are defined as special buildables instead of normal designable ships
  	## cardinality = 0..1
 	uses_special_buildables = bool #this is tied to special_buildable in global_ship_designs - designs should be checked against country types!
+	### default yes, whether to show an entry in the contacts list
 	## cardinality = 0..1
 	show_in_contacts_list = bool
+	### default no, whether to show only empire name and flag in diplomacy panel in the contacts list
 	## cardinality = 0..1
 	minimalist_contacts_list_profile = bool
+	### default yes, if yes then the country has a government
 	## cardinality = 0..1
 	government = bool
+	### if this is set, country will defined ship size for constructed starbases instead of building outposts
  	## cardinality = 0..1
 	custom_starbase = <ship_size.starbase>
+	### if this is set to yes, country will destroy starbases instead of disabling them
 	## cardinality = 0..1
 	destroys_starbases = bool
+	### if this is set to yes, other countries in contact with this one will be able to share that contact (for countries that use custom_diplomacy)
 	## cardinality = 0..1
 	can_have_their_comms_shared = bool
 	## cardinality = 0..1
@@ -105,12 +139,10 @@ country_type = {
 	blocks_pirate = bool
 	## cardinality = 0..1
 	### This is a star flag
-	#TODO Work out how to make this a star flag
-	home_system = scalar
+	home_system = value_set[star_flag]
 	## cardinality = 0..1
 	### This is a star flag
-	#TODO Work out how to make this a star flag
-	hub_system = scalar
+	hub_system = value_set[star_flag]
 	## cardinality = 0..1
 	default_ships = bool
 	## cardinality = 0..1
@@ -119,10 +151,11 @@ country_type = {
 	counts_for_victory = bool
 	## cardinality = 0..1
 	has_difficulty_bonuses = bool
+	### if this type suffers from resource deficits
 	## cardinality = 0..1
-	has_deficits = yes
+	has_deficits = bool
 	## cardinality = 0..1
-	is_mercenary = yes
+	is_mercenary = bool
 	## cardinality = 0..1
 	pop_growth = bool
 	## cardinality = 0..1
@@ -133,57 +166,79 @@ country_type = {
 	is_the_shroud = bool
 	## cardinality = 0..1
 	pre_communications_fleet_name = localisation
+	### Fairly self explanatory. Will not show up in list of observable countries, and cannot be tagged to as observer
 	## cardinality = 0..1
 	observable = bool
 	## cardinality = 0..1
 	uses_origins = bool
 	## cardinality = 0..1
 	always_valid_target_aggressive = bool
+	### these values are copied to the country and can be changed during the game
 	## cardinality = 0..1
 	faction = {
+		### if yes, fleets will never attack anything and will never be attacked
 		## cardinality = 0..1
 		neutral = bool
+		### if yes, fleets will attack everything on sight ( except neutral fleets )
 		## cardinality = 0..1
 		hostile = bool
+		### if yes, fleets will follow the fleets of allies
 		## cardinality = 0..1
 		follow = bool
+		### if yes, country will be automatically be deleted when considered dead ( usually when out of colonies and colony ships ). Should be yes in most cases but can be useful to turn off for some countries that are created by events.
 		## cardinality = 0..1
 		auto_delete = bool
+		### decides if a country needs to have explicit border access from another country to enter its borders
 		## cardinality = 0..1
 		needs_border_access = bool
+		### decides if a country generates borders or not
 		## cardinality = 0..1
 		generate_borders = bool
+		### decides if a country needs a colony ( or a colony ship ) to be considered alive
 		## cardinality = 0..1
 		needs_colony = bool
+		### primitive countries can have observation stations build by others in orbit of their planets
 		## cardinality = 0..1
 		primitive = bool
+		### if primitive = yes, localization string. Remember that these values are dynamic and this value will most likely be overwritten instantly by the same event that created the country. This field can probably be left empty
 		## cardinality = 0..1
 		primitive_age = localisation
+		### toggles if country turns hostile against attacker
 		## cardinality = 0..1
 		hostile_when_attacked = bool
+		### if no, borders for countries of this type will not be shown if in uncharted space
 		## cardinality = 0..1
 		show_borders_in_us = bool
 		## cardinality = 0..1
 		pirate = bool
 		## cardinality = 0..1
 		space_creatures = bool
+		### toggle if the intel system is allowed to change any surveyed planets to unsurveyed depending on intel level with this country
 		## cardinality = 0..1
-		###Determines whether their planets are surveyable by others (should be "yes" for e.g. primitives)
 		intel_effects_surveyed = bool
 	}
 
+	### block of AI settings
 	ai = {
+		### run ai for this country type? default no
+		## cardinality = 0..1
 		enabled = bool
+		### should AI declare wars? default yes
 		## cardinality = 0..1
 		declare_war = bool
+		### should AI colonize? default yes
 		## cardinality = 0..1
 		colonizer = bool
+		### should AI update internal policies? such as edicts, changing government types etc. default yes
 		## cardinality = 0..1
 		internal_policies = bool
+		### should AI genemod & terraform? default yes
 		## cardinality = 0..1
 		modification = bool
+		### should AI build ships and buildings? default yes
 		## cardinality = 0..1
 		construction = bool
+		### should AI advance its technology? default yes
 		## cardinality = 0..1
 		tech = bool
 		## cardinality = 0..1
@@ -206,12 +261,14 @@ country_type = {
 		limited_construction = bool
 		## cardinality = 0..1
 		can_use_market = bool
+		### should AI use espionage? default yes
 		## cardinality = 0..1
 		espionage = bool
 		## cardinality = 0..1
 		limited_military_construction = bool
 		## cardinality = 0..1
 		limited_leaders = bool
+		### List of ai modules this country type should have
 		## cardinality = 0..1
 		modules = {
 			## cardinality = 0..inf
@@ -219,18 +276,31 @@ country_type = {
 		}
 	}
 
+	### block of Country Fleet Manager settings
 	### used with enclave_mercenary
 	## cardinality = 0..1
 	fleet_manager = {
+		### effect fired when fleet owned by country is hired
+		### Scope - Fleet, From - Country that hired the fleet, FromFrom - Country that owns fleet, FromFromFrom - Country that initiated the ending of the contract
+		## replace_scope = { this = fleet root = fleet from = country fromfrom = country fromfromfrom = country }
 		on_contract_started = {
 			alias_name[effect] = alias_match_left[effect]
 		}
+		### effect fired when hire contract of a fleet owned by country is expired
+		### Scope - Fleet, From - Country that hired the fleet, FromFrom - Country that owns fleet, FromFromFrom - Country that initiated the ending of the contract
+		## replace_scope = { this = fleet root = fleet from = country fromfrom = country fromfromfrom = country }
 		on_contract_expired = {
 			alias_name[effect] = alias_match_left[effect]
 		}
+		### effect fired when hire contract of a fleet owned by country is cancelled (when controller prematurely finishes the contract or when the contract cancellation is a part of trade deal)
+		### Scope - Fleet, From - Country that hired the fleet, FromFrom - Country that owns fleet, FromFromFrom - Country that initiated the ending of the contract (trade deal actor when the contract cancellation is a part of trade deal)
+		## replace_scope = { this = fleet root = fleet from = country fromfrom = country fromfromfrom = country }
 		on_contract_cancelled = {
 			alias_name[effect] = alias_match_left[effect]
 		}
+		### effect fired when hire contract of a fleet owned by country is broken (when country is attacked by someone of when a war is started)
+		### Scope - Fleet, From - Country that hired the fleet, FromFrom - Country that owns fleet, FromFromFrom - Country that initiated the ending of the contract (main attacker in a case of war)
+		## replace_scope = { this = fleet root = fleet from = country fromfrom = country fromfromfrom = country }
 		on_contract_broken = {
 			alias_name[effect] = alias_match_left[effect]
 		}
@@ -244,12 +314,14 @@ country_type = {
 	}
 
 	## cardinality = 0..1
-	replace_scope = { this = country root = country }
-	## cardinality = 0..1
+	## replace_scope = { this = country root = country }
 	trade_routes_available = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
+	### List of modules countries of this should have.
+	## A module controls what code a country will use for a specific system, for instance we can decide to run a completely different economy module that uses cats as main currency ( if such a module exists, that is )
+	## Only one module per module type is allowed
 	## cardinality = 0..1
 	modules = {
 		## cardinality = 0..1

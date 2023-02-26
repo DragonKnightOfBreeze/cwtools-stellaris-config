@@ -4,11 +4,13 @@ types = {
 	type[component_set] = {
 		name_field = "key"
     	path = "game/common/component_sets"
+		file_extension = .txt
 		subtype[required_component] = {
 			required_component_set = yes
 		}
 		localisation = {
 			## required
+			## primary
 			Name = "$"
 			## optional
 			Description = "$_DESC"
@@ -18,13 +20,21 @@ types = {
 			"Station Description" = "station_$_DESC"
 		}
 		images = {
-			## primary
-			icon = "#icon" # <sprite>
+			subtype[!required_component] = {
+				## required
+				## primary
+				icon = "#icon|#icon_frame" # <sprite>
+			}
 		}
+	}
+	type[component_slot_template] = {
+		path = "game/common/component_slot_templates"
+		file_extension = .txt
 	}
 	type[component_template] = {
 		name_field = "key"
 		path = "game/common/component_templates"
+		file_extension = .txt
 		## type_key_filter = utility_component_template
 		subtype[starbase] = {
 			class_restriction = { shipclass_starbase }
@@ -40,11 +50,13 @@ types = {
 		}
 		localisation = {
 			## required
+			## primary
 			Name = "$"
 		}
 		images = {
+			## required
 			## primary
-			icon = "#icon" # <sprite>
+			icon = "#icon|#icon_frame" # <sprite>
 		}
 	}
 }
@@ -61,8 +73,6 @@ enums = {
 		start_from_root = yes
 	}
 }
-
-
 
 component_set = {
 	## cardinality = 0..1
@@ -81,17 +91,24 @@ component_set = {
 	}
 }
 
-
-
-
-# TODO Confirm
-# TODO Document
-# TODO Expand
+component_slot_template = {
+	size = enum[weapon_slot_size]
+	component = weapon
+	component = strike_craft
+	## cardinality = 0..1
+	is_fixed = yes
+	## cardinality = 0..1
+	entities = {
+		## cardinality = 1..inf
+		enum[weapon_type] = scalar # TODO <model_entity>, but that doesn't work
+	}
+}
 
 component_template = {
 	key = scalar
 
 	icon = <sprite>
+	## cardinality = 0..1
 	icon_frame = int
 	## cardinality = 0..1
 	prerequisites = {
@@ -120,6 +137,8 @@ component_template = {
 		enum[component_tags]
 	}
 	## cardinality = 0..1
+	ai_tag_weight = int
+	## cardinality = 0..1
 	size_restriction = {
 		## cardinality = 0..inf
 		<ship_size>
@@ -143,11 +162,13 @@ component_template = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 	subtype[utility_component_template] = {
+		## cardinality = 0..1
 		## replace_scope = { root = ship this = ship }
 		resources = {
 			category = <economic_category>
 			alias_name[economic_template] = alias_match_left[economic_template]
 		}
+		## cardinality = 0..1
 		power = int
 		size = enum[utility_slot_size]
 		## cardinality = 0..1
@@ -267,6 +288,7 @@ component_template = {
 		}
 	}
 	subtype[weapon_component_template] = {
+		## cardinality = 0..1
 		## replace_scope = { root = ship this = ship }
 		resources = {
 			category = <economic_category>
@@ -287,6 +309,7 @@ component_template = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 
+		## cardinality = 0..1
 		projectile_gfx = <projectile>
 		## cardinality = 0..1
 		## color_type = hsv
@@ -355,28 +378,51 @@ component_template = {
 		missile_shield = float
 		## cardinality = 0..1
 		missile_retarget_range = int
+
+		point_defence_targets = { enum[point_defence_target] }
 	}
 	subtype[strike_craft_component_template] = {
-		size = enum[weapon_slot_size]
-		entity = scalar #TODO: Replace with hardcoded  graphical_culture + <model_entity>
-		weapon_type = enum[weapon_type2]
-		ship_behavior = <ship_behavior>
-		projectile_gfx = <projectile>
-		power = float
+		## cardinality = 0..1
 		## replace_scope = { root = ship this = ship }
 		resources = {
 			category = <economic_category>
 			alias_name[economic_template_no_produce] = alias_match_left[economic_template_no_produce]
 		}
+		size = enum[weapon_slot_size]
+		entity = scalar #TODO: Replace with hardcoded  graphical_culture + <model_entity>
+		weapon_type = enum[weapon_type2]
+		ship_behavior = <ship_behavior>
+		## cardinality = 0..1
+		projectile_gfx = <projectile>
+		## cardinality = 0..1
+		power = float
 		count = float
 		regeneration_per_day = float
 		launch_time = float
+
+		#these are optional, vanilla uses an .csv file to create these
+		## cardinality = 0..1
 		damage = { min = float max = float }
-		cooldown = float
+		## cardinality = 0..1
+		shield_damage = float
+		## cardinality = 0..1
+		shield_penetration = float
+		## cardinality = 0..1
+		hull_damage = float
+		## cardinality = 0..1
+		armor_damage = float
+		## cardinality = 0..1
+		armor_penetration = float
+		## cardinality = 0..1
 		range = float
-		engagement_range = float
+		## cardinality = 0..1
 		accuracy = float
+		## cardinality = 0..1
 		tracking = float
+
+		cooldown = float
+		## cardinality = 0..1
+		engagement_range = float
 		health = float
 		armor = float
 		shield = float
@@ -384,11 +430,6 @@ component_template = {
 		speed = float
 		rotation_speed = float
 		acceleration = float
-		shield_damage = float
-		shield_penetration = float
-		armor_damage = float
-		armor_penetration = float
-		hull_damage = float
 		## cardinality = 0..1
 		attack_range = float
 	}
@@ -417,6 +458,10 @@ enums = {
 		point_defence
 		planet_killer
 		titanic
+	}
+	enum[point_defence_target] = {
+		missile
+		strike_craft
 	}
 	enum[utility_slot_size] = {
 		extra_large

@@ -1,0 +1,13 @@
+types = {
+	## skip_root_key = collection
+	type[country_container] = {
+		path = "game/common/country_container"
+		file_extension = .txt
+	}
+}
+
+country_container = {
+	resources = {
+		category = <economic_category>
+	}
+}

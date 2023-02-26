@@ -16,22 +16,6 @@ types = {
 			# icon = "#icon" # from cwtools: unused
 		}
 	}
-	type[component_slot_template] = {
-		path = "game/common/component_slot_templates"
-	}
-}
-
-component_slot_template = {
-	size = enum[weapon_slot_size]
-	component = weapon
-	component = strike_craft
-	## cardinality = 0..1
-	is_fixed = yes
-	## cardinality = 0..1
-	entities = {
-		## cardinality = 1..inf
-		enum[weapon_type] = scalar #<model_entity>, but that doesn't work
-	}
 }
 
 section_template = {
@@ -92,7 +76,7 @@ section_template = {
   ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
-	
+
 	## cardinality = 0..1
 	## replace_scope = { this = ship root = ship }
 	modifier = {
@@ -104,6 +88,7 @@ section_template = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 }
+
 enums = {
   	enum[slot_type] = {
      	strike_craft

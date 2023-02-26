@@ -1,0 +1,32 @@
+types = {
+	type[country_customization] = {
+		path = "game/common/country_customization"
+		file_extension = .txt
+	}
+}
+
+country_customization = {
+	colony_shelter = {
+		#the building should be defined as capital! and probably level 0 as well. Please add a check for this
+		#the planet classes should be defined as colonizable!
+		default = <building>
+		## cardinality = 0..inf
+		<planet_class> = <building>
+	}
+	## cardinality = 0..1
+	graphical_culture_for_random_empire = {
+		## cardinality = 0..inf
+		<graphical_culture> = {
+			## cardinality = 0..inf
+			modifier = {
+				add = int
+				species_portrait = <portrait>
+			}
+		}
+	}
+	## cardinality = 0..1
+	## replace_scope = { this = country root = country }
+	weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+}
