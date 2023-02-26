@@ -1,0 +1,39 @@
+types = {
+	type[ai_budget] = {
+		path = "game/common/ai_budget"
+	}
+}
+
+## replace_scope = { this = country root = country }
+ai_budget = {
+	resource = <resource>
+	type = expenditure
+	type = upkeep
+	category = <economic_category>
+
+	potential = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### The fraction of total income that should be spent on this
+	## cardinality = 0..1
+	weight = {
+		enum[weight_or_base] = float
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	### The AI will try to allocate at least this much to the budget. It is a guideline, though. This means that if the AI is below this level, \
+	### it will try particularly hard to reach it. But if income is lower than this, it cannot reach the minimum. Excessive use can lead to double-allocation of resources
+	## cardinality = 0..1
+	desired_max = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	### The AI will try not to allocate more than this much to the budget. It is a guideline, though: if many static maxes are defined, and \
+	### the defined fractions would bring the AI over the max for all of them, it will probably not correct down far enough to be below the \
+	### max. It will correct downwards, though, and reallocate the amount it cuts from the budget elsewhere.
+	## cardinality = 0..1
+	desired_min = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+}

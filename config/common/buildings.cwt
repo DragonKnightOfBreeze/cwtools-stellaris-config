@@ -3,6 +3,7 @@ types = {
 	## graph_related_types = { technology }
 	type[building] = {
 		path = "game/common/buildings"
+		file_extension = .txt
 		subtype[capped] = {
 			## cardinality = 0..1
 			is_capped_by_modifier = yes
@@ -64,8 +65,8 @@ building = {
 	## cardinality = 0..1
 	base_buildtime = int
 
+	### whether this building is exempt from being swapped into groups by the AI; default: no
 	## cardinality = 0..1
-	###whether this building is exempt from being swapped into groups by the AI; default: no
 	exempt_from_ai_planet_specialization = bool
 
 	## cardinality = 0..1
@@ -95,10 +96,11 @@ building = {
 	planetary_ftl_inhibitor = bool
 	## cardinality = 0..1
 	position_priority = int
+	### colony automation will not try to upgrade this
 	## cardinality = 0..1
-	###colony automation will not try to upgrade this
 	skip_automation_upgrading = bool
 
+	### trigger for allowing/graying out building construction
 	## cardinality = 0..1
 	allow = {
 		alias_name[trigger] = alias_match_left[trigger]
@@ -111,41 +113,55 @@ building = {
 	## cardinality = 0..1
 	empire_limit = float
 
+	### an action when queued
 	## cardinality = 0..1
 	on_queued = {
 		alias_name[effect] = alias_match_left[effect]
 	}
 
+	### an action when unqueued
 	## cardinality = 0..1
 	on_unqueued = {
 		alias_name[effect] = alias_match_left[effect]
 	}
 
+	### an action when built
 	## cardinality = 0..1
 	on_built = {
 		alias_name[effect] = alias_match_left[effect]
 	}
 
+	### an action when destroyed
 	## cardinality = 0..1
 	on_destroy = {
 		alias_name[effect] = alias_match_left[effect]
 	}
 
+	### trigger for displaying building in construction list
 	## cardinality = 0..1
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
+	### ongoing construction will be canceled if this trigger returns true
 	## cardinality = 0..1
 	abort_trigger = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
+	### ongoing construction will be canceled if this trigger returns true
+	## cardinality = 0..1
+	abort_construction_trigger = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### set building to ruined if this trigger returns true
 	## cardinality = 0..1
 	ruined_trigger = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
+	### building will be destroyed (more likely converted, see below) if this trigger returns true
 	## cardinality = 0..1
 	destroy_trigger = {
 		alias_name[trigger] = alias_match_left[trigger]
@@ -168,6 +184,7 @@ building = {
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
 
+	### building(s) this can be upgraded to
 	## cardinality = 0..1
 	upgrades = {
 		## cardinality = 0..1
@@ -187,6 +204,7 @@ building = {
 		<technology>
 	}
 
+	### not used anymore unless you overwrite economic_plans to not be used.
 	## cardinality = 0..1
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -201,6 +219,7 @@ building = {
 		}
 	}
 
+	### lists candidates this can be converted to if destroy_trigger returns true (e.g. post-conquest)
 	## cardinality = 0..1
 	convert_to = {
 		## cardinality = 1..inf

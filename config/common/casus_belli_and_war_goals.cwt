@@ -1,9 +1,10 @@
-
 types = {
 	type[casus_belli] = {
 		path = "game/common/casus_belli"
+		file_extension = .txt
 		localisation = {
 			## required
+			## primary
 			Name = "casus_belli_$"
 			## optional
 			Hint = "casus_belli_$_acquire_hint"
@@ -13,6 +14,7 @@ types = {
 		path = "game/common/war_goals"
 		localisation = {
 			## required
+			## primary
 			Name = "war_goal_$"
 			## required
 			Desc = "war_goal_$_desc"
@@ -33,33 +35,34 @@ enums = {
 	}
 }
 
-# TODO Confirm
-# TODO Document
 casus_belli = {
-	#not needed?
-	#casus_belli = <casus_belli>
-
+	### trigger to make some CBs invalid for certain types of countries; \
+	### this = attacker (CB owner); default: { always = yes }
 	## cardinality = 0..1
-	###trigger to make some CBs invalid for certain types of countries; this = attacker (CB owner); default: { always = yes }
+	## replace_scope = { this = country root = country }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
+	### trigger, evaluated daily to check if CB should be created or destroyed automatically, does not affect CBs granted via script; \
+	### this = attacker (CB owner), from = defender (target country); default: { always = yes }
 	## cardinality = 0..1
 	## replace_scope = { this = country root = country from = country }
-	###trigger, evaluated daily to check if CB should be created or destroyed automatically, does not affect CBs granted via script; this = attacker (CB owner), from = defender (target country); default: { always = yes }
 	is_valid = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
+	### trigger, evaluated daily to destroy CBs that have been granted via script ahead of expiration date; \
+	### this = attacker (CB owner), from = defender (target country); default: { always = no }
 	## cardinality = 0..1
 	## replace_scope = { this = country root = country from = country }
-	###trigger, evaluated daily to destroy CBs that have been granted via script ahead of expiration date; this = attacker (CB owner), from = defender (target country); default: { always = no }
 	destroy_if = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
-	###optional (default = yes), flag to control whether this CB will generate a notification (to avoid duplicate notification when a claim CB is generated). Caligula's note: Always used in Vanilla (even when yes), so marked as obligatory unless someone knows better
+	### optional (default = yes), flag to control whether this CB will generate a notification (to avoid duplicate \
+	### notification when a claim CB is generated).
+	### Caligula's note: Always used in Vanilla (even when yes), so marked as obligatory unless someone knows better
 	show_notification = bool
 
 	## cardinality = 0..1
@@ -68,9 +71,6 @@ casus_belli = {
 	## cardinality = 0..1
 	aggregated_message_key = localisation
 }
-
-
-#localisation is wg_<war_goal>
 
 war_goal = {
 	casus_belli = <casus_belli>
@@ -127,7 +127,7 @@ war_goal = {
 
 	###Set what peace offers are allowed. Leaving this out means no peace, which is usually a bug, hence making this a necessary field.
 	allowed_peace_offers = {
-		## cardinality = 0..3	
+		## cardinality = 0..3
 		enum[peace_offers]
 	}
 

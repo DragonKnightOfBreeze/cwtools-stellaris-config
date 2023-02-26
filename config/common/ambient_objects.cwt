@@ -1,0 +1,40 @@
+types = {
+	type[ambient_object] = {
+		name_field = "name"
+		path = "game/common/ambient_objects"
+		file_extension = .txt
+		subtype[show_name] = {
+			show_name = yes
+		}
+		subtype[selectable] = {
+			selectable = yes
+		}
+		localisation = {
+			subtype[show_name] = {
+				## required
+				## primary
+				name = "$"
+			}
+			description = "#description"
+			tooltip = "#tooltip"
+		}
+	}
+}
+
+ambient_object = {
+	subtype[show_name] = {
+		### A localisation key.
+		name = localisation
+	}
+	subtype[!show_name] = {
+		name = scalar
+	}
+	entity = <model_entity>
+	selectable = bool
+	### Determines whether you can read the name of the object ingame.
+	show_name = bool
+	## cardinality = 0..1
+	description = localisation
+	## cardinality = 0..1
+	tooltip = localisation
+}

@@ -1,8 +1,10 @@
 types = {
 	type[agenda] = {
 		path = "game/common/agendas"
+		file_extension = .txt
 		localisation = {
 			## required
+			## primary
 			Name = "$"
 		}
 	}
@@ -18,12 +20,3 @@ agenda = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 }
-
-mandate = {
-	## replace_scope = { this = planet root = planet }
-	#im not 100% about the scopes here, this is what vanilla appear to be. It uses owner to scope to country
-	valid = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-	## cardinality = 0..1
-	para

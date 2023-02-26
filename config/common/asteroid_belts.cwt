@@ -1,0 +1,17 @@
+types = {
+	type[asteroid_belt_type] = { #reason for this rename is the way vanilla names stuff, creating ambiguity.
+		path = "game/common/asteroid_belts"
+		file_extension = .txt
+	}
+}
+
+asteroid_belt_type = {
+	## cardinality = 1..inf
+	mesh = <model_mesh>
+	## cardinality = 0..1
+	shader = $shader_effect
+	## cardinality = 0..1
+	width = float
+	## cardinality = 0..1
+	density = float
+}

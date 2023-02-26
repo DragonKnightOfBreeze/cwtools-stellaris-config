@@ -2,28 +2,6 @@
 #I got frustrated at there being SO MANY files, so I have thrown a whole lot together in here -Caligula
 
 types = {
-	## replace_scopes = { this = species root = species from = planet }
-	type[ai_force_species] = {
-		path = "game/common/ai_force_species"
-	}
-	type[ambient_object] = {
-		name_field = "name"
-		path = "game/common/ambient_objects"
-		subtype[show_name] = {
-			show_name = yes
-		}
-		subtype[selectable] = {
-			selectable = yes
-		}
-		localisation = {
-			subtype[show_name] = {
-				## required
-				name = "$"
-			}
-			description = "#description"
-			tooltip = "#tooltip"
-		}
-	}
 #	type[country_color] = { #commented out as it threw errors anyway
 #		path = "game/common/colors"
 #		## type_key_filter = country
@@ -37,19 +15,6 @@ types = {
 #		## type_key_filter = species
 #		subtype[species] = {}
 #	}
-	type[asteroid_belt_type] = { #reason for this rename is the way vanilla names stuff, creating ambiguity.
-		path = "game/common/asteroid_belts"
-	}
-	type[attitude] = {
-		path = "game/common/attitudes"
-		localisation = {
-			## required
-			name = "attitude_$"
-		}
-	}
-	type[button_effect] = {
-		path = "game/common/button_effects"
-	}
 	type[country_customization] = {
 		path = "game/common/country_customization"
 	}
@@ -104,9 +69,6 @@ types = {
 			icon = "#icon" # <sprite>
 		}
 	}
-	type[ai_budget] = {
-		path = "game/common/ai_budget"
-	}
 	type[trade_conversion] = {
 		path = "game/common/trade_conversions"
 	}
@@ -135,38 +97,6 @@ types = {
 			icon = "gfx/interface/icons/modifiers/mod_$.dds" # inferred
 		}
 	}
-}
-
-ai_force_species = {
-	### Potential is checked for all AI planets for each species that can be grown there
-	## cardinality = 0..1
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-	### If potential is passed then weight is evaluated.
-	### AI will force grow the species with the highest weight above 0 on each planet individually
-	ai_weight = {
-		weight = float
-		alias_name[modifier_rule] = alias_match_left[modifier_rule]
-	}
-}
-
-ambient_object = {
-	subtype[show_name] = {
-		###A localisation key.
-		name = localisation
-	}
-	subtype[!show_name] = {
-		name = scalar
-	}
-	entity = <model_entity>
-	selectable = bool
-	###Determines whether you can read the name of the object ingame.
-	show_name = bool
-	## cardinality = 0..1
-	description = localisation
-	## cardinality = 0..1
-	tooltip = localisation
 }
 
 #country_color = { #commented out as it threw errors on every line anyway
@@ -201,54 +131,6 @@ ambient_object = {
 #		colour[hsv]
 #	}
 #}
-
-asteroid_belt_type = {
-	## cardinality = 1..inf
-	mesh = <model_mesh>
-	## cardinality = 0..1
-	shader = $shader_effect
-	## cardinality = 0..1
-	width = float
-	## cardinality = 0..1
-	density = float
-}
-
-##TODO confirm and refine
-attitude = {
-	type = scalar
-	behaviour = {
-		## cardinality = 0..1
-		attack = bool
-		## cardinality = 0..1
-		weaken = bool
-		## cardinality = 0..1
-		alliance = bool
-		## cardinality = 0..1
-		vassalize = bool
-		## cardinality = 0..1
-		trade = bool
-		## cardinality = 0..1
-		coexist = bool
-	}
-}
-
-# TODO Confirm
-# TODO Document
-button_effect = {
-	## replace_scope = { this = any root = any from = country }
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-	## replace_scope = { this = any root = any from = country }
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-	## replace_scope = { this = any root = any from = country }
-	## cardinality = 0..1
-	effect = {
-		alias_name[effect] = alias_match_left[effect]
-	}
-}
 
 #TODO Confirm
 #TODO Document
@@ -428,34 +310,6 @@ enums = {
 		players
 		sectors
 		trade_routes
-	}
-}
-
-## replace_scope = { this = country root = country }
-ai_budget = {
-	resource = <resource>
-	type = expenditure
-	type = upkeep
-	category = <economic_category>
-
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-
-	## cardinality = 0..1
-	weight = {
-		enum[weight_or_base] = float
-		alias_name[modifier_rule] = alias_match_left[modifier_rule]
-	}
-
-	## cardinality = 0..1
-	desired_max = {
-		alias_name[modifier_rule] = alias_match_left[modifier_rule]
-	}
-
-	## cardinality = 0..1
-	desired_min = {
-		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 }
 

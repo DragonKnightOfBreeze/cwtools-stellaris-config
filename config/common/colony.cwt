@@ -1,8 +1,10 @@
 types = {
 	type[colony_type] = {
 		path = "game/common/colony_types"
+		file_extension = .txt
 		localisation = {
 			## required
+			## primary
 			Name = "$"
 			## required
 			Description = "$_desc"
@@ -14,21 +16,25 @@ types = {
 	}
 	type[colony_automation] = {
 		path = "game/common/colony_automation"
+		file_extension = .txt
 		path_strict = yes
 	}
 	type[colony_automation_category] = {
 		path = "game/common/colony_automation_categories"
+		file_extension = .txt
 	}
 	type[colony_automation_exception] = {
 		path = "game/common/colony_automation_exceptions"
+		file_extension = .txt
 	}
 }
 
+## push_scope = planet
 colony_type = {
 	icon = <sprite>
 
-	## cardinality = 0..1
 	### Used by AI to estimate what will happen when we change the designation
+	## cardinality = 0..1
 	ai_resource_conversion = {
 		## cardinality = 0..inf
 		<resource> = float
@@ -38,8 +44,8 @@ colony_type = {
 		}
 	}
 
-	## cardinality = 0..1
 	### Used by AI to estimate the current effects of this designation
+	## cardinality = 0..1
 	ai_resource_current_conversion = {
 		## cardinality = 0..inf
 		<resource> = float
