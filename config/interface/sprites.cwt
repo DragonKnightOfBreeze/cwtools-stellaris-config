@@ -1,6 +1,33 @@
 #sprites are saved in *.gfx files (like meshes) and are by and large stored in /interface
 
 types = {
+	## type_key_filter <> { progressbartype PieChartType }
+	type[sprite] = { #these are links that start with the GFX_ prefix in vanilla
+		name_field = name
+		path = "game/interface"
+		path_extension = .gfx
+		skip_root_key = spriteTypes
+		severity = warning
+		## type_key_filter = spriteType
+		subtype[normal] = {}
+		## type_key_filter = corneredTileSpriteType
+		subtype[cornered_tile] = {}
+		## type_key_filter = flagSpriteType
+		subtype[flag_sprite] = {}
+		## type_key_filter = frameAnimatedSpriteType
+		subtype[framed_animated_sprite] = {}
+		## type_key_filter = textSpriteType
+		subtype[text_sprite] = {}
+		## type_key_filter = portraitType
+		subtype[portrait_sprite] = {}
+		images = {
+			## primary
+			texture = "#textureFile" # filepath
+			## primary
+			texture = "#sprite_sheet_sprite_type|#default_frame" # <sprite>
+			masking_texture = "#masking_texture" # filepath
+		}
+	}
 	## type_key_filter = progressbartype
 	type[progressbartype] = {
 		name_field = name
@@ -21,68 +48,10 @@ types = {
 		path_extension = .gfx
 		skip_root_key = spriteTypes
 		severity = warning
-
-	}
-	## type_key_filter <> { progressbartype PieChartType }
-	type[sprite] = { #these are links that start with the GFX_ prefix in vanilla
-		name_field = name
-		path = "game/interface"
-		path_extension = .gfx
-		skip_root_key = spriteTypes
-		severity = warning
-		## type_key_filter = spriteType
-		subtype[normal] = {}
-		## type_key_filter = corneredTileSpriteType
-		subtype[cornered_tile] = {}
-		## type_key_filter = flagSpriteType
-		subtype[flag_sprite] = {}
-		## type_key_filter = frameAnimatedSpriteType
-		subtype[framed_animated_sprite] = {}
-		## type_key_filter = textSpriteType
-		subtype[text_sprite] = {}
-		images = {
-			## primary
-			texture = "#textureFile" # filepath
-			## primary
-			texture = "#sprite_sheet_sprite_type|#default_frame" # <sprite>
-			masking_texture = "#masking_texture" # filepath
-		}
 	}
 }
 
 #TODO: Rework to use types inside the top level
-
-progressbartype = {
-	name = scalar
-
-	#either texturefile, or both texturefile1 and 2 - need to be worked out.
-
-	## file_extensions = { .dds .png }
-	## cardinality = 0..1
-	textureFile = filepath
-	## file_extensions = { .dds .png }
-	## cardinality = 0..1
-	textureFile1 = filepath
-	## file_extensions = { .dds .png }
-	## cardinality = 0..1
-	textureFile2 = filepath
-	## file_extensions = .shader
-	effectFile = filepath
-
-	## color_type = hsv
-	color = {
-		## cardinality = 3..3
-		float[0..1]
-	}
-	## color_type = hsv
-	colortwo = {
-		## cardinality = 3..3
-		float[0..1]
-	}
-	size = { x = int y = int }
-	## cardinality = 0..1
-	horizontal = bool
-}
 
 sprite = {
 	name = scalar
@@ -178,6 +147,38 @@ sprite = {
 		x = int
 		y = int
 	}
+}
+
+progressbartype = {
+	name = scalar
+
+	#either texturefile, or both texturefile1 and 2 - need to be worked out.
+
+	## file_extensions = { .dds .png }
+	## cardinality = 0..1
+	textureFile = filepath
+	## file_extensions = { .dds .png }
+	## cardinality = 0..1
+	textureFile1 = filepath
+	## file_extensions = { .dds .png }
+	## cardinality = 0..1
+	textureFile2 = filepath
+	## file_extensions = .shader
+	effectFile = filepath
+
+	## color_type = hsv
+	color = {
+		## cardinality = 3..3
+		float[0..1]
+	}
+	## color_type = hsv
+	colortwo = {
+		## cardinality = 3..3
+		float[0..1]
+	}
+	size = { x = int y = int }
+	## cardinality = 0..1
+	horizontal = bool
 }
 
 piechart = {
