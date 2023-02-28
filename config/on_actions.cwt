@@ -1,0 +1,186 @@
+on_actions = {
+	### Triggers when the game starts
+	## scopes = { this = no_scope root = no_scope }
+	on_game_start = scopeless
+
+	## scopes = { this = country root = country }
+	on_game_start_country = country
+
+	### No scope, like on_game_start
+	### Does not run when loading MP saves due to OOS concerns
+	## scopes = { this = no_scope root = no_scope }
+	on_single_player_save_game_load = scopeless
+
+	### No scope, like on_game_start
+	## scopes = { this = no_scope root = no_scope }
+	on_monthly_pulse = scopeless
+
+	### No scope, like on_game_start
+	## scopes = { this = no_scope root = no_scope }
+	on_yearly_pulse = scopeless
+
+	### No scope, like on_game_start
+	## scopes = { this = no_scope root = no_scope }
+	on_bi_yearly_pulse = scopeless
+
+	### No scope, like on_game_start
+	## scopes = { this = no_scope root = no_scope }
+	on_five_year_pulse = scopeless
+
+	### No scope, like on_game_start
+	## scopes = { this = no_scope root = no_scope }
+	on_decade_pulse = scopeless
+
+	### No scope, like on_game_start
+	## scopes = { this = no_scope root = no_scope }
+	on_mid_game_pulse = scopeless
+
+	### No scope, like on_game_start
+	## scopes = { this = no_scope root = no_scope }
+	on_late_game_pulse = scopeless
+
+	## scopes = { this = country root = country }
+	on_monthly_pulse_country = country
+
+	## scopes = { this = country root = country }
+	on_yearly_pulse_country = country
+
+	## scopes = { this = country root = country }
+	on_bi_yearly_pulse_country = country
+
+	## scopes = { this = country root = country }
+	on_five_year_pulse_country = country
+
+	### fired via action.220 from on_five_year_pulse_country
+	## scopes = { this = country root = country }
+	on_five_year_random_pulse_country = country
+
+	### fired via action.420
+	## scopes = { this = country root = country }
+	on_five_year_random_pulse_overlord = country
+
+	### Why do this, you might ask, and not just use a random_list? Because on_actions check the triggers of the event before they try to fire them and exclude them from the list if they are false, so a list with no 0 weight will always fire an event so long as any of them are able to be fired
+	### Used in operation_diplomatic_incident. Beware when changing.
+	### this = country, fired via action.2211 from on_five_year_random_pulse_country
+	## scopes = { this = country root = country }
+	on_five_year_random_pulse_country_negative_list = country
+
+	## scopes = { this = country root = country }
+	on_decade_pulse_country = country
+
+	## scopes = { this = country root = country }
+	on_mid_game_pulse_country = country
+
+	## scopes = { this = country root = country }
+	on_late_game_pulse_country = country
+
+	## scopes = { this = country root = country }
+	on_late_game_pulse_country = country
+
+	### setup advanced colony. So far it has a pop on the capital and a colony shelter building matching the is_colony trigger
+	## scopes = { this = planet root = planet from = country }
+	on_initialize_advanced_colony = planet
+
+	## scopes = { this = country root = country }
+	on_become_advanced_empire = country
+
+	### Triggers when pressing begin in the intro window
+	### This = country to press begin
+	## scopes = { this = country root = country }
+	on_press_begin = country
+
+	### Triggers when trying to open the diplomacy view for countries with custom diplomacy.
+	### Country scope
+	### This = target country (player)
+	### From = source country
+	## scopes = { this = country root = country from = country }
+	on_custom_diplomacy = country
+
+	### Triggered when two empires discover each other
+	### This = Empire 1
+	### From = Empire 2
+	### Fromfromfrom = System where contact occurred
+	## scopes = { this = country root = country from = country fromfrom = fleet fromfromfrom = system }
+	on_first_contact = country
+
+	### Triggered when a first contact process is finished
+	### This = first contact scope
+	### From = other country
+	## scopes = { this = first_contact root = first_contact from = country }
+	on_first_contact_finished = country
+
+	### Triggered when an Empire has fleets within another Empire's borders.
+	### This = receiver
+	### From = sender
+	### FromFrom = fleet
+	### FromFromFrom = system
+	## scopes = { this = country root = country from = country fromfrom = fleet fromfromfrom = system }
+	on_enforce_borders = country
+
+	### Triggers when ground combat starts
+	### This = planet
+	### From = country attacking
+	## scopes = { this = planet root = planet from = country }
+	on_ground_combat_started = planet
+
+	### Triggers country_event for the attacker upon victory \
+	### (Before controller is switched)
+	### This = country, leader attacker
+	### From = country, planet owner
+	### FromFrom = planet
+	### IDENTITIES: attacker is the side that "IsHostile" to \
+	### the planet controller; e.g. spawned monster armies \
+	### are attackers, but if they win and the player attempts \
+	### to retake the planet, the player is the attacker
+	## scopes = { this = country root = country from = country fromfrom = planet }
+	on_planet_attackers_win = country
+
+	### Triggers country_event for the attacker upon defeat
+	### This = country, attack leader
+	### From = country, planet owner
+	### FromFrom = planet
+	## scopes = { this = country root = country from = country fromfrom = planet }
+	on_planet_attackers_lose = country
+
+	### Triggers country_event for the defender upon victory
+	### Root = country, planet owner
+	### From = country, attack leader
+	### FromFrom = planet
+	## scopes = { this = country root = country from = country fromfrom = planet }
+	on_planet_defenders_win = country
+
+	### Triggers country_event for the defender upon defeat
+	### This = country, planet owner
+	### From = country, attack leader
+	### FromFrom = planet
+	## scopes = { this = country root = country from = country fromfrom = planet }
+	on_planet_defenders_lose = country
+
+	### Fires when you first get intel (_low and up) on a new system
+	### Scope = Country
+	### From = System
+	## scopes = { this = country root = country from = system }
+	on_system_first_visited = country
+
+	### Triggers event when each country first sends a ship into the system (once per country)
+	### Scope = Ship
+	### From = System
+	### FromFrom = Country
+	## scopes = { this = ship root = ship from = system fromfrom = country }
+	on_entering_system_first_time = country
+
+	### Triggers event when ship enters a system. It's usually better to use on_entering_system_first_time or on_entering_system_fleet
+	### Scope = Ship
+	### From = System
+	### FromFrom = Country
+	## scopes = { this = ship root = ship from = system fromfrom = country }
+	on_entering_system = country
+
+	### A fleet has entered a system | See also: on_fleet_auto_move_arrival
+	### Scope = Fleet
+	### From = System
+	## scopes = { this = fleet root = fleet from = system}
+	on_entering_system_fleet = fleet
+
+	//TODO
+}
