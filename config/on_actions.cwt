@@ -1,112 +1,112 @@
 on_actions = {
 	### Triggers when the game starts
-	## scopes = { this = no_scope root = no_scope }
+	## replace_scopes = { this = no_scope root = no_scope }
 	on_game_start = scopeless
 
-	## scopes = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	on_game_start_country = country
 
 	### No scope, like on_game_start
 	### Does not run when loading MP saves due to OOS concerns
-	## scopes = { this = no_scope root = no_scope }
+	## replace_scopes = { this = no_scope root = no_scope }
 	on_single_player_save_game_load = scopeless
 
 	### No scope, like on_game_start
-	## scopes = { this = no_scope root = no_scope }
+	## replace_scopes = { this = no_scope root = no_scope }
 	on_monthly_pulse = scopeless
 
 	### No scope, like on_game_start
-	## scopes = { this = no_scope root = no_scope }
+	## replace_scopes = { this = no_scope root = no_scope }
 	on_yearly_pulse = scopeless
 
 	### No scope, like on_game_start
-	## scopes = { this = no_scope root = no_scope }
+	## replace_scopes = { this = no_scope root = no_scope }
 	on_bi_yearly_pulse = scopeless
 
 	### No scope, like on_game_start
-	## scopes = { this = no_scope root = no_scope }
+	## replace_scopes = { this = no_scope root = no_scope }
 	on_five_year_pulse = scopeless
 
 	### No scope, like on_game_start
-	## scopes = { this = no_scope root = no_scope }
+	## replace_scopes = { this = no_scope root = no_scope }
 	on_decade_pulse = scopeless
 
 	### No scope, like on_game_start
-	## scopes = { this = no_scope root = no_scope }
+	## replace_scopes = { this = no_scope root = no_scope }
 	on_mid_game_pulse = scopeless
 
 	### No scope, like on_game_start
-	## scopes = { this = no_scope root = no_scope }
+	## replace_scopes = { this = no_scope root = no_scope }
 	on_late_game_pulse = scopeless
 
-	## scopes = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	on_monthly_pulse_country = country
 
-	## scopes = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	on_yearly_pulse_country = country
 
-	## scopes = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	on_bi_yearly_pulse_country = country
 
-	## scopes = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	on_five_year_pulse_country = country
 
 	### fired via action.220 from on_five_year_pulse_country
-	## scopes = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	on_five_year_random_pulse_country = country
 
 	### fired via action.420
-	## scopes = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	on_five_year_random_pulse_overlord = country
 
 	### Why do this, you might ask, and not just use a random_list? Because on_actions check the triggers of the event before they try to fire them and exclude them from the list if they are false, so a list with no 0 weight will always fire an event so long as any of them are able to be fired
 	### Used in operation_diplomatic_incident. Beware when changing.
 	### this = country, fired via action.2211 from on_five_year_random_pulse_country
-	## scopes = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	on_five_year_random_pulse_country_negative_list = country
 
-	## scopes = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	on_decade_pulse_country = country
 
-	## scopes = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	on_mid_game_pulse_country = country
 
-	## scopes = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	on_late_game_pulse_country = country
 
-	## scopes = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	on_late_game_pulse_country = country
 
 	### setup advanced colony. So far it has a pop on the capital and a colony shelter building matching the is_colony trigger
-	## scopes = { this = planet root = planet from = country }
+	## replace_scopes = { this = planet root = planet from = country }
 	on_initialize_advanced_colony = planet
 
-	## scopes = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	on_become_advanced_empire = country
 
 	### Triggers when pressing begin in the intro window
 	### This = country to press begin
-	## scopes = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	on_press_begin = country
 
 	### Triggers when trying to open the diplomacy view for countries with custom diplomacy.
 	### Country scope
 	### This = target country (player)
 	### From = source country
-	## scopes = { this = country root = country from = country }
+	## replace_scopes = { this = country root = country from = country }
 	on_custom_diplomacy = country
 
 	### Triggered when two empires discover each other
 	### This = Empire 1
 	### From = Empire 2
 	### Fromfromfrom = System where contact occurred
-	## scopes = { this = country root = country from = country fromfrom = fleet fromfromfrom = system }
+	## replace_scopes = { this = country root = country from = country fromfrom = fleet fromfromfrom = system }
 	on_first_contact = country
 
 	### Triggered when a first contact process is finished
 	### This = first contact scope
 	### From = other country
-	## scopes = { this = first_contact root = first_contact from = country }
+	## replace_scopes = { this = first_contact root = first_contact from = country }
 	on_first_contact_finished = country
 
 	### Triggered when an Empire has fleets within another Empire's borders.
@@ -114,13 +114,13 @@ on_actions = {
 	### From = sender
 	### FromFrom = fleet
 	### FromFromFrom = system
-	## scopes = { this = country root = country from = country fromfrom = fleet fromfromfrom = system }
+	## replace_scopes = { this = country root = country from = country fromfrom = fleet fromfromfrom = system }
 	on_enforce_borders = country
 
 	### Triggers when ground combat starts
 	### This = planet
 	### From = country attacking
-	## scopes = { this = planet root = planet from = country }
+	## replace_scopes = { this = planet root = planet from = country }
 	on_ground_combat_started = planet
 
 	### Triggers country_event for the attacker upon victory \
@@ -132,55 +132,1000 @@ on_actions = {
 	### the planet controller; e.g. spawned monster armies \
 	### are attackers, but if they win and the player attempts \
 	### to retake the planet, the player is the attacker
-	## scopes = { this = country root = country from = country fromfrom = planet }
+	## replace_scopes = { this = country root = country from = country fromfrom = planet }
 	on_planet_attackers_win = country
 
 	### Triggers country_event for the attacker upon defeat
 	### This = country, attack leader
 	### From = country, planet owner
 	### FromFrom = planet
-	## scopes = { this = country root = country from = country fromfrom = planet }
+	## replace_scopes = { this = country root = country from = country fromfrom = planet }
 	on_planet_attackers_lose = country
 
 	### Triggers country_event for the defender upon victory
 	### Root = country, planet owner
 	### From = country, attack leader
 	### FromFrom = planet
-	## scopes = { this = country root = country from = country fromfrom = planet }
+	## replace_scopes = { this = country root = country from = country fromfrom = planet }
 	on_planet_defenders_win = country
 
 	### Triggers country_event for the defender upon defeat
 	### This = country, planet owner
 	### From = country, attack leader
 	### FromFrom = planet
-	## scopes = { this = country root = country from = country fromfrom = planet }
+	## replace_scopes = { this = country root = country from = country fromfrom = planet }
 	on_planet_defenders_lose = country
 
 	### Fires when you first get intel (_low and up) on a new system
 	### Scope = Country
 	### From = System
-	## scopes = { this = country root = country from = system }
+	## replace_scopes = { this = country root = country from = system }
 	on_system_first_visited = country
 
 	### Triggers event when each country first sends a ship into the system (once per country)
 	### Scope = Ship
 	### From = System
 	### FromFrom = Country
-	## scopes = { this = ship root = ship from = system fromfrom = country }
+	## replace_scopes = { this = ship root = ship from = system fromfrom = country }
 	on_entering_system_first_time = country
 
 	### Triggers event when ship enters a system. It's usually better to use on_entering_system_first_time or on_entering_system_fleet
 	### Scope = Ship
 	### From = System
 	### FromFrom = Country
-	## scopes = { this = ship root = ship from = system fromfrom = country }
+	## replace_scopes = { this = ship root = ship from = system fromfrom = country }
 	on_entering_system = country
 
 	### A fleet has entered a system | See also: on_fleet_auto_move_arrival
 	### Scope = Fleet
 	### From = System
-	## scopes = { this = fleet root = fleet from = system}
+	## replace_scopes = { this = fleet root = fleet from = system}
 	on_entering_system_fleet = fleet
 
-	//TODO
+	### A fleet has entered a system | See also: on_fleet_auto_move_arrival
+	### Scope = Fleet
+	### From = System
+	on_entering_system_fleet
+
+	### A fleet executes a move order to exit borders
+	### Scope = Fleet
+	### From = Origin System
+	### FromFrom = Destination System
+	on_crossing_border
+
+	### A ship has surveyed a planet.
+	### Scope = Ship
+	### From = Planet
+	on_survey
+
+	### A country has gained a surveyed status on a planet. Happens after "on_survey" if a science ship surveyed a planet. (Can also happen without a ship through changes in intel levels)
+	### Root = Planet
+	### From = Country
+	### FromFrom = Fleet of the science ship that surveyed it, if any
+	on_planet_surveyed
+
+	### A country has gained a surveyed status on a planet. Happens after "on_survey" if a science ship surveyed a planet.
+	### Root = Country
+	### From = system
+	### FromFrom = Fleet of the science ship that surveyed it, if any
+	on_system_survey
+
+	### A ship is done surveying the last unsurveyed planet in a system
+	### Scope = ship
+	### From = system
+	on_system_survey_ship
+
+	### A planet has begun the colonization process.
+	### Scope = Planet
+	on_colonization_started
+
+	### A planet has been colonized.
+	### Scope = Planet
+	on_colonized
+
+	### A colony has been destroyed. Called just before owner and controller is cleared
+	### Scope = Planet
+	on_colony_destroyed
+
+	### This = owner of fleet 1
+	### From = owner of fleet 2
+	### FromFrom = fleet 1
+	### FromFromFrom = fleet 2
+	on_entering_battle
+
+	### This = owner of ship 1 (destroyed)
+	### From = owner of ship 2 (combatant)
+	### FromFrom = ship 1
+	### FromFromFrom = ship 2
+	on_ship_destroyed_victim
+
+	### This = owner of ship 1 (combatant)
+	### From = owner of ship 2 (destroyed)
+	### FromFrom = ship 1
+	### FromFromFrom = ship 2
+	on_ship_destroyed_perp
+
+	### This = starbase being destroyed (not ship!)
+	### From = fleet that destroyed the starbase
+	on_starbase_destroyed
+
+	### This = starbase being disabled (not ship!)
+	### From = fleet that disabled the starbase
+	on_starbase_disabled
+
+	### This = owner of ship 1 (destroyed)
+	### From = owner of ship 2 (combatant)
+	### FromFrom = ship 1
+	### FromFromFrom = ship 2
+	on_ship_disengaged_victim
+
+	### This = owner of ship 1 (combatant)
+	### From = owner of ship 2 (destroyed)
+	### FromFrom = ship 1
+	### FromFromFrom = ship 2
+	on_ship_disengaged_perp
+
+	### This = owner of fleet 1 (destroyed)
+	### From = owner of fleet 2 (combatant)
+	### FromFrom = fleet 1
+	### FromFromFrom = fleet 2
+	on_fleet_destroyed_victim
+
+	### This = owner of fleet 1 (combatant)
+	### From = owner of fleet 2 (destroyed)
+	### FromFrom = fleet 1
+	### FromFromFrom = fleet 2
+	on_fleet_destroyed_perp
+
+	### This = owner of fleet 1 (winner)
+	### From = owner of fleet 2 (loser)
+	### FromFrom = fleet 1
+	### FromFromFrom = fleet 2
+	on_space_battle_won
+
+	### This = owner of fleet 1 (loser)
+	### From = owner of fleet 2 (winner)
+	### FromFrom = fleet 1
+	### FromFromFrom = fleet 2
+	on_space_battle_lost
+
+	### This = owner of fleet
+	### From = disbanded fleet
+	on_fleet_disbanded
+
+	### This = owner of fleet
+	### From = fleet
+	### FromFrom = planet (if any)
+	on_fleet_auto_move_arrival
+
+	### This = fleet
+	### From = country that borrowed the fleet
+	### FromFrom = country that owns the fleet
+	### Is fired immediately after fleet is leased out
+	on_fleet_contract_started
+
+	### This = fleet
+	### From = country that borrowed the fleet
+	### FromFrom = country that owns the fleet
+	### FromFromFrom = country that initiated the ending (the same as owner in a case of expiration)
+	### Is fired immediately after fleet contract is expired
+	on_fleet_contract_expired
+
+	### This = fleet
+	### From = country that borrowed the fleet
+	### FromFrom = country that owns the fleet
+	### FromFromFrom = country that initiated the ending (trade deal actor when the contract cancellation is a part of trade deal)
+	### Is fired immediately after fleet contract is cancelled (when controller prematurely finishes the contract or when the contract cancellation is a part of trade deal)
+	on_fleet_contract_cancelled
+
+	### This = fleet
+	### From = country that borrowed the fleet
+	### FromFrom = country that owns the fleet
+	### FromFromFrom = country that initiated the ending (main attacker in a case of war)
+	### Is fired immediately after fleet contract is broken (when country is attacked by someone of when a war is started)
+	on_fleet_contract_broken
+
+	# The game will generate one on_building_X on_action for every station ship-size
+	# Orbital stations will get the planet in FROM, space stations only get they building ship
+
+	# This = construction ship
+	# From = planet it is built on
+	# Fires when construction is complete,
+	# immediately before station is created
+	on_building_<ship_size.station> = ship
+
+	#This = ship (starbase)
+	#From = owner country
+	on_building_<ship_size.starbase> = ship
+
+	# This = country
+	# From = opponent war leader
+	on_entering_war
+
+	# This = Country
+	# From = Fleet
+	on_fleet_detected
+
+	# This = Ship
+	# From = Disabler Ship
+	on_ship_disabled
+
+	# This = Ship
+	on_ship_enabled
+
+	# Triggers when a Special Project to uplift a pre-sapient species is completed. \
+	# Note that this will trigger once for each combination of planet & original \
+	# species (but for uplifting this should be only once).
+	#
+	# Scope = planet_event
+	# This = planet scope
+	# From = uplifted species (pre-modification)
+	on_uplift_completion
+
+	# Planets starts being terraformed
+	# This = Planet
+	# From = Terraforming country
+	on_terraforming_begun
+
+	# Planet has been terraformed
+	# This = Planet
+	# From = Terraforming country
+	on_terraforming_complete
+
+	# Planet has changed planet class in whatever way. Note that this is also called during galaxy creation in some places.
+	# This = Planet
+	on_planet_class_changed
+
+	# Planet has taken damage from orbital bombardment - Damage is applied daily
+	# This = Planet
+	# From = Bombarder
+	on_planet_bombarded
+
+	# Planet has reached 0 pops from orbital bombardment
+	# This = Planet
+	# From = Bombarder
+	on_planet_zero_pops
+
+	# Planet has reached 0 pops from collateral damage
+	# This = Planet
+	# From = Army owner
+	on_planet_zero_pops_ground_combat
+
+	# Pop is abducted by raiding stance
+	# This = Pop scope
+	# From = planet abducted from
+	on_pop_abducted
+
+	# Pop is enslaved
+	# This = Pop scope
+	# owner_species = { (species)
+	# owner = { owner_species = { (empire main species)
+	# owner = { (empire)
+	on_pop_enslaved
+
+	# Pop is released from slavery
+	# This = Pop scope
+	# owner_species = { (species)
+	# owner = { owner_species = { (empire main species)
+	# owner = { (empire)
+	on_pop_emancipated
+
+	# Pop is resettled
+	# From is previous planet
+	# planet = { } is new planet
+	on_pop_resettled
+
+	# Executed right before a country has established communications with another country
+	# This = Country which established the communications
+	# From = Country which communications were established with
+	on_pre_communications_established
+
+	# Executed right after country has established communications with another country
+	# This = Country which established the communications
+	# From = Country which communications were established with
+	on_post_communications_established
+
+	# Executed just after country has established communications with another country
+	# This = Planet where the pop was bombed to death
+	# From = Country which is raining down fire and brimstone
+	on_pop_bombed_to_death
+
+	# Executed as a leader has died
+	# This = Country
+	# From = Leader
+	on_leader_death
+
+	# Executed as a leader has been fired
+	# This = Country
+	# From = Leader
+	on_leader_fired
+
+	# A leader leveled up.
+	# Scope = Country
+	# From = Leader
+	on_leader_level_up
+
+	# Scope: Leader (after assignment)
+	on_leader_assigned
+
+	# Scope: Leader (just before unassignment)
+	# Fires if a leader is unassigned from their position for any reason (including being assigned elsewhere)
+	on_leader_unassigned
+
+	# Executed as new ruler has been set
+	# This = Country
+	on_ruler_set
+
+	# Executed when a ruler has been removed
+	# From = Previous Ruler
+	# This = Country
+	on_ruler_removed
+
+	# Executed when the ruler is ousted and goes back to their pre-ruler class
+	# From = Previous Ruler, already has the new class
+	# This = Country
+	on_ruler_back_to_pre_ruler_class
+
+	# This = Planet
+	on_blocker_cleared
+
+	# A ship has started a new order
+	# Root = Ship
+	# From = Country
+	on_ship_order
+
+	# Executes after a policy has been changed
+	# use last_changed_policy to identify which policy it was
+	# This = Country
+	on_policy_changed
+
+	# A ship has been built
+	# Root = Ship
+	# From = Planet
+	on_ship_built
+
+	# A ship design has been finished
+	# Root = Country
+	on_ship_designed
+
+	# A ship has been upgraded
+	# Root = Ship
+	on_ship_upgraded
+
+	# A war is beginning, executed for every country in the war.
+	# Root = Country
+	# From = War
+	on_war_beginning
+
+	# A war has ended
+	# Root = Loser
+	# From = Main Winner
+	on_war_ended
+
+	# A country has been released through a peace deal in a war
+	# Root = new country
+	# From = country forcing the release
+	# FromFrom = country they are released from
+	# FromFromFrom = war
+	on_country_released_in_war
+
+	# A country has increased the level of a tech, use last_increased_tech trigger to check tech and level.
+	# This = Country
+	on_tech_increased
+
+	# Triggers when a Special Project to apply a species modification template has completed. \
+	# Note that this will trigger once for each combination of planet & original species.
+	# This = Country
+	# From = Species ( Post Modification )
+	on_modification_complete
+
+	# A planets controller becomes a country not the same as the owner.
+	# Root = Planet
+	# From = Planet Owner
+	# FromFrom = Planet Controller (the one occupying)
+	on_planet_occupied
+
+	# A fleet has successfully escaped from combat, executed right before the fleet enters FTL
+	# This = escaping fleet
+	# From = system escaped from
+	# FromFrom = system escaping to
+	on_emergency_ftl
+
+	#An army construction has been completed.
+	# This = Planet
+	# From = Army
+	on_army_recruited
+
+	#An army has been killed in ground combat
+	# This = owner
+	# From = army
+	# FromFrom = opponent
+	# FromFromFrom = planet
+	on_army_killed_in_combat
+
+	#An army has ceased to exist for any other reason
+	# This = country
+	# From = army
+	on_army_killed_no_combat
+
+	#A building construction has been completed.
+	# This = Planet
+	on_building_complete
+
+	# A building construction has been queued.
+	# This = Planet
+	on_building_queued
+
+	# A building construction has been unqueued.
+	# This = Planet
+	on_building_unqueued
+
+	# A building construction has been completed, which is an upgrade of previous building.
+	# This = Planet
+	on_building_upgraded
+
+	# A building construction has demolished.
+	# This = Planet
+	on_building_demolished
+
+	#A district construction has been completed.
+	# This = Planet
+	on_district_complete
+
+	# A building construction has finished, replacing another building.
+	# This = Planet
+	on_building_replaced
+
+	# A building construction has been downgraded and replaced.
+	# This = Planet
+	on_building_downgraded
+
+	# A district construction has been queued.
+	# This = Planet
+	on_district_queued
+
+	# A district construction has been unqueued.
+	# This = Planet
+	on_district_unqueued
+
+	# A district construction has demolished.
+	# This = Planet
+	on_district_demolished
+
+	# Tutorial level for a country has changed
+	# This = Country
+	on_tutorial_level_changed
+
+	# A war has been won
+	# Root = Winner Warleader
+	# From = Loser Warleader
+	# FromFrom = War
+	on_war_won
+
+	# A war has been lost
+	# Root = Loser Warleader
+	# From = Winner Warleader
+	# FromFrom = War
+	on_war_lost
+
+	# A status quo has been signed
+	# Root = Actor
+	# From = Recipient
+	# FromFrom = Main Attacker
+	# FromFromFrom = Main Defender
+	# FromFromFromFrom = War
+	on_status_quo
+
+	# A status quo has been signed, by force
+	# Root = Recipient
+	# From = Actor
+	# FromFrom = Main Attacker
+	# FromFromFrom = Main Defender
+	# FromFromFromFrom = War
+	on_status_quo_forced
+
+	# A pop has been added to the planet
+	# Root = pop
+	# From = planet
+	on_pop_added
+
+	# We changed a species right
+	# This = pop
+	on_pop_rights_change
+
+	# A pop has finished growing
+	# This = Planet scope
+	# From = Country
+	# FromFrom = Pop
+	on_pop_grown
+
+	# A pop has finished assembling
+	# This = Planet scope
+	# From = Country
+	# FromFrom = Pop
+	on_pop_assembled
+
+	# A pop has finished purging
+	# This = Planet scope
+	# From = Country
+	# FromFrom = Pop
+	on_pop_purged
+
+	# A pop has finished declining (while not being purged)
+	# This = Planet scope
+	# From = Country
+	# FromFrom = Pop
+	on_pop_declined
+
+	# A pop has been displaced
+	# This = Planet scope
+	# From = Country
+	# FromFrom = Pop
+	on_pop_displaced
+
+	# Initial rebels manage to take control of the planet, happens before the new owner is set, after the war is created.
+	# This = Rebel Country
+	# From = Planet
+	# FromFrom = War
+	on_rebels_take_planet
+
+	# Initial rebels manage to take control of the planet, happens after the new owner is set, after the war is created.
+	# This = Rebel Country
+	# From = Planet
+	# FromFrom = War
+	on_rebels_take_planet_owner_switched
+
+	#FromFrom = Former Owner
+	#From = Country scope (new owner, so invalid)
+	#This = Planet scope
+	on_planet_ownerless
+
+	#Fired whenever a new owner is set for a planet,
+	#be it after a war or through a trade
+	#FromFrom = Former Owner (if any)
+	#From = Country scope (new owner)
+	#This = Planet scope
+	on_planet_transfer
+
+	#Fired whenever a new owner is set for a planet, and the planet was aggressively conquered
+	#Fired in ADDITION to on_planet_transfer
+	#FromFrom = Former Owner
+	#From = Country scope (new owner)
+	#This = Planet scope
+	on_planet_conquer
+
+	#You have changed the location of your capital. Also called when a country's capital is first set e.g. during galaxy creation (but then FROM is not set)
+	#this/root = new capital
+	#from = old capital
+	on_capital_changed
+
+	#From = Planet/Starbase/Megastructure scope
+	#This = Fleet scope
+	on_fleet_enter_orbit
+
+	#This = Federation leader
+	#From = Joining member
+	on_join_federation
+
+	#This = Federation leader
+	#From = Leaving member
+	on_leave_federation
+
+	#This = Country scope, federation leader
+	#From = Country to initiate the vote
+	on_federation_law_vote_succeed
+
+	#This = Country scope, federation leader
+	#From = Country to initiate the vote
+	on_federation_law_vote_failed
+
+	#This = Country scope, federation leader
+	#From = Country to exclude from the federation elections
+	on_federation_leader_elections
+
+	#This = Country scope, new federation leader
+	#From = Previous leader (if still existing)
+	on_federation_new_leader
+
+	#This = Country scope, federation leader
+	#From = Country to exclude from the federation psionicbattle
+	on_federation_leader_challenge
+
+	# A country is created via create_country or create_rebels
+	# This = created country
+	# From = root of context where create_country/create_rebels happens
+	on_country_created
+
+	#This = destroyed country
+	#From = optional, destroyer (country)
+	on_country_destroyed
+
+	# A Megastructure has been built
+	# Root = Country
+	# From = Megastructure
+	# FromFrom = System
+	# FromFromFrom = Fleet
+	on_megastructure_built
+
+	# A Megastructure has begun to be upgraded
+	# Root = Country
+	# From = Megastructure
+	# FromFrom = System
+	on_megastructure_upgrade_begin
+
+	# A Megastructure has been upgraded
+	# Root = Country
+	# From = Megastructure
+	# FromFrom = System
+	on_megastructure_upgraded
+
+	# X years has passed since a planet was colonized (won't trigger on empire homeworld)
+
+	# 1 years has passed since a planet was colonized (won't trigger on empire homeworld)
+	on_colony_1_year_old
+
+	# 2 years has passed since a planet was colonized (won't trigger on empire homeworld)
+	on_colony_2_years_old
+
+	# 3 years has passed since a planet was colonized (won't trigger on empire homeworld)
+	on_colony_3_years_old
+
+	# 4 years has passed since a planet was colonized (won't trigger on empire homeworld)
+	on_colony_4_years_old
+
+	# 5 years has passed since a planet was colonized (won't trigger on empire homeworld)
+	on_colony_5_years_old
+
+	# 6 years has passed since a planet was colonized (won't trigger on empire homeworld)
+	on_colony_6_years_old
+
+	# 7 years has passed since a planet was colonized (won't trigger on empire homeworld)
+	on_colony_7_years_old
+
+	# 8 years has passed since a planet was colonized (won't trigger on empire homeworld)
+	on_colony_8_years_old
+
+	# 9 years has passed since a planet was colonized (won't trigger on empire homeworld)
+	on_colony_9_years_old
+
+	# 10 years has passed since a planet was colonized (won't trigger on empire homeworld)
+	on_colony_10_years_old
+
+	# 25 years has passed since a planet was colonized (won't trigger on empire homeworld)
+	on_colony_25_years_old
+
+	# Fires for each planet every year (counting up from colonisation date, includes home planet)
+	on_colony_yearly_pulse
+
+	# Fires for each planet every 5 years (counting up from colonisation date, includes home planet)
+	on_colony_5_year_pulse
+
+	# Fires for each planet every 10 years (counting up from colonisation date, includes home planet)
+	on_colony_10_year_pulse
+
+	# a new leader is generated for an empire, to be available for recruitment
+	# scope: country, from: leader
+	on_leader_spawned
+
+	# called during empire initialization when starting a new game
+	# scope: country
+	empire_init_add_technologies
+
+	# Called during empire initialization when starting a new game if has_secondary_species game rule is true.
+	# Called before empire_init_create_capital_pops.
+	# scope: planet
+	# from: founder species
+	# fromfrom: secondary species (if exists)
+	empire_init_capital_planet
+
+	# called during empire initialization when starting a new game
+	# scope: country
+	empire_init_create_ships
+
+	# Called when an election starts
+	# scope: country
+	on_election_started
+
+	# Called when an election ends
+	# scope: country
+	on_election_ended
+
+	# Called upon entering FTL (on-action name scripted on the Bypass type)
+	# THIS = Fleet
+	# FROM = System jumping to
+	# FROMFROM = System jumped from
+	on_entering_gateway
+
+	# Called upon entering FTL (on-action name scripted on the Bypass type)
+	# THIS = Fleet
+	# FROM = System jumping to
+	# FROMFROM = System jumped from
+	on_entering_wormhole
+
+	# Called upon entering FTL (on-action name scripted on the Bypass type)
+	# THIS = Fleet
+	# FROM = System jumping to
+	# FROMFROM = System jumped from
+	on_entering_shroud_tunnel
+
+	# THIS = Ship
+	on_jump_drive
+
+	# Called upon a catapult jump being finished, per ship in catapulted fleet
+	# THIS = Ship
+	# FROM = System jumping to
+	# FROMFROM = System jumped from
+	on_ship_quantum_catapult
+
+	# Called upon a catapult jump being finished, per fleet
+	# THIS = Fleet
+	# FROM = System jumping to
+	# FROMFROM = System jumped from
+	on_fleet_quantum_catapult
+
+	# this = country
+	on_pirate_spawn
+
+	# Called when a Starbase changes owner
+	# THIS = Ship (Starbase)
+	# FROM = Former Owner (Country)
+	on_starbase_transfer
+
+	# Both the following on_action are called when fleet joined combat
+	# (The first one is called for the attacker fleet, the second one is called for the defending fleet)
+
+	# This = Aggressor Fleet
+	# From = Attacked Fleet
+	# FromFrom = Additional Attacked Fleet (if part of ongoing combat)
+	# FromFromFrom = Additional Attacked Fleet (if part of ongoing combat)
+	on_fleet_combat_joined_attacker
+
+	# This = Attacked Fleet
+	# From = Aggressor Fleet
+	# FromFrom = Additional Attacked Fleet (if joining ongoing combat)
+	# FromFromFrom = Additional Attacked Fleet (if joining ongoing combat)
+	on_fleet_combat_joined_defender
+
+	# From = system
+	# FromFrom = country (new owner)
+	# This = country (previous owner)
+	on_system_lost
+
+	# From = system
+	# FromFrom = country (previous owner)
+	# This = country (new owner)
+	on_system_gained
+
+	# This = Pop
+	# From = Country (buyer)
+	# Fromfrom = Country (seller)
+	on_slave_sold_on_market
+
+	# This = Country
+	on_relic_activated
+
+	# This = Fleet ( science vessel )
+	# From = Archaeological Site
+	on_arch_stage_finished
+
+	# A galcom resolution passed
+	# this/root = proposer
+	# from = target if valid
+	# To find out which resolution it was, use last_resolution_changed trigger
+	on_resolution_passed
+
+	# A galcom resolution failed to pass
+	# this/root = proposer
+	# from = target if valid
+	# To find out which resolution it was, use last_resolution_changed trigger
+	on_resolution_failed
+
+	# This = Country, first member added
+	on_galactic_community_formed
+
+	on_galactic_council_established
+
+	# This = Country
+	on_add_community_member
+
+	on_remove_community_member
+
+	on_add_to_council
+
+	on_remove_from_council
+
+	on_join_alliance
+
+	on_leave_alliance
+
+	# This = subject
+	# From = subject's overlord
+	on_becoming_subject
+
+	# fires when a country finishes being integrated
+	# This = overlord
+	# From = subject
+	on_subject_integrated
+
+	# fires when a country releases a sector as a vassal
+	# This = released vassal
+	# From = overlord
+	on_released_as_vassal
+
+	# This = empire trying to leave federation
+	# From = empire who declined (federation leader)
+	on_ask_to_leave_federation_declined
+
+	#this = owner country, from = spynetwork scope
+	on_spynetwork_formed
+
+	# THIS = Country: Emperor
+	# FROM = Country added to council
+	on_add_to_imperial_council
+
+	# THIS = Country: Emperor
+	# FROM = Country removed from council
+	on_remove_from_imperial_council
+
+	#these three are fired from script, basically for modders who want to change how first contact works or add some extra flavour stories in without overwriting things
+	# THIS = first_contact
+	on_first_contact_started
+
+	#use for custom country types that need first contact paths
+	# THIS = first_contact
+	on_first_contact_stage_1_no_path
+
+	# THIS = first_contact
+	on_first_contact_generic_stage_2
+
+	personalities
+
+	# THIS = Planet: Branch office planet
+	# FROM = Country: Branch office owner
+	on_branch_office_closed
+
+	# THIS = System: system being occupied
+	# FROM = Country: Conqueror of the system
+	# FROMFROM = Country: Original owner of the system
+	on_system_occupied
+
+	# THIS = System: system whos controller has changed
+	# FROM = Country: New controller of the system
+	# FROMFROM = Country: Old controller of the system
+	on_system_controller_changed
+
+	# THIS = System: system being returned from occupation
+	# FROM = Country: Previous owner of the system
+	# FROMFROM = Country: Occupier of the system
+	on_system_returned
+
+	# A planet has been rendered ownerless, it has an orbital ring or similar, though. The orbital ring is still there, but is about to be deleted
+	# this = starbase
+	# from = planet
+	# fromfrom = old owner
+	on_orbital_defense_planet_ownerless
+
+	# THIS = Espionage operation
+	# FROM = Operation target
+	on_operation_chapter_finished
+
+	# THIS = Espionage operation
+	# FROM = Operation target
+	on_operation_finished
+
+	# THIS = Espionage operation
+	on_operation_cancelled
+
+	# Executed just as country is changing its government, before the new one is applied
+	# THIS = country
+	on_pre_government_changed
+
+	# Executed just as country is changing its government, after the new one is applied
+	# THIS = country
+	on_post_government_changed
+
+	# Executed when the Custodian's term ends
+	# THIS = country
+	on_custodian_term_ends
+
+	# Executed when a country picks any tradition (including starters and finishers)
+	# THIS = country
+	on_tradition_picked
+
+	# Executed when a country picks an ascension perk
+	# THIS = country
+	on_ascension_perk_picked
+
+	# Executed when a megastructure has a new owner
+	# this = new owner
+	# from = megastructure
+	# fromfrom = old owner (if existing)
+	on_megastructure_change_owner
+
+	# Executed when a megastructure is rendered ownerless
+	# this = solar system containing megastructure
+	# from = megastructure
+	# fromfrom = old owner (if existing)
+	on_megastructure_ownerless
+
+	on_crystalline_empire_task
+
+	#Fired from destroy_star_system scripted effect
+	#This = system
+	#From = destroyer (if using a star cracker)
+	on_destroy_star_system
+
+	on_admirals_bickering_event_chain
+
+	#Executed when an empire wishes to turn a mercenary fleet into a Mercenary enclave
+	#This = fleet
+	on_establish_mercenary_enclave
+
+	# Fired when a science ship succesfully analyzed or scavenged debris
+	# this = country
+	# from = debris
+	# fromfrom = controller of destroyed ship
+	on_debris_researched
+
+	# Fired when a science ship succesfully analyzed or scavenged debris
+	# this = country
+	# from = debris
+	# fromfrom = controller of destroyed ship
+	on_debris_scavenged
+
+	# Fired when a science ship succesfully analyzed or scavenged debris
+	# this = country
+	# from = debris
+	# fromfrom = controller of destroyed ship
+	on_debris_scavenged_and_researched
+
+	# Fired when a subject has started converting to a specialist type
+	# This = agreement
+	# owner = overlord
+	# target = subject
+	on_specialist_subject_conversion_started
+
+	# Fired when a subject has finished converting to a specialist type
+	# This = agreement
+	# owner = overlord
+	# target = subject
+	on_specialist_subject_conversion_finished
+
+	# Fired when a subject specialist conversion has been aborted
+	# This = agreement
+	# owner = overlord
+	# target = subject
+	on_specialist_subject_conversion_aborted
+
+	# Executed when a two capitals get connected through relay network
+	# THIS = Country: Owner
+	# FROM = Country: Other
+	on_capitals_connected
+
+	# Fired when a change to an existing subject agreement has been accepted
+	# This = agreement
+	# owner = overlord
+	# target = subject
+	on_agreement_change_accepted
+
+	on_shroudwalker_divination_visitors_situation
+
+	on_shroudwalker_divination_locus_situation
+
+	# Scope:
+	# this/root = planet that have been fired upon
+	# from = fleet that fired
+	#on_destroy_planet_with_PLANET_DESTRUCTION_COMPONENT = {
+	#	events = {
+	#		planet_destruction.1
+	#	}
+	#}
+
+	# Note: The _queued on_actions also fire when the command is made even if there is nothing else in the queue
+	# Similarly, the _unqueued on_actions fire even if you cancel the order while the weapon is on the wind-up to fire
+	# They use the same scopes as the standard events
+
+	on_destroy_planet_with_<component_template.planet_killer>
+	on_destroy_planet_with_<component_template.planet_killer>_queued
+	on_destroy_planet_with_<component_template.planet_killer>_unqueued
 }
