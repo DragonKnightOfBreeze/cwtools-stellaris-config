@@ -13,7 +13,7 @@ types = {
 		}
 		subtype[designable] = {
 			## cardinality = 0..1
-			designable = yes
+			is_designable = yes
 		}
 		localisation = {
 			## required

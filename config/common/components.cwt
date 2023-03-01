@@ -48,6 +48,10 @@ types = {
 		## type_key_filter = strike_craft_component_template
 		subtype[strike_craft_component_template] = {
 		}
+		## type_key_filter = weapon_component_template
+		subtype[planet_killer] = {
+			type = planet_killer
+		}
 		localisation = {
 			## required
 			## primary
