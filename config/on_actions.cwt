@@ -107,7 +107,7 @@ on_actions = {
 	### This = first contact scope
 	### From = other country
 	## replace_scopes = { this = first_contact root = first_contact from = country }
-	on_first_contact_finished = country
+	on_first_contact_finished = first_contact
 
 	### Triggered when an Empire has fleets within another Empire's borders.
 	### This = receiver
@@ -167,14 +167,14 @@ on_actions = {
 	### From = System
 	### FromFrom = Country
 	## replace_scopes = { this = ship root = ship from = system fromfrom = country }
-	on_entering_system_first_time = country
+	on_entering_system_first_time = ship
 
 	### Triggers event when ship enters a system. It's usually better to use on_entering_system_first_time or on_entering_system_fleet
 	### Scope = Ship
 	### From = System
 	### FromFrom = Country
 	## replace_scopes = { this = ship root = ship from = system fromfrom = country }
-	on_entering_system = country
+	on_entering_system = ship
 
 	### A fleet has entered a system | See also: on_fleet_auto_move_arrival
 	### Scope = Fleet
@@ -455,7 +455,7 @@ on_actions = {
 	### From is previous planet
 	### planet = { } is new planet
 	## replace_scopes = { this = pop root = pop from = planet }
-	on_pop_resettled = planet
+	on_pop_resettled = pop
 
 	### Executed right before a country has established communications with another country
 	### This = Country which established the communications
@@ -581,7 +581,7 @@ on_actions = {
 	### This = Country
 	### From = Species ( Post Modification )
 	## replace_scopes = { this = country root = country from = species }
-	on_modification_complete = scopelesss
+	on_modification_complete = country
 
 	### A planets controller becomes a country not the same as the owner.
 	### Root = Planet
@@ -1008,8 +1008,8 @@ on_actions = {
 	### Called when a Starbase changes owner
 	### THIS = Ship (Starbase)
 	### FROM = Former Owner (Country)
-	## replace_scopes = { this = starbase root = starbase from = country }
-	on_starbase_transfer = starbase
+	## replace_scopes = { this = ship root = ship from = country }
+	on_starbase_transfer = ship
 
 	# Both the following on_action are called when fleet joined combat
 	# (The first one is called for the attacker fleet, the second one is called for the defending fleet)
