@@ -42,8 +42,8 @@ enums = {
 	}
 	enum[research_areas] = {
 		physics
-		engineering
 		society
+		engineering
 	}
 	enum[genders] = {
 		female
