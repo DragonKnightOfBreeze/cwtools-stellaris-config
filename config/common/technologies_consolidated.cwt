@@ -3,11 +3,17 @@ types = {
 	type[technology] = {
 		path = "game/common/technology"
 		path_strict = yes
-		subtype[repeatable] = {
-			levels = int[-1..100]
-		}
 		subtype[start_tech] = {
 			start_tech = yes
+		}
+		subtype[rare] = {
+			is_rare = yes
+		}
+		subtype[dangerous] = {
+			is_dangerous = yes
+		}
+		subtype[repeatable] = {
+			levels = int[-1..100]
 		}
 		localisation = {
 			## required
