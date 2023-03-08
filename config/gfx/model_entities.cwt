@@ -182,8 +182,10 @@ model_entity = {
 	}
 	## cardinality = 0..inf
 	attach = {
-		## cardinality = 0..4
+		## cardinality = 0..inf
 		enum[locators] = <model_entity> #see locator in this file.
+		## cardinality = 0..inf
+		scalar = <model_entity>
 		## cardinality = 0..1
 		name = scalar
 		## cardinality = 0..1

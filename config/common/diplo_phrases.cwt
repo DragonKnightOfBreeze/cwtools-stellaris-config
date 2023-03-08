@@ -1,11 +1,11 @@
 types = {
-	type[diplo_phrases] = {
+	type[diplo_phrase] = {
 		path = "game/common/diplo_phrases"
 		name_from_file = yes
 	}
 }
 
-diplo_phrases = {
+diplo_phrase = {
 	## cardinality = 0..1
 	greetings = {
 		## cardinality = 0..inf
