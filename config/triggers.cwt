@@ -9,9 +9,9 @@ alias[trigger:<scripted_trigger>] = bool
 ## scope = any
 alias[trigger:<scripted_trigger>] = {
 	## cardinality = 1..inf
-	enum[scripted_effect_params] = scalar
+	$parameter = scalar
 	## cardinality = 1..inf
-	enum[scripted_effect_params] = scope_field
+	$parameter = scope_field
 }
 
 ### Evaluates the triggers if the display_triggers of the limit are met

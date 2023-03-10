@@ -8,5 +8,6 @@ inline[inline_script] = filepath[common/inline_scripts/,.txt]
 inline[inline_script] = {
 	## cardinality = 1..1
 	script = filepath[common/inline_scripts/,.txt]
-	enum[scripted_effect_params] = scalar # accept several statements
+	## cardinality = 1..inf
+	$parameter = scalar # accept several statements
 }
