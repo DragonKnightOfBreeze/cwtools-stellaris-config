@@ -2534,6 +2534,7 @@ alias[effect:create_ship] = {
 	## cardinality = 0..1
 	# Hack to handle named designs
 	design = localisation
+	design = scope[design]
 	## cardinality = 0..1
 	random_existing_design = <ship_size>
 	## cardinality = 0..1
