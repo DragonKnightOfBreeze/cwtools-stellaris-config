@@ -260,6 +260,7 @@ civic_or_origin = {
 	swap_type = {
 		## cardinality = 0..1
 		name = localisation
+		## cardinality = 0..1
 		description = localisation
 		### In empire creation / galaxy setup, this has no scope. During the game, when there are actual countries existing, it is set to country scope.
 		### If you want to use country scope here, you must always check is_scope_valid first (see civic_devouring_swarm), or you will get errors or it won't work as intended.
@@ -275,12 +276,14 @@ civic_or_origin = {
 
 	subtype[origin] = {
 		is_origin = yes
+		## cardinality = 0..1
 		picture = <sprite>
 		## cardinality = 0..1
 		initializers = {
 			## cardinality = 1..inf
 			<solar_system_initializer>
 		}
+		## cardinality = 0..1
 		max_once_global = yes
 		## cardinality = 0..1
 		flags = {
@@ -391,7 +394,7 @@ alias[government_trigger:country_type] = {
 		## cardinality = 0..1
 		text = localisation
 		## severity = info
-		## cardinality = 2..99
+		## cardinality = 1..99
 		value = <country_type>
 	}
 	## cardinality = 0..inf
@@ -405,7 +408,7 @@ alias[government_trigger:country_type] = {
 		## cardinality = 0..1
 		text = localisation
 		## severity = info
-		## cardinality = 2..99
+		## cardinality = 1..99
 		value = <country_type>
 	}
 }
@@ -418,7 +421,7 @@ alias[government_trigger:ethics] = {
 		## cardinality = 0..1
 		text = localisation
 		## severity = info
-		## cardinality = 2..99
+		## cardinality = 1..99
 		value = <ethic>
 	}
 	## cardinality = 0..inf
@@ -432,7 +435,7 @@ alias[government_trigger:ethics] = {
 		## cardinality = 0..1
 		text = localisation
 		## severity = info
-		## cardinality = 2..99
+		## cardinality = 1..99
 		value = <ethic>
 	}
 }
@@ -445,7 +448,7 @@ alias[government_trigger:civics] = {
 		## cardinality = 0..1
 		text = localisation
 		## severity = info
-		## cardinality = 2..99
+		## cardinality = 1..99
 		value = <civic_or_origin.civic>
 	}
 	## cardinality = 0..inf
@@ -459,7 +462,7 @@ alias[government_trigger:civics] = {
 		## cardinality = 0..1
 		text = localisation
 		## severity = info
-		## cardinality = 2..99
+		## cardinality = 1..99
 		value = <civic_or_origin.civic>
 	}
 }
@@ -472,7 +475,7 @@ alias[government_trigger:origin] = {
 		## cardinality = 0..1
 		text = localisation
 		## severity = info
-		## cardinality = 2..99
+		## cardinality = 1..99
 		value = <civic_or_origin.origin>
 	}
 	## cardinality = 0..inf
@@ -486,7 +489,7 @@ alias[government_trigger:origin] = {
 		## cardinality = 0..1
 		text = localisation
 		## severity = info
-		## cardinality = 2..99
+		## cardinality = 1..99
 		value = <civic_or_origin.origin>
 	}
 }
@@ -499,7 +502,7 @@ alias[government_trigger:species_class] = {
 		## cardinality = 0..1
 		text = localisation
 		## severity = info
-		## cardinality = 2..99
+		## cardinality = 1..99
 		value = <species_class>
 	}
 	## cardinality = 0..inf
@@ -513,7 +516,7 @@ alias[government_trigger:species_class] = {
 		## cardinality = 0..1
 		text = localisation
 		## severity = info
-		## cardinality = 2..99
+		## cardinality = 1..99
 		value = <species_class>
 	}
 }
@@ -526,7 +529,7 @@ alias[government_trigger:species_archetype] = {
 		## cardinality = 0..1
 		text = localisation
 		## severity = info
-		## cardinality = 2..99
+		## cardinality = 1..99
 		value = <species_archetype>
 	}
 	## cardinality = 0..inf
@@ -540,7 +543,7 @@ alias[government_trigger:species_archetype] = {
 		## cardinality = 0..1
 		text = localisation
 		## severity = info
-		## cardinality = 2..99
+		## cardinality = 1..99
 		value = <species_archetype>
 	}
 }

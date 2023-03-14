@@ -91,6 +91,7 @@ component_set = {
 	subtype[!required_component] = {
 		key = localisation
 		icon = <sprite>
+		## cardinality = 0..1
 		icon_frame = int
 	}
 }
@@ -382,7 +383,7 @@ component_template = {
 		missile_shield = float
 		## cardinality = 0..1
 		missile_retarget_range = int
-
+		## cardinality = 0..1
 		point_defence_targets = { enum[point_defence_target] }
 	}
 	subtype[strike_craft_component_template] = {

@@ -309,7 +309,7 @@ model_mesh = { #the container for all meshes is defined as objectTypes = { at th
 }
 
 model_animation = { #the container here is called animation = { for each animation
-	name = scalar #example: "neutron_star_idle_animation"
+	name = scalar # example: "neutron_star_idle_animation"
 	## file_extensions = .anim
 	file = filename
 }

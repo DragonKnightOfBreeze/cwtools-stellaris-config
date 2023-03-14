@@ -66,7 +66,8 @@ sound_group = {
 	## cardinality = 0..inf
 	soundoverride = {
 		name = <sound>
-		file = filepath[sound/] #.wav
+		## file_extensions = .wav
+		file = filename # sound/**/
 	}
 	## cardinality = 0..1
 	soundeffectoverrides = {
@@ -76,7 +77,8 @@ sound_group = {
 	## cardinality = 0..1
 	soundfileoverrides = {
 		## cardinality = 0..inf
-		<sound> = filepath[sound/] #.wav
+		## file_extensions = .wav
+		<sound> = filename # sound/**/
 	}
 	## cardinality = 0..1
 	sort_order = int
@@ -176,7 +178,8 @@ sound_effect = {
 
 sound = {
 	name = scalar
-	file = filepath[sound/] #.wav
+	## file_extensions = .wav
+	file = filename # sound/**/
 	## cardinality = 0..1
 	volume = float
 	## cardinality = 0..1

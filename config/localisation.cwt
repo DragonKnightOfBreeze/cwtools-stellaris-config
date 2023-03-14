@@ -211,7 +211,7 @@ localisation_links = {
 	}
 }
 
-alias[name:name] = localisation
+alias[name:name] = inline_localisation
 alias[name:name] = {
 	key = localisation
 	## cardinality = 0..inf

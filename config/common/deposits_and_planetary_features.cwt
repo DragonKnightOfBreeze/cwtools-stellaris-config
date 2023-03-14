@@ -50,10 +50,13 @@ types = {
 ## push_scope = planet
 deposit = {
 	subtype[!null] = {
+		## cardinality = 0..0
+		is_null = yes
+		## cardinality = 0..1
 		is_for_colonizable = bool
 	}
 	subtype[null] = {
-		###this makes the deposit transparent, used by vanilla to designate an "empty" deposit.
+		### this makes the deposit transparent, used by vanilla to designate an "empty" deposit.
 		is_null = yes
 	}
 	## cardinality = 0..1
@@ -118,11 +121,12 @@ deposit = {
 			## cardinality = 1..inf
 			<deposit>
 		}
+		## cardinality = 0..1
 		category = <deposit_category>
 	}
 	subtype[!colonisable] = {
+		## cardinality = 0..1
 		category = <deposit_category>
-		category = deposit_cat_rare
 	}
 
 	## cardinality = 0..1

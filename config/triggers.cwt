@@ -725,7 +725,7 @@ alias[trigger:count_tech_options] = {
 ## push_scope = leader
 alias[trigger:research_leader] = {
 	area = enum[research_areas]
-	## cardinality = 1..100
+	## cardinality = 0..100
 	alias_name[trigger] = alias_match_left[trigger]
 }
 

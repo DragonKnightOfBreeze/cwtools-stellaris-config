@@ -2414,9 +2414,9 @@ alias[effect:create_mining_station] = {
 ## scopes = { planet country ship pop }
 alias[effect:create_point_of_interest] = {
 	id = value_set[point_of_interest]
-	## cardinality = 1..1
-	## severity = info
 	### Leaving out "name" gives a blank button that looks really terrible and unprofessional. Don't do it :P
+	## severity = info
+	## cardinality = ~1..1
 	name = localisation
 	#The last comment does not apply here.
 	## cardinality = 0..1
@@ -2534,6 +2534,8 @@ alias[effect:create_ship] = {
 	## cardinality = 0..1
 	# Hack to handle named designs
 	design = localisation
+	## severity = warning
+	## cardinality = 0..1
 	design = scope[design]
 	## cardinality = 0..1
 	random_existing_design = <ship_size>
@@ -2881,6 +2883,7 @@ alias[effect:set_planet_name] = scalar
 alias[effect:set_policy] = {
 	policy = <policy>
 	option = enum[policy_option]
+	## cardinality = 0..1
 	cooldown = bool
 }
 
