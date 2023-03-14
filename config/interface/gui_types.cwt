@@ -111,7 +111,7 @@ alias[gui:positionType] = {
 ### Used to show in tooltip sections
 alias[gui:textboxType] = {
 	name = scalar
-	## file_extensions = { .dds .png }
+	## file_extensions = { .dds .png .tga }
 	## cardinality = 0..1
 	textureFile = filepath
 
@@ -124,7 +124,7 @@ alias[gui:instantTextboxType] = {
 	name = scalar
 	## cardinality = 0..1
 	textureFile = ""
-	## file_extensions = { .dds .png }
+	## file_extensions = { .dds .png .tga }
 	## cardinality = 0..1
 	textureFile = filepath
 
@@ -149,7 +149,7 @@ alias[gui:editBoxType] = {
 	name = scalar
 	## cardinality = 0..1
 	textureFile = ""
-	## file_extensions = { .dds .png }
+	## file_extensions = { .dds .png .tga }
 	## cardinality = 0..1
 	textureFile = filepath
 	## cardinality = 0..1

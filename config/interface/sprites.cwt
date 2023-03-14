@@ -55,10 +55,10 @@ types = {
 
 sprite = {
 	name = scalar
-	## file_extensions = { .dds .png }
+	## file_extensions = { .dds .png .tga }
 	## cardinality = 0..1
 	textureFile = filepath
-	## file_extensions = { .dds .png }
+	## file_extensions = { .dds .png .tga }
 	## cardinality = 0..1
 	masking_texture = filepath
 	## file_extensions = .shader
@@ -88,10 +88,10 @@ sprite = {
 	legacy_lazy_load = bool
 	## cardinality = 0..inf
 	animation = {
-		## file_extensions = { .dds .png }
+		## file_extensions = { .dds .png .tga }
 		## cardinality = 0..1
 		animationmaskfile = filepath
-		## file_extensions = { .dds .png }
+		## file_extensions = { .dds .png .tga }
 		## cardinality = 0..1
 		animationtexturefile = filepath
 		## cardinality = 0..1
@@ -154,13 +154,13 @@ progressbartype = {
 
 	#either texturefile, or both texturefile1 and 2 - need to be worked out.
 
-	## file_extensions = { .dds .png }
+	## file_extensions = { .dds .png .tga }
 	## cardinality = 0..1
 	textureFile = filepath
-	## file_extensions = { .dds .png }
+	## file_extensions = { .dds .png .tga }
 	## cardinality = 0..1
 	textureFile1 = filepath
-	## file_extensions = { .dds .png }
+	## file_extensions = { .dds .png .tga }
 	## cardinality = 0..1
 	textureFile2 = filepath
 	## file_extensions = .shader
