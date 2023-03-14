@@ -114,9 +114,6 @@ types = {
 		subtype[default] = {
 			## cardinality = 0..1
 			hide_window = no
-
-			## cardinality = 0..1
-			diplomatic = no
 		}
 		subtype[triggered] = {
 			is_triggered_only = yes
@@ -124,6 +121,7 @@ types = {
 		subtype[major] = {
 			major = yes
 		}
+		## supress = ParadoxScriptUnresolvedExpression
 		subtype[inherited] = {
 			base = <event>
 		}
@@ -153,40 +151,10 @@ event = {
 			## cardinality = 0..1
 			trigger = {
 				alias_name[trigger] = alias_match_left[trigger]
-
-				## cardinality = 0..1
-				switch = {
-					trigger = scalar
-					## cardinality = 2..inf
-					scalar = {
-						## cardinality = 0..1
-						if = {
-							limit = { alias_name[trigger] = alias_match_left[trigger] }
-							text = localisation
-						}
-						## cardinality = 0..1
-						text = localisation
-					}
-				}
 			}
 			## cardinality = 0..1
 			exclusive_trigger = {
 				alias_name[trigger] = alias_match_left[trigger]
-
-				## cardinality = 0..1
-				switch = {
-					trigger = scalar
-					## cardinality = 2..inf
-					scalar = {
-						## cardinality = 0..1
-						if = {
-							limit = { alias_name[trigger] = alias_match_left[trigger] }
-							text = localisation
-						}
-						## cardinality = 0..1
-						text = localisation
-					}
-				}
 			}
 			## cardinality = 0..inf
 			text = localisation
@@ -340,6 +308,51 @@ event = {
 			## cardinality = 0..1
 			trigger = { alias_name[trigger] = alias_match_left[trigger] }
 		}
+		picture_event_data = {
+			#only one of each of these!
+			## cardinality = 0..1
+			room = <asset_selector.room>
+			## cardinality = 0..1
+			room = scope[country]
+			## cardinality = 0..1
+			room = scope[species]
+			## cardinality = 0..1
+			room = scope[leader]
+			## cardinality = 0..1
+			room = icon[gfx/portraits/city_sets]
+			## cardinality = 0..1
+			room = icon[gfx/portraits/city_sets]
+			## cardinality = 0..1
+			room = no_video_feed_room
+			## cardinality = 0..1
+			portrait = <portrait>
+			## cardinality = 0..1
+			portrait = scope[country]
+			## cardinality = 0..1
+			portrait = scope[species]
+			## cardinality = 0..1
+			portrait = scope[leader]
+			## cardinality = 0..1
+			planet_background = scope[country]
+			## cardinality = 0..1
+			planet_background = scope[species]
+			## cardinality = 0..1
+			planet_background = scope[planet]
+			## cardinality = 0..1
+			planet_background = <planet_class>
+			## cardinality = 0..1
+			graphical_culture = <graphical_culture>
+			## cardinality = 0..1
+			graphical_culture = scope[country]
+			## cardinality = 0..1
+			graphical_culture = scope[species]
+			## cardinality = 0..1
+			city_level = scope[country]
+			## cardinality = 0..1
+			city_level = scope[species]
+			## cardinality = 0..1
+			city_level = scope[planet]
+		}
 	}
 
 	## cardinality = 0..1
@@ -416,51 +429,6 @@ event = {
 		## cardinality = 0..1
 		###The title that shows at the top of the diplomatic screen (above the portrait/room, not above the event text)
 		diplomatic_title = localisation
-		picture_event_data = {
-			#only one of each of these!
-			## cardinality = 0..1
-			room = <asset_selector.room>
-			## cardinality = 0..1
-			room = scope[country]
-			## cardinality = 0..1
-			room = scope[species]
-			## cardinality = 0..1
-			room = scope[leader]
-			## cardinality = 0..1
-			room = icon[gfx/portraits/city_sets]
-			## cardinality = 0..1
-			room = icon[gfx/portraits/city_sets]
-			## cardinality = 0..1
-			room = no_video_feed_room
-			## cardinality = 0..1
-			portrait = <portrait>
-			## cardinality = 0..1
-			portrait = scope[country]
-			## cardinality = 0..1
-			portrait = scope[species]
-			## cardinality = 0..1
-			portrait = scope[leader]
-			## cardinality = 0..1
-			planet_background = scope[country]
-			## cardinality = 0..1
-			planet_background = scope[species]
-			## cardinality = 0..1
-			planet_background = scope[planet]
-			## cardinality = 0..1
-			planet_background = <planet_class>
-			## cardinality = 0..1
-			graphical_culture = <graphical_culture>
-			## cardinality = 0..1
-			graphical_culture = scope[country]
-			## cardinality = 0..1
-			graphical_culture = scope[species]
-			## cardinality = 0..1
-			city_level = scope[country]
-			## cardinality = 0..1
-			city_level = scope[species]
-			## cardinality = 0..1
-			city_level = scope[planet]
-		}
 		## cardinality = 0..1
 		custom_gui = scalar #same as previous, needs to be gui_type
 		## cardinality = 0..1
