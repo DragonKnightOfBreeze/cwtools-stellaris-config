@@ -121,7 +121,6 @@ types = {
 		subtype[major] = {
 			major = yes
 		}
-		## supress = ParadoxScriptUnresolvedExpression
 		subtype[inherited] = {
 			base = <event>
 		}
