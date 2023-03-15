@@ -1310,14 +1310,49 @@ on_actions = {
 	## replace_scopes = { this = situation root = country from = country }
 	on_shroudwalker_divination_locus_situation = situation
 
+	## replace_scopes = { this = situation root = country from = country }
+	on_shroudwalker_insight_situation_finish = situation
+
+	### Fired when a fleet activates cloaking
+	### This = Fleet
+	## replace_scopes = { this = fleet root = fleet }
+	on_cloaking_activated = fleet
+
+	### Fired when cloaking is deactivated for a fleet (voluntarily or involuntarily)
+	### This = Fleet
+	## replace_scopes = { this = fleet root = fleet }
+	on_cloaking_deactivated = fleet
+
+	### Fired when a pre-FTL's awareness level increases (by uncloaking ships or using add/set_awareness in events)
+	### This = PreFTL Country
+	### From = Observing Country
+	## replace_scopes = { this = country root = country }
+	on_awareness_level_increase = country
+
+	### Fired when a pre-FTL's awareness level decreases (by uncloaking ships or using add/set_awareness in events)
+	### This = PreFTL Country
+	### From = Observing Country
+	## replace_scopes = { this = country root = country }
+	on_awareness_level_decrease = country
+
+	### Chance of pre-FTL civilizations to shift their ethics
+	## replace_scopes = { this = country root = country }
+	on_pre_ftl_pop_ethic_shift = country
+
+	### Fired when a country attacks another country
+	### This = attacked country
+	### From = attacker country
+	## replace_scopes = { this = country root = country }
+	on_country_attacked = country
+
 	# Scope:
 	# this/root = planet that have been fired upon
 	# from = fleet that fired
-	#on_destroy_planet_with_PLANET_DESTRUCTION_COMPONENT = {
-	#	events = {
-	#		planet_destruction.1
-	#	}
-	#}
+	# on_destroy_planet_with_PLANET_DESTRUCTION_COMPONENT = {
+	# 	events = {
+	# 		planet_destruction.1
+	# 	}
+	# }
 
 	# Note: The _queued on_actions also fire when the command is made even if there is nothing else in the queue
 	# Similarly, the _unqueued on_actions fire even if you cancel the order while the weapon is on the wind-up to fire
