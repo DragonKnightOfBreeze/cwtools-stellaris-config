@@ -59,7 +59,7 @@ technology = {
 
 	subtype[start_tech] = {
 		## cardinality = 0..1
-		cost = 0
+		cost = int
 	}
 
 	subtype[!start_tech] = {
@@ -69,7 +69,7 @@ technology = {
 		## cardinality = 0..1
 		is_dangerous = bool
 		weight = float
-		#usually in ""
+		# usually in ""
 
 		## cardinality = 0..1
 		levels = int[-1..100]
@@ -87,7 +87,7 @@ technology = {
 	}
 
 	## cardinality = 0..1
-	gateway = scalar #can be any string
+	gateway = scalar # can be any string
 
 	subtype[repeatable] = {
 		cost_per_level = int
@@ -163,6 +163,14 @@ technology = {
 	## replace_scope = { this = country root = country }
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	subtype[start_tech] = {
+		## cardinality = 0..1
+		## replace_scope = { this = country root = country }
+		starting_potential = {
+			alias_name[trigger] = alias_match_left[trigger]
+		}
 	}
 }
 
