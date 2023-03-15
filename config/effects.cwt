@@ -4295,7 +4295,7 @@ alias[effect:go_to_next_pre_ftl_age] = bool
 
 ### Set pre-FTL technology level. Does nothing if the country is not pre-FTL.
 ## scopes = { country }
-alias[effect:set_pre_ftl_age] = bool
+alias[effect:set_pre_ftl_age] = <pre_ftl_age>
 
 ### Remove communications between scoped country and target country
 ## scopes = { country }
