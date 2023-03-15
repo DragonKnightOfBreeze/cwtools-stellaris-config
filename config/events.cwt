@@ -307,6 +307,7 @@ event = {
 			## cardinality = 0..1
 			trigger = { alias_name[trigger] = alias_match_left[trigger] }
 		}
+		## cardinality = 0..1
 		picture_event_data = {
 			#only one of each of these!
 			## cardinality = 0..1

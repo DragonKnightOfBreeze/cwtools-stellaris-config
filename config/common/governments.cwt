@@ -321,11 +321,6 @@ civic_or_origin = {
 	}
 	subtype[civic] = {
 		## cardinality = 0..1
-		playable = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
-
-		## cardinality = 0..1
 		###default: yes
 		pickable_at_start = bool
 
@@ -455,6 +450,7 @@ alias[government_trigger:civics] = {
 	NOT = {
 		## cardinality = 0..1
 		text = localisation
+		## cardinality = 0..99
 		value = <civic_or_origin.civic>
 	}
 	## cardinality = 0..inf
