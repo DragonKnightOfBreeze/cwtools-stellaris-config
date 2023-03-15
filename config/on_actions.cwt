@@ -1304,11 +1304,11 @@ on_actions = {
 	## replace_scopes = { this = agreement root = country from = country }
 	on_agreement_change_accepted = agreement
 
-	## replace_scopes = { this = agreement root = country from = country }
-	on_shroudwalker_divination_visitors_situation = agreement
+	## replace_scopes = { this = situation root = country from = country }
+	on_shroudwalker_divination_visitors_situation = situation
 
-	## replace_scopes = { this = agreement root = country from = country }
-	on_shroudwalker_divination_locus_situation = agreement
+	## replace_scopes = { this = situation root = country from = country }
+	on_shroudwalker_divination_locus_situation = situation
 
 	# Scope:
 	# this/root = planet that have been fired upon

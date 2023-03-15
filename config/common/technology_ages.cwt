@@ -1,0 +1,20 @@
+types = {
+	### Technology ages for pre-FTL tech progression
+	type[pre_ftl_age] = {
+		path = "game/technology_ages/preftl"
+		file_extension = .txt
+		localisation = {
+			## required
+			## primary
+			Name = "$"
+			## required
+			Desc = "$_desc"
+		}
+	}
+}
+
+pre_ftl_age = {
+	### Optional. Which age the PreFTL will reach after this one. If none specified, the PreFTL will turn into a "real" country after this age.
+	## cardinality = 0..1
+	next_age = <pre_ftl_age>
+}

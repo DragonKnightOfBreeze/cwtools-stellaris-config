@@ -434,9 +434,9 @@ modifiers = {
 	shipclass_military_special_disengage_mult = { Ships }
 	# endregion
 	# region weapon_type modifiers
-	# enum[component_tags]_weapon_damage_mult = { Ships }
-	# enum[component_tags]_weapon_fire_rate_mult = { Ships }
-	# enum[component_tags]_speed_mult = { Ships }
+	# enum[component_tag]_weapon_damage_mult = { Ships }
+	# enum[component_tag]_weapon_fire_rate_mult = { Ships }
+	# enum[component_tag]_speed_mult = { Ships }
 	weapon_type_energy_weapon_damage_mult = { Ships }
 	weapon_type_energy_weapon_fire_rate_mult = { Ships }
 	weapon_type_energy_speed_mult = { Ships }

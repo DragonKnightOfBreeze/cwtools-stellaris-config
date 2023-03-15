@@ -120,6 +120,11 @@ links = {
 		input_scopes = { archaeological_site }
 		output_scope = fleet
 	}
+	### Scopes to the ship's design
+	design = {
+		input_scopes = { ship }
+		output_scope = design
+	}
 	### Scopes from an army to the pop that spawned it.
 	pop = {
 		input_scopes = { pop army }

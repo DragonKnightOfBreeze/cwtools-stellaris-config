@@ -69,7 +69,7 @@ types = {
 # component_tag_energy_weapon_damage_mult, component_tag_energy_weapon_fire_rate_mult and component_tag_energy_speed_mult
 #these modifiers require localisation and a GFX (gfx/interface/icons/modifiers - same name as the component_tag key)
 enums = {
-	complex_enum[component_tags] = {
+	complex_enum[component_tag] = {
 		path = "game/common/component_tags"
 		name = {
 			enum_name
@@ -134,12 +134,12 @@ component_template = {
 	## cardinality = 0..1
 	tags = {
 		## cardinality = 0..inf
-		enum[component_tags]
+		enum[component_tag]
 	}
 	## cardinality = 0..1
 	ai_tags = {
 		## cardinality = 0..inf
-		enum[component_tags]
+		enum[component_tag]
 	}
 	## cardinality = 0..1
 	ai_tag_weight = int

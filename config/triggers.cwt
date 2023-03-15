@@ -61,7 +61,7 @@ alias[trigger:relative_power] = {
 alias[trigger:has_election_type] = enum[election_types]
 
 ### Checks if the scope object has a certain modifier
-## scopes = { megastructure planet country ship pop galactic_object pop_faction federation spy_network espionage_operation }
+## scopes = { megastructure planet country ship pop fleet galactic_object pop_faction federation spy_network espionage_operation }
 alias[trigger:has_modifier] = <static_modifier>
 
 ### Checks if the country has a specific opinion modifier towards target country or anyone
@@ -385,7 +385,7 @@ alias[trigger:has_closed_borders] = scope_group[target_country]
 alias[trigger:has_secret_fealty_from_subject_of] = scope_group[target_country]
 
 ### Checks if the pop/species/leader has rights
-## scopes = { pop leader }
+## scopes = { pop leader species }
 alias[trigger:has_citizenship_rights] = bool
 
 ### checks if the scoped object is of the same species as another object
@@ -1524,7 +1524,7 @@ alias[trigger:is_point_of_interest] = {
 
 ### Checks if the country's AI prefers weapons using this component tag
 ## scopes = { country }
-alias[trigger:is_preferred_weapons] = enum[component_tags]
+alias[trigger:is_preferred_weapons] = enum[component_tag]
 
 ### Checks if the planet is the system's primary star
 ## scopes = { planet }
@@ -1658,6 +1658,48 @@ alias[trigger:num_physics] == int_value_field
 ### Checks the country's number of researched rare technologies
 ## scopes = { country }
 alias[trigger:num_rare_techs] == int_value_field
+
+### Checks the country's number of researched dangerous technologies
+## scopes = { country }
+alias[trigger:num_dangerous_techs] == int_value_field
+
+### Checks the country's number of researched insight technologies
+## scopes = { country }
+alias[trigger:num_insight_techs] == int_value_field
+
+### Checks the country's number of researched custom_1 technologies
+## scopes = { country }
+alias[trigger:num_custom_1_techs] == int_value_field
+
+### Checks the country's number of researched custom_2 technologies
+## scopes = { country }
+alias[trigger:num_custom_2_techs] == int_value_field
+
+### Checks the country's number of researched custom_3 technologies
+## scopes = { country }
+alias[trigger:num_custom_3_techs] == int_value_field
+
+### Checks the country's number of researched repeatable technologies
+## scopes = { country }
+alias[trigger:num_repeatable_techs] == int_value_field
+
+### Checks the country's number of researched technologies
+## scopes = { country }
+alias[trigger:num_researched_techs] == int_value_field
+
+### Checks the country's number of researched technologies of a certain tier
+## scopes = { country }
+alias[trigger:num_researched_techs_of_tier] = {
+	value = int_value_field
+	tier = int
+}
+
+### Checks whether the country can research a certain tech tier
+## scopes = { country }
+alias[trigger:can_research_tier] = {
+	area = enum[technology_areas]
+	tier = int
+}
 
 ### Checks the country/fleet's number of ships
 ## scopes = { country fleet }
@@ -2871,6 +2913,10 @@ alias[trigger:is_espionage_operation_score] == int_value_field
 ## scopes = { espionage_operation }
 alias[trigger:is_espionage_operation_last_die_result] == int_value_field
 
+### Checks if scoped espionage operation accepts events automatically when they are ready
+## scopes = { espionage_operation }
+alias[trigger:is_espionage_operation_auto_accept_events] == bool
+
 ### Compares the number of assets associated with the scope object.
 ## scopes = { spy_network espionage_operation }
 alias[trigger:num_espionage_assets] == int_value_field
@@ -2935,10 +2981,6 @@ alias[trigger:compare_distance] = {
 	further_object = scope_group[celestial_coordinate]
 }
 
-### Checks the country's number of researched repeatable technologies
-## scopes = { country }
-alias[trigger:num_repeatable_techs] == int_value_field
-
 ### Checks market price of a specific resource for the current country:
 ## scopes = { country }
 alias[trigger:market_resource_price] = {
@@ -3000,10 +3042,6 @@ alias[trigger:starbase_buildable_is_in_queue_before] = {
 	second = <starbase_building>
 }
 
-### Checks the country's number of researched technologies
-## scopes = { country }
-alias[trigger:num_researched_techs] == int_value_field
-
 ### Checks number of tradition categories the country has picked
 ## scopes = { country }
 alias[trigger:num_tradition_categories] == int_value_field
@@ -3022,11 +3060,11 @@ alias[trigger:has_embassy] = scope_group[target_country]
 ## scopes = { planet }
 alias[trigger:is_ideal] = bool
 
-### Checks if the specified ship, fleet, planet or system is within sensor range of the scoped country.
+### Checks if the specified ship, fleet, planet or system can be seen by the scoped country.
 ## scopes = { country }
 alias[trigger:is_in_sensor_range] = scope[ship]
 
-### Checks if the specified ship, fleet, planet or system is within sensor range of the scoped country.
+### Checks if the specified ship, fleet, planet or system can be seen by the scoped country.
 ## scopes = { country }
 alias[trigger:is_in_sensor_range] = scope[fleet]
 
@@ -3038,8 +3076,7 @@ alias[trigger:is_in_sensor_range] = scope[planet]
 ## scopes = { country }
 alias[trigger:is_in_sensor_range] = scope[galactic_object]
 
-### Checks if the scoped ship, fleet, planet or system is within sensor range of the specified country.
-### is_in_sensor_rangeof_country = root.owner
+### Checks if the scoped ship, fleet, planet or system can be seen by the specified country.
 ## scopes = { planet ship fleet galactic_object }
 alias[trigger:is_in_sensor_range_of_country] = scope_group[target_country]
 
@@ -3136,20 +3173,6 @@ alias[trigger:planet_garrison_strength] == value_field
 alias[trigger:resource_income_to_expenditure_balance_ratio] = {
 	resource = <resource>
 	value = value_field
-}
-
-### Checks the country's number of researched technologies of a certain tier
-## scopes = { country }
-alias[trigger:num_researched_techs_of_tier] = {
-	value = int_value_field
-	tier = int
-}
-
-### Checks whether the country can research a certain tech tier
-## scopes = { country }
-alias[trigger:can_research_tier] = {
-	area = enum[technology_areas]
-	tier = int
 }
 
 ### Checks the value of economic production modifiers a pop has for producing a certain resource via a certain job. Can specify checking all modifiers or just those from traits. WARNING: expensive trigger
@@ -3342,6 +3365,64 @@ alias[trigger:galaxy_shape] = <galaxy_shape>
 ## scopes = { spy_network }
 alias[trigger:is_spynetwork_max_level] = int
 
+### Checks if country is under societal enlightenment
+## scopes = { country }
+alias[trigger:is_under_societal_enlightenment] = scope[country]
+
+### Checks if country is under open technological enlightenment
+## scopes = { country }
+alias[trigger:is_under_open_technological_enlightenment] = scope[country]
+
+### Checks if country is under stratified technological enlightenment
+## scopes = { country }
+alias[trigger:is_under_stratified_technological_enlightenment] = scope[country]
+
+### Checks if country has pre-ftl trade
+## scopes = { country }
+alias[trigger:has_pre_ftl_trade] = scope[country]
+
+### Checks ship design has a certain role
+## scopes = { design }
+alias[trigger:has_role] = enum[component_tag]
+
+### Checks if a fleet or ship is cloaked.
+## scopes = { ship fleet }
+alias[trigger:is_cloaked] = bool
+
+### Compares cloaking strength value of the scoped fleet or ship.
+## scopes = { ship fleet }
+alias[trigger:has_cloaking_strength] = int_value_field
+
+### Compares cloaking detection value of the scoped fleet or ship.
+## scopes = { ship fleet }
+alias[trigger:has_cloaking_detection] = int_value_field
+
+### Checks the country's awareness if it's pre-FTL
+## scopes = { country }
+alias[trigger:has_awareness] = int_value_field
+
+### Checks the country's awareness level if it's pre-FTL
+## scopes = { country }
+alias[trigger:current_awareness_level] = enum[awareness_level]
+
+enums = {
+	enum[awareness_level] = {
+		none
+		low
+		medium
+		high
+		full
+	}
+}
+
+### Checks if the country is a pre-FTL civilization and has another pre-FTL tech age after its current one
+## scopes = { country }
+alias[trigger:has_next_pre_ftl_age] = yes
+
+### Checks if the country is a pre-FTL civilization and is in the specified age
+## scopes = { country }
+alias[trigger:has_pre_ftl_age] = <pre_ftl_age>
+
 # scope links
 
 ### Iterate through all playable countries - checks whether the enclosed triggers return true for any of them
@@ -3507,8 +3588,11 @@ alias[trigger:count_owned_pops] = {
 ### Checks the number of deposits on the planet that meet the specified criteria
 ## scopes = { planet }
 alias[trigger:count_deposits] =  {
-	count = int_value_field
+	## cardinality = 0..1
 	type = <deposit>
+	## cardinality = 0..1
+	category = <deposit_category>
+	count = int_value_field
 }
 
 ### Iterate through every ambient object in the game - checks whether the enclosed triggers return true for any of them
@@ -4687,6 +4771,40 @@ alias[trigger:count_defender] = {
 ## scopes = { country }
 ## push_scope = war
 alias[trigger:count_war] = {
+	## cardinality = 0..1
+	limit = { alias_name[trigger] = alias_match_left[trigger] }
+	count = int_value_field
+	count = all
+}
+
+### Iterate through all pre-ftl countries within the country's or sector's borders - checks whether the enclosed triggers return true for any of them
+## scopes = { country sector }
+## push_scope = country
+alias[trigger:any_pre_ftl_within_border] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through all pre-ftl countries within the country's or sector's borders - checks whether the enclosed triggers return true for X/all of them
+## scopes = { country sector }
+## push_scope = country
+alias[trigger:count_pre_ftl_within_border] = {
+	## cardinality = 0..1
+	limit = { alias_name[trigger] = alias_match_left[trigger] }
+	count = int_value_field
+	count = all
+}
+
+### Iterate through all pre-ftl countries with an observation post around their capital within the country's or sector's borders - checks whether the enclosed triggers return true for any of them
+## scopes = { country sector }
+## push_scope = country
+alias[trigger:any_observed_pre_ftl_within_border] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+### Iterate through all pre-ftl countries with an observation post around their capital within the country's or sector's borders - checks whether the enclosed triggers return true for X/all of them
+## scopes = { country sector }
+## push_scope = country
+alias[trigger:count_observed_pre_ftl_within_border] = {
 	## cardinality = 0..1
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 	count = int_value_field

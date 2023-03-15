@@ -1,4 +1,4 @@
-[22:48:46][game_application.cpp:2069]: 
+[01:26:20][game_application.cpp:2091]: 
 == TRIGGER DOCUMENTATION ==
 text - For 'desc={trigger={' use. Shows custom text
 text = <text>
@@ -543,6 +543,22 @@ Supported Scopes: country
 name_list_category - Checks if a specific name list is used for the a species during empire creation
 Supported Scopes: dlc_recommendation
 
+is_under_societal_enlightenment - Checks if country is under societal enlightenment
+is_under_societal_enlightenment = <target>
+Supported Scopes: country
+
+is_under_open_technological_enlightenment - Checks if country is under open technological enlightenment
+is_under_open_technological_enlightenment = <target>
+Supported Scopes: country
+
+is_under_stratified_technological_enlightenment - Checks if country is under stratified technological enlightenment
+is_under_stratified_technological_enlightenment = <target>
+Supported Scopes: country
+
+has_pre_ftl_trade - Checks if country has pre-ftl trade
+has_pre_ftl_trade = <target>
+Supported Scopes: country
+
 current_stage - Checks if the specified stage is currently active in the scoped situation.
 current_stage = <stage> (name defined in situation's stages)
 Supported Scopes: situation
@@ -631,6 +647,10 @@ Supported Scopes: country
 has_commercial_pact - Check if the country has a commercial pact with target country
 has_commercial_pact = <target>
 Supported Scopes: country
+
+has_role - Checks ship design has a certain role.
+has_role = gunship
+Supported Scopes: design
 
 is_being_assimilated - Checks if the pop is being purged
 is_being_assimilated = yes
@@ -1077,11 +1097,11 @@ is_mobile - Checks if the scoped fleet can move.
 is_mobile = <yes/no>
 Supported Scopes: fleet
 
-is_in_sensor_range - Checks if the specified ship, fleet, planet or system is within sensor range of the scoped country.
+is_in_sensor_range - Checks if the specified ship, fleet, planet or system can be seen by the scoped country.
 is_in_sensor_range = <ship/fleet/system>
 Supported Scopes: country
 
-is_in_sensor_range_of_country - Checks if the scoped ship, fleet, planet or system is within sensor range of the specified country.
+is_in_sensor_range_of_country - Checks if the scoped ship, fleet, planet or system can be seen by the specified country.
 is_in_sensor_rangeof_country = root.owner
 Supported Scopes: planet ship fleet galactic_object
 
@@ -1327,7 +1347,7 @@ Supported Scopes: country
 
 has_modifier - Checks if the scope object has a certain modifier
 has_modifier = <modifier>
-Supported Scopes: megastructure planet country ship pop galactic_object pop_faction federation spy_network espionage_operation
+Supported Scopes: megastructure planet country ship pop fleet galactic_object pop_faction federation spy_network espionage_operation
 
 any_ship_in_system - Iterate through each ship in the current system - checks whether the enclosed triggers return true for any of them
 any_ship_in_system = { <triggers> }
@@ -1514,7 +1534,7 @@ has_policy_flag = slavery_not_allowed
 Supported Scopes: country
 
 count_deposits - Checks the number of deposits on the planet that meet the specified criteria
-count_deposits = { type = <deposit> count < 2 }
+count_deposits = { type = <deposit> category = <category> count < 2 }
 Supported Scopes: planet
 
 has_tech_option - Checks if the country has a tech research option currently available
@@ -1796,6 +1816,26 @@ Supported Scopes: all
 
 num_rare_techs - Checks the country's number of researched rare technologies
 num_rare_techs < 4
+Supported Scopes: country
+
+num_dangerous_techs - Checks the country's number of researched dangerous technologies
+num_dangerous_techs < 4
+Supported Scopes: country
+
+num_insight_techs - Checks the country's number of researched insight technologies
+num_insight_techs < 4
+Supported Scopes: country
+
+num_custom_1_techs - Checks the country's number of researched custom_1 technologies
+num_custom_1_techs < 4
+Supported Scopes: country
+
+num_custom_2_techs - Checks the country's number of researched custom_2 technologies
+num_custom_2_techs < 4
+Supported Scopes: country
+
+num_custom_3_techs - Checks the country's number of researched custom_3 technologies
+num_custom_3_techs < 4
 Supported Scopes: country
 
 num_repeatable_techs - Checks the country's number of researched repeatable technologies
@@ -2174,7 +2214,7 @@ Supported Scopes: pop leader species
 
 has_citizenship_rights - Checks if the pop/species/leader has rights
 has_citizenship_rights = yes/no
-Supported Scopes: pop leader
+Supported Scopes: pop leader species
 
 num_ascension_perk_slots - Compares the number of unlocked ascension perk slots of the scope with the given value
 num_ascension_perks > 7
@@ -2899,6 +2939,10 @@ is_espionage_operation_last_die_result - Compares the last dice roll.
 is_espionage_operation_last_die_result >= <int>
 Supported Scopes: espionage_operation
 
+is_espionage_operation_auto_accept_events - Checks if scoped espionage operation accepts events automatically when they are ready
+is_espionage_operation_auto_accept_events = <bool>
+Supported Scopes: espionage_operation
+
 num_espionage_assets - Compares the number of assets associated with the scope object.
 num_espionage_assets = <int>
 Supported Scopes: spy_network espionage_operation
@@ -2972,6 +3016,34 @@ Supported Scopes: design
 
 enclave_capacity_left - Checks the country's free enclave number capacity in absolute numbers
 enclave_capacity_left > 1
+Supported Scopes: country
+
+is_cloaked - Checks if a fleet or ship is cloaked.
+is_cloaked = <yes/no>
+Supported Scopes: ship fleet
+
+has_cloaking_strength - Compares cloaking strength value of the scoped fleet or ship.
+has_cloaking_strength >= <value>
+Supported Scopes: ship fleet
+
+has_cloaking_detection - Compares cloaking detection value of the scoped fleet or ship.
+has_cloaking_detection >= <value>
+Supported Scopes: ship fleet
+
+has_awareness - Checks the country's awareness if it's pre-FTL
+has_awareness < 90
+Supported Scopes: country
+
+current_awareness_level - Checks the country's awareness level if it's pre-FTL
+current_awareness_level > none/low/medium/high/full
+Supported Scopes: country
+
+has_next_pre_ftl_age - Checks if the country is a pre-FTL civilization and has another pre-FTL tech age after its current one 
+has_next_pre_ftl_age = yes
+Supported Scopes: country
+
+has_pre_ftl_age - Checks if the country is a pre-FTL civilization and is in the specified age 
+has_pre_ftl_age = <age_key>
 Supported Scopes: country
 
 any_agreement - Iterate through each agreement - checks whether the enclosed triggers return true for any of them
@@ -3136,6 +3208,28 @@ count_available_debris = {
 	limit = { <triggers> }
 }
 Supported Scopes: country
+
+any_pre_ftl_within_border - Iterate through all pre-ftl countries within the country's or sector's borders - checks whether the enclosed triggers return true for any of them
+any_pre_ftl_within_border = { <triggers> }
+Supported Scopes: country sector
+
+count_pre_ftl_within_border - Iterate through all pre-ftl countries within the country's or sector's borders - checks whether the enclosed triggers return true for X/all of them
+count_pre_ftl_within_border = {
+	count = <num/all/variable>
+	limit = { <triggers> }
+}
+Supported Scopes: country sector
+
+any_observed_pre_ftl_within_border - Iterate through all pre-ftl countries with an observation post around their capital within the country's or sector's borders - checks whether the enclosed triggers return true for any of them
+any_observed_pre_ftl_within_border = { <triggers> }
+Supported Scopes: country sector
+
+count_observed_pre_ftl_within_border - Iterate through all pre-ftl countries with an observation post around their capital within the country's or sector's borders - checks whether the enclosed triggers return true for X/all of them
+count_observed_pre_ftl_within_border = {
+	count = <num/all/variable>
+	limit = { <triggers> }
+}
+Supported Scopes: country sector
 
 any_owned_design - Iterate through all designs owned by the current country - checks whether the enclosed triggers return true for any of them
 any_owned_design = { <triggers> }
