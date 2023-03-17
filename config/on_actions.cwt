@@ -600,8 +600,8 @@ on_actions = {
 	### An army construction has been completed.
 	### This = Planet
 	### From = Army
-	## replace_scopes = { this = country root = country from = army }
-	on_army_recruited = country
+	## replace_scopes = { this = planet root = country from = army }
+	on_army_recruited = planet
 
 	### An army has been killed in ground combat
 	### This = owner
