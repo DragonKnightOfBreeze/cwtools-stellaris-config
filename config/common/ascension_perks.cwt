@@ -1,4 +1,5 @@
 types = {
+	## prefix = ap_
 	type[ascension_perk] = {
 		path = "game/common/ascension_perks"
 		file_extension = .txt

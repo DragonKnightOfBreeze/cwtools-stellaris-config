@@ -56,6 +56,7 @@ types = {
 			}
 		}
 	}
+	## prefix = preset_
 	type[agreement_preset] = {
 		path = "game/common/agreement_presets"
 		file_extension = .txt
@@ -85,8 +86,8 @@ types = {
 		path = "game/common/agreement_resources"
 		file_extension = .txt
 		localisation = {
-			## required
 			## primary
+			## required
 			Name = "$"
 		}
 	}

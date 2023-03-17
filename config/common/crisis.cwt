@@ -1,21 +1,34 @@
-
 types = {
+	## prefix = crisis_level_
+	type[crisis_level] = {
+		path = "game/common/crisis_levels"
+		file_extension = .txt
+		localisation = {
+			## primary
+			## required
+			Name = "$"
+			## required
+			Description = "$_desc"
+		}
+	}
+	## prefix = crisobj_
 	type[crisis_objective] = {
 		path = "game/common/crisis_objectives"
+		file_extension = .txt
 		localisation = {
+			## primary
 			## required
 			Name = "$_name"
 			## required
 			Description = "$_desc"
 		}
 	}
-	type[crisis_level] = {
-		path = "game/common/crisis_levels"
-		#Todo: localisation?
-	}
+	## prefix = menp_
 	type[menace_perk] = {
 		path = "game/common/menace_perks"
+		file_extension = .txt
 		localisation = {
+			## primary
 			## required
 			Name = "$"
 			## required

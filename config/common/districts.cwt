@@ -1,7 +1,8 @@
-
 types = {
+	## prefix = district_
 	type[district] = {
 		path = "game/common/districts"
+		file_extension = .txt
 		subtype[capped] = {
 			## cardinality = 0..1
 			is_capped_by_modifier = yes
@@ -10,6 +11,7 @@ types = {
 			is_capped_by_modifier = no
 		}
 		localisation = {
+			## primary
 			## required
 			Name = "$"
 			## required
@@ -19,8 +21,10 @@ types = {
 		}
 		images = {
 			## primary
+			## required
 			icon = "#icon" # icon[gfx/interface/icons/districts]
 			## primary
+			## required
 			icon = "gfx/interface/icons/districts/$.dds" # inferred
 		}
 	}

@@ -1,17 +1,9 @@
-
 types = {
+	## prefix = deposit_
 	type[deposit] = {
 		path = "game/common/deposits"
+		file_extension = .txt
 		path_strict = yes
-
-		localisation = {
-			## required
-			Name = "$"
-			## required
-			Description = "$_desc"
-		}
-
-		#some guesswork here...
 		subtype[colonisable] = {
 			is_for_colonizable = yes
 		}
@@ -27,25 +19,33 @@ types = {
 		}
 		subtype[not_dropped] = {
 			potential = {
-				always = no
-			}
+				always = no }
+		}
+		localisation = {
+			## primary
+			## required
+			Name = "$"
+			## required
+			Description = "$_desc"
 		}
 		images = {
 			## primary
+			## required
 			icon = "#icon" # icon[gfx/interface/icons/deposits]
 			## primary
+			## required
 			icon = "gfx/interface/icons/deposits/$.dds" # inferred
 		}
 	}
+	## prefix = deposit_cat_
 	type[deposit_category] = {
 		path = "game/common/deposit_categories"
+		file_extension = .txt
 		subtype[blocker] = {
 			blocker = yes
 		}
 	}
 }
-
-#deposits/planetary features
 
 ## push_scope = planet
 deposit = {
@@ -179,13 +179,11 @@ deposit = {
 	custom_tooltip_short = localisation
 }
 
-
-
 deposit_category = {
+	### Counts as blockers
 	## cardinality = 0..1
 	blocker = yes
+	### Shows up as rare deposits in planetview
 	## cardinality = 0..1
 	important = yes
 }
-
-

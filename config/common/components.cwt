@@ -9,8 +9,8 @@ types = {
 			required_component_set = yes
 		}
 		localisation = {
-			## required
 			## primary
+			## required
 			Name = "$"
 			## optional
 			Description = "$_DESC"
@@ -53,13 +53,13 @@ types = {
 			type = planet_killer
 		}
 		localisation = {
-			## required
 			## primary
+			## required
 			Name = "$"
 		}
 		images = {
-			## required
 			## primary
+			## required
 			icon = "#icon|#icon_frame" # <sprite>
 		}
 	}

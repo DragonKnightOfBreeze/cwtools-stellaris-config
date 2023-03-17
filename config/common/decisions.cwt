@@ -1,8 +1,10 @@
-
 types = {
+	## prefix = decision_
 	type[decision] = {
 		path = "game/common/decisions"
+		file_extension = .txt
 		localisation = {
+			## primary
 			## required
 			name = "$"
 			## required
@@ -10,8 +12,10 @@ types = {
 		}
 		images = {
 			## primary
+			## required
 			icon = "#icon" # icon[gfx/interface/icons/decisions]
 			## primary
+			## required
 			icon = "gfx/interface/icons/decisions/$.dds" # inferred
 		}
 	}

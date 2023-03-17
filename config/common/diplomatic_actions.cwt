@@ -1,16 +1,14 @@
 types = {
+	## prefix = action_
 	type[diplomatic_action] = {
 		path = "game/common/diplomatic_actions"
+		file_extension = .txt
 		localisation = {
-			## optional
+			## primary
 			Title = "$_TITLE"
-			## optional
 			Desc = "$_DESC"
-			## optional
 			"Long desc" = "$_LONG_DESC"
-			## optional
 			Type = "$_TYPE"
-			## optional
 			"Type desc" = "$_TYPE_DESC"
 		}
 		images = {
@@ -20,8 +18,6 @@ types = {
 	}
 }
 
-#TODO Confirm
-#TODO Document
 diplomatic_action = {
 	## cardinality = 0..1
 	icon = <sprite>

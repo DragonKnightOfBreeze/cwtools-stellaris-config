@@ -1,5 +1,6 @@
 #Add branch office subtype
 types = {
+	## prefix = building_
 	## graph_related_types = { technology }
 	type[building] = {
 		path = "game/common/buildings"
@@ -14,6 +15,7 @@ types = {
 		subtype[corporate] = {
 			owner_type = corporate
 		}
+		## prefix = holding_
 		subtype[holding] = {
 			owner_type = subject_holding
 		}

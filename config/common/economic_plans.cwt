@@ -1,0 +1,95 @@
+types = {
+	type[economic_plan] = {
+		path = "game/common/economic_plans"
+		file_extension = .txt
+	}
+}
+
+economic_plan = {
+	### when this plan should be considered
+	## cardinality = 0..1
+	type = enum[game_stage]
+
+	### how much surplus income of resources the AI aims for
+	income = {
+		## cardinality = 1..inf
+		<resource> = float
+	}
+
+	### increased prio until surplus income of rhs value is reached
+	## cardinality = 0..1
+	focus = {
+		## cardinality = 1..inf
+		<resource> = float
+	}
+
+	### an entire new plan with its own potential trigger and goals
+	### if the empire fulfills the potential trigger of the subplan
+	### then its goals will be added to the base plan.
+	### NOTE: there can be several subplans!
+	### NOTE: ai_weights are NOT added from subplans, also type is NOT checked!
+	## cardinality = 0..inf
+	subplan = single_alias_right[economic_subplan]
+
+	### if all sub plans are fulfilled then the scaling sub plans gets added multiple times until one of them is no longer fulfilled
+	### code loops over all scaling sub plans and adds all of them if they pass the possible trigger
+	### this allows for infinitely scaling sub plans which for example make the AI increase its alloys and science in a balanced manner
+	### NOTE: there can be several scaling_subplans!
+	## cardinality = 0..inf
+	scaling_subplan = single_alias_right[economic_subplan]
+
+	### optional sub plans are normal sub plans except they do not have to be fulfilled for the scaling behaviour to be enabled
+	### scaling sub plans should include things which they AI should try to do but it is not critical to do so
+	### a good example are advanced resources, they are paramount and the AI should try and get them, but it is not as critical as for example food
+	## cardinality = 0..inf
+	optional_subplan = single_alias_right[economic_subplan]
+
+	### number of total pops to aim for
+	## cardinality = 0..1
+	pops = int
+	### max admin capacity percent, ex. this means max 125% admin cap
+	## cardinality = 0..1
+	empire_size = float
+	### empire naval cap to aim for
+	## cardinality = 0..1
+	naval_cap = int
+
+	### ai weighting of plan, scope is country
+	## replace_scope = { this = country root = country }
+	ai_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+}
+
+single_alias[economic_subplan] = {
+	## cardinality = 0..1
+	set_name = scalar
+	## cardinality = 0..1
+	scaling = bool
+	## cardinality = 0..1
+	optional = bool
+
+	## replace_scope = { this = country root = country }
+	potential = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	## cardinality = 0..1
+	income = {
+		## cardinality = 1..inf
+		<resource> = float
+	}
+
+	## cardinality = 0..1
+	focus = {
+		## cardinality = 1..inf
+		<resource> = float
+	}
+
+	## cardinality = 0..1
+	pops = int
+	## cardinality = 0..1
+	empire_size = float
+	## cardinality = 0..1
+	naval_cap = int
+}

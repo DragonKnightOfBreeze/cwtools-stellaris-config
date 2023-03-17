@@ -348,4 +348,9 @@ enums = {
 		trade
 		coexist
 	}
+	enum[game_stage] = {
+		early
+		middle
+		end
+	}
 }

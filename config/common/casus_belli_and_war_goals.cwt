@@ -1,10 +1,11 @@
 types = {
+	## prefix = cb_
 	type[casus_belli] = {
 		path = "game/common/casus_belli"
 		file_extension = .txt
 		localisation = {
-			## required
 			## primary
+			## required
 			Name = "casus_belli_$"
 			## optional
 			Hint = "casus_belli_$_acquire_hint"
@@ -13,8 +14,8 @@ types = {
 	type[war_goal] = {
 		path = "game/common/war_goals"
 		localisation = {
-			## required
 			## primary
+			## required
 			Name = "war_goal_$"
 			## required
 			Desc = "war_goal_$_desc"

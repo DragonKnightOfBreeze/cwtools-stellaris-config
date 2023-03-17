@@ -1,12 +1,12 @@
 types = {
 	type[edict] = {
 		path = "game/common/edicts"
-
-		subtype[edict_ambition] = {
-			is_ambition = yes
+		file_extension = .txt
+		subtype[wartime] = {
+			is_wartime_edict = yes
 		}
-
 		localisation = {
+			## primary
 			## required
 			Name = "edict_$"
 			## required
@@ -19,21 +19,19 @@ types = {
 	}
 }
 
-# TODO Confirm
-# TODO Document
+## replace_scope = { this = country root = country }
 edict = {
+	### number of days the trigger is active.
 	length = int
-
 	icon = <sprite>
-	
+
+	## cardinality = 0..1
+	is_wartime_edict = yes
+
 	## cardinality = 0..1
 	edict_lock_in_months = int
 	## cardinality = 0..1
 	edict_cap_usage = int
-
-	subtype[edict_ambition] = {
-		is_ambition = yes
-	}
 
 	## cardinality = 0..1
 	resources = {
@@ -41,11 +39,12 @@ edict = {
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
 
+	### cost multiplier for a specific ambition ( 0.1 = 90% discount of the total unity cost etc).
 	## cardinality = 0..1
 	unity_cost_mult = float
 
+	### a list of modifiers.
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
 	modifier = {
 		## cardinality = 0..1
 		custom_tooltip = localisation
@@ -59,16 +58,19 @@ edict = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
+	### country trigger to decide whether the edict should be shown.
 	## cardinality = 0..1
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
+	### country trigger to decide if whether this edict can be activated.
 	## cardinality = 0..1
 	allow = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
+	### tech requirements for this trigger.
 	## cardinality = 0..1
 	prerequisites = {
 		## cardinality = 0..100
@@ -85,6 +87,7 @@ edict = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
+	### an effect that is executed when this trigger activates.
 	## cardinality = 0..1
 	effect = {
 		alias_name[effect] = alias_match_left[effect]

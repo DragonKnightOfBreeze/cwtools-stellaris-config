@@ -17,8 +17,8 @@ types = {
 			has_species = no
 		}
 		localisation = {
-			## required
 			## primary
+			## required
 			Name = "$"
 			## required
 			Desc = "$_desc"

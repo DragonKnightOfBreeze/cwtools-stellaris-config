@@ -3,8 +3,8 @@ types = {
 		path = "game/common/bombardment_stances"
 		file_extension = .txt
 		localisation = {
-			## required
 			## primary
+			## required
 			Name = "bombardment_$"
 			## required
 			Desc = "bombardment_$_desc"

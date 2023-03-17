@@ -1,0 +1,26 @@
+types = {
+	### These modifiers are applied to ships in a fleet while the fleet is cloaked
+	## prefix = strength_
+	type[cloaking_strength_level] = {
+		path = "game/common/cloaking_strength_levels"
+		file_extension = .txt
+	}
+}
+
+cloaking_strength_level = {
+	### Icon for the level
+	icon = <sprite>
+
+	### The cloaking strength value
+	cloaking_strength = int[0..inf] # TODO max value is based on value of define CLOAKING_LEVEL_MAX
+
+	### Decides whether a fleet with this cloaking strengths can cloak (currently not used)
+	can_cloak = bool
+
+	### The modifiers to be applied
+	## cardinality = 0..1
+	## replace_scope = { this = ship root = ship }
+	modifier = {
+		alias_name[modifier] = alias_match_left[modifier]
+	}
+}
