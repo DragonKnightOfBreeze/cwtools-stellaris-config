@@ -4144,7 +4144,7 @@ alias[effect:remove_secret_fealty] = scope_group[target_country]
 ## scopes = { country }
 alias[effect:clear_relations] = {
 	target = scope[country]
-	relations = { scope[country] }
+	relations = { alias_keys_field[trigger] }
 }
 
 ### Sets agreement terms of the agreement. Can be used to set multiple terms at once, including resource subsidies.
