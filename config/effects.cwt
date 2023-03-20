@@ -1,6 +1,6 @@
 # scripted effects
 
-alias[effect:<scripted_effect>] = yes
+alias[effect:<scripted_effect>] = bool
 
 # effects
 

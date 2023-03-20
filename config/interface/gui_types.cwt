@@ -701,16 +701,18 @@ alias[overlay:overlay] = {
 	}
 }
 alias[gui_standard_element:size] = {
-x = int
-x = percentage_field
-y = int
-y = percentage_field
+	x = int
+	x = percentage_field
+	y = int
+	y = percentage_field
 }
 alias[gui_standard_element:size] = {
-width = int
-width = percentage_field
-height = int
-height = percentage_field
+	width = int
+	width = percentage_field
+	## cardinality = 0..1
+	height = int
+	## cardinality = 0..1
+	height = percentage_field
 }
 
 alias[gui_standard_element:position] = {

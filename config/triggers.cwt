@@ -3121,13 +3121,6 @@ alias[trigger:resource_revenue_compare] = {
 	value = value_field
 }
 
-### Checks if the country has a civic in a slot
-## scopes = { country }
-alias[trigger:has_civic_in_slot] = {
-	civic = <civic_or_origin.civic>
-	index = int_value_field
-}
-
 ### Checks the country's number of owned (recruited) non-envoy leaders (includes the ruler)
 ## scopes = { country }
 alias[trigger:num_owned_leaders] == int_value_field

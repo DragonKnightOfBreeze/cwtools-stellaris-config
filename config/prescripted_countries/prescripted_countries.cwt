@@ -125,7 +125,7 @@ prescripted_country = {
 		name = localisation
 		name = {
 			first_name = localisation
-			last_name = localisation
+			second_name = localisation
 		}
 		gender = enum[genders_not_set]
 		portrait = <portrait>
