@@ -5,8 +5,9 @@ types = {
 }
 
 galactic_community_action = {
+	## cardinality = 1..1
 	resources = {
-		## cardinality = ~1..inf
-		<resource> = float
+		category = <economic_category>
+		alias_name[economic_template] = alias_match_left[economic_template]
 	}
 }

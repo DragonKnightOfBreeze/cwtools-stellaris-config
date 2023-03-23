@@ -1,6 +1,7 @@
 types = {
 	type[event_chain] = {
 		path = "game/common/event_chains"
+		file_extension = .txt
 		localisation = {
 			## required
 			Title = "$_title"

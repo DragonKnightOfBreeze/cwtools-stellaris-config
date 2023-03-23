@@ -2,6 +2,7 @@
 types = {
 	type[federation_law_category] = {
 		path = "game/common/federation_law_categories"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -11,6 +12,7 @@ types = {
 	}
 	type[federation_law] = {
 		path = "game/common/federation_laws"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -20,6 +22,7 @@ types = {
 	}
 	type[federation_perk] = {
 		path = "game/common/federation_perks"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -34,6 +37,7 @@ types = {
 	}
 	type[federation_type] = {
 		path = "game/common/federation_types"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -119,6 +123,7 @@ federation_perk = {
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	member_triggered_modifier = {
+		## cardinality = 0..1
 		key = localisation
 		potential = {
 			alias_name[trigger] = alias_match_left[trigger]
@@ -130,6 +135,16 @@ federation_perk = {
 	leader_modifier = {
 		## cardinality = 0..1
 		description = localisation
+		alias_name[modifier] = alias_match_left[modifier]
+	}
+	## cardinality = 0..1
+	## replace_scopes = { this = country root = country }
+	leader_triggered_modifier = {
+		## cardinality = 0..1
+		key = localisation
+		potential = {
+			alias_name[trigger] = alias_match_left[trigger]
+		}
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 	## cardinality = 0..1
@@ -161,6 +176,8 @@ federation_perk = {
 federation_type = {
 	icon = <sprite>
 	base_intel = int
+	## cardinality = 0..1
+	ownership_limits = <country_ownership_limit>
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	valid_leader = {

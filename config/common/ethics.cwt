@@ -2,6 +2,7 @@
 types = {
 	type[ethic] = {
 		path = "game/common/ethics"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -15,11 +16,11 @@ types = {
 	}
 	type[ethic_category] = {
 		path = "game/common/ethic_categories"
+		file_extension = .txt
 	}
 }
 
-ethic_category = {
-}
+ethic_category = {}
 
 ethic = {
 	cost = int
@@ -56,6 +57,10 @@ ethic = {
 	## cardinality = 0..1
 	## replace_scope = { this = country root = country }
 	country_modifier = {
+		## cardinality = 0..1
+		custom_tooltip = localisation
+		## cardinality = 0..1
+		show_only_custom_tooltip = no
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 

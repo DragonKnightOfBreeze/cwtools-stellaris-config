@@ -161,7 +161,7 @@ game_rules = {
 	### This rule is a condition for bombarding planets
 	### Root = fleet, potential attacker
 	### From = planet, potential target
-	## replace_scopes = { this = planet root = fleet from = planet }
+	## replace_scopes = { this = fleet root = fleet from = planet }
 	can_orbital_bombard = {}
 
 	### Check if it is possible to build orbital stations on this planet

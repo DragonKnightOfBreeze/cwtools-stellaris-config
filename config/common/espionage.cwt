@@ -2,13 +2,15 @@
 types = {
 	type[espionage_category] = {
 		path = "game/common/espionage_operation_categories"
+		file_extension = .txt
 	}
 	type[espionage_asset] = {
 		path = "game/common/espionage_assets"
+		file_extension = .txt
 	}
-	## replace_scope = { this = espionage_operation root = espionage_operation }
 	type[espionage_operation] = {
 		path = "game/common/espionage_operation_types"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -47,7 +49,6 @@ types = {
 	}
 }
 
-
 espionage_asset = {
 	appearance = {
 		name_generation_method = random_person
@@ -76,16 +77,23 @@ espionage_asset = {
 	}
 }
 
+espionage_category = {}
+
+## replace_scope = { this = spy_network root = spy_network }
 espionage_operation = {
+	### Valid target types are country, megastructure, starbase, fleet, army, pop_faction, spynetwork, federation and none (spy network target is the target then)
 	## cardinality = 0..1
 	target = enum[espionage_operation_targets]
     categories = {
 		## cardinality = 1..inf
 		<espionage_category>
 	}
+	### GFX_* sprite key for the operation image
 	picture = <sprite>
+	### Description generator for the operation, with scope this=spy network
 	## cardinality = 1..inf
 	desc = localisation
+	### Description generator for the operation, with scope this=spy network
 	## cardinality = 1..inf
 	desc = {
 		trigger = { alias_name[trigger] = alias_match_left[trigger] }
@@ -197,27 +205,33 @@ espionage_operation = {
 	}
 	subtype[spynetwork] = {
 		## cardinality = 0..1
-		## replace_scope = { this = spynetwork root = spynetwork }
+		## replace_scope = { this = spy_network root = spy_network }
 		target_allow = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 		## cardinality = 0..1
-		## replace_scope = { this = spynetwork root = spynetwork }
+		## replace_scope = { this = spy_network root = spy_network }
 		target_potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 	}
 
+	### Stage definition, order dependent.
 	## cardinality = 1..inf
 	stage = {
+		### min max interval type. interval is defined either by '<int>' or '{ min = <int> max=<int> }' where the later will randomize a value between min and max.
         difficulty = int
+		### icon gfx type.
         icon = <sprite>
+		### event to fire when finished the state.
         event = <event.espionage_operation>
 	}
 
+	### Effect to fire when a roll fails, with scope this=spy operation.
     on_roll_failed = {
 		alias_name[effect] = alias_match_left[effect]
     }
+	### Effect to fire upon operation creation, with scope this=spy operation.
     on_create = {
 		alias_name[effect] = alias_match_left[effect]
     }
