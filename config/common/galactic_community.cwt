@@ -40,10 +40,6 @@ types = {
 			icon = "#icon" # <sprite> | scalar
 		}
 	}
-	images = {
-		## primary
-		icon = "#icon" # <sprite>
-	}
 }
 
 galactic_focus = {
@@ -95,7 +91,7 @@ resolution = {
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
-	###Does the resolution require a target country?
+	### Does the resolution require a target country?
 	target = bool
 	## cardinality = 0..1
 	level = int
@@ -105,15 +101,15 @@ resolution = {
 	fire_and_forget = yes
 	## cardinality = 0..1
 	harmful = bool
+	### Modifier to be applied to all community members if passed. Apparently. Not sure about that...
 	## cardinality = 0..1
-	###Modifier to be applied to all community members if passed. Apparently. Not sure about that...
 	modifier = {
 		## cardinality = 0..1
 		custom_tooltip = localisation
 		alias_name[modifier] = alias_match_left[modifier]
 	}
+	### Modifier to be applied to all community members if passed and the potential trigger is true
 	## cardinality = 0..inf
-	###Modifier to be applied to all community members if passed and the potential trigger is true
 	triggered_modifier = {
 		potential = {
 			alias_name[trigger] = alias_match_left[trigger]
@@ -122,13 +118,13 @@ resolution = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 	}
+	### Effect to be applied if passed, scope is country
 	## cardinality = 0..1
-	###Effect to be applied if passed, scope is country
 	effect = {
 		alias_name[effect] = alias_match_left[effect]
 	}
+	### Effect to be applied if failed, scope is country
 	## cardinality = 0..1
-	###Effect to be applied if failed, scope is country
 	fail_effects = {
 		alias_name[effect] = alias_match_left[effect]
 	}
@@ -136,8 +132,8 @@ resolution = {
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
+	### Resolution only in effect while this trigger is met
 	## cardinality = 0..1
-	###Resolution only in effect while this trigger is met
 	active = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
