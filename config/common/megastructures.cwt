@@ -1,19 +1,13 @@
 types = {
 	type[megastructure] = {
 		path = "game/common/megastructures"
+		file_extension = .txt
 		subtype[base_level] = {
-			placement_rules = {
-			}
+			placement_rules = {}
 		}
 		subtype[has_prereqs] = {
-			prerequisites = { }
+			prerequisites = {}
 		}
-#		subtype[not_buildable] = {
-#			potential = { always = no }
-#		}
-#		subtype[upgrade] = {
-#			upgrade_from = { <megastructure> }
-#		}
 		localisation = {
 			## required
 			Name = "$"
@@ -44,7 +38,7 @@ megastructure = {
 	## cardinality = 0..1
 	construction_entity = scalar #TODO entity suffixes
 	## cardinality = 0..1
-	portrait =  <sprite>
+	portrait = <sprite>
 	## cardinality = 0..1
 	place_entity_on_planet_plane = bool
 	## cardinality = 0..1
@@ -55,16 +49,16 @@ megastructure = {
 	build_outside_gravity_well = bool
 	## cardinality = 0..1
 	show_galactic_map_icon = bool
-	## cardinality = 0..1
 	### Default yes, if yes megastructure will be shown in outliner
+	## cardinality = 0..1
 	show_in_outliner = bool
 	## cardinality = 0..1
 	bypass_type = <bypass>
+	### also possible to use here upgrade_desc = hide, and localisations are not required in that case
 	## cardinality = 0..1
-	###also possible to use here upgrade_desc = hide, and localisations are not required in that case
 	upgrade_desc = localisation
+	### also possible to use here upgrade_desc = hide, and localisations are not required in that case
 	## cardinality = 0..1
-	###also possible to use here upgrade_desc = hide, and localisations are not required in that case
 	upgrade_desc = hide
 	## cardinality = 0..1
 	upgrade_from = {
@@ -104,8 +98,8 @@ megastructure = {
 	scales_with_planet = bool
 	## cardinality = 0..1
 	is_ruined_orbital_ring = bool
+	### accepts country modifiers
 	## cardinality = 0..1
-	###accepts country modifiers
 	## replace_scope = { this = country root = country }
 	country_modifier = {
 		## cardinality = 0..inf
@@ -137,19 +131,19 @@ megastructure = {
 	}
 	## cardinality = 0..1
 	## replace_scope = { this = system root = system from = country fromfrom = megastructure }
-		on_build_start = {
+	on_build_start = {
 		## cardinality = 0..inf
 		alias_name[effect] = alias_match_left[effect]
 	}
 	## cardinality = 0..1
 	## replace_scope = { this = system root = system from = country }
-		on_build_cancel = {
+	on_build_cancel = {
 		## cardinality = 0..inf
 		alias_name[effect] = alias_match_left[effect]
 	}
 	## cardinality = 0..1
 	## replace_scope = { this = system root = system from = country fromfrom = megastructure }
-		on_build_complete = {
+	on_build_complete = {
 		## cardinality = 0..inf
 		alias_name[effect] = alias_match_left[effect]
 	}
@@ -163,8 +157,8 @@ megastructure = {
 	sensor_range = int
 	## cardinality = 0..1
 	hyperlane_range = int
-	## cardinality = 0..1
 	### the type of constructions that block (and are in turn blocked by) this construction, default: multi_stage_type
+	## cardinality = 0..1
 	construction_blocks_and_blocked_by = enum[megastructure_block_type]
 
 	## cardinality = 0..1

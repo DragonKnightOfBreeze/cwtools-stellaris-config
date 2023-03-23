@@ -1,4 +1,3 @@
-
 types = {
 	type[job] = {
 		path = "game/common/pop_jobs"
@@ -35,34 +34,6 @@ types = {
 			icon = "gfx/interface/icons/jobs/job_$.dds" # inferred
 			building_icon = "#building_icon" #  <building> | icon[gfx/interface/icons/buildings]
 		}
-	}
-	type[pop_category] = {
-		path = "game/common/pop_categories"
-		localisation = {
-			## primary
-			## required
-			name = "pop_cat_$"
-			## required
-			plural = "pop_cat_$_plural"
-			## required
-			desc = "pop_cat_$_desc"
-		}
-		images = {
-			## primary
-			icon = "gfx/interface/icons/pop_categories/pop_cat_$.dds" # inferred
-		}
-	}
-}
-
-enums = {
-	enum[job_categories] = {
-		specialist
-		worker
-		simple_drone
-		complex_drone
-		pre_sapients
-		ruler
-		precursor
 	}
 }
 
@@ -170,84 +141,3 @@ job = {
 	}
 }
 
-
-
-
-
-## push_scope = pop
-pop_category = {
-	rank = int
-
-	## cardinality = 0..1
-	clothes_texture_index = int
-
-	###This is called whenever a Pop is created, moved to a different planet, or gets a new owner
-	## cardinality = 0..1
-	assign_to_pop = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-	## cardinality = 0..1
-	weight = {
-		alias_name[modifier_rule] = alias_match_left[modifier_rule]
-	}
-
-	## replace_scope = { this = pop root = pop }
-	pop_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
-
-	###scope: pop to be resettled
-	allow_resettlement = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-
-	## cardinality = 0..1
-	should_apply_unemployment_penalties = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-
-	## cardinality = 0..1
-	## replace_scope = { this = planet root = planet }
-	unemployment_penalties = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
-
-	## cardinality = 0..inf
-	resettlement_cost = {
-		## cardinality = 0..inf
-		<resource> = int
-		## cardinality = 0..1
-		trigger = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
-	}
-
-	## cardinality = 0..1
-	unemployment_resources = {
-		category = <economic_category>
-		alias_name[economic_template] = alias_match_left[economic_template]
-	}
-
-	## cardinality = 0..1
-	resources = {
-		category = <economic_category>
-		alias_name[economic_template] = alias_match_left[economic_template]
-	}
-
-	## cardinality = 0..1
-	keep_from_former_job = bool
-	## cardinality = 0..1
-	demotion_time = int
-	## cardinality = 0..1
-	change_job_threshold = float
-	## cardinality = 0..1
-	display_category = <pop_category>
-	## cardinality = 0..1
-	display_unemployment = bool
-
-	## cardinality = 0..inf
-	alias_name[triggered_planet_modifier_pop] = alias_match_left[triggered_planet_modifier_pop]
-
-	## cardinality = 0..inf
-	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
-}

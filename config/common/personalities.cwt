@@ -1,6 +1,7 @@
 types = {
 	type[ai_personality] = {
 		path = "game/common/personalities"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "personality_$"
@@ -10,125 +11,133 @@ types = {
 	}
 }
 
-enums = {
-	enum[ai_personality_behaviours] = {
-		conqueror
-		subjugator
-		liberator
-		opportunist
-		slaver
-		uplifter
-		purger
-		displacer
-		infiltrator
-		dominator
-		robot_exploiter
-		robot_liberator
-		propagator
-		multispecies
-		crisis_fighter
-		holy_planets
-		demands_clear_borders
-		wants_tribute
-		decadent
-		isolationist
-		attack_neutrals
-		crisis_leader
-		custodian
-		enigmatic
-		limited
-		berserker
-	}
-}
-
-
-
-#needs checking
 ai_personality = {
+	### Affects chance of declaring wars, chance of sending insults, and how much % of fleet power is committed to offense (at 0, 50% is committed, at 1 it is more like 75%, at 2 it is 100%; higher values still count extra towards war dec and insult chance)
 	## cardinality = 0..1
 	aggressiveness = float
+	### At 1.0 willingness they will accept a deal that is equally good for both sides
 	## cardinality = 0..1
 	trade_willingness = float
+	### Affects the chance that they will pick rivals & war targets of similar strength instead of picking on the weak
 	## cardinality = 0..1
 	bravery = float
 	## cardinality = 0..1
 	combat_bravery = float
 
+	### Affects mineral & energy budget that goes to navies and armies
 	## cardinality = 0..1
 	military_spending = float
+	### Affects mineral & energy budget that goes to new colonies
 	## cardinality = 0..1
 	colony_spending = float
 
+	### Added directly to chance of accepting to form/join a federation
 	## cardinality = 0..1
 	federation_acceptance = int
+	### Added directly to chance of accepting to form a non-aggression pact
 	## cardinality = 0..1
 	nap_acceptance = int
+	### Added directly to chance of accepting to form a commercial pact
 	## cardinality = 0..1
 	commercial_pact_acceptance = int
+	### Added directly to chance of accepting to form a research agreement
 	## cardinality = 0..1
 	research_agreement_acceptance = int
+	### Added directly to chance of accepting to form a defensive pact
 	## cardinality = 0..1
 	defensive_pact_acceptance = int
+	### Added directly to chance of accepting to form a migration pact
 	## cardinality = 0..1
 	migration_pact_acceptance = int
+	### As overlord, multiplied by subject loyalty change and added to acceptance of a deal; Low values mean we don't care if subjects are loyal or not, high means we like loyal subjects
+	## cardinality = 0..1
+	loyalty_acceptance = float
 
+	### Likelyhood of this empire being an advanced start (higher = better chance of being one of empires selected for advanced start)
 	## cardinality = 0..1
 	advanced_start_chance = int
 
 	## cardinality = 0..1
 	weapon_preferences = enum[component_tag]
 
-
-	#these three are fractions
+	# these three are fractions
+	### Amount of armor they should aim for on ships
 	## cardinality = 0..1
 	armor_ratio = float
+	### Amount of shields they should aim for on ships
 	## cardinality = 0..1
 	shields_ratio = float
+	### Amount of hull boosters they should aim for on ships (if available)
 	## cardinality = 0..1
 	hull_ratio = float
+	### List of "<ship_size> = <role>" statements; AI will use the corresponding role for that size
+	## cardinality = 0..1
+	ship_roles = {
+		## cardinality = 0..inf
+		<ship_size> = enum[component_tag]
+	}
 
+	### Affects how much threat is generated for this empire when others are conquered
 	## cardinality = 0..1
 	threat_modifier = float
+	### Afffects how much threat is generated for other empires when this empire is conquered
 	## cardinality = 0..1
 	threat_others_modifier = float
+	### Affects border friction
 	## cardinality = 0..1
 	friction_modifier = float
+	### Affects opinion penalty from claims
 	## cardinality = 0..1
 	claims_modifier = float
 
 	behaviour = {
+		### Will they conquer planets from other empires?
 		## cardinality = 0..1
 		conqueror = bool
+		### Will they vassalise other empires?
 		## cardinality = 0..1
 		subjugator = bool
+		### Will they liberate conquered empires?
 		## cardinality = 0..1
 		liberator = bool
+		### Are they more likely to attack someone already embroiled in war?
 		## cardinality = 0..1
 		opportunist = bool
-		## cardinality = 0..1
-		slaver = bool
-		## cardinality = 0..1
-		caste_system = bool
+		### Will they uplift and enlighten other species?
 		## cardinality = 0..1
 		uplifter = bool
+		### Will they infiltrate primitives?
+		## cardinality = 0..1
+		infiltrator = bool
+		### Will they invade primitives?
+		## cardinality = 0..1
+		dominator = bool
+		### Will they enslave pops?
+		## cardinality = 0..1
+		slaver = bool
+		### Will they purge alien pops?
 		## cardinality = 0..1
 		purger = bool
 		## cardinality = 0..1
 		displacer = bool
-		## cardinality = 0..1
-		infiltrator = bool
-		## cardinality = 0..1
-		dominator = bool
+		### Will they use robots for menial labor?
 		## cardinality = 0..1
 		robot_exploiter = bool
+		### Will they give rights to robots?
 		## cardinality = 0..1
 		robot_liberator = bool
+		### Will they only get aggressive once boxed in?
 		## cardinality = 0..1
 		propagator = bool
+		### Will they give rights to aliens?
 		## cardinality = 0..1
 		multispecies = bool
+		### Will they consider fighting the crisis? (If 'no' they will only care about themselves.)
 		## cardinality = 0..1
 		crisis_fighter = bool
+		### Will they use cloaked fleets to attack their enemies?
+		## cardinality = 0..1
+		sneak_attacker = bool
 		## cardinality = 0..1
 		wants_tribute = bool
 		## cardinality = 0..1
@@ -141,20 +150,21 @@ ai_personality = {
 		holy_planets = bool
 		## cardinality = 0..1
 		demands_clear_borders = bool
-		## cardinality = 0..1
+		### Will they fight the crisis and invite others to do so (Fallen Empires special behviour. Emperor/Custodian will behave the same way regardless of this flag.)
 		### special for awakened fallen empires
+		## cardinality = 0..1
 		crisis_leader = bool
-		## cardinality = 0..1
 		### special for awakened machine fallen empires, prevents colonization & locks attitude
+		## cardinality = 0..1
 		custodian = bool
-		## cardinality = 0..1
 		### special for machine fallen empires
+		## cardinality = 0..1
 		enigmatic = bool
-		## cardinality = 0..1
 		### prevents certain AI behaviours
-		limited = bool
 		## cardinality = 0..1
+		limited = bool
 		### special for awakened machine fallen empires, prevents colonization & locks attitude
+		## cardinality = 0..1
 		berserker = bool
 	}
 
@@ -172,5 +182,58 @@ ai_personality = {
 	ai_module_overrides = {
 		## cardinality = 1..inf
 		scalar
+	}
+}
+
+enums = {
+	enum[ai_personality_behaviour] = {
+		### Will they conquer planets from other empires?
+		conqueror
+		### Will they vassalise other empires?
+		subjugator
+		### Will they liberate conquered empires?
+		liberator
+		### Are they more likely to attack someone already embroiled in war?
+		opportunist
+		### Will they uplift and enlighten other species?
+		uplifter
+		### Will they infiltrate primitives?
+		infiltrator
+		### Will they invade primitives?
+		dominator
+		### Will they enslave pops?
+		slaver
+		### Will they purge alien pops?
+		purger
+		displacer
+		### Will they use robots for menial labor?
+		robot_exploiter
+		### Will they give rights to robots?
+		robot_liberator
+		### Will they only get aggressive once boxed in?
+		propagator
+		### Will they give rights to aliens?
+		multispecies
+		### Will they consider fighting the crisis? (If 'no' they will only care about themselves.)
+		crisis_fighter
+		### Will they use cloaked fleets to attack their enemies?
+		sneak_attacker
+		holy_planets
+		demands_clear_borders
+		wants_tribute
+		decadent
+		isolationist
+		attack_neutrals
+		### Will they fight the crisis and invite others to do so (Fallen Empires special behviour. Emperor/Custodian will behave the same way regardless of this flag.)
+		### special for awakened fallen empires
+		crisis_leader
+		### special for awakened machine fallen empires, prevents colonization & locks attitude
+		custodian
+		### special for machine fallen empires
+		enigmatic
+		### prevents certain AI behaviours
+		limited
+		### special for awakened machine fallen empires, prevents colonization & locks attitude
+		berserker
 	}
 }

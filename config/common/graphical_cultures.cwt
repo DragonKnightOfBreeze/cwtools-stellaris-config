@@ -1,18 +1,19 @@
 types = {
 	type[graphical_culture] = {
 		path = "game/common/graphical_culture"
+		file_extension = .txt
 	}
 }
 
 graphical_culture = {
-	##cardinality = 0..1
+	## cardinality = 0..1
 	has_city_graphics = no
-	##cardinality = 0..1
+	## cardinality = 0..1
 	fallback = <graphical_culture>
-	##cardinality = 0..1
+	## cardinality = 0..1
 	ship_color = bool
+	## cardinality = 0..1
 	ship_lighting = {
-
 		cam_light_1_dir = {
 			## cardinality = 3..3
 			float
@@ -26,18 +27,17 @@ graphical_culture = {
 			float
 		}
 
-		## cardinality = 0..1
 		### Amount of light when near
 		## cardinality = 0..1
 		intensity_near = float
-		## cardinality = 0..1
 		### Amount when far away
+		## cardinality = 0..1
 		intensity_far = float
-		## cardinality = 0..1
 		### Near threshold
-		near_value = int
 		## cardinality = 0..1
+		near_value = int
 		### Far threshold
+		## cardinality = 0..1
 		far_value = int
 		## cardinality = 0..1
 		rim_start_near = float
@@ -56,7 +56,6 @@ graphical_culture = {
 		## cardinality = 0..1
 		ambient_far = float
 	}
-
 	## cardinality = 0..1
 	randomized = {
 		alias_name[trigger] = alias_match_left[trigger]
@@ -66,7 +65,6 @@ graphical_culture = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 }
-
 
 # graphical_culture = {
 # 	### which icon to use in the main gui
@@ -80,7 +78,7 @@ graphical_culture = {
 # 	## cardinality = 0..1
 # 	###-- should terra incognita be rendered when this map mode is active?
 # 	enable_terra_incognita = bool
-
+#
 # 	## cardinality = 0..inf
 # 	###-- the bread and butter of the map modes. A country will be colored with the first color block who's condition is met
 # 	color = {
@@ -100,5 +98,4 @@ graphical_culture = {
 # 			alias_name[trigger] = alias_match_left[trigger]
 # 		}
 # 	}
-
 # }

@@ -1,6 +1,8 @@
 types = {
+	## prefix = auth_
 	type[authority] = {
 		path = "game/common/governments/authorities"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -14,8 +16,10 @@ types = {
 			icon = "gfx/interface/icons/governments/authorities/$.dds" # inferred
 		}
 	}
+	## prefix = gov_
 	type[government] = {
 		path = "game/common/governments"
+		file_extension = .txt
 		path_strict = yes
 		localisation = {
 			## required
@@ -26,6 +30,7 @@ types = {
 	}
 	type[civic_or_origin] = {
 		path = "game/common/governments/civics"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -33,9 +38,11 @@ types = {
 			Description = "$_desc"
 			Effect = "#description"
 		}
+		## prefix = origin_
 		subtype[origin] = {
 			is_origin = yes
 		}
+		## prefix = civic_
 		subtype[civic] = {
 			## cardinality = 0..1
 			is_origin = no
@@ -58,6 +65,7 @@ types = {
 	type[swapped_civic] = {
 		base_type = civic_or_origin.civic
 		path = "game/common/governments/civics"
+		file_extension = .txt
 		skip_root_key = any
 		name_field = "name"
 		localisation = {
@@ -95,6 +103,11 @@ authority = {
 	## replace_scope = { this = no_scope root = no_scope } #this can check has_dlc and other likewise triggers, but thats it.
 	## cardinality = 0..1
 	random_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+	## replace_scope = { this = country root = country }
+	## cardinality = 0..1
+	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 	## cardinality = 0..1
@@ -259,7 +272,7 @@ civic_or_origin = {
 	## cardinality = 0..1
 	swap_type = {
 		## cardinality = 0..1
-		name = localisation
+		name = localisation # may not be (from vanilla)
 		## cardinality = 0..1
 		description = localisation
 		### In empire creation / galaxy setup, this has no scope. During the game, when there are actual countries existing, it is set to country scope.

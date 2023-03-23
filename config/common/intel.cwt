@@ -1,9 +1,12 @@
 types = {
 	type[intel_category] = {
 		path = "game/common/intel_categories"
+		file_extension = .txt
 	}
+	## prefix = level_
 	type[intel_level] = {
 		path = "game/common/intel_levels"
+		file_extension = .txt
 	}
 }
 
@@ -35,4 +38,3 @@ intel_level = {
 	## cardinality = 1..inf
     <intel_category> = int
 }
-

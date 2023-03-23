@@ -2,51 +2,61 @@ types = {
 	## type_key_filter = empire_name_parts_list
 	type[empire_name_parts_list] = {
 		path = "game/common/random_names"
+		file_extension = .txt
 		name_field = key
 	}
 	## type_key_filter = empire_name_format
 	type[empire_name_format] = {
 		path = "game/common/random_names"
+		file_extension = .txt
 		# name_field = format
 	}
 	## type_key_filter = federation_name_parts_list
 	type[federation_name_parts_list] = {
 		path = "game/common/random_names"
+		file_extension = .txt
 		name_field = key
 	}
 	## type_key_filter = federation_name_format
 	type[federation_name_format] = {
 		path = "game/common/random_names"
+		file_extension = .txt
 		# name_field = format
 	}
 	## type_key_filter = pop_faction_name_parts_list
 	type[pop_faction_name_parts_list] = {
 		path = "game/common/random_names"
+		file_extension = .txt
 		name_field = key
 	}
 	## type_key_filter = pop_faction_name_format
 	type[pop_faction_name_format] = {
 		path = "game/common/random_names"
+		file_extension = .txt
 		# name_field = format
 	}
 	## type_key_filter = pre_communications_name_parts_list
 	type[pre_communications_name_parts_list] = {
 		path = "game/common/random_names"
+		file_extension = .txt
 		name_field = key
 	}
 	## type_key_filter = pre_communications_name_format
 	type[pre_communications_name_format] = {
 		path = "game/common/random_names"
+		file_extension = .txt
 		# name_field = format
 	}
 	## type_key_filter = war_name_parts_list
 	type[war_name_parts_list] = {
 		path = "game/common/random_names"
+		file_extension = .txt
 		name_field = key
 	}
 	## type_key_filter = war_name_format
 	type[war_name_format] = {
 		path = "game/common/random_names"
+		file_extension = .txt
 		# name_field = format
 	}
 }
@@ -69,13 +79,8 @@ empire_name_format = {
 	## replace_scope = { root = country this = country }
 	### Conditional weight for choosing this format
 	random_weight = {
-		factor = 0
-		modifier = {
-			add = float
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
-
 	### Format string for generating random name (proper noun form)
 	format = stellaris_name_format[empire_name_parts]
 	### String used to determine prefix for empire's ship. (Default being ISS). Usually matches name format. Optional for countries that would not ever have ships, e. g. Primitives.
@@ -106,16 +111,10 @@ federation_name_format = {
 	## replace_scope = { root = federation this = federation }
 	### Conditional weight for choosing this format
 	random_weight = {
-		factor = 0
-		modifier = {
-			add = float
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
-
 	### Format string for generating random name (proper noun form)
 	format = stellaris_name_format[federation_name_parts]
-	lookups = scalar
 }
 
 pop_faction_name_parts_list = {
@@ -129,17 +128,13 @@ pop_faction_name_parts_list = {
 }
 
 pop_faction_name_format = {
+	## replace_scope = { root = pop_faction this = pop_faction }
+	### Conditional weight for choosing this format
 	random_weight = {
-		factor = 0
-		modifier = {
-			add = float
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 	### Format string for generating random name (proper noun form)
 	format = stellaris_name_format[pop_faction_name_parts]
-	## cardinality = 0..1
-	lookups = scalar
 }
 
 pre_communications_name_parts_list = {
@@ -155,12 +150,10 @@ pre_communications_name_parts_list = {
 }
 
 pre_communications_name_format = {
+	## replace_scope = { root = country this = country }
+	### Conditional weight for choosing this format
 	random_weight = {
-		factor = 0
-		modifier = {
-			add = float
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 	### Format string for generating random name (proper noun form)
 	format = stellaris_name_format[pre_communications_name_parts]
@@ -177,15 +170,10 @@ war_name_parts_list = {
 }
 
 war_name_format = {
+	## replace_scope = { root = war this = war }
+	### Conditional weight for choosing this format
 	random_weight = {
-		factor = 1
-	}
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = float
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 	### Format string for generating random name (proper noun form)
 	format = stellaris_name_format[war_name_parts]

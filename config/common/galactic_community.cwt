@@ -1,6 +1,8 @@
 types = {
+	## prefix = galactic_focus_
 	type[galactic_focus] = {
 		path = "game/common/galactic_focuses"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -10,6 +12,7 @@ types = {
 	}
 	type[resolution_category] = {
 		path = "game/common/resolution_categories"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -19,9 +22,13 @@ types = {
 			icon = "#icon" <sprite>
 		}
 	}
-	## replace_scope = { this = country root = country }
+	type[resolution_group] = {
+		path = "game/common/resolution_groups"
+		file_extension = .txt
+	}
 	type[resolution] = {
 		path = "game/common/resolutions"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -76,6 +83,11 @@ resolution_category = {
 	}
 }
 
+resolution_group = {
+	color_index = int[0..inf]
+	text_color_code = <textcolor>
+}
+
 ## replace_scope = { this = country root = country from = country }
 resolution = {
 	icon = scalar #not really
@@ -97,7 +109,7 @@ resolution = {
 	###Modifier to be applied to all community members if passed. Apparently. Not sure about that...
 	modifier = {
 		## cardinality = 0..1
-		description = localisation
+		custom_tooltip = localisation
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 	## cardinality = 0..inf

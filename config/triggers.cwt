@@ -986,7 +986,7 @@ alias[trigger:has_building_construction] = <building>
 alias[trigger:has_ai_personality] = <ai_personality>
 ### Checks if a country has a certain AI personality behavior
 ## scopes = { country }
-alias[trigger:has_ai_personality_behaviour] = enum[ai_personality_behaviours]
+alias[trigger:has_ai_personality_behaviour] = enum[ai_personality_behaviour]
 
 
 #check < >

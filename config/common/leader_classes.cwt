@@ -1,6 +1,7 @@
 types = {
 	type[leader_class] = {
 		path = "game/common/leader_classes"
+		file_extension = .txt
 		localisation = {
 			## required
 			name = "$"
@@ -9,17 +10,25 @@ types = {
 }
 
 leader_class = {
+	## cardinality = 0..1
 	can_lead_navy = bool
+	## cardinality = 0..1
 	can_lead_army = bool
+	## cardinality = 0..1
 	can_research = bool
+	## cardinality = 0..1
 	can_govern_planet = bool
+	## cardinality = 0..1
 	can_rule_empire = bool
+	## cardinality = 0..1
 	can_be_envoy = bool
 	max_trait_points = int[0..inf]
 	can_have_traits = bool
 	resources = {
-		<resource> = float
+		category = <economic_category>
+		alias_name[economic_template] = alias_match_left[economic_template]
 	}
 	default_category = <leader_class>
+	## cardinality = 0..1
 	assignment_cooldown = int[0..inf]
 }

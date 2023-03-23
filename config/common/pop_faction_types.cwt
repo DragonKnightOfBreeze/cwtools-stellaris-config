@@ -1,6 +1,7 @@
 types = {
 	type[pop_faction] = {
 		path = "game/common/pop_faction_types"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "pft_$"
@@ -125,6 +126,7 @@ pop_faction = {
 
 	### Some effects, immediately after faction has been removed.
 	## cardinality = 0..1
+	## replace_scopes = { this = country root = country }
 	on_destroy = {
 		alias_name[effect] = alias_match_left[effect]
 	}

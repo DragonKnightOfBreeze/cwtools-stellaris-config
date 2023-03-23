@@ -1,6 +1,8 @@
 types = {
+	## prefix = mandate_
 	type[mandate] = {
 		path = "game/common/mandates"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "MANDATE_$"

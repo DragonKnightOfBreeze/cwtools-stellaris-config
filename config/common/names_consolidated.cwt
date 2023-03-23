@@ -1,6 +1,7 @@
 types = { #these are all connected. I added the others so whoever does these in the end knows where to look.
 	type[name_list] = {
 		path = "game/common/name_lists"
+		file_extension = .txt
 
 		subtype[random] = {
 			## cardinality = 0..0
@@ -17,9 +18,11 @@ types = { #these are all connected. I added the others so whoever does these in 
 	type[species_name] = {
 		path = "game/common/species_names"
 		name_field = "name"
+		file_extension = .txt
 	}
 	type[species_named_list] = {
 		path = "game/common/species_names"
+		file_extension = .txt
 		skip_root_key = named_lists
 	}
 }

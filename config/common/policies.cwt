@@ -1,41 +1,12 @@
-#find a way to get the subtypes working, no idea how
-
 types = {
 	type[policy] = {
 		path = "game/common/policies"
-
-		subtype[policy_option] = {
-
-		}
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "policy_$"
 			## required
 			Description = "policy_$_desc"
-		}
-	}
-}
-
-enums = {
-	complex_enum[policy_flag] = {
-		path = "game/common/policies"
-		name = {
-			option = {
-				policy_flags = {
-					enum_name
-				}
-			}
-		}
-	}
-}
-
-enums = {
-	complex_enum[policy_option] = {
-		path = "game/common/policies"
-		name = {
-			option = {
-				name = enum_name
-			}
 		}
 	}
 }
@@ -51,8 +22,8 @@ policy = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
+	### Fires when the policy group first becomes available
 	## cardinality = 0..1
-	###Fires when the policy group first becomes available
 	on_activate = {
 		alias_name[effect] = alias_match_left[effect]
 	}
@@ -114,6 +85,27 @@ policy = {
 		## cardinality = 0..1
 		AI_weight = {
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
+		}
+	}
+}
+
+enums = {
+	complex_enum[policy_option] = {
+		path = "game/common/policies"
+		name = {
+			option = {
+				name = enum_name
+			}
+		}
+	}
+	complex_enum[policy_flag] = {
+		path = "game/common/policies"
+		name = {
+			option = {
+				policy_flags = {
+					enum_name
+				}
+			}
 		}
 	}
 }

@@ -27,9 +27,6 @@ types = {
 		path = "game/common/start_screen_messages"
 		name_field = localization
 	}
-	type[precursors] = {
-		path = "common/precursor_civilizations"
-	}
 	## replace_scope = { root = system this = system }
 	type[sector_type] = {
 		path = "game/common/sector_types"
@@ -53,25 +50,8 @@ types = {
 			}
 		}
 	}
-	type[map_mode] = {
-		path = "game/common/map_modes"
-		localisation = {
-			## required
-			name = "$"
-			## required
-			desc = "$_desc"
-		}
-		images = {
-			## primary
-			icon = "#icon" # <sprite>
-		}
-	}
 	type[trade_conversion] = {
 		path = "game/common/trade_conversions"
-	}
-	type[message_type] = {
-		name_field = key
-		path = "game/common/message_types"
 	}
 	type[scripted_modifier] = {
 		path = "game/common/scripted_modifiers"
@@ -146,16 +126,6 @@ start_screen_message = {
 	}
 }
 
-# Sets the chance for a system getting a specific precursor and distributes star flags named after the precursor. Or something like that.
-precursors = {
-	size = int
-
-	## cardinality = 0..1
-	possible = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-}
-
 sector_type = {
 	system_scores = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -208,53 +178,6 @@ sector_focus = {
 	}
 }
 
-#TODO Confirm
-#TODO Colours
-map_mode = {
-	icon =  <sprite>
-	enable_terra_incognita = bool
-	## cardinality = 0..1
-	can_change_point_of_view = bool
-	## cardinality = 0..1
-	shortcut = scalar
-	## cardinality = 0..1
-	display_claims = bool
-	## cardinality = 0..1
-	display_espionage_operations = bool
-
-	## cardinality = 1..inf
-	color = {
-		## cardinality = 0..1
-		type = country_and_borders
-		## cardinality = 0..1
-		type = country
-		## cardinality = 0..1
-		type = borders
-		## cardinality = 0..1
-		zoom = int
-
-		## cardinality = 1..1
-		value = colour_field
-		## cardinality = 1..1
-        value = country
-		## cardinality = 1..1
-		value = {
-			##cardinality = 3..4
-			float
-		}
-		## cardinality = 0..1
-		custom_tooltip = localisation
-		## cardinality = 0..1
-		hardcoded_tooltip = enum[hardcoded_map_mode_tooltip]
-		## replace_scope = { root = country this = country from = country }
-        condition = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
-		## cardinality = 0..1
-		filter = enum[hardcoded_map_mode_filters]
-    }
-}
-
 enums = {
 	enum[hardcoded_map_mode_tooltip] = {
 		opinion
@@ -286,21 +209,6 @@ trade_conversion = {
 		<resource> = float
 	}
 	economic_category = <economic_category>
-}
-
-message_type = {
-	icon =	<sprite>
-	icon_frame = int
-	key = scalar
-	## cardinality = 0..1
-	name = localisation
-	## cardinality = 0..1
-	sound = <sound_effect>
-	## cardinality = 0..1
-	sound_is_advisor = bool
-	ping = <pingmap>
-	## cardinality = 0..1
-	auto_opens = scalar
 }
 
 scripted_modifier = {

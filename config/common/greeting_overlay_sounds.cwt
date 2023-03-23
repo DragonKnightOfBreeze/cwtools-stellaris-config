@@ -1,0 +1,17 @@
+types = {
+	type[greeting_overlay_sound] = {
+		path = "game/common/greeting_overlay_sounds"
+		file_extension = .txt
+	}
+}
+
+## replace_scopes = { this = country root = country }
+greeting_overlay_sound = {
+	soundeffect = <sound_effect>
+	possible = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+}

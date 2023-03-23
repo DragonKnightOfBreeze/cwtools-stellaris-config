@@ -1,6 +1,7 @@
 types = {
 	type[first_contact_stage] = {
 		path = "game/common/first_contact"
+		file_extension = .txt
 		images = {
 			## primary
 			icon = "#icon" # <sprite>

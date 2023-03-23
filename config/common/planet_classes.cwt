@@ -2,6 +2,7 @@ types = {
 	## type_key_filter <> random_list
 	type[planet_class] = {
 		path = "game/common/planet_classes"
+		file_extension = .txt
 		subtype[star] = {
 			star = yes
 		}
@@ -171,6 +172,8 @@ planet_class = {
 
 	## cardinality = 0..1
 	colonizable = bool
+	## cardinality = 0..1
+	ideal = bool
 
 	subtype[habitable_planet] = {
 		## severity = warning
@@ -184,8 +187,6 @@ planet_class = {
 		starting_planet = bool
 		## cardinality = 0..1
 		show_city = bool
-		## cardinality = 0..1
-		ideal = bool
 
 		## cardinality = 0..1
 		initial = yes
