@@ -1,5 +1,5 @@
 types = {
-	## prefix = deposit_
+	## prefix = d_
 	type[deposit] = {
 		path = "game/common/deposits"
 		file_extension = .txt
