@@ -12,7 +12,6 @@ types = {
 		localisation = {
 			subtype[show_name] = {
 				## required
-				## primary
 				name = "$"
 			}
 			description = "#description"

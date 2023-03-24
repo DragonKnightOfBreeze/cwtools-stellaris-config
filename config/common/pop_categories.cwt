@@ -3,7 +3,6 @@ types = {
 		path = "game/common/pop_categories"
 		file_extension = .txt
 		localisation = {
-			## primary
 			## required
 			name = "pop_cat_$"
 			## required

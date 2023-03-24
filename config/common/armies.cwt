@@ -17,7 +17,6 @@ types = {
 			has_species = no
 		}
 		localisation = {
-			## primary
 			## required
 			Name = "$"
 			## required

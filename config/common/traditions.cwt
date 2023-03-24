@@ -11,7 +11,6 @@ types = {
 		}
 		images = {
 			## primary
-			## optional
 			icon = "gfx/interface/icons/traditions/$.dds" # inferred
 		}
 	}

@@ -9,7 +9,6 @@ types = {
 			is_capped_by_modifier = no
 		}
 		localisation = {
-			## primary
 			## required
 			name = "job_$"
 			## required

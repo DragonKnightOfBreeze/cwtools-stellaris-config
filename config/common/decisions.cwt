@@ -4,7 +4,6 @@ types = {
 		path = "game/common/decisions"
 		file_extension = .txt
 		localisation = {
-			## primary
 			## required
 			name = "$"
 			## required

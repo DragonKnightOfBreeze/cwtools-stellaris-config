@@ -1,5 +1,5 @@
 types = {
-	type[subject_specialist_perk] = {
+	type[specialist_subject_perk] = {
 		path = "game/common/subject_specialist_perks"
 		subtype[main] = {
 			main_perk = yes
@@ -13,6 +13,13 @@ types = {
             Name = "$"
             ## optional
             Description = "$_desc"
+		}
+		images = {
+			subtype[non_main] = {
+				## required
+				## primary
+				icon = "#icon" # <sprite>
+			}
 		}
 	}
 }

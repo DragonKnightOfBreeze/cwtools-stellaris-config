@@ -6,7 +6,6 @@ types = {
 			is_wartime_edict = yes
 		}
 		localisation = {
-			## primary
 			## required
 			Name = "edict_$"
 			## required

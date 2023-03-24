@@ -9,7 +9,6 @@ types = {
 			required_component_set = yes
 		}
 		localisation = {
-			## primary
 			## required
 			Name = "$"
 			## optional
@@ -53,7 +52,6 @@ types = {
 			type = planet_killer
 		}
 		localisation = {
-			## primary
 			## required
 			Name = "$"
 		}

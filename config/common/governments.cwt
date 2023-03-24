@@ -374,22 +374,22 @@ alias[government_trigger:authority] = {
 	OR = {
 		## cardinality = 0..1
 		text = localisation
-		## severity = info
-		## cardinality = 2..inf
+		## cardinality = 1..inf
 		value = <authority>
 	}
 	## cardinality = 0..inf
 	NOT = {
 		## cardinality = 0..1
 		text = localisation
+		## severity = info
+		## cardinality = 1..inf
 		value = <authority>
 	}
 	## cardinality = 0..inf
 	NOR = {
 		## cardinality = 0..1
 		text = localisation
-		## severity = info
-		## cardinality = 2..inf
+		## cardinality = 1..inf
 		value = <authority>
 	}
 }

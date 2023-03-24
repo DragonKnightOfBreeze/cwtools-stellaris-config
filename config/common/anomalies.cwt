@@ -4,7 +4,6 @@ types = {
 		path = "game/common/anomalies"
 		file_extension = .txt
 		localisation = {
-			## primary
 			## required
 			Name = "$"
 			## required

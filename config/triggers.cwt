@@ -824,6 +824,7 @@ alias[trigger:check_variable] = {
 ### Checks the ship/fleet/planet/leader/pop/system's galaxy map distance to target in absolute units
 ## scopes = { megastructure planet ship pop fleet galactic_object leader ambient_object starbase deposit archaeological_site first_contact }
 alias[trigger:distance] = {
+	## cardinality = 0..1
 	source = scope_group[celestial_coordinate]
 	## cardinality = 0..1
 	### Must use >= or will create error log entry

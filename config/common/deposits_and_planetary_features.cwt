@@ -22,7 +22,6 @@ types = {
 				always = no }
 		}
 		localisation = {
-			## primary
 			## required
 			Name = "$"
 			## required

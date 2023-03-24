@@ -4,7 +4,6 @@ types = {
 		path = "game/common/technology_ages/preftl"
 		file_extension = .txt
 		localisation = {
-			## primary
 			## required
 			Name = "$"
 			## required

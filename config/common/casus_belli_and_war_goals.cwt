@@ -4,7 +4,6 @@ types = {
 		path = "game/common/casus_belli"
 		file_extension = .txt
 		localisation = {
-			## primary
 			## required
 			Name = "casus_belli_$"
 			## optional
@@ -14,7 +13,6 @@ types = {
 	type[war_goal] = {
 		path = "game/common/war_goals"
 		localisation = {
-			## primary
 			## required
 			Name = "war_goal_$"
 			## required
