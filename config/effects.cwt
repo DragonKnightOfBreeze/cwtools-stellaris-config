@@ -1312,6 +1312,8 @@ alias[effect:create_species] = {
 	## cardinality = 0..1
 	namelist = random
 	## cardinality = 0..1
+	namelist = random_class
+	## cardinality = 0..1
 	plural = scalar
 	## cardinality = 0..1
 	species_bio = scalar
@@ -1397,8 +1399,11 @@ alias[effect:create_species] = {
 	### determines if pops from need consumer goods
 	consumer_goods = bool
 	## cardinality = 0..1
-	### determines if the species can be modified
+	### determines if the species can be modified (default: yes)
 	can_be_modified = bool
+	## cardinality = 0..1
+	### determines if the species can be modified (default: yes)
+	can_be_modified = this
 	## cardinality = 0..1
 	### speed at which the pops from that species grow automatically
 	pops_auto_growth = float[0.0..1.0]
@@ -2164,6 +2169,9 @@ alias[effect:change_species_characteristics] = {
 	## cardinality = 0..1
 	### determines if the species can be modified
 	can_be_modified = bool
+	## cardinality = 0..1
+	### determines if the species can be modified
+	can_be_modified = scope_field
 	## cardinality = 0..1
 	portrait = scope_group[target_species]
 	## cardinality = 0..1
@@ -3001,6 +3009,7 @@ alias[effect:spawn_megastructure] = {
 alias[effect:spawn_planet] = {
 	class = <planet_class>
 	class = <planet_class_random_list>
+	name = localisation
 	## cardinality = 0..1
 	location = scope_group[celestial_coordinate]
 	## cardinality = 0..1
@@ -3009,6 +3018,17 @@ alias[effect:spawn_planet] = {
 	orbit_distance = float
 	## cardinality = 0..1
 	orbit_distance_offset = float
+	## cardinality = 0..1
+	deposit_blockers = none
+	## cardinality = 0..1
+	modifiers = none
+	## cardinality = 0..inf
+	modifier = <planet_modifier>
+	## cardinality = 0..1
+	flags = {
+		## cardinality = 0..inf
+		value_set[planet_flag]
+	}
 	## cardinality = 0..1
 	size = int
 	## cardinality = 0..1

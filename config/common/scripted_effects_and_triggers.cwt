@@ -1,10 +1,11 @@
-
 types = {
 	type[scripted_trigger] = {
 		path = "game/common/scripted_triggers"
+		file_extension = .txt
 	}
 	type[scripted_effect] = {
 		path = "game/common/scripted_effects"
+		file_extension = .txt
 	}
 }
 
