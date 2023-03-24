@@ -1,7 +1,7 @@
 types = {
 	## prefix = specialist_
 	type[specialist_subject_type] = {
-		path = "game/common/subject_specialist_types"
+		path = "game/common/specialist_subject_types"
 		localisation = {
 			## required
 			Name = "$"
@@ -24,10 +24,10 @@ types = {
 	}
 }
 
-subject_specialist_type = {
+specialist_subject_type = {
 	icon = <sprite>
 	icon_large = <sprite>
-	preferred_ethic = ethic
+	preferred_ethic = <ethic>
 	base_conversion_time = int
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
@@ -41,7 +41,7 @@ subject_specialist_type = {
 			experience_needed_for_next_level = int
 			perks = {
 				## cardinality = 0..inf
-				subject_specialist_perk
+				<specialist_subject_perk>
 			}
 		}
 	}

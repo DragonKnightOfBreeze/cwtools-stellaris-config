@@ -3213,7 +3213,7 @@ alias[trigger:has_attitude_behavior] = {
 
 ### Checks if the agreement has a specific specialist perk active
 ## scopes = { agreement }
-alias[trigger:has_specialist_perk] = <subject_specialist_perk>
+alias[trigger:has_specialist_perk] = <specialist_subject_perk>
 
 ### Checks if the agreement has an active specialization of the specified type, or of any type if 'any' is specified
 ## scopes = { agreement }
