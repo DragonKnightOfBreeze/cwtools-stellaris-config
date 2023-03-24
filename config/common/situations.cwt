@@ -162,6 +162,7 @@ situation_type = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
 			## push_scope = planet
+			## cardinality = 0..1
 			modifier = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
@@ -254,6 +255,7 @@ situation_type = {
 					alias_name[trigger] = alias_match_left[trigger]
 				}
 				## push_scope = planet
+				## cardinality = 0..1
 				modifier = {
 					alias_name[modifier] = alias_match_left[modifier]
 				}

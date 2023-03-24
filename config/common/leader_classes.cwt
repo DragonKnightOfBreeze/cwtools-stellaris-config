@@ -22,9 +22,12 @@ leader_class = {
 	can_rule_empire = bool
 	## cardinality = 0..1
 	can_be_envoy = bool
+	## cardinality = 0..1
 	max_trait_points = int[0..inf]
+	## cardinality = 0..1
 	can_have_traits = bool
 	resources = {
+		## cardinality = 0..1
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}

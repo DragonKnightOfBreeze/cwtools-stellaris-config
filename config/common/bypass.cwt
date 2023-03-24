@@ -54,8 +54,7 @@ bypass = {
 	animation_time = int
 	## cardinality = 0..1
 	prerequisites = {
-		## severity = info
-		## cardinality = 1..inf
+		## cardinality = 0..inf
 		<technology>
 	}
 	### an effect that is called just before the jump of a right click "explore" action of a fleet

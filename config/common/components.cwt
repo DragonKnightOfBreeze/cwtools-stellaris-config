@@ -115,7 +115,7 @@ component_template = {
 	icon_frame = int
 	## cardinality = 0..1
 	prerequisites = {
-		## cardinality = 1..inf
+		## cardinality = 0..inf
 		<technology>
 	}
 	## cardinality = 0..1

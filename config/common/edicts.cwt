@@ -72,7 +72,7 @@ edict = {
 	### tech requirements for this trigger.
 	## cardinality = 0..1
 	prerequisites = {
-		## cardinality = 0..100
+		## cardinality = 0..inf
 		<technology>
 	}
 

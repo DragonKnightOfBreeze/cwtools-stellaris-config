@@ -218,9 +218,12 @@ building = {
 	ai_resource_production = {
 		## cardinality = 1..inf
 		<resource> = int
+		## cardinality = 0..1
 		trigger = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
+		## cardinality = 0..inf
+		enum[complex_maths_enum] = value_field
 	}
 
 	### lists candidates this can be converted to if destroy_trigger returns true (e.g. post-conquest)

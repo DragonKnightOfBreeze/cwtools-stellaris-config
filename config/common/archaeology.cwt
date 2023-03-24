@@ -131,6 +131,7 @@ archaeological_site_type = {
 relic = {
 	activation_duration = int[0..inf]
 	portrait = <sprite>
+	## cardinality = 0..1
 	sound = <sound_effect>
 
 	resources = {

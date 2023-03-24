@@ -46,7 +46,7 @@ global_ship_design = {
 			slot = enum[component_slots]
 			## cardinality = 0..1
 			slot = enum[utility_component_slots]
-			cardinality = 0..1
+			## cardinality = 0..1
 			template = <component_template>
 		}
 	}

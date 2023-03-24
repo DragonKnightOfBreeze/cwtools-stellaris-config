@@ -90,6 +90,7 @@ ai_personality = {
 	## cardinality = 0..1
 	claims_modifier = float
 
+	## cardinality = 0..1
 	behaviour = {
 		### Will they conquer planets from other empires?
 		## cardinality = 0..1

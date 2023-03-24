@@ -31,6 +31,7 @@ types = {
 
 ## push_scope = planet
 district = {
+	## cardinality = 0..1
 	base_buildtime = int
 	## cardinality = 0..inf
 	desc = localisation
@@ -132,8 +133,11 @@ district = {
 	## cardinality = 0..inf
 	ai_resource_production = {
 		<resource> = int
+		## cardinality = 0..1
 		trigger = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
+		## cardinality = 0..inf
+		enum[complex_maths_enum] = value_field
 	}
 }

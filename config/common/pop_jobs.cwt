@@ -137,6 +137,7 @@ job = {
 	alias_name[triggered_country_modifier_pop] = alias_match_left[triggered_country_modifier_pop]
 	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
 
+	## cardinality = 0..1
 	weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}

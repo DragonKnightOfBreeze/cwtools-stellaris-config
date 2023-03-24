@@ -80,7 +80,10 @@ policy = {
 		}
 
 		## cardinality = 0..1
-		prerequisites = { <technology> }
+		prerequisites = {
+			## cardinality = 0..inf
+			<technology>
+		}
 
 		## cardinality = 0..1
 		AI_weight = {
