@@ -1,7 +1,10 @@
-
 types = {
 	type[situation_type] = {
 		path = "game/common/situations"
+		file_extension = .txt
+		subtype[bidirectional] = {
+			progress_direction = bidirectional
+		}
 		localisation = {
 			## required
 			name = "$"
@@ -61,15 +64,15 @@ situation_type = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 	## cardinality = 0..inf
+	## replace_scope = { this = country root = country }
+	## push_scope = country
 	triggered_modifier = {
 		potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
-		## push_scope = country
 		modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
-		## push_scope = country
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 	## cardinality = 0..1
@@ -78,15 +81,15 @@ situation_type = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 	## cardinality = 0..inf
+	## push_scope = planet
 	triggered_target_modifier = {
 		potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
-		## push_scope = planet
+		## cardinality = 0..1
 		modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
-		## push_scope = planet
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
@@ -134,15 +137,14 @@ situation_type = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		## cardinality = 0..inf
+		## push_scope = country
 		triggered_modifier = {
 			potential = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
-			## push_scope = country
 			modifier = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
-			## push_scope = country
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		## cardinality = 0..1
@@ -151,15 +153,14 @@ situation_type = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		## cardinality = 0..inf
+		## push_scope = planet
 		triggered_target_modifier = {
 			potential = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
-			## push_scope = planet
 			modifier = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
-			## push_scope = planet
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		## cardinality = 0..1
@@ -177,13 +178,23 @@ situation_type = {
 		}
 	}
 
+	### Situation will start at this number. Default is 0
 	## cardinality = 0..1
 	start_value = int
-
+	### monodirectional/bidirectional (defaults to monodirectional)
 	## cardinality = 0..1
 	progress_direction = monodirectional
+	### monodirectional/bidirectional (defaults to monodirectional)
 	## cardinality = 0..1
 	progress_direction = bidirectional
+	subtype[bidirectional] = {
+		### Only for progress_direction = bidirectional - only affects progress towards completetion (right)
+		## cardinality = 0..1
+		complete_category = negative
+		### Only for progress_direction = bidirectional - only affects progress towards fail (left)
+		## cardinality = 0..1
+		fail_category = negative
+	}
 
 	complete_icon = <sprite>
 	complete_icon_frame = <sprite>
@@ -215,15 +226,14 @@ situation_type = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
 			## cardinality = 0..inf
+			## push_scope = country
 			triggered_modifier = {
 				potential = {
 					alias_name[trigger] = alias_match_left[trigger]
 				}
-				## push_scope = country
 				modifier = {
 					alias_name[modifier] = alias_match_left[modifier]
 				}
-				## push_scope = country
 				alias_name[modifier] = alias_match_left[modifier]
 			}
 			## cardinality = 0..1
@@ -232,15 +242,14 @@ situation_type = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
 			## cardinality = 0..inf
+			## push_scope = planet
 			triggered_target_modifier = {
 				potential = {
 					alias_name[trigger] = alias_match_left[trigger]
 				}
-				## push_scope = planet
 				modifier = {
 					alias_name[modifier] = alias_match_left[modifier]
 				}
-				## push_scope = planet
 				alias_name[modifier] = alias_match_left[modifier]
 			}
 	    }

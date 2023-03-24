@@ -27,29 +27,6 @@ types = {
 		path = "game/common/start_screen_messages"
 		name_field = localization
 	}
-	## replace_scope = { root = system this = system }
-	type[sector_type] = {
-		path = "game/common/sector_types"
-		localisation = {
-			## required
-			name = "$"
-		}
-	}
-	## replace_scope = { root = sector this = sector }
-	type[sector_focus] = {
-		path = "game/common/sector_focuses"
-		subtype[hidden] = {
-			hidden = yes
-		}
-		localisation = {
-			subtype[!hidden] = {
-				## required
-				name = "st_$"
-				## required
-				desc = "st_$_desc"
-			}
-		}
-	}
 	type[trade_conversion] = {
 		path = "game/common/trade_conversions"
 	}
@@ -123,58 +100,6 @@ start_screen_message = {
 	## replace_scope = { root = country this = country }
 	trigger = {
 		alias_name[trigger] = alias_match_left[trigger]
-	}
-}
-
-sector_type = {
-	system_scores = {
-		alias_name[modifier_rule] = alias_match_left[modifier_rule]
-	}
-	local_capital_scores = {
-		alias_name[modifier_rule] = alias_match_left[modifier_rule]
-	}
-	resource_conversion_table = {
-		energy = int
-		minerals = int
-	}
-	## cardinality = 0..1
-	resources = {
-		category = <economic_category>
-	}
-	max_jumps = int
-}
-
-sector_focus = {
-	## cardinality = 0..1
-	hidden = yes
-	## cardinality = 0..1
-	clear_blockers = bool
-
-	## cardinality = 0..1
-	ai_weight = {
-		alias_name[modifier_rule] = alias_match_left[modifier_rule]
-	}
-
-	## cardinality = 0..inf
-	district = {
-		key = <district>
-		weight = {
-			alias_name[modifier_rule] = alias_match_left[modifier_rule]
-		}
-	}
-
-	## cardinality = 0..inf
-	building = {
-		key = <building>
-		## cardinality = 0..1
-		###only works on buildings and upgrades; puts them at the front of the list (otherwise it will pick a district first, then a building, then an upgrade)
-		priority = yes
-		## cardinality = 0..1
-		###gets built whether or not a pop would work the jobs
-		exempt_from_jobs_check = yes
-		weight = {
-			alias_name[modifier_rule] = alias_match_left[modifier_rule]
-		}
 	}
 }
 

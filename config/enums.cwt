@@ -353,4 +353,14 @@ enums = {
 		middle
 		end
 	}
+	enum[country_relation] = {
+		commercial_pact
+		migration_access
+		research_agreement
+		defensive_pact
+		is_under_societal_enlightenment
+		is_under_open_technological_enlightenment
+		is_under_stratified_technological_enlightenment
+		has_pre_ftl_trade
+	}
 }

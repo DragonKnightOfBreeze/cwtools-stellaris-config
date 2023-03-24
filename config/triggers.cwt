@@ -816,6 +816,7 @@ alias[trigger:has_active_tradition] = <tradition>
 ## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
 alias[trigger:check_variable] = {
 	which = value[variable]
+	## cardinality = 1..2
 	value = value_field
 }
 
@@ -1040,10 +1041,10 @@ alias[trigger:has_claim] = scope[system]
 
 ### Checks if the local player has a specific DLC enabled
 ## scopes = any
-alias[trigger:local_has_dlc] = enum[DLCs]
+alias[trigger:local_has_dlc] = enum[dlc]
 ### Checks if the host has a specific DLC enabled
 ## scopes = any
-alias[trigger:host_has_dlc] = enum[DLCs]
+alias[trigger:host_has_dlc] = enum[dlc]
 ### Checks if the game is running in multiplayer
 ## scopes = any
 alias[trigger:is_multiplayer] = bool
@@ -3110,20 +3111,6 @@ alias[trigger:current_stage] = enum[situation_stages]
 ### Checks if the scoped situation is a certain type.
 ## scopes = { situation }
 alias[trigger:is_situation_type] = <situation_type>
-
-### Checks specific resource expenses value for the country scope:
-## scopes = { country }
-alias[trigger:resource_expenses_compare] = {
-	resource = <resource>
-	value = value_field
-}
-
-### Checks specific resource revenue value for the country scope:
-## scopes = { country }
-alias[trigger:resource_revenue_compare] = {
-	resource = <resource>
-	value = value_field
-}
 
 ### Checks the country's number of owned (recruited) non-envoy leaders (includes the ruler)
 ## scopes = { country }

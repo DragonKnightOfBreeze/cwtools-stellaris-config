@@ -36,7 +36,7 @@ types = {
 
 trait = {
 	## cardinality = 0..1
-	host_has_dlc = enum[DLCs]
+	host_has_dlc = enum[dlc]
 	## cardinality = 0..1
 	### Default = no
 	immortal_leaders = bool
