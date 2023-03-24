@@ -363,4 +363,19 @@ enums = {
 		is_under_stratified_technological_enlightenment
 		has_pre_ftl_trade
 	}
+	enum[hardcoded_map_mode_tooltip] = {
+		opinion
+		country
+		intel
+	}
+	enum[hardcoded_map_mode_filters] = {
+		exploration
+		expansion
+		exploitation
+		details
+		unions
+		players
+		sectors
+		trade_routes
+	}
 }

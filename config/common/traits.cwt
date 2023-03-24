@@ -4,6 +4,7 @@ types = {
 	type[trait] = {
 		path = "game/common/traits"
 
+		## prefix = leader_trait_
 		subtype[leader_trait] = {
 			leader_trait = { }
 			leader_trait = all
@@ -14,6 +15,7 @@ types = {
 		subtype[scientist_trait] = {
 			leader_class = { scientist }
 		}
+		## prefix = trait_
 		subtype[species_trait] = {
 			## cardinality = 0..1
 			leader_trait = no
@@ -71,6 +73,7 @@ trait = {
 			## cardinality = 1..inf
 			<civic_or_origin.origin>
 		}
+		## cardinality = 0..1
 		allowed_archetypes = {
 			## cardinality = 1..inf
 			<species_archetype>
@@ -170,7 +173,7 @@ trait = {
 		}
 		## cardinality = 0..1
 		opposites = {
-			## cardinality = 1..100
+			## cardinality = 0..100
 			<trait.species_trait>
 		}
 
@@ -214,11 +217,20 @@ trait = {
 		modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
-
 		## cardinality = 0..1
 		## replace_scope = { this = leader root = leader }
 		self_modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
+		}
+		## cardinality = 0..inf
+		## replace_scope = { this = leader root = leader }
+		triggered_leader_modifier = {
+			potential = {
+				alias_name[trigger] = alias_match_left[trigger]
+			}
+			modifier = {
+				alias_name[modifier] = alias_match_left[modifier]
+			}
 		}
 		## cardinality = 0..1
 		prerequisites = {
@@ -243,7 +255,7 @@ trait = {
 		}
 		## cardinality = 0..1
 		opposites = {
-			## cardinality = 1..100
+			## cardinality = 0..100
 			<trait.leader_trait>
 		}
 	}

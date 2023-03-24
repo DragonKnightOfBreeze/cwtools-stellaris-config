@@ -1,6 +1,7 @@
 types = {
 	type[terraform_link] = {
 		path = "game/common/terraform"
+		file_extension = .txt
 	}
 }
 
@@ -8,7 +9,7 @@ terraform_link = {
 	###country scope, from = planet
 	from = <planet_class>
 	to = <planet_class>
-	
+
 	resources = {
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
@@ -36,4 +37,4 @@ terraform_link = {
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
-}	
+}

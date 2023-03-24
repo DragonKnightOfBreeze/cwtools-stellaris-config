@@ -128,6 +128,8 @@ job = {
 	## replace_scope = { this = planet root = planet }
 	### Multiple planet_modifiers blocks result in only the last one applying
 	planet_modifier = {
+		## cardinality = 0..1
+		custom_tooltip = localisation
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 

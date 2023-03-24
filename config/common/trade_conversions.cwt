@@ -1,0 +1,21 @@
+types = {
+	type[trade_conversion] = {
+		path = "game/common/trade_conversions"
+		file_extension = .txt
+	}
+}
+
+trade_conversion = {
+	## replace_scope = { this = country from = country }
+	potential = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+	conversion_rate = {
+		## cardinality = 1..inf
+		<resource> = float
+	}
+	economic_category = <economic_category>
+}

@@ -1,6 +1,7 @@
 types = {
 	type[species_class] = {
 		path = "game/common/species_classes"
+		file_extension = .txt
 		subtype[playable] = {
 			## cardinality = 0..1
 			playable = {
@@ -70,6 +71,7 @@ types = {
 	}
 	type[species_archetype] = {
 		path = "game/common/species_archetypes"
+		file_extension = .txt
 		subtype[not_robotic] = {
 			## cardinality = 0..1
 			robotic = no
@@ -83,8 +85,10 @@ types = {
 			uses_modifiers = yes
 		}
 	}
+	## prefix = citizenship_
 	type[citizenship_type] = {
 		path = "game/common/species_rights/citizenship_types"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -94,8 +98,10 @@ types = {
 			"Delayed tooltip" = "$_tooltip_delayed"
 		}
 	}
+	## prefix = colonization_control_
 	type[colonization_control] = {
 		path = "game/common/species_rights/colonization_controls"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -105,8 +111,10 @@ types = {
 			"Delayed tooltip" = "$_tooltip_delayed"
 		}
 	}
+	## prefix = living_standard_
 	type[living_standard] = {
 		path = "game/common/species_rights/living_standards"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -116,8 +124,10 @@ types = {
 			"Delayed tooltip" = "$_tooltip_delayed"
 		}
 	}
+	## prefix = migration_control_
 	type[migration_control] = {
 		path = "game/common/species_rights/migration_controls"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -127,8 +137,10 @@ types = {
 			"Delayed tooltip" = "$_tooltip_delayed"
 		}
 	}
+	## prefix = military_service_
 	type[military_service_type] = {
 		path = "game/common/species_rights/military_service_types"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -138,8 +150,10 @@ types = {
 			"Delayed tooltip" = "$_tooltip_delayed"
 		}
 	}
+	## prefix = population_control_
 	type[population_control] = {
 		path = "game/common/species_rights/population_controls"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -149,8 +163,10 @@ types = {
 			"Delayed tooltip" = "$_tooltip_delayed"
 		}
 	}
+	## prefix = purge_
 	type[purge_type] = {
 		path = "game/common/species_rights/purge_types"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -160,8 +176,10 @@ types = {
 			"Delayed tooltip" = "$_tooltip_delayed"
 		}
 	}
+	## prefix = slavery_
 	type[slavery_type] = {
 		path = "game/common/species_rights/slavery_types"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -198,7 +216,6 @@ species_class = {
 	## cardinality = 0..1
 	## replace_scope = { this = pop root = pop }
 	modifier = {
-		## cardinality = 0..1
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 	## cardinality = 0..1
@@ -252,7 +269,6 @@ species_class = {
 		## replace_scope = { root = no_scope this = no_scope }
 		## cardinality = 0..1
 		randomized = {
-			## cardinality = 0..1
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 		## replace_scope = { root = no_scope this = no_scope }
@@ -274,7 +290,13 @@ species_class = {
 		<portrait>
 		## cardinality = 0..inf
 		<portrait_group>
-
+	}
+	## cardinality = 0..1
+	non_pre_ftl_portraits = {
+		## cardinality = 0..inf
+		<portrait>
+		## cardinality = 0..inf
+		<portrait_group>
 	}
 	## cardinality = 0..1
 	gender = bool
@@ -535,7 +557,7 @@ migration_control = {
 		}
 	}
 
-	## cardinality 0..1
+	## cardinality = 0..1
 	can_migrate = no
 
 	## cardinality = 0..1
@@ -670,7 +692,7 @@ population_control = {
 		}
 	}
 
-	## cardinality 0..1
+	## cardinality = 0..1
 	can_reproduce = no
 
 	## cardinality = 0..1
@@ -809,7 +831,7 @@ slavery_type = {
 		}
 	}
 
-	## cardinality 0..1
+	## cardinality = 0..1
 	### otherwise, AI will not colonise with enslaved species
 	ai_can_colonize = yes
 

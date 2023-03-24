@@ -1,0 +1,50 @@
+types = {
+	type[scripted_modifier] = {
+		path = "game/common/scripted_modifiers"
+		localisation = {
+			## required
+			name = "mod_$"
+		}
+		images = {
+			## primary
+			icon = "#icon" # icon[gfx/interface/icons/modifiers]
+			## primary
+			icon = "gfx/interface/icons/modifiers/mod_$.dds" # inferred
+		}
+	}
+}
+
+scripted_modifier = {
+	### name of file in gfx\interface\icons\modifiers (without the .dds). Default is "mod_" + key
+	## cardinality = 0..1
+	icon = icon[gfx/interface/icons/modifiers]
+	### show as a % or not (default: no)
+	## cardinality = 0..1
+	percentage = bool
+	### sets the minimum this modifier can be when used as a multiplier in the source code (so probably not relevant since this modifier will not be applied in the source code - but you could theoretically overwrite a code-generated modifier here). Default 0
+	## cardinality = 0..1
+	min_mult = float
+	### default 2
+	## cardinality = 0..1
+	max_decimals = int
+	### sets if it registers as "good" (i.e. a positive number is green, a negative red). Default no.
+	## cardinality = 0..1
+	good = bool
+	### sets if no value is either good or bad (all is yellow). Default no.
+	## cardinality = 0..1
+	neutral = bool
+	### probably hides it in tooltips? Needs testing. Default no.
+	## cardinality = 0..1
+	hidden = bool
+	### Default no
+	## cardinality = 0..1
+	no_diff = bool
+	### Default no
+	## cardinality = 0..1
+	cap_zero_to_one = bool
+	### Default no
+	## cardinality = 0..1
+	localize_with_value_key = bool
+	### sets the modifier category, which is sometimes used to determine whether it is applied to a certain object (so make sure this is set to what you want)
+	category = enum[scripted_modifier_categories]
+}

@@ -1,0 +1,13 @@
+types = {
+	type[system_tooltip] = {
+		path = "game/common/system_tooltips"
+		file_extension = .txt
+	}
+}
+
+system_tooltip = {
+	custom_tooltip = {
+		success_text = localisation
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+}

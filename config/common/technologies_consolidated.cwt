@@ -1,7 +1,9 @@
 types = {
+	## prefix = tech_
 	## graph_related_types = {}
 	type[technology] = {
 		path = "game/common/technology"
+		file_extension = .txt
 		path_strict = yes
 		subtype[start_tech] = {
 			start_tech = yes
@@ -30,12 +32,14 @@ types = {
 	}
 	type[technology_tier] = {
 		path = "game/common/technology/tier"
+		file_extension = .txt
 	}
 	# a tech category causes the game to autogenerate a unique modifier:
 	# category_tech_category_key_research_speed_mult
 	# each of these modifiers requires localisation and a GFX (gfx/interface/icons/modifiers - same name as the tech_category key)
 	type[technology_category] = {
 		path = "game/common/technology/category"
+		file_extension = .txt
 		localisation = {
 			## required
 			Name = "$"
@@ -105,7 +109,6 @@ technology = {
 		value[tech_weight_group] = float
 	}
 
-
 	## cardinality = 0..1
 	start_tech = bool
 	## cardinality = 0..1
@@ -114,7 +117,8 @@ technology = {
 	## cardinality = 0..1
 	ai_update_type = enum[tech_ai_type]
 
-
+	## cardinality = 0..1
+	is_insight = bool
 
 	## cardinality = 0..1
 	feature_flags = {
@@ -133,7 +137,6 @@ technology = {
 			POINTS = int
 		}
 
-		## cardinality = 0..1
 		alias_name[modifier] = alias_match_left[modifier]
 
 		## cardinality = 0..1
@@ -149,6 +152,7 @@ technology = {
 		## cardinality = 0..4
 		enum[prereq_for_categories] = {
 			title = localisation
+			## cardinality = 0..1
 			desc = localisation
 		}
 	}
@@ -212,6 +216,8 @@ enums = {
 		unlock_arcane_deciphering
 		unlocks_auto_research
 		hyper_relay_construction
+		active_reconnaissance_unlocked
+		assist_cloaking_detection_unlocked
 	}
 	enum[technology_areas] = {
 		engineering

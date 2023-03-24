@@ -46,6 +46,7 @@ types = {
 			# TODO inherit icon from parent original tradition if inherit_icon = yes
 		}
 	}
+	## prefix = tradition_
 	type[tradition_category] = { #this defines the contents of tradition trees
 		path = "game/common/tradition_categories"
 		localisation = {
@@ -58,14 +59,15 @@ types = {
 }
 
 tradition = {
+	### accepts only country modifiers
 	## cardinality = 0..1
 	## replace_scope = { this = country root = country }
-	modifier = { ###accepts only country modifiers
+	modifier = {
 		## cardinality = 0..inf
 		alias_name[modifier] = alias_match_left[modifier]
 	}
-	## replace_scope = { this = country root = country }
 	### the ai_weight in traditions applies both to the main traditions and the tradition swaps, there are no seperate fields.
+	## replace_scope = { this = country root = country }
 	## cardinality = 0..1
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -77,7 +79,7 @@ tradition = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality = 0..1
-	 ## replace_scope = { this = country root = country }
+	## replace_scope = { this = country root = country }
 	on_enabled = {
 		## cardinality = 0..inf
 		alias_name[effect] = alias_match_left[effect]
@@ -96,14 +98,14 @@ tradition = {
 		inherit_name = bool
 		## cardinality = 0..1
 		inherit_effects = bool
-## cardinality = 0..1
+		## cardinality = 0..1
 		custom_tooltip = localisation
 		## cardinality = 0..1
 		custom_tooltip_with_modifiers = localisation
 
 		#Should be only if not inheriting effects
+		### accepts only country modifiers
 		## cardinality = 0..1
-		###accepts only country modifiers
 		## replace_scope = { this = country root = country }
 		modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
@@ -116,9 +118,9 @@ tradition = {
 			alias_name[effect] = alias_match_left[effect]
 		}
 
+		### this determines the chances of a tradition swap appearing for a given empire IF multiple swaps are potential.
 		## replace_scope = { this = country root = country }
 		## cardinality = 0..1
-		###this determines the chances of a tradition swap appearing for a given empire IF multiple swaps are potential.
 		weight = {
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		}

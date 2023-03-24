@@ -13,8 +13,8 @@ types = {
 		}
 	}
 	type[alert_icon] = {
-		path_file = "alerts.txt"
 		path = "game/common"
+		path_file = "alerts.txt"
 		skip_root_key = icon
 		images = {
 			## primary
