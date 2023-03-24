@@ -81,15 +81,16 @@ situation_type = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 	## cardinality = 0..inf
-	## push_scope = planet
 	triggered_target_modifier = {
 		potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
+		## push_scope = planet
 		## cardinality = 0..1
 		modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
+		## push_scope = planet
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
@@ -153,14 +154,15 @@ situation_type = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		## cardinality = 0..inf
-		## push_scope = planet
 		triggered_target_modifier = {
 			potential = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
+			## push_scope = planet
 			modifier = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
+			## push_scope = planet
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		## cardinality = 0..1
@@ -242,14 +244,15 @@ situation_type = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
 			## cardinality = 0..inf
-			## push_scope = planet
 			triggered_target_modifier = {
 				potential = {
 					alias_name[trigger] = alias_match_left[trigger]
 				}
+				## push_scope = planet
 				modifier = {
 					alias_name[modifier] = alias_match_left[modifier]
 				}
+				## push_scope = planet
 				alias_name[modifier] = alias_match_left[modifier]
 			}
 	    }

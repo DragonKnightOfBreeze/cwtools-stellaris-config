@@ -29,10 +29,8 @@ types = {
 		}
 		images = {
 			## primary
-			## required
 			icon = "#icon" # icon[gfx/interface/icons/deposits]
 			## primary
-			## required
 			icon = "gfx/interface/icons/deposits/$.dds" # inferred
 		}
 	}
@@ -142,7 +140,7 @@ deposit = {
 	}
 
 	subtype[not_dropped] = {
-	## cardinality = 0..1
+		## cardinality = 0..1
 		drop_weight = {
 			weight = 0
 		}
@@ -156,19 +154,19 @@ deposit = {
 	alias_name[triggered_planet_modifier] = alias_match_left[triggered_planet_modifier]
 
 	alias_name[resources_template_optional] = alias_match_left[resources_template_optional]
-#	## cardinality = 0..1
-#	resources = {
-#		category = <economic_category>
-#
-#		alias_name[economic_template] = alias_match_left[economic_template]
-#
-#		#to be analysed whether you can have cost, upkeep, produces everywhere
-#		subtype[!blocker] = {
-#			## cardinality = 0..0
-#			cost = {
-#			}
-#		}
-#	}
+	#	## cardinality = 0..1
+	#	resources = {
+	#		category = <economic_category>
+	#
+	#		alias_name[economic_template] = alias_match_left[economic_template]
+	#
+	#		#to be analysed whether you can have cost, upkeep, produces everywhere
+	#		subtype[!blocker] = {
+	#			## cardinality = 0..0
+	#			cost = {
+	#			}
+	#		}
+	#	}
 
 	## cardinality = 0..1
 	custom_tooltip = localisation

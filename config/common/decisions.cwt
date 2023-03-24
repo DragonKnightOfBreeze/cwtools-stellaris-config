@@ -11,10 +11,8 @@ types = {
 		}
 		images = {
 			## primary
-			## required
 			icon = "#icon" # icon[gfx/interface/icons/decisions]
 			## primary
-			## required
 			icon = "gfx/interface/icons/decisions/$.dds" # inferred
 		}
 	}
