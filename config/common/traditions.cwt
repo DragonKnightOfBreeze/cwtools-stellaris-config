@@ -63,6 +63,18 @@ tradition = {
 	## cardinality = 0..1
 	## replace_scope = { this = country root = country }
 	modifier = {
+		## cardinality = 0..1
+		description = localisation
+		## cardinality = 0..1
+		description_parameters = {
+			### Any value can go here to be used in localisation
+			## cardinality = 0..inf
+			scalar = scalar
+		}
+		## cardinality = 0..1
+		show_only_custom_tooltip = bool
+		## cardinality = 0..1
+		custom_tooltip = localisation
 		## cardinality = 0..inf
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -92,6 +104,7 @@ tradition = {
 	## cardinality = 0..inf
 	tradition_swap = {
 		name = localisation
+		name = scalar
 		## cardinality = 0..1
 		inherit_icon = bool
 		## cardinality = 0..1
@@ -108,6 +121,19 @@ tradition = {
 		## cardinality = 0..1
 		## replace_scope = { this = country root = country }
 		modifier = {
+			## cardinality = 0..1
+			description = localisation
+			## cardinality = 0..1
+			description_parameters = {
+				### Any value can go here to be used in localisation
+				## cardinality = 0..inf
+				scalar = scalar
+			}
+			## cardinality = 0..1
+			show_only_custom_tooltip = bool
+			## cardinality = 0..1
+			custom_tooltip = localisation
+			## cardinality = 0..inf
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		#Should be only if not inheriting effects

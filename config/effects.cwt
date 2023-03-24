@@ -3302,8 +3302,10 @@ alias[effect:set_site_progress_locked] = bool
 ## scopes = any
 alias[effect:custom_tooltip_with_params] = {
 	description = localisation
+	## cardinality = 0..1
 	description_parameters = {
-		## cardinality = 1..inf
+		### Any value can go here to be used in localisation
+		## cardinality = 0..inf
 		scalar = scalar
 	}
 }
