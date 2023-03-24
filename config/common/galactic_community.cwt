@@ -114,9 +114,11 @@ resolution = {
 		potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
+		## cardinality = 0..1
 		modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
+		alias_name[modifier] = alias_match_left[modifier]
 	}
 	### Effect to be applied if passed, scope is country
 	## cardinality = 0..1

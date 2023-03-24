@@ -2247,6 +2247,7 @@ alias[effect:conquer] = scope_group[target_country]
 alias[effect:copy_ethos_and_authority] = scope_group[target_country]
 ### Creates a new ambient object
 ## scopes = any
+## replace_scopes = { this = ambient_object root = ambient_object }
 alias[effect:create_ambient_object] = {
 	type = <ambient_object>
 	## cardinality = 0..1
@@ -2287,7 +2288,6 @@ alias[effect:create_ambient_object] = {
 	## cardinality = 0..1
 	duration = int
 	## cardinality = 0..1
-	## push_scope = ambient_object
 	effect = {
 		alias_name[effect] = alias_match_left[effect]
 	}
@@ -2295,6 +2295,7 @@ alias[effect:create_ambient_object] = {
 
 ### Creates a new army in a new transport ship
 ## scopes = { fleet }
+## replace_scopes = { this = ship root = ship }
 alias[effect:create_army_transport] = {
 	## cardinality = 0..1
 	graphical_culture = <graphical_culture>
@@ -2308,7 +2309,6 @@ alias[effect:create_army_transport] = {
 	## cardinality = 0..1
 	species = enum[buildable_pop_species]
 	## cardinality = 0..1
-	## push_scope = ship
 	effect = {
 		alias_name[effect] = alias_match_left[effect]
 	}
@@ -2351,6 +2351,7 @@ alias[effect:create_colony] = {
 # create_fleet = { name = <string> effect = { <create_ship, set_owner, set_location etc effects go here> } }
 ### Creates a new fleet
 ## scopes = any
+## replace_scopes = { this = fleet root = fleet }
 alias[effect:create_fleet] = {
 	## cardinality = 0..1
 	alias_name[name] = alias_match_left[name]
@@ -2360,7 +2361,6 @@ alias[effect:create_fleet] = {
 	set_take_point = bool
 	## cardinality = 0..1
 	settings = single_alias_right[fleet_settings]
-	## push_scope = fleet
 	## cardinality = 0..1
 	### Must include set_owner, set_location and create_ship (here or in last_created_country). Todo: Check this somehow
 	effect = {

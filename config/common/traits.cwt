@@ -4,7 +4,6 @@ types = {
 	type[trait] = {
 		path = "game/common/traits"
 
-		## prefix = leader_trait_
 		subtype[leader_trait] = {
 			leader_trait = { }
 			leader_trait = all
