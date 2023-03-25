@@ -5,22 +5,20 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## optional
-			Description = "$_desc"
+			description = "$_desc"
 			## required
-			NeighborName = "$_neighbor"
+			neighbor_name = "$_neighbor"
 			## optional
-			NeighborDescription = "$_neighbor_desc"
+			neighbor_description = "$_neighbor_desc"
 		}
 		images = {
-			subtype[non_main] = {
-				## primary
-				## required
-				icon = "#icon" # <sprite>
-				## required
-				icon_large = "#icon_large" # <sprite>
-			}
+			## primary
+			## required
+			icon = "#icon" # <sprite>
+			## required
+			icon_large = "#icon_large" # <sprite>
 		}
 	}
 }
