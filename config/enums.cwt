@@ -284,7 +284,7 @@ enums = {
 	# these modifier_categories options are used to get modifier categories of generated modifiers from economic categories
 	enum[scripted_modifier_categories] = {
 		all
-		## modifier_categories = { Countries "AI Economy" }
+		## modifier_categories = { Pops "AI Economy" }
 		pop
 		## modifier_categories = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 		ship
