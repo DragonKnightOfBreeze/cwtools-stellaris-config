@@ -11,6 +11,7 @@ types = {
 		}
 		images = {
 			## primary
+			## required
 			icon = "gfx/interface/icons/ethics/$.dds" # inferred
 		}
 	}

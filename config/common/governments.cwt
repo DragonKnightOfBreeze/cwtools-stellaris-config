@@ -11,8 +11,10 @@ types = {
 		}
 		images = {
 			## primary
+			## required
 			icon = "#icon" # filepath
 			## primary
+			## required
 			icon = "gfx/interface/icons/governments/authorities/$.dds" # inferred
 		}
 	}
@@ -49,13 +51,16 @@ types = {
 		}
 		images = {
 			## primary
+			## required
 			icon = "#icon" # filepath
 			subtype[civic] = {
 				## primary
+				## required
 				icon = "gfx/interface/icons/governments/civics/$.dds" # inferred
 			}
 			subtype[origin] = {
 				## primary
+				## required
 				icon = "gfx/interface/icons/origins/$.dds" # inferred
 				picture = "#picture" # <sprite>
 			}

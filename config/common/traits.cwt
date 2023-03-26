@@ -28,8 +28,10 @@ types = {
 		}
 		images = {
 			## primary
+			## required
 			icon = "#icon" # filepath
 			## primary
+			## required
 			icon = "gfx/interface/icons/traits/$.dds" # inferred
 		}
 	}
