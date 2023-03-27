@@ -76,6 +76,24 @@ projectile = {
 	###Speed of projectile might be scaled up in order to guarantee reaching the target within <max_duration> seconds
 	## cardinality = 0..1
 	max_duration = float
+
+	set_state = {
+		## cardinality = 0..1
+		ship = scalar
+		## cardinality = 0..1
+		component = scalar
+		## cardinality = 0..1
+		section = scalar
+	}
+
+	set_state_windup = {
+		## cardinality = 0..1
+		ship = scalar
+		## cardinality = 0..1
+		component = scalar
+		## cardinality = 0..1
+		section = scalar
+	}
 }
 
 planet_killer_animation = {
@@ -93,11 +111,26 @@ planet_killer_animation = {
 	windup_entity = <model_entity>
  	ship_fire_entity = <model_entity>
  	planet_hit_entity = <model_entity>
+	star_hit_entity = <model_entity>
  	megastructure_hit_entity = <model_entity>
+	hit_entity_positioning = entity_center
 	## cardinality = 0..1
 	planet_overlay_entity = <model_entity>
 	windup = {
 		duration = float
+		width = {
+			## cardinality = 2..8
+			float
+		}
+		texture_scroll_speed = {
+			## cardinality = 2..6
+			float
+		}
+		texture_tiling = float
+		alpha = {
+			## cardinality = 4..8
+			float
+		}
 	}
 	### If the ship's entity has a state called "kill_planet"
 	### and that state has an event with id "beam_start" then

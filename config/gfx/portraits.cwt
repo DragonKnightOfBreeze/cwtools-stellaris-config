@@ -16,7 +16,9 @@ types = {
 
 portrait = {
 	entity = <model_entity>
+	clothes_selector = no_texture
 	clothes_selector = <asset_selector.clothes>
+	attachment_selector = no_texture
 	attachment_selector = <asset_selector.hair>
 	## cardinality = 0..1
 	custom_attachment_label = localisation

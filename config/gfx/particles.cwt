@@ -463,12 +463,24 @@ alias[subsystem_color:color] = {
 	## cardinality = 0..1
 	# x = float[0.0..255.0]
 	x = scalar
+	x = {
+		## cardinality = 2
+		scalar
+	}
 	## cardinality = 0..1
 	# y = float[0.0..255.0]
 	y = scalar
+	y = {
+		## cardinality = 2
+		scalar
+	}
 	## cardinality = 0..1
 	# z = float[0.0..255.0]
 	z = scalar
+	z = {
+		## cardinality = 2
+		scalar
+	}
 	## cardinality = 0..1
 	# float
 	# float,<particle_animation>
@@ -504,10 +516,12 @@ enums = {
 		point
 		spin
 		turbulence
+		vortex
 	}
 	enum[sort_type] = {
 		depth
 		age
+		distance
 	}
 	complex_enum[particle_force] = {
 		path = "game/gfx/particles"
