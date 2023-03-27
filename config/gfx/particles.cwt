@@ -69,7 +69,6 @@ particle_type = {
 			float
 		}
 		life = float
-		alias_name[emission] = alias_match_left[emission]
 		size = {
 			# cardinality = 0..2
 			#float
