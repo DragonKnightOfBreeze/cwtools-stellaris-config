@@ -1,6 +1,7 @@
 types = {
 	type[advisor_voice] = {
 		path = "game/sound/advisor_voice_types"
+		file_extension = .txt
 	}
 }
 

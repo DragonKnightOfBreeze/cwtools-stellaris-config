@@ -2,43 +2,43 @@ types = {
 	## type_key_filter = category
 	type[sound_category] = {
 		name_field = name
-		#*.asset file
 		path = "game/sound"
+		file_extension = .asset
 	}
 	## type_key_filter = soundgroup
 	type[sound_group] = {
 		name_field = name
-		 #*.asset file
 		path = "game/sound"
+		file_extension = .asset
 	}
 	## type_key_filter = master_compressor
 	type[sound_master_compressor] = {
-		#*.asset file
 		path = "game/sound"
+		file_extension = .asset
 	}
 	## type_key_filter = music_compressor
 	type[sound_music_compressor] = {
-		#*.asset file
 		path = "game/sound"
+		file_extension = .asset
 	}
 	## type_key_filter = falloff
 	type[sound_falloff] = {
 		name_field = name
-		#*.asset file
 		path = "game/sound"
+		file_extension = .asset
 	}
 	## type_key_filter = soundeffect
 	type[sound_effect] = {
 		name_field = name
-		#*.asset file
 		path = "game/sound"
+		file_extension = .asset
 	}
 	## type_key_filter = sound
 	type[sound] = {
 		#these are links between a key and a *.wav file, they are used in other parts
 		name_field = name
-		#*.asset file
 		path = "game/sound"
+		file_extension = .asset
 	}
 }
 
@@ -67,7 +67,7 @@ sound_group = {
 	soundoverride = {
 		name = <sound>
 		## file_extensions = .wav
-		file = filename # sound/**/
+		file = filepath[./] # sound/**/
 	}
 	## cardinality = 0..1
 	soundeffectoverrides = {
@@ -78,7 +78,7 @@ sound_group = {
 	soundfileoverrides = {
 		## cardinality = 0..inf
 		## file_extensions = .wav
-		<sound> = filename # sound/**/
+		<sound> = filepath[./] # sound/**/
 	}
 	## cardinality = 0..1
 	sort_order = int
@@ -174,12 +174,14 @@ sound_effect = {
 	falloff = <sound_falloff>
 	## cardinality = 0..1
 	random_sound_when_looping = bool
+	## cardinality = 0..1
+	prevent_random_repetition = bool
 }
 
 sound = {
 	name = scalar
 	## file_extensions = .wav
-	file = filename # sound/**/
+	file = filepath[./] # sound/**/
 	## cardinality = 0..1
 	volume = float
 	## cardinality = 0..1

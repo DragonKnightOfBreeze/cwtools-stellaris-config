@@ -61,7 +61,7 @@ sprite = {
 	## file_extensions = { .dds .png .tga }
 	## cardinality = 0..1
 	masking_texture = filepath
-	## file_extensions = .shader
+	## file_extensions = { .shader }
 	## cardinality = 0..1
 	effectFile = filepath
 	## cardinality = 0..1
@@ -163,7 +163,7 @@ progressbartype = {
 	## file_extensions = { .dds .png .tga }
 	## cardinality = 0..1
 	textureFile2 = filepath
-	## file_extensions = .shader
+	## file_extensions = { .shader }
 	effectFile = filepath
 
 	## color_type = hsv
@@ -187,24 +187,24 @@ piechart = {
 }
 
 enums = {
-  enum[animation_mode] = {
-    overlay
-    add
-    multiply
-  }
-  enum[animation_type] = {
-    scrolling
-    rotating
-    pulsing
-	rotating_ccw
-	rotating_cw
-  }
-  enum[sprite_type] = {
-  	planet
-	room
-	character
-  }
-  enum[texture_size] = {
-  	small
-  }
+	enum[animation_mode] = {
+		overlay
+		add
+		multiply
+	}
+	enum[animation_type] = {
+		scrolling
+		rotating
+		pulsing
+		rotating_ccw
+		rotating_cw
+	}
+	enum[sprite_type] = {
+		planet
+		room
+		character
+	}
+	enum[texture_size] = {
+		small
+	}
 }

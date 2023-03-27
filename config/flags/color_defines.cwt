@@ -1,11 +1,13 @@
 types = {
 	type[color_define] = {
 		path = "game/flags" #this is stored under flags but it does more than that
+		file_extension = .txt
 		skip_root_key = colors
 	}
 	## type_key_filter = randomizable_combo
 	type[randomizable_combo] = {
 		path = "game/flags" #this is stored under flags but it does more than that
+		file_extension = .txt
 	}
 }
 
@@ -47,9 +49,9 @@ color_define = {
 }
 
 randomizable_combo = {
-  ## cardinality = 3..3
-  <color_define>
- }
+	## cardinality = 3..3
+	<color_define>
+}
 
 # enums = {
 # 	enum[color_type] = {

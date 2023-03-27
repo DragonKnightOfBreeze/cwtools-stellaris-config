@@ -1,10 +1,12 @@
 types = {
 	type[galaxy_shape] = {
 		path = "game/map/galaxy"
+		file_extension = .txt
 	}
 	type[map_setup_scenario] = {
 		path = "game/map/setup_scenarios"
 		name_field = name
+		file_extension = .txt
 	}
 }
 
@@ -39,25 +41,24 @@ galaxy_shape = {
 	num_arms = int
 
 	## cardinality = 0..1
-	alias_name[galaxy_shape] = alias_match_left[galaxy_shape]
-}
+	ring = {
+		### Percentage of radius to use as the width of the ring
+		width = float
+		### Percentage of radius to use as the offset from center for the ring
+		offset = float
+	}
 
-alias[galaxy_shape:ring] = {
-	### Percentage of radius to use as the width of the ring
-	width = float
-	### Percentage of radius to use as the offset from center for the ring
-	offset = float
-}
-
-alias[galaxy_shape:arms] = {
-	### Tightness of winding
-	tightness_winding = float
-	### Arm width in degrees
-	width = float
-	### Maximum outliers distance from arms
-	fuzz = float
-	### Separation (in degrees) between each arm
-	seperation = float
+	## cardinality = 0..1
+	arms = {
+		### Tightness of winding
+		tightness_winding = float
+		### Arm width in degrees
+		width = float
+		### Maximum outliers distance from arms
+		fuzz = float
+		### Separation (in degrees) between each arm
+		seperation = float
+	}
 }
 
 map_setup_scenario = {
@@ -81,6 +82,11 @@ map_setup_scenario = {
 	colonizable_planet_odds = float
 	primitive_odds = float
 	crisis_strength = float
+	## cardinality = 0..1
+	extra_crisis_strength = {
+		## cardinality = 0..inf
+		int
+	}
 	## cardinality = 0..1
 	default = bool
 
