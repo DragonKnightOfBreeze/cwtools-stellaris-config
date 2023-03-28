@@ -39,13 +39,17 @@ particle_type = {
 		## cardinality = 0..1
 		trail = bool
 		## cardinality = 0..1
+		spritesheet_animation = bool
+		## cardinality = 0..1
+		spritesheet_animation_loop = float
+		## cardinality = 0..1
 		local_space = bool
 		## cardinality = 0..1
 		billboard = bool
 		## cardinality = 0..1
 		hide = bool
 		## cardinality = 0..1
-		texture={
+		texture = {
 			file = filepath
 			shader = scalar #<shader>
 			## cardinality = 0..1
@@ -59,9 +63,24 @@ particle_type = {
 			## cardinality = 0..1
 			x = float
 			## cardinality = 0..1
+			x = {
+				## cardinality = 1..2
+				float
+			}
+			## cardinality = 0..1
 			y = float
 			## cardinality = 0..1
+			y = {
+				## cardinality = 1..2
+				float
+			}
+			## cardinality = 0..1
 			z = float
+			## cardinality = 0..1
+			z = {
+				## cardinality = 1..2
+				float
+			}
 		}
 		duration = float
 		life = {
@@ -156,19 +175,19 @@ particle_type = {
 		## cardinality = 0..1
 		box_emitter_z = scalar
 		## cardinality = 0..1
-		velocity = float
+		velocity = scalar
 		## cardinality = 0..1
 		velocity = {
 			## cardinality = 1..2
-			float
-		}
-		## cardinality = 0..1
-		velocity_pitch = {
-			## cardinality = 2..2
-			float
+			scalar
 		}
 		## cardinality = 0..1
 		velocity_pitch = scalar
+		## cardinality = 0..1
+		velocity_pitch = {
+			## cardinality = 2..2
+			scalar
+		}
 		## cardinality = 0..1
 		velocity_yaw = {
 			## cardinality = 2..2
@@ -193,7 +212,17 @@ particle_type = {
 		## cardinality = 0..1
 		emission_pulse_duration = float
 		## cardinality = 0..1
+		emission_pulse_duration = {
+			## cardinality = 2..2
+			float
+		}
+		## cardinality = 0..1
 		emission_pulse_silence = float
+		## cardinality = 0..1
+		emission_pulse_silence = {
+			## cardinality = 2..2
+			float
+		}
 		## cardinality = 0..1
 		particle_pitch = {
 			## cardinality = 2..2
@@ -210,6 +239,13 @@ particle_type = {
 		particle_yaw = scalar
 		## cardinality = 0..1
 		particle_roll = {
+			## cardinality = 2..2
+			float
+		}
+		## cardinality = 0..1
+		mass = float
+		## cardinality = 0..1
+		mass = {
 			## cardinality = 2..2
 			float
 		}
@@ -460,31 +496,37 @@ alias[subsystem_color:color] = {
 		scalar
 	}
 
-	## cardinality = 0..1
+	# ## cardinality = 0..1
 	# x = float[0.0..255.0]
+	## cardinality = 0..1
 	x = scalar
+	## cardinality = 0..1
 	x = {
 		## cardinality = 2
 		scalar
 	}
-	## cardinality = 0..1
+	# ## cardinality = 0..1
 	# y = float[0.0..255.0]
+	## cardinality = 0..1
 	y = scalar
+	## cardinality = 0..1
 	y = {
 		## cardinality = 2
 		scalar
 	}
-	## cardinality = 0..1
+	# ## cardinality = 0..1
 	# z = float[0.0..255.0]
+	## cardinality = 0..1
 	z = scalar
+	## cardinality = 0..1
 	z = {
 		## cardinality = 2
 		scalar
 	}
-	## cardinality = 0..1
 	# float
 	# float,<particle_animation>
 	# alpha = float[0.0..255.0]
+	## cardinality = 0..1
 	alpha = scalar
 }
 

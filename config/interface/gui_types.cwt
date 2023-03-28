@@ -29,24 +29,29 @@ enums = {
 	    UPPER_LEFT #can be lower case as well! Vanilla has a mix of the two for no reason.
 	    UPPER_RIGHT
 	    UPPER_CENTER
-		LEFT_UP
-	    CENTER_DOWN
+		CENTER
 		CENTER_UP
+	    CENTER_DOWN
 		CENTER_CENTER
-		CENTERED_UP
 		CENTERUP
+		CENTERED_UP
+		CENTERED_DOWN
 		CENTER_LEFT
 		CENTER_RIGHT
 	    LOWER_LEFT
 	    LOWER_RIGHT
-	    LEFT
-	    RIGHT #this one doesn't appear in vanilla, I just assumed it exists in theory.
-		CENTER
-		CENTRE
-		BOTTOM
 		TOP
 		TOP_LEFT
 		TOP_RIGHT
+		BOTTOM
+		BOTTOM_LEFT
+		BOTTOM_RIGHT
+	    LEFT
+		LEFT_UP
+		LEFT_DOWN
+	    RIGHT
+	    RIGHT_UP
+	    RIGHT_DOWN
 	}
 	enum[standard_format] = {
 		center
@@ -108,6 +113,12 @@ alias[gui:positionType] = {
 		x = int
 		y = int
 	}
+	## cardinality = 0..1
+	dynamic_extra_height = float
+	## cardinality = 0..1
+	dynamic_extra_height_max = float
+	## cardinality = 0..1
+	dynamic_extra_y = float
 }
 
 ### Used to show in tooltip sections
@@ -202,6 +213,7 @@ alias[gui:smoothListboxType] = {
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_button] = alias_match_left[gui_button]
 		alias_name[gui_animation] = alias_match_left[gui_animation]
 	}
 
@@ -214,6 +226,7 @@ alias[gui:smoothListboxType] = {
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_button] = alias_match_left[gui_button]
 		alias_name[gui_animation] = alias_match_left[gui_animation]
 	}
 
@@ -253,6 +266,7 @@ alias[gui:containerWindowType] = {
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_button] = alias_match_left[gui_button]
 		alias_name[gui_animation] = alias_match_left[gui_animation]
 	}
 	## cardinality = 0..inf
@@ -264,6 +278,7 @@ alias[gui:containerWindowType] = {
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_button] = alias_match_left[gui_button]
 		alias_name[gui_animation] = alias_match_left[gui_animation]
 	}
 	## cardinality = 0..1
@@ -308,14 +323,16 @@ alias[gui:containerWindowType] = {
 	## cardinality = 0..1
 	horizontalBorder = scalar
 	## cardinality = 0..1
+	movable = bool
+	## cardinality = 0..1
 	fade_time = int
 	## cardinality = 0..1
 	fade_type = enum[gui_fade_types]
 
 	alias_name[gui_background] = alias_match_left[gui_background]
 	alias_name[gui] = alias_match_left[gui]
-	alias_name[gui_sound] = alias_match_left[gui_sound]
 	alias_name[gui_button] = alias_match_left[gui_button]
+	alias_name[gui_sound] = alias_match_left[gui_sound]
 	alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 	alias_name[gui_localisation] = alias_match_left[gui_localisation]
 	alias_name[gui_navigation] = alias_match_left[gui_navigation]
@@ -347,6 +364,7 @@ alias[gui_button:iconType] = {
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_button] = alias_match_left[gui_button]
 		alias_name[gui_animation] = alias_match_left[gui_animation]
 	}
 	## cardinality = 0..inf
@@ -358,6 +376,7 @@ alias[gui_button:iconType] = {
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_button] = alias_match_left[gui_button]
 		alias_name[gui_animation] = alias_match_left[gui_animation]
 	}
 
@@ -385,6 +404,7 @@ alias[gui_button:buttonType] = {
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_button] = alias_match_left[gui_button]
 		alias_name[gui_animation] = alias_match_left[gui_animation]
 	}
 	## cardinality = 0..inf
@@ -396,6 +416,7 @@ alias[gui_button:buttonType] = {
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_button] = alias_match_left[gui_button]
 		alias_name[gui_animation] = alias_match_left[gui_animation]
 	}
 
@@ -463,7 +484,9 @@ alias[gui:spinnerType] = {
 	leftbutton = scalar
 	rightbutton = scalar
 
+	## cardinality = 0..1
 	maxValue = float
+	## cardinality = 0..1
 	startValue = float
 	## cardinality = 0..1
 	priority = float
@@ -702,6 +725,7 @@ alias[gui:dropDownBoxType] = {
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_button] = alias_match_left[gui_button]
 		alias_name[gui_navigation] = alias_match_left[gui_navigation]
 	}
 	alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
@@ -742,18 +766,20 @@ alias[gui_standard_element:size] = {
 	height = percentage_field
 }
 
-alias[gui_standard_element:dynamic_extra_height] = float
-alias[gui_standard_element:dynamic_extra_height_max] = float
-alias[gui_standard_element:dynamic_extra_y] = float
-
 alias[gui_standard_element:position] = {
 	x = float
 	y = float
 }
+
+alias[gui_standard_element:dynamic_extra_height] = float
+alias[gui_standard_element:dynamic_extra_height_max] = float
+alias[gui_standard_element:dynamic_extra_y] = float
+
 alias[gui_standard_element:borderSize] = {
 	x = int
 	y = int
 }
+
 alias[gui_standard_element:orientation] = enum[direction]
 alias[gui_standard_element:format] = enum[direction]
 alias[gui_standard_element:format] = enum[standard_format]
