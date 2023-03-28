@@ -29,7 +29,7 @@ types = {
 		}
 	}
 	## type_key_filter = progressbartype
-	type[progressbartype] = {
+	type[progressbar] = {
 		name_field = name
 		path = "game/interface"
 		path_extension = .gfx
@@ -151,7 +151,7 @@ sprite = {
 	}
 }
 
-progressbartype = {
+progressbar = {
 	name = scalar
 
 	#either texturefile, or both texturefile1 and 2 - need to be worked out.

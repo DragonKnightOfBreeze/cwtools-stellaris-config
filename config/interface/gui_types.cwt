@@ -856,7 +856,11 @@ alias[gui_standard_element:scale] = float
 alias[gui_standard_element:alwaysTransparent] = bool
 
 alias[gui_sprite:spriteType] = <sprite>
+alias[gui_sprite:spriteType] = <progressbar>
+alias[gui_sprite:spriteType] = <piechart>
 alias[gui_sprite:quadTextureSprite] = <sprite>
+alias[gui_sprite:quadTextureSprite] = <progressbar>
+alias[gui_sprite:quadTextureSprite] = <piechart>
 alias[gui_sprite:frame] = int
 
 alias[gui_sound:clicksound] = <sound_effect>
