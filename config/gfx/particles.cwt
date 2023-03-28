@@ -97,7 +97,7 @@ particle_type = {
 		## cardinality = 0..1
 		rotation_speed = {
 			## cardinality = 2..2
-			float
+			scalar
 		}
 		## cardinality = 0..1
 		rotation_speed_yaw = float

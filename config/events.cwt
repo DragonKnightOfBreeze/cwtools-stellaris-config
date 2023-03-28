@@ -166,9 +166,10 @@ event = {
 		## cardinality = 0..inf
 		show_sound = {
 			sound = <sound_effect>
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			## cardinality = 0..1
+			sound_is_advisor = bool
+			## cardinality = 0..1
+			trigger = { alias_name[trigger] = alias_match_left[trigger] }
 		}
 		## cardinality = 0..1
 		###Force a diplomatic event to be viewed
@@ -188,6 +189,8 @@ event = {
 		location = scope[pop]
 		## cardinality = 0..1
 		location = scope[starbase]
+		## cardinality = 0..1
+		location = scope[megastructure]
 
 		## cardinality = 0..1
 		situation = scope[situation]
@@ -212,6 +215,7 @@ event = {
 				trigger = {
 					alias_name[trigger] = alias_match_left[trigger]
 				}
+				## cardinality = 0..1
 				text = localisation
 			}
 			## cardinality = 1..inf
@@ -219,6 +223,7 @@ event = {
 				exclusive_trigger = {
 					alias_name[trigger] = alias_match_left[trigger]
 				}
+				## cardinality = 0..1
 				text = localisation
 			}
 

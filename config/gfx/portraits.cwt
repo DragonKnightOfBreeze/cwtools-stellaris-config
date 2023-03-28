@@ -26,7 +26,7 @@ portrait = {
 	greeting_sound = <sound_effect>
 	## cardinality = 0..1
 	character_textures = {
-		## cardinality = 1..inf
+		## cardinality = 0..inf
 		filepath
 	}
 }

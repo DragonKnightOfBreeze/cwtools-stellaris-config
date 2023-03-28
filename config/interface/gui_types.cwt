@@ -45,6 +45,8 @@ enums = {
 		CENTRE
 		BOTTOM
 		TOP
+		TOP_LEFT
+		TOP_RIGHT
 	}
 	enum[standard_format] = {
 		center
@@ -168,6 +170,10 @@ alias[gui:editBoxType] = {
 	defaultSelection = bool
 	## cardinality = 0..1
 	use_special_chars = bool
+	## cardinality = 0..1
+	limited_height = bool
+	## cardinality = 0..1
+	wrap_text = bool
 
 	alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 	alias_name[gui_localisation] = alias_match_left[gui_localisation]
@@ -196,6 +202,7 @@ alias[gui:smoothListboxType] = {
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_animation] = alias_match_left[gui_animation]
 	}
 
 	## cardinality = 0..inf
@@ -207,6 +214,7 @@ alias[gui:smoothListboxType] = {
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_animation] = alias_match_left[gui_animation]
 	}
 
 	## cardinality = 0..1
@@ -245,6 +253,7 @@ alias[gui:containerWindowType] = {
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_animation] = alias_match_left[gui_animation]
 	}
 	## cardinality = 0..inf
 	if_scaled_resolution = {
@@ -255,6 +264,7 @@ alias[gui:containerWindowType] = {
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_animation] = alias_match_left[gui_animation]
 	}
 	## cardinality = 0..1
 	origo = enum[direction]
@@ -324,6 +334,8 @@ alias[gui:iconType] = {
 	## cardinality = 0..1
 	scale = float
 	## cardinality = 0..1
+	mirror = bool
+	## cardinality = 0..1
 	frame = int
 
 	## cardinality = 0..inf
@@ -335,8 +347,47 @@ alias[gui:iconType] = {
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_animation] = alias_match_left[gui_animation]
 	}
-## cardinality = 0..inf
+	## cardinality = 0..inf
+	if_scaled_resolution = {
+		## cardinality = 0..1
+		max_height = int
+		## cardinality = 0..1
+		min_height = int
+		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
+		alias_name[gui_background] = alias_match_left[gui_background]
+		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_animation] = alias_match_left[gui_animation]
+	}
+
+	alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
+	alias_name[gui_localisation] = alias_match_left[gui_localisation]
+	alias_name[gui_sprite] = alias_match_left[gui_sprite]
+}
+
+# Default game button. In some cases could be replaced by effectButtonType without CTD
+alias[gui:buttonType] = {
+	name = scalar
+	``
+	## cardinality = 0..1
+	hitbox_margin = {
+		x = int
+		y = int
+	}
+
+	## cardinality = 0..inf
+	if_resolution = {
+		## cardinality = 0..1
+		max_height = int
+		## cardinality = 0..1
+		min_height = int
+		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
+		alias_name[gui_background] = alias_match_left[gui_background]
+		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_animation] = alias_match_left[gui_animation]
+	}
+	## cardinality = 0..inf
 	if_scaled_resolution = {
 		## cardinality = 0..1
 		max_height = int
@@ -347,6 +398,57 @@ alias[gui:iconType] = {
 		alias_name[gui] = alias_match_left[gui]
 	}
 
+	## cardinality = 0..1
+	multiline = bool
+
+	alias_name[gui_localisation] = alias_match_left[gui_localisation]
+	alias_name[gui_sound] = alias_match_left[gui_sound]
+	alias_name[gui_sprite] = alias_match_left[gui_sprite]
+	alias_name[gui_navigation] = alias_match_left[gui_navigation]
+	alias_name[gui_button_element] = alias_match_left[gui_button_element]
+	alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
+}
+
+# Normal icon instance
+alias[gui_button:iconType] = {
+	name = scalar
+
+	## cardinality = 0..1
+	centerPosition = bool
+	## cardinality = 0..1
+	alwaystransparent = bool
+	## cardinality = 0..1
+	rotation = float
+	## cardinality = 0..1
+	scale = float
+	## cardinality = 0..1
+	mirror = bool
+	## cardinality = 0..1
+	frame = int
+
+	## cardinality = 0..inf
+	if_resolution = {
+		## cardinality = 0..1
+		max_height = int
+		## cardinality = 0..1
+		min_height = int
+		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
+		alias_name[gui_background] = alias_match_left[gui_background]
+		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_animation] = alias_match_left[gui_animation]
+	}
+	## cardinality = 0..inf
+	if_scaled_resolution = {
+		## cardinality = 0..1
+		max_height = int
+		## cardinality = 0..1
+		min_height = int
+		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
+		alias_name[gui_background] = alias_match_left[gui_background]
+		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_animation] = alias_match_left[gui_animation]
+	}
+
 	alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 	alias_name[gui_localisation] = alias_match_left[gui_localisation]
 	alias_name[gui_sprite] = alias_match_left[gui_sprite]
@@ -355,7 +457,7 @@ alias[gui:iconType] = {
 # Default game button. In some cases could be replaced by effectButtonType without CTD
 alias[gui_button:buttonType] = {
 	name = scalar
-
+``
 	## cardinality = 0..1
 	hitbox_margin = {
 	  x = int
@@ -371,8 +473,9 @@ alias[gui_button:buttonType] = {
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_animation] = alias_match_left[gui_animation]
 	}
-## cardinality = 0..inf
+	## cardinality = 0..inf
 	if_scaled_resolution = {
 		## cardinality = 0..1
 		max_height = int
@@ -381,6 +484,7 @@ alias[gui_button:buttonType] = {
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_animation] = alias_match_left[gui_animation]
 	}
 
 	## cardinality = 0..1
@@ -447,9 +551,10 @@ alias[gui:spinnerType] = {
 	leftbutton = scalar
 	rightbutton = scalar
 
-	priority = int
-	maxValue = int
-	startValue = int
+	maxValue = float
+	startValue = float
+	## cardinality = 0..1
+	priority = float
 
 	alias_name[gui_button] = alias_match_left[gui_button]
 	alias_name[overlay] = alias_match_left[overlay]
@@ -465,12 +570,18 @@ alias[gui:scrollbarType] = {
 	track = scalar
 	leftbutton = scalar
 	rightbutton = scalar
+
+	maxValue = float
+	minValue = float
+	stepSize = float
+	startValue = float
+	## cardinality = 0..1
 	priority = int
 
-	maxValue = int
-	minValue = int
-	stepSize = float
-	startValue = int
+	## cardinality = 0..1
+	snappoint_center = scalar # gui_name
+	## cardinality = 0..1
+	snappoint = scalar # gui_name
 
 	alias_name[gui_button] = alias_match_left[gui_button]
 	alias_name[overlay] = alias_match_left[overlay]
@@ -626,6 +737,10 @@ alias[gui:dropDownBoxType] = {
 	name = scalar
 
 	## cardinality = 0..1
+	### Will remove elements outside of size bounding box
+	clipping = bool
+
+	## cardinality = 0..1
 	expandButton = {
 		name = scalar
 
@@ -715,6 +830,10 @@ alias[gui_standard_element:size] = {
 	height = percentage_field
 }
 
+alias[gui_standard_element:dynamic_extra_height] = float
+alias[gui_standard_element:dynamic_extra_height_max] = float
+alias[gui_standard_element:dynamic_extra_y] = float
+
 alias[gui_standard_element:position] = {
 	x = float
 	y = float
@@ -738,6 +857,7 @@ alias[gui_standard_element:alwaysTransparent] = bool
 
 alias[gui_sprite:spriteType] = <sprite>
 alias[gui_sprite:quadTextureSprite] = <sprite>
+alias[gui_sprite:frame] = int
 
 alias[gui_sound:clicksound] = <sound_effect>
 alias[gui_sound:oversound] = <sound_effect>

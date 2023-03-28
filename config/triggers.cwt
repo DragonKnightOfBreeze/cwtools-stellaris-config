@@ -1432,10 +1432,7 @@ alias[trigger:intel_level] = {
 alias[trigger:inverted_switch] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..inf
-	scalar = {
-		## cardinality = 0..inf
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	scalar = { alias_name[trigger] = alias_match_left[trigger] }
 }
 
 ### checks if a country has an advisor

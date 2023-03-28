@@ -2399,6 +2399,7 @@ alias[effect:create_message] = {
 	type = <message_type>
 	localization = localisation
 	days = int #no variables here atm
+	## cardinality = 0..1
 	target = scope[any]
 	## cardinality = 0..100
 	variable = {
@@ -2645,6 +2646,7 @@ alias[effect:inverted_switch] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..inf
 	scalar = { alias_name[effect] = alias_match_left[effect] }
+	## cardinality = 0..1
 	default = { alias_name[effect] = alias_match_left[effect] }
 }
 

@@ -69,7 +69,7 @@ sprite = {
 	## cardinality = 0..1
 	transParencecheck = bool
 	## cardinality = 0..1
-	borderSize = { x = int y = int }
+	borderSize = { x = float y = float }
 	## cardinality = 0..1
 	hitbox_margin = { x = int y = int }
 	## cardinality = 0..1
@@ -78,6 +78,8 @@ sprite = {
 	type = enum[sprite_type]
 	## cardinality = 0..1
 	character = bool
+	## cardinality = 0..1
+	close_up = bool
 	## cardinality = 0..1
 	tilingCenter = bool
 	## cardinality = 0..1
@@ -118,11 +120,11 @@ sprite = {
 	}
 	#flag_sprite only!
 	## cardinality = 0..1
-	bg_position = { x = int y = int }
+	bg_position = { x = float y = float }
 	## cardinality = 0..1
 	bg_size = { width = int height = int }
 	## cardinality = 0..1
-	symbol_position = { x = int y = int }
+	symbol_position = { x = float y = float }
 	## cardinality = 0..1
 	symbol_size = { width = int height = int }
 	## cardinality = 0..1
@@ -176,9 +178,11 @@ progressbartype = {
 		## cardinality = 3..3
 		float
 	}
-	size = { x = int y = int }
+	size = { x = float y = float }
 	## cardinality = 0..1
 	horizontal = bool
+	## cardinality = 0..1
+	flipdirection = bool
 }
 
 piechart = {

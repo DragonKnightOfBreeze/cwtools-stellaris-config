@@ -22,7 +22,9 @@ projectile = {
     	## cardinality = 4..4
 		float
 	}
+	## cardinality = 0..1
 	hit_entity = <model_entity>
+	## cardinality = 0..1
 	shield_hit_entity = <model_entity>
 	## cardinality = 0..1
 	muzzle_flash_entity = <model_entity>
@@ -53,6 +55,7 @@ projectile = {
 		}
 		duration = float
 	}
+	## cardinality = 0..1
 	shield_impact = {
 		size = enum[projectile_impact_size]
 		## cardinality = 0..1
