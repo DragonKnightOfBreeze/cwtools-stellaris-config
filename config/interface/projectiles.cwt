@@ -80,6 +80,7 @@ projectile = {
 	## cardinality = 0..1
 	max_duration = float
 
+	## cardinality = 0..1
 	set_state = {
 		## cardinality = 0..1
 		ship = scalar
@@ -89,6 +90,7 @@ projectile = {
 		section = scalar
 	}
 
+	## cardinality = 0..1
 	set_state_windup = {
 		## cardinality = 0..1
 		ship = scalar
