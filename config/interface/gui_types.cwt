@@ -369,7 +369,7 @@ alias[gui:iconType] = {
 # Default game button. In some cases could be replaced by effectButtonType without CTD
 alias[gui:buttonType] = {
 	name = scalar
-	``
+
 	## cardinality = 0..1
 	hitbox_margin = {
 		x = int
@@ -457,7 +457,7 @@ alias[gui_button:iconType] = {
 # Default game button. In some cases could be replaced by effectButtonType without CTD
 alias[gui_button:buttonType] = {
 	name = scalar
-``
+
 	## cardinality = 0..1
 	hitbox_margin = {
 	  x = int

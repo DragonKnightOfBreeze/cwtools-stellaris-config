@@ -36,6 +36,11 @@ model_entity = {
 	pdxmesh = <model_mesh> #this connects to meshes defined in a *.gfx file!
 
 	## cardinality = 0..1
+	erosion_in = float
+	## cardinality = 0..1
+	erosion_out = float
+
+	## cardinality = 0..1
 	cull_radius = float
 	## cardinality = 0..1
 	scale = float
