@@ -9,6 +9,7 @@
 types = {
 	type[asset_selector] = {
 		path = "game/gfx/portraits/asset_selectors"
+		path_extension = .txt
 		severity = warning
 		# clothes selectors and hair selectors are identical in structure, only difference is the key
 		## type_key_filter <> room_selector

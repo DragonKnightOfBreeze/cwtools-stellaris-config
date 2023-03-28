@@ -6,11 +6,13 @@ types = {
 		skip_root_key = portraits
 		severity = warning
 		path = "game/gfx/portraits/portraits"
+		path_extension = .txt
 	}
 	type[portrait_group] = {
 		skip_root_key = portrait_groups
 		severity = warning
 		path = "game/gfx/portraits/portraits"
+		path_extension = .txt
 	}
 }
 

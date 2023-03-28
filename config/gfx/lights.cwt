@@ -3,6 +3,7 @@ types = {
 	type[light] = {
 		name_field = name
 		path = "game/gfx/lights"
+		path_extension = .asset
 	}
 }
 # ## type_key_filter = animation

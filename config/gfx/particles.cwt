@@ -3,6 +3,7 @@ types = {
 		name_field = name
 		severity = warning
 		path = "game/gfx/particles"
+		path_extension = .gfx
 		skip_root_key = objectTypes
 	}
 	## type_key_filter = particle
@@ -10,6 +11,7 @@ types = {
 		name_field = name
 		severity = warning
 		path = "game/gfx/particles"
+		path_extension = .asset
 	}
 }
 

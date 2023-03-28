@@ -1,12 +1,14 @@
 types = {
 	type[projectile] = {
 		path = "game/gfx/projectiles"
+		path_extension = .txt
 		path_strict = yes
 		name_field = name
 		severity = warning
 	}
 	type[planet_killer_animation] = {
 		path = "game/gfx/projectiles/planet_destruction"
+		path_extension = .txt
 	}
 }
 

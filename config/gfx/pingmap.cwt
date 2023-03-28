@@ -1,6 +1,7 @@
 types = {
 	type[pingmap] = {
 		path = "game/gfx/pingmap"
+		path_extension = .txt
 	}
 }
 pingmap = {
