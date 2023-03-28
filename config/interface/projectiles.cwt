@@ -42,7 +42,7 @@ projectile = {
 	## cardinality = 0..1
 	hit = {
 		alpha_curve = {
-			## cardinality = 6..12
+			## cardinality = 4..12
 			float
 		}
 		duration = float
@@ -50,7 +50,7 @@ projectile = {
 	## cardinality = 0..1
 	miss = {
 		alpha_curve = {
-			## cardinality = 6..12
+			## cardinality = 4..12
 			float
 		}
 		duration = float

@@ -393,7 +393,7 @@ enums = {
 	#these are tied to bombardment stances somehow, but I have no idea how - exnihil
 	#TODO - link this to bombardment stances
 	complex_enum[model_states] = {
-		path = "game/gfx/models"
+		path = "game/gfx"
 		file_extension = .asset
 		search_scope_type = definition
 		start_from_root = yes
@@ -407,7 +407,7 @@ enums = {
 	}
 
 	complex_enum[model_locators] = {
-		path = "game/gfx/models"
+		path = "game/gfx"
 		file_extension = .asset
 		search_scope_type = definition
 		start_from_root = yes
@@ -426,7 +426,7 @@ enums = {
 	}
 
 	complex_enum[model_attachments] = {
-		path = "game/gfx/models"
+		path = "game/gfx"
 		file_extension = .asset
 		search_scope_type = definition
 		start_from_root = yes

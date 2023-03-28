@@ -121,7 +121,17 @@ particle_type = {
 		## cardinality = 0..1
 		rotation_speed_yaw = float
 		## cardinality = 0..1
+		rotation_speed_yaw = {
+			## cardinality = 2..2
+			scalar
+		}
+		## cardinality = 0..1
 		rotation_speed_pitch = float
+		## cardinality = 0..1
+		rotation_speed_pitch = {
+			## cardinality = 2..2
+			float
+		}
 		## cardinality = 0..1
 		sphere_emitter_radius = float
 		## cardinality = 0..1
@@ -243,11 +253,11 @@ particle_type = {
 			float
 		}
 		## cardinality = 0..1
-		mass = float
+		mass = scalar
 		## cardinality = 0..1
 		mass = {
 			## cardinality = 2..2
-			float
+			scalar
 		}
 		## cardinality = 0..1
 		force = scalar #this keeps bugging out, so scalar for now.
@@ -327,6 +337,11 @@ particle_type = {
 			}
 			## cardinality = 0..1
 			rotation_speed_pitch = float
+			## cardinality = 0..1
+			rotation_speed_pitch = {
+				## cardinality = 2..2
+				float
+			}
 			## cardinality = 0..1
 			sphere_emitter_radius = float
 			## cardinality = 0..1
