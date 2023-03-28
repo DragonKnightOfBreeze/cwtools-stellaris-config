@@ -20,7 +20,7 @@ projectile = {
 	## color_type = hsv
 	color = {
     	## cardinality = 4..4
-		float[0..1]
+		float
 	}
 	hit_entity = <model_entity>
 	shield_hit_entity = <model_entity>
@@ -101,7 +101,7 @@ planet_killer_animation = {
 	## color_type = hsv
 	color = {
     	## cardinality = 4..4
-		float[0..1]
+		float
 	}
 	## cardinality = 0..1
 	planet_dissolve_color_mult = {
