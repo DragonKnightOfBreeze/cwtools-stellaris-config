@@ -1,12 +1,14 @@
 types = {
 	type[projectile] = {
 		path = "game/gfx/projectiles"
+		path_extension = .txt
 		path_strict = yes
 		name_field = name
 		severity = warning
 	}
 	type[planet_killer_animation] = {
 		path = "game/gfx/projectiles/planet_destruction"
+		path_extension = .txt
 	}
 }
 
@@ -42,7 +44,7 @@ projectile = {
 	## cardinality = 0..1
 	hit = {
 		alpha_curve = {
-			## cardinality = 6..12
+			## cardinality = 4..12
 			float
 		}
 		duration = float
@@ -50,7 +52,7 @@ projectile = {
 	## cardinality = 0..1
 	miss = {
 		alpha_curve = {
-			## cardinality = 6..12
+			## cardinality = 4..12
 			float
 		}
 		duration = float
@@ -116,22 +118,28 @@ planet_killer_animation = {
 	windup_entity = <model_entity>
  	ship_fire_entity = <model_entity>
  	planet_hit_entity = <model_entity>
+	## cardinality = 0..1
 	star_hit_entity = <model_entity>
  	megastructure_hit_entity = <model_entity>
+	## cardinality = 0..1
 	hit_entity_positioning = entity_center
 	## cardinality = 0..1
 	planet_overlay_entity = <model_entity>
 	windup = {
 		duration = float
+		## cardinality = 0..1
 		width = {
 			## cardinality = 2..8
 			float
 		}
+		## cardinality = 0..1
 		texture_scroll_speed = {
 			## cardinality = 2..6
 			float
 		}
+		## cardinality = 0..1
 		texture_tiling = float
+		## cardinality = 0..1
 		alpha = {
 			## cardinality = 4..8
 			float
@@ -195,7 +203,6 @@ planet_killer_animation = {
 			float
  		}
  	}
-
 	fade = {
 		###  <Fade-in/out start/end percentage> <Width in world units>
 		fade_in = {

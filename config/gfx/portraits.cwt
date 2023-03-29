@@ -6,20 +6,22 @@ types = {
 		skip_root_key = portraits
 		severity = warning
 		path = "game/gfx/portraits/portraits"
+		path_extension = .txt
 	}
 	type[portrait_group] = {
 		skip_root_key = portrait_groups
 		severity = warning
 		path = "game/gfx/portraits/portraits"
+		path_extension = .txt
 	}
 }
 
 portrait = {
 	entity = <model_entity>
 	clothes_selector = no_texture
-	clothes_selector = <asset_selector.clothes>
+	clothes_selector = <asset_selector.asset>
 	attachment_selector = no_texture
-	attachment_selector = <asset_selector.hair>
+	attachment_selector = <asset_selector.asset>
 	## cardinality = 0..1
 	custom_attachment_label = localisation
 	## cardinality = 0..1
@@ -29,6 +31,13 @@ portrait = {
 		## cardinality = 0..inf
 		filepath
 	}
+	## cardinality = 0..1
+	custom_close_up_position_offset = {
+		x = int
+		y = iint
+	}
+	## cardinality = 0..1
+	custom_close_up_scale = int
 }
 
 portrait_group = {

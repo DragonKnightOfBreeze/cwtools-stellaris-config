@@ -9,13 +9,11 @@
 types = {
 	type[asset_selector] = {
 		path = "game/gfx/portraits/asset_selectors"
+		path_extension = .txt
 		severity = warning
-		## type_key_regex = .*clothes.*
-		subtype[clothes] = {
-
-		}
-		## type_key_regex = .*hair.*
-		subtype[hair] = { # this is identical in structure to the clothes asset selector, only difference is the key!
+		# clothes selectors and hair selectors are identical in structure, only difference is the key
+		## type_key_filter <> room_selector
+		subtype[asset] = {
 
 		}
 		## type_key_filter = room_selector
@@ -33,7 +31,7 @@ types = {
 # see other.txt for the default no texture.
 
 asset_selector = {
-	subtype[clothes] = {
+	subtype[asset] = {
 		# clothes and hair selectors link directly to a dds files using filepath, room selectors point to textures that end with "_room.dds" but remove the file ending
 		# entity selectors link to a model entity using its key. This is a way to distinguish between them I guess.
 
@@ -107,119 +105,6 @@ asset_selector = {
 		leader = {
 			## cardinality = 0..1
 			default = filepath #these do not have default in vanilla, but i assume default is supported.
-			## cardinality = 0..inf
-			random = {
-				## cardinality = 0..1
-				trigger = { alias_name[trigger] = alias_match_left[trigger] }
-				list = {
-					## cardinality = 0..inf
-					filepath
-				}
-			}
-			## cardinality = 0..inf
-			filepath = { alias_name[trigger] = alias_match_left[trigger] }
-		}
-
-		## cardinality = 0..1
-		## replace_scope = { this = leader root = leader }
-		ruler = {
-			## cardinality = 0..1
-			default = filepath
-			## cardinality = 0..inf
-			random = {
-				## cardinality = 0..1
-				trigger = { alias_name[trigger] = alias_match_left[trigger] }
-				list = {
-					## cardinality = 0..inf
-					filepath
-				}
-			}
-			## cardinality = 0..inf
-			filepath = { alias_name[trigger] = alias_match_left[trigger] }
-		}
-	}
-	subtype[hair] = {
-		# clothes and hair selectors link directly to a dds files using filepath, room selectors point to textures that end with "_room.dds" but remove the file ending
-		# entity selectors link to a model entity using its key. This is a way to distinguish between them I guess.
-
-		default = filepath
-
-		## cardinality = 0..1
-		## replace_scope = { this = no_scope root = no_scope }
-		no_texture = {
-			default = filepath
-			## cardinality = 0..inf
-			random = {
-				## cardinality = 0..1
-				trigger = { alias_name[trigger] = alias_match_left[trigger] }
-				list = {
-					## cardinality = 0..inf
-					filepath
-				}
-			}
-			## cardinality = 0..inf
-			filepath = { alias_name[trigger] = alias_match_left[trigger] }
-		}
-
-		## cardinality = 0..1
-		## replace_scope = { this = no_scope root = no_scope }
-		game_setup = {
-			## cardinality = 0..1
-			default = filepath
-			## cardinality = 0..inf
-			random = {
-				## cardinality = 0..1
-				trigger = { alias_name[trigger] = alias_match_left[trigger] }
-				list = {
-					## cardinality = 0..inf
-					filepath
-				}
-			}
-			## cardinality = 0..inf
-			filepath = { alias_name[trigger] = alias_match_left[trigger] }
-		}
-
-		## cardinality = 0..1
-		## replace_scope = { this = species root = species }
-		species = {
-			## cardinality = 0..1
-			default = filepath
-			## cardinality = 0..inf
-			random = {
-				## cardinality = 0..1
-				trigger = { alias_name[trigger] = alias_match_left[trigger] }
-				list = {
-					## cardinality = 0..inf
-					filepath
-				}
-			}
-			## cardinality = 0..inf
-			filepath = { alias_name[trigger] = alias_match_left[trigger] }
-		}
-
-		## cardinality = 0..1
-		## replace_scope = { this = pop root = pop }
-		pop = {
-			## cardinality = 0..1
-			default = filepath
-			## cardinality = 0..inf
-			random = {
-				## cardinality = 0..1
-				trigger = { alias_name[trigger] = alias_match_left[trigger] }
-				list = {
-					## cardinality = 0..inf
-					filepath
-				}
-			}
-			## cardinality = 0..inf
-			filepath = { alias_name[trigger] = alias_match_left[trigger] }
-		}
-
-		## cardinality = 0..1
-		## replace_scope = { this = leader root = leader }
-		leader = {
-			## cardinality = 0..1
-			default = filepath # these do not have default in vanilla, but i assume default is supported
 			## cardinality = 0..inf
 			random = {
 				## cardinality = 0..1

@@ -1,15 +1,16 @@
 types = {
-  ## type_key_filter = light
-  type[light] = {
-    name_field = name
-    path = "game/gfx/lights"
-  }
+	## type_key_filter = light
+	type[light] = {
+		name_field = name
+		path = "game/gfx/lights"
+		path_extension = .asset
+	}
 }
-  # ## type_key_filter = animation
-  # type[light_animation] = { #these are actually a part of the the light assets, but i need to split them up because of the weird mix of values and keys in these files.
-  #  name_field = name
-  #  path = "game/gfx/lights"
-  #}
+# ## type_key_filter = animation
+# type[light_animation] = { #these are actually a part of the the light assets, but i need to split them up because of the weird mix of values and keys in these files.
+#  name_field = name
+#  path = "game/gfx/lights"
+#}
 
 light = {
 	name = scalar
@@ -21,7 +22,7 @@ light = {
 	}
 
 	## cardinality = 0..1
-  	alias_name[intensity] = alias_match_left[intensity]
+	alias_name[intensity] = alias_match_left[intensity]
 
 	radius = float
 	falloff = float
@@ -35,14 +36,14 @@ light = {
 		start = float
 		duration = float
 		## cardinality = 0..1
-	  repeat = bool
+		repeat = bool
 		op = enum[animation_op]
 		## cardinality = 0..1
-	  minValue = float
-	  ## cardinality = 0..1
+		minValue = float
+		## cardinality = 0..1
 		maxValue = float
 		curve = {
-		## cardinality = 4..6
+			## cardinality = 4..6
 			float
 		}
 	}
@@ -52,17 +53,17 @@ alias[intensity:intensity] = int
 alias[intensity:intensity] = enum[light_animations]
 
 enums = {
-  enum[animation_op] = {
-    "MUL"
-    "ADD"
-    "ABS"
-  }
-  complex_enum[light_animations] = {
-  	path = "game/gfx/lights"
-	name = {
-		animation = {
-			name = enum_name
+	enum[animation_op] = {
+		"MUL"
+		"ADD"
+		"ABS"
+	}
+	complex_enum[light_animations] = {
+		path = "game/gfx/lights"
+		name = {
+			animation = {
+				name = enum_name
+			}
 		}
 	}
-  }
 }
