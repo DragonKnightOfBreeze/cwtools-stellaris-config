@@ -38,15 +38,6 @@ ascension_perk = {
 	## cardinality = 0..1
 	## replace_scope = { this = country root = country }
 	modifier = {
-		## cardinality = 0..1
-		description = localisation
-		## cardinality = 0..1
-		description_parameters = {
-			### Any value can go here to be used in localisation
-			## cardinality = 0..inf
-			scalar = scalar
-		}
-
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 

@@ -63,19 +63,6 @@ tradition = {
 	## cardinality = 0..1
 	## replace_scope = { this = country root = country }
 	modifier = {
-		## cardinality = 0..1
-		description = localisation
-		## cardinality = 0..1
-		description_parameters = {
-			### Any value can go here to be used in localisation
-			## cardinality = 0..inf
-			scalar = scalar
-		}
-		## cardinality = 0..1
-		show_only_custom_tooltip = bool
-		## cardinality = 0..1
-		custom_tooltip = localisation
-		## cardinality = 0..inf
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 	### the ai_weight in traditions applies both to the main traditions and the tradition swaps, there are no seperate fields.
@@ -87,13 +74,11 @@ tradition = {
 	## cardinality = 0..1
 	## replace_scope = { this = country root = country }
 	possible = {
-		## cardinality = 0..inf
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality = 0..1
 	## replace_scope = { this = country root = country }
 	on_enabled = {
-		## cardinality = 0..inf
 		alias_name[effect] = alias_match_left[effect]
 	}
 	## cardinality = 0..1
@@ -116,34 +101,19 @@ tradition = {
 		## cardinality = 0..1
 		custom_tooltip_with_modifiers = localisation
 
-		#Should be only if not inheriting effects
+		# Should be only if not inheriting effects
 		### accepts only country modifiers
 		## cardinality = 0..1
 		## replace_scope = { this = country root = country }
 		modifier = {
-			## cardinality = 0..1
-			description = localisation
-			## cardinality = 0..1
-			description_parameters = {
-				### Any value can go here to be used in localisation
-				## cardinality = 0..inf
-				scalar = scalar
-			}
-			## cardinality = 0..1
-			show_only_custom_tooltip = bool
-			## cardinality = 0..1
-			custom_tooltip = localisation
-			## cardinality = 0..inf
 			alias_name[modifier] = alias_match_left[modifier]
 		}
-		#Should be only if not inheriting effects
+		# Should be only if not inheriting effects
 		## replace_scope = { this = country root = country }
 		## cardinality = 0..1
 		on_enabled = {
-			## cardinality = 0..inf
 			alias_name[effect] = alias_match_left[effect]
 		}
-
 		### this determines the chances of a tradition swap appearing for a given empire IF multiple swaps are potential.
 		## replace_scope = { this = country root = country }
 		## cardinality = 0..1
