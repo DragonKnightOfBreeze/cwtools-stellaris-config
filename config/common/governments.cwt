@@ -187,12 +187,12 @@ enums = {
 
 government = {
 	### Determines if a government name can be chosen. AND trigger, scope: country; valid triggers: has_ethic, has_authority, has_valid_civic; everything else is undefined behavior!
-	## replace_scope = { root = country this = country }
+	## replace_scope = { this = country root = country }
 	possible = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	## replace_scope = { this = country root = country }
 	### scriptable value, scope: country; the (possible) government type with the biggest weight is assigned to the country
+	## replace_scope = { this = country root = country }
 	weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
@@ -220,19 +220,21 @@ government = {
 }
 
 civic_or_origin = {
-	## cardinality = 0..1
 	### AND trigger, no scope; use this to prevent the civic from being selectable by the player (UI). Possibly only works with DLC checks.
+	## cardinality = 0..1
+	## replace_scope = { this = no_scope root = no_scope }
 	playable = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	## cardinality = 0..1
 	### AND trigger, no scope; use this to prevent the civic from being selectable by the AI. Possibly only works with DLC checks.
+	## cardinality = 0..1
+	## replace_scope = { this = no_scope root = no_scope }
 	ai_playable = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
-	## cardinality = 0..1
 	### requirements list, supports country_type, ethics, authority and civics. See ../readme_requirements.txt
+	## cardinality = 0..1
 	possible = {
 		## cardinality = 0..1
 		text = localisation
@@ -242,8 +244,8 @@ civic_or_origin = {
 		alias_name[government_trigger] = alias_match_left[government_trigger]
 	}
 
-	## cardinality = 0..1
 	### requirements list, supports country_type, ethics, authority and civics. See ../readme_requirements.txt
+	## cardinality = 0..1
 	potential = {
 		## cardinality = 0..1
 		text = localisation
@@ -255,18 +257,18 @@ civic_or_origin = {
 
 	## cardinality = 0..1
 	icon = filepath
-	## cardinality = 0..1
 	### localisation of custom effects
-	description = localisation
 	## cardinality = 0..1
-	## replace_scope = { root = country this = country }
+	description = localisation
 	### scriptable weight for randomizing a civic; required, else the civic will not get assigned randomly
+	## cardinality = 0..1
+	## replace_scope = { this = country root = country }
 	random_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
-	## cardinality = 0..1
 	### modifier added to the country if the civic is selected and valid
+	## cardinality = 0..1
 	## replace_scope = { this = country root = country }
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
@@ -278,15 +280,15 @@ civic_or_origin = {
 	swap_type = {
 		## cardinality = 0..1
 		name = localisation # may not be (from vanilla)
-		## cardinality = 0..1
-		description = localisation
 		### In empire creation / galaxy setup, this has no scope. During the game, when there are actual countries existing, it is set to country scope.
 		### If you want to use country scope here, you must always check is_scope_valid first (see civic_devouring_swarm), or you will get errors or it won't work as intended.
+		## cardinality = 0..1
+		description = localisation
 		trigger = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
-		## cardinality = 0..1
 		### modifier that is applied to the country when triggers are evaluated as true
+		## cardinality = 0..1
 		modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
@@ -310,18 +312,18 @@ civic_or_origin = {
 		}
 		## cardinality = 0..1
 		advanced_start = bool
-		## cardinality = 0..1
 		### default: empty; trait set to enforce on the primary species. They cannot be removed, but more can be added if points/picks permit
+		## cardinality = 0..1
 		traits = {
 			## cardinality = 0..inf
 			trait = <trait.species_trait>
 		}
+		### Such a descriptive tag, this.
 		## cardinality = 0..1
-		###Such a descriptive tag, this.
 		non_colonizable_planet_class_neighbor = yes
 
-		## cardinality = 0..1
 		### default: none; if present, will enable secondary species customization in empire designer and will create secondary species & pops at galaxy generation time (see empire_init_create_capital_secondary_pops)
+		## cardinality = 0..1
 		has_secondary_species = {
 			title = localisation
 			## cardinality = 0..1
@@ -338,27 +340,27 @@ civic_or_origin = {
 
 	}
 	subtype[civic] = {
+		### default: yes
 		## cardinality = 0..1
-		###default: yes
 		pickable_at_start = bool
 
+		### default: yes, set to no to prevent adding or removing this after creation of the empire
 		## cardinality = 0..1
-		###default: yes, set to no to prevent adding or removing this after creation of the empire
 		modification = bool
 
+		### default: no
 		## cardinality = 0..1
-		###default: no
 		can_build_ruler_ship = bool
 
-		## cardinality = 0..1
 		### default: empty; trait set to enforce on the primary species
+		## cardinality = 0..1
 		traits = {
 			## cardinality = 0..inf
 			trait = <trait.species_trait>
 		}
 
-		## cardinality = 0..1
 		### default: none; if present, will enable secondary species customization in empire designer and will create secondary species & pops at galaxy generation time (see empire_init_create_capital_secondary_pops)
+		## cardinality = 0..1
 		has_secondary_species = {
 			title = localisation
 			## cardinality = 0..1
@@ -366,6 +368,12 @@ civic_or_origin = {
 				## cardinality = 1..5
 				trait = <trait>
 			}
+		}
+
+		## cardinality = 0..1
+		## replace_scope = { this = country root = country }
+		ai_weight = {
+			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		}
 	}
 }
