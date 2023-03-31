@@ -1,6 +1,8 @@
-type[button_effect] = {
-	path = "game/common/button_effects"
-	file_extension = .txt
+types = {
+	type[button_effect] = {
+		path = "game/common/button_effects"
+		file_extension = .txt
+	}
 }
 
 button_effect = {
