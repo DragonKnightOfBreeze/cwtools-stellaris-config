@@ -437,6 +437,8 @@ component_template = {
 		acceleration = float
 		## cardinality = 0..1
 		attack_range = float
+		## cardinality = 0..1
+		point_defence_targets = { enum[point_defence_target] }
 	}
 }
 
