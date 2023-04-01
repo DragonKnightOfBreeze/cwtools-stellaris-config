@@ -142,6 +142,8 @@ component_template = {
 	## cardinality = 0..1
 	ai_tag_weight = int
 	## cardinality = 0..1
+	ship_limit = int
+	## cardinality = 0..1
 	size_restriction = {
 		## cardinality = 0..inf
 		<ship_size>
