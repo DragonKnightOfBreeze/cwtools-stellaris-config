@@ -14,6 +14,9 @@ types = {
 		subtype[dangerous] = {
 			is_dangerous = yes
 		}
+		subtype[insight] = {
+			is_insight = yes
+		}
 		subtype[repeatable] = {
 			levels = int[-1..100]
 		}
