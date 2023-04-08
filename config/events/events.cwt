@@ -1,9 +1,97 @@
 types = {
 	## graph_related_types = { special_project anomaly_category }
 	type[event] = {
-		name_field = "id"
-
+		name_field = id
 		path = "game/events"
+		file_extension = .txt
+
+		subtype[hidden] = {
+			hide_window = yes
+		}
+		subtype[triggered] = {
+			is_triggered_only = yes
+		}
+		subtype[major] = {
+			major = yes
+		}
+		subtype[diplomatic] = {
+			diplomatic = yes
+		}
+		subtype[inherited] = {
+			base = <event>
+		}
+
+		## type_key_filter = event
+		subtype[scopeless_event] = {}
+		## type_key_filter = country_event
+		## push_scope = country
+		## display_name = Country Event
+		## abbreviation = CE
+		subtype[country_event] = {}
+		## type_key_filter = observer_event
+		## push_scope = country
+		## display_name = Observer Event
+		subtype[observer_event] = {}
+		## type_key_filter = pop_event
+		## push_scope = pop
+		## display_name = Pop Event
+		## abbreviation = PoE
+		subtype[pop_event] = {}
+		## type_key_filter = pop_faction_event
+		## push_scope = pop_faction
+		## display_name = Pop Faction Event
+		## abbreviation = PFE
+		subtype[pop_faction_event] = {}
+		## type_key_filter = planet_event
+		## push_scope = planet
+		## display_name = Planet Event
+		## abbreviation = PE
+		subtype[planet_event] = {}
+		## type_key_filter = first_contact_event
+		## push_scope = first_contact
+		## display_name = First Contact Event
+		## abbreviation = FCE
+		subtype[first_contact_event] = {}
+		## type_key_filter = ship_event
+		## push_scope = ship
+		## display_name = Ship Event
+		## abbreviation = SE
+		subtype[ship_event] = {}
+		## type_key_filter = fleet_event
+		## push_scope = fleet
+		## display_name = Fleet Event
+		## abbreviation = FE
+		subtype[fleet_event] = {}
+		## type_key_filter = system_event
+		## push_scope = system
+		## display_name = System Event
+		## abbreviation = SyE
+		subtype[system_event] = {}
+		## type_key_filter = starbase_event
+		## push_scope = starbase
+		## display_name = Starbase Event
+		## abbreviation = StE
+		subtype[starbase_event] = {}
+		## type_key_filter = espionage_operation_event
+		## push_scope = espionage_operation
+		## display_name = Espionage Operation Event
+		## abbreviation = EOE
+		subtype[espionage_operation_event] = {}
+		## type_key_filter = leader_event
+		## push_scope = leader
+		## display_name = Leader Event
+		## abbreviation = LE
+		subtype[leader_event] = {}
+		## type_key_filter = situation_event
+		## push_scope = situation
+		## display_name = Situation Event
+		## abbreviation = LE
+		subtype[situation_event] = {}
+		## type_key_filter = agreement_event
+		## push_scope = agreement
+		## display_name = Agreement Event
+		## abbreviation = LE
+		subtype[agreement_event] = {}
 
 		localisation = {
 			subtype[!hidden] = {
@@ -13,116 +101,9 @@ types = {
 			}
 		}
 		images = {
-			subtype[default] = {
+			subtype[!hidden] = {
 				picture = "#picture" # <sprite>, can be triggered
 			}
-		}
-
-		## type_key_filter = country_event
-		## push_scope = country
-		## display_name = Country Event
-		## abbreviation = CE
-		subtype[country] = {
-		}
-		## type_key_filter = observer_event
-		## push_scope = country
-		## display_name = Observer Event
-		subtype[observer] = {
-		}
-		## type_key_filter = pop_event
-		## push_scope = pop
-		## display_name = Pop Event
-		## abbreviation = PoE
-		subtype[pop] = {
-		}
-		## type_key_filter = pop_faction_event
-		## push_scope = pop_faction
-		## display_name = Pop Faction Event
-		## abbreviation = PFE
-		subtype[pop_faction] = {
-		}
-		## type_key_filter = planet_event
-		## push_scope = planet
-		## display_name = Planet Event
-		## abbreviation = PE
-		subtype[planet] = {
-		}
-		## type_key_filter = first_contact_event
-		## push_scope = first_contact
-		## display_name = First Contact Event
-		## abbreviation = FCE
-		subtype[first_contact] = {
-		}
-		## type_key_filter = ship_event
-		## push_scope = ship
-		## display_name = Ship Event
-		## abbreviation = SE
-		subtype[ship] = {
-		}
-		## type_key_filter = fleet_event
-		## push_scope = fleet
-		## display_name = Fleet Event
-		## abbreviation = FE
-		subtype[fleet] = {
-		}
-		## type_key_filter = system_event
-		## push_scope = system
-		## display_name = System Event
-		## abbreviation = SyE
-		subtype[system] = {
-		}
-		## type_key_filter = starbase_event
-		## push_scope = starbase
-		## display_name = Starbase Event
-		## abbreviation = StE
-		subtype[starbase] = {
-		}
-		## type_key_filter = espionage_operation_event
-		## push_scope = espionage_operation
-		## display_name = Espionage Event
-		## abbreviation = EOE
-		subtype[espionage_operation] = {
-		}
-		## type_key_filter = leader_event
-		## push_scope = leader
-		## display_name = Leader Event
-		## abbreviation = LE
-		subtype[leader] = {
-		}
-		## type_key_filter = situation_event
-		## push_scope = situation
-		## display_name = Situation Event
-		## abbreviation = LE
-		subtype[situation] = {
-		}
-		## type_key_filter = agreement_event
-		## push_scope = agreement
-		## display_name = Agreement Event
-		## abbreviation = LE
-		subtype[agreement] = {
-		}
-		## type_key_filter = event
-		subtype[scopeless] = {
-		}
-
-		subtype[hidden] = {
-			hide_window = yes
-		}
-		subtype[diplomatic] = {
-			diplomatic = yes
-		}
-		subtype[default] = {
-			## cardinality = 0..1
-			hide_window = no
-		}
-		subtype[triggered] = {
-			is_triggered_only = yes
-		}
-		subtype[major] = {
-			major = yes
-		}
-		subtype[inherited] = {
-			base = <event>
 		}
 	}
 }
@@ -141,6 +122,26 @@ event = {
 		## cardinality = 0..1
 		show_sound_clear = yes
 	}
+
+	subtype[hidden] = {
+		## severity = info
+		## cardinality = 0..1
+		title = OK
+		## severity = info
+		## cardinality = 0..1
+		desc = OK
+
+		## severity = info
+		## cardinality = 0..0
+		picture = scalar
+		## severity = info
+		## cardinality = 0..0
+		location = scalar
+		## severity = info
+		## cardinality = 0..0
+		show_sound = scalar
+	}
+
 	subtype[!hidden] = {
 		title = localisation
 		desc = localisation
@@ -283,27 +284,7 @@ event = {
 		}
 	}
 
-	subtype[hidden] = {
-		## severity = info
-		## cardinality = 0..1
-		title = OK
-		## severity = info
-		## cardinality = 0..1
-		desc = OK
-
-		## severity = info
-		## cardinality = 0..0
-		picture = scalar
-		## severity = info
-		## cardinality = 0..0
-		location = scalar
-		## severity = info
-		## cardinality = 0..0
-		show_sound = scalar
-	}
-
-
-	subtype[default] = {
+	subtype[!hidden] = {
 		## cardinality = 1..inf
 		picture = <sprite>
 		## cardinality = 0..inf
@@ -442,7 +423,7 @@ event = {
 		custom_gui_option = scalar #same as previous, needs to be gui_type
 	}
 
-	subtype[planet] = {
+	subtype[planet_event] = {
 		## cardinality = 0..1
 		###Like trigger, but only uses certain simple triggers
 		pre_triggers = {
@@ -450,17 +431,17 @@ event = {
 		}
 	}
 
-	subtype[fleet] = {
+	subtype[fleet_event] = {
 		## cardinality = 0..1
 		archaeology = bool
 	}
 
-	subtype[first_contact] = {
+	subtype[first_contact_event] = {
 		## cardinality = 0..1
 		first_contact = bool
 	}
 
-	subtype[espionage_operation] = {
+	subtype[espionage_operation_event] = {
 		## cardinality = 0..1
 		espionage_operation = bool
 	}

@@ -38,7 +38,7 @@ observation_station_mission = {
 	## cardinality = 0..1
 	monthly_progress = float[0.0..1.0]
 	## cardinality = 0..1
-	completion_event = <event.country>
+	completion_event = <event.country_event>
 	## cardinality = 0..1
 	completion_sound = <sound_effect>
 

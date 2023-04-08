@@ -5,7 +5,8 @@ types = {
 		path = "game/common/technology"
 		file_extension = .txt
 		path_strict = yes
-		subtype[start_tech] = {
+
+		subtype[start] = {
 			start_tech = yes
 		}
 		subtype[rare] = {
@@ -20,6 +21,7 @@ types = {
 		subtype[repeatable] = {
 			levels = int[-1..100]
 		}
+
 		localisation = {
 			## required
 			Name = "$"
@@ -64,12 +66,12 @@ technology = {
 	## cardinality = 0..1
 	icon = icon[gfx/interface/icons/technologies]
 
-	subtype[start_tech] = {
+	subtype[start] = {
 		## cardinality = 0..1
 		cost = int
 	}
 
-	subtype[!start_tech] = {
+	subtype[!start] = {
 		cost = int
 		## cardinality = 0..1
 		is_rare = bool
@@ -159,7 +161,7 @@ technology = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
-	subtype[start_tech] = {
+	subtype[start] = {
 		## cardinality = 0..1
 		## replace_scope = { this = country root = country }
 		starting_potential = {
