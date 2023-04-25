@@ -26,7 +26,7 @@ types = {
 		type[piechart] = {}
 
 		images = {
-			subtype[!progressbar&&!piechart] = {
+			subtype[!progressbar&!piechart] = {
 				## primary
 				texture = "#textureFile" # filepath
 				## primary
@@ -43,7 +43,7 @@ types = {
 }
 
 sprite = {
-	subtype[!progressbar&&!sprite] = {
+	subtype[!progressbar&!piechart] = {
 		name = scalar
 		## file_extensions = { .dds .png .tga }
 		## cardinality = 0..1
