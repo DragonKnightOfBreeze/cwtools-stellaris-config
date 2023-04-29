@@ -152,6 +152,11 @@ component_template = {
 		null
 	}
 	## cardinality = 0..1
+	blocked_by = {
+		## cardinality = 0..inf
+		<component_template>
+	}
+	## cardinality = 0..1
 	custom_tooltip = localisation
 	## replace_scope = { root = ship this = ship }
 	alias_name[triggered_ship_modifier] = alias_match_left[triggered_ship_modifier]
