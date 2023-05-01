@@ -824,6 +824,7 @@ alias[effect:locked_random_list] = {
 ## scopes = any
 alias[effect:random] = {
 	chance = int_value_field[1...99]
+	## cardinality = 1..inf
 	alias_name[effect] = alias_match_left[effect]
 }
 
