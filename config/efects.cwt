@@ -736,6 +736,9 @@ alias[effect:remove_relation_flag] = {
 alias[effect:change_government] = random
 ### Change the scoped country's government authority and/or civics
 ## scopes = { country }
+alias[effect:change_government] = <authority>
+### Change the scoped country's government authority and/or civics
+## scopes = { country }
 alias[effect:change_government] = {
 	## cardinality = 0..1
 	authority = random
@@ -4114,6 +4117,9 @@ alias[effect:disable_building] = <building>
 ### Ruins a single instance of a specific building on the scoped planet
 ## scopes = { planet }
 alias[effect:ruin_building] = <building>
+### Ruins a single instance of a specific building on the scoped planet
+## scopes = { planet }
+alias[effect:ruin_building] = random_no_capital
 ### Locks the Situation so it will not progress until unlocked.
 ## scopes = { situation }
 alias[effect:set_situation_locked] = bool
