@@ -4050,7 +4050,7 @@ alias[effect:add_blocker] = {
 ## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
 alias[effect:set_saved_date] = {
 	### Refer to this in locs; note: this is actually a <country/whatever>_flag
-	key = scalar #todo: actually a flag of the current scope type
+	key = value_set[variable] # TODO actually a flag of the current scope type, currently threat as a variable
 	## cardinality = 0..1
 	### Time until the date you wish to save. Default is present
 	days_from_present = int_value_field
