@@ -21,77 +21,79 @@ types = {
 			base = <event>
 		}
 
+		## group = event_type
 		## type_key_filter = event
-		subtype[scopeless_event] = {}
+		subtype[scopeless] = {}
+		## group = event_type
 		## type_key_filter = country_event
 		## push_scope = country
 		## display_name = Country Event
-		## abbreviation = CE
-		subtype[country_event] = {}
+		subtype[country] = {}
+		## group = event_type
 		## type_key_filter = observer_event
 		## push_scope = country
 		## display_name = Observer Event
-		subtype[observer_event] = {}
+		subtype[observer] = {}
+		## group = event_type
 		## type_key_filter = pop_event
 		## push_scope = pop
 		## display_name = Pop Event
-		## abbreviation = PoE
-		subtype[pop_event] = {}
+		subtype[pop] = {}
+		## group = event_type
 		## type_key_filter = pop_faction_event
 		## push_scope = pop_faction
 		## display_name = Pop Faction Event
-		## abbreviation = PFE
-		subtype[pop_faction_event] = {}
+		subtype[pop_faction] = {}
+		## group = event_type
 		## type_key_filter = planet_event
 		## push_scope = planet
 		## display_name = Planet Event
-		## abbreviation = PE
-		subtype[planet_event] = {}
+		subtype[planet] = {}
+		## group = event_type
 		## type_key_filter = first_contact_event
 		## push_scope = first_contact
 		## display_name = First Contact Event
-		## abbreviation = FCE
-		subtype[first_contact_event] = {}
+		subtype[first_contact] = {}
+		## group = event_type
 		## type_key_filter = ship_event
 		## push_scope = ship
 		## display_name = Ship Event
-		## abbreviation = SE
-		subtype[ship_event] = {}
+		subtype[ship] = {}
+		## group = event_type
 		## type_key_filter = fleet_event
 		## push_scope = fleet
 		## display_name = Fleet Event
-		## abbreviation = FE
-		subtype[fleet_event] = {}
+		subtype[fleet] = {}
+		## group = event_type
 		## type_key_filter = system_event
 		## push_scope = system
 		## display_name = System Event
-		## abbreviation = SyE
-		subtype[system_event] = {}
+		subtype[system] = {}
+		## group = event_type
 		## type_key_filter = starbase_event
 		## push_scope = starbase
 		## display_name = Starbase Event
-		## abbreviation = StE
-		subtype[starbase_event] = {}
+		subtype[starbase] = {}
+		## group = event_type
 		## type_key_filter = espionage_operation_event
 		## push_scope = espionage_operation
 		## display_name = Espionage Operation Event
-		## abbreviation = EOE
-		subtype[espionage_operation_event] = {}
+		subtype[espionage_operation] = {}
+		## group = event_type
 		## type_key_filter = leader_event
 		## push_scope = leader
 		## display_name = Leader Event
-		## abbreviation = LE
-		subtype[leader_event] = {}
+		subtype[leader] = {}
+		## group = event_type
 		## type_key_filter = situation_event
 		## push_scope = situation
 		## display_name = Situation Event
-		## abbreviation = LE
-		subtype[situation_event] = {}
+		subtype[situation] = {}
+		## group = event_type
 		## type_key_filter = agreement_event
 		## push_scope = agreement
 		## display_name = Agreement Event
-		## abbreviation = LE
-		subtype[agreement_event] = {}
+		subtype[agreement] = {}
 
 		localisation = {
 			subtype[!hidden] = {
@@ -423,7 +425,7 @@ event = {
 		custom_gui_option = scalar #same as previous, needs to be gui_type
 	}
 
-	subtype[planet_event] = {
+	subtype[planet] = {
 		## cardinality = 0..1
 		###Like trigger, but only uses certain simple triggers
 		pre_triggers = {
@@ -431,17 +433,17 @@ event = {
 		}
 	}
 
-	subtype[fleet_event] = {
+	subtype[fleet] = {
 		## cardinality = 0..1
 		archaeology = bool
 	}
 
-	subtype[first_contact_event] = {
+	subtype[first_contact] = {
 		## cardinality = 0..1
 		first_contact = bool
 	}
 
-	subtype[espionage_operation_event] = {
+	subtype[espionage_operation] = {
 		## cardinality = 0..1
 		espionage_operation = bool
 	}

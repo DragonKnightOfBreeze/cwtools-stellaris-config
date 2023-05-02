@@ -104,7 +104,7 @@ archaeological_site_type = {
 		### rune icon gfx type.
 		icon = <sprite>
 		### event to fire when the stage has been completed.
-		event = <event.fleet_event>
+		event = <event.fleet>
 	}
 
 	### Effect to fire when a roll fails, with scope this=fleet, from=archaeological site.

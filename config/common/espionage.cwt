@@ -224,7 +224,7 @@ espionage_operation = {
 		### icon gfx type.
         icon = <sprite>
 		### event to fire when finished the state.
-        event = <event.espionage_operation_event>
+        event = <event.espionage_operation>
 	}
 
 	### Effect to fire when a roll fails, with scope this=spy operation.

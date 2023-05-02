@@ -73,11 +73,11 @@ anomaly_category = {
 
 	### Shorthand for on_success = { 1 = { anomaly_event = <event id> } }
 	### Only use if there is only one outcome in the category
-	on_success = <event.ship_event>
+	on_success = <event.ship>
 	### Picks anomaly event to fire; similar to random_list
 	on_success = {
 		## cardinality = 0..100
-		int = <event.ship_event>
+		int = <event.ship>
 		## cardinality = 0..100
 		int = {
 			### Individual outcomes default to max_once = yes
@@ -89,7 +89,7 @@ anomaly_category = {
 
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 
-			anomaly_event = <event.ship_event>
+			anomaly_event = <event.ship>
 		}
 	}
 }

@@ -33,7 +33,7 @@ first_contact_stage = {
 		event_weight = {
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		}
-		event = <event.first_contact_event>
+		event = <event.first_contact>
 	}
 
 	on_roll_failed = {
