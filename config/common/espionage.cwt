@@ -3,18 +3,26 @@ types = {
 	type[espionage_category] = {
 		path = "game/common/espionage_operation_categories"
 		file_extension = .txt
+		localisation = {
+			## required
+			name = "$"
+			## required
+			desc = "$_desc"
+		}
 	}
 	type[espionage_asset] = {
 		path = "game/common/espionage_assets"
 		file_extension = .txt
+		localisation = {
+			## required
+			name = "$"
+			## required
+			desc = "$_desc"
+		}
 	}
 	type[espionage_operation] = {
 		path = "game/common/espionage_operation_types"
 		file_extension = .txt
-		localisation = {
-			## required
-			Name = "$"
-		}
 		subtype[no_target] = {
 			## cardinality = 0..1
 			target = none
@@ -42,6 +50,16 @@ types = {
 		}
 		subtype[spynetwork] = {
 			target = spynetwork
+		}
+		localisation = {
+			## required
+			name = "$"
+			## required
+			desc = "$_desc"
+			## required
+			no_dlc_desc = "$_no_dlc_desc"
+			## required
+			on_success = "$_on_success"
 		}
 		images = {
 			picture = "#picture" # <sprite>
