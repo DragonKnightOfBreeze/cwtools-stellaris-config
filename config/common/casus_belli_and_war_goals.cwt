@@ -1,5 +1,4 @@
 types = {
-	## prefix = cb_
 	type[casus_belli] = {
 		path = "game/common/casus_belli"
 		file_extension = .txt
@@ -10,7 +9,6 @@ types = {
 			Hint = "casus_belli_$_acquire_hint"
 		}
 	}
-	## prefix = wg_
 	type[war_goal] = {
 		path = "game/common/war_goals"
 		localisation = {

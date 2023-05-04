@@ -69,7 +69,7 @@ modifiers = {
 	# district modifiers
 	<district.capped>_max = { Planets }
 	planet_<district>_build_speed_mult = { Planets }
-	planet_<district.capped>_uncapped_build_speed_mult = { Planets }
+	# planet_<district.capped>_uncapped_build_speed_mult = { Planets }
 
 	# bypass modifiers
 	<bypass>_empire_windup_mult = { Countries }
