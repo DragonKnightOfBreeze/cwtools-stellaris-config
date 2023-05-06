@@ -40,14 +40,14 @@ types = {
 			Description = "$_desc"
 			Effect = "#description"
 		}
-		## prefix = origin_
-		subtype[origin] = {
-			is_origin = yes
-		}
 		## prefix = civic_
 		subtype[civic] = {
 			## cardinality = 0..1
 			is_origin = no
+		}
+		## prefix = origin_
+		subtype[origin] = {
+			is_origin = yes
 		}
 		images = {
 			## primary
@@ -294,6 +294,48 @@ civic_or_origin = {
 		}
 	}
 
+	subtype[civic] = {
+		### default: 1
+		## cardinality = 0..1
+		cost = int[0..inf]
+
+		### default: yes
+		## cardinality = 0..1
+		pickable_at_start = bool
+
+		### default: yes, set to no to prevent adding or removing this after creation of the empire
+		## cardinality = 0..1
+		modification = bool
+
+		### default: no
+		## cardinality = 0..1
+		can_build_ruler_ship = bool
+
+		### default: empty; trait set to enforce on the primary species
+		## cardinality = 0..1
+		traits = {
+			## cardinality = 0..inf
+			trait = <trait.species_trait>
+		}
+
+		### default: none; if present, will enable secondary species customization in empire designer and will create secondary species & pops at galaxy generation time (see empire_init_create_capital_secondary_pops)
+		## cardinality = 0..1
+		has_secondary_species = {
+			title = localisation
+			## cardinality = 0..1
+			traits = {
+				## cardinality = 1..5
+				trait = <trait>
+			}
+		}
+
+		## cardinality = 0..1
+		## replace_scope = { this = country root = country }
+		ai_weight = {
+			alias_name[modifier_rule] = alias_match_left[modifier_rule]
+		}
+	}
+
 	subtype[origin] = {
 		is_origin = yes
 		## cardinality = 0..1
@@ -338,43 +380,6 @@ civic_or_origin = {
 		## cardinality = 0..1
 		preferred_planet_class_neighbor = no
 
-	}
-	subtype[civic] = {
-		### default: yes
-		## cardinality = 0..1
-		pickable_at_start = bool
-
-		### default: yes, set to no to prevent adding or removing this after creation of the empire
-		## cardinality = 0..1
-		modification = bool
-
-		### default: no
-		## cardinality = 0..1
-		can_build_ruler_ship = bool
-
-		### default: empty; trait set to enforce on the primary species
-		## cardinality = 0..1
-		traits = {
-			## cardinality = 0..inf
-			trait = <trait.species_trait>
-		}
-
-		### default: none; if present, will enable secondary species customization in empire designer and will create secondary species & pops at galaxy generation time (see empire_init_create_capital_secondary_pops)
-		## cardinality = 0..1
-		has_secondary_species = {
-			title = localisation
-			## cardinality = 0..1
-			traits = {
-				## cardinality = 1..5
-				trait = <trait>
-			}
-		}
-
-		## cardinality = 0..1
-		## replace_scope = { this = country root = country }
-		ai_weight = {
-			alias_name[modifier_rule] = alias_match_left[modifier_rule]
-		}
 	}
 }
 
