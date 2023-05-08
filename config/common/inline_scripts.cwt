@@ -8,6 +8,6 @@ inline[inline_script] = filepath[common/inline_scripts/,.txt]
 inline[inline_script] = {
 	## cardinality = 1..1
 	script = filepath[common/inline_scripts/,.txt]
-	## cardinality = 1..inf
+	## cardinality = 0..inf
 	$parameter = scalar # accept several statements
 }
