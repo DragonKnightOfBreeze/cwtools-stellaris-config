@@ -1,6 +1,5 @@
 types = {
 	## type_key_filter <> random_list
-	## prefix = sc_
 	type[star_class] = {
 		path = "game/common/star_classes"
 		file_extension = .txt

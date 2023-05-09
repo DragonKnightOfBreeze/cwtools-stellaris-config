@@ -27,7 +27,6 @@ types = {
 			portrait = "portrait" # <sprite>
 		}
 	}
-	## prefix = artifact_
 	type[artifact_action] = {
 		path = "game/common/artifact_actions"
 		file_extension = .txt

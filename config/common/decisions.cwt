@@ -1,5 +1,4 @@
 types = {
-	## prefix = decision_
 	type[decision] = {
 		path = "game/common/decisions"
 		file_extension = .txt

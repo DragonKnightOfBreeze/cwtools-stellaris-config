@@ -1,5 +1,4 @@
 types = {
-	## prefix = district_
 	type[district] = {
 		path = "game/common/districts"
 		file_extension = .txt

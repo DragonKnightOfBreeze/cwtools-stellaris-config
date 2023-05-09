@@ -85,7 +85,6 @@ types = {
 			uses_modifiers = yes
 		}
 	}
-	## prefix = citizenship_
 	type[citizenship_type] = {
 		path = "game/common/species_rights/citizenship_types"
 		file_extension = .txt
@@ -98,7 +97,6 @@ types = {
 			"Delayed tooltip" = "$_tooltip_delayed"
 		}
 	}
-	## prefix = colonization_control_
 	type[colonization_control] = {
 		path = "game/common/species_rights/colonization_controls"
 		file_extension = .txt
@@ -111,7 +109,6 @@ types = {
 			"Delayed tooltip" = "$_tooltip_delayed"
 		}
 	}
-	## prefix = living_standard_
 	type[living_standard] = {
 		path = "game/common/species_rights/living_standards"
 		file_extension = .txt
@@ -124,7 +121,6 @@ types = {
 			"Delayed tooltip" = "$_tooltip_delayed"
 		}
 	}
-	## prefix = migration_control_
 	type[migration_control] = {
 		path = "game/common/species_rights/migration_controls"
 		file_extension = .txt
@@ -137,7 +133,6 @@ types = {
 			"Delayed tooltip" = "$_tooltip_delayed"
 		}
 	}
-	## prefix = military_service_
 	type[military_service_type] = {
 		path = "game/common/species_rights/military_service_types"
 		file_extension = .txt
@@ -150,7 +145,6 @@ types = {
 			"Delayed tooltip" = "$_tooltip_delayed"
 		}
 	}
-	## prefix = population_control_
 	type[population_control] = {
 		path = "game/common/species_rights/population_controls"
 		file_extension = .txt
@@ -163,7 +157,6 @@ types = {
 			"Delayed tooltip" = "$_tooltip_delayed"
 		}
 	}
-	## prefix = purge_
 	type[purge_type] = {
 		path = "game/common/species_rights/purge_types"
 		file_extension = .txt
@@ -176,7 +169,6 @@ types = {
 			"Delayed tooltip" = "$_tooltip_delayed"
 		}
 	}
-	## prefix = slavery_
 	type[slavery_type] = {
 		path = "game/common/species_rights/slavery_types"
 		file_extension = .txt

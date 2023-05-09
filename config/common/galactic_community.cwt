@@ -1,5 +1,4 @@
 types = {
-	## prefix = galactic_focus_
 	type[galactic_focus] = {
 		path = "game/common/galactic_focuses"
 		file_extension = .txt

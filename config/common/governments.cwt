@@ -1,5 +1,4 @@
 types = {
-	## prefix = auth_
 	type[authority] = {
 		path = "game/common/governments/authorities"
 		file_extension = .txt
@@ -18,7 +17,6 @@ types = {
 			icon = "gfx/interface/icons/governments/authorities/$.dds" # inferred
 		}
 	}
-	## prefix = gov_
 	type[government] = {
 		path = "game/common/governments"
 		file_extension = .txt
@@ -40,12 +38,10 @@ types = {
 			Description = "$_desc"
 			Effect = "#description"
 		}
-		## prefix = civic_
 		subtype[civic] = {
 			## cardinality = 0..1
 			is_origin = no
 		}
-		## prefix = origin_
 		subtype[origin] = {
 			is_origin = yes
 		}

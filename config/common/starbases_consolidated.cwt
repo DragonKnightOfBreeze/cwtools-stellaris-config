@@ -12,7 +12,6 @@ types = {
 			icon = "#icon" # <sprite>
 		}
 	}
-	## prefix = starbase_level_
 	type[starbase_level] = {
 		path = "game/common/starbase_levels"
 		file_extension = .txt

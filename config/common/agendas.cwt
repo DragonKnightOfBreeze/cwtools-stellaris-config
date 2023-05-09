@@ -1,5 +1,4 @@
 types = {
-	## prefix = agenda_
 	type[agenda] = {
 		path = "game/common/agendas"
 		file_extension = .txt

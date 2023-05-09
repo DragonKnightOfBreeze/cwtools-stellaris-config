@@ -46,7 +46,6 @@ types = {
 			# TODO inherit icon from parent original tradition if inherit_icon = yes
 		}
 	}
-	## prefix = tradition_
 	type[tradition_category] = { #this defines the contents of tradition trees
 		path = "game/common/tradition_categories"
 		localisation = {

@@ -1,5 +1,4 @@
 types = {
-	## prefix = col_
 	type[colony_type] = {
 		path = "game/common/colony_types"
 		file_extension = .txt
@@ -14,18 +13,15 @@ types = {
 			icon = "#icon" # <sprite>
 		}
 	}
-	## prefix = automate_
 	type[colony_automation] = {
 		path = "game/common/colony_automation"
 		file_extension = .txt
 		path_strict = yes
 	}
-	## prefix = planet_automation_
 	type[colony_automation_category] = {
 		path = "game/common/colony_automation_categories"
 		file_extension = .txt
 	}
-	## prefix = automate_
 	type[colony_automation_exception] = {
 		path = "game/common/colony_automation_exceptions"
 		file_extension = .txt

@@ -14,7 +14,6 @@ types = {
 		subtype[scientist_trait] = {
 			leader_class = { scientist }
 		}
-		## prefix = trait_
 		subtype[species_trait] = {
 			## cardinality = 0..1
 			leader_trait = no

@@ -1,5 +1,4 @@
 types = {
-	## prefix = specialist_
 	type[specialist_subject_type] = {
 		path = "game/common/specialist_subject_types"
 		file_extension = .txt

@@ -3,7 +3,6 @@ types = {
 		path = "game/common/intel_categories"
 		file_extension = .txt
 	}
-	## prefix = level_
 	type[intel_level] = {
 		path = "game/common/intel_levels"
 		file_extension = .txt

@@ -1,5 +1,4 @@
 types = {
-	## prefix = tech_
 	## graph_related_types = {}
 	type[technology] = {
 		path = "game/common/technology"
