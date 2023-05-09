@@ -78,6 +78,7 @@ types = {
 			Name = "$"
 			## required
 			Description = "$_desc"
+			Effect = "#description"
 		}
 	}
 }
