@@ -392,10 +392,10 @@ enums = {
 
 	#these are tied to bombardment stances somehow, but I have no idea how - exnihil
 	#TODO - link this to bombardment stances
+	## search_scope_type = definition
 	complex_enum[model_states] = {
 		path = "game/gfx"
 		file_extension = .asset
-		search_scope_type = definition
 		start_from_root = yes
 		name = {
 			entity = {
@@ -406,10 +406,10 @@ enums = {
 		}
 	}
 
+	## search_scope_type = definition
 	complex_enum[model_locators] = {
 		path = "game/gfx"
 		file_extension = .asset
-		search_scope_type = definition
 		start_from_root = yes
 		name = {
 			entity = {
@@ -425,10 +425,10 @@ enums = {
 		}
 	}
 
+	## search_scope_type = definition
 	complex_enum[model_attachments] = {
 		path = "game/gfx"
 		file_extension = .asset
-		search_scope_type = definition
 		start_from_root = yes
 		name = {
 			entity = {

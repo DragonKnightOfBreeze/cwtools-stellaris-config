@@ -5003,7 +5003,6 @@ alias[effect:ordered_planet_army] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
-
 ### Iterate through each army on the planet (not in ground combat), regardless of owner. - executes the enclosed effects on all of them for which the limit triggers return true
 ## scopes = { planet }
 ## push_scope = army
@@ -5012,7 +5011,6 @@ alias[effect:every_planet_army] = {
 	limit = { alias_name[trigger] = alias_match_left[trigger] }
 	alias_name[effect] = alias_match_left[effect]
 }
-
 
 ### Iterate through each army currently defending the planet in ground combat - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
 ## scopes = { planet }
