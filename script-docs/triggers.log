@@ -1,4 +1,4 @@
-[01:26:20][game_application.cpp:2091]: 
+[10:05:25][game_application.cpp:2097]: 
 == TRIGGER DOCUMENTATION ==
 text - For 'desc={trigger={' use. Shows custom text
 text = <text>
@@ -84,6 +84,22 @@ happiness - Checks the pop's happiness percentage
 happiness < 0.5
 Supported Scopes: pop
 
+leader_years_of_service - Checks the scope leader's years of service
+years_of_service > 25
+Supported Scopes: leader
+
+num_leader_traits - Checks the number of leader traits or total tiers of traits for a specific leader
+num_leader_traits = {  value > 2/variable  is_councilor = <any(default)/yes(only)/no(only)>  negative <any(default)/no(only)/yes(only)>  count_tiers = <yes/no(default)> }
+Supported Scopes: leader
+
+is_ruler - Checks if scoped leader is the Ruler of the Empire 
+is_ruler = yes/no
+Supported Scopes: leader
+
+is_heir - Checks if scoped leader is the Heir of the Empire 
+is_heir = yes/no
+Supported Scopes: leader
+
 agreement_preset - Checks if the agreement has the specified preset
 agreement_preset = <preset key>
 Supported Scopes: agreement
@@ -91,6 +107,10 @@ Supported Scopes: agreement
 is_half_species - Check if scoped species is half species of specific/any species
 is_half_species = <target/any>
 Supported Scopes: species
+
+get_councilor_level - Get the level of a specific councilor 
+get_councilor_level = { type = <key> }
+Supported Scopes: country
 
 faction_approval - Checks the scoped faction's approval percentage
 faction_approval < 0.9
@@ -462,6 +482,14 @@ has_potential_claims - Checks if the country has any potential claims they can m
 has_potential_claims = yes/no
 Supported Scopes: country
 
+is_councilor_type - Checks if the leader holds a specific Councilor type
+is_councilor_type = councilor_research
+Supported Scopes: leader
+
+is_ethic_represented_on_council - Checks if any Councilor has a given ethic.
+is_ethic_represented_on_council = ethic_materialist
+Supported Scopes: country
+
 civics_count - Checks the countrys' number of civics
 civics_count < 3
 Supported Scopes: country
@@ -616,9 +644,9 @@ has_trait - Checks if a pop/leader/species/country's dominant species has a cert
 has_trait = leader_trait_carefree
 Supported Scopes: country pop leader species dlc_recommendation
 
-has_ethic - Checks if a country has a certain ethos
+has_ethic - Checks if a country/pop/leader/faction has a certain ethos
 has_ethic = ethic_fanatic_pacifist
-Supported Scopes: country pop dlc_recommendation
+Supported Scopes: country pop leader pop_faction dlc_recommendation
 
 is_owned_by - Checks if the planet/system/army/ship is owned by the target country
 is_owned_by = <target>
@@ -670,6 +698,30 @@ Supported Scopes: country
 
 has_civic_in_slot - Checks if the country has a civic in a slot 
 has_civic_in_slot = { civic = civic_galactic_sovereign index = 2 }
+Supported Scopes: country
+
+has_total_civic_points - Compares the amount of total civic points.
+has_total_civic_points >= <value>
+Supported Scopes: country
+
+has_unused_civic_points - Compares the amount of unused civic points.
+has_unused_civic_points >= <value>
+Supported Scopes: country
+
+num_candidate_supported - Compares the number of times an election candidate was supported.
+num_candidate_supported >= <value>
+Supported Scopes: leader
+
+council_agenda_progress_percent - Compares the progress (0-1) of the current Agenda.
+council_agenda_progress_percent >= <value>
+Supported Scopes: country
+
+has_agenda_selected - Checks if the country has a specific Council Agenda selected, or any at all
+has_agenda_selected = <yes/any/no/none/type>
+Supported Scopes: country
+
+has_unlocked_council_positions - Compares the amount of unlocked council positions, typically from 'unlock_council_slots'
+has_unlocked_council_positions >= <value>
 Supported Scopes: country
 
 has_branch_office - Check if the planet has a branch office owned by target country/any country/no country
@@ -775,6 +827,10 @@ Supported Scopes: country
 has_job - Checks if the pop has a specific job, or any job if set to yes
 has_job = <key/yes>
 Supported Scopes: pop
+
+has_background_job - Checks if the leader's background contains a specific previous job, or any job if set to yes
+has_background_job = <key/yes>
+Supported Scopes: leader
 
 has_planet_modifier - Checks if the planet has a specific planet modifier
 has_planet_modifier = pm_titanic_life
@@ -1393,9 +1449,9 @@ member_of_faction - Checks if the pop belongs to any, or a specific, faction
 member_of_faction = no/<pop faction scope>/isolationist
 Supported Scopes: pop
 
-support - Checks the faction's support level
+support - Checks the support level of a faction, or that of a leader's faction(s)
  support > 0.5
-Supported Scopes: pop_faction
+Supported Scopes: leader pop_faction
 
 is_ideal_planet_class - Checks if the planet is of the ideal class for target country, species or pop
 is_ideal_planet_class = { who = <target> status = yes/no }
@@ -1487,10 +1543,6 @@ Supported Scopes: country
 num_taken_planets - Checks how many planets the country has taken from target country
 num_taken_planets = { target = <target> value > 1 }
 Supported Scopes: country
-
-leader_of_faction - Checks if the leader is the leader of a faction
-leader_of_faction = yes/no/<pop faction scope>/isolationist
-Supported Scopes: leader
 
 is_scope_valid - Checks if the current scope is valid
 is_scope_valid = yes
@@ -1588,6 +1640,10 @@ is_in_combat - Checks if the ship/fleet is engaged in combat
 is_in_combat = yes
 Supported Scopes: ship fleet
 
+is_in_frontline - Checks if the army is currently in the frontline of a combat
+is_in_frontline = yes
+Supported Scopes: army
+
 any_member - Iterate through each member of the federation - checks whether the enclosed triggers return true for any of them
 any_member = { <triggers> }
 Supported Scopes: federation
@@ -1680,6 +1736,10 @@ has_election_type - Checks if the country has a specific election type
 has_election_type = oligarchic
 Supported Scopes: country
 
+is_background_planet - Check if a planet is the background planet of a leader 
+is_background_planet = <target>
+Supported Scopes: leader
+
 has_ai_personality - Checks if an AI empire has a certain personality type
 has_ai_personality = fanatic_befrienders
 Supported Scopes: country
@@ -1766,11 +1826,11 @@ Supported Scopes: ship fleet
 
 count_starbase_modules - Checks the number of starbase modules that are of the specified type or not
 count_starbase_modules = { type = anchorage (optional) include_being_constructed = yes/no count < 12/variable }
-Supported Scopes: galactic_object starbase
+Supported Scopes: country galactic_object starbase
 
 count_starbase_buildings - Checks the number of starbase buildings that are of the specified type or not
 count_starbase_buildings = { type = command_center (optional) include_being_constructed = yes/no count < 12/variable }
-Supported Scopes: galactic_object starbase
+Supported Scopes: country galactic_object starbase
 
 is_belligerent_to - Checks if the country has a belligerent attitude towards target country
 is_belligerent_to = <target>
@@ -1853,11 +1913,6 @@ Supported Scopes: country
 can_research_tier - Checks whether the country can research a certain tech tier
 can_research_tier = { tier = 1 area = society }
 Supported Scopes: country
-
-has_mandate - Checks if the leader has any, or a specific, mandate
-has_mandate = no
-has_mandate = mandate_shipwright
-Supported Scopes: leader
 
 nor - An inverted OR trigger
 Supported Scopes: all
@@ -2013,10 +2068,6 @@ Supported Scopes: country
 happiness_planet - Checks the average happiness on the planet
 happiness_planet < 0.6
 Supported Scopes: planet
-
-pre_ruler_leader_class - Checks the rulers previous leader class
-pre_ruler_leader_class = scientist
-Supported Scopes: leader
 
 has_hp_percentage - Checks a fleet or ship's hit points percentage
 has_hp_percentage > 0.5
@@ -2761,6 +2812,10 @@ Supported Scopes: country
 is_permanent_councillor - Checks if an empire has a permanent seat on the Galactic Council
 is_permanent_councillor = yes/no
 Supported Scopes: country
+
+is_councilor - Checks if scoped leader is a member of the Empire Council or the Ruler
+is_councilor = yes/no
+Supported Scopes: leader
 
 has_federation_setting - Checks if given setting is on for scoped federation
 has_federation_setting = <setting>

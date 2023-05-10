@@ -1,4 +1,4 @@
-[01:26:20][game_application.cpp:2094]: 
+[10:05:25][game_application.cpp:2100]: 
 == EFFECT DOCUMENTATION ==
 tooltip - Just a tooltip
 Supported Scopes: all
@@ -113,6 +113,14 @@ Supported Scopes: planet
 disable_building - Disables a single instance of a specific building on the scoped planet
 disable_building = <key>
 Supported Scopes: planet
+
+change_background_ethic - Changes the background ethic of a leader
+change_background_ethic = <key>
+Supported Scopes: leader
+
+change_background_job - Changes the background job of a leader
+change_background_job = <key>
+Supported Scopes: all
 
 add_planet_devastation - Instantly adds devastation to scoped planet
 add_planet_devastation = 5
@@ -337,6 +345,11 @@ Supported Scopes: planet
 change_pc - Changes the class of the scoped planet
 change_pc = <class/random list>
 change_pc = { class = <class/random list> inherit_entity = yes }
+Supported Scopes: planet
+
+start_terraform_process - Starts terraforming process of scoped planet
+start_terraform_process = <class/random list>
+start_terraform_process = { class = <class/random list> inherit_entity = yes }
 Supported Scopes: planet
 
 set_star_class - Sets the star's star class, affecting system and galactic map graphics and potentially modifiers. Also changes the planet class of the system's primary star.
@@ -619,7 +632,7 @@ End: set_spawn_system_batch = end
 Supported Scopes: all
 
 spawn_system - Spawns a new system at a position relative to the scoped system/planet/ship.
-spawn_system = { min_jumps = <value> max_jumps = <value> min_distance = <int 0-100> max_distance = <int 0-100> initializer = <key for pre-defined system> hyperlane=<yes/no> is_discovered=<yes/no>}
+spawn_system = { min_jumps = <value> max_jumps = <value> min_distance = <int 0-100> max_distance = <int 0-100> initializer = <key for pre-defined system>/random hyperlane=<yes/no> is_discovered=<yes/no>}
 Supported Scopes: megastructure planet ship fleet galactic_object starbase no_scope
 
 create_nebula - Creates a new Nebula with a given radius centered around the current system.
@@ -737,12 +750,28 @@ destroy_ambient_object - Destroys target ambient object
 destroy_ambient_object = <target>
 Supported Scopes: all
 
-add_trait - Adds a specific trait to the scoped leader
-add_trait = <trait>
+add_trait - Adds a specific trait to the scoped leader or a random common/negative trait 
+add_trait = <trait/random_common/random_negative>
 Supported Scopes: leader
 
-remove_trait - Removes a specific trait from the scoped leader
-remove_trait = <key>
+add_trait_no_notify - Adds a specific trait to the scoped leader or a random common/negative trait 
+add_trait_no_notify = <trait/random_common/random_negative>. Does not give a notification.
+Supported Scopes: leader
+
+remove_trait - Removes a specific trait from the scoped leader, or removes all negative traits
+remove_trait = <key/all_negative>
+Supported Scopes: leader
+
+remove_all_negative_traits - Removes all negative traits from the scoped leader
+remove_all_negative_traits = yes
+Supported Scopes: leader
+
+remove_all_positive_traits - Removes all non-negative traits from the scoped leader
+remove_all_non_negative_traits = yes
+Supported Scopes: leader
+
+remove_all_traits - Removes all traits from the scoped leader
+remove_all_traits = yes
 Supported Scopes: leader
 
 modify_species - Creates a new, modified species based on an already-extant species
@@ -830,6 +859,10 @@ set_policy_cooldown - Sets the specified policy group to have a cooldown as if t
 set_policy_cooldown = <policy group e.g. diplomatic_stance>
 Supported Scopes: country
 
+reset_policy_cooldowns - Resets the cooldown period of all policies for a country
+reset_policy_cooldowns = yes
+Supported Scopes: country
+
 create_point_of_interest - Creates a point of interest for the scoped country at a specific location, associated with an event chain
 create_point_of_interest = { id = <key> name = <string> desc = <string> event_chain = <key> location = <target> }
 Supported Scopes: planet country ship pop
@@ -876,9 +909,13 @@ kill_leader = {
 }
 Supported Scopes: planet country ship fleet leader army
 
-assign_leader - Assigns target leader to the scoped country/fleet/army/pop faction/sector
+assign_leader - Assigns target leader to the scoped country/fleet/army/
 assign_leader = <target>
-Supported Scopes: country fleet army pop_faction sector
+Supported Scopes: planet country fleet army
+
+set_years_served - Copies years served duration from the target
+set_years_served = <target>
+Supported Scopes: leader
 
 country_add_ethic - Adds a specific ethic to the scoped country
 country_add_ethic = <key>
@@ -1302,13 +1339,13 @@ unassign_leader - Unassigns scoped leader from their post or unassigns leader fr
 unassign_leader = <target>
 Supported Scopes: ship fleet leader army
 
-exile_leader_as - Exiles the scoped country/fleet/army/pop faction's leader and saves them with a custom name
+exile_leader_as - Exiles the scoped country/fleet/army/leader and saves them with a custom name
 exile_leader_as = <key>
-Supported Scopes: country fleet leader army pop_faction
+Supported Scopes: country fleet leader army
 
 set_leader - Reinstates a previously-exiled leader to the scoped country/fleet/army/pop faction
 set_leader = <key>
-Supported Scopes: country fleet army pop_faction
+Supported Scopes: country fleet army
 
 add_skill - Adds to the scoped leader's skill level
 add_skill = 2
@@ -1400,9 +1437,13 @@ set_origin - Sets the country's origin to a certain value. Note: This will not r
 set_origin = <origin>
 Supported Scopes: country
 
-set_is_female - Sets the gender of the scoped leader
-set_is_female = true
+set_gender - Sets the gender of the scoped leader
+set_gender = female
 Supported Scopes: leader
+
+copy_flags_and_variables_from - Copies all script flags and variables from the specified scope to the current one.
+copy_flags_and_variables_from = event_target:them
+Supported Scopes: all
 
 reroll_random - Rerolls the random seed. Use if you want to have a second random_list return a different result. Do not use in tooltips that show random results, because the tooltip will be wrong!
 reroll_random = yes
@@ -1490,7 +1531,7 @@ every_war_participant = { limit = { <triggers> } <effects> }
 Supported Scopes: war
 
 repair_percentage - Restores a certain percentage of hull points to the scoped ship
-repair_percentage = yes
+repair_percentage = 0.1
 Supported Scopes: ship fleet
 
 endgame_telemetry - Send endgame telemetry event
@@ -1670,6 +1711,10 @@ change_leader_portrait - Changes the portrait of the leader in scope.
 change_leader_portrait = <key or species event target>
 Supported Scopes: leader
 
+change_leader_class - Changes the class of the leader in scope.
+change_leader_class = <leader class event target>
+Supported Scopes: leader
+
 resettle_pop - Instantly resettles pop
 resettle_pop = { pop = <target pop> planet = <target planet> tile = <target tile> }
 Supported Scopes: all
@@ -1741,14 +1786,6 @@ Supported Scopes: species
 reset_years_of_peace - Resets years of peace for a country.
 reset_years_of_peace = yes
 Supported Scopes: country
-
-add_ruler_trait - Adds a specific ruler trait to the scoped leader, even if they are not currently ruler; it becomes active when they become ruler
-add_ruler_trait = <trait>
-Supported Scopes: leader
-
-remove_ruler_trait - Removes a specific ruler trait from the scoped leader, even if they are not currently ruler; this is relevant if they ever become ruler
-remove_ruler_trait = <trait>
-Supported Scopes: leader
 
 remove_secret_fealty - Removes a secret fealty pact between the scoped subject country and the target empire
 remove_secret_fealty = <target>
@@ -1938,7 +1975,7 @@ create_saved_leader = {
 type = <random / key>
 	skill = <random / int>
 	set_age = <int>
- traits = { trait = <key> trait = <key> }
+ traits = { <level> = <key> <5> = <key> }
 }
 Supported Scopes: country
 
@@ -1964,7 +2001,7 @@ delete_megastructure - Deletes the target mega structure (no death graphics)
 delete_megastructure = <target>
 Supported Scopes: all
 
-add_random_research_option - Adds s random tech research option to the scoped country's tech view list, permanent until researched. if none applicable it runs fail_effects
+add_random_research_option - Adds a random tech research option to the scoped country's tech view list, permanent until researched. if none applicable it runs fail_effects
 add_random_research_option = {
 	category = <string>
 	area = <key>
@@ -1972,6 +2009,7 @@ add_random_research_option = {
 	add_progress = <num>/<variable>
 	ignore_prereqs = <yes/no> #default no
 	ignore_rare = <yes/no> #default yes
+	ignore_insight = <yes/no> #default yes
 	fail_effects = {}
 }
 Supported Scopes: country
@@ -2507,6 +2545,10 @@ pass_debris_ownership - Passes the scoped debris ownership to the specified coun
 pass_debris_ownership = { owner = <target country> }
 Supported Scopes: debris
 
+set_council_position - Sets the scoped leader immortal. The 'no' case will not override immortality granted by species characteristics (but will disable immortality granted by this effect).
+set_immortal = yes
+Supported Scopes: leader
+
 end_fleet_contract - Breaks fleet lease contract 
 end_fleet_contract = yes
 Supported Scopes: fleet
@@ -2538,6 +2580,29 @@ Supported Scopes: country
 validate_planet_buildings_and_districts - Checks whether the planets and districts on the planet are valid (their potential triggers are fulfilled), removes or replaces them if not.
 validate_planet_buildings_and_districts = yes
 Supported Scopes: planet
+
+add_deposit_category_effect - Adds random non-blocker resource deposit to the scoped planet of a certain category
+add_deposit_category_effect = <category>
+Supported Scopes: planet
+
+stop_terraform_process - Stops terraforming process of scoped planet
+Supported Scopes: planet
+
+reset_event_chain_counter - Resets n event chain counter for the scoped country
+reset_event_chain_counter = { event_chain = <key> counter = <key> }
+Supported Scopes: country
+
+add_council_agenda_progress - Instantly adds council agenda progress
+add_council_agenda_progress = 5
+Supported Scopes: country
+
+unlock_council_slots - Unlocks council slots
+unlock_council_slots = 1
+Supported Scopes: country
+
+set_council_agenda - Set the Country's council agenda 
+set_council_agenda = agenda_lets_be_friends
+Supported Scopes: country
 
 country_event - Fires a country event for the scoped country, with optional DAYS and RANDOM delay
 country_event = {
@@ -2698,6 +2763,10 @@ set_age - Sets the age of the scoped leader
 set_age = <int>
 Supported Scopes: leader
 
+add_age - Adds the age of the scoped leader
+add_age = <int>
+Supported Scopes: leader
+
 conquer - Conquers the planet by setting its owner to target country and adding an unhappiness modifier
 conquer = <target country>
 Supported Scopes: planet
@@ -2807,6 +2876,10 @@ Supported Scopes: country
 set_planet_size - Sets the planet size to a specified number
 set_planet_size = <int>
 Supported Scopes: planet
+
+add_skill_without_trait_selection - Adds to the scoped leader's skill level but does not select any traits
+add_skill_without_trait_selection = 2
+Supported Scopes: leader
 
 run_ai_strategic_war_data - Recomputes strategic war ( attack / defense ) data for AI = yes
 Supported Scopes: country
@@ -2958,10 +3031,10 @@ create_leader = {
 	name = <random / string>
 	species = <target / key>
 	gender = <gender> #optional, default = random
-	type = <random / key>
+	type = <random / random_ruler / key>
 	skill = <random / int>
 	set_age = <int>
-	traits = { trait = <key> trait = <key> }
+	traits = { <level> = <key> <level> = <key> }
 }
 Supported Scopes: country
 
