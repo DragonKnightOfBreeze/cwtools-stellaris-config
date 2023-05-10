@@ -34,7 +34,7 @@ links = {
 	}
 	### Scopes from an object to the owner of the planet it is on. Works from army, megastructure, deposit and arc site scopes.
 	planet_owner = {
-		input_scopes = { megastructure planet pop army starbase deposit archaeological_site }
+		input_scopes = { megastructure planet pop leader army starbase deposit archaeological_site }
 		output_scope = country
 	}
 	### Scopes to the last country that was created anywhere in the game.
@@ -49,7 +49,7 @@ links = {
 	}
 	### Scopes from an object to its leader, e.g. country->ruler, fleet->admiral/scientist, sector->governor, army->general, arc site->scientist...
 	leader = {
-		input_scopes = { country ship fleet leader army pop_faction federation sector archaeological_site first_contact spy_network espionage_operation }
+		input_scopes = { planet country ship fleet leader army pop_faction federation archaeological_site first_contact spy_network espionage_operation }
 		output_scope = leader
 	}
 	### Scopes to the last leader that was created anywhere in the game.
@@ -72,7 +72,7 @@ links = {
 	}
 	### Scopes from an object to the planet it is on. Works from army, megastructure, deposit and arc site scopes.
 	planet = {
-		input_scopes = { megastructure planet pop army starbase deposit archaeological_site }
+		input_scopes = { megastructure planet pop leader army starbase deposit archaeological_site }
 		output_scope = planet
 	}
 	### Scopes from an empire to its capital planet.
@@ -191,22 +191,12 @@ links = {
 		input_scopes = { all }
 		output_scope = pop_faction
 	}
-	# TODO check whether it exists in scopes.log
-	default_pop_faction = {
-		input_scopes = { pop }
-		output_scope = pop_faction
-	}
 	### Scopes from an object to the sector it is in. Works on all objects visible objects visible in star system view, plus star systems themselves and leaders (scopes to the sector the leader is currently located in, not necessarily the one they are assigned to as a governor).
 	sector = {
 		input_scopes = {
 			megastructure planet ship pop fleet galactic_object leader army ambient_object starbase deposit
 			sector archaeological_site first_contact debris
 		}
-		output_scope = sector
-	}
-	# TODO check whether it exists in scopes.log
-	core_sector = {
-		input_scopes = { country }
 		output_scope = sector
 	}
 	### Scopes to the ruler of a country (or the ruler of the object's owner).
@@ -249,11 +239,11 @@ links = {
 		input_scopes = { all }
 		output_scope = no_scope
 	}
-	# TODO check whether it exists in scopes.log
-	megastructure = {
-		input_scopes = { all }
-		output_scope = Megastructure
-	}
+	# TODO PLS - check whether it exists
+	# megastructure = {
+	# 	input_scopes = { all }
+	# 	output_scope = Megastructure
+	# }
 	### Scopes from an object to the primary star (planet scope) of the system it is in. Works on all objects visible in star system view.
 	system_star = {
 		input_scopes = { #matches celestial_coordinate scope_group
@@ -372,6 +362,21 @@ links = {
 		input_scopes = { planet }
 		output_scope = fleet
 	}
+
+	# 3.8
+
+	### Scopes from an object to its army leader, e.g. planet->general
+	army_leader = {
+		input_scopes = { planet }
+		output_scope = leader
+	}
+	### Scopes to the leader's country of origin
+	creator = {
+		input_scopes = { leader }
+		output_scope = country
+	}
+
+	# links from data
 
 	variable = {
 		desc = "Variable"

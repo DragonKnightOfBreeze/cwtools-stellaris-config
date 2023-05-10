@@ -213,18 +213,6 @@ alias[trigger:has_invalid_civic] = <civic_or_origin.civic>
 ## scopes = { country }
 alias[trigger:has_policy_flag] = enum[policy_flag]
 
-### Checks if the leader is the leader of a faction
-## scopes = { leader }
-alias[trigger:leader_of_faction] = <pop_faction>
-
-### Checks if the leader is the leader of a faction
-## scopes = { leader }
-alias[trigger:leader_of_faction] = scope[pop_faction]
-
-### Checks if the leader is the leader of a faction
-## scopes = { leader }
-alias[trigger:leader_of_faction] = bool
-
 ### Checks if the current scope and the target scope are the same thing
 ## scopes = any
 alias[trigger:is_same_value] = scope[any]
@@ -249,7 +237,7 @@ alias[trigger:pop_percentage] = {
 #should check for <> too
 ### Checks the faction's support level
 ### support > 0.5
-## scopes = { pop_faction }
+## scopes = { leader pop_faction }
 alias[trigger:support] == value_field[0.0..1.0]
 ### Checks the country's used naval capacity in relative terms (0.00-1.00)
 ## scopes = { country }
@@ -258,7 +246,7 @@ alias[trigger:used_naval_capacity_percent] == value_field
 ## scopes = { country }
 alias[trigger:is_country_type] = <country_type>
 ### Checks if a country has a certain ethos
-## scopes = { country pop dlc_recommendation }
+## scopes = { country pop leader pop_faction dlc_recommendation }
 alias[trigger:has_ethic] = <ethic>
 ### Checks if the pop has a specific ethos
 ## scopes = { pop }
@@ -663,9 +651,6 @@ alias[trigger:is_designable] = bool
 ### Checks if the leader is of a specific class
 ## scopes = { leader }
 alias[trigger:leader_class] = enum[leader_classes]
-### Checks the rulers previous leader class
-## scopes = { leader }
-alias[trigger:pre_ruler_leader_class] = enum[leader_classes_no_ruler]
 
 ### Checks if the observation post has a specific mission
 ## scopes = { fleet }
@@ -1285,6 +1270,7 @@ alias[trigger:has_existing_ship_design] = <ship_size>
 alias[trigger:has_experience] == int_value_field
 
 ### Checks if the ship/fleet has a specific fleet order. survey_planet_order is a valid entry, I (Caligula) don't know any others but there are likely some
+## scopes = { ship fleet }
 alias[trigger:has_fleet_order] = enum[fleet_orders]
 
 ### Checks if the system has a hyperlane connection to target system
@@ -1293,13 +1279,6 @@ alias[trigger:has_hyperlane_to] = scope[galactic_object]
 ### Checks if the system has a hyperlane connection to target system
 ## scopes = { galactic_object }
 alias[trigger:has_hyperlane_to] = scope_group[target_country]
-
-### Checks if the leader has any, or a specific, mandate
-## scopes = { leader }
-alias[trigger:has_mandate] = bool
-### Checks if the leader has any, or a specific, mandate
-## scopes = { leader }
-alias[trigger:has_mandate] = <mandate>
 
 ### Checks if a country or star has a mega structure
 ### Does not accept boolean.
@@ -1371,7 +1350,7 @@ alias[trigger:has_starbase_module] = <starbase_module>
 
 ### Compares the starbase ship size
 ## scopes = { starbase }
-alias[trigger:has_starbase_size] = <ship_size> #TODO starbase ship size
+alias[trigger:has_starbase_size] = <ship_size.starbase>
 
 ### Checks the current status of the scoped ship or fleet.
 ## scopes = { ship fleet }
@@ -1903,7 +1882,7 @@ alias[trigger:would_join_war] = {
 alias[trigger:is_researching_special_project] = <special_project>
 
 ### Checks the number of starbase modules that are of the specified type or not
-## scopes = { galactic_object starbase }
+## scopes = { country galactic_object starbase }
 alias[trigger:count_starbase_modules] =  {
 	count = int_value_field
 	## cardinality = 0..1
@@ -1912,7 +1891,7 @@ alias[trigger:count_starbase_modules] =  {
 	include_being_constructed = bool
 }
 ### Checks the number of starbase buildings that are of the specified type or not
-## scopes = { galactic_object starbase }
+## scopes = { country galactic_object starbase }
 alias[trigger:count_starbase_buildings] =  {
 	count = int_value_field
 	## cardinality = 0..1
@@ -3133,19 +3112,6 @@ alias[trigger:has_unemployed_pop_of_category] = <pop_category>
 
 # 3.4
 
-### Checks if the planet's ascension tier is as specified.
-alias[trigger:check_economic_modifier_for_job] = {
-	job = <job>
-	resource = <resource>
-	resource = {
-		## cardinality = 1..inf
-		<resource> = float
-	}
-	value = value_field
-	## cardinality = 0..1
-	species_modifiers_only = no
-}
-
 ### Checks the planet's army strength (as calculated by all armies including offensive or defensive owned by its current controller). Warning: moderately intensive trigger:
 ## scopes = { planet }
 alias[trigger:planet_garrison_strength] == value_field
@@ -3292,6 +3258,8 @@ alias[trigger:num_deposits] == int_value_field
 ## scopes = { country }
 alias[trigger:enclave_capacity_left] == int_value_field[0..inf]
 
+# 3.7
+
 ### Checks the degree to which multiply_crisis_strength effect is increasing the strength of endgame crises
 ## scopes = any
 alias[trigger:additional_crisis_strength] == int_value_field[0..inf]
@@ -3405,11 +3373,107 @@ alias[trigger:has_next_pre_ftl_age] = yes
 ## scopes = { country }
 alias[trigger:has_pre_ftl_age] = <pre_ftl_age>
 
+# 3.8
+
+### Checks the scope leader's years of service
+## scopes = { leader }
+alias[trigger:years_of_service] = int
+
+### Checks the number of leader traits or total tiers of traits for a specific leader
+## scopes = { leader }
+alias[trigger:num_leader_traits] = {
+	value = value_field
+	### default: any
+	## cardinality = 0..1
+	is_councilor = enum[any_or_bool]
+	### default: any
+	## cardinality = 0..1
+	negative = enum[any_or_bool]
+	### default: no
+	## cardinality = 0..1
+	count_tiers = bool
+}
+
+### Checks if scoped leader is the Ruler of the Empire
+## scopes = { leader }
+alias[trigger:is_ruler] = bool
+
+### Checks if scoped leader is the Heir of the Empire
+## scopes = { leader }
+alias[trigger:is_heir] = bool
+
+### Get the level of a specific councilor
+## scopes = { country }
+alias[trigger:get_councilor_level] = {
+	type = <councilor>
+}
+
+### Checks if the leader holds a specific Councilor type
+## scopes = { leader }
+alias[trigger:is_councilor_type] = <councilor>
+
+### Checks if any Councilor has a given ethic.
+## scopes = { country }
+alias[trigger:is_ethic_represented_on_council] = <ethic>
+
+### Checks if the country has a civic in a slot
+## scopes = { country }
+alias[trigger:has_civic_in_slot] = {
+	civic = <civic_or_origin.civic>
+	index = int[0..inf]
+}
+
+### Compares the amount of total civic points.
+## scopes = { country }
+alias[trigger:has_total_civic_points] = value_field
+
+### Compares the amount of unused civic points.
+## scopes = { country }
+alias[trigger:has_unused_civic_points] = value_field
+
+### Compares the number of times an election candidate was supported.
+## scopes = { leader }
+alias[trigger:num_candidate_supported] = value_field
+
+### Compares the progress (0-1) of the current Agenda.
+## scopes = { country }
+alias[trigger:council_agenda_progress_percent] = value_field
+
+### Checks if the country has a specific Council Agenda selected, or any at all
+## scopes = { country }
+alias[trigger:has_agenda_selected] = enum[any_or_none_or_bool]
+### Checks if the country has a specific Council Agenda selected, or any at all
+## scopes = { country }
+alias[trigger:has_agenda_selected] = <agenda>
+
+### Compares the amount of unlocked council positions, typically from 'unlock_council_slots'
+## scopes = { country }
+alias[trigger:has_unlocked_council_positions] = value_field
+
+### Checks if the leader's background contains a specific previous job, or any job if set to yes
+## scopes = { leader }
+alias[trigger:has_background_job] = <job>
+### Checks if the leader's background contains a specific previous job, or any job if set to yes
+## scopes = { leader }
+alias[trigger:has_background_job] = yes
+
+### Checks if the army is currently in the frontline of a combat
+## scopes = { army }
+alias[trigger:is_in_frontline] = bool
+
+### Check if a planet is the background planet of a leader
+## scopes = { leader }
+alias[trigger:is_background_planet] = scope_field # TODO PLS - check
+
+### Checks if scoped leader is a member of the Empire Council or the Ruler
+## scopes = { leader }
+alias[trigger:is_councilor] = bool
+
 # scope links
 
 ### Iterate through all playable countries - checks whether the enclosed triggers return true for any of them
-## push_scope = country
 ## scopes = any
+## push_scope = country
 alias[trigger:any_playable_country] = {
 	alias_name[trigger] = alias_match_left[trigger]
 }

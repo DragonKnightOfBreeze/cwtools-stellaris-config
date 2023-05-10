@@ -378,4 +378,15 @@ enums = {
 		sectors
 		trade_routes
 	}
+	enum[any_or_bool] = {
+		any
+		yes
+		no
+	}
+	enum[any_or_none_or_bool] = {
+		any
+		none
+		yes
+		no
+	}
 }

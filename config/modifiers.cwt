@@ -57,14 +57,12 @@ modifiers = {
 	<species_archetype.not_robotic.use_modifiers>_pop_growth_speed = { Planets }
 	<species_archetype.not_robotic.use_modifiers>_pop_growth_speed_reduction = { Planets }
 
-	# ethic modifiers
-	pop_<ethic>_attraction_mult = { Pops }
-
 	# planet_class modifiers
 	<planet_class>_habitability = { Habitability }
 
 	# technology_category modifiers
 	category_<technology_category>_research_speed_mult = { Countries }
+	category_<technology_category>_draw_chance_mult = { Countries }
 
 	# district modifiers
 	<district.capped>_max = { Planets }
@@ -88,6 +86,9 @@ modifiers = {
 	job_<job>_per_pop = { Planets }
 	job_<job>_per_crime = { Planets }
 
+	# ethic modifiers
+	pop_<ethic>_attraction_mult = { Pops }
+
 	# region resolution_category modifiers
 	<resolution_category>_vote_strength_mult = { Countries }
 
@@ -100,4 +101,7 @@ modifiers = {
 	<espionage_operation>_difficulty_mult = { Espionage }
 	hostile_<espionage_operation>_difficulty_add = { Espionage }
 	hostile_<espionage_operation>_difficulty_mult = { Espionage }
+
+	# leader_class modifiers
+	<leader_class>_exp_gain = { Leaders }
 }

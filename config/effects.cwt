@@ -852,19 +852,16 @@ alias[effect:reduce_hp] = int_value_field
 ## scopes = { ship }
 alias[effect:reduce_hp_percent] = int_value_field[0..100]
 ### Exiles the scoped country/fleet/army/pop faction's leader and saves them with a custom name
-## scopes = { country fleet leader army pop_faction }
+## scopes = { country fleet leader army }
 alias[effect:exile_leader_as] = value_set[exiled_leader]
 ### Adds a sum of experience points to the scoped leader
 ## scopes = { leader }
 alias[effect:add_experience] = int_value_field
-### Sets the gender of the scoped leader
-## scopes = { leader }
-alias[effect:set_is_female] = bool
 ### Sets scoped leader as non/recruitable
 ## scopes = { leader }
 alias[effect:recruitable] = bool
 ### Assigns target leader to the scoped country/fleet/army/pop faction/sector
-## scopes = { country fleet army pop_faction sector }
+## scopes = { planet country fleet army }
 alias[effect:assign_leader] = scope_group[target_leader]
 ### Unassigns scoped leader from their post or unassigns leader from the scoped planet/ship/fleet/army
 ## scopes = { ship fleet leader army }
@@ -985,10 +982,6 @@ alias[effect:add_monthly_resource_mult] = {
 ### Adds a specific trait to the scoped leader
 ## scopes = { leader }
 alias[effect:add_trait] = <trait.leader_trait>
-### Adds a specific ruler trait to the scoped leader, even if they are not currently ruler; it becomes active when they become ruler
-## scopes = { leader }
-## severity = warning
-alias[effect:add_ruler_trait] = <trait.leader_trait>
 ### Removes a specific trait from the scoped leader
 ## scopes = { leader }
 alias[effect:remove_trait] = <trait.leader_trait>
@@ -1219,13 +1212,13 @@ alias[effect:set_name] = {
 	variable_string = scalar
 }
 ### Reinstates a previously-exiled leader to the scoped country/fleet/army/pop faction
-## scopes = { country fleet army pop_faction }
+## scopes = { country fleet army }
 alias[effect:set_leader] = value[exiled_leader]
 ### Reinstates a previously-exiled leader to the scoped country/fleet/army/pop faction
-## scopes = { country fleet army pop_faction }
+## scopes = { country fleet army }
 alias[effect:set_leader] = last_created_leader
 ### Reinstates a previously-exiled leader to the scoped country/fleet/army/pop faction
-## scopes = { country fleet army pop_faction }
+## scopes = { country fleet army }
 alias[effect:set_leader] = scope_group[target_leader]
 ### Forces scoped country to evaluate whether to create a specific faction type immediately, rather than monthly
 ## scopes = { country }
@@ -2744,9 +2737,6 @@ alias[effect:remove_notification_modifier] = <notification_modifier>
 ### Removes a specific point of interest from the scoped country's situation log
 ## scopes = { country }
 alias[effect:remove_point_of_interest] = value[point_of_interest]
-### Removes a specific ruler trait from the scoped leader, even if they are not currently ruler; this is relevant if they ever become ruler
-## scopes = { leader }
-alias[effect:remove_ruler_trait] = <trait.leader_trait>
 ### Removes a saved leader for the scoped country with a lookup key
 ## scopes = { country }
 alias[effect:remove_saved_leader] = value[saved_leader]
@@ -4222,12 +4212,6 @@ alias[effect:set_design_flag] = value_set[design_flag]
 ## scopes = { design }
 ## severity = warning
 alias[effect:remove_design_flag] = value_set[design_flag]
-## severity = warning
-### Sets an arbitrarily-named flag on the scoped country for a set duration
-alias[effect:set_timed_design_flag] = {
-	flag = value_set[design_flag]
-	enum[days_months_years] = int_value_field
-}
 ### Destroys a situation in right hand side event target, firing on_abort (use to cancel and fire that effect)
 ## scopes = any
 alias[effect:abort_situation] = scope[situation]
@@ -4266,13 +4250,6 @@ alias[effect:give_fleet] = {
 	controller = scope_group[target_country]
 	days = int_value_field
 }
-### Breaks fleet lease contract
-alias[effect:break_fleet_contract] = bool
-### Prolongs fleet's lease contract for a numbed of days
-## scopes = { fleet }
-alias[effect:prolong_fleet_contract] = {
-	days = int_value_field
-}
 
 ### Sets agreement terms of the agreement. Can be used to set multiple terms at once, including resource subsidies.
 ## scopes = { agreement }
@@ -4291,9 +4268,6 @@ alias[effect:multiply_crisis_strength] = value_field
 ## scopes = { leader }
 alias[effect:set_immortal] = bool
 
-### Used with enclave_mercenary to remove fleet contract modifiers.
-alias[effect:remove_fleet_contract_modifiers] = bool
-
 ### Finish the current operation phase
 ### yes - trigger stage completed for each stage and current excavator.
 ### no - do not trigger any stage completed
@@ -4311,6 +4285,113 @@ alias[effect:set_awareness] = float[0.0..100.0]
 ### Sets awareness for the scoped (pre-FTL) country
 ## scopes = { country }
 alias[effect:add_awareness] = float
+
+# 3.8
+
+### Changes the background ethic of a leader
+## scopes = { leader }
+alias[effect:change_background_ethic] = <ethic>
+
+### Changes the background job of a leader
+## scopes = any
+alias[effect:change_background_job] = <job>
+
+### Starts terraforming process of scoped planet
+## scopes = { planet }
+alias[effect:start_terraform_process] = <planet_class>
+### Starts terraforming process of scoped planet
+## scopes = { planet }
+alias[effect:start_terraform_process] = <planet_class_random_list>
+### Starts terraforming process of scoped planet
+## scopes = { planet }
+alias[effect:start_terraform_process] = {
+	class = <planet_class>
+	inherit_entity = bool
+}
+### Starts terraforming process of scoped planet
+## scopes = { planet }
+alias[effect:start_terraform_process] = {
+	class = <planet_class_random_list>
+	inherit_entity = bool
+}
+
+### Adds a specific trait to the scoped leader or a random common/negative trait
+## scopes = { leader }
+alias[effect:add_trait_no_notify] = <traint.leader>
+alias[effect:add_trait_no_notify] = random_common
+alias[effect:add_trait_no_notify] = random_negative
+
+### Removes all negative traits from the scoped leader
+## scopes = { leader }
+alias[effect:remove_all_negative_traits] = bool
+
+### Removes all non-negative traits from the scoped leader
+## scopes = { leader }
+alias[effect:remove_all_positive_traits] = bool
+
+### Removes all traits from the scoped leader
+## scopes = { leader }
+alias[effect:remove_all_traits] = bool
+
+### Resets the cooldown period of all policies for a country
+## scopes = { country }
+alias[effect:reset_policy_cooldowns] = bool
+
+### Copies years served duration from the target
+## scopes = { leader }
+alias[effect:set_years_served] = scope[leader]
+
+### Sets the gender of the scoped leader
+## scopes = { leader }
+alias[effect:set_gender] = enum[genders]
+
+### Copies all script flags and variables from the specified scope to the current one.
+## scopes = any
+alias[effect:copy_flags_and_variables_from] = scope_field
+
+### Changes the class of the leader in scope.
+## scopes = { leader }
+alias[effect:change_leader_class] = <leader_class>
+
+### Sets the scoped leader immortal. The 'no' case will not override immortality granted by species characteristics (but will disable immortality granted by this effect).
+### set_immortal = yes
+## scopes = { leader }
+alias[effect:set_immortal] = bool
+
+### Adds random non-blocker resource deposit to the scoped planet of a certain category
+## scopes = { planet }
+alias[effect:add_deposit_category_effect] = <deposit_category>
+
+### Stops terraforming process of scoped planet
+## scopes = { planet }
+alias[effect:stop_terraform_process] = bool
+
+### Resets n event chain counter for the scoped country
+## scopes = { country }
+alias[effect:reset_event_chain_counter] = {
+	event_chain = <event_chain>
+	counter = scalar # TODO PLS - check
+}
+
+### Instantly adds council agenda progress
+## scopes = { country }
+alias[effect:add_council_agenda_progress] = int
+
+### Unlocks council slots
+## scopes = { country }
+alias[effect:unlock_council_slots] = int
+
+### Set the Country's council agenda
+## scopes = { country }
+alias[effect:set_council_agenda] = <agenda>
+
+### Adds the age of the scoped leader
+## scopes = { leader }
+alias[effect:add_age] = int
+
+### Adds to the scoped leader's skill level but does not select any traits
+## scopes = { leader }
+alias[effect:add_skill_without_trait_selection] = int
 
 # fleet actions
 

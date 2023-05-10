@@ -23,6 +23,7 @@ modifiers = {
 	pop_ethics_shift_speed_mult = { Pops }
 	pop_citizen_happiness = { Pops }
 	force_disparity_fire_rate_mult = { Ships }
+	create_debris_chance = { Fleets }
 	ship_hull_add = { Ships }
 	ship_hull_mult = { Ships }
 	ship_hull_regen_add_perc = { Ships }
@@ -48,6 +49,8 @@ modifiers = {
 	ship_weapon_range_mult = { Ships }
 	ship_engagement_range_mult = { Ships }
 	ship_orbital_bombardment_mult = { Ships }
+	ship_orbital_bombardment_army_damage_mult = { Ships }
+	ship_orbital_bombardment_pop_damage_mult = { Ships }
 	ship_fire_rate_mult = { Ships }
 	ship_home_territory_fire_rate_mult = { Ships }
 	ship_piracy_suppression_add = { Ships }
@@ -104,6 +107,7 @@ modifiers = {
 	army_attack_health_mult = { Armies }
 	army_defense_health_mult = { Armies }
 	army_experience_gain_mult = { Armies }
+	planet_combat_width_add = { Leaders }
 	planet_non_artificial_max_districts_add = { Planets }
 	planet_max_districts_add = { Planets }
 	planet_max_districts_mult = { Planets }
@@ -153,14 +157,16 @@ modifiers = {
 	country_society_tech_research_speed = { Countries }
 	country_engineering_tech_research_speed = { Countries }
 	num_tech_alternatives_add = { Countries }
+	commercial_pact_mult = { Countries }
 	edict_length_mult = { Countries }
 	country_ship_upgrade_cost_mult = { Countries }
 	country_leader_pool_size = { Countries }
+	external_leader_pool_add = { Countries }
 	country_insult_efficiency = { Countries }
 	country_trade_attractiveness = { Countries }
 	colony_start_num_pops_add = { Countries }
 	country_resource_max_add = { Countries }
-	terraform_speed_mult = { Countries }
+	terraform_speed_mult = { Countries Planets }
 	country_election_cost_mult = { Countries }
 	country_trust_growth = { Countries }
 	country_trust_cap_add = { Countries }
@@ -183,17 +189,21 @@ modifiers = {
 	country_subject_technology_sharing_mult = { Countries }
 	scavenge_debris_mult = { Countries }
 	species_leader_exp_gain = { Leaders }
+	councilor_exp_gain = { Countries Leaders }
 	ruler_skill_levels = { Leaders }
 	leader_skill_levels = { Leaders }
+	councilor_skill_add = { Countries }
 	leader_age = { Leaders }
 	admiral_skill_levels = { Leaders }
 	general_skill_levels = { Leaders }
 	governor_skill_levels = { Leaders }
 	scientist_skill_levels = { Leaders }
+	assist_research_mult = { Leaders }
 	country_starbase_capacity_add = { Countries }
 	country_starbase_capacity_mult = { Countries }
 	country_enclave_capacity_add = { Countries }
 	country_enclave_capacity_mult = { Countries }
+	country_leader_cap_add = { Countries }
 	country_naval_cap_add = { Countries }
 	country_naval_cap_mult = { Countries }
 	country_naval_coverage_add = { Countries }
@@ -202,15 +212,16 @@ modifiers = {
 	country_edict_fund_mult = { Countries }
 	terraforming_cost_mult = { Planets "AI Economy" }
 	federation_naval_cap_contribution_mult = { Countries }
-	country_command_limit_add = { Countries }
-	country_command_limit_mult = { Countries }
-	country_mia_time_mult = { Countries }
+	command_limit_add = { Fleets Countries }
+	command_limit_mult = { Fleets Countries }
+	fleet_mia_time_mult = { Fleets }
 	planet_orbital_bombardment_damage = { Planets }
 	country_resettlement_cost_mult = { Countries }
 	pop_resettlement_cost_mult = { Pops }
 	pop_defense_armies_add = { Pops }
+	defense_armies_add = { Planets }
 	pop_demotion_time_mult = { Pops }
-	faction_approval = { "Pop Factions" }
+	faction_approval = { Countries "Pop Factions" }
 	country_starbase_influence_cost_mult = { Countries }
 	country_starbase_influence_cost_distance_mult = { Countries }
 	country_claim_influence_cost_mult = { Countries }
@@ -225,6 +236,7 @@ modifiers = {
 	megastructure_build_speed_add = { Megastructures }
 	megastructure_build_speed_mult = { Megastructures }
 	country_government_civic_points_add = { Countries }
+	leader_trait_selection_options_add = { Countries Leaders }
 	country_occupation_armies_add = { Countries }
 	starbase_shipyard_capacity_add = { Megastructures Starbases }
 	starbase_shipyard_build_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
@@ -272,6 +284,8 @@ modifiers = {
 	diplo_weight_envoys_mult = { Countries }
 	diplo_weight_council_mult = { Countries }
 	diplo_weight_mult = { Countries }
+	council_agenda_progress_speed = { Countries Leaders }
+	council_agenda_finishing_effect_duration_mult = { Countries }
 	federation_experience_add = { Federations }
 	cohesion_add = { Federations }
 	cohesion_ethics_penalty_mult = { Federations }
@@ -279,7 +293,7 @@ modifiers = {
 	envoys_add = { Countries }
 	envoy_improve_relations_mult = { Leaders }
 	envoy_harm_relations_mult = { Leaders }
-	empire_size_districts_mult = { Countries }
+	empire_size_districts_mult = { Countries Planets }
 	empire_size_systems_mult = { Countries }
 	empire_size_colonies_mult = { Countries }
 	empire_size_pops_mult = { Countries }
@@ -350,6 +364,7 @@ modifiers = {
 	ship_repair_hull_mult = { "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" }
 	ship_repair_armor_mult = { "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" }
 	monthly_loyalty = { Countries Planets }
+	monthly_loyalty_from_subjects = { Countries }
 	ship_friendly_territory_shield_add = { Ships }
 	ship_friendly_territory_shield_mult = { Ships }
 	ship_friendly_territory_evasion_add = { Ships }
@@ -479,6 +494,24 @@ modifiers = {
 	weapon_type_space_fauna_weapon_damage_mult = { Ships }
 	weapon_type_space_fauna_weapon_fire_rate_mult = { Ships }
 	weapon_type_space_fauna_speed_mult = { Ships }
+	s_slot_weapon_damage_mult = { Ships }
+	s_slot_weapon_fire_rate_mult = { Ships }
+	s_slot_speed_mult = { Ships }
+	m_slot_weapon_damage_mult = { Ships }
+	m_slot_weapon_fire_rate_mult = { Ships }
+	m_slot_speed_mult = { Ships }
+	l_slot_weapon_damage_mult = { Ships }
+	l_slot_weapon_fire_rate_mult = { Ships }
+	l_slot_speed_mult = { Ships }
+	x_slot_weapon_damage_mult = { Ships }
+	x_slot_weapon_fire_rate_mult = { Ships }
+	x_slot_speed_mult = { Ships }
+	g_slot_weapon_damage_mult = { Ships }
+	g_slot_weapon_fire_rate_mult = { Ships }
+	g_slot_speed_mult = { Ships }
+	t_slot_weapon_damage_mult = { Ships }
+	t_slot_weapon_fire_rate_mult = { Ships }
+	t_slot_speed_mult = { Ships }
 	weapon_archaeotech_weapon_damage_mult = { Ships }
 	weapon_archaeotech_weapon_fire_rate_mult = { Ships }
 	weapon_archaeotech_speed_mult = { Ships }
@@ -627,7 +660,8 @@ modifiers = {
 	op_cat_military_skill_add = { Espionage }
 	op_cat_military_skill_mult = { Espionage }
 	# endregion
-	# region economic_category modifiers country
+	# region economic_category modifiers
+	# region economic_category modifiers - country
 	country_time_cost_mult = { "Economic Units" "AI Economy" }
 	country_time_produces_mult = { "Economic Units" "AI Economy" }
 	country_energy_cost_mult = { "Economic Units" "AI Economy" }
@@ -671,7 +705,7 @@ modifiers = {
 	country_cost_mult = { "Economic Units" "AI Economy" }
 	country_produces_mult = { "Economic Units" "AI Economy" }
 	# endregion
-	# region economic_category modifiers country_base
+	# region economic_category modifiers - country_base
 	country_base_time_produces_add = { Countries "AI Economy" }
 	country_base_energy_produces_add = { Countries "AI Economy" }
 	country_base_minerals_produces_add = { Countries "AI Economy" }
@@ -693,7 +727,7 @@ modifiers = {
 	country_base_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_base_menace_produces_add = { Countries "AI Economy" }
 	# endregion
-	# region economic_category modifiers resolutions
+	# region economic_category modifiers - resolutions
 	resolutions_time_cost_mult = { "Economic Units" "AI Economy" }
 	resolutions_energy_cost_mult = { "Economic Units" "AI Economy" }
 	resolutions_minerals_cost_mult = { "Economic Units" "AI Economy" }
@@ -716,7 +750,7 @@ modifiers = {
 	resolutions_menace_cost_mult = { "Economic Units" "AI Economy" }
 	resolutions_cost_mult = { "Economic Units" "AI Economy" }
 	# endregion
-	# region economic_category modifiers edicts
+	# region economic_category modifiers - edicts
 	edicts_time_cost_mult = { Countries "AI Economy" }
 	edicts_time_upkeep_mult = { Countries "AI Economy" }
 	edicts_energy_cost_mult = { Countries "AI Economy" }
@@ -760,7 +794,7 @@ modifiers = {
 	edicts_cost_mult = { Countries "AI Economy" }
 	edicts_upkeep_mult = { Countries "AI Economy" }
 	# endregion
-	# region economic_category modifiers megastructures_habitat
+	# region economic_category modifiers - megastructures_habitat
 	megastructures_habitat_time_cost_mult = { Megastructures "AI Economy" }
 	megastructures_habitat_energy_cost_mult = { Megastructures "AI Economy" }
 	megastructures_habitat_minerals_cost_mult = { Megastructures "AI Economy" }
@@ -783,7 +817,7 @@ modifiers = {
 	megastructures_habitat_menace_cost_mult = { Megastructures "AI Economy" }
 	megastructures_habitat_cost_mult = { Megastructures "AI Economy" }
 	# endregion
-	# region economic_category modifiers megastructures_hyper_relay
+	# region economic_category modifiers - megastructures_hyper_relay
 	megastructures_hyper_relay_time_produces_add = { Megastructures "AI Economy" }
 	megastructures_hyper_relay_time_upkeep_add = { Megastructures "AI Economy" }
 	megastructures_hyper_relay_energy_produces_add = { Megastructures "AI Economy" }
@@ -825,7 +859,7 @@ modifiers = {
 	megastructures_hyper_relay_menace_produces_add = { Megastructures "AI Economy" }
 	megastructures_hyper_relay_menace_upkeep_add = { Megastructures "AI Economy" }
 	# endregion
-	# region economic_category modifiers ships
+	# region economic_category modifiers - ships
 	starbase_shipyard_build_time_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	starbase_shipyard_build_energy_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	starbase_shipyard_build_minerals_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
@@ -1056,6 +1090,26 @@ modifiers = {
 	ship_military_nanites_upkeep_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	ship_military_minor_artifacts_upkeep_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	ship_military_menace_upkeep_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_time_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_energy_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_minerals_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_food_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_physics_research_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_society_research_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_engineering_research_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_influence_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_unity_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_consumer_goods_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_alloys_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_volatile_motes_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_exotic_gases_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_rare_crystals_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_sr_living_metal_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_sr_zro_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_sr_dark_matter_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_nanites_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_minor_artifacts_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	ship_science_menace_upkeep_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	ships_time_upkeep_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	ships_energy_upkeep_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	ships_minerals_upkeep_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
@@ -1078,7 +1132,7 @@ modifiers = {
 	ships_menace_upkeep_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	ships_upkeep_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	# endregion
-	# region economic_category modifiers colonies
+	# region economic_category modifiers - colonies
 	ship_colonizer_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	ship_colonizer_time_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	ship_colonizer_energy_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
@@ -1101,51 +1155,72 @@ modifiers = {
 	ship_colonizer_minor_artifacts_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	ship_colonizer_menace_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	# endregion
-	# region economic_category modifiers stations
+	# region economic_category modifiers - stations
+	stations_time_cost_mult = { Deposits "AI Economy" }
 	stations_time_produces_mult = { Deposits "AI Economy" }
 	stations_time_upkeep_mult = { Deposits "AI Economy" }
+	stations_energy_cost_mult = { Deposits "AI Economy" }
 	stations_energy_produces_mult = { Deposits "AI Economy" }
 	stations_energy_upkeep_mult = { Deposits "AI Economy" }
+	stations_minerals_cost_mult = { Deposits "AI Economy" }
 	stations_minerals_produces_mult = { Deposits "AI Economy" }
 	stations_minerals_upkeep_mult = { Deposits "AI Economy" }
+	stations_food_cost_mult = { Deposits "AI Economy" }
 	stations_food_produces_mult = { Deposits "AI Economy" }
 	stations_food_upkeep_mult = { Deposits "AI Economy" }
+	stations_physics_research_cost_mult = { Deposits "AI Economy" }
 	stations_physics_research_produces_mult = { Deposits "AI Economy" }
 	stations_physics_research_upkeep_mult = { Deposits "AI Economy" }
+	stations_society_research_cost_mult = { Deposits "AI Economy" }
 	stations_society_research_produces_mult = { Deposits "AI Economy" }
 	stations_society_research_upkeep_mult = { Deposits "AI Economy" }
+	stations_engineering_research_cost_mult = { Deposits "AI Economy" }
 	stations_engineering_research_produces_mult = { Deposits "AI Economy" }
 	stations_engineering_research_upkeep_mult = { Deposits "AI Economy" }
+	stations_influence_cost_mult = { Deposits "AI Economy" }
 	stations_influence_produces_mult = { Deposits "AI Economy" }
 	stations_influence_upkeep_mult = { Deposits "AI Economy" }
+	stations_unity_cost_mult = { Deposits "AI Economy" }
 	stations_unity_produces_mult = { Deposits "AI Economy" }
 	stations_unity_upkeep_mult = { Deposits "AI Economy" }
+	stations_consumer_goods_cost_mult = { Deposits "AI Economy" }
 	stations_consumer_goods_produces_mult = { Deposits "AI Economy" }
 	stations_consumer_goods_upkeep_mult = { Deposits "AI Economy" }
+	stations_alloys_cost_mult = { Deposits "AI Economy" }
 	stations_alloys_produces_mult = { Deposits "AI Economy" }
 	stations_alloys_upkeep_mult = { Deposits "AI Economy" }
+	stations_volatile_motes_cost_mult = { Deposits "AI Economy" }
 	stations_volatile_motes_produces_mult = { Deposits "AI Economy" }
 	stations_volatile_motes_upkeep_mult = { Deposits "AI Economy" }
+	stations_exotic_gases_cost_mult = { Deposits "AI Economy" }
 	stations_exotic_gases_produces_mult = { Deposits "AI Economy" }
 	stations_exotic_gases_upkeep_mult = { Deposits "AI Economy" }
+	stations_rare_crystals_cost_mult = { Deposits "AI Economy" }
 	stations_rare_crystals_produces_mult = { Deposits "AI Economy" }
 	stations_rare_crystals_upkeep_mult = { Deposits "AI Economy" }
+	stations_sr_living_metal_cost_mult = { Deposits "AI Economy" }
 	stations_sr_living_metal_produces_mult = { Deposits "AI Economy" }
 	stations_sr_living_metal_upkeep_mult = { Deposits "AI Economy" }
+	stations_sr_zro_cost_mult = { Deposits "AI Economy" }
 	stations_sr_zro_produces_mult = { Deposits "AI Economy" }
 	stations_sr_zro_upkeep_mult = { Deposits "AI Economy" }
+	stations_sr_dark_matter_cost_mult = { Deposits "AI Economy" }
 	stations_sr_dark_matter_produces_mult = { Deposits "AI Economy" }
 	stations_sr_dark_matter_upkeep_mult = { Deposits "AI Economy" }
+	stations_nanites_cost_mult = { Deposits "AI Economy" }
 	stations_nanites_produces_mult = { Deposits "AI Economy" }
 	stations_nanites_upkeep_mult = { Deposits "AI Economy" }
+	stations_minor_artifacts_cost_mult = { Deposits "AI Economy" }
 	stations_minor_artifacts_produces_mult = { Deposits "AI Economy" }
 	stations_minor_artifacts_upkeep_mult = { Deposits "AI Economy" }
+	stations_menace_cost_mult = { Deposits "AI Economy" }
 	stations_menace_produces_mult = { Deposits "AI Economy" }
 	stations_menace_upkeep_mult = { Deposits "AI Economy" }
+	stations_cost_mult = { Deposits "AI Economy" }
 	stations_produces_mult = { Deposits "AI Economy" }
 	stations_upkeep_mult = { Deposits "AI Economy" }
 	# endregion
-	# region economic_category modifiers station_gatherers
+	# region economic_category modifiers - station_gatherers
 	station_gatherers_time_cost_mult = { Deposits "AI Economy" }
 	station_gatherers_time_produces_mult = { Deposits "AI Economy" }
 	station_gatherers_energy_cost_mult = { Deposits "AI Economy" }
@@ -1189,7 +1264,7 @@ modifiers = {
 	station_gatherers_cost_mult = { Deposits "AI Economy" }
 	station_gatherers_produces_mult = { Deposits "AI Economy" }
 	# endregion
-	# region economic_category modifiers station_researchers
+	# region economic_category modifiers - station_researchers
 	station_researchers_time_produces_mult = { Deposits "AI Economy" }
 	station_researchers_energy_produces_mult = { Deposits "AI Economy" }
 	station_researchers_minerals_produces_mult = { Deposits "AI Economy" }
@@ -1212,7 +1287,7 @@ modifiers = {
 	station_researchers_menace_produces_mult = { Deposits "AI Economy" }
 	station_researchers_produces_mult = { Deposits "AI Economy" }
 	# endregion
-	# region economic_category modifiers starbases
+	# region economic_category modifiers - starbases
 	station_observers_time_produces_add = { "Economic Units" "AI Economy" }
 	station_observers_time_produces_mult = { "Economic Units" "AI Economy" }
 	station_observers_energy_produces_add = { "Economic Units" "AI Economy" }
@@ -1276,7 +1351,7 @@ modifiers = {
 	starbases_menace_upkeep_mult = { Starbases "AI Economy" }
 	starbases_upkeep_mult = { Starbases "AI Economy" }
 	# endregion
-	# region economic_category modifiers starbase_stations
+	# region economic_category modifiers - starbase_stations
 	starbase_outpost_cost_mult = { Starbases "AI Economy" }
 	starbase_outpost_time_cost_mult = { Starbases "AI Economy" }
 	starbase_outpost_energy_cost_mult = { Starbases "AI Economy" }
@@ -1299,7 +1374,7 @@ modifiers = {
 	starbase_outpost_minor_artifacts_cost_mult = { Starbases "AI Economy" }
 	starbase_outpost_menace_cost_mult = { Starbases "AI Economy" }
 	# endregion
-	# region economic_category modifiers starbase_constructions
+	# region economic_category modifiers - starbase_constructions
 	starbase_constructions_time_produces_mult = { Starbases "AI Economy" }
 	starbase_constructions_energy_produces_mult = { Starbases "AI Economy" }
 	starbase_constructions_minerals_produces_mult = { Starbases "AI Economy" }
@@ -1322,7 +1397,7 @@ modifiers = {
 	starbase_constructions_menace_produces_mult = { Starbases "AI Economy" }
 	starbase_constructions_produces_mult = { Starbases "AI Economy" }
 	# endregion
-	# region economic_category modifiers starbase_buildings
+	# region economic_category modifiers - starbase_buildings
 	starbase_buildings_time_cost_mult = { Starbases "AI Economy" }
 	starbase_buildings_energy_cost_mult = { Starbases "AI Economy" }
 	starbase_buildings_minerals_cost_mult = { Starbases "AI Economy" }
@@ -1345,7 +1420,7 @@ modifiers = {
 	starbase_buildings_menace_cost_mult = { Starbases "AI Economy" }
 	starbase_buildings_cost_mult = { Starbases "AI Economy" }
 	# endregion
-	# region economic_category modifiers starbase_modules
+	# region economic_category modifiers - starbase_modules
 	starbase_modules_time_cost_mult = { Starbases "AI Economy" }
 	starbase_modules_energy_cost_mult = { Starbases "AI Economy" }
 	starbase_modules_minerals_cost_mult = { Starbases "AI Economy" }
@@ -1368,7 +1443,7 @@ modifiers = {
 	starbase_modules_menace_cost_mult = { Starbases "AI Economy" }
 	starbase_modules_cost_mult = { Starbases "AI Economy" }
 	# endregion
-	# region economic_category modifiers terraforming
+	# region economic_category modifiers - terraforming
 	terraforming_time_cost_mult = { Planets "AI Economy" }
 	terraforming_energy_cost_mult = { Planets "AI Economy" }
 	terraforming_minerals_cost_mult = { Planets "AI Economy" }
@@ -1390,7 +1465,7 @@ modifiers = {
 	terraforming_minor_artifacts_cost_mult = { Planets "AI Economy" }
 	terraforming_menace_cost_mult = { Planets "AI Economy" }
 	# endregion
-	# region economic_category modifiers terraforming_ocean
+	# region economic_category modifiers - terraforming_ocean
 	terraforming_ocean_time_cost_mult = { Planets "AI Economy" }
 	terraforming_ocean_energy_cost_mult = { Planets "AI Economy" }
 	terraforming_ocean_minerals_cost_mult = { Planets "AI Economy" }
@@ -1413,7 +1488,7 @@ modifiers = {
 	terraforming_ocean_menace_cost_mult = { Planets "AI Economy" }
 	terraforming_ocean_cost_mult = { Planets "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_structures
+	# region economic_category modifiers - planet_structures
 	planet_structures_time_cost_mult = { Planets "AI Economy" }
 	planet_structures_time_upkeep_mult = { Planets "AI Economy" }
 	planet_structures_energy_cost_mult = { Planets "AI Economy" }
@@ -1457,7 +1532,7 @@ modifiers = {
 	planet_structures_cost_mult = { Planets "AI Economy" }
 	planet_structures_upkeep_mult = { Planets "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_buildings
+	# region economic_category modifiers - planet_buildings
 	planet_buildings_time_cost_mult = { Planets "AI Economy" }
 	planet_buildings_time_upkeep_mult = { Planets "AI Economy" }
 	planet_buildings_energy_cost_mult = { Planets "AI Economy" }
@@ -1501,7 +1576,7 @@ modifiers = {
 	planet_buildings_cost_mult = { Planets "AI Economy" }
 	planet_buildings_upkeep_mult = { Planets "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_branch_offices
+	# region economic_category modifiers - planet_branch_offices
 	planet_branch_offices_time_cost_mult = { Planets "AI Economy" }
 	planet_branch_offices_time_produces_add = { Planets "AI Economy" }
 	planet_branch_offices_energy_cost_mult = { Planets "AI Economy" }
@@ -1544,7 +1619,7 @@ modifiers = {
 	planet_branch_offices_menace_produces_add = { Planets "AI Economy" }
 	planet_branch_offices_cost_mult = { Planets "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_buildings_hab_capital
+	# region economic_category modifiers - planet_buildings_hab_capital
 	planet_buildings_hab_capital_time_upkeep_mult = { Planets "AI Economy" }
 	planet_buildings_hab_capital_energy_upkeep_mult = { Planets "AI Economy" }
 	planet_buildings_hab_capital_minerals_upkeep_mult = { Planets "AI Economy" }
@@ -1567,7 +1642,7 @@ modifiers = {
 	planet_buildings_hab_capital_menace_upkeep_mult = { Planets "AI Economy" }
 	planet_buildings_hab_capital_upkeep_mult = { Planets "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_districts
+	# region economic_category modifiers - planet_districts
 	planet_districts_time_cost_mult = { Planets "AI Economy" }
 	planet_districts_time_upkeep_mult = { Planets "AI Economy" }
 	planet_districts_energy_cost_mult = { Planets "AI Economy" }
@@ -1610,8 +1685,148 @@ modifiers = {
 	planet_districts_menace_upkeep_mult = { Planets "AI Economy" }
 	planet_districts_cost_mult = { Planets "AI Economy" }
 	planet_districts_upkeep_mult = { Planets "AI Economy" }
+	planet_districts_farming_time_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_energy_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_minerals_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_food_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_physics_research_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_society_research_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_engineering_research_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_influence_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_unity_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_consumer_goods_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_alloys_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_volatile_motes_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_exotic_gases_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_rare_crystals_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_sr_living_metal_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_sr_zro_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_sr_dark_matter_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_nanites_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_minor_artifacts_produces_add = { Planets "AI Economy" }
+	planet_districts_farming_menace_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_time_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_energy_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_minerals_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_food_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_physics_research_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_society_research_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_engineering_research_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_influence_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_unity_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_consumer_goods_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_alloys_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_volatile_motes_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_exotic_gases_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_rare_crystals_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_sr_living_metal_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_sr_zro_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_sr_dark_matter_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_nanites_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_minor_artifacts_produces_add = { Planets "AI Economy" }
+	planet_districts_mining_menace_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_time_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_energy_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_minerals_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_food_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_physics_research_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_society_research_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_engineering_research_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_influence_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_unity_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_consumer_goods_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_alloys_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_volatile_motes_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_exotic_gases_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_rare_crystals_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_sr_living_metal_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_sr_zro_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_sr_dark_matter_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_nanites_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_minor_artifacts_produces_add = { Planets "AI Economy" }
+	planet_districts_generator_menace_produces_add = { Planets "AI Economy" }
+	planet_districts_hab_energy_time_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_energy_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_minerals_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_food_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_physics_research_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_society_research_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_engineering_research_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_influence_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_unity_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_consumer_goods_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_alloys_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_volatile_motes_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_exotic_gases_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_rare_crystals_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_sr_living_metal_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_sr_zro_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_sr_dark_matter_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_nanites_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_minor_artifacts_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_energy_menace_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_time_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_energy_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_minerals_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_food_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_physics_research_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_society_research_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_engineering_research_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_influence_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_unity_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_consumer_goods_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_alloys_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_volatile_motes_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_exotic_gases_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_rare_crystals_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_sr_living_metal_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_sr_zro_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_sr_dark_matter_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_nanites_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_minor_artifacts_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_hab_mining_menace_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_time_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_energy_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_minerals_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_food_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_physics_research_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_society_research_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_engineering_research_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_influence_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_unity_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_consumer_goods_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_alloys_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_volatile_motes_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_exotic_gases_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_rare_crystals_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_sr_living_metal_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_sr_zro_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_sr_dark_matter_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_nanites_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_minor_artifacts_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_generator_menace_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_time_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_energy_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_minerals_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_food_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_physics_research_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_society_research_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_engineering_research_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_influence_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_unity_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_consumer_goods_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_alloys_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_volatile_motes_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_exotic_gases_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_rare_crystals_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_sr_living_metal_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_sr_zro_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_sr_dark_matter_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_nanites_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_minor_artifacts_produces_add = { "Economic Units" "AI Economy" }
+	planet_districts_rw_farming_menace_produces_add = { "Economic Units" "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_jobs
+	# region economic_category modifiers - planet_jobs
 	planet_jobs_slave_produces_mult = { Pops "AI Economy" }
 	planet_jobs_slave_time_produces_mult = { Pops "AI Economy" }
 	planet_jobs_slave_energy_produces_mult = { Pops "AI Economy" }
@@ -1970,7 +2185,7 @@ modifiers = {
 	planet_jobs_produces_mult = { Pops "AI Economy" }
 	planet_jobs_upkeep_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_jobs_productive
+	# region economic_category modifiers - planet_jobs_productive
 	planet_jobs_productive_time_produces_mult = { Pops "AI Economy" }
 	planet_jobs_productive_time_upkeep_mult = { Pops "AI Economy" }
 	planet_jobs_productive_energy_produces_mult = { Pops "AI Economy" }
@@ -2014,7 +2229,7 @@ modifiers = {
 	planet_jobs_productive_produces_mult = { Pops "AI Economy" }
 	planet_jobs_productive_upkeep_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_bio_trophies
+	# region economic_category modifiers - planet_bio_trophies
 	planet_bio_trophies_time_produces_mult = { Pops "AI Economy" }
 	planet_bio_trophies_energy_produces_mult = { Pops "AI Economy" }
 	planet_bio_trophies_minerals_produces_mult = { Pops "AI Economy" }
@@ -2037,30 +2252,50 @@ modifiers = {
 	planet_bio_trophies_menace_produces_mult = { Pops "AI Economy" }
 	planet_bio_trophies_produces_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_pop_assemblers
+	# region economic_category modifiers - planet_pop_assemblers
+	planet_pop_assemblers_time_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_time_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_energy_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_energy_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_minerals_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_minerals_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_food_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_food_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_physics_research_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_physics_research_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_society_research_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_society_research_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_engineering_research_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_engineering_research_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_influence_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_influence_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_unity_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_unity_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_consumer_goods_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_consumer_goods_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_alloys_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_alloys_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_volatile_motes_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_volatile_motes_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_exotic_gases_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_exotic_gases_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_rare_crystals_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_rare_crystals_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_sr_living_metal_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_sr_living_metal_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_sr_zro_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_sr_zro_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_sr_dark_matter_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_sr_dark_matter_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_nanites_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_nanites_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_minor_artifacts_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_minor_artifacts_upkeep_mult = { Pops "AI Economy" }
+	planet_pop_assemblers_menace_produces_add = { Pops "AI Economy" }
 	planet_pop_assemblers_menace_upkeep_mult = { Pops "AI Economy" }
 	planet_pop_assemblers_upkeep_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_farmers
+	# region economic_category modifiers - planet_farmers
 	planet_farmers_time_produces_add = { Pops "AI Economy" }
 	planet_farmers_time_produces_mult = { Pops "AI Economy" }
 	planet_farmers_time_upkeep_add = { Pops "AI Economy" }
@@ -2123,7 +2358,7 @@ modifiers = {
 	planet_farmers_menace_upkeep_add = { Pops "AI Economy" }
 	planet_farmers_produces_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_miners
+	# region economic_category modifiers - planet_miners
 	planet_miners_time_produces_add = { Pops "AI Economy" }
 	planet_miners_time_produces_mult = { Pops "AI Economy" }
 	planet_miners_time_upkeep_add = { Pops "AI Economy" }
@@ -2186,7 +2421,7 @@ modifiers = {
 	planet_miners_menace_upkeep_add = { Pops "AI Economy" }
 	planet_miners_produces_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_sr_miners
+	# region economic_category modifiers - planet_sr_miners
 	planet_sr_miners_time_produces_mult = { Pops "AI Economy" }
 	planet_sr_miners_time_upkeep_add = { Pops "AI Economy" }
 	planet_sr_miners_energy_produces_mult = { Pops "AI Economy" }
@@ -2229,7 +2464,7 @@ modifiers = {
 	planet_sr_miners_menace_upkeep_add = { Pops "AI Economy" }
 	planet_sr_miners_produces_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_livestock
+	# region economic_category modifiers - planet_livestock
 	planet_livestock_time_produces_add = { Pops "AI Economy" }
 	planet_livestock_energy_produces_add = { Pops "AI Economy" }
 	planet_livestock_minerals_produces_add = { Pops "AI Economy" }
@@ -2251,7 +2486,7 @@ modifiers = {
 	planet_livestock_minor_artifacts_produces_add = { Pops "AI Economy" }
 	planet_livestock_menace_produces_add = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_technician
+	# region economic_category modifiers - planet_technician
 	planet_technician_time_produces_add = { Pops "AI Economy" }
 	planet_technician_time_produces_mult = { Pops "AI Economy" }
 	planet_technician_time_upkeep_add = { Pops "AI Economy" }
@@ -2314,7 +2549,7 @@ modifiers = {
 	planet_technician_menace_upkeep_add = { Pops "AI Economy" }
 	planet_technician_produces_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_administrators
+	# region economic_category modifiers - planet_administrators
 	planet_administrators_time_produces_add = { Pops "AI Economy" }
 	planet_administrators_time_produces_mult = { Pops "AI Economy" }
 	planet_administrators_time_upkeep_mult = { Pops "AI Economy" }
@@ -2378,7 +2613,7 @@ modifiers = {
 	planet_administrators_produces_mult = { Pops "AI Economy" }
 	planet_administrators_upkeep_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_executives
+	# region economic_category modifiers - planet_executives
 	planet_executives_time_produces_mult = { Pops "AI Economy" }
 	planet_executives_energy_produces_mult = { Pops "AI Economy" }
 	planet_executives_minerals_produces_mult = { Pops "AI Economy" }
@@ -2401,7 +2636,7 @@ modifiers = {
 	planet_executives_menace_produces_mult = { Pops "AI Economy" }
 	planet_executives_produces_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_managers
+	# region economic_category modifiers - planet_managers
 	planet_managers_time_produces_add = { Pops "AI Economy" }
 	planet_managers_time_produces_mult = { Pops "AI Economy" }
 	planet_managers_energy_produces_add = { Pops "AI Economy" }
@@ -2444,7 +2679,7 @@ modifiers = {
 	planet_managers_menace_produces_mult = { Pops "AI Economy" }
 	planet_managers_produces_mult = { Pops "AI Economy" }
 	# endregion
-	# region economic_category modifiers planet_researchers
+	# region economic_category modifiers - planet_researchers
 	planet_researchers_time_produces_add = { Pops "AI Economy" }
 	planet_researchers_time_produces_mult = { Pops "AI Economy" }
 	planet_researchers_time_upkeep_add = { Pops "AI Economy" }
@@ -2528,7 +2763,7 @@ modifiers = {
 	planet_researchers_produces_mult = { Pops "AI Economy" }
 	planet_researchers_upkeep_mult = { Pops "AI Economy" }
 	# endregion
-	# TODO
+	# region economic_category modifiers - planet_metallurgists
 	planet_metallurgists_time_produces_add = { Pops "AI Economy" }
 	planet_metallurgists_time_produces_mult = { Pops "AI Economy" }
 	planet_metallurgists_time_upkeep_add = { Pops "AI Economy" }
@@ -2611,6 +2846,31 @@ modifiers = {
 	planet_metallurgists_menace_upkeep_mult = { Pops "AI Economy" }
 	planet_metallurgists_produces_mult = { Pops "AI Economy" }
 	planet_metallurgists_upkeep_mult = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - planet_entertainers
+	planet_entertainers_time_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_energy_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_minerals_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_food_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_physics_research_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_society_research_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_engineering_research_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_influence_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_unity_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_consumer_goods_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_alloys_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_volatile_motes_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_exotic_gases_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_rare_crystals_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_sr_living_metal_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_sr_zro_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_sr_dark_matter_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_nanites_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_minor_artifacts_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_menace_produces_mult = { "Economic Units" "AI Economy" }
+	planet_entertainers_produces_mult = { "Economic Units" "AI Economy" }
+	# endregion
+	# region economic_category modifiers - planet_soldiers
 	planet_soldiers_time_produces_add = { Pops "AI Economy" }
 	planet_soldiers_time_upkeep_add = { Pops "AI Economy" }
 	planet_soldiers_energy_produces_add = { Pops "AI Economy" }
@@ -2651,47 +2911,72 @@ modifiers = {
 	planet_soldiers_minor_artifacts_upkeep_add = { Pops "AI Economy" }
 	planet_soldiers_menace_produces_add = { Pops "AI Economy" }
 	planet_soldiers_menace_upkeep_add = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - planet_priests
 	planet_priests_time_produces_add = { Pops "AI Economy" }
 	planet_priests_time_produces_mult = { Pops "AI Economy" }
+	planet_priests_time_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_energy_produces_add = { Pops "AI Economy" }
 	planet_priests_energy_produces_mult = { Pops "AI Economy" }
+	planet_priests_energy_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_minerals_produces_add = { Pops "AI Economy" }
 	planet_priests_minerals_produces_mult = { Pops "AI Economy" }
+	planet_priests_minerals_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_food_produces_add = { Pops "AI Economy" }
 	planet_priests_food_produces_mult = { Pops "AI Economy" }
+	planet_priests_food_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_physics_research_produces_add = { Pops "AI Economy" }
 	planet_priests_physics_research_produces_mult = { Pops "AI Economy" }
+	planet_priests_physics_research_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_society_research_produces_add = { Pops "AI Economy" }
 	planet_priests_society_research_produces_mult = { Pops "AI Economy" }
+	planet_priests_society_research_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_engineering_research_produces_add = { Pops "AI Economy" }
 	planet_priests_engineering_research_produces_mult = { Pops "AI Economy" }
+	planet_priests_engineering_research_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_influence_produces_add = { Pops "AI Economy" }
 	planet_priests_influence_produces_mult = { Pops "AI Economy" }
+	planet_priests_influence_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_unity_produces_add = { Pops "AI Economy" }
 	planet_priests_unity_produces_mult = { Pops "AI Economy" }
+	planet_priests_unity_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_consumer_goods_produces_add = { Pops "AI Economy" }
 	planet_priests_consumer_goods_produces_mult = { Pops "AI Economy" }
+	planet_priests_consumer_goods_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_alloys_produces_add = { Pops "AI Economy" }
 	planet_priests_alloys_produces_mult = { Pops "AI Economy" }
+	planet_priests_alloys_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_volatile_motes_produces_add = { Pops "AI Economy" }
 	planet_priests_volatile_motes_produces_mult = { Pops "AI Economy" }
+	planet_priests_volatile_motes_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_exotic_gases_produces_add = { Pops "AI Economy" }
 	planet_priests_exotic_gases_produces_mult = { Pops "AI Economy" }
+	planet_priests_exotic_gases_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_rare_crystals_produces_add = { Pops "AI Economy" }
 	planet_priests_rare_crystals_produces_mult = { Pops "AI Economy" }
+	planet_priests_rare_crystals_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_sr_living_metal_produces_add = { Pops "AI Economy" }
 	planet_priests_sr_living_metal_produces_mult = { Pops "AI Economy" }
+	planet_priests_sr_living_metal_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_sr_zro_produces_add = { Pops "AI Economy" }
 	planet_priests_sr_zro_produces_mult = { Pops "AI Economy" }
+	planet_priests_sr_zro_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_sr_dark_matter_produces_add = { Pops "AI Economy" }
 	planet_priests_sr_dark_matter_produces_mult = { Pops "AI Economy" }
+	planet_priests_sr_dark_matter_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_nanites_produces_add = { Pops "AI Economy" }
 	planet_priests_nanites_produces_mult = { Pops "AI Economy" }
+	planet_priests_nanites_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_minor_artifacts_produces_add = { Pops "AI Economy" }
 	planet_priests_minor_artifacts_produces_mult = { Pops "AI Economy" }
+	planet_priests_minor_artifacts_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_menace_produces_add = { Pops "AI Economy" }
 	planet_priests_menace_produces_mult = { Pops "AI Economy" }
+	planet_priests_menace_upkeep_mult = { Pops "AI Economy" }
 	planet_priests_produces_mult = { Pops "AI Economy" }
+	planet_priests_upkeep_mult = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - planet_enforcers
 	planet_enforcers_time_produces_add = { Pops "AI Economy" }
 	planet_enforcers_energy_produces_add = { Pops "AI Economy" }
 	planet_enforcers_minerals_produces_add = { Pops "AI Economy" }
@@ -2712,6 +2997,30 @@ modifiers = {
 	planet_enforcers_nanites_produces_add = { Pops "AI Economy" }
 	planet_enforcers_minor_artifacts_produces_add = { Pops "AI Economy" }
 	planet_enforcers_menace_produces_add = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - planet_clerks
+	planet_clerks_time_produces_add = { Pops "AI Economy" }
+	planet_clerks_energy_produces_add = { Pops "AI Economy" }
+	planet_clerks_minerals_produces_add = { Pops "AI Economy" }
+	planet_clerks_food_produces_add = { Pops "AI Economy" }
+	planet_clerks_physics_research_produces_add = { Pops "AI Economy" }
+	planet_clerks_society_research_produces_add = { Pops "AI Economy" }
+	planet_clerks_engineering_research_produces_add = { Pops "AI Economy" }
+	planet_clerks_influence_produces_add = { Pops "AI Economy" }
+	planet_clerks_unity_produces_add = { Pops "AI Economy" }
+	planet_clerks_consumer_goods_produces_add = { Pops "AI Economy" }
+	planet_clerks_alloys_produces_add = { Pops "AI Economy" }
+	planet_clerks_volatile_motes_produces_add = { Pops "AI Economy" }
+	planet_clerks_exotic_gases_produces_add = { Pops "AI Economy" }
+	planet_clerks_rare_crystals_produces_add = { Pops "AI Economy" }
+	planet_clerks_sr_living_metal_produces_add = { Pops "AI Economy" }
+	planet_clerks_sr_zro_produces_add = { Pops "AI Economy" }
+	planet_clerks_sr_dark_matter_produces_add = { Pops "AI Economy" }
+	planet_clerks_nanites_produces_add = { Pops "AI Economy" }
+	planet_clerks_minor_artifacts_produces_add = { Pops "AI Economy" }
+	planet_clerks_menace_produces_add = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - planet_telepaths
 	planet_telepaths_time_produces_add = { Pops "AI Economy" }
 	planet_telepaths_energy_produces_add = { Pops "AI Economy" }
 	planet_telepaths_minerals_produces_add = { Pops "AI Economy" }
@@ -2732,6 +3041,8 @@ modifiers = {
 	planet_telepaths_nanites_produces_add = { Pops "AI Economy" }
 	planet_telepaths_minor_artifacts_produces_add = { Pops "AI Economy" }
 	planet_telepaths_menace_produces_add = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - planet_refiners
 	planet_refiners_time_produces_mult = { Pops "AI Economy" }
 	planet_refiners_time_upkeep_mult = { Pops "AI Economy" }
 	planet_refiners_energy_produces_mult = { Pops "AI Economy" }
@@ -2774,6 +3085,8 @@ modifiers = {
 	planet_refiners_menace_upkeep_mult = { Pops "AI Economy" }
 	planet_refiners_produces_mult = { Pops "AI Economy" }
 	planet_refiners_upkeep_mult = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - planet_translucers
 	planet_translucers_time_produces_mult = { Pops "AI Economy" }
 	planet_translucers_time_upkeep_mult = { Pops "AI Economy" }
 	planet_translucers_energy_produces_mult = { Pops "AI Economy" }
@@ -2816,6 +3129,8 @@ modifiers = {
 	planet_translucers_menace_upkeep_mult = { Pops "AI Economy" }
 	planet_translucers_produces_mult = { Pops "AI Economy" }
 	planet_translucers_upkeep_mult = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - planet_chemists
 	planet_chemists_time_produces_mult = { Pops "AI Economy" }
 	planet_chemists_time_upkeep_mult = { Pops "AI Economy" }
 	planet_chemists_energy_produces_mult = { Pops "AI Economy" }
@@ -2858,6 +3173,8 @@ modifiers = {
 	planet_chemists_menace_upkeep_mult = { Pops "AI Economy" }
 	planet_chemists_produces_mult = { Pops "AI Economy" }
 	planet_chemists_upkeep_mult = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - planet_artisans
 	planet_artisans_time_produces_add = { Pops "AI Economy" }
 	planet_artisans_time_produces_mult = { Pops "AI Economy" }
 	planet_artisans_time_upkeep_add = { Pops "AI Economy" }
@@ -2940,6 +3257,8 @@ modifiers = {
 	planet_artisans_menace_upkeep_mult = { Pops "AI Economy" }
 	planet_artisans_produces_mult = { Pops "AI Economy" }
 	planet_artisans_upkeep_mult = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - knights_independent_category
 	knights_independent_category_time_produces_mult = { "Economic Units" "AI Economy" }
 	knights_independent_category_energy_produces_mult = { "Economic Units" "AI Economy" }
 	knights_independent_category_minerals_produces_mult = { "Economic Units" "AI Economy" }
@@ -2961,6 +3280,8 @@ modifiers = {
 	knights_independent_category_minor_artifacts_produces_mult = { "Economic Units" "AI Economy" }
 	knights_independent_category_menace_produces_mult = { "Economic Units" "AI Economy" }
 	knights_independent_category_produces_mult = { "Economic Units" "AI Economy" }
+	# endregion
+	# region economic_category modifiers - planet_pops_robotics
 	planet_pops_robotics_upkeep_mult = { Pops "AI Economy" }
 	planet_pops_robotics_time_upkeep_mult = { Pops "AI Economy" }
 	planet_pops_robotics_energy_upkeep_mult = { Pops "AI Economy" }
@@ -2982,6 +3303,8 @@ modifiers = {
 	planet_pops_robotics_nanites_upkeep_mult = { Pops "AI Economy" }
 	planet_pops_robotics_minor_artifacts_upkeep_mult = { Pops "AI Economy" }
 	planet_pops_robotics_menace_upkeep_mult = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - planet_pops_cyborgs
 	planet_pops_cyborgs_upkeep_mult = { Pops "AI Economy" }
 	planet_pops_cyborgs_time_upkeep_mult = { Pops "AI Economy" }
 	planet_pops_cyborgs_energy_upkeep_mult = { Pops "AI Economy" }
@@ -3003,6 +3326,8 @@ modifiers = {
 	planet_pops_cyborgs_nanites_upkeep_mult = { Pops "AI Economy" }
 	planet_pops_cyborgs_minor_artifacts_upkeep_mult = { Pops "AI Economy" }
 	planet_pops_cyborgs_menace_upkeep_mult = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - planet_pops_organics
 	planet_pops_organics_upkeep_mult = { Pops "AI Economy" }
 	planet_pops_organics_time_upkeep_mult = { Pops "AI Economy" }
 	planet_pops_organics_energy_upkeep_mult = { Pops "AI Economy" }
@@ -3024,6 +3349,8 @@ modifiers = {
 	planet_pops_organics_nanites_upkeep_mult = { Pops "AI Economy" }
 	planet_pops_organics_minor_artifacts_upkeep_mult = { Pops "AI Economy" }
 	planet_pops_organics_menace_upkeep_mult = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - planet_pops_unemployed
 	planet_pops_unemployed_time_upkeep_add = { Pops "AI Economy" }
 	planet_pops_unemployed_energy_upkeep_add = { Pops "AI Economy" }
 	planet_pops_unemployed_minerals_upkeep_add = { Pops "AI Economy" }
@@ -3044,6 +3371,8 @@ modifiers = {
 	planet_pops_unemployed_nanites_upkeep_add = { Pops "AI Economy" }
 	planet_pops_unemployed_minor_artifacts_upkeep_add = { Pops "AI Economy" }
 	planet_pops_unemployed_menace_upkeep_add = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - planet_pops
 	planet_pops_time_upkeep_mult = { Pops "AI Economy" }
 	planet_pops_energy_upkeep_mult = { Pops "AI Economy" }
 	planet_pops_minerals_upkeep_mult = { Pops "AI Economy" }
@@ -3065,6 +3394,8 @@ modifiers = {
 	planet_pops_minor_artifacts_upkeep_mult = { Pops "AI Economy" }
 	planet_pops_menace_upkeep_mult = { Pops "AI Economy" }
 	planet_pops_upkeep_mult = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - unemployment_resources
 	unemployment_resources_time_produces_add = { Pops "AI Economy" }
 	unemployment_resources_time_upkeep_add = { Pops "AI Economy" }
 	unemployment_resources_energy_produces_add = { Pops "AI Economy" }
@@ -3105,6 +3436,8 @@ modifiers = {
 	unemployment_resources_minor_artifacts_upkeep_add = { Pops "AI Economy" }
 	unemployment_resources_menace_produces_add = { Pops "AI Economy" }
 	unemployment_resources_menace_upkeep_add = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - pop_category_bio_trophy
 	pop_category_bio_trophy_time_upkeep_add = { Pops "AI Economy" }
 	pop_category_bio_trophy_energy_upkeep_add = { Pops "AI Economy" }
 	pop_category_bio_trophy_minerals_upkeep_add = { Pops "AI Economy" }
@@ -3125,6 +3458,8 @@ modifiers = {
 	pop_category_bio_trophy_nanites_upkeep_add = { Pops "AI Economy" }
 	pop_category_bio_trophy_minor_artifacts_upkeep_add = { Pops "AI Economy" }
 	pop_category_bio_trophy_menace_upkeep_add = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - pop_category_slave
 	pop_category_slave_time_upkeep_add = { Pops "AI Economy" }
 	pop_category_slave_time_upkeep_mult = { Pops "AI Economy" }
 	pop_category_slave_energy_upkeep_add = { Pops "AI Economy" }
@@ -3166,66 +3501,155 @@ modifiers = {
 	pop_category_slave_menace_upkeep_add = { Pops "AI Economy" }
 	pop_category_slave_menace_upkeep_mult = { Pops "AI Economy" }
 	pop_category_slave_upkeep_mult = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - pop_category_workers
+	pop_category_workers_time_produces_add = { Pops "AI Economy" }
 	pop_category_workers_time_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_energy_produces_add = { Pops "AI Economy" }
 	pop_category_workers_energy_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_minerals_produces_add = { Pops "AI Economy" }
 	pop_category_workers_minerals_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_food_produces_add = { Pops "AI Economy" }
 	pop_category_workers_food_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_physics_research_produces_add = { Pops "AI Economy" }
 	pop_category_workers_physics_research_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_society_research_produces_add = { Pops "AI Economy" }
 	pop_category_workers_society_research_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_engineering_research_produces_add = { Pops "AI Economy" }
 	pop_category_workers_engineering_research_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_influence_produces_add = { Pops "AI Economy" }
 	pop_category_workers_influence_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_unity_produces_add = { Pops "AI Economy" }
 	pop_category_workers_unity_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_consumer_goods_produces_add = { Pops "AI Economy" }
 	pop_category_workers_consumer_goods_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_alloys_produces_add = { Pops "AI Economy" }
 	pop_category_workers_alloys_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_volatile_motes_produces_add = { Pops "AI Economy" }
 	pop_category_workers_volatile_motes_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_exotic_gases_produces_add = { Pops "AI Economy" }
 	pop_category_workers_exotic_gases_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_rare_crystals_produces_add = { Pops "AI Economy" }
 	pop_category_workers_rare_crystals_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_sr_living_metal_produces_add = { Pops "AI Economy" }
 	pop_category_workers_sr_living_metal_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_sr_zro_produces_add = { Pops "AI Economy" }
 	pop_category_workers_sr_zro_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_sr_dark_matter_produces_add = { Pops "AI Economy" }
 	pop_category_workers_sr_dark_matter_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_nanites_produces_add = { Pops "AI Economy" }
 	pop_category_workers_nanites_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_minor_artifacts_produces_add = { Pops "AI Economy" }
 	pop_category_workers_minor_artifacts_upkeep_add = { Pops "AI Economy" }
+	pop_category_workers_menace_produces_add = { Pops "AI Economy" }
 	pop_category_workers_menace_upkeep_add = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - pop_category_specialists
+	pop_category_specialists_time_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_time_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_energy_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_energy_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_minerals_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_minerals_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_food_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_food_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_physics_research_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_physics_research_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_society_research_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_society_research_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_engineering_research_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_engineering_research_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_influence_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_influence_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_unity_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_unity_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_consumer_goods_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_consumer_goods_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_alloys_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_alloys_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_volatile_motes_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_volatile_motes_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_exotic_gases_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_exotic_gases_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_rare_crystals_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_rare_crystals_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_sr_living_metal_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_sr_living_metal_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_sr_zro_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_sr_zro_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_sr_dark_matter_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_sr_dark_matter_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_nanites_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_nanites_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_minor_artifacts_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_minor_artifacts_upkeep_add = { Pops "AI Economy" }
+	pop_category_specialists_menace_produces_add = { Pops "AI Economy" }
 	pop_category_specialists_menace_upkeep_add = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - pop_category_rulers
+	pop_category_rulers_time_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_time_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_time_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_energy_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_energy_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_energy_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_minerals_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_minerals_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_minerals_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_food_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_food_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_food_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_physics_research_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_physics_research_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_physics_research_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_society_research_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_society_research_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_society_research_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_engineering_research_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_engineering_research_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_engineering_research_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_influence_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_influence_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_influence_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_unity_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_unity_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_unity_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_consumer_goods_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_consumer_goods_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_consumer_goods_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_alloys_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_alloys_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_alloys_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_volatile_motes_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_volatile_motes_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_volatile_motes_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_exotic_gases_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_exotic_gases_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_exotic_gases_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_rare_crystals_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_rare_crystals_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_rare_crystals_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_sr_living_metal_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_sr_living_metal_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_sr_living_metal_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_sr_zro_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_sr_zro_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_sr_zro_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_sr_dark_matter_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_sr_dark_matter_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_sr_dark_matter_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_nanites_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_nanites_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_nanites_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_minor_artifacts_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_minor_artifacts_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_minor_artifacts_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_menace_produces_add = { Pops "AI Economy" }
 	pop_category_rulers_menace_upkeep_add = { Pops "AI Economy" }
+	pop_category_rulers_menace_upkeep_mult = { Pops "AI Economy" }
+	pop_category_rulers_upkeep_mult = { Pops "AI Economy" }
+	# endregion
+	# region economic_category modifiers - deposit_blockers
 	deposit_blockers_time_cost_mult = { Deposits "AI Economy" }
 	deposit_blockers_energy_cost_mult = { Deposits "AI Economy" }
 	deposit_blockers_minerals_cost_mult = { Deposits "AI Economy" }
@@ -3267,6 +3691,8 @@ modifiers = {
 	deposit_blockers_natural_nanites_produces_add = { Deposits "AI Economy" }
 	deposit_blockers_natural_minor_artifacts_produces_add = { Deposits "AI Economy" }
 	deposit_blockers_natural_menace_produces_add = { Deposits "AI Economy" }
+	# endregion
+	# region economic_category modifiers - armies
 	armies_time_cost_mult = { Armies "AI Economy" }
 	armies_time_upkeep_mult = { Armies "AI Economy" }
 	armies_energy_cost_mult = { Armies "AI Economy" }
@@ -3309,6 +3735,8 @@ modifiers = {
 	armies_menace_upkeep_mult = { Armies "AI Economy" }
 	armies_cost_mult = { Armies "AI Economy" }
 	armies_upkeep_mult = { Armies "AI Economy" }
+	# endregion
+	# region economic_category modifiers - leaders
 	leaders_time_cost_mult = { Leaders "AI Economy" }
 	leaders_time_upkeep_mult = { Leaders "AI Economy" }
 	leaders_energy_cost_mult = { Leaders "AI Economy" }
@@ -3351,6 +3779,260 @@ modifiers = {
 	leaders_menace_upkeep_mult = { Leaders "AI Economy" }
 	leaders_cost_mult = { Leaders "AI Economy" }
 	leaders_upkeep_mult = { Leaders "AI Economy" }
+	# endregion
+	# region economic_category modifiers - leader_admirals
+	leader_admirals_time_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_time_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_time_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_energy_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_energy_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_energy_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_minerals_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_minerals_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_minerals_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_food_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_food_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_food_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_physics_research_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_physics_research_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_physics_research_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_society_research_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_society_research_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_society_research_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_engineering_research_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_engineering_research_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_engineering_research_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_influence_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_influence_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_influence_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_unity_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_unity_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_unity_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_consumer_goods_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_consumer_goods_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_consumer_goods_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_alloys_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_alloys_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_alloys_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_volatile_motes_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_volatile_motes_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_volatile_motes_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_exotic_gases_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_exotic_gases_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_exotic_gases_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_rare_crystals_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_rare_crystals_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_rare_crystals_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_sr_living_metal_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_sr_living_metal_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_sr_living_metal_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_sr_zro_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_sr_zro_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_sr_zro_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_sr_dark_matter_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_sr_dark_matter_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_sr_dark_matter_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_nanites_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_nanites_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_nanites_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_minor_artifacts_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_minor_artifacts_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_minor_artifacts_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_menace_cost_mult = { "Economic Units" "AI Economy" }
+	leader_admirals_menace_produces_add = { "Economic Units" "AI Economy" }
+	leader_admirals_menace_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_admirals_cost_mult = { "Economic Units" "AI Economy" }
+	# endregion
+	# region economic_category modifiers - leader_generals
+	leader_generals_time_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_time_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_time_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_energy_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_energy_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_energy_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_minerals_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_minerals_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_minerals_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_food_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_food_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_food_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_physics_research_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_physics_research_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_physics_research_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_society_research_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_society_research_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_society_research_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_engineering_research_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_engineering_research_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_engineering_research_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_influence_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_influence_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_influence_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_unity_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_unity_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_unity_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_consumer_goods_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_consumer_goods_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_consumer_goods_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_alloys_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_alloys_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_alloys_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_volatile_motes_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_volatile_motes_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_volatile_motes_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_exotic_gases_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_exotic_gases_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_exotic_gases_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_rare_crystals_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_rare_crystals_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_rare_crystals_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_sr_living_metal_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_sr_living_metal_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_sr_living_metal_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_sr_zro_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_sr_zro_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_sr_zro_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_sr_dark_matter_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_sr_dark_matter_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_sr_dark_matter_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_nanites_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_nanites_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_nanites_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_minor_artifacts_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_minor_artifacts_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_minor_artifacts_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_menace_cost_mult = { "Economic Units" "AI Economy" }
+	leader_generals_menace_produces_add = { "Economic Units" "AI Economy" }
+	leader_generals_menace_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_generals_cost_mult = { "Economic Units" "AI Economy" }
+	# endregion
+	# region economic_category modifiers - leader_scientists
+	leader_scientists_time_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_time_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_time_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_energy_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_energy_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_energy_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_minerals_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_minerals_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_minerals_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_food_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_food_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_food_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_physics_research_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_physics_research_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_physics_research_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_society_research_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_society_research_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_society_research_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_engineering_research_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_engineering_research_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_engineering_research_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_influence_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_influence_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_influence_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_unity_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_unity_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_unity_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_consumer_goods_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_consumer_goods_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_consumer_goods_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_alloys_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_alloys_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_alloys_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_volatile_motes_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_volatile_motes_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_volatile_motes_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_exotic_gases_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_exotic_gases_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_exotic_gases_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_rare_crystals_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_rare_crystals_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_rare_crystals_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_sr_living_metal_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_sr_living_metal_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_sr_living_metal_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_sr_zro_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_sr_zro_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_sr_zro_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_sr_dark_matter_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_sr_dark_matter_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_sr_dark_matter_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_nanites_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_nanites_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_nanites_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_minor_artifacts_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_minor_artifacts_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_minor_artifacts_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_menace_cost_mult = { "Economic Units" "AI Economy" }
+	leader_scientists_menace_produces_add = { "Economic Units" "AI Economy" }
+	leader_scientists_menace_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_scientists_cost_mult = { "Economic Units" "AI Economy" }
+	# endregion
+	# region economic_category modifiers - leader_governors
+	leader_governors_time_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_time_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_time_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_energy_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_energy_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_energy_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_minerals_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_minerals_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_minerals_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_food_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_food_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_food_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_physics_research_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_physics_research_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_physics_research_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_society_research_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_society_research_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_society_research_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_engineering_research_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_engineering_research_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_engineering_research_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_influence_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_influence_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_influence_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_unity_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_unity_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_unity_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_consumer_goods_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_consumer_goods_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_consumer_goods_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_alloys_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_alloys_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_alloys_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_volatile_motes_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_volatile_motes_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_volatile_motes_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_exotic_gases_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_exotic_gases_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_exotic_gases_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_rare_crystals_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_rare_crystals_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_rare_crystals_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_sr_living_metal_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_sr_living_metal_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_sr_living_metal_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_sr_zro_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_sr_zro_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_sr_zro_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_sr_dark_matter_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_sr_dark_matter_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_sr_dark_matter_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_nanites_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_nanites_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_nanites_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_minor_artifacts_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_minor_artifacts_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_minor_artifacts_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_menace_cost_mult = { "Economic Units" "AI Economy" }
+	leader_governors_menace_produces_add = { "Economic Units" "AI Economy" }
+	leader_governors_menace_upkeep_add = { "Economic Units" "AI Economy" }
+	leader_governors_cost_mult = { "Economic Units" "AI Economy" }
+	# endregion
+	# region economic_category modifiers - diplomacy
 	diplomacy_time_upkeep_mult = { Countries "AI Economy" }
 	diplomacy_energy_upkeep_mult = { Countries "AI Economy" }
 	diplomacy_minerals_upkeep_mult = { Countries "AI Economy" }
@@ -3372,6 +4054,8 @@ modifiers = {
 	diplomacy_minor_artifacts_upkeep_mult = { Countries "AI Economy" }
 	diplomacy_menace_upkeep_mult = { Countries "AI Economy" }
 	diplomacy_upkeep_mult = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_monuments
 	country_monuments_time_produces_add = { Countries "AI Economy" }
 	country_monuments_energy_produces_add = { Countries "AI Economy" }
 	country_monuments_minerals_produces_add = { Countries "AI Economy" }
@@ -3392,6 +4076,8 @@ modifiers = {
 	country_monuments_nanites_produces_add = { Countries "AI Economy" }
 	country_monuments_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_monuments_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_ambition
 	country_ambition_time_produces_add = { Countries "AI Economy" }
 	country_ambition_energy_produces_add = { Countries "AI Economy" }
 	country_ambition_minerals_produces_add = { Countries "AI Economy" }
@@ -3412,6 +4098,8 @@ modifiers = {
 	country_ambition_nanites_produces_add = { Countries "AI Economy" }
 	country_ambition_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_ambition_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_federation_perks
 	country_federation_perks_time_produces_add = { Countries "AI Economy" }
 	country_federation_perks_energy_produces_add = { Countries "AI Economy" }
 	country_federation_perks_minerals_produces_add = { Countries "AI Economy" }
@@ -3432,6 +4120,8 @@ modifiers = {
 	country_federation_perks_nanites_produces_add = { Countries "AI Economy" }
 	country_federation_perks_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_federation_perks_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_civics
 	country_civics_time_produces_add = { Countries "AI Economy" }
 	country_civics_time_upkeep_add = { Countries "AI Economy" }
 	country_civics_energy_produces_add = { Countries "AI Economy" }
@@ -3472,6 +4162,8 @@ modifiers = {
 	country_civics_minor_artifacts_upkeep_add = { Countries "AI Economy" }
 	country_civics_menace_produces_add = { Countries "AI Economy" }
 	country_civics_menace_upkeep_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_ai_uprising
 	country_ai_uprising_time_produces_add = { Countries "AI Economy" }
 	country_ai_uprising_energy_produces_add = { Countries "AI Economy" }
 	country_ai_uprising_minerals_produces_add = { Countries "AI Economy" }
@@ -3492,6 +4184,8 @@ modifiers = {
 	country_ai_uprising_nanites_produces_add = { Countries "AI Economy" }
 	country_ai_uprising_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_ai_uprising_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_covenant
 	country_covenant_time_produces_add = { Countries "AI Economy" }
 	country_covenant_energy_produces_add = { Countries "AI Economy" }
 	country_covenant_minerals_produces_add = { Countries "AI Economy" }
@@ -3512,6 +4206,8 @@ modifiers = {
 	country_covenant_nanites_produces_add = { Countries "AI Economy" }
 	country_covenant_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_covenant_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_dessanu
 	country_dessanu_time_produces_add = { Countries "AI Economy" }
 	country_dessanu_energy_produces_add = { Countries "AI Economy" }
 	country_dessanu_minerals_produces_add = { Countries "AI Economy" }
@@ -3532,6 +4228,8 @@ modifiers = {
 	country_dessanu_nanites_produces_add = { Countries "AI Economy" }
 	country_dessanu_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_dessanu_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_extended_payout
 	country_extended_payout_time_produces_add = { Countries "AI Economy" }
 	country_extended_payout_energy_produces_add = { Countries "AI Economy" }
 	country_extended_payout_minerals_produces_add = { Countries "AI Economy" }
@@ -3552,6 +4250,8 @@ modifiers = {
 	country_extended_payout_nanites_produces_add = { Countries "AI Economy" }
 	country_extended_payout_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_extended_payout_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_shoulders
 	country_shoulders_time_produces_add = { Countries "AI Economy" }
 	country_shoulders_energy_produces_add = { Countries "AI Economy" }
 	country_shoulders_minerals_produces_add = { Countries "AI Economy" }
@@ -3572,6 +4272,8 @@ modifiers = {
 	country_shoulders_nanites_produces_add = { Countries "AI Economy" }
 	country_shoulders_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_shoulders_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_galactic_standard
 	country_galactic_standard_time_produces_add = { Countries "AI Economy" }
 	country_galactic_standard_energy_produces_add = { Countries "AI Economy" }
 	country_galactic_standard_minerals_produces_add = { Countries "AI Economy" }
@@ -3592,6 +4294,8 @@ modifiers = {
 	country_galactic_standard_nanites_produces_add = { Countries "AI Economy" }
 	country_galactic_standard_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_galactic_standard_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_concessions
 	country_concessions_time_produces_add = { Countries "AI Economy" }
 	country_concessions_energy_produces_add = { Countries "AI Economy" }
 	country_concessions_minerals_produces_add = { Countries "AI Economy" }
@@ -3612,6 +4316,8 @@ modifiers = {
 	country_concessions_nanites_produces_add = { Countries "AI Economy" }
 	country_concessions_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_concessions_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_first_contact
 	country_first_contact_time_produces_add = { Countries "AI Economy" }
 	country_first_contact_energy_produces_add = { Countries "AI Economy" }
 	country_first_contact_minerals_produces_add = { Countries "AI Economy" }
@@ -3632,6 +4338,8 @@ modifiers = {
 	country_first_contact_nanites_produces_add = { Countries "AI Economy" }
 	country_first_contact_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_first_contact_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_custodian
 	country_custodian_time_produces_add = { Countries "AI Economy" }
 	country_custodian_energy_produces_add = { Countries "AI Economy" }
 	country_custodian_minerals_produces_add = { Countries "AI Economy" }
@@ -3652,6 +4360,8 @@ modifiers = {
 	country_custodian_nanites_produces_add = { Countries "AI Economy" }
 	country_custodian_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_custodian_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_tech
 	country_tech_time_produces_add = { Countries "AI Economy" }
 	country_tech_energy_produces_add = { Countries "AI Economy" }
 	country_tech_minerals_produces_add = { Countries "AI Economy" }
@@ -3672,6 +4382,8 @@ modifiers = {
 	country_tech_nanites_produces_add = { Countries "AI Economy" }
 	country_tech_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_tech_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_traditions
 	country_traditions_time_produces_add = { Countries "AI Economy" }
 	country_traditions_energy_produces_add = { Countries "AI Economy" }
 	country_traditions_minerals_produces_add = { Countries "AI Economy" }
@@ -3692,6 +4404,30 @@ modifiers = {
 	country_traditions_nanites_produces_add = { Countries "AI Economy" }
 	country_traditions_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_traditions_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_councilor
+	country_councilor_time_produces_add = { Countries "AI Economy" }
+	country_councilor_energy_produces_add = { Countries "AI Economy" }
+	country_councilor_minerals_produces_add = { Countries "AI Economy" }
+	country_councilor_food_produces_add = { Countries "AI Economy" }
+	country_councilor_physics_research_produces_add = { Countries "AI Economy" }
+	country_councilor_society_research_produces_add = { Countries "AI Economy" }
+	country_councilor_engineering_research_produces_add = { Countries "AI Economy" }
+	country_councilor_influence_produces_add = { Countries "AI Economy" }
+	country_councilor_unity_produces_add = { Countries "AI Economy" }
+	country_councilor_consumer_goods_produces_add = { Countries "AI Economy" }
+	country_councilor_alloys_produces_add = { Countries "AI Economy" }
+	country_councilor_volatile_motes_produces_add = { Countries "AI Economy" }
+	country_councilor_exotic_gases_produces_add = { Countries "AI Economy" }
+	country_councilor_rare_crystals_produces_add = { Countries "AI Economy" }
+	country_councilor_sr_living_metal_produces_add = { Countries "AI Economy" }
+	country_councilor_sr_zro_produces_add = { Countries "AI Economy" }
+	country_councilor_sr_dark_matter_produces_add = { Countries "AI Economy" }
+	country_councilor_nanites_produces_add = { Countries "AI Economy" }
+	country_councilor_minor_artifacts_produces_add = { Countries "AI Economy" }
+	country_councilor_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_ruler
 	country_ruler_time_produces_add = { Countries "AI Economy" }
 	country_ruler_energy_produces_add = { Countries "AI Economy" }
 	country_ruler_minerals_produces_add = { Countries "AI Economy" }
@@ -3712,6 +4448,30 @@ modifiers = {
 	country_ruler_nanites_produces_add = { Countries "AI Economy" }
 	country_ruler_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_ruler_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_agendas
+	country_agendas_time_produces_add = { Countries "AI Economy" }
+	country_agendas_energy_produces_add = { Countries "AI Economy" }
+	country_agendas_minerals_produces_add = { Countries "AI Economy" }
+	country_agendas_food_produces_add = { Countries "AI Economy" }
+	country_agendas_physics_research_produces_add = { Countries "AI Economy" }
+	country_agendas_society_research_produces_add = { Countries "AI Economy" }
+	country_agendas_engineering_research_produces_add = { Countries "AI Economy" }
+	country_agendas_influence_produces_add = { Countries "AI Economy" }
+	country_agendas_unity_produces_add = { Countries "AI Economy" }
+	country_agendas_consumer_goods_produces_add = { Countries "AI Economy" }
+	country_agendas_alloys_produces_add = { Countries "AI Economy" }
+	country_agendas_volatile_motes_produces_add = { Countries "AI Economy" }
+	country_agendas_exotic_gases_produces_add = { Countries "AI Economy" }
+	country_agendas_rare_crystals_produces_add = { Countries "AI Economy" }
+	country_agendas_sr_living_metal_produces_add = { Countries "AI Economy" }
+	country_agendas_sr_zro_produces_add = { Countries "AI Economy" }
+	country_agendas_sr_dark_matter_produces_add = { Countries "AI Economy" }
+	country_agendas_nanites_produces_add = { Countries "AI Economy" }
+	country_agendas_minor_artifacts_produces_add = { Countries "AI Economy" }
+	country_agendas_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_ethic
 	country_ethic_time_produces_add = { Countries "AI Economy" }
 	country_ethic_energy_produces_add = { Countries "AI Economy" }
 	country_ethic_minerals_produces_add = { Countries "AI Economy" }
@@ -3732,6 +4492,8 @@ modifiers = {
 	country_ethic_nanites_produces_add = { Countries "AI Economy" }
 	country_ethic_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_ethic_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_first_league_homeworld
 	country_first_league_homeworld_time_produces_add = { Countries "AI Economy" }
 	country_first_league_homeworld_energy_produces_add = { Countries "AI Economy" }
 	country_first_league_homeworld_minerals_produces_add = { Countries "AI Economy" }
@@ -3752,6 +4514,8 @@ modifiers = {
 	country_first_league_homeworld_nanites_produces_add = { Countries "AI Economy" }
 	country_first_league_homeworld_minor_artifacts_produces_add = { Countries "AI Economy" }
 	country_first_league_homeworld_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - country_power_projection
 	country_power_projection_time_produces_add = { Countries "AI Economy" }
 	country_power_projection_time_produces_mult = { Countries "AI Economy" }
 	country_power_projection_energy_produces_add = { Countries "AI Economy" }
@@ -3793,6 +4557,8 @@ modifiers = {
 	country_power_projection_menace_produces_add = { Countries "AI Economy" }
 	country_power_projection_menace_produces_mult = { Countries "AI Economy" }
 	country_power_projection_produces_mult = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - pop_factions
 	pop_factions_time_produces_mult = { Countries "AI Economy" }
 	pop_factions_energy_produces_mult = { Countries "AI Economy" }
 	pop_factions_minerals_produces_mult = { Countries "AI Economy" }
@@ -3814,6 +4580,8 @@ modifiers = {
 	pop_factions_minor_artifacts_produces_mult = { Countries "AI Economy" }
 	pop_factions_menace_produces_mult = { Countries "AI Economy" }
 	pop_factions_produces_mult = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - federation
 	federation_time_produces_add = { Countries "AI Economy" }
 	federation_energy_produces_add = { Countries "AI Economy" }
 	federation_minerals_produces_add = { Countries "AI Economy" }
@@ -3834,6 +4602,31 @@ modifiers = {
 	federation_nanites_produces_add = { Countries "AI Economy" }
 	federation_minor_artifacts_produces_add = { Countries "AI Economy" }
 	federation_menace_produces_add = { Countries "AI Economy" }
+	# endregion
+	# region economic_category modifiers - rivalries
+	rivalries_time_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_energy_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_minerals_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_food_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_physics_research_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_society_research_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_engineering_research_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_influence_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_unity_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_consumer_goods_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_alloys_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_volatile_motes_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_exotic_gases_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_rare_crystals_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_sr_living_metal_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_sr_zro_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_sr_dark_matter_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_nanites_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_minor_artifacts_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_menace_produces_mult = { "Economic Units" "AI Economy" }
+	rivalries_produces_mult = { "Economic Units" "AI Economy" }
+	# endregion
+	# region economic_category modifiers - monthly_trades
 	monthly_trades_time_produces_add = { Countries "AI Economy" }
 	monthly_trades_energy_produces_add = { Countries "AI Economy" }
 	monthly_trades_minerals_produces_add = { Countries "AI Economy" }
@@ -3854,6 +4647,7 @@ modifiers = {
 	monthly_trades_nanites_produces_add = { Countries "AI Economy" }
 	monthly_trades_minor_artifacts_produces_add = { Countries "AI Economy" }
 	monthly_trades_menace_produces_add = { Countries "AI Economy" }
+	# endregion
 	# region economic_category modifiers: operations
 	operations_time_cost_mult = { Espionage "AI Economy" }
 	operations_time_upkeep_mult = { Espionage "AI Economy" }
@@ -3899,7 +4693,6 @@ modifiers = {
 	operations_upkeep_mult = { Espionage "AI Economy" }
 	# endregion
 	# region economic_category modifiers: country_situations
-	# country_situations_<resource>_[produces/cost/upkeep]_[add/mult] = { Countries "AI Economy" }
 	country_situations_time_produces_add = { Countries "AI Economy" }
 	country_situations_energy_produces_add = { Countries "AI Economy" }
 	country_situations_minerals_produces_add = { Countries "AI Economy" }
@@ -5153,6 +5946,30 @@ modifiers = {
 	shipsize_enclave_shroudwalker_station_evasion_mult = { Ships }
 	shipsize_enclave_shroudwalker_station_disengage_chance_mult = { Ships }
 	shipsize_enclave_shroudwalker_station_tracking_mult = { Ships }
+	shipsize_first_claw_build_speed_mult = { Planets Megastructures Starbases }
+	shipsize_first_claw_hull_mult = { Ships }
+	shipsize_first_claw_hull_add = { Ships }
+	shipsize_first_claw_evasion_mult = { Ships }
+	shipsize_first_claw_disengage_chance_mult = { Ships }
+	shipsize_first_claw_tracking_mult = { Ships }
+	shipsize_maven_cruiser_01_build_speed_mult = { Planets Megastructures Starbases }
+	shipsize_maven_cruiser_01_hull_mult = { Ships }
+	shipsize_maven_cruiser_01_hull_add = { Ships }
+	shipsize_maven_cruiser_01_evasion_mult = { Ships }
+	shipsize_maven_cruiser_01_disengage_chance_mult = { Ships }
+	shipsize_maven_cruiser_01_tracking_mult = { Ships }
+	shipsize_temple_of_whispers_build_speed_mult = { Planets Megastructures Starbases }
+	shipsize_temple_of_whispers_hull_mult = { Ships }
+	shipsize_temple_of_whispers_hull_add = { Ships }
+	shipsize_temple_of_whispers_evasion_mult = { Ships }
+	shipsize_temple_of_whispers_disengage_chance_mult = { Ships }
+	shipsize_temple_of_whispers_tracking_mult = { Ships }
+	shipsize_azaryn_dome_build_speed_mult = { Planets Megastructures Starbases }
+	shipsize_azaryn_dome_hull_mult = { Ships }
+	shipsize_azaryn_dome_hull_add = { Ships }
+	shipsize_azaryn_dome_evasion_mult = { Ships }
+	shipsize_azaryn_dome_disengage_chance_mult = { Ships }
+	shipsize_azaryn_dome_tracking_mult = { Ships }
 	shipsize_reanimated_space_dragon_red_build_speed_mult = { Planets Megastructures Starbases }
 	shipsize_reanimated_space_dragon_red_hull_mult = { Ships }
 	shipsize_reanimated_space_dragon_red_hull_add = { Ships }
@@ -5301,6 +6118,7 @@ modifiers = {
 	damage_vs_country_type_guardian_hatchling_mult = { Ships }
 	damage_vs_country_type_caravaneer_home_mult = { Ships }
 	damage_vs_country_type_caravaneer_fleet_mult = { Ships }
+	damage_vs_country_type_paragon_event_country_mult = { Ships }
 	# endregion
 	# region species_archetype modifiers
 	# <species_archetype.use_modifiers>_species_trait_points_add = { Countries }
@@ -5327,26 +6145,6 @@ modifiers = {
 	LITHOID_pop_growth_from_immigration = { Planets }
 	LITHOID_pop_growth_speed = { Planets }
 	LITHOID_pop_growth_speed_reduction = { Planets }
-	# endregion
-	# region ethic modifiers
-	# pop_<ethic>_attraction_mult = { Pops }
-	pop_ethic_fanatic_authoritarian_attraction_mult = { Pops }
-	pop_ethic_authoritarian_attraction_mult = { Pops }
-	pop_ethic_fanatic_egalitarian_attraction_mult = { Pops }
-	pop_ethic_egalitarian_attraction_mult = { Pops }
-	pop_ethic_fanatic_xenophobe_attraction_mult = { Pops }
-	pop_ethic_xenophobe_attraction_mult = { Pops }
-	pop_ethic_fanatic_xenophile_attraction_mult = { Pops }
-	pop_ethic_xenophile_attraction_mult = { Pops }
-	pop_ethic_fanatic_militarist_attraction_mult = { Pops }
-	pop_ethic_militarist_attraction_mult = { Pops }
-	pop_ethic_fanatic_pacifist_attraction_mult = { Pops }
-	pop_ethic_pacifist_attraction_mult = { Pops }
-	pop_ethic_fanatic_spiritualist_attraction_mult = { Pops }
-	pop_ethic_spiritualist_attraction_mult = { Pops }
-	pop_ethic_fanatic_materialist_attraction_mult = { Pops }
-	pop_ethic_materialist_attraction_mult = { Pops }
-	pop_ethic_gestalt_consciousness_attraction_mult = { Pops }
 	# endregion
 	# region planet_class modifiers
 	# <planet_class>_habitability = { Habitability }
@@ -5413,19 +6211,33 @@ modifiers = {
 	# endregion
 	# region technology_category modifiers
 	# category_<technology_category>_research_speed_mult = { Countries }
+	# category_<technology_category>_draw_chance_mult = { Countries }
 	category_materials_research_speed_mult = { Countries }
+	category_materials_draw_chance_mult = { Countries }
 	category_propulsion_research_speed_mult = { Countries }
+	category_propulsion_draw_chance_mult = { Countries }
 	category_voidcraft_research_speed_mult = { Countries }
+	category_voidcraft_draw_chance_mult = { Countries }
 	category_industry_research_speed_mult = { Countries }
+	category_industry_draw_chance_mult = { Countries }
 	category_field_manipulation_research_speed_mult = { Countries }
+	category_field_manipulation_draw_chance_mult = { Countries }
 	category_particles_research_speed_mult = { Countries }
+	category_particles_draw_chance_mult = { Countries }
 	category_computing_research_speed_mult = { Countries }
+	category_computing_draw_chance_mult = { Countries }
 	category_psionics_research_speed_mult = { Countries }
+	category_psionics_draw_chance_mult = { Countries }
 	category_new_worlds_research_speed_mult = { Countries }
+	category_new_worlds_draw_chance_mult = { Countries }
 	category_statecraft_research_speed_mult = { Countries }
+	category_statecraft_draw_chance_mult = { Countries }
 	category_biology_research_speed_mult = { Countries }
+	category_biology_draw_chance_mult = { Countries }
 	category_military_theory_research_speed_mult = { Countries }
+	category_military_theory_draw_chance_mult = { Countries }
 	category_archaeostudies_research_speed_mult = { Countries }
+	category_archaeostudies_draw_chance_mult = { Countries }
 	district_crashed_slaver_ship_max = { Planets }
 	# endregion
 	# region district modifiers
@@ -5720,6 +6532,7 @@ modifiers = {
 	planet_building_xeno_tourism_agency_build_speed_mult = { Planets }
 	planet_building_imperial_concession_port_build_speed_mult = { Planets }
 	planet_building_knightly_theme_park_build_speed_mult = { Planets }
+	planet_building_corporate_clinics_build_speed_mult = { Planets }
 	planet_holding_garrison_build_speed_mult = { Planets }
 	planet_holding_orbital_assembly_complex_build_speed_mult = { Planets }
 	planet_holding_propaganda_office_build_speed_mult = { Planets }
@@ -5757,6 +6570,10 @@ modifiers = {
 	planet_building_low_tech_farm_build_speed_mult = { Planets }
 	planet_building_low_tech_capital_build_speed_mult = { Planets }
 	planet_building_low_tech_research_lab_build_speed_mult = { Planets }
+	planet_building_paragon_origin_academy_build_speed_mult = { Planets }
+	planet_building_paragon_memory_vaults_build_speed_mult = { Planets }
+	planet_building_the_beholder_build_speed_mult = { Planets }
+	planet_building_contained_ecosphere_build_speed_mult = { Planets }
 	# endregion
 	# region pop_category modifiers
 	# pop_cat_<pop_category>_happiness = { Pops }
@@ -5999,12 +6816,6 @@ modifiers = {
 	job_squire_add = { Planets }
 	job_squire_per_pop = { Planets }
 	job_squire_per_crime = { Planets }
-	job_puddle_technician_add = { Planets }
-	job_puddle_technician_per_pop = { Planets }
-	job_puddle_technician_per_crime = { Planets }
-	job_puddle_technician_drone_add = { Planets }
-	job_puddle_technician_drone_per_pop = { Planets }
-	job_puddle_technician_drone_per_crime = { Planets }
 	job_spawning_drone_add = { Planets }
 	job_spawning_drone_per_pop = { Planets }
 	job_spawning_drone_per_crime = { Planets }
@@ -6275,6 +7086,15 @@ modifiers = {
 	job_manufactorium_scraper_drone_add = { Planets }
 	job_manufactorium_scraper_drone_per_pop = { Planets }
 	job_manufactorium_scraper_drone_per_crime = { Planets }
+	job_archivist_add = { Planets }
+	job_archivist_per_pop = { Planets }
+	job_archivist_per_crime = { Planets }
+	job_puddle_technician_add = { Planets }
+	job_puddle_technician_per_pop = { Planets }
+	job_puddle_technician_per_crime = { Planets }
+	job_puddle_technician_drone_add = { Planets }
+	job_puddle_technician_drone_per_pop = { Planets }
+	job_puddle_technician_drone_per_crime = { Planets }
 	job_fe_overseer_add = { Planets }
 	job_fe_overseer_per_pop = { Planets }
 	job_fe_overseer_per_crime = { Planets }
@@ -6470,6 +7290,62 @@ modifiers = {
 	job_broken_shackles_scavenger_add = { Planets }
 	job_broken_shackles_scavenger_per_pop = { Planets }
 	job_broken_shackles_scavenger_per_crime = { Planets }
+	job_captain_add = { Planets }
+	job_captain_per_pop = { Planets }
+	job_captain_per_crime = { Planets }
+	job_chief_navigator_add = { Planets }
+	job_chief_navigator_per_pop = { Planets }
+	job_chief_navigator_per_crime = { Planets }
+	job_principal_pilot_add = { Planets }
+	job_principal_pilot_per_pop = { Planets }
+	job_principal_pilot_per_crime = { Planets }
+	job_ship_weapons_officer_add = { Planets }
+	job_ship_weapons_officer_per_pop = { Planets }
+	job_ship_weapons_officer_per_crime = { Planets }
+	job_ship_logistics_officer_add = { Planets }
+	job_ship_logistics_officer_per_pop = { Planets }
+	job_ship_logistics_officer_per_crime = { Planets }
+	job_special_operations_commander_add = { Planets }
+	job_special_operations_commander_per_pop = { Planets }
+	job_special_operations_commander_per_crime = { Planets }
+	job_commanding_officer_add = { Planets }
+	job_commanding_officer_per_pop = { Planets }
+	job_commanding_officer_per_crime = { Planets }
+	job_chief_supply_officer_add = { Planets }
+	job_chief_supply_officer_per_pop = { Planets }
+	job_chief_supply_officer_per_crime = { Planets }
+	job_intelligence_officer_add = { Planets }
+	job_intelligence_officer_per_pop = { Planets }
+	job_intelligence_officer_per_crime = { Planets }
+	job_chief_security_officer_add = { Planets }
+	job_chief_security_officer_per_pop = { Planets }
+	job_chief_security_officer_per_crime = { Planets }
+	job_government_employee_add = { Planets }
+	job_government_employee_per_pop = { Planets }
+	job_government_employee_per_crime = { Planets }
+	job_none_add = { Planets }
+	job_none_per_pop = { Planets }
+	job_none_per_crime = { Planets }
+	# endregion
+	# region ethic modifiers
+	# pop_<ethic>_attraction_mult = { Pops }
+	pop_ethic_fanatic_authoritarian_attraction_mult = { Pops }
+	pop_ethic_authoritarian_attraction_mult = { Pops }
+	pop_ethic_fanatic_egalitarian_attraction_mult = { Pops }
+	pop_ethic_egalitarian_attraction_mult = { Pops }
+	pop_ethic_fanatic_xenophobe_attraction_mult = { Pops }
+	pop_ethic_xenophobe_attraction_mult = { Pops }
+	pop_ethic_fanatic_xenophile_attraction_mult = { Pops }
+	pop_ethic_xenophile_attraction_mult = { Pops }
+	pop_ethic_fanatic_militarist_attraction_mult = { Pops }
+	pop_ethic_militarist_attraction_mult = { Pops }
+	pop_ethic_fanatic_pacifist_attraction_mult = { Pops }
+	pop_ethic_pacifist_attraction_mult = { Pops }
+	pop_ethic_fanatic_spiritualist_attraction_mult = { Pops }
+	pop_ethic_spiritualist_attraction_mult = { Pops }
+	pop_ethic_fanatic_materialist_attraction_mult = { Pops }
+	pop_ethic_materialist_attraction_mult = { Pops }
+	pop_ethic_gestalt_consciousness_attraction_mult = { Pops }
 	# endregion
 	# region resolution_category modifiers
 	# <resolution_category>_vote_strength_mult = { Countries }
@@ -6621,6 +7497,9 @@ modifiers = {
 	SINGING_PLANET_CAT_research_speed_mult = { Leaders }
 	FROZEN_SPRINGS_CAT_research_speed_mult = { Leaders }
 	SOLARPUNK_CAT_research_speed_mult = { Leaders }
+	DATA_DIAMOND_CAT_research_speed_mult = { Leaders }
+	INTEMPORAL_ORB_CAT_research_speed_mult = { Leaders }
+	paragon_beholder_category_research_speed_mult = { Leaders }
 	strange_signal_category_research_speed_mult = { Leaders }
 	SEA_CRYSTAL_CAT_research_speed_mult = { Leaders }
 	WENKWORT_CAT_research_speed_mult = { Leaders }
@@ -6904,6 +7783,14 @@ modifiers = {
 	operation_infiltrate_hive_skill_add = { Espionage }
 	operation_infiltrate_hive_skill_mult = { Espionage }
 	# endregion
+	# region leader_class modifiers
+	# <leader_class>_exp_gain = { Leaders }
+	admiral_exp_gain = { Leaders }
+	general_exp_gain = { Leaders }
+	scientist_exp_gain = { Leaders }
+	governor_exp_gain = { Leaders }
+	envoy_exp_gain = { Leaders }
+	# endregion
 	pop_job_amenities_mult = { Pops }
 	pop_job_trade_mult = { Pops }
 	pop_lifestyle_trade_mult = { Pops }
@@ -6911,4 +7798,109 @@ modifiers = {
 	habitat_stability_add = { Planets }
 	pop_non_noxious_happiness = { Pops }
 	shroud_delve_cooldown = { Countries }
+	salvage_chance_add = { Countries }
+	negative_traits_country = { Countries }
+	negative_leader_traits_species = { None } # TODO PLS - what's "None"?
+	negative_traits_leader = { Leaders }
+	# region councilor modifiers
+	councilor_ruler_democratic_exp_gain = { Leaders }
+	councilor_ruler_oligarchic_exp_gain = { Leaders }
+	councilor_ruler_dictatorial_exp_gain = { Leaders }
+	councilor_ruler_imperial_exp_gain = { Leaders }
+	councilor_ruler_hive_mind_exp_gain = { Leaders }
+	councilor_ruler_machine_intelligence_exp_gain = { Leaders }
+	councilor_ruler_corporate_exp_gain = { Leaders }
+	councilor_research_exp_gain = { Leaders }
+	councilor_defense_exp_gain = { Leaders }
+	councilor_agrarian_idyll_exp_gain = { Leaders }
+	councilor_anglers_exp_gain = { Leaders }
+	councilor_aristocratic_elite_exp_gain = { Leaders }
+	councilor_ascensionists_exp_gain = { Leaders }
+	councilor_barbaric_despoilers_exp_gain = { Leaders }
+	councilor_beacon_of_liberty_exp_gain = { Leaders }
+	councilor_byzantine_bureaucracy_exp_gain = { Leaders }
+	councilor_catalytic_processing_exp_gain = { Leaders }
+	councilor_citizen_service_exp_gain = { Leaders }
+	councilor_corporate_dominion_exp_gain = { Leaders }
+	councilor_corvee_system_exp_gain = { Leaders }
+	councilor_crafters_exp_gain = { Leaders }
+	councilor_crusader_spirit_exp_gain = { Leaders }
+	councilor_cutthroat_politics_exp_gain = { Leaders }
+	councilor_death_cult_exp_gain = { Leaders }
+	councilor_diplomatic_corps_exp_gain = { Leaders }
+	councilor_distinguished_admiralty_exp_gain = { Leaders }
+	councilor_eager_explorers_exp_gain = { Leaders }
+	councilor_efficient_bureaucracy_exp_gain = { Leaders }
+	councilor_environmentalist_exp_gain = { Leaders }
+	councilor_exalted_priesthood_exp_gain = { Leaders }
+	councilor_fanatic_purifiers_exp_gain = { Leaders }
+	councilor_feudal_realm_exp_gain = { Leaders }
+	councilor_free_haven_exp_gain = { Leaders }
+	councilor_functional_architecture_exp_gain = { Leaders }
+	councilor_idealistic_foundation_exp_gain = { Leaders }
+	councilor_idyllic_bloom_exp_gain = { Leaders }
+	councilor_imperial_cult_exp_gain = { Leaders }
+	councilor_inwards_perfection_exp_gain = { Leaders }
+	councilor_memorialist_exp_gain = { Leaders }
+	councilor_memory_vaults_exp_gain = { Leaders }
+	councilor_merchant_guilds_exp_gain = { Leaders }
+	councilor_meritocracy_exp_gain = { Leaders }
+	councilor_mining_guilds_exp_gain = { Leaders }
+	councilor_nationalistic_zeal_exp_gain = { Leaders }
+	councilor_parliamentary_system_exp_gain = { Leaders }
+	councilor_philosopher_king_exp_gain = { Leaders }
+	councilor_pleasure_seekers_exp_gain = { Leaders }
+	councilor_police_state_exp_gain = { Leaders }
+	councilor_pompous_purists_exp_gain = { Leaders }
+	councilor_reanimated_armies_exp_gain = { Leaders }
+	councilor_relentless_industrialists_exp_gain = { Leaders }
+	councilor_scavengers_exp_gain = { Leaders }
+	councilor_shadow_council_exp_gain = { Leaders }
+	councilor_shared_burden_exp_gain = { Leaders }
+	councilor_slaver_guilds_exp_gain = { Leaders }
+	councilor_technocracy_exp_gain = { Leaders }
+	councilor_toxic_baths_exp_gain = { Leaders }
+	councilor_warrior_culture_exp_gain = { Leaders }
+	councilor_heroic_tales_exp_gain = { Leaders }
+	councilor_dystopian_society_exp_gain = { Leaders }
+	councilor_memory_vault_corporate_exp_gain = { Leaders }
+	councilor_crusader_spirit_corporate_exp_gain = { Leaders }
+	councilor_task_delegation_corporate_exp_gain = { Leaders }
+	councilor_private_healthcare_corporate_exp_gain = { Leaders }
+	councilor_brand_loyalty_exp_gain = { Leaders }
+	councilor_corporate_anglers_exp_gain = { Leaders }
+	councilor_corporate_ascensionists_exp_gain = { Leaders }
+	councilor_corporate_catalytic_processing_exp_gain = { Leaders }
+	councilor_corporate_crafters_exp_gain = { Leaders }
+	councilor_corporate_hedonism_exp_gain = { Leaders }
+	councilor_corporate_scavengers_exp_gain = { Leaders }
+	councilor_corporate_relentless_industrialists_exp_gain = { Leaders }
+	councilor_corporate_toxic_baths_exp_gain = { Leaders }
+	councilor_criminal_heritage_exp_gain = { Leaders }
+	councilor_franchising_exp_gain = { Leaders }
+	councilor_death_cult_corporate_exp_gain = { Leaders }
+	councilor_free_traders_exp_gain = { Leaders }
+	councilor_gospel_of_the_masses_exp_gain = { Leaders }
+	councilor_indentured_assets_exp_gain = { Leaders }
+	councilor_media_conglomerate_exp_gain = { Leaders }
+	councilor_naval_contractors_exp_gain = { Leaders }
+	councilor_permanent_employment_exp_gain = { Leaders }
+	councilor_private_military_companies_exp_gain = { Leaders }
+	councilor_private_prospectors_exp_gain = { Leaders }
+	councilor_privatized_exploration_exp_gain = { Leaders }
+	councilor_public_relations_specialists_exp_gain = { Leaders }
+	councilor_ruthless_competition_exp_gain = { Leaders }
+	councilor_trading_posts_exp_gain = { Leaders }
+	councilor_gestalt_governor_exp_gain = { Leaders }
+	councilor_gestalt_scientist_exp_gain = { Leaders }
+	councilor_gestalt_admiral_exp_gain = { Leaders }
+	councilor_gestalt_general_exp_gain = { Leaders }
+	councilor_psionic_sovereign_exp_gain = { Leaders }
+	councilor_galactic_sovereign_exp_gain = { Leaders }
+	councilor_galactic_sovereign_megacorp_exp_gain = { Leaders }
+	councilor_diadochi_exp_gain = { Leaders }
+	councilor_great_khans_legacy_exp_gain = { Leaders }
+	councilor_revanchist_fervor_exp_gain = { Leaders }
+	councilor_ancient_caches_of_technology_exp_gain = { Leaders }
+	# endregion
 }
