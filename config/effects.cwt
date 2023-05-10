@@ -2401,12 +2401,17 @@ alias[effect:create_message] = {
 	target = scope[any]
 	## cardinality = 0..100
 	variable = {
-		type = name
-		type = variable
 		## cardinality = 0..1
 		varname = value[variable]
+		type = name
+		type = variable
 		localization = scalar		#not localisation, but rather something that can be used in localisation
 		scope = scope[any]
+	}
+	## cardinality = 0..100
+	variable = {
+		key = scalar
+		value = scalar
 	}
 }
 
@@ -2510,7 +2515,9 @@ alias[effect:create_saved_leader] = {
 	alias_name[name] = alias_match_left[name]
 	## cardinality = 0..1
 	gender = enum[genders]
+	## cardinality = 0..1
 	class = random
+	## cardinality = 0..1
 	class = enum[leader_classes]
 	species = scope_group[target_species]
 	species = enum[buildable_pop_species]
@@ -2568,6 +2575,8 @@ alias[effect:create_ship] = {
 	prefix = bool
 	## cardinality = 0..1
 	graphical_culture = <graphical_culture>
+	## cardinality = 0..1
+	graphical_culture = scope[species]
 	## cardinality = 0..1
 	graphical_culture = scope_group[target_country]
 	## cardinality = 0..1
@@ -2886,6 +2895,8 @@ alias[effect:set_planet_entity] = {
 	entity = scalar	#TODO: Link this to graphical culture <model_entity>
 	## cardinality = 0..1
 	graphical_culture = <graphical_culture>
+	## cardinality = 0..1
+	graphical_culture = scope[species]
 	## cardinality = 0..1
 	graphical_culture = scope_group[target_country]
 	## cardinality = 0..1
