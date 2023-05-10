@@ -37,7 +37,7 @@ country_ship_of_size_limit = {
 	max = int
 	### Fraction of current naval capacity of the country
 	## cardinality = 0..1
-	naval_cap_fraction = int
+	naval_cap_fraction = floag
 	### Trigger that defines if tooltip for naval capacity icon on the top bar should be shown
 	show = {
 		alias_name[trigger] = alias_match_left[trigger]

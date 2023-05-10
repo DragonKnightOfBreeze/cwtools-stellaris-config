@@ -393,7 +393,7 @@ citizenship_type = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
 }
 
@@ -462,7 +462,7 @@ colonization_control = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
 }
 
@@ -528,7 +528,7 @@ living_standard = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
 }
 
@@ -597,7 +597,7 @@ migration_control = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
 }
 
@@ -663,7 +663,7 @@ military_service_type = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
 }
 
@@ -732,7 +732,7 @@ population_control = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
 }
 
@@ -802,7 +802,7 @@ purge_type = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
 }
 
@@ -872,7 +872,7 @@ slavery_type = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
 }
 
