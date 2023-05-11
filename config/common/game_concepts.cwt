@@ -19,6 +19,7 @@ game_concept = {
 	## cardinality = 0..1
 	## file_extensions = { .dds .png .tga }
 	icon = filepath
+	## cardinality = 0..1
 	alias = {
 		## cardinality = 0..inf
 		scalar
