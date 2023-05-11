@@ -281,6 +281,7 @@ trait = {
 		}
 
 		## cardinality = 0..1
+		## file_extensions = { .dds .png .tga }
 		icon = filepath
 		## cardinality = 0..1
 		sorting_priority = int

@@ -17,10 +17,11 @@ types = {
 
 game_concept = {
 	## cardinality = 0..1
-	icon = icon[gfx/interface/icons/concepts]
+	## file_extensions = { .dds .png .tga }
+	icon = filepath
 	alias = {
 		## cardinality = 0..inf
-		varchar
+		scalar
 	}
 }
 

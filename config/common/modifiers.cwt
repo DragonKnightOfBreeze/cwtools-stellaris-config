@@ -70,6 +70,7 @@ static_modifier = {
 		icon = filepath
 	}
 	## cardinality = 0..1
+	## file_extensions = { .dds .png .tga }
 	icon = filepath
 	## cardinality = 0..1
 	important = bool
@@ -173,5 +174,6 @@ planet_modifier = {
 }
 
 notification_modifier = {
+	## file_extensions = { .dds .png .tga }
 	icon = filepath
 }

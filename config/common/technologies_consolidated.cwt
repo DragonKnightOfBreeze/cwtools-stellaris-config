@@ -236,6 +236,7 @@ technology_tier = {
 
 
 technology_category = {
+	## file_extensions = { .dds .png .tga }
 	icon = filepath
 	## cardinality = 0..1
 	## replace_scope = { this = country root = country }

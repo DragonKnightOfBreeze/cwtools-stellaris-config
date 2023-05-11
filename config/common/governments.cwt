@@ -100,6 +100,7 @@ authority = {
 	## cardinality = 0..1
 	machine_empire = yes
 	## cardinality = 0..1
+	## file_extensions = { .dds .png .tga }
 	icon = filepath
 	## cardinality = 0..1
 	has_heir = bool
@@ -272,6 +273,7 @@ civic_or_origin = {
 	}
 
 	## cardinality = 0..1
+	## file_extensions = { .dds .png .tga }
 	icon = filepath
 	### localisation of custom effects
 	## cardinality = 0..1
