@@ -55,7 +55,28 @@ trait = {
 			<civic_or_origin.civic>
 		}
 
-		icon = filepath # TODO PLS
+		### Layered icon format introduced in Galactic Paragons.
+		icon = {
+			### There are no limits to the amount of layers that can be used.
+			## cardinality = 1..inf
+			layer = {
+				### Texture name defined in "interface" folder. Default trait icons are in "interface\icons\traits" folder.
+				icon = <sprite>
+				### Layer color tint. Color name defined in "common\named_colors" folder.
+				## cardinality = 0..1
+				color = <named_color>
+				### Scripted trigger. If false, hide layer. THIS = Leader
+				## cardinality = 0..1
+				## replace_scopes = { this = leader root = leader }
+				visible = {
+					alias_name[trigger] = alias_match_left[trigger]
+				}
+			}
+		}
+		## cardinality = 0..1
+		leader_trait_rarity = enum[leader_trait_rarity]
+		## cardinality = 0..1
+		sorting_priority = int
 
 		### Is this trait only active if the leader is on the Council? Default is no.
 		## cardinality = 0..1
@@ -261,6 +282,8 @@ trait = {
 
 		## cardinality = 0..1
 		icon = filepath
+		## cardinality = 0..1
+		sorting_priority = int
 
 		## cardinality = 0..1
 		valid_for_all_ethics = bool
@@ -338,8 +361,6 @@ trait = {
 		### Default = no
 		forced_happiness = bool
 		## cardinality = 0..1
-		sorting_priority = int
-		## cardinality = 0..1
 		### Default = no
 		improves_leaders = bool
 		## cardinality = 0..1
@@ -406,6 +427,11 @@ trait = {
 }
 
 enums = {
+	enum[leader_trait_rarity] = {
+		veteran
+		free_orveteran
+
+	}
 	enum[trait_ai_category] = {
 		engineering
 		physics
