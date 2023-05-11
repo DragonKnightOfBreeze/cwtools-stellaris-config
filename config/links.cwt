@@ -239,11 +239,6 @@ links = {
 		input_scopes = { all }
 		output_scope = no_scope
 	}
-	# TODO PLS - check whether it exists
-	# megastructure = {
-	# 	input_scopes = { all }
-	# 	output_scope = Megastructure
-	# }
 	### Scopes from an object to the primary star (planet scope) of the system it is in. Works on all objects visible in star system view.
 	system_star = {
 		input_scopes = { #matches celestial_coordinate scope_group

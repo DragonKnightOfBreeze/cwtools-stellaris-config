@@ -1,13 +1,12 @@
-
 types = {
 	type[ethic] = {
 		path = "game/common/ethics"
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Description = "$_desc"
+			desc = "$_desc"
 		}
 		images = {
 			## primary
@@ -30,14 +29,14 @@ ethic = {
 	category = <ethic_category>
 	category_value = int[0..20]
 
+	### Used for hardcoded checks (mainly in tooltips)
 	## cardinality = 0..1
-	###Used for hardcoded checks (mainly in tooltips)
 	xenophobe = bool
+	### Used for hardcoded checks (mainly in tooltips)
 	## cardinality = 0..1
-	###Used for hardcoded checks (mainly in tooltips)
 	xenophile = bool
+	### Yes by default
 	## cardinality = 0..1
-	###Yes by default
 	use_for_pops = bool
 
 	## cardinality = 0..1
@@ -49,8 +48,13 @@ ethic = {
 	## cardinality = 0..1
 	fanatic_variant = <ethic>
 
+	leader_background_job_weight = {
+		## cardinality = 0..inf
+		<job> = int
+	}
+
+	### always = yes by default
 	## cardinality = 0..1
-	###always = yes by default
 	playable = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -78,21 +82,18 @@ ethic = {
 	## cardinality = 0..100
 	pop_attraction_tag = {
 		desc = localisation
-		## replace_scope = { root = country this = country }
-		###Scope = country
+		## replace_scope = { this = country root = country }
 		trigger = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 	}
 
 	## cardinality = 0..1
-	###Root = country
-	## replace_scope = { root = country this = country }
+	## replace_scope = { this = country root = country }
 	country_attraction = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 	## cardinality = 0..1
-	###Root = pop, from = planet
 	## replace_scope = { root = pop this = pop from = planet }
 	pop_attraction = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]

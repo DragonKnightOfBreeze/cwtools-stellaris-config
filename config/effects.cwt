@@ -765,7 +765,7 @@ alias[effect:change_government] = {
 ## scopes = { planet country ship fleet leader army }
 alias[effect:kill_leader] = {
 	## cardinality = 0..1
-	type = enum[leader_classes]
+	type = enum[leader_class]
 	## cardinality = 0..1
 	type = random
 	## cardinality = 0..1
@@ -1692,7 +1692,7 @@ alias[effect:create_leader] = {
 	alias_name[name] = alias_match_left[name]
 	## cardinality = 0..1
 	name = random
-	class = enum[leader_classes]
+	class = enum[leader_class]
 	class = random
 	## cardinality = 0..1
 	### Other scopes will simply default to this.owner_main_species
@@ -1716,8 +1716,6 @@ alias[effect:create_leader] = {
 	immortal = bool
 	## cardinality = 0..1
 	event_leader = bool
-	## cardinality = 0..1
-	sub_type = enum[trait_ai_classes]
 	## cardinality = 0..1
 	traits = {
 		## cardinality = 0..5
@@ -1746,7 +1744,7 @@ alias[effect:clone_leader] = {
 	## cardinality = 0..1
 	name = random
 	## cardinality = 0..1
-	class = enum[leader_classes]
+	class = enum[leader_class]
 	## cardinality = 0..1
 	species = scope_group[target_species]
 	## cardinality = 0..1
@@ -2518,7 +2516,7 @@ alias[effect:create_saved_leader] = {
 	## cardinality = 0..1
 	class = random
 	## cardinality = 0..1
-	class = enum[leader_classes]
+	class = enum[leader_class]
 	species = scope_group[target_species]
 	species = enum[buildable_pop_species]
 	## cardinality = 0..1
@@ -4328,7 +4326,7 @@ alias[effect:start_terraform_process] = {
 
 ### Adds a specific trait to the scoped leader or a random common/negative trait
 ## scopes = { leader }
-alias[effect:add_trait_no_notify] = <traint.leader>
+alias[effect:add_trait_no_notify] = <trait.leader_trait>
 alias[effect:add_trait_no_notify] = random_common
 alias[effect:add_trait_no_notify] = random_negative
 
@@ -4381,7 +4379,7 @@ alias[effect:stop_terraform_process] = bool
 ## scopes = { country }
 alias[effect:reset_event_chain_counter] = {
 	event_chain = <event_chain>
-	counter = scalar # TODO PLS - check
+	counter = <event_chain_counter>
 }
 
 ### Instantly adds council agenda progress

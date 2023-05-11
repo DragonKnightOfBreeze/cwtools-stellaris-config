@@ -3,22 +3,16 @@
 types = {
 	type[trait] = {
 		path = "game/common/traits"
+		file_extension = .txt
 
 		subtype[leader_trait] = {
-			leader_trait = { }
+			leader_trait = {}
 			leader_trait = all
-		}
-		subtype[ruler_trait] = {
-			leader_class = { ruler }
-		}
-		subtype[scientist_trait] = {
-			leader_class = { scientist }
 		}
 		subtype[species_trait] = {
 			## cardinality = 0..1
 			leader_trait = no
 		}
-
 		localisation = {
 			## required
 			Name = "$"
@@ -26,12 +20,14 @@ types = {
 			Description = "$_desc"
 		}
 		images = {
-			## primary
-			## required
-			icon = "#icon" # filepath
-			## primary
-			## required
-			icon = "gfx/interface/icons/traits/$.dds" # inferred
+			subtype[species_trait] = {
+				## primary
+				## required
+				icon = "#icon" # filepath
+				## primary
+				## required
+				icon = "gfx/interface/icons/traits/$.dds" # inferred
+			}
 		}
 	}
 }
@@ -39,36 +35,246 @@ types = {
 trait = {
 	## cardinality = 0..1
 	host_has_dlc = enum[dlc]
-	## cardinality = 0..1
-	### Default = no
-	immortal_leaders = bool
 
-	subtype[species_trait] = {
+	## cardinality = 0..1
+	cost = int
+	## cardinality = 0..1
+	## replace_scopes = { this = country root = country }
+	cost = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	subtype[leader_trait] = {
+		### This trait is available in ruler creation. Default is no.
 		## cardinality = 0..1
-		cost = int
+		starting_ruler_trait = bool
+		### OR - This trait is blocked in ruler creation if listed origins are selected.
 		## cardinality = 0..1
-		cost = {
+		forbidden_origins = {
+			## cardinality = 0..inf
+			<civic_or_origin.civic>
+		}
+
+		icon = filepath # TODO PLS
+
+		### Is this trait only active if the leader is on the Council? Default is no.
+		## cardinality = 0..1
+		councilor_trait = bool
+		### Is this a negative trait? Default is no.
+		## cardinality = 0..1
+		negative = bool
+		### Does the "modifier" block apply to empire if leader is ruler? Default is no.
+		## cardinality = 0..1
+		is_councilor_trait_for_ruler = bool
+		### Is this leader immortal? Default is no.
+		## cardinality = 0..1
+		immortal_leaders = bool
+		### Is this trait available during leader generation, level up or yearly negative trait chance. Default is yes.
+		## cardinality = 0..1
+		randomized = bool
+
+		## cardinality = 0..1
+		### Default = no
+		hide_age = bool
+
+		### Modifier applied to the leader itself.
+		## cardinality = 0..1
+		## replace_scopes = { this = leader root = leader }
+		self_modifier = {
+			alias_name[modifier] = alias_match_left[modifier]
+		}
+		### Modifier applied to scope leader is assigned to (e.g. fleet, or science ship) or country if councilor trait.
+		## cardinality = 0..1
+		## replace_scopes = { this = any root = any }
+		self_modifier = {
+			alias_name[modifier] = alias_match_left[modifier]
+		}
+		### Modifier applied to planet if General assigned to defense army.
+		## cardinality = 0..1
+		## replace_scopes = { this = planet root = planet }
+		planet_modifier = {
+			alias_name[modifier] = alias_match_left[modifier]
+		}
+		### Modifier applied to system if General or Governor is assigned to planet within it.
+		## cardinality = 0..1
+		## replace_scopes = { this = system root = system }
+		system_modifier = {
+			alias_name[modifier] = alias_match_left[modifier]
+		}
+
+		### Modifier applied to the leader itself if the given condition is fullfilled.
+		## cardinality = 0..inf
+		## replace_scopes = { this = leader root = leader }
+		triggered_self_modifier = {
+			potential = {
+				alias_name[trigger] = alias_match_left[trigger]
+			}
+			modifier = {
+				alias_name[modifier] = alias_match_left[modifier]
+			}
+		}
+		### Modifier applied to location the leader is assigned to if the given condition is fullfilled.
+		## cardinality = 0..inf
+		## replace_scopes = { this = any root = any }
+		triggered_modifier = {
+			potential = {
+				alias_name[trigger] = alias_match_left[trigger]
+			}
+			modifier = {
+				alias_name[modifier] = alias_match_left[modifier]
+			}
+		}
+		### Modifier applied to the planet on which General is assigned to defend if the given condition is fullfilled.
+		## cardinality = 0..inf
+		## replace_scopes = { this = planet root = planet }
+		triggered_planet_modifier = {
+			potential = {
+				alias_name[trigger] = alias_match_left[trigger]
+			}
+			modifier = {
+				alias_name[modifier] = alias_match_left[modifier]
+			}
+		}
+		# NOTE Should exist, but not referred in 000_documentation_leader_traits.txt
+		## cardinality = 0..inf
+		## replace_scopes = { this = system root = system }
+		triggered_system_modifier = {
+			potential = {
+				alias_name[trigger] = alias_match_left[trigger]
+			}
+			modifier = {
+				alias_name[modifier] = alias_match_left[modifier]
+			}
+		}
+
+		### Show key if trigger/exclusive_trigger is true.
+		## cardinality = 0..1
+		triggered_desc = {
+			### Trigger appends additional localization key to existing text. THIS = Leader
+			## cardinality = 0..1
+			## replace_scopes = { this = leader root = leader }
+			trigger = {
+				alias_name[trigger] = alias_match_left[trigger]
+			}
+			### Exclusive trigger replaces all other text in tooltip with localization key. THIS = Leader
+			## cardinality = 0..1
+			## replace_scopes = { this = leader root = leader }
+			exclusive_trigger = {
+				alias_name[trigger] = alias_match_left[trigger]
+			}
+			## cardinality = 0..inf
+			text = localisatiofn
+		}
+
+		### Replaces auto-generated trait subtitle with localization key.
+		## cardinality = 0..1
+		custom_subtitle = localisation
+		### Replaces auto-generated modifier effect text with localization key.
+		## cardinality = 0..1
+		custom_tooltip = localisation
+		### Appends localization key to the end of auto-generated modifier effect text.
+		## cardinality = 0..1
+		custom_tooltip_with_modifiers = localisation
+
+		### Effects in this block fire when trait is acquired. THIS = Leader.
+		## cardinality = 0..1
+		## replace_scopes = { this = leader root = leader }
+		on_gained_effect = {
+			alias_name[effect] = alias_match_left[effect]
+		}
+
+		### Limits which leader classes that can get this trait.
+		## cardinality = 0..1
+		leader_class = {
+			## cardinality = 1..5
+			enum[leader_class]
+		}
+		### Limits which leader classes that can get this trait.
+		## cardinality = 0..1
+		leader_class = all
+		### If exists, evaluates if leader can get trait. Scope: THIS = Leader, FROM = Country.
+		## cardinality = 0..1
+		## replace_scopes = { this = leader root = leader from = country }
+		leader_potential_add = {
+			alias_name[trigger] = alias_match_left[trigger]
+		}
+
+		### AND - Trait only available if the leaders species has this trait.
+		## cardinality = 0..1
+		requires_traits = {
+			## cardinality = 0..inf
+			<trait.species_trait>
+		}
+		### OR - Trait only available if the Empire has this type of government form.
+		requires_governments = {
+			## cardinality = 0..inf
+			<government>
+		}
+		### AND - Trait only available if the technology specified has been researched by the Empire.
+		## cardinality = 0..1
+		prerequisites = {
+			## cardinality = 0..inf
+			<technology>
+		}
+		### OR - Trait only available if none of the listed traits are currently on leader.
+		## cardinality = 0..1
+		opposites = {
+			## cardinality = 0..inf
+			<trait.leader_trait>
+		}
+		### AND - Trait will remove listed traits currently on leader when added.
+		replace_traits = {
+			## cardinality = 0..inf
+			<trait.leader_trait>
+		}
+		### AI will outfit ships with components based on this tag if trait is selected.
+		## cardinality = 0..1
+		fleet_specialization_tag = enum[component_tag]
+
+		### Weight for availability at level up. Default is 100. Can be a scripted weight, scope: THIS = Leader, FROM = Country.
+		## cardinality = 0..1
+		selectable_weight = int
+		### Weight for availability at level up. Default is 100. Can be a scripted weight, scope: THIS = Leader, FROM = Country.
+		## cardinality = 0..1
+		## replace_scopes = { this = leader root = leader from = country }
+		selectable_weight = {
+			weight = int
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		}
+
 		## cardinality = 0..1
-		## replace_scope = { this = species root = species from = planet }
+		ai_categories = {
+			## cardinality = 1..4
+			enum[trait_ai_category]
+		}
+	}
+
+	subtype[species_trait] = {
+		### evaluated when the game decides to build a species. Default is 0, anything positive adds some extra weight to \
+		### a species with that trait. (Has species and planet scope). A value of 0 does not stop it being picked, it just means this factor won't make \
+		### a difference. If you make it strongly negative, it will not pick this species. You probably only want to be in the range from -2 to 2 or so.
+		## cardinality = 0..1
+		## replace_scopes = { this = species root = species from = planet }
 		assembly_score = {
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		}
+
 		## cardinality = 0..1
 		icon = filepath
+
 		## cardinality = 0..1
 		valid_for_all_ethics = bool
 		## cardinality = 0..1
 		valid_for_all_origins = bool
+
+		### This only does something if valid_for_all_ethics is set to no
 		## cardinality = 0..1
-		###This only does something if valid_for_all_ethics is set to no
 		allowed_ethics = {
 			## cardinality = 1..inf
 			<ethic>
 		}
+		### This only does something if valid_for_origins is set to no
 		## cardinality = 0..1
-		###This only does something if valid_for_origins is set to no
 		allowed_origins = {
 			## cardinality = 1..inf
 			<civic_or_origin.origin>
@@ -90,32 +296,41 @@ trait = {
 			## cardinality = 1..inf
 			<species_class>
 		}
+
 		## cardinality = 0..1
-		## replace_scope = { this = country root = country }
+		## replace_scopes = { this = country root = country }
 		modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		## cardinality = 0..1
-		## replace_scope = { this = planet root = planet }
+		## replace_scopes = { this = planet root = planet }
 		assembling_modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		## cardinality = 0..1
-		## replace_scope = { this = planet root = planet }
+		## replace_scopes = { this = planet root = planet }
 		declining_modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		## cardinality = 0..1
-		## replace_scope = { this = planet root = planet }
+		## replace_scopes = { this = planet root = planet }
 		growing_modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
+
+		### won't show in trait tooltips, use custom_tooltip/custom_tooltip_with_modifiers
 		## cardinality = 0..inf
-		###won't show in trait tooltips, use custom_tooltip/custom_tooltip_with_modifiers
 		alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
 		## cardinality = 0..inf
-		## replace_scope = { this = planet root = planet from = species fromfrom = country }
+		## replace_scopes = { this = planet root = planet from = species fromfrom = country }
 		alias_name[triggered_planet_growth_habitability_modifier] = alias_match_left[triggered_planet_growth_habitability_modifier]
+
+		## cardinality = 0..1
+		custom_tooltip = localisation
+		### unlike custom_tooltip, this shows in addition to the modifiers
+		## cardinality = 0..1
+		custom_tooltip_with_modifiers = localisation
+
 		## cardinality = 0..1
 		### Default = yes
 		sapient = bool
@@ -136,41 +351,29 @@ trait = {
 		leader_age_min = int
 		## cardinality = 0..1
 		leader_age_max = int
-		## replace_scope = { this = species root = species from = country }
+
+		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
 		species_potential_add = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
-		## replace_scope = { this = species root = species from = country }
-		## cardinality = 0..1
-		species_possible_add = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
-		## replace_scope = { this = species root = species from = country }
+		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
 		species_potential_remove = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
-		## replace_scope = { this = species root = species from = country }
-		## cardinality = 0..1
-		species_possible_remove = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
-		## replace_scope = { this = species root = species from = country }
+		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
 		species_possible_merge_add = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
-		## replace_scope = { this = species root = species from = country }
-		## cardinality = 0..1
-		species_possible_merge_remove = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+
 		## cardinality = 0..1
 		prerequisites = {
 			## cardinality = 0..inf
 			<technology>
 		}
+
 		## cardinality = 0..1
 		opposites = {
 			## cardinality = 0..100
@@ -184,6 +387,7 @@ trait = {
 		slave_cost = {
 			energy = int
 		}
+
 		## cardinality = 0..1
 		infertile = bool
 
@@ -194,88 +398,6 @@ trait = {
 		}
 	}
 
-	subtype[leader_trait] = {
-
-		cost = int
-		cost = {
-			alias_name[modifier_rule] = alias_match_left[modifier_rule]
-		}
-		icon = filepath
-
-		leader_trait = {
-			## cardinality = 1..5
-			enum[leader_classes]
-		}
-		leader_trait = all
-		## cardinality = 0..1
-		### Default = no
-		hide_age = bool
-		## cardinality = 0..1
-		can_retreat = bool #admiral
-		## cardinality = 0..1
-		## replace_scope = { this = country root = country }
-		modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
-		## cardinality = 0..1
-		## replace_scope = { this = leader root = leader }
-		self_modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
-		## cardinality = 0..inf
-		## replace_scope = { this = leader root = leader }
-		triggered_leader_modifier = {
-			potential = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
-			modifier = {
-				alias_name[modifier] = alias_match_left[modifier]
-			}
-		}
-		## cardinality = 0..1
-		prerequisites = {
-			## cardinality = 0..inf
-			<technology>
-		}
-		## cardinality = 0..1
-		leader_class = {
-			## cardinality = 1..5
-			enum[leader_classes]
-		}
-
-		## cardinality = 0..1
-		leader_potential_add = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
-
-		## cardinality = 0..1
-		requires_traits = {
-			## cardinality = 1..100
-			<trait.species_trait>
-		}
-		## cardinality = 0..1
-		opposites = {
-			## cardinality = 0..100
-			<trait.leader_trait>
-		}
-	}
-	## cardinality = 0..1
-	ai_categories = {
-		## cardinality = 1..4
-		enum[trait_ai_classes]
-	}
-
-	## cardinality = 0..1
-	initial = bool
-	## cardinality = 0..1
-	randomized = bool
-
-	## cardinality = 0..1
-	custom_tooltip = localisation
-	## cardinality = 0..1
-	###unlike custom_tooltip, this shows in addition to the modifiers
-	custom_tooltip_with_modifiers = localisation
-
 	## cardinality = 0..1
 	ai_weight = {
 		enum[weight_or_factor] = int
@@ -284,7 +406,7 @@ trait = {
 }
 
 enums = {
-	enum[trait_ai_classes] = {
+	enum[trait_ai_category] = {
 		engineering
 		physics
 		society

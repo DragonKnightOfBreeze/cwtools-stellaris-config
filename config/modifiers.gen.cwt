@@ -7800,7 +7800,7 @@ modifiers = {
 	shroud_delve_cooldown = { Countries }
 	salvage_chance_add = { Countries }
 	negative_traits_country = { Countries }
-	negative_leader_traits_species = { None } # TODO PLS - what's "None"?
+	negative_leader_traits_species = { Countries } # NOTE modifier category is "None" in modifiers.log
 	negative_traits_leader = { Leaders }
 	# region councilor modifiers
 	councilor_ruler_democratic_exp_gain = { Leaders }

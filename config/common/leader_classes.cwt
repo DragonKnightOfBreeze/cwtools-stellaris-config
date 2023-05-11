@@ -3,8 +3,13 @@ types = {
 		path = "game/common/leader_classes"
 		file_extension = .txt
 		localisation = {
+			## primary
 			## required
-			name = "$"
+			name = "#name" # localisation
+			## required
+			name_plural = "#name_plural" # localisation
+			## required
+			desc = "#description" # localisation
 		}
 	}
 }
@@ -34,4 +39,16 @@ leader_class = {
 	default_category = <leader_class>
 	## cardinality = 0..1
 	assignment_cooldown = int[0..inf]
+	## cardinality = 0..1
+	## replace_scope = { this = country root = country }
+	ai_weight = {
+		alias_name[modifier] = alias_match_left[modifier]
+	}
+	## cardinality = 0..1
+	minimum_ai_target = int
+	## cardinality = 0..1
+	leader_background_job_weight = {
+		## cardinality = 0..inf
+		<job> = int
+	}
 }

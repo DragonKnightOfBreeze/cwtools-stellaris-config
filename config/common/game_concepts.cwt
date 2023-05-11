@@ -1,0 +1,26 @@
+types = {
+	type[game_concept] = {
+		path = "game/common/game_concepts"
+		file_extension = .txt
+		localisation = {
+			## required
+			name = "$"
+			## required
+			desc = "$_desc"
+		}
+		images = {
+			## cardinality = 0..1
+			icon = "#icon" # icon[gfx/interface/icons/concepts]
+		}
+	}
+}
+
+ethic_category = {
+	## cardinality = 0..1
+	icon = icon[gfx/interface/icons/concepts]
+	alias = {
+		## cardinality = 0..inf
+		varchar
+	}
+}
+

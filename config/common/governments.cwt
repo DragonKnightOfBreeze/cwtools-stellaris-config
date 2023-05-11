@@ -4,9 +4,9 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Description = "$_desc"
+			desc = "$_desc"
 		}
 		images = {
 			## primary
@@ -23,9 +23,9 @@ types = {
 		path_strict = yes
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Description = "$_desc"
+			desc = "$_desc"
 		}
 	}
 	type[civic_or_origin] = {
@@ -33,10 +33,10 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Description = "$_desc"
-			Effect = "#description"
+			desc = "$_desc"
+			effect = "#description"
 		}
 		subtype[civic] = {
 			## cardinality = 0..1
@@ -71,10 +71,27 @@ types = {
 		name_field = "name"
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Description = "$_desc"
-			Effect = "#description"
+			desc = "$_desc"
+			effect = "#description"
+		}
+	}
+	type[councilor] = {
+		path = "game/common/governments/councilors"
+		file_extension = .txt
+		path_strict = yes
+		subtype[civic_councilor] = {
+			civic = scalar
+		}
+		localisation = {
+			## required
+			name = "$"
+			## required
+			desc = "$_desc"
+		}
+		images = {
+			icon = "#icon" # <sprite>
 		}
 	}
 }
@@ -84,48 +101,6 @@ authority = {
 	machine_empire = yes
 	## cardinality = 0..1
 	icon = filepath
-	## cardinality = 0..1
-	potential = {
-		## cardinality = 0..1
-		text = localisation
-		## cardinality = 0..1
-		always = bool
-
-		alias_name[government_trigger] = alias_match_left[government_trigger]
-	}
-	## cardinality = 0..1
-	possible = {
-		## cardinality = 0..1
-		text = localisation
-		## cardinality = 0..1
-		always = bool
-
-		alias_name[government_trigger] = alias_match_left[government_trigger]
-	}
-	## replace_scope = { this = no_scope root = no_scope } #this can check has_dlc and other likewise triggers, but thats it.
-	## cardinality = 0..1
-	random_weight = {
-		alias_name[modifier_rule] = alias_match_left[modifier_rule]
-	}
-	## replace_scope = { this = country root = country }
-	## cardinality = 0..1
-	ai_weight = {
-		alias_name[modifier_rule] = alias_match_left[modifier_rule]
-	}
-	## cardinality = 0..1
-	traits = {
-		## cardinality = 0..inf
-		trait = <trait>
-	}
-	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
-	country_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
-	## cardinality = 0..1
-	playable = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
 	## cardinality = 0..1
 	has_heir = bool
 	## cardinality = 0..1
@@ -163,6 +138,50 @@ authority = {
 	## cardinality = 0..1
 	localization_postfix = scalar
 
+	ruler_council_position = <councilor>
+
+	## cardinality = 0..1
+	potential = {
+		## cardinality = 0..1
+		text = localisation
+		## cardinality = 0..1
+		always = bool
+
+		alias_name[government_trigger] = alias_match_left[government_trigger]
+	}
+	## cardinality = 0..1
+	playable = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	possible = {
+		## cardinality = 0..1
+		text = localisation
+		## cardinality = 0..1
+		always = bool
+
+		alias_name[government_trigger] = alias_match_left[government_trigger]
+	}
+	## replace_scope = { this = no_scope root = no_scope } #this can check has_dlc and other likewise triggers, but thats it.
+	## cardinality = 0..1
+	random_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+	## replace_scope = { this = country root = country }
+	## cardinality = 0..1
+	ai_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+	## cardinality = 0..1
+	traits = {
+		## cardinality = 0..inf
+		trait = <trait>
+	}
+	## cardinality = 0..1
+	## replace_scope = { this = country root = country }
+	country_modifier = {
+		alias_name[modifier] = alias_match_left[modifier]
+	}
 	## cardinality = 0..1
 	tags = {
 		## cardinality = 1..inf
@@ -378,6 +397,39 @@ civic_or_origin = {
 		preferred_planet_class_neighbor = no
 
 	}
+}
+
+councilor = {
+	### Which leader classes can have this council position. Currently only used for the Recruit new Leader buttons. Default = none.
+	leader_class = {
+		## cardinality = 0..inf
+		<leader_class>
+	}
+	## replace_scope = { this = country root = country }
+	possible = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	### Can a leader have this council position. Used to filter leaders. Scope: THIS = Leader.
+	## replace_scope = { this = leader root = leader }
+	is_leader_possible = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	### Civic that is required for this council position. Also used by UI. Default = none.
+	## cardinality = 0..1
+	civic = <civic_or_origin.civic>
+	### Country Modifier, that is multiplied by assigned Leader's level.
+	## cardinality = 0..1
+	## replace_scope = { this = country root = country }
+	modifier = {
+		alias_name[modifier] = alias_match_left[modifier]
+	}
+	icon = <sprite>
+	### Custom tooltip text shown for the modifier of the council position.
+	## cardinality = 0..1
+	custom_tooltip = localisation
+	### Custom tooltip text shown for the requirements of the council position.
+	## cardinality = 0..1
+	conditional_tooltip = localisation
 }
 
 #aliases - used in species_classes and perhaps other places.

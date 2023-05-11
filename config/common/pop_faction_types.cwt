@@ -50,9 +50,12 @@ pop_faction = {
 	### How much extra weight will receive a candidate from this faction
 	support_multiplier = float
 
-	## cardinality = 0..1
 	### Primary ethic for this faction
+	## cardinality = 0..1
 	guiding_ethic = <ethic>
+
+	## cardinality = 0..1
+	visual_ethic = localisation
 
 	## cardinality = 0..1
 	use_guiding_ethic_as_pop_filter = bool

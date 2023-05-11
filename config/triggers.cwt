@@ -650,7 +650,7 @@ alias[trigger:is_designable] = bool
 
 ### Checks if the leader is of a specific class
 ## scopes = { leader }
-alias[trigger:leader_class] = enum[leader_classes]
+alias[trigger:leader_class] = enum[leader_class]
 
 ### Checks if the observation post has a specific mission
 ## scopes = { fleet }
@@ -3463,7 +3463,7 @@ alias[trigger:is_in_frontline] = bool
 
 ### Check if a planet is the background planet of a leader
 ## scopes = { leader }
-alias[trigger:is_background_planet] = scope_field # TODO PLS - check
+alias[trigger:is_background_planet] = scope_field
 
 ### Checks if scoped leader is a member of the Empire Council or the Ruler
 ## scopes = { leader }
