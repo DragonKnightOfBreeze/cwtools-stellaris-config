@@ -1773,11 +1773,14 @@ on_actions = {
 	# They use the same scopes as the standard events
 
 	## replace_scopes = { this = planet root = planet from = fleet }
-	on_destroy_planet_with_<component_template.planet_killer> = planet
+	## event_type = planet
+	on_destroy_planet_with_<component_template.planet_killer> = {}
 
 	## replace_scopes = { this = planet root = planet from = fleet }
-	on_destroy_planet_with_<component_template.planet_killer>_queued = planet
+	## event_type = planet
+	on_destroy_planet_with_<component_template.planet_killer>_queued = {}
 
 	## replace_scopes = { this = planet root = planet from = fleet }
-	on_destroy_planet_with_<component_template.planet_killer>_unqueued = planet
+	## event_type = planet
+	on_destroy_planet_with_<component_template.planet_killer>_unqueued = {}
 }
