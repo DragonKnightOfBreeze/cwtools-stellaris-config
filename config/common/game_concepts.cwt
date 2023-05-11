@@ -15,7 +15,7 @@ types = {
 	}
 }
 
-ethic_category = {
+game_concept = {
 	## cardinality = 0..1
 	icon = icon[gfx/interface/icons/concepts]
 	alias = {
