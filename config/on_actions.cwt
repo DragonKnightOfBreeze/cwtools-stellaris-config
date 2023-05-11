@@ -92,6 +92,11 @@ on_actions = {
 	## event_type = country
 	on_five_year_random_pulse_pre_ftl = {}
 
+	### # this = country, fired via action.630
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_five_year_random_pulse_pre_ftl_tech_events = {}
+
 	### Why do this, you might ask, and not just use a random_list? Because on_actions check the triggers of the event before they try to fire them and exclude them from the list if they are false, so a list with no 0 weight will always fire an event so long as any of them are able to be fired
 	### Used in operation_diplomatic_incident. Beware when changing.
 	### this = country, fired via action.2211 from on_five_year_random_pulse_country
@@ -694,13 +699,6 @@ on_actions = {
 	## replace_scopes = { this = country root = country from = leader }
 	## event_type = country
 	on_ruler_removed = {}
-
-	### Executed when the ruler is ousted and goes back to their pre-ruler class
-	### From = Previous Ruler, already has the new class
-	### This = Country
-	## replace_scopes = { this = country root = ocuntry from = leader }
-	## event_type = country
-	on_ruler_back_to_pre_ruler_class = {}
 
 	### This = Planet
 	## replace_scopes = { this = planet root = planet }

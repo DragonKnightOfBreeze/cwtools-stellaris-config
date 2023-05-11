@@ -513,9 +513,9 @@ game_rules = {
 	## replace_scopes = { this = leader }
 	can_dismiss_leader = {}
 
-	### this = country
+	# this = country
 	## replace_scopes = { this = country }
-	dismiss_leader_cost = {}
+	can_country_change_councilors =  {}
 
 	### this = leader
 	## replace_scopes = { this = leader }
