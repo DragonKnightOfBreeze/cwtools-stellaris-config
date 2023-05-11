@@ -14,6 +14,11 @@ game_rules = {
 	## replace_scopes = { this = country root = country }
 	can_get_claim_from_lost_system = {}
 
+	### Root = Bombarding country
+	### This = Receiving country
+	## replace_scopes = { this = country root = country }
+	should_surrender_planets_to = {}
+
 	### Root = country
 	### This = species
 	## replace_scopes = { this = species root = country }
@@ -34,6 +39,10 @@ game_rules = {
 	### This = pop
 	## replace_scopes = { this = pop root = country }
 	can_vote_in_democratic_election = {}
+
+	### This = leader
+	## replace_scopes = { this = leader }
+	should_pay_for_leader_upkeep = {}
 
 	### Checks whether any leaders (scientists etc) can be formed from this pop
 	### Root = country
@@ -184,7 +193,7 @@ game_rules = {
 
 	### Determines if the "per_neighbor_rival" static modifier should be applied to an empire
 	### this: country
-	## replace_scopes = { this = country root = country }
+	## replace_scopes = { this = country }
 	should_apply_neighbor_rival_modifier = {}
 
 	### Root: Rebelling against country
@@ -221,12 +230,12 @@ game_rules = {
 
 	### Can purge/disassembly be individually stopped by owner
 	### scope: pop
-	## replace_scopes = { this = pop root = pop }
+	## replace_scopes = { this = pop }
 	can_stop_purge_pop_manually = {}
 
 	### Can the pop be purged/disassembled individually by its owner
 	### scope: pop
-	## replace_scopes = { this = pop root = pop }
+	## replace_scopes = { this = pop }
 	can_purge_pop_manually = {}
 
 	### THIS = Fleet
@@ -234,7 +243,7 @@ game_rules = {
 	fleet_uses_templates = {}
 
 	### this = starbase, megastructure or planet
-	can_orbital_repair_ships = {}
+	can_orbitable_repair_ships = {}
 
 	### this = ship
 	### root = country that kills ship
@@ -249,15 +258,35 @@ game_rules = {
 	ai_should_restrict_system = {}
 
 	### this = country
-	## replace_scopes = { this = country root = country }
+	## replace_scopes = { this = country }
 	can_subjugate_empires = {}
 
+	### this = leader
+	## replace_scopes = { this = leader }
+	can_leader_get_council_trait = {}
+
+	### this = leader
+	## replace_scopes = { this = leader }
+	can_leader_get_normal_trait = {}
+
+	### this = leader
+	## replace_scopes = { this = leader }
+	can_leader_get_subclass_trait = {}
+
+	### this = leader
+	## replace_scopes = { this = leader }
+	can_leader_get_destiny_trait = {}
+
+	### this = country
+	## replace_scopes = { this = country }
+	has_extra_council_position = {}
+
 	### THIS = Fleet
-	## replace_scopes = { this = fleet root = fleet }
+	## replace_scopes = { this = fleet }
 	can_jump_drive = {}
 
 	### this = country
-	## replace_scopes = { this = country root = country }
+	## replace_scopes = { this = country }
 	can_spawn_occupation_armies = {}
 
 	### this = system
@@ -271,25 +300,25 @@ game_rules = {
 	can_enter_system_by_jump = {}
 
 	### This = pop
-	## replace_scopes = { this = pop root = pop }
+	## replace_scopes = { this = pop }
 	can_resettle_pop = {}
 
-	## replace_scopes = { this = country root = country }
+	## replace_scopes = { this = country }
 	can_country_resettle = {}
 
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
+	## replace_scopes = { this = planet }
 	can_resettle_planet = {}
 
-	## replace_scopes = { this = planet root = planet }
+	## replace_scopes = { this = planet }
 	can_resettle_planet_no_owner_check = {}
 
 	### This = Planet
-	## replace_scopes = { this = planet  }
+	## replace_scopes = { this = planet }
 	should_spawn_deposits = {}
 
 	### # This = Planet
-	## replace_scopes = { this = planet  }
+	## replace_scopes = { this = planet }
 	is_new_colony = {}
 
 	### This = pop
@@ -301,11 +330,11 @@ game_rules = {
 	can_pops_grow_on_planet = {}
 
 	### This = planet
-	## replace_scopes = { this = planet  }
+	## replace_scopes = { this = planet }
 	can_pops_assemble_on_planet = {}
 
 	### This = planet
-	## replace_scopes = { this = planet  }
+	## replace_scopes = { this = planet }
 	can_pops_decline_on_planet = {}
 
 	### This = planet
@@ -345,7 +374,7 @@ game_rules = {
 
 	### Checked by is_criminal_syndicate trigger
 	### This = country
-	## replace_scopes = { this = country  }
+	## replace_scopes = { this = country }
 	is_criminal_syndicate_rule = {}
 
 	### This = planet
@@ -361,7 +390,7 @@ game_rules = {
 	can_win_timed_victory = {}
 
 	### This = country
-	## replace_scopes = { this = country}
+	## replace_scopes = { this = country }
 	can_use_galactic_market = {}
 
 	### ROOT = country
@@ -475,20 +504,83 @@ game_rules = {
 	## replace_scopes = { this = planet }
 	should_planetary_automate = {}
 
+	## replace_scopes = { this = country }
+	dismiss_leader_cost = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
 	### this = leader
 	## replace_scopes = { this = leader }
 	can_dismiss_leader = {}
+
+	### this = country
+	## replace_scopes = { this = country }
+	dismiss_leader_cost = {}
+
+	### this = leader
+	## replace_scopes = { this = leader }
+	should_count_towards_leader_cap = {}
 
 	### From = country, country that tries to connect using relay network
 	### ROOT/This = country, target country to connect to using relay network
 	## replace_scopes = { this = country root = country }
 	can_country_connect_to_relay_network = {}
 
+	### this = planet
+	## replace_scopes = { this = planet }
+	should_ai_build_stronghold_on_vulnerable_planet = {}
+
+	### This = leader
+	## replace_scopes = { this = leader }
+	will_leader_retire = {}
+
+	### This = country, Country that wants to get an external leader
+	### From = country, country that we are trying to get from
+	## replace_scopes = { this = country root = country }
+	can_get_external_leader_pool_candidate = {}
+
 	### This = leader, leader we'd like to trade
 	### Root = country, country that owns the leader currently
 	### From = country, country that would receive the leader
 	## replace_scopes = { this = leader root = country from = country }
 	can_trade_leader = {}
+
+	## replace_scopes = { this = country }
+	chance_for_external_leader_pool = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	### this = country scope
+	## replace_scopes = { this = country }
+	council_agenda_early_activation_cost = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	### this = leader scope
+	### from = country scope
+	## replace_scopes = { this = leader from = country }
+	leader_election_elect_cost = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	### this = country scope
+	## replace_scopes = { this = country }
+	emergency_election_cost_rule = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	### this = leader scope (not valid in UI if no leader is selected)
+	### from = country scope
+	## replace_scopes = { this = leader from = country }
+	leader_election_support_cost = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	### this = leader scope
+	## replace_scopes = { this = leader }
+	leader_election_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
 
 	### This = fleet, fleet we'd like to trade
 	### Root = country, country that owns the fleet currently

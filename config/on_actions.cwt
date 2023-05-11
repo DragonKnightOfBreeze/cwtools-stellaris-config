@@ -19,6 +19,18 @@ on_actions = {
 	## event_type = scopeless
 	on_monthly_pulse = {}
 
+	### Via pre_ftl_tech_progress_situation / preftl.50
+	### See also: on_monthly_pulse_pre_ftl_observation_broken_shackles (below)
+	## replace_scopes = { this = situation root = situation }
+	## event_type = situation
+	on_monthly_pulse_pre_ftl_observation = {}
+
+	### The following are considered valid for "Broken Shackles" empires observing their original civilizations; see also on_monthly_pulse_pre_ftl_observation (above)
+	### Via pre_ftl_tech_progress_situation / preftl.50
+	## replace_scopes = { this = situation root = situation }
+	## event_type = situation
+	on_monthly_pulse_pre_ftl_observation_broken_shackles = {}
+
 	### No scope, like on_game_start
 	## replace_scopes = { this = no_scope root = no_scope }
 	## event_type = scopeless
@@ -70,10 +82,15 @@ on_actions = {
 	## event_type = country
 	on_five_year_random_pulse_country = {}
 
-	### fired via action.420
+	### this = country, fired via action.420
 	## replace_scopes = { this = country root = country }
 	## event_type = country
 	on_five_year_random_pulse_overlord = {}
+
+	### this = country, fired via action.620
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_five_year_random_pulse_pre_ftl = {}
 
 	### Why do this, you might ask, and not just use a random_list? Because on_actions check the triggers of the event before they try to fire them and exclude them from the list if they are false, so a list with no 0 weight will always fire an event so long as any of them are able to be fired
 	### Used in operation_diplomatic_incident. Beware when changing.
@@ -85,6 +102,10 @@ on_actions = {
 	## replace_scopes = { this = country root = country }
 	## event_type = country
 	on_decade_pulse_country = {}
+
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_decade_random_pulse_country_payback_broken_shackles = {}
 
 	## replace_scopes = { this = country root = country }
 	## event_type = country
@@ -422,12 +443,32 @@ on_actions = {
 	### Fires when construction is complete,
 	### immediately before station is created
 	## replace_scopes = { this = ship root = ship from = planet }
-	on_building_<ship_size.station> = ship
+	## event_type = ship
+	on_building_<ship_size.station> = {}
 
 	### This = ship (starbase)
 	### From = owner country
 	## replace_scopes = { this = ship root = ship from = planet }
-	on_building_<ship_size.starbase> = ship
+	## event_type = ship
+	on_building_<ship_size.starbase> = {}
+
+	### This = station
+	### From = planet it was built on
+	## replace_scopes = { this = ship root = ship from = planet }
+	## event_type = ship
+	on_destroying_station = {}
+
+	### This = station
+	### From = planet it was built on
+	## replace_scopes = { this = ship root = ship from = planet }
+	## event_type = ship
+	on_losing_station_control = {}
+
+	### This = station
+	### From = planet it was built on
+	## replace_scopes = { this = ship root = ship from = planet }
+	## event_type = ship
+	on_gaining_station_control = {}
 
 	### This = country
 	### From = opponent war leader
@@ -549,6 +590,20 @@ on_actions = {
 	## event_type = country
 	on_post_communications_established = {}
 
+	### Executed right after country has established communications with another country. Always fires, even if comms are established with establish_communications_no_message
+	### This = Country which established the communications
+	### From = Country which communications were established with
+	## replace_scopes = { this = country root = country from = country }
+	## event_type = country
+	on_post_communications_established_always_fire = {}
+
+	### Serves to reveal presence to pre-ftl country
+	### This = Country which is revealing its presence
+	### From = Pre-ftl country
+	## replace_scopes = { this = country root = country from = country }
+	## event_type = country
+	on_presence_revealed = {}
+
 	### Executed just after country has established communications with another country
 	### This = Planet where the pop was bombed to death
 	### From = Country which is raining down fire and brimstone
@@ -556,12 +611,51 @@ on_actions = {
 	## event_type = planet
 	on_pop_bombed_to_death = {}
 
+	### Executed when a new heir is appointed
+	### This = Heir
+	## replace_scopes = { this = leader root = leader }
+	## event_type = leader
+	on_new_heir = {}
+
+	### Executed when an heir is promoted to ruler
+	### This = Heir
+	## replace_scopes = { this = leader root = leader }
+	## event_type = leader
+	on_heir_promoted_to_ruler = {}
+
+	### Executed when a ruler is created. Called after the leader is set as ruler of the country
+	### This = Country
+	### FROM = Leader
+	## replace_scopes = { this = country root = country from = leader }
+	## event_type = country
+	on_ruler_created = {}
+
+	### Executed just before on_leader_death if show_notification = yes (default)
+	### This = Country
+	### From = Leader
+	## replace_scopes = { this = country root = country from = leader }
+	## event_type = country
+	on_leader_death_notify = {}
+
+	### Executed just before on_leader_death if show_notification = no (explicitly set)
+	### This = Country
+	### From = Leader
+	## replace_scopes = { this = country root = country from = leader }
+	## event_type = country
+	on_leader_death_no_notify = {}
+
 	### Executed as a leader has died
 	### This = Country
 	### From = Leader
 	## replace_scopes = { this = country root = country from = leader }
 	## event_type = country
 	on_leader_death = {}
+
+	### Executed as a leader is hired
+	### This = Leader
+	## replace_scopes = { this = leader root = leader }
+	## event_type = leader
+	on_leader_hired = {}
 
 	### Executed as a leader has been fired
 	### This = Country
@@ -690,6 +784,14 @@ on_actions = {
 	## replace_scopes = { this = planet root = planet from = country fromfrom = country }
 	## event_type = planet
 	on_planet_occupied = {}
+
+	### A planets controller becomes the owner of the planet.
+	### Root = Planet
+	### From = Planet Owner
+	### FromFrom = Previous Planet Controller (the one who was occupying)
+	## replace_scopes = { this = planet root = planet from = country fromfrom = country }
+	## event_type = planet
+	on_planet_returned = {}
 
 	### A fleet has successfully escaped from combat, executed right before the fleet enters FTL
 	### This = escaping fleet
@@ -1096,6 +1198,12 @@ on_actions = {
 	## event_type = country
 	on_leader_spawned = {}
 
+	### A leader is added to the leader pool, available for recruitment
+	### scope: country, from: leader
+	## replace_scopes = { this = country root = country from = leader }
+	## event_type = country
+	on_added_to_leader_pool = {}
+
 	### called during empire initialization when starting a new game
 	### scope: country
 	## replace_scopes = { this = country root = country }
@@ -1237,6 +1345,10 @@ on_actions = {
 	## event_type = fleet
 	on_arch_stage_finished = {}
 
+	## replace_scopes = { this = fleet root = fleet from = archaeological_site }
+	## event_type = fleet
+	on_arch_site_finished = {}
+
 	### A galcom resolution passed
 	### this/root = proposer
 	### from = target if valid
@@ -1285,6 +1397,36 @@ on_actions = {
 	## replace_scopes = { this = country root = country }
 	## event_type = country
 	on_leave_alliance = {}
+
+	### This = Country who accepted the proposal
+	### From = Country who proposed the commercial pact
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_sign_commercial_pact = {}
+
+	### This = Country who accepted the proposal
+	### From = Country who proposed the defensive pact
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_sign_defensive_pact = {}
+
+	### This = Country who accepted the proposal
+	### From = Country who proposed the migration treaty
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_sign_migration_pact = {}
+
+	### This = Country who accepted the proposal
+	### From = Country who proposed the non-aggression pact
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_sign_non_aggression_pact = {}
+
+	### This = Country who accepted the proposal
+	### From = Country who proposed the research agreement
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_sign_research_pact = {}
 
 	### This = subject
 	### From = subject's overlord
@@ -1495,6 +1637,20 @@ on_actions = {
 	## event_type = country
 	on_debris_scavenged_and_researched = {}
 
+	### Fired when a ship completes a special project.
+	### this = country
+	### fromfromfrom = ship
+	## replace_scopes = { this = country root = country fromfromfrom = ship }
+	## event_type = country
+	special_project_success = {}
+
+	### Fired when a ship finishes researching an anomaly.
+	### this = ship
+	### from = planet
+	## replace_scopes = { this = ship root = ship fromfromfrom = planet }
+	## event_type = ship
+	anomaly_success = {}
+
 	### Fired when a subject has started converting to a specialist type
 	### This = agreement
 	### owner = overlord
@@ -1542,9 +1698,30 @@ on_actions = {
 	## event_type = situation
 	on_shroudwalker_divination_locus_situation = {}
 
-	## replace_scopes = { this = situation root = country from = country }
-	## event_type = situation
+	## replace_scopes = { this = country root = country }
+	## event_type = country
 	on_shroudwalker_insight_situation_finish = {}
+
+	### Beholder Leader's Planetfall action
+	## replace_scopes = { this = planet root = planet }
+	## event_type = planet
+	on_beholder_target_planet_reached = {}
+
+	## replace_scopes = { this = planet root = planet }
+	## event_type = planet
+	on_azaryn_target_planet_reached = {}
+
+	### Executed when a country activates an agenda
+	### THIS = country
+	## replace_scopes = { this = planet root = planet }
+	## event_type = planet
+	on_azaryn_action_cancel = {}
+
+	### Executed when a country activates an agenda
+	### THIS = country
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_agenda_finished = {}
 
 	### Fired when a fleet activates cloaking
 	### This = Fleet
