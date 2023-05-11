@@ -20,6 +20,12 @@ types = {
 			Description = "$_desc"
 		}
 		images = {
+			subtype[leader_trait] = {
+				# Since 3.8, leader trait is dynamic, with optional color filled, and layer based,
+				# and declared with many inline scripts
+
+				# It's not very necessary for PLS to render such a complex icon (while it's dynamic in real)
+			}
 			subtype[species_trait] = {
 				## primary
 				## required
