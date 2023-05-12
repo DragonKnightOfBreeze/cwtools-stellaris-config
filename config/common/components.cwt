@@ -311,6 +311,7 @@ component_template = {
 		scripted_action_tooltip = localisation
 		## cardinality = 0..1
 		scripted_action_icon = <sprite>
+		## cardinality = 0..1
 		scripted_action_on_cancel = <on_action>
 		## cardinality = 0..1
 		scripted_action_activity_key = localisation
