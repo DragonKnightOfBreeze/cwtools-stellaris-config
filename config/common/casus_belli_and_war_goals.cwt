@@ -38,19 +38,19 @@ casus_belli = {
 	### this = attacker (CB owner); default: { always = yes }
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	### trigger, evaluated daily to check if CB should be created or destroyed automatically, does not affect CBs granted via script; \
 	### this = attacker (CB owner), from = defender (target country); default: { always = yes }
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country from = country }
-	is_valid = single_alias_right[trigger]
+	is_valid = single_alias_right[trigger_clause]
 
 	### trigger, evaluated daily to destroy CBs that have been granted via script ahead of expiration date; \
 	### this = attacker (CB owner), from = defender (target country); default: { always = no }
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country from = country }
-	destroy_if = single_alias_right[trigger]
+	destroy_if = single_alias_right[trigger_clause]
 
 	### optional (default = yes), flag to control whether this CB will generate a notification (to avoid duplicate \
 	### notification when a claim CB is generated).
@@ -113,12 +113,12 @@ war_goal = {
 	### FROM = The targeted country, THIS = The acting country
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country from = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	### FROM = The targeted country, THIS = The acting country
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country from = country }
-	possible = single_alias_right[trigger]
+	possible = single_alias_right[trigger_clause]
 
 	### Set what peace offers are allowed. Leaving this out means no peace, which is usually a bug, hence making this a necessary field.
 	allowed_peace_offers = {
@@ -129,16 +129,16 @@ war_goal = {
 	### Run when war ends in status quo. The targeted country, THIS = The acting country
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country from = country }
-	on_status_quo = single_alias_right[effect]
+	on_status_quo = single_alias_right[effect_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country from = country }
-	on_wargoal_set = single_alias_right[effect]
+	on_wargoal_set = single_alias_right[effect_clause]
 
 	### Run when target surrenders after claims are ceded. The targeted country, THIS = The acting country
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country from = country }
-	on_accept = single_alias_right[effect]
+	on_accept = single_alias_right[effect_clause]
 
 	### FROM = The targeted country, THIS = The acting country
 	## cardinality = 0..1
@@ -149,7 +149,7 @@ war_goal = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country from = country }
-	galactic_empire_joins_defender = single_alias_right[trigger]
+	galactic_empire_joins_defender = single_alias_right[trigger_clause]
 
 	### Starbases are destroyed instead of ownership being transferred
 	## cardinality = 0..1

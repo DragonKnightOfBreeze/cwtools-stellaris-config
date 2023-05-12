@@ -11,7 +11,7 @@ advisor_voice = {
 	icon = filepath
 
 	## cardinality = 0..1
-	playable = single_alias_right[trigger]
+	playable = single_alias_right[trigger_clause]
 
 	weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]

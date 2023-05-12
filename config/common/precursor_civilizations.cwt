@@ -10,5 +10,5 @@ precursors = {
 	size = int
 
 	## cardinality = 0..1
-	possible = single_alias_right[trigger]
+	possible = single_alias_right[trigger_clause]
 }

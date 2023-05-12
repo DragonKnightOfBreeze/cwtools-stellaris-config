@@ -53,7 +53,7 @@ building = {
 	## cardinality = 0..inf
 	desc = {
 		## replace_scopes = { this = planet root = planet }
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 		text = localisation
 	}
 	## cardinality = 0..1
@@ -101,7 +101,7 @@ building = {
 
 	### trigger for allowing/graying out building construction
 	## cardinality = 0..1
-	allow = single_alias_right[trigger]
+	allow = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	empire_limit = {
@@ -112,70 +112,70 @@ building = {
 
 	### an action when queued
 	## cardinality = 0..1
-	on_queued = single_alias_right[effect]
+	on_queued = single_alias_right[effect_clause]
 
 	### an action when unqueued
 	## cardinality = 0..1
-	on_unqueued = single_alias_right[effect]
+	on_unqueued = single_alias_right[effect_clause]
 
 	### an action when built
 	## cardinality = 0..1
-	on_built = single_alias_right[effect]
+	on_built = single_alias_right[effect_clause]
 
 	### an action when destroyed
 	## cardinality = 0..1
-	on_destroy = single_alias_right[effect]
+	on_destroy = single_alias_right[effect_clause]
 
 	### an action when repaired
 	## cardinality = 0..1
-	on_repaired = single_alias_right[effect]
+	on_repaired = single_alias_right[effect_clause]
 
 	### trigger for displaying building in construction list
 	## cardinality = 0..1
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	### ongoing construction will be canceled if this trigger returns true
 	## cardinality = 0..1
-	abort_trigger = single_alias_right[trigger]
+	abort_trigger = single_alias_right[trigger_clause]
 
 	### ongoing construction will be canceled if this trigger returns true
 	## cardinality = 0..1
-	abort_construction_trigger = single_alias_right[trigger]
+	abort_construction_trigger = single_alias_right[trigger_clause]
 
 	### set building to ruined if this trigger returns true
 	## cardinality = 0..1
-	ruined_trigger = single_alias_right[trigger]
+	ruined_trigger = single_alias_right[trigger_clause]
 
 	### building will be destroyed (more likely converted, see below) if this trigger returns true
 	## cardinality = 0..1
-	destroy_trigger = single_alias_right[trigger]
+	destroy_trigger = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country }
-	show_tech_unlock_if = single_alias_right[trigger]
+	show_tech_unlock_if = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = planet root = planet }
-	planet_modifier = single_alias_right[modifier]
+	planet_modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	country_modifier = single_alias_right[modifier]
+	country_modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	army_modifier = single_alias_right[modifier]
+	army_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..inf
 	## replace_scopes = { this = planet root = planet }
-	triggered_planet_modifier = single_alias_right[triggered_modifier]
+	triggered_planet_modifier = single_alias_right[triggered_modifier_clause]
 	## cardinality = 0..inf
 	## replace_scopes = { this = country root = country }
-	triggered_country_modifier = single_alias_right[triggered_modifier_by_planet]
+	triggered_country_modifier = single_alias_right[triggered_modifier_by_planet_clause]
 	## cardinality = 0..inf
 	## replace_scopes = { this = army root = army }
-	triggered_army_modifier = single_alias_right[triggered_modifier_by_planet]
+	triggered_army_modifier = single_alias_right[triggered_modifier_by_planet_clause]
 
 	## cardinality = 0..inf
-	triggered_desc = single_alias_right[triggered_desc]
+	triggered_desc = single_alias_right[triggered_desc_clause]
 
 	## cardinality = 0..1
 	resources = {
@@ -208,7 +208,7 @@ building = {
 		## cardinality = 1..inf
 		<resource> = int
 		## cardinality = 0..1
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 		## cardinality = 0..inf
 		enum[complex_maths_enum] = value_field
 	}

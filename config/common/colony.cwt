@@ -38,7 +38,7 @@ colony_type = {
 		## cardinality = 0..inf
 		<resource> = float
 		## replace_scopes = { this = planet root = planet }
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 	}
 
 	### Used by AI to estimate the current effects of this designation
@@ -47,20 +47,20 @@ colony_type = {
 		## cardinality = 0..inf
 		<resource> = float
 		## replace_scopes = { this = planet root = planet }
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 	}
 
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	custom_tooltip = localisation
 
 	## cardinality = 0..1
 	## replace_scopes = { this = planet root = planet }
-	planet_modifier = single_alias_right[modifier]
+	planet_modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..inf
 	## replace_scopes = { this = planet root = planet }
-	triggered_planet_modifier = single_alias_right[triggered_modifier]
+	triggered_planet_modifier = single_alias_right[triggered_modifier_clause]
 
 	weight_modifier = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -71,7 +71,7 @@ colony_type = {
 colony_automation = {
 	category = <colony_automation_category>
 
-	available = single_alias_right[trigger]
+	available = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	prio_districts = {
@@ -84,7 +84,7 @@ colony_automation = {
 		int[1..inf] = {
 			building = <building>
 			## cardinality = 0..1
-			available = single_alias_right[trigger]
+			available = single_alias_right[trigger_clause]
 		}
 	}
 }
@@ -92,7 +92,7 @@ colony_automation = {
 ## push_scope = planet
 colony_automation_category = {
 	## cardinality = 0..1
-	available = single_alias_right[trigger]
+	available = single_alias_right[trigger_clause]
 }
 
 ## push_scope = planet
@@ -108,7 +108,7 @@ colony_automation_exception = {
 	## cardinality = 0..1
 	should_ai_use_job_micro = bool
 
-	available = single_alias_right[trigger]
+	available = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	prio_districts = {
@@ -122,9 +122,9 @@ colony_automation_exception = {
 		scalar = {
 			building = <building>
 			## cardinality = 0..1
-			available = single_alias_right[trigger]
+			available = single_alias_right[trigger_clause]
 			## cardinality = 0..1
-			upgrade_trigger = single_alias_right[trigger]
+			upgrade_trigger = single_alias_right[trigger_clause]
 		}
 	}
 
@@ -132,7 +132,7 @@ colony_automation_exception = {
 	job_changes = {
 		scalar = {
 			## cardinality = 0..1
-			available = single_alias_right[trigger]
+			available = single_alias_right[trigger_clause]
 			job = <job>
 			amount = int
 		}

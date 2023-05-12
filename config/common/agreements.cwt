@@ -152,19 +152,19 @@ agreement_term_value = {
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	### A modifier that applies to the Agreement owner country. Can stack multiple times.
-	owner_modifier = single_alias_right[modifier]
+	owner_modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	### A modifier that applies to the Agreement owner country. Only applies once.
-	unique_owner_modifier = single_alias_right[modifier]
+	unique_owner_modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	### A modifier that applies to the Agreement target country. Can stack multiple times.
-	target_modifier = single_alias_right[modifier]
+	target_modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	### A modifier that applies to the Agreement target country. Only applies once.
-	unique_target_modifier = single_alias_right[modifier]
+	unique_target_modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..1
 	### How much the subject's loyalty will change when a new agreement with this term starts
 	loyalty_change = int
@@ -180,7 +180,7 @@ agreement_term_value = {
 	triggered_loyalty_change = {
 		## cardinality = 1..1
 		## replace_scopes = { this = agreement root = agreement }
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 		## cardinality = 1..1
 		loyalty_change = int
 		## cardinality = 0..1
@@ -193,16 +193,16 @@ agreement_term_value = {
 	}
 	## cardinality = 0..1
 	## replace_scopes = { this = agreement root = agreement }
-	activate_effect = single_alias_right[effect]
+	activate_effect = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = agreement root = agreement }
-	deactivate_effect = single_alias_right[effect]
+	deactivate_effect = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = agreement root = agreement }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 	## cardinality = 0..inf
 	## replace_scopes = { this = agreement root = agreement }
-	possible = single_alias_right[trigger]
+	possible = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	### What should be shown in the "extra terms" panel for the subject if this term value is active (default is to not show it)
 	### This loc key can use $SUBJECT$ and $OVERLORD$ to show the name of the relevant empire, and $MODIFIER$ to show the modifiers applying to the subject
@@ -267,7 +267,7 @@ agreement_preset = {
 	}
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country from = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 	### Whether the term should show up on the agreement negotiation screen (default: no)
 	## cardinality = 0..1
 	hidden = bool

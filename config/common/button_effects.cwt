@@ -7,10 +7,10 @@ types = {
 
 button_effect = {
 	## replace_scopes = { this = any root = any from = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 	## replace_scopes = { this = any root = any from = country }
-	allow = single_alias_right[trigger]
+	allow = single_alias_right[trigger_clause]
 	## replace_scopes = { this = any root = any from = country }
 	## cardinality = 0..1
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }

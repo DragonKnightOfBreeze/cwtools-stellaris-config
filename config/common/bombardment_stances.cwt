@@ -17,7 +17,7 @@ types = {
 
 bombardment_stance = {
 	## replace_scopes = { root = fleet this = fleet }
-	trigger = single_alias_right[trigger]
+	trigger = single_alias_right[trigger_clause]
 	### Is this the default stance that new fleets will use?
 	default = bool
 	### Will this stance continue to bombard planets where all defensive armies are dead? default = no

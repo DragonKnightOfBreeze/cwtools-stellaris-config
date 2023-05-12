@@ -52,7 +52,7 @@ economic_category = {
 		## cardinality = 0..1
 		use_parent_icon = yes
 		## cardinality = 0..1
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 		modifier_types = {
 			## cardinality = 0..2
 			enum[economic_modifier_types]
@@ -64,7 +64,7 @@ economic_category = {
 		## cardinality = 0..1
 		use_parent_icon = yes
 		## cardinality = 0..1
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 		## cardinality = 0..1
 		use_parent_icon = yes
 		modifier_types = {
@@ -79,7 +79,7 @@ economic_category = {
 		## cardinality = 0..1
 		use_parent_icon = yes
 		## cardinality = 0..1
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 		modifier_types = {
 			## cardinality = 0..2
 			enum[economic_modifier_types]
@@ -105,7 +105,7 @@ economic_category = {
 
 alias[economic_template:cost] = {
 	## cardinality = 0..1
-	trigger = single_alias_right[trigger]
+	trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..inf
 	<resource> = float
 	## cardinality = 0..inf
@@ -116,7 +116,7 @@ alias[economic_template:cost] = {
 
 alias[economic_template:produces] = {
 	## cardinality = 0..1
-	trigger = single_alias_right[trigger]
+	trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..inf
 	<resource> = float
 	## cardinality = 0..inf
@@ -127,7 +127,7 @@ alias[economic_template:produces] = {
 
 alias[economic_template:upkeep] = {
 	## cardinality = 0..1
-	trigger = single_alias_right[trigger]
+	trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..inf
 	<resource> = float
 	## cardinality = 0..inf
@@ -138,14 +138,14 @@ alias[economic_template:upkeep] = {
 
 alias[economic_template_only_produces:produces] = {
 	## cardinality = 0..1
-	trigger = single_alias_right[trigger]
+	trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..inf
 	<resource> = float
 }
 
 alias[economic_template_no_produce:cost] = {
 	## cardinality = 0..1
-	trigger = single_alias_right[trigger]
+	trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..inf
 	<resource> = float
 	## cardinality = 0..inf
@@ -156,7 +156,7 @@ alias[economic_template_no_produce:cost] = {
 
 alias[economic_template_no_produce:upkeep] = {
 	## cardinality = 0..1
-	trigger = single_alias_right[trigger]
+	trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..inf
 	<resource> = float
 	## cardinality = 0..inf

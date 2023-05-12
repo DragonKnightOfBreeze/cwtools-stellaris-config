@@ -12,7 +12,7 @@ types = {
 system_type = {
 	## replace_scopes = { this = system root = system }
 	#TODO: it appears so, but the file uses owner (not space_owner). Check pls
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	## replace_scopes = { this = system root = system }
 	#TODO: it appears so, but the file uses owner (not space_owner). Check pls

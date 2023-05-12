@@ -90,7 +90,7 @@ technology = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	gateway = scalar # can be any string
@@ -130,7 +130,7 @@ technology = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	prereqfor_desc = {
@@ -159,7 +159,7 @@ technology = {
 	subtype[start] = {
 		## cardinality = 0..1
 		## replace_scopes = { this = country root = country }
-		starting_potential = single_alias_right[trigger]
+		starting_potential = single_alias_right[trigger_clause]
 	}
 }
 

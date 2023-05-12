@@ -142,7 +142,7 @@ trait = {
 				### Scripted trigger. If false, hide layer. THIS = Leader
 				## cardinality = 0..1
 				## replace_scopes = { this = leader root = leader }
-				visible = single_alias_right[trigger]
+				visible = single_alias_right[trigger_clause]
 			}
 		}
 		## cardinality = 0..1
@@ -180,42 +180,42 @@ trait = {
 		### Modifier applied to the leader itself.
 		## cardinality = 0..1
 		## replace_scopes = { this = leader root = leader }
-		self_modifier = single_alias_right[modifier]
+		self_modifier = single_alias_right[modifier_clause]
 		### Modifier applied to scope leader is assigned to (e.g. fleet, or science ship) or country if councilor trait.
 		## cardinality = 0..1
 		## replace_scopes = { this = any root = any }
-		modifier = single_alias_right[modifier]
+		modifier = single_alias_right[modifier_clause]
 		### Modifier applied to planet if General assigned to defense army.
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
-		planet_modifier = single_alias_right[modifier]
+		planet_modifier = single_alias_right[modifier_clause]
 		### Modifier applied to system if General or Governor is assigned to planet within it.
 		## cardinality = 0..1
 		## replace_scopes = { this = system root = system }
-		system_modifier = single_alias_right[modifier]
+		system_modifier = single_alias_right[modifier_clause]
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
-		assist_research_planet_modifier = single_alias_right[modifier]
+		assist_research_planet_modifier = single_alias_right[modifier_clause]
 
 		### Modifier applied to the leader itself if the given condition is fullfilled.
 		## cardinality = 0..inf
 		## replace_scopes = { this = leader root = leader }
-		triggered_self_modifier = single_alias_right[triggered_modifier]
+		triggered_self_modifier = single_alias_right[triggered_modifier_clause]
 		### Modifier applied to location the leader is assigned to if the given condition is fullfilled.
 		## cardinality = 0..inf
 		## replace_scopes = { this = any root = any }
-		triggered_modifier = single_alias_right[triggered_modifier]
+		triggered_modifier = single_alias_right[triggered_modifier_clause]
 		### Modifier applied to the planet on which General is assigned to defend if the given condition is fullfilled.
 		## cardinality = 0..inf
 		## replace_scopes = { this = planet root = planet }
-		triggered_planet_modifier = single_alias_right[triggered_modifier]
+		triggered_planet_modifier = single_alias_right[triggered_modifier_clause]
 		# NOTE Should exist, but not referred in 000_documentation_leader_traits.txt
 		## cardinality = 0..inf
 		## replace_scopes = { this = system root = system }
-		triggered_system_modifier = single_alias_right[triggered_modifier]
+		triggered_system_modifier = single_alias_right[triggered_modifier_clause]
 		## cardinality = 0..inf
 		## replace_scopes = { this = planet root = planet }
-		assist_triggered_system_modifier = single_alias_right[triggered_modifier]
+		assist_triggered_system_modifier = single_alias_right[triggered_modifier_clause]
 
 		### Show key if trigger/exclusive_trigger is true.
 		## cardinality = 0..1
@@ -223,10 +223,10 @@ trait = {
 		triggered_desc = {
 			### Trigger appends additional localization key to existing text. THIS = Leader
 			## cardinality = 0..1
-			trigger = single_alias_right[trigger]
+			trigger = single_alias_right[trigger_clause]
 			### Exclusive trigger replaces all other text in tooltip with localization key. THIS = Leader
 			## cardinality = 0..1
-			exclusive_trigger = single_alias_right[trigger]
+			exclusive_trigger = single_alias_right[trigger_clause]
 			## cardinality = 0..inf
 			text = localisation
 		}
@@ -244,7 +244,7 @@ trait = {
 		### Effects in this block fire when trait is acquired. THIS = Leader.
 		## cardinality = 0..1
 		## replace_scopes = { this = leader root = leader }
-		on_gained_effect = single_alias_right[effect]
+		on_gained_effect = single_alias_right[effect_clause]
 
 		### Limits which leader classes that can get this trait.
 		## cardinality = 0..1
@@ -259,10 +259,10 @@ trait = {
 		### If exists, evaluates if leader can get trait. Scope: THIS = Leader, FROM = Country.
 		## cardinality = 0..1
 		## replace_scopes = { this = leader root = leader from = country }
-		leader_potential_add = single_alias_right[trigger]
+		leader_potential_add = single_alias_right[trigger_clause]
 		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
-		species_potential_add = single_alias_right[trigger]
+		species_potential_add = single_alias_right[trigger_clause]
 
 		subtype[subclass_trait] = {
 			## cardinality = 0..inf
@@ -353,27 +353,27 @@ trait = {
 
 		## cardinality = 0..1
 		## replace_scopes = { this = country root = country }
-		modifier = single_alias_right[modifier]
+		modifier = single_alias_right[modifier_clause]
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
-		assembling_modifier = single_alias_right[modifier]
+		assembling_modifier = single_alias_right[modifier_clause]
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
-		declining_modifier = single_alias_right[modifier]
+		declining_modifier = single_alias_right[modifier_clause]
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
-		growing_modifier = single_alias_right[modifier]
+		growing_modifier = single_alias_right[modifier_clause]
 
 		### won't show in trait tooltips, use custom_tooltip/custom_tooltip_with_modifiers
 		## cardinality = 0..inf
 		## replace_scopes = { this = pop root = pop }
-		triggered_pop_modifier = single_alias_right[triggered_modifier]
+		triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
 		## cardinality = 0..inf
 		## replace_scopes = { this = leader root = leader }
-		triggered_leader_modifier = single_alias_right[triggered_modifier]
+		triggered_leader_modifier = single_alias_right[triggered_modifier_clause]
 		## cardinality = 0..inf
 		## replace_scopes = { this = planet root = planet from = species fromfrom = country }
-		triggered_planet_growth_habitability_modifier = single_alias_right[triggered_modifier]
+		triggered_planet_growth_habitability_modifier = single_alias_right[triggered_modifier_clause]
 
 		## cardinality = 0..1
 		custom_tooltip = localisation
@@ -402,22 +402,22 @@ trait = {
 
 		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
-		species_potential_add = single_alias_right[trigger]
+		species_potential_add = single_alias_right[trigger_clause]
 		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
-		species_potential_remove = single_alias_right[trigger]
+		species_potential_remove = single_alias_right[trigger_clause]
 		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
-		species_possible_add = single_alias_right[trigger]
+		species_possible_add = single_alias_right[trigger_clause]
 		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
-		species_possible_remove = single_alias_right[trigger]
+		species_possible_remove = single_alias_right[trigger_clause]
 		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
-		species_possible_merge_add = single_alias_right[trigger]
+		species_possible_merge_add = single_alias_right[trigger_clause]
 		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
-		species_possible_merge_remove = single_alias_right[trigger]
+		species_possible_merge_remove = single_alias_right[trigger_clause]
 
 		## cardinality = 0..1
 		prerequisites = {

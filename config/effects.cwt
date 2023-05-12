@@ -25,17 +25,17 @@ alias[effect:create_starbase] = {
 	building = <starbase_building>
 	## cardinality = 0..1
 	## push_scope = starbase
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Prevents enclosed effects from being displayed in tooltip
 ## scopes = any
-alias[effect:hidden_effect] = single_alias_right[effect]
+alias[effect:hidden_effect] = single_alias_right[effect_clause]
 
 ### Executes enclosed effects if limit criteria are met
 ## scopes = any
 alias[effect:if] = {
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -44,14 +44,14 @@ alias[effect:if] = {
 ## scopes = any
 alias[effect:else_if] = {
 	## severity = info
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
 ### Executes enclosed effects if limit criteria of preceding 'if' or 'else_if' is not met
 ### if = { limit = { <triggers> } <effects> }
 ## scopes = any
-alias[effect:else] = single_alias_right[effect]
+alias[effect:else] = single_alias_right[effect_clause]
 
 ### Saves the current scope as an arbitrarily-named target to be referenced later in the (unbroken) event chain
 ## scopes = any
@@ -987,7 +987,7 @@ alias[effect:while] = {
 	## cardinality = 0..1
 	count = int_value_field
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -1103,7 +1103,7 @@ alias[effect:declare_war] = {
 	alias_name[name] = alias_match_left[name]
 	## cardinality = 0..1
 	## push_scope = war
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Adds static war exhaustion, scaled with value_for_planet_destruction, to owner of the battle location
@@ -1444,7 +1444,7 @@ alias[effect:create_species] = {
 	}
 	## cardinality = 0..1
 	## push_scope = species
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	blocked_archetypes = {
 		## cardinality = 1..inf
@@ -1529,7 +1529,7 @@ alias[effect:create_country] = {
 	}
 	## cardinality = 0..1
 	## push_scope = country
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	flag = scope_group[target_country]
 	## cardinality = 0..1
@@ -1647,7 +1647,7 @@ alias[effect:create_rebels] = {
 	## severity = warning
 	#STNH do some interesting tricks, so I demoted it for their benefit.
 	### this is required to spawn rebels for the rebellion to work in the first place
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Creates a new army
@@ -1667,7 +1667,7 @@ alias[effect:create_army] = {
 	leader = scope_group[target_leader]
 	## cardinality = 0..1
 	## push_scope = army
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Creates a new leader for the scoped country
@@ -1732,7 +1732,7 @@ alias[effect:create_leader] = {
 	}
 	## cardinality = 0..1
 	## push_scope = leader
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 #Same as create, but all optional except target
@@ -1780,7 +1780,7 @@ alias[effect:clone_leader] = {
 	}
 	## cardinality = 0..1
 	## push_scope = leader
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Sets the age of the scoped leader
@@ -1825,7 +1825,7 @@ alias[effect:modify_species] = {
 	portrait = random
 	## cardinality = 0..1
 	## push_scope = species
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Changes the species of the scoped object
@@ -1978,9 +1978,9 @@ alias[effect:effect_on_blob] = {
 	center = scope[galactic_object]
 	owned_planets_percentage = value_field[0.0..1.0]
 	## push_scope = planet
-	planet_limit = single_alias_right[trigger]
+	planet_limit = single_alias_right[trigger_clause]
 	## push_scope = system
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Assign the player of the target country to play the scoped country instead
@@ -1998,7 +1998,7 @@ alias[effect:activate_saved_leader] = {
 	add_to_owned = bool
 	## cardinality = 0..1
 	## push_scope = leader
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Adds a specific anomaly category to the scoped planet
@@ -2047,7 +2047,7 @@ alias[effect:add_random_research_option] = {
 	tier = <technology_tier>
 	add_progress = value_field[0.1..1.0]
 	## cardinality = 0..1
-	fail_effects = single_alias_right[effect]
+	fail_effects = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	### default no
 	ignore_prereqs = bool
@@ -2274,7 +2274,7 @@ alias[effect:create_ambient_object] = {
 	duration = int
 	## cardinality = 0..1
 	## push_scope = ambient_object
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Creates a new army in a new transport ship
@@ -2293,7 +2293,7 @@ alias[effect:create_army_transport] = {
 	species = enum[buildable_pop_species]
 	## cardinality = 0..1
 	## push_scope = ship
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Creates a bypass in the parent SpatialObject (stored in FromFrom), of the type passed in "type".
@@ -2345,7 +2345,7 @@ alias[effect:create_fleet] = {
 	### Must include set_owner, set_location and create_ship (here or in last_created_country). Todo: Check this somehow
 	## cardinality = 0..1
 	## push_scope = fleet
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Set fleet's settings, any unspecified setting will set to default value.
@@ -2405,7 +2405,7 @@ alias[effect:create_military_fleet] = {
 	scaled_size = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Creates a mining station in orbit of the scoped planet
@@ -2414,7 +2414,7 @@ alias[effect:create_mining_station] = {
 	owner = scope_group[target_country]
 	## cardinality = 0..1
 	## push_scope = ship
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Creates a point of interest for the scoped country at a specific location, associated with an event chain
@@ -2465,7 +2465,7 @@ alias[effect:create_pop] = {
 	}
 	## cardinality = 0..1
 	## push_scope = pop
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Creates a research station in orbit of the scoped planet
@@ -2474,7 +2474,7 @@ alias[effect:create_research_station] = {
 	owner = scope_group[target_country]
 	## cardinality = 0..1
 	## push_scope = ship
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Creates a new saved leader for the scoped country with a lookup key
@@ -2516,7 +2516,7 @@ alias[effect:create_saved_leader] = {
 	}
 	## push_scope = leader
 	## cardinality = 0..1
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Creates a new ship
@@ -2558,7 +2558,7 @@ alias[effect:create_ship] = {
 	colonizer_species = scope_group[target_species]
 	## cardinality = 0..1
 	## push_scope = ship
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Creates a new ship design for use with last_created_design target
@@ -2622,9 +2622,9 @@ alias[effect:guarantee_country] = {
 alias[effect:inverted_switch] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..inf
-	scalar = single_alias_right[effect]
+	scalar = single_alias_right[effect_clause]
 	## cardinality = 0..1
-	default = single_alias_right[effect]
+	default = single_alias_right[effect_clause]
 }
 
 ### Join federation with target
@@ -2645,7 +2645,7 @@ alias[effect:leave_alliance] = {
 
 ### Prints a message to game.log for debugging purposes.
 ## scopes = any
-alias[effect:log] = single_alias_right[effect]
+alias[effect:log] = single_alias_right[effect_clause]
 
 ### Prints a message to game.log for debugging purposes.
 ## scopes = any
@@ -2977,7 +2977,7 @@ alias[effect:spawn_megastructure] = {
 	random_pos = bool
 	## cardinality = 0..1
 	## push_scope = megastructure
-	init_effect = single_alias_right[effect]
+	init_effect = single_alias_right[effect_clause]
 }
 
 ### Spawns a planet in a system.
@@ -3020,7 +3020,7 @@ alias[effect:spawn_planet] = {
 	orbit_angle_offset = int
 	## cardinality = 0..1
 	## push_scope = planet
-	init_effect = single_alias_right[effect]
+	init_effect = single_alias_right[effect_clause]
 }
 
 ### Spawns a new system at a position relative to the scoped system/planet/ship.
@@ -3049,7 +3049,7 @@ alias[effect:spawn_system] = {
 	## cardinality = 0..1
 	direction = rimwards
 	## cardinality = 0..1
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Starts colonization of the scoped planet
@@ -3081,12 +3081,12 @@ alias[effect:stop_crisis_sound] = yes
 alias[effect:switch] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..inf
-	scalar = single_alias_right[effect]
+	scalar = single_alias_right[effect_clause]
 }
 
 ### Just a tooltip (shows the effect but does not run it)
 ## scopes = any
-alias[effect:tooltip] = single_alias_right[effect]
+alias[effect:tooltip] = single_alias_right[effect_clause]
 
 ### if a planet has trigger_megastructure_icon = yes then the map icon for the star will show a megastructure icon
 ## scopes = { planet }
@@ -3155,7 +3155,7 @@ alias[effect:create_half_species] = {
 	country = scope_group[target_country]
 	## cardinality = 0..1
 	## push_scope = species
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Forces target planet or country to calculate its internal modifier
@@ -3475,35 +3475,35 @@ alias[effect:end_all_treaties_with] = scope_group[target_country]
 ## scopes = any
 alias[effect:country_list_tooltip] = {
 	## push_scope = country
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 }
 
 ### Prints a list of the country's planets that match the limit triggers in a tooltip, each separated by a line break.
 ## scopes = { country }
 alias[effect:owned_planet_list_tooltip] = {
 	## push_scope = planet
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 }
 
 ### Prints a list of the country's pop factions that match the limit triggers in a tooltip, each separated by a line break.
 ## scopes = { country }
 alias[effect:owned_pop_faction_list_tooltip] = {
 	## push_scope = pop_faction
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 }
 
 ### Prints a list of the country's leaders that match the limit triggers in a tooltip, each separated by a line break.
 ## scopes = { country }
 alias[effect:owned_leader_list_tooltip] = {
 	## push_scope = leader
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 }
 
 ### Prints a list of the country's fleets that match the limit triggers in a tooltip, each separated by a line break.
 ## scopes = { country }
 alias[effect:owned_fleet_list_tooltip] = {
 	## push_scope = fleet
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 }
 
 ### Locks the leader in its current role for the next X days.
@@ -3705,7 +3705,7 @@ alias[effect:create_espionage_asset] = {
 	type = <espionage_asset>
 	## cardinality = 0..1
 	## push_scope = espionage_asset
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Destroys espionage asset within a given spy network/operation
@@ -3890,7 +3890,7 @@ alias[effect:export_trigger_value_to_variable] = {
 	parameters = {
 		## cardinality = 0..1
 		## push_scope = any
-		limit = single_alias_right[trigger]
+		limit = single_alias_right[trigger_clause]
 		## cardinality = 0..inf
 		scalar = $any # not only scalar, but also can be a nested clause
 	}
@@ -4027,7 +4027,7 @@ alias[effect:create_nebula] = {
 	## cardinality = 0..1
 	## push_scope = galactic_object
 	### effects on every system in the new nebula
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 # 3.3
@@ -4040,7 +4040,7 @@ alias[effect:start_situation] = {
 	target = scope[any]
 	## cardinality = 0..1
 	## push_scope = situation
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 
 ### Destroys a situation in right hand side event target, use once situation is complete (on_fail/on_complete/on_abort is not called)
@@ -4399,7 +4399,7 @@ alias[effect:repair_building] = <building>
 ## push_scope = ship
 alias[effect:every_owned_ship] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4408,7 +4408,7 @@ alias[effect:every_owned_ship] = {
 ## push_scope = ship
 alias[effect:random_owned_ship] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4420,7 +4420,7 @@ alias[effect:random_owned_ship] = {
 ## push_scope = country
 alias[effect:random_country] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4432,7 +4432,7 @@ alias[effect:random_country] = {
 ## push_scope = pop
 alias[effect:random_pop] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4441,7 +4441,7 @@ alias[effect:random_pop] = {
 ## push_scope = pop
 alias[effect:every_owned_pop] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4450,7 +4450,7 @@ alias[effect:every_owned_pop] = {
 ## push_scope = pop
 alias[effect:every_galaxy_pop] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4459,7 +4459,7 @@ alias[effect:every_galaxy_pop] = {
 ## push_scope = country
 alias[effect:every_country] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4468,7 +4468,7 @@ alias[effect:every_country] = {
 ## push_scope = country
 alias[effect:every_playable_country] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4477,7 +4477,7 @@ alias[effect:every_playable_country] = {
 ## push_scope = country
 alias[effect:random_playable_country] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4489,7 +4489,7 @@ alias[effect:random_playable_country] = {
 ## push_scope = planet
 alias[effect:random_system_planet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4501,7 +4501,7 @@ alias[effect:random_system_planet] = {
 ## push_scope = deposit
 alias[effect:every_deposit] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4510,7 +4510,7 @@ alias[effect:every_deposit] = {
 ## push_scope = deposit
 alias[effect:random_deposit] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4522,7 +4522,7 @@ alias[effect:random_deposit] = {
 ## push_scope = planet
 alias[effect:random_moon] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4534,7 +4534,7 @@ alias[effect:random_moon] = {
 ## push_scope = planet
 alias[effect:every_moon] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4543,7 +4543,7 @@ alias[effect:every_moon] = {
 ## push_scope = planet
 alias[effect:every_planet_within_border] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4552,7 +4552,7 @@ alias[effect:every_planet_within_border] = {
 ## push_scope = system
 alias[effect:every_rim_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4561,7 +4561,7 @@ alias[effect:every_rim_system] = {
 ## push_scope = system
 alias[effect:random_rim_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4573,7 +4573,7 @@ alias[effect:random_rim_system] = {
 ## push_scope = leader
 alias[effect:every_owned_leader] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4582,7 +4582,7 @@ alias[effect:every_owned_leader] = {
 ## push_scope = leader
 alias[effect:random_owned_leader] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4594,7 +4594,7 @@ alias[effect:random_owned_leader] = {
 ## push_scope = pop
 alias[effect:random_owned_pop] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4612,7 +4612,7 @@ alias[effect:closest_system] = {
 	## cardinality = 0..1
 	use_bypasses = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4621,7 +4621,7 @@ alias[effect:closest_system] = {
 ## push_scope = fleet
 alias[effect:random_owned_fleet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4633,7 +4633,7 @@ alias[effect:random_owned_fleet] = {
 ## push_scope = ambient_object
 alias[effect:random_ambient_object] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4645,7 +4645,7 @@ alias[effect:random_ambient_object] = {
 ## push_scope = ambient_object
 alias[effect:random_system_ambient_object] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4657,7 +4657,7 @@ alias[effect:random_system_ambient_object] = {
 ## push_scope = ambient_object
 alias[effect:every_ambient_object] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4666,7 +4666,7 @@ alias[effect:every_ambient_object] = {
 ## push_scope = ambient_object
 alias[effect:every_system_ambient_object] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4675,7 +4675,7 @@ alias[effect:every_system_ambient_object] = {
 ## push_scope = fleet
 alias[effect:every_fleet_in_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4684,7 +4684,7 @@ alias[effect:every_fleet_in_system] = {
 ## push_scope = fleet
 alias[effect:random_fleet_in_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4696,7 +4696,7 @@ alias[effect:random_fleet_in_system] = {
 ## push_scope = system
 alias[effect:every_neighbor_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4705,7 +4705,7 @@ alias[effect:every_neighbor_system] = {
 ## push_scope = system
 alias[effect:random_neighbor_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4717,7 +4717,7 @@ alias[effect:random_neighbor_system] = {
 ## push_scope = country
 alias[effect:every_war_participant] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4726,7 +4726,7 @@ alias[effect:every_war_participant] = {
 ## push_scope = fleet
 alias[effect:every_owned_fleet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4735,7 +4735,7 @@ alias[effect:every_owned_fleet] = {
 ## push_scope = country
 alias[effect:every_subject] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4744,7 +4744,7 @@ alias[effect:every_subject] = {
 ## push_scope = country
 alias[effect:random_subject] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4756,7 +4756,7 @@ alias[effect:random_subject] = {
 ## push_scope = planet
 alias[effect:random_planet_within_border] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4768,7 +4768,7 @@ alias[effect:random_planet_within_border] = {
 ## push_scope = system
 alias[effect:every_system_in_cluster] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4777,7 +4777,7 @@ alias[effect:every_system_in_cluster] = {
 ## push_scope = pop_faction
 alias[effect:every_pop_faction] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4786,7 +4786,7 @@ alias[effect:every_pop_faction] = {
 ## push_scope = pop_faction
 alias[effect:random_pop_faction] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4798,7 +4798,7 @@ alias[effect:random_pop_faction] = {
 ## push_scope = planet
 alias[effect:every_system_planet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4807,7 +4807,7 @@ alias[effect:every_system_planet] = {
 ## push_scope = agreement
 alias[effect:random_agreement] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4823,7 +4823,7 @@ alias[effect:ordered_agreement] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4832,7 +4832,7 @@ alias[effect:ordered_agreement] = {
 ## push_scope = agreement
 alias[effect:every_agreement] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4845,7 +4845,7 @@ alias[effect:ordered_ambient_object] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4858,7 +4858,7 @@ alias[effect:ordered_system_ambient_object] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4867,7 +4867,7 @@ alias[effect:ordered_system_ambient_object] = {
 ## push_scope = archaeological_site
 alias[effect:random_archaeological_site] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4883,7 +4883,7 @@ alias[effect:ordered_archaeological_site] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4892,7 +4892,7 @@ alias[effect:ordered_archaeological_site] = {
 ## push_scope = archaeological_site
 alias[effect:every_archaeological_site] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4901,7 +4901,7 @@ alias[effect:every_archaeological_site] = {
 ## push_scope = army
 alias[effect:random_owned_army] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4917,7 +4917,7 @@ alias[effect:ordered_owned_army] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4926,7 +4926,7 @@ alias[effect:ordered_owned_army] = {
 ## push_scope = army
 alias[effect:every_owned_army] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4935,7 +4935,7 @@ alias[effect:every_owned_army] = {
 ## push_scope = army
 alias[effect:random_planet_army] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4951,7 +4951,7 @@ alias[effect:ordered_planet_army] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4960,7 +4960,7 @@ alias[effect:ordered_planet_army] = {
 ## push_scope = army
 alias[effect:every_planet_army] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4969,7 +4969,7 @@ alias[effect:every_planet_army] = {
 ## push_scope = army
 alias[effect:random_ground_combat_defender] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -4985,7 +4985,7 @@ alias[effect:ordered_ground_combat_defender] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -4994,7 +4994,7 @@ alias[effect:ordered_ground_combat_defender] = {
 ## push_scope = army
 alias[effect:every_ground_combat_defender] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5003,7 +5003,7 @@ alias[effect:every_ground_combat_defender] = {
 ## push_scope = army
 alias[effect:random_ground_combat_attacker] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5019,7 +5019,7 @@ alias[effect:ordered_ground_combat_attacker] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5028,7 +5028,7 @@ alias[effect:ordered_ground_combat_attacker] = {
 ## push_scope = army
 alias[effect:every_ground_combat_attacker] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5041,7 +5041,7 @@ alias[effect:ordered_country] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5050,7 +5050,7 @@ alias[effect:ordered_country] = {
 ## push_scope = country
 alias[effect:random_relation] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5066,7 +5066,7 @@ alias[effect:ordered_relation] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5075,7 +5075,7 @@ alias[effect:ordered_relation] = {
 ## push_scope = country
 alias[effect:every_relation] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5084,7 +5084,7 @@ alias[effect:every_relation] = {
 ## push_scope = country
 alias[effect:random_neighbor_country] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5100,7 +5100,7 @@ alias[effect:ordered_neighbor_country] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5109,7 +5109,7 @@ alias[effect:ordered_neighbor_country] = {
 ## push_scope = country
 alias[effect:every_neighbor_country] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5118,7 +5118,7 @@ alias[effect:every_neighbor_country] = {
 ## push_scope = country
 alias[effect:random_country_neighbor_to_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5134,7 +5134,7 @@ alias[effect:ordered_country_neighbor_to_system] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5143,7 +5143,7 @@ alias[effect:ordered_country_neighbor_to_system] = {
 ## push_scope = country
 alias[effect:every_country_neighbor_to_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5152,7 +5152,7 @@ alias[effect:every_country_neighbor_to_system] = {
 ## push_scope = country
 alias[effect:random_rival_country] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5168,7 +5168,7 @@ alias[effect:ordered_rival_country] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5177,7 +5177,7 @@ alias[effect:ordered_rival_country] = {
 ## push_scope = country
 alias[effect:every_rival_country] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5186,7 +5186,7 @@ alias[effect:every_rival_country] = {
 ## push_scope = country
 alias[effect:random_federation_ally] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5202,7 +5202,7 @@ alias[effect:ordered_federation_ally] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5211,7 +5211,7 @@ alias[effect:ordered_federation_ally] = {
 ## push_scope = country
 alias[effect:every_federation_ally] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5224,7 +5224,7 @@ alias[effect:ordered_playable_country] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5237,7 +5237,7 @@ alias[effect:ordered_subject] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5246,7 +5246,7 @@ alias[effect:ordered_subject] = {
 ## push_scope = debris
 alias[effect:random_available_debris] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5262,7 +5262,7 @@ alias[effect:ordered_available_debris] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5271,7 +5271,7 @@ alias[effect:ordered_available_debris] = {
 ## push_scope = debris
 alias[effect:every_available_debris] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5281,7 +5281,7 @@ alias[effect:every_available_debris] = {
 ## push_scope = design
 alias[effect:random_owned_design] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5297,7 +5297,7 @@ alias[effect:ordered_owned_design] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5306,7 +5306,7 @@ alias[effect:ordered_owned_design] = {
 ## push_scope = design
 alias[effect:every_owned_design] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5315,7 +5315,7 @@ alias[effect:every_owned_design] = {
 ## push_scope = spy_network
 alias[effect:random_spynetwork] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5331,7 +5331,7 @@ alias[effect:ordered_spynetwork] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5340,7 +5340,7 @@ alias[effect:ordered_spynetwork] = {
 ## push_scope = spy_network
 alias[effect:every_spynetwork] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5349,7 +5349,7 @@ alias[effect:every_spynetwork] = {
 ## push_scope = espionage_operation
 alias[effect:random_espionage_operation] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5365,7 +5365,7 @@ alias[effect:ordered_espionage_operation] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5374,7 +5374,7 @@ alias[effect:ordered_espionage_operation] = {
 ## push_scope = espionage_operation
 alias[effect:every_espionage_operation] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5383,7 +5383,7 @@ alias[effect:every_espionage_operation] = {
 ## push_scope = espionage_asset
 alias[effect:random_espionage_asset] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5399,7 +5399,7 @@ alias[effect:ordered_espionage_asset] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5408,7 +5408,7 @@ alias[effect:ordered_espionage_asset] = {
 ## push_scope = espionage_asset
 alias[effect:every_espionage_asset] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5417,7 +5417,7 @@ alias[effect:every_espionage_asset] = {
 ## push_scope = federation
 alias[effect:random_federation] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5434,7 +5434,7 @@ alias[effect:ordered_federation] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5443,7 +5443,7 @@ alias[effect:ordered_federation] = {
 ## push_scope = federation
 alias[effect:every_federation] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5452,7 +5452,7 @@ alias[effect:every_federation] = {
 ## push_scope = first_contact
 alias[effect:random_first_contact] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5468,7 +5468,7 @@ alias[effect:ordered_first_contact] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5477,7 +5477,7 @@ alias[effect:ordered_first_contact] = {
 ## push_scope = first_contact
 alias[effect:every_first_contact] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5486,7 +5486,7 @@ alias[effect:every_first_contact] = {
 ## push_scope = first_contact
 alias[effect:random_active_first_contact] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5502,7 +5502,7 @@ alias[effect:ordered_active_first_contact] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5511,7 +5511,7 @@ alias[effect:ordered_active_first_contact] = {
 ## push_scope = first_contact
 alias[effect:every_active_first_contact] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5520,7 +5520,7 @@ alias[effect:every_active_first_contact] = {
 ## push_scope = fleet
 alias[effect:random_galaxy_fleet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5536,7 +5536,7 @@ alias[effect:ordered_galaxy_fleet] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5545,7 +5545,7 @@ alias[effect:ordered_galaxy_fleet] = {
 ## push_scope = fleet
 alias[effect:every_galaxy_fleet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5554,7 +5554,7 @@ alias[effect:every_galaxy_fleet] = {
 ## push_scope = fleet
 alias[effect:random_combatant_fleet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5570,7 +5570,7 @@ alias[effect:ordered_combatant_fleet] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5579,7 +5579,7 @@ alias[effect:ordered_combatant_fleet] = {
 ## push_scope = fleet
 alias[effect:every_combatant_fleet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5592,7 +5592,7 @@ alias[effect:ordered_fleet_in_system] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5605,7 +5605,7 @@ alias[effect:ordered_owned_fleet] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5614,7 +5614,7 @@ alias[effect:ordered_owned_fleet] = {
 ## push_scope = fleet
 alias[effect:random_controlled_fleet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5630,7 +5630,7 @@ alias[effect:ordered_controlled_fleet] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5639,7 +5639,7 @@ alias[effect:ordered_controlled_fleet] = {
 ## push_scope = fleet
 alias[effect:every_controlled_fleet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5648,7 +5648,7 @@ alias[effect:every_controlled_fleet] = {
 ## push_scope = fleet
 alias[effect:random_fleet_in_orbit] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5664,7 +5664,7 @@ alias[effect:ordered_fleet_in_orbit] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5673,7 +5673,7 @@ alias[effect:ordered_fleet_in_orbit] = {
 ## push_scope = fleet
 alias[effect:every_fleet_in_orbit] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5682,7 +5682,7 @@ alias[effect:every_fleet_in_orbit] = {
 ## push_scope = fleet
 alias[effect:random_orbital_station] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5698,7 +5698,7 @@ alias[effect:ordered_orbital_station] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5707,7 +5707,7 @@ alias[effect:ordered_orbital_station] = {
 ## push_scope = fleet
 alias[effect:every_orbital_station] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5716,7 +5716,7 @@ alias[effect:every_orbital_station] = {
 ## push_scope = country
 alias[effect:random_galcom_member] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5732,7 +5732,7 @@ alias[effect:ordered_galcom_member] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5741,7 +5741,7 @@ alias[effect:ordered_galcom_member] = {
 ## push_scope = country
 alias[effect:every_galcom_member] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5751,7 +5751,7 @@ alias[effect:every_galcom_member] = {
 ## push_scope = country
 alias[effect:random_council_member] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5767,7 +5767,7 @@ alias[effect:ordered_council_member] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5776,7 +5776,7 @@ alias[effect:ordered_council_member] = {
 ## push_scope = country
 alias[effect:every_council_member] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5789,7 +5789,7 @@ alias[effect:ordered_owned_leader] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5798,7 +5798,7 @@ alias[effect:ordered_owned_leader] = {
 ## push_scope = leader
 alias[effect:random_pool_leader] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5814,7 +5814,7 @@ alias[effect:ordered_pool_leader] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5823,7 +5823,7 @@ alias[effect:ordered_pool_leader] = {
 ## push_scope = leader
 alias[effect:every_pool_leader] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5832,7 +5832,7 @@ alias[effect:every_pool_leader] = {
 ## push_scope = leader
 alias[effect:random_envoy] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5848,7 +5848,7 @@ alias[effect:ordered_envoy] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5857,7 +5857,7 @@ alias[effect:ordered_envoy] = {
 ## push_scope = leader
 alias[effect:every_envoy] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5866,7 +5866,7 @@ alias[effect:every_envoy] = {
 ## push_scope = megastructure
 alias[effect:random_megastructure] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5882,7 +5882,7 @@ alias[effect:ordered_megastructure] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5891,7 +5891,7 @@ alias[effect:ordered_megastructure] = {
 ## push_scope = megastructure
 alias[effect:every_megastructure] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5900,7 +5900,7 @@ alias[effect:every_megastructure] = {
 ## push_scope = megastructure
 alias[effect:random_owned_megastructure] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5916,7 +5916,7 @@ alias[effect:ordered_owned_megastructure] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5925,7 +5925,7 @@ alias[effect:ordered_owned_megastructure] = {
 ## push_scope = megastructure
 alias[effect:every_owned_megastructure] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5934,7 +5934,7 @@ alias[effect:every_owned_megastructure] = {
 ## push_scope = megastructure
 alias[effect:random_system_megastructure] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5950,7 +5950,7 @@ alias[effect:ordered_system_megastructure] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5959,7 +5959,7 @@ alias[effect:ordered_system_megastructure] = {
 ## push_scope = megastructure
 alias[effect:every_system_megastructure] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5968,7 +5968,7 @@ alias[effect:every_system_megastructure] = {
 ## push_scope = country
 alias[effect:random_member] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -5984,7 +5984,7 @@ alias[effect:ordered_member] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -5993,7 +5993,7 @@ alias[effect:ordered_member] = {
 ## push_scope = country
 alias[effect:every_member] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6002,7 +6002,7 @@ alias[effect:every_member] = {
 ## push_scope = country
 alias[effect:random_associate] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6018,7 +6018,7 @@ alias[effect:ordered_associate] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6027,7 +6027,7 @@ alias[effect:ordered_associate] = {
 ## push_scope = country
 alias[effect:every_associate] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6040,7 +6040,7 @@ alias[effect:ordered_system_planet] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6049,7 +6049,7 @@ alias[effect:ordered_system_planet] = {
 ## push_scope = planet
 alias[effect:random_system_colony] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6065,7 +6065,7 @@ alias[effect:ordered_system_colony] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6074,7 +6074,7 @@ alias[effect:ordered_system_colony] = {
 ## push_scope = planet
 alias[effect:every_system_colony] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6087,7 +6087,7 @@ alias[effect:ordered_planet_within_border] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6096,7 +6096,7 @@ alias[effect:ordered_planet_within_border] = {
 ## push_scope = planet
 alias[effect:random_owned_planet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6112,7 +6112,7 @@ alias[effect:ordered_owned_planet] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6122,7 +6122,7 @@ alias[effect:ordered_owned_planet] = {
 ## push_scope = planet
 alias[effect:every_owned_planet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6131,7 +6131,7 @@ alias[effect:every_owned_planet] = {
 ## push_scope = planet
 alias[effect:random_controlled_planet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6148,7 +6148,7 @@ alias[effect:ordered_controlled_planet] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6157,7 +6157,7 @@ alias[effect:ordered_controlled_planet] = {
 ## push_scope = planet
 alias[effect:every_controlled_planet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6166,7 +6166,7 @@ alias[effect:every_controlled_planet] = {
 ## push_scope = planet
 alias[effect:random_galaxy_planet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6182,7 +6182,7 @@ alias[effect:ordered_galaxy_planet] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6191,7 +6191,7 @@ alias[effect:ordered_galaxy_planet] = {
 ## push_scope = planet
 alias[effect:every_galaxy_planet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6204,7 +6204,7 @@ alias[effect:ordered_deposit] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6217,7 +6217,7 @@ alias[effect:ordered_moon] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6230,7 +6230,7 @@ alias[effect:ordered_owned_pop] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6239,7 +6239,7 @@ alias[effect:ordered_owned_pop] = {
 ## push_scope = pop
 alias[effect:random_species_pop] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6255,7 +6255,7 @@ alias[effect:ordered_species_pop] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6264,7 +6264,7 @@ alias[effect:ordered_species_pop] = {
 ## push_scope = pop
 alias[effect:every_species_pop] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6277,7 +6277,7 @@ alias[effect:ordered_pop_faction] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6286,7 +6286,7 @@ alias[effect:ordered_pop_faction] = {
 ## push_scope = sector
 alias[effect:random_galaxy_sector] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6302,7 +6302,7 @@ alias[effect:ordered_galaxy_sector] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6311,7 +6311,7 @@ alias[effect:ordered_galaxy_sector] = {
 ## push_scope = sector
 alias[effect:every_galaxy_sector] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6320,7 +6320,7 @@ alias[effect:every_galaxy_sector] = {
 ## push_scope = sector
 alias[effect:random_owned_sector] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6336,7 +6336,7 @@ alias[effect:ordered_owned_sector] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6345,7 +6345,7 @@ alias[effect:ordered_owned_sector] = {
 ## push_scope = sector
 alias[effect:every_owned_sector] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6358,7 +6358,7 @@ alias[effect:ordered_owned_ship] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6368,7 +6368,7 @@ alias[effect:ordered_owned_ship] = {
 ## push_scope = ship
 alias[effect:random_controlled_ship] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6384,7 +6384,7 @@ alias[effect:ordered_controlled_ship] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6393,7 +6393,7 @@ alias[effect:ordered_controlled_ship] = {
 ## push_scope = ship
 alias[effect:every_controlled_ship] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6402,7 +6402,7 @@ alias[effect:every_controlled_ship] = {
 ## push_scope = ship
 alias[effect:random_ship_in_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6418,7 +6418,7 @@ alias[effect:ordered_ship_in_system] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6427,7 +6427,7 @@ alias[effect:ordered_ship_in_system] = {
 ## push_scope = ship
 alias[effect:every_ship_in_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6436,7 +6436,7 @@ alias[effect:every_ship_in_system] = {
 ## push_scope = situation
 alias[effect:random_situation] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6452,7 +6452,7 @@ alias[effect:ordered_situation] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6461,7 +6461,7 @@ alias[effect:ordered_situation] = {
 ## push_scope = situation
 alias[effect:every_situation] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6470,7 +6470,7 @@ alias[effect:every_situation] = {
 ## push_scope = situation
 alias[effect:random_targeting_situation] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6486,7 +6486,7 @@ alias[effect:ordered_targeting_situation] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6495,7 +6495,7 @@ alias[effect:ordered_targeting_situation] = {
 ## push_scope = situation
 alias[effect:every_targeting_situation] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6504,7 +6504,7 @@ alias[effect:every_targeting_situation] = {
 ## push_scope = species
 alias[effect:random_owned_pop_species] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6520,7 +6520,7 @@ alias[effect:ordered_owned_pop_species] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6529,7 +6529,7 @@ alias[effect:ordered_owned_pop_species] = {
 ## push_scope = species
 alias[effect:every_owned_pop_species] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6538,7 +6538,7 @@ alias[effect:every_owned_pop_species] = {
 ## push_scope = species
 alias[effect:random_galaxy_species] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6554,7 +6554,7 @@ alias[effect:ordered_galaxy_species] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6563,7 +6563,7 @@ alias[effect:ordered_galaxy_species] = {
 ## push_scope = species
 alias[effect:every_galaxy_species] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6572,7 +6572,7 @@ alias[effect:every_galaxy_species] = {
 ## push_scope = species
 alias[effect:random_owned_species] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6588,7 +6588,7 @@ alias[effect:ordered_owned_species] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6597,7 +6597,7 @@ alias[effect:ordered_owned_species] = {
 ## push_scope = species
 alias[effect:every_owned_species] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6606,7 +6606,7 @@ alias[effect:every_owned_species] = {
 ## push_scope = species
 alias[effect:random_enslaved_species] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6622,7 +6622,7 @@ alias[effect:ordered_enslaved_species] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6631,7 +6631,7 @@ alias[effect:ordered_enslaved_species] = {
 ## push_scope = species
 alias[effect:every_enslaved_species] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6640,7 +6640,7 @@ alias[effect:every_enslaved_species] = {
 ## push_scope = starbase
 alias[effect:random_owned_starbase] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6656,7 +6656,7 @@ alias[effect:ordered_owned_starbase] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6665,7 +6665,7 @@ alias[effect:ordered_owned_starbase] = {
 ## push_scope = starbase
 alias[effect:every_owned_starbase] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6674,7 +6674,7 @@ alias[effect:every_owned_starbase] = {
 ## push_scope = starbase
 alias[effect:random_owned_nonprimary_starbase] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6690,7 +6690,7 @@ alias[effect:ordered_owned_nonprimary_starbase] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6699,7 +6699,7 @@ alias[effect:ordered_owned_nonprimary_starbase] = {
 ## push_scope = starbase
 alias[effect:every_owned_nonprimary_starbase] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6708,7 +6708,7 @@ alias[effect:every_owned_nonprimary_starbase] = {
 ## push_scope = system
 alias[effect:random_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6724,7 +6724,7 @@ alias[effect:ordered_system] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6733,7 +6733,7 @@ alias[effect:ordered_system] = {
 ## push_scope = system
 alias[effect:every_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6746,7 +6746,7 @@ alias[effect:ordered_rim_system] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6756,7 +6756,7 @@ alias[effect:ordered_rim_system] = {
 ## push_scope = system
 alias[effect:random_system_within_border] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6772,7 +6772,7 @@ alias[effect:ordered_system_within_border] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6781,7 +6781,7 @@ alias[effect:ordered_system_within_border] = {
 ## push_scope = system
 alias[effect:every_system_within_border] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6794,7 +6794,7 @@ alias[effect:ordered_neighbor_system] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6803,7 +6803,7 @@ alias[effect:ordered_neighbor_system] = {
 ## push_scope = system
 alias[effect:random_neighbor_system_euclidean] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6819,7 +6819,7 @@ alias[effect:ordered_neighbor_system_euclidean] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6828,7 +6828,7 @@ alias[effect:ordered_neighbor_system_euclidean] = {
 ## push_scope = system
 alias[effect:every_neighbor_system_euclidean] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6837,7 +6837,7 @@ alias[effect:every_neighbor_system_euclidean] = {
 ## push_scope = country
 alias[effect:random_war_participant] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6853,7 +6853,7 @@ alias[effect:ordered_war_participant] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6862,7 +6862,7 @@ alias[effect:ordered_war_participant] = {
 ## push_scope = country
 alias[effect:random_attacker] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6878,7 +6878,7 @@ alias[effect:ordered_attacker] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6887,7 +6887,7 @@ alias[effect:ordered_attacker] = {
 ## push_scope = country
 alias[effect:every_attacker] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6896,7 +6896,7 @@ alias[effect:every_attacker] = {
 ## push_scope = country
 alias[effect:random_defender] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6912,7 +6912,7 @@ alias[effect:ordered_defender] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6921,7 +6921,7 @@ alias[effect:ordered_defender] = {
 ## push_scope = country
 alias[effect:every_defender] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6930,7 +6930,7 @@ alias[effect:every_defender] = {
 ## push_scope = war
 alias[effect:random_war] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6946,7 +6946,7 @@ alias[effect:ordered_war] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6955,7 +6955,7 @@ alias[effect:ordered_war] = {
 ## push_scope = war
 alias[effect:every_war] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6964,7 +6964,7 @@ alias[effect:every_war] = {
 ## push_scope = country
 alias[effect:random_pre_ftl_within_border] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -6980,7 +6980,7 @@ alias[effect:ordered_pre_ftl_within_border] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6989,7 +6989,7 @@ alias[effect:ordered_pre_ftl_within_border] = {
 ## push_scope = country
 alias[effect:every_pre_ftl_within_border] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -6998,7 +6998,7 @@ alias[effect:every_pre_ftl_within_border] = {
 ## push_scope = country
 alias[effect:random_observed_pre_ftl_within_border] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
@@ -7014,7 +7014,7 @@ alias[effect:ordered_observed_pre_ftl_within_border] = {
 	## cardinality = 0..1
 	inverse = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -7023,6 +7023,6 @@ alias[effect:ordered_observed_pre_ftl_within_border] = {
 ## push_scope = country
 alias[effect:every_observed_pre_ftl_within_border] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }

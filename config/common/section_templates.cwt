@@ -84,10 +84,10 @@ section_template = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = ship root = ship }
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = ship root = ship }
-	ship_modifier = single_alias_right[modifier]
+	ship_modifier = single_alias_right[modifier_clause]
 }
 
 enums = {

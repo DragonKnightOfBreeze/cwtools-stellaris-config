@@ -36,5 +36,5 @@ first_contact_stage = {
 		event = <event.first_contact>
 	}
 
-	on_roll_failed = single_alias_right[effect]
+	on_roll_failed = single_alias_right[effect_clause]
 }

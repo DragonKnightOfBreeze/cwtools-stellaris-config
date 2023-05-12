@@ -151,7 +151,7 @@ opinion_modifier = {
 	subtype[triggered_opinion_modifier] = {
 		### root = country with the opinion, from = country it has the opinion of
 		## replace_scopes = { this = country root = country from = country }
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 	}
 }
 
@@ -161,7 +161,7 @@ planet_modifier = {
 	is_null = bool
 
 	## cardinality = 0..1
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 	spawn_chance = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}

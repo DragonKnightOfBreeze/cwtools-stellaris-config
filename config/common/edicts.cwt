@@ -53,15 +53,15 @@ edict = {
 	}
 
 	## cardinality = 0..1
-	relay_network_modifier = single_alias_right[modifier]
+	relay_network_modifier = single_alias_right[modifier_clause]
 
 	### country trigger to decide whether the edict should be shown.
 	## cardinality = 0..1
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	### country trigger to decide if whether this edict can be activated.
 	## cardinality = 0..1
-	allow = single_alias_right[trigger]
+	allow = single_alias_right[trigger_clause]
 
 	### tech requirements for this trigger.
 	## cardinality = 0..1
@@ -71,7 +71,7 @@ edict = {
 	}
 
 	## cardinality = 0..1
-	show_tech_unlock_if = single_alias_right[trigger]
+	show_tech_unlock_if = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	ai_weight = {
@@ -80,6 +80,6 @@ edict = {
 
 	### an effect that is executed when this trigger activates.
 	## cardinality = 0..1
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 }
 

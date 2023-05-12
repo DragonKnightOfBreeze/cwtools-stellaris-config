@@ -57,18 +57,18 @@ starbase_building = {
 	show_in_tech = <technology>
 
 	## cardinality = 0..1
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	### entries in possible are displayed in game. Use custom_tooltip to replace localisations.
-	possible = single_alias_right[trigger]
+	possible = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
-	abort_trigger = single_alias_right[trigger]
+	abort_trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..1
-	destroy_trigger = single_alias_right[trigger]
+	destroy_trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..1
-	abort_construction_trigger = single_alias_right[trigger]
+	abort_construction_trigger = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	equipped_component = <component_template>
@@ -91,67 +91,67 @@ starbase_building = {
 	### ship modifiers, apply on the starbase itself
 	## cardinality = 0..1
 	## replace_scopes = { this = starbase root = starbase }
-	station_modifier = single_alias_right[modifier]
+	station_modifier = single_alias_right[modifier_clause]
 	### ship modifiers, apply to defensive platforms
 	## cardinality = 0..1
 	## replace_scopes = { this = ship root = ship }
-	defense_platform_modifier = single_alias_right[modifier]
+	defense_platform_modifier = single_alias_right[modifier_clause]
 	### ship modifiers, apply in orbit of the starbase
 	## cardinality = 0..1
 	## replace_scopes = { this = ship root = ship }
-	ship_modifier = single_alias_right[modifier]
+	ship_modifier = single_alias_right[modifier_clause]
 	### ship modifiers, apply in orbit of the starbase
 	## cardinality = 0..1
 	## replace_scopes = { this = ship root = ship }
-	orbit_modifier = single_alias_right[modifier]
+	orbit_modifier = single_alias_right[modifier_clause]
 	### planet modifiers, apply on system planets.
 	## cardinality = 0..1
 	## replace_scopes = { this = planet root = planet }
-	system_modifier = single_alias_right[modifier]
+	system_modifier = single_alias_right[modifier_clause]
 	### country modifiers
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	country_modifier = single_alias_right[modifier]
+	country_modifier = single_alias_right[modifier_clause]
 	### planet modifiers (orbital ring)
 	## cardinality = 0..1
 	## replace_scopes = { this = planet root = planet }
-	planet_modifier = single_alias_right[modifier]
+	planet_modifier = single_alias_right[modifier_clause]
 
 	### ship modifiers, apply on the starbase itself
 	## cardinality = 0..inf
 	## replace_scopes = { this = starbase root = starbase }
-	triggered_station_modifier = single_alias_right[triggered_modifier_by_starbase]
+	triggered_station_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 	### ship modifiers, apply to defensive platforms
 	## cardinality = 0..inf
 	## replace_scopes = { this = ship root = ship }
-	triggered_defense_platform_modifier = single_alias_right[triggered_modifier_by_starbase]
+	triggered_defense_platform_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 	### ship modifiers, apply in orbit of the starbase
 	## cardinality = 0..inf
 	## replace_scopes = { this = ship root = ship }
-	triggered_ship_modifier = single_alias_right[triggered_modifier_by_starbase]
+	triggered_ship_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 	### ship modifiers, apply in orbit of the starbase
 	## cardinality = 0..inf
 	## replace_scopes = { this = ship root = ship }
-	triggered_orbit_modifier = single_alias_right[triggered_modifier_by_starbase]
+	triggered_orbit_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 	### planet modifiers, apply on system planets.
 	## cardinality = 0..inf
 	## replace_scopes = { this = planet root = planet }
-	triggered_system_modifier = single_alias_right[triggered_modifier_by_starbase]
+	triggered_system_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 	### country modifiers
 	## cardinality = 0..inf
 	## replace_scopes = { this = country root = country }
-	triggered_country_modifier = single_alias_right[triggered_modifier_by_starbase]
+	triggered_country_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 	### planet modifiers (orbital ring)
 	## cardinality = 0..inf
 	## replace_scopes = { this = planet root = planet }
-	triggered_planet_modifier = single_alias_right[triggered_modifier_by_starbase]
+	triggered_planet_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 
 	## cardinality = 0..1
-	replaceable = single_alias_right[trigger]
+	replaceable = single_alias_right[trigger_clause]
 	## cardinality = 0..1
-	on_finished = single_alias_right[effect]
+	on_finished = single_alias_right[effect_clause]
 	## cardinality = 0..1
-	on_destroyed = single_alias_right[effect]
+	on_destroyed = single_alias_right[effect_clause]
 }
 
 #Done based on educated guesswork
@@ -178,10 +178,10 @@ starbase_module = {
 	}
 
 	## cardinality = 0..1
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	### entries in possible are displayed in game. Use custom_tooltip to replace localisations.
-	possible = single_alias_right[trigger]
+	possible = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	equipped_component = <component_template>
 
@@ -189,67 +189,67 @@ starbase_module = {
 	custom_tooltip = localisation
 
 	## cardinality = 0..1
-	abort_trigger = single_alias_right[trigger]
+	abort_trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..1
-	destroy_trigger = single_alias_right[trigger]
+	destroy_trigger = single_alias_right[trigger_clause]
 
 	### ship modifiers, apply on the starbase itself
 	## cardinality = 0..1
 	## replace_scopes = { this = starbase root = starbase }
-	station_modifier = single_alias_right[modifier]
+	station_modifier = single_alias_right[modifier_clause]
 	### ship modifiers, apply to defensive platforms
 	## cardinality = 0..1
 	## replace_scopes = { this = ship root = ship }
-	defense_platform_modifier = single_alias_right[modifier]
+	defense_platform_modifier = single_alias_right[modifier_clause]
 	### ship modifiers, apply in orbit of the starbase
 	## cardinality = 0..1
 	## replace_scopes = { this = ship root = ship }
-	ship_modifier = single_alias_right[modifier]
+	ship_modifier = single_alias_right[modifier_clause]
 	### ship modifiers, apply in orbit of the starbase
 	## cardinality = 0..1
 	## replace_scopes = { this = ship root = ship }
-	orbit_modifier = single_alias_right[modifier]
+	orbit_modifier = single_alias_right[modifier_clause]
 	### planet modifiers, apply on system planets.
 	## cardinality = 0..1
 	## replace_scopes = { this = planet root = planet }
-	system_modifier = single_alias_right[modifier]
+	system_modifier = single_alias_right[modifier_clause]
 	### country modifiers
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	country_modifier = single_alias_right[modifier]
+	country_modifier = single_alias_right[modifier_clause]
 	### planet modifiers (orbital ring)
 	## cardinality = 0..1
 	## replace_scopes = { this = planet root = planet }
-	planet_modifier = single_alias_right[modifier]
+	planet_modifier = single_alias_right[modifier_clause]
 
 	### ship modifiers, apply on the starbase itself
 	## cardinality = 0..inf
 	## replace_scopes = { this = starbase root = starbase }
-	triggered_station_modifier = single_alias_right[triggered_modifier_by_starbase]
+	triggered_station_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 	### ship modifiers, apply to defensive platforms
 	## cardinality = 0..inf
 	## replace_scopes = { this = ship root = ship }
-	triggered_defense_platform_modifier = single_alias_right[triggered_modifier_by_starbase]
+	triggered_defense_platform_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 	### ship modifiers, apply in orbit of the starbase
 	## cardinality = 0..inf
 	## replace_scopes = { this = ship root = ship }
-	triggered_ship_modifier = single_alias_right[triggered_modifier_by_starbase]
+	triggered_ship_modifier = single_alias_right[triggered_modifier_by_starbase_clause
 	### ship modifiers, apply in orbit of the starbase
 	## cardinality = 0..inf
 	## replace_scopes = { this = ship root = ship }
-	triggered_orbit_modifier = single_alias_right[triggered_modifier_by_starbase]
+	triggered_orbit_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 	### planet modifiers, apply on system planets.
 	## cardinality = 0..inf
 	## replace_scopes = { this = planet root = planet }
-	triggered_system_modifier = single_alias_right[triggered_modifier_by_starbase]
+	triggered_system_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 	### country modifiers
 	## cardinality = 0..inf
 	## replace_scopes = { this = country root = country }
-	triggered_country_modifier = single_alias_right[triggered_modifier_by_starbase]
+	triggered_country_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 	### planet modifiers (orbital ring)
 	## cardinality = 0..inf
 	## replace_scopes = { this = planet root = planet }
-	triggered_planet_modifier = single_alias_right[triggered_modifier_by_starbase]
+	triggered_planet_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 
 	## cardinality = 0..1
 	ai_weight = {
@@ -257,11 +257,11 @@ starbase_module = {
 	}
 
 	## cardinality = 0..1
-	replaceable = single_alias_right[trigger]
+	replaceable = single_alias_right[trigger_clause]
 	## cardinality = 0..1
-	on_finished = single_alias_right[effect]
+	on_finished = single_alias_right[effect_clause]
 	## cardinality = 0..1
-	on_destroyed = single_alias_right[effect]
+	on_destroyed = single_alias_right[effect_clause]
 }
 
 starbase_level = {
@@ -295,19 +295,19 @@ starbase_level = {
 
 	## cardinality = 0..1
 	## replace_scopes = { root = starbase this = starbase }
-	upgrade_possible = single_alias_right[trigger]
+	upgrade_possible = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	portrait = <sprite>
 	## cardinality = 0..1
 	special_construction = bool
 	## cardinality = 0..1
 	## replace_scopes = { root = starbase this = starbase }
-	downgrade_potential = single_alias_right[trigger]
+	downgrade_potential = single_alias_right[trigger_clause]
 }
 
 starbase_type = {
 	## replace_scopes = { this = starbase root = starbase from = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 	## replace_scopes = { this = starbase root = starbase from = country }
 	weight_modifier = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]

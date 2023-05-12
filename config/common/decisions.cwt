@@ -41,27 +41,27 @@ decision = {
 
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country }
-	show_tech_unlock_if = single_alias_right[trigger]
+	show_tech_unlock_if = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
-	allow = single_alias_right[trigger]
+	allow = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
-	abort_trigger = single_alias_right[trigger]
+	abort_trigger = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
-	abort_effect = single_alias_right[effect]
+	abort_effect = single_alias_right[effect_clause]
 
 	## cardinality = 0..1
-	on_queued = single_alias_right[effect]
+	on_queued = single_alias_right[effect_clause]
 
 	## cardinality = 0..1
-	on_unqueued = single_alias_right[effect]
+	on_unqueued = single_alias_right[effect_clause]
 
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 
 	## cardinality = 0..1
 	ai_weight = {

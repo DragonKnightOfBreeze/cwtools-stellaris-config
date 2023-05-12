@@ -82,18 +82,18 @@ army = {
 	}
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	show_tech_unlock_if = single_alias_right[trigger]
+	show_tech_unlock_if = single_alias_right[trigger_clause]
 	## cardinality = 0..1
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	potential_country = single_alias_right[trigger]
+	potential_country = single_alias_right[trigger_clause]
 	## cardinality = 0..1
-	allow = single_alias_right[trigger]
+	allow = single_alias_right[trigger_clause]
 	## cardinality = 0..1
-	on_queued = single_alias_right[effect]
+	on_queued = single_alias_right[effect_clause]
 	## cardinality = 0..1
-	on_unqueued = single_alias_right[effect]
+	on_unqueued = single_alias_right[effect_clause]
 	subtype[pop_spawned] = {
 		## cardinality = 0..1
 		## replace_scopes = { this = pop root = pop }

@@ -10,7 +10,7 @@ fallen_empires = {
 	initializer = <solar_system_initializer.fallen_empire_initializer>
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country }
-	possible = single_alias_right[trigger]
+	possible = single_alias_right[trigger_clause]
 	## replace_scopes = { root = country this = country }
 	weight_modifier = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]

@@ -17,7 +17,7 @@ alias[trigger:<scripted_trigger>] = {
 ### Evaluates the triggers if the display_triggers of the limit are met
 ## scopes = any
 alias[trigger:if] = {
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
@@ -25,7 +25,7 @@ alias[trigger:if] = {
 ### if = { limit = { <display_triggers> } <triggers> }
 ## scopes = any
 alias[trigger:else_if] = {
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
@@ -33,7 +33,7 @@ alias[trigger:else_if] = {
 ### if = { limit = { <display_triggers> } <triggers> }
 ### else = { <triggers> }
 ## scopes = any
-alias[trigger:else] = single_alias_right[trigger]
+alias[trigger:else] = single_alias_right[trigger_clause]
 
 
 ### Checks if the country has any instance of target faction type
@@ -221,10 +221,10 @@ alias[trigger:is_same_value] = scope[any]
 ## scopes = { planet country pop_faction sector }
 ## push_scope = pop
 alias[trigger:pop_percentage] = {
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	### (optional: specifies pops to exclude from the calculation)
-	exclude = single_alias_right[trigger]
+	exclude = single_alias_right[trigger_clause]
 	percentage = value_field[0.0..1.0]
 }
 
@@ -1109,7 +1109,7 @@ alias[trigger:command_limit] == int_value_field
 ### The enclosed trigger will be completely ignored if the condition in "trigger" isn't true. Useful to hide part of tooltips that are not relevant.
 ## scopes = any
 alias[trigger:conditional_tooltip] = {
-	trigger = single_alias_right[trigger]
+	trigger = single_alias_right[trigger_clause]
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
@@ -1403,7 +1403,7 @@ alias[trigger:intel_level] = {
 alias[trigger:inverted_switch] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..inf
-	scalar = single_alias_right[trigger]
+	scalar = single_alias_right[trigger_clause]
 }
 
 ### checks if a country has an advisor
@@ -1797,7 +1797,7 @@ alias[trigger:success_text] = {
 alias[trigger:switch] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..inf
-	scalar = single_alias_right[trigger]
+	scalar = single_alias_right[trigger_clause]
 }
 
 
@@ -3463,7 +3463,7 @@ alias[trigger:is_councilor] = bool
 ### Iterate through all playable countries - checks whether the enclosed triggers return true for any of them
 ## scopes = any
 ## push_scope = country
-alias[trigger:any_playable_country] = single_alias_right[trigger]
+alias[trigger:any_playable_country] = single_alias_right[trigger_clause]
 
 ### Finds the closest system within the given hyperlane steps and limit = { <triggers> }. If this system does not exist, it returns false. If it does exist, it is checked against the triggers outside of the limit = {}.
 ### Conditions outside of the limit = { } will check whether these conditions are true for *the closest* system for which the trigger conditions and min_steps conditions.
@@ -3477,110 +3477,110 @@ alias[trigger:closest_system] = {
 	## cardinality = 0..1
 	use_bypasses = bool
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
 ### Iterate through each fleet owned by the country - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = fleet
-alias[trigger:any_owned_fleet] = single_alias_right[trigger]
+alias[trigger:any_owned_fleet] = single_alias_right[trigger_clause]
 
 ### Iterate through each orbital station owned by the current country or in the current system - checks whether the enclosed triggers return true for any of them
 ## scopes = { country galactic_object }
 ## push_scope = fleet
-alias[trigger:any_orbital_station] = single_alias_right[trigger]
+alias[trigger:any_orbital_station] = single_alias_right[trigger_clause]
 
 ### Iterate through each planet within the current empire's borders - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = planet
-alias[trigger:any_planet_within_border] = single_alias_right[trigger]
+alias[trigger:any_planet_within_border] = single_alias_right[trigger_clause]
 
 ### Iterate through each ship in the fleet or controlled by the country - checks whether the enclosed triggers return true for any of them
 ## scopes = { country fleet }
 ## push_scope = ship
-alias[trigger:any_owned_ship] = single_alias_right[trigger]
+alias[trigger:any_owned_ship] = single_alias_right[trigger_clause]
 
 ### Iterate through each moon of the planet - checks whether the enclosed triggers return true for any of them
 ## scopes = { planet }
 ## push_scope = planet
-alias[trigger:any_moon] = single_alias_right[trigger]
+alias[trigger:any_moon] = single_alias_right[trigger_clause]
 
 ### Iterate through all wars the country is engaged in - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = war
-alias[trigger:any_war] = single_alias_right[trigger]
+alias[trigger:any_war] = single_alias_right[trigger_clause]
 
 ### Iterate through all defenders in the current war - checks whether the enclosed triggers return true for any of them
 ## scopes = { war }
 ## push_scope = country
-alias[trigger:any_defender] = single_alias_right[trigger]
+alias[trigger:any_defender] = single_alias_right[trigger_clause]
 
 ### Iterate through all attackers in the current war - checks whether the enclosed triggers return true for any of them
 ## scopes = { war }
 ## push_scope = country
-alias[trigger:any_attacker] = single_alias_right[trigger]
+alias[trigger:any_attacker] = single_alias_right[trigger_clause]
 
 ### Iterate through each planet (colony or not) in the current system - checks whether the enclosed triggers return true for any of them
 ## scopes = { galactic_object }
 ## push_scope = planet
-alias[trigger:any_system_planet] = single_alias_right[trigger]
+alias[trigger:any_system_planet] = single_alias_right[trigger_clause]
 
 ### Iterate through each fleet orbiting the current planet/starbase/megastructure - checks whether the enclosed triggers return true for any of them
 ## scopes = { megastructure planet starbase }
 ## push_scope = fleet
-alias[trigger:any_fleet_in_orbit] = single_alias_right[trigger]
+alias[trigger:any_fleet_in_orbit] = single_alias_right[trigger_clause]
 
 ### Iterate through all countries - checks whether the enclosed triggers return true for any of them
 ## scopes = any
 ## push_scope = country
-alias[trigger:any_country] = single_alias_right[trigger]
+alias[trigger:any_country] = single_alias_right[trigger_clause]
 
 ### Checks if any of the planet/species/pop faction pops meet the specified criteria. Warning: deprecated, use any_owned_pop/any_species_pop
 ## scopes = { planet species pop_faction }
 ## push_scope = pop
-alias[trigger:any_pop] = single_alias_right[trigger]
+alias[trigger:any_pop] = single_alias_right[trigger_clause]
 
 ### Checks the number of pops in the scope that fulfill the specified criteria. Warning: deprecated, use count_owned_pop/count_species_pop
 ## scopes = { planet species pop_faction }
 ## push_scope = pop
 alias[trigger:count_pops] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int
 }
 
 ### Iterate through each deposit on the planet - checks whether the enclosed triggers return true for any of them
 ## scopes = { planet }
 ## push_scope = deposit
-alias[trigger:any_deposit] = single_alias_right[trigger]
+alias[trigger:any_deposit] = single_alias_right[trigger_clause]
 
 ### Iterate through all rim systems - checks whether the enclosed triggers return true for any of them
 ## scopes = any
 ## push_scope = system
-alias[trigger:any_rim_system] = single_alias_right[trigger]
+alias[trigger:any_rim_system] = single_alias_right[trigger_clause]
 
 ### Iterate through each ship in the current system - checks whether the enclosed triggers return true for any of them
 ## scopes = { galactic_object }
 ## push_scope = ship
-alias[trigger:any_ship_in_system] = single_alias_right[trigger]
+alias[trigger:any_ship_in_system] = single_alias_right[trigger_clause]
 
 ### Iterate through each leader that is owned by the country - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = leader
-alias[trigger:any_owned_leader] = single_alias_right[trigger]
+alias[trigger:any_owned_leader] = single_alias_right[trigger_clause]
 
 ### Iterate through all owned pops - checks whether the enclosed triggers return true for any of them
 ## scopes = { planet country pop_faction sector }
 ## push_scope = pop
-alias[trigger:any_owned_pop] = single_alias_right[trigger]
+alias[trigger:any_owned_pop] = single_alias_right[trigger_clause]
 
 ### Count the number of owned pops in the country that fulfill the specified criteria. Warning: deprecated, use count_owned_pop
 ## scopes = { planet country pop_faction }
 ## push_scope = pop
 alias[trigger:count_owned_pops] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int
 }
 
@@ -3597,24 +3597,24 @@ alias[trigger:count_deposits] =  {
 ### Iterate through every ambient object in the game - checks whether the enclosed triggers return true for any of them
 ## scopes = any
 ## push_scope = ambient_object
-alias[trigger:any_ambient_object] = single_alias_right[trigger]
+alias[trigger:any_ambient_object] = single_alias_right[trigger_clause]
 
 ### Iterate through every ambient object in the solar system - checks whether the enclosed triggers return true for any of them
 ## scopes = { galactic_object }
 ## push_scope = ambient_object
-alias[trigger:any_system_ambient_object] = single_alias_right[trigger]
+alias[trigger:any_system_ambient_object] = single_alias_right[trigger_clause]
 
 ### Iterate through each member of the federation - checks whether the enclosed triggers return true for any of them
 ## scopes = { federation }
 ## push_scope = country
-alias[trigger:any_member] = single_alias_right[trigger]
+alias[trigger:any_member] = single_alias_right[trigger_clause]
 
 ### Checks the number of participants in the war on a specific side that meet the specified criteria
 ## scopes = { war }
 ## push_scope = country
 alias[trigger:count_war_participants] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	side = scope[country]
 	count = int_value_field
 }
@@ -3625,7 +3625,7 @@ alias[trigger:count_war_participants] = {
 ## push_scope = country
 alias[trigger:count_potential_war_participants] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	attacker = scope[country]
 	defender = scope[country]
 	side = scope[country]
@@ -3635,24 +3635,24 @@ alias[trigger:count_potential_war_participants] = {
 ### Iterate through all a system's neighboring systems by hyperlane - checks whether the enclosed triggers return true for any of them
 ## scopes = { galactic_object }
 ## push_scope = system
-alias[trigger:any_neighbor_system] = single_alias_right[trigger]
+alias[trigger:any_neighbor_system] = single_alias_right[trigger_clause]
 
 ### Iterate through all subjects of the scoped country - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = country
-alias[trigger:any_subject] = single_alias_right[trigger]
+alias[trigger:any_subject] = single_alias_right[trigger_clause]
 
 ### Iterate through all relations - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = country
-alias[trigger:any_relation] = single_alias_right[trigger]
+alias[trigger:any_relation] = single_alias_right[trigger_clause]
 
 ### Counts the number of species in the scope that fulfill the specified criteria, not counting sub-species as unique.
 ## scopes = { planet country }
 ## push_scope = species
 alias[trigger:count_species] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3662,7 +3662,7 @@ alias[trigger:count_species] = {
 ## push_scope = species
 alias[trigger:count_exact_species] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3670,24 +3670,24 @@ alias[trigger:count_exact_species] = {
 ### Check if any of the species <on the planet/in the country> meet the specified criteria - checks whether the enclosed triggers return true for any of them
 ## scopes = { planet country }
 ## push_scope = species
-alias[trigger:any_owned_species] = single_alias_right[trigger]
+alias[trigger:any_owned_species] = single_alias_right[trigger_clause]
 
 ### Check if any of the species with enslaved pops <on the planet/in the country> meet the specified criteria - checks whether the enclosed triggers return true for any of them
 ## scopes = { planet country }
 ## push_scope = species
-alias[trigger:any_enslaved_species] = single_alias_right[trigger]
+alias[trigger:any_enslaved_species] = single_alias_right[trigger_clause]
 
 ### Iterate through each agreement - checks whether the enclosed triggers return true for any of them
 ## scopes = { country no_scope }
 ## push_scope = agreement
-alias[trigger:any_agreement] = single_alias_right[trigger]
+alias[trigger:any_agreement] = single_alias_right[trigger_clause]
 
 ### Iterate through each agreement - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country no_scope }
 ## push_scope = agreement
 alias[trigger:count_agreement] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3697,7 +3697,7 @@ alias[trigger:count_agreement] = {
 ## push_scope = ambient_object
 alias[trigger:count_ambient_object] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3707,7 +3707,7 @@ alias[trigger:count_ambient_object] = {
 ## push_scope = ambient_object
 alias[trigger:count_system_ambient_object] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3715,14 +3715,14 @@ alias[trigger:count_system_ambient_object] = {
 ### Iterate through every archaeological sites - checks whether the enclosed triggers return true for any of them
 ## scopes = any
 ## push_scope = archaeological_site
-alias[trigger:any_archaeological_site] = single_alias_right[trigger]
+alias[trigger:any_archaeological_site] = single_alias_right[trigger_clause]
 
 ### Iterate through every archaeological sites - checks whether the enclosed triggers return true for X/all of them
 ## scopes = any
 ## push_scope = archaeological_site
 alias[trigger:count_archaeological_site] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3730,14 +3730,14 @@ alias[trigger:count_archaeological_site] = {
 ### Iterate through each army that is owned by the country - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = army
-alias[trigger:any_owned_army] = single_alias_right[trigger]
+alias[trigger:any_owned_army] = single_alias_right[trigger_clause]
 
 ### Iterate through each army that is owned by the country - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = army
 alias[trigger:count_owned_army] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3745,14 +3745,14 @@ alias[trigger:count_owned_army] = {
 ### Iterate through each army on the planet (not in ground combat), regardless of owner. - checks whether the enclosed triggers return true for any of them
 ## scopes = { planet }
 ## push_scope = army
-alias[trigger:any_planet_army] = single_alias_right[trigger]
+alias[trigger:any_planet_army] = single_alias_right[trigger_clause]
 
 ### Iterate through each army on the planet (not in ground combat), regardless of owner. - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { planet }
 ## push_scope = army
 alias[trigger:count_planet_army] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3760,14 +3760,14 @@ alias[trigger:count_planet_army] = {
 ### Iterate through each army currently defending the planet in ground combat - checks whether the enclosed triggers return true for any of them
 ## scopes = { planet }
 ## push_scope = army
-alias[trigger:any_ground_combat_defender] = single_alias_right[trigger]
+alias[trigger:any_ground_combat_defender] = single_alias_right[trigger_clause]
 
 ### Iterate through each army currently defending the planet in ground combat - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { planet }
 ## push_scope = army
 alias[trigger:count_ground_combat_defender] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3775,14 +3775,14 @@ alias[trigger:count_ground_combat_defender] = {
 ### Iterate through each army currently attacking the planet in ground combat - checks whether the enclosed triggers return true for any of them
 ## scopes = { planet }
 ## push_scope = army
-alias[trigger:any_ground_combat_attacker] = single_alias_right[trigger]
+alias[trigger:any_ground_combat_attacker] = single_alias_right[trigger_clause]
 
 ### Iterate through each army currently attacking the planet in ground combat - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { planet }
 ## push_scope = army
 alias[trigger:count_ground_combat_attacker] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3792,7 +3792,7 @@ alias[trigger:count_ground_combat_attacker] = {
 ## push_scope = country
 alias[trigger:count_country] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3802,7 +3802,7 @@ alias[trigger:count_country] = {
 ## push_scope = country
 alias[trigger:count_relation] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3810,14 +3810,14 @@ alias[trigger:count_relation] = {
 ### Iterate through all neighbor countries - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = country
-alias[trigger:any_neighbor_country] = single_alias_right[trigger]
+alias[trigger:any_neighbor_country] = single_alias_right[trigger_clause]
 
 ### Iterate through all neighbor countries - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = country
 alias[trigger:count_neighbor_country] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3825,14 +3825,14 @@ alias[trigger:count_neighbor_country] = {
 ### Iterate through all countries that own system 1 jump away from current system (bypasses included) - checks whether the enclosed triggers return true for any of them
 ## scopes = { galactic_object }
 ## push_scope = country
-alias[trigger:any_country_neighbor_to_system] = single_alias_right[trigger]
+alias[trigger:any_country_neighbor_to_system] = single_alias_right[trigger_clause]
 
 ### Iterate through all countries that own system 1 jump away from current system (bypasses included) - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { galactic_object }
 ## push_scope = country
 alias[trigger:count_country_neighbor_to_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3840,14 +3840,14 @@ alias[trigger:count_country_neighbor_to_system] = {
 ### Iterate through all countries rivalled by the scoped country - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = country
-alias[trigger:any_rival_country] = single_alias_right[trigger]
+alias[trigger:any_rival_country] = single_alias_right[trigger_clause]
 
 ### Iterate through all countries rivalled by the scoped country - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = country
 alias[trigger:count_rival_country] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3855,14 +3855,14 @@ alias[trigger:count_rival_country] = {
 ### Iterate through all countries in a federation with the scoped country - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = country
-alias[trigger:any_federation_ally] = single_alias_right[trigger]
+alias[trigger:any_federation_ally] = single_alias_right[trigger_clause]
 
 ### Iterate through all countries in a federation with the scoped country - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = country
 alias[trigger:count_federation_ally] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3872,7 +3872,7 @@ alias[trigger:count_federation_ally] = {
 ## push_scope = country
 alias[trigger:count_playable_country] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3882,7 +3882,7 @@ alias[trigger:count_playable_country] = {
 ## push_scope = country
 alias[trigger:count_subject] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3890,14 +3890,14 @@ alias[trigger:count_subject] = {
 ### Iterate through all debris belong to available special projects of the scoped country - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = debris
-alias[trigger:any_available_debris] = single_alias_right[trigger]
+alias[trigger:any_available_debris] = single_alias_right[trigger_clause]
 
 ### Iterate through all debris belong to available special projects of the scoped country - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = debris
 alias[trigger:count_available_debris] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3905,14 +3905,14 @@ alias[trigger:count_available_debris] = {
 ### Iterate through all designs owned by the current country - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = design
-alias[trigger:any_owned_design] = single_alias_right[trigger]
+alias[trigger:any_owned_design] = single_alias_right[trigger_clause]
 
 ### Iterate through all designs owned by the current country - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = design
 alias[trigger:count_owned_design] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3920,14 +3920,14 @@ alias[trigger:count_owned_design] = {
 ### Iterate through each spynetwork - checks whether the enclosed triggers return true for any of them
 ## scopes = { country no_scope }
 ## push_scope = spy_network
-alias[trigger:any_spynetwork] = single_alias_right[trigger]
+alias[trigger:any_spynetwork] = single_alias_right[trigger_clause]
 
 ### Iterate through each spynetwork - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country no_scope }
 ## push_scope = spy_network
 alias[trigger:count_spynetwork] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3935,14 +3935,14 @@ alias[trigger:count_spynetwork] = {
 ### Iterate through each espionage operation - checks whether the enclosed triggers return true for any of them
 ## scopes = { country no_scope spy_network }
 ## push_scope = espionage_operation
-alias[trigger:any_espionage_operation] = single_alias_right[trigger]
+alias[trigger:any_espionage_operation] = single_alias_right[trigger_clause]
 
 ### Iterate through each espionage operation - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country no_scope spy_network }
 ## push_scope = espionage_operation
 alias[trigger:count_espionage_operation] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3950,14 +3950,14 @@ alias[trigger:count_espionage_operation] = {
 ### Iterate through each espionage asset - checks whether the enclosed triggers return true for any of them
 ## scopes = { no_scope spy_network espionage_operation }
 ## push_scope = espionage_asset
-alias[trigger:any_espionage_asset] = single_alias_right[trigger]
+alias[trigger:any_espionage_asset] = single_alias_right[trigger_clause]
 
 ### Iterate through each espionage asset - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { no_scope spy_network espionage_operation }
 ## push_scope = espionage_asset
 alias[trigger:count_espionage_asset] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3965,14 +3965,14 @@ alias[trigger:count_espionage_asset] = {
 ### Iterate through each federation - checks whether the enclosed triggers return true for any of them
 ## scopes = any
 ## push_scope = federation
-alias[trigger:any_federation] = single_alias_right[trigger]
+alias[trigger:any_federation] = single_alias_right[trigger_clause]
 
 ### Iterate through each federation - checks whether the enclosed triggers return true for X/all of them
 ## scopes = any
 ## push_scope = federation
 alias[trigger:count_federation] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3980,14 +3980,14 @@ alias[trigger:count_federation] = {
 ### Iterate through each first contact (both active and complete) that this country is engaging in - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = first_contact
-alias[trigger:any_first_contact] = single_alias_right[trigger]
+alias[trigger:any_first_contact] = single_alias_right[trigger_clause]
 
 ### Iterate through each first contact (both active and complete) that this country is engaging in - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = first_contact
 alias[trigger:count_first_contact] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -3995,14 +3995,14 @@ alias[trigger:count_first_contact] = {
 ### Iterate through each active (non-completed) first contact that this country is engaging in - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = first_contact
-alias[trigger:any_active_first_contact] = single_alias_right[trigger]
+alias[trigger:any_active_first_contact] = single_alias_right[trigger_clause]
 
 ### Iterate through each active (non-completed) first contact that this country is engaging in - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = first_contact
 alias[trigger:count_active_first_contact] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4010,14 +4010,14 @@ alias[trigger:count_active_first_contact] = {
 ### Iterate through each fleet in the entire game - checks whether the enclosed triggers return true for any of them
 ## scopes = any
 ## push_scope = fleet
-alias[trigger:any_galaxy_fleet] = single_alias_right[trigger]
+alias[trigger:any_galaxy_fleet] = single_alias_right[trigger_clause]
 
 ### Iterate through each fleet in the entire game - checks whether the enclosed triggers return true for X/all of them
 ## scopes = any
 ## push_scope = fleet
 alias[trigger:count_galaxy_fleet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4025,14 +4025,14 @@ alias[trigger:count_galaxy_fleet] = {
 ### Iterate through each fleet this fleet is in combat with - checks whether the enclosed triggers return true for any of them
 ## scopes = { fleet }
 ## push_scope = fleet
-alias[trigger:any_combatant_fleet] = single_alias_right[trigger]
+alias[trigger:any_combatant_fleet] = single_alias_right[trigger_clause]
 
 ### Iterate through each fleet this fleet is in combat with - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { fleet }
 ## push_scope = fleet
 alias[trigger:count_combatant_fleet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4040,14 +4040,14 @@ alias[trigger:count_combatant_fleet] = {
 ### Iterate through each fleet in the current system - checks whether the enclosed triggers return true for any of them
 ## scopes = { galactic_object }
 ## push_scope = fleet
-alias[trigger:any_fleet_in_system] = single_alias_right[trigger]
+alias[trigger:any_fleet_in_system] = single_alias_right[trigger_clause]
 
 ### Iterate through each fleet in the current system - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { galactic_object }
 ## push_scope = fleet
 alias[trigger:count_fleet_in_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4057,7 +4057,7 @@ alias[trigger:count_fleet_in_system] = {
 ## push_scope = fleet
 alias[trigger:count_owned_fleet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4065,14 +4065,14 @@ alias[trigger:count_owned_fleet] = {
 ### Iterate through each fleet controlled by the country - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = fleet
-alias[trigger:any_controlled_fleet] = single_alias_right[trigger]
+alias[trigger:any_controlled_fleet] = single_alias_right[trigger_clause]
 
 ### Iterate through each fleet controlled by the country - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = fleet
 alias[trigger:count_controlled_fleet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4082,7 +4082,7 @@ alias[trigger:count_controlled_fleet] = {
 ## push_scope = fleet
 alias[trigger:count_fleet_in_orbit] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4092,7 +4092,7 @@ alias[trigger:count_fleet_in_orbit] = {
 ## push_scope = fleet
 alias[trigger:count_orbital_station] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4100,14 +4100,14 @@ alias[trigger:count_orbital_station] = {
 ### Iterate through each member of the galactic community - checks whether the enclosed triggers return true for any of them
 ## scopes = any
 ## push_scope = country
-alias[trigger:any_galcom_member] = single_alias_right[trigger]
+alias[trigger:any_galcom_member] = single_alias_right[trigger_clause]
 
 ### Iterate through each member of the galactic community - checks whether the enclosed triggers return true for X/all of them
 ## scopes = any
 ## push_scope = country
 alias[trigger:count_galcom_member] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4115,14 +4115,14 @@ alias[trigger:count_galcom_member] = {
 ### Iterate through each member of the galactic council - checks whether the enclosed triggers return true for any of them
 ## scopes = any
 ## push_scope = country
-alias[trigger:any_council_member] = single_alias_right[trigger]
+alias[trigger:any_council_member] = single_alias_right[trigger_clause]
 
 ### Iterate through each member of the galactic council - checks whether the enclosed triggers return true for X/all of them
 ## scopes = any
 ## push_scope = country
 alias[trigger:count_council_member] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4132,7 +4132,7 @@ alias[trigger:count_council_member] = {
 ## push_scope = leader
 alias[trigger:count_owned_leader] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4140,14 +4140,14 @@ alias[trigger:count_owned_leader] = {
 ### Iterate through each leader that is recruitable for the country - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = leader
-alias[trigger:any_pool_leader] = single_alias_right[trigger]
+alias[trigger:any_pool_leader] = single_alias_right[trigger_clause]
 
 ### Iterate through each leader that is recruitable for the country - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = leader
 alias[trigger:count_pool_leader] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4155,14 +4155,14 @@ alias[trigger:count_pool_leader] = {
 ### Iterate through each envoy available to the country - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = leader
-alias[trigger:any_envoy] = single_alias_right[trigger]
+alias[trigger:any_envoy] = single_alias_right[trigger_clause]
 
 ### Iterate through each envoy available to the country - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = leader
 alias[trigger:count_envoy] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4170,14 +4170,14 @@ alias[trigger:count_envoy] = {
 ### Iterate through each megastructure - checks whether the enclosed triggers return true for any of them
 ## scopes = any
 ## push_scope = megastructure
-alias[trigger:any_megastructure] = single_alias_right[trigger]
+alias[trigger:any_megastructure] = single_alias_right[trigger_clause]
 
 ### Iterate through each megastructure - checks whether the enclosed triggers return true for X/all of them
 ## scopes = any
 ## push_scope = megastructure
 alias[trigger:count_megastructure] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4185,14 +4185,14 @@ alias[trigger:count_megastructure] = {
 ### Iterate through each owned megastructure - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = megastructure
-alias[trigger:any_owned_megastructure] = single_alias_right[trigger]
+alias[trigger:any_owned_megastructure] = single_alias_right[trigger_clause]
 
 ### Iterate through each owned megastructure - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = megastructure
 alias[trigger:count_owned_megastructure] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4200,14 +4200,14 @@ alias[trigger:count_owned_megastructure] = {
 ### Iterate through each megastructure in system - checks whether the enclosed triggers return true for any of them
 ## scopes = any
 ## push_scope = megastructure
-alias[trigger:any_system_megastructure] = single_alias_right[trigger]
+alias[trigger:any_system_megastructure] = single_alias_right[trigger_clause]
 
 ### Iterate through each megastructure in system - checks whether the enclosed triggers return true for X/all of them
 ## scopes = any
 ## push_scope = megastructure
 alias[trigger:count_system_megastructure] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4217,7 +4217,7 @@ alias[trigger:count_system_megastructure] = {
 ## push_scope = country
 alias[trigger:count_member] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4225,14 +4225,14 @@ alias[trigger:count_member] = {
 ### Iterate through each associate member of the federation - checks whether the enclosed triggers return true for any of them
 ## scopes = { federation }
 ## push_scope = country
-alias[trigger:any_associate] = single_alias_right[trigger]
+alias[trigger:any_associate] = single_alias_right[trigger_clause]
 
 ### Iterate through each associate member of the federation - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { federation }
 ## push_scope = country
 alias[trigger:count_associate] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4242,7 +4242,7 @@ alias[trigger:count_associate] = {
 ## push_scope = planet
 alias[trigger:count_system_planet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4250,14 +4250,14 @@ alias[trigger:count_system_planet] = {
 ### Iterate through each colony in the current system - checks whether the enclosed triggers return true for any of them
 ## scopes = { galactic_object }
 ## push_scope = planet
-alias[trigger:any_system_colony] = single_alias_right[trigger]
+alias[trigger:any_system_colony] = single_alias_right[trigger_clause]
 
 ### Iterate through each colony in the current system - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { galactic_object }
 ## push_scope = planet
 alias[trigger:count_system_colony] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4267,7 +4267,7 @@ alias[trigger:count_system_colony] = {
 ## push_scope = planet
 alias[trigger:count_planet_within_border] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4275,14 +4275,14 @@ alias[trigger:count_planet_within_border] = {
 ### Iterate through each inhabited planet owned by the current empire - checks whether the enclosed triggers return true for any of them
 ## scopes = { country sector }
 ## push_scope = planet
-alias[trigger:any_owned_planet] = single_alias_right[trigger]
+alias[trigger:any_owned_planet] = single_alias_right[trigger_clause]
 
 ### Iterate through each inhabited planet owned by the current empire - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country sector }
 ## push_scope = planet
 alias[trigger:count_owned_planet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4290,14 +4290,14 @@ alias[trigger:count_owned_planet] = {
 ### Iterate through each inhabited planet controlled by the current empire - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = planet
-alias[trigger:any_controlled_planet] = single_alias_right[trigger]
+alias[trigger:any_controlled_planet] = single_alias_right[trigger_clause]
 
 ### Iterate through each inhabited planet controlled by the current empire - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = planet
 alias[trigger:count_controlled_planet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4305,14 +4305,14 @@ alias[trigger:count_controlled_planet] = {
 ### Iterate through each planet ANYWHERE in the game; warning: resource intensive! - checks whether the enclosed triggers return true for any of them
 ## scopes = any
 ## push_scope = planet
-alias[trigger:any_galaxy_planet] = single_alias_right[trigger]
+alias[trigger:any_galaxy_planet] = single_alias_right[trigger_clause]
 
 ### Iterate through each planet ANYWHERE in the game; warning: resource intensive! - checks whether the enclosed triggers return true for X/all of them
 ## scopes = any
 ## push_scope = planet
 alias[trigger:count_galaxy_planet] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4322,7 +4322,7 @@ alias[trigger:count_galaxy_planet] = {
 ## push_scope = deposit
 alias[trigger:count_deposit] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4332,7 +4332,7 @@ alias[trigger:count_deposit] = {
 ## push_scope = planet
 alias[trigger:count_moon] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4342,7 +4342,7 @@ alias[trigger:count_moon] = {
 ## push_scope = pop
 alias[trigger:count_owned_pop] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4350,14 +4350,14 @@ alias[trigger:count_owned_pop] = {
 ### Iterate through each pop that belongs to this species; warning: resource-intensive! - checks whether the enclosed triggers return true for any of them
 ## scopes = { species }
 ## push_scope = pop
-alias[trigger:any_species_pop] = single_alias_right[trigger]
+alias[trigger:any_species_pop] = single_alias_right[trigger_clause]
 
 ### Iterate through each pop that belongs to this species; warning: resource-intensive! - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { species }
 ## push_scope = pop
 alias[trigger:count_species_pop] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4365,14 +4365,14 @@ alias[trigger:count_species_pop] = {
 ### Iterate through all the country's pop factions - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = pop_faction
-alias[trigger:any_pop_faction] = single_alias_right[trigger]
+alias[trigger:any_pop_faction] = single_alias_right[trigger_clause]
 
 ### Iterate through all the country's pop factions - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = pop_faction
 alias[trigger:count_pop_faction] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4380,14 +4380,14 @@ alias[trigger:count_pop_faction] = {
 ### Iterate through all sectors in the game - checks whether the enclosed triggers return true for any of them
 ## scopes = any
 ## push_scope = sector
-alias[trigger:any_galaxy_sector] = single_alias_right[trigger]
+alias[trigger:any_galaxy_sector] = single_alias_right[trigger_clause]
 
 ### Iterate through all sectors in the game - checks whether the enclosed triggers return true for X/all of them
 ## scopes = any
 ## push_scope = sector
 alias[trigger:count_galaxy_sector] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4395,14 +4395,14 @@ alias[trigger:count_galaxy_sector] = {
 ### Iterate through every owned sector - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = sector
-alias[trigger:any_owned_sector] = single_alias_right[trigger]
+alias[trigger:any_owned_sector] = single_alias_right[trigger_clause]
 
 ### Iterate through every owned sector - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = sector
 alias[trigger:count_owned_sector] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4412,7 +4412,7 @@ alias[trigger:count_owned_sector] = {
 ## push_scope = ship
 alias[trigger:count_owned_ship] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4420,14 +4420,14 @@ alias[trigger:count_owned_ship] = {
 ### Iterate through each ship in the fleet or controlled by the country - checks whether the enclosed triggers return true for any of them
 ## scopes = { country fleet }
 ## push_scope = ship
-alias[trigger:any_controlled_ship] = single_alias_right[trigger]
+alias[trigger:any_controlled_ship] = single_alias_right[trigger_clause]
 
 ### Iterate through each ship in the fleet or controlled by the country - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country fleet }
 ## push_scope = ship
 alias[trigger:count_controlled_ship] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4437,7 +4437,7 @@ alias[trigger:count_controlled_ship] = {
 ## push_scope = ship
 alias[trigger:count_ship_in_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4445,14 +4445,14 @@ alias[trigger:count_ship_in_system] = {
 ### Iterate through each situation a country is experiencing - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = situation
-alias[trigger:any_situation] = single_alias_right[trigger]
+alias[trigger:any_situation] = single_alias_right[trigger_clause]
 
 ### Iterate through each situation a country is experiencing - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = situation
 alias[trigger:count_situation] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4460,14 +4460,14 @@ alias[trigger:count_situation] = {
 ### Iterate through each situation that is targeting the current planet - checks whether the enclosed triggers return true for any of them
 ## scopes = { planet }
 ## push_scope = situation
-alias[trigger:any_targeting_situation] = single_alias_right[trigger]
+alias[trigger:any_targeting_situation] = single_alias_right[trigger_clause]
 
 ### Iterate through each situation that is targeting the current planet - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { planet }
 ## push_scope = situation
 alias[trigger:count_targeting_situation] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4475,14 +4475,14 @@ alias[trigger:count_targeting_situation] = {
 ### Iterate through each species of a country's owned pops - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = species
-alias[trigger:any_owned_pop_species] = single_alias_right[trigger]
+alias[trigger:any_owned_pop_species] = single_alias_right[trigger_clause]
 
 ### Iterate through each species of a country's owned pops - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = species
 alias[trigger:count_owned_pop_species] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4490,14 +4490,14 @@ alias[trigger:count_owned_pop_species] = {
 ### Check if any species in the galaxy meet the specified criteria - checks whether the enclosed triggers return true for any of them
 ## scopes = any
 ## push_scope = species
-alias[trigger:any_galaxy_species] = single_alias_right[trigger]
+alias[trigger:any_galaxy_species] = single_alias_right[trigger_clause]
 
 ### Check if any species in the galaxy meet the specified criteria - checks whether the enclosed triggers return true for X/all of them
 ## scopes = any
 ## push_scope = species
 alias[trigger:count_galaxy_species] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4507,7 +4507,7 @@ alias[trigger:count_galaxy_species] = {
 ## push_scope = species
 alias[trigger:count_owned_species] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4517,7 +4517,7 @@ alias[trigger:count_owned_species] = {
 ## push_scope = species
 alias[trigger:count_enslaved_species] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4525,14 +4525,14 @@ alias[trigger:count_enslaved_species] = {
 ### Iterate through every owned primary starbase - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = starbase
-alias[trigger:any_owned_starbase] = single_alias_right[trigger]
+alias[trigger:any_owned_starbase] = single_alias_right[trigger_clause]
 
 ### Iterate through every owned primary starbase - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = starbase
 alias[trigger:count_owned_starbase] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4540,14 +4540,14 @@ alias[trigger:count_owned_starbase] = {
 ### Iterate through every owned non-primary starbase (e.g. orbital rings), not including juggernauts - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = starbase
-alias[trigger:any_owned_nonprimary_starbase] = single_alias_right[trigger]
+alias[trigger:any_owned_nonprimary_starbase] = single_alias_right[trigger_clause]
 
 ### Iterate through every owned non-primary starbase (e.g. orbital rings), not including juggernauts - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 ## push_scope = starbase
 alias[trigger:count_owned_nonprimary_starbase] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4555,14 +4555,14 @@ alias[trigger:count_owned_nonprimary_starbase] = {
 ### Iterate through all systems - checks whether the enclosed triggers return true for any of them
 ## scopes = any
 ## push_scope = system
-alias[trigger:any_system] = single_alias_right[trigger]
+alias[trigger:any_system] = single_alias_right[trigger_clause]
 
 ### Iterate through all systems - checks whether the enclosed triggers return true for X/all of them
 ## scopes = any
 ## push_scope = system
 alias[trigger:count_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4572,7 +4572,7 @@ alias[trigger:count_system] = {
 ## push_scope = system
 alias[trigger:count_rim_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4580,14 +4580,14 @@ alias[trigger:count_rim_system] = {
 ### Iterate through all systems within the country's or sector's borders - checks whether the enclosed triggers return true for any of them
 ## scopes = { country sector }
 ## push_scope = system
-alias[trigger:any_system_within_border] = single_alias_right[trigger]
+alias[trigger:any_system_within_border] = single_alias_right[trigger_clause]
 
 ### Iterate through all systems within the country's or sector's borders - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country sector }
 ## push_scope = system
 alias[trigger:count_system_within_border] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4597,7 +4597,7 @@ alias[trigger:count_system_within_border] = {
 ## push_scope = system
 alias[trigger:count_neighbor_system] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4605,14 +4605,14 @@ alias[trigger:count_neighbor_system] = {
 ### Iterate through all a system's neigboring systems (by closeness, not by hyperlanes) - checks whether the enclosed triggers return true for any of them
 ## scopes = { galactic_object }
 ## push_scope = system
-alias[trigger:any_neighbor_system_euclidean] = single_alias_right[trigger]
+alias[trigger:any_neighbor_system_euclidean] = single_alias_right[trigger_clause]
 
 ### Iterate through all a system's neigboring systems (by closeness, not by hyperlanes) - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { galactic_object }
 ## push_scope = system
 alias[trigger:count_neighbor_system_euclidean] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4620,14 +4620,14 @@ alias[trigger:count_neighbor_system_euclidean] = {
 ### Iterate through all war participants - checks whether the enclosed triggers return true for any of them
 ## scopes = { war }
 ## push_scope = country
-alias[trigger:any_war_participant] = single_alias_right[trigger]
+alias[trigger:any_war_participant] = single_alias_right[trigger_clause]
 
 ### Iterate through all war participants - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { war }
 ## push_scope = country
 alias[trigger:count_war_participant] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4637,7 +4637,7 @@ alias[trigger:count_war_participant] = {
 ## push_scope = country
 alias[trigger:count_attacker] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4647,7 +4647,7 @@ alias[trigger:count_attacker] = {
 ## push_scope = country
 alias[trigger:count_defender] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4657,7 +4657,7 @@ alias[trigger:count_defender] = {
 ## push_scope = war
 alias[trigger:count_war] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4665,14 +4665,14 @@ alias[trigger:count_war] = {
 ### Iterate through all pre-ftl countries within the country's or sector's borders - checks whether the enclosed triggers return true for any of them
 ## scopes = { country sector }
 ## push_scope = country
-alias[trigger:any_pre_ftl_within_border] = single_alias_right[trigger]
+alias[trigger:any_pre_ftl_within_border] = single_alias_right[trigger_clause]
 
 ### Iterate through all pre-ftl countries within the country's or sector's borders - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country sector }
 ## push_scope = country
 alias[trigger:count_pre_ftl_within_border] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }
@@ -4680,14 +4680,14 @@ alias[trigger:count_pre_ftl_within_border] = {
 ### Iterate through all pre-ftl countries with an observation post around their capital within the country's or sector's borders - checks whether the enclosed triggers return true for any of them
 ## scopes = { country sector }
 ## push_scope = country
-alias[trigger:any_observed_pre_ftl_within_border] = single_alias_right[trigger]
+alias[trigger:any_observed_pre_ftl_within_border] = single_alias_right[trigger_clause]
 
 ### Iterate through all pre-ftl countries with an observation post around their capital within the country's or sector's borders - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country sector }
 ## push_scope = country
 alias[trigger:count_observed_pre_ftl_within_border] = {
 	## cardinality = 0..1
-	limit = single_alias_right[trigger]
+	limit = single_alias_right[trigger_clause]
 	count = int_value_field
 	count = all
 }

@@ -29,7 +29,7 @@ specialist_subject_type = {
 	base_conversion_time = int
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	on_progress_complete = single_alias_right[effect]
+	on_progress_complete = single_alias_right[effect_clause]
 	levels = {
 		## cardinality = 1..inf
 		{

@@ -7,7 +7,7 @@ types = {
 
 trade_conversion = {
 	## replace_scopes = { this = country from = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 	weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}

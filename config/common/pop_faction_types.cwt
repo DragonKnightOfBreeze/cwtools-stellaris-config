@@ -67,7 +67,7 @@ pop_faction = {
 	### Existence requirements for this faction
 	## push_scope = country
 	## cardinality = 0..1
-	is_potential = single_alias_right[trigger]
+	is_potential = single_alias_right[trigger_clause]
 
 	#### Parameters, tied to this faction
 	## push_scope = country
@@ -78,13 +78,13 @@ pop_faction = {
 			## cardinality = 1..1
 			type = enum[scope_type_tokens]
 			## cardinality = 0..1
-			valid_objects = single_alias_right[trigger]
+			valid_objects = single_alias_right[trigger_clause]
 		}
 	}
 
 	### Existence requirements for defined parameter
 	## cardinality = 0..1
-	valid = single_alias_right[trigger]
+	valid = single_alias_right[trigger_clause]
 
 	### Determines which pops are able to join this faction. Only uses certain simple triggers.
 	## push_scope = pop
@@ -95,7 +95,7 @@ pop_faction = {
 
 	### Determines which pops are able to join this faction
 	## push_scope = pop
-	can_join_faction = single_alias_right[trigger]
+	can_join_faction = single_alias_right[trigger_clause]
 
 	### Pop's willingness weight to join this faction
 	## push_scope = pop
@@ -114,12 +114,12 @@ pop_faction = {
 
 	### Some effects, immediately after faction has been established.
 	## cardinality = 0..1
-	on_create = single_alias_right[effect]
+	on_create = single_alias_right[effect_clause]
 
 	### Some effects, immediately after faction has been removed.
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	on_destroy = single_alias_right[effect]
+	on_destroy = single_alias_right[effect_clause]
 
 	### Faction dynamic requests & issues.
 	## cardinality = 0..inf
@@ -145,10 +145,10 @@ pop_faction = {
 		unfulfilled_effect = float
 
 		## cardinality = 0..1
-		potential = single_alias_right[trigger]
+		potential = single_alias_right[trigger_clause]
 
 		## cardinality = 1..1
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 	}
 
 	### Actions for this pop faction type (buttons)
@@ -167,13 +167,13 @@ pop_faction = {
 			}
 
 			## cardinality = 0..1
-			potential = single_alias_right[trigger]
+			potential = single_alias_right[trigger_clause]
 
 			## cardinality = 0..1
-			valid = single_alias_right[trigger]
+			valid = single_alias_right[trigger_clause]
 
 			## cardinality = 0..1
-			effect = single_alias_right[effect]
+			effect = single_alias_right[effect_clause]
 
 			## cardinality = 0..1
 			ai_weight = {

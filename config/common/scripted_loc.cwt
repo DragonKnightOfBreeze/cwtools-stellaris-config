@@ -21,7 +21,7 @@ scripted_loc = {
 		## cardinality = 0..1
 		weight = float
 		## cardinality = 0..1
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 		localization_key = localisation
 	}
 	## cardinality = 0..1

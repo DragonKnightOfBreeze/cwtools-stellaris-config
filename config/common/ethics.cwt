@@ -56,7 +56,7 @@ ethic = {
 
 	### always = yes by default
 	## cardinality = 0..1
-	playable = single_alias_right[trigger]
+	playable = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
@@ -82,7 +82,7 @@ ethic = {
 	pop_attraction_tag = {
 		desc = localisation
 		## replace_scopes = { this = country root = country }
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 	}
 
 	## cardinality = 0..1

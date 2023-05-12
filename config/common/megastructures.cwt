@@ -78,10 +78,10 @@ megastructure = {
 	}
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = system root = system from = country }
-	possible = single_alias_right[trigger]
+	possible = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	build_time = int
 	## cardinality = 0..1
@@ -107,11 +107,11 @@ megastructure = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = ship root = ship }
-	ship_modifier = single_alias_right[modifier]
+	ship_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = megastructure root = megastructure }
-	station_modifier = single_alias_right[modifier]
+	station_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	placement_rules = {
@@ -119,17 +119,17 @@ megastructure = {
 		alias_name[trigger] = alias_match_left[trigger]
 		## replace_scopes = { this = planet root = planet }
 		## cardinality = 0..1
-		planet_possible = single_alias_right[trigger]
+		planet_possible = single_alias_right[trigger_clause]
 	}
 	## cardinality = 0..1
 	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }
-	on_build_start = single_alias_right[effect]
+	on_build_start = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = system root = system from = country }
-	on_build_cancel = single_alias_right[effect]
+	on_build_cancel = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }
-	on_build_complete = single_alias_right[effect]
+	on_build_complete = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }
 	ai_weight = {

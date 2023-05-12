@@ -5,4 +5,4 @@ types = {
 	}
 }
 
-game_rule = single_alias_right[trigger]
+game_rule = single_alias_right[trigger_clause]

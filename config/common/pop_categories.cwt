@@ -26,7 +26,7 @@ pop_category = {
 
 	### This is called whenever a Pop is created, moved to a different planet, or gets a new owner
 	## cardinality = 0..1
-	assign_to_pop = single_alias_right[trigger]
+	assign_to_pop = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -34,31 +34,31 @@ pop_category = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	pop_modifier = single_alias_right[modifier]
+	pop_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..inf
 	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier_by_pop]
+	triggered_pop_modifier = single_alias_right[triggered_modifier_by_pop_clause]
 	## cardinality = 0..inf
 	## replace_scopes = { this = planet root = planet }
-	triggered_planet_modifier = single_alias_right[triggered_modifier_by_pop]
+	triggered_planet_modifier = single_alias_right[triggered_modifier_by_pop_clause]
 
 	### scope: pop to be resettled
-	allow_resettlement = single_alias_right[trigger]
+	allow_resettlement = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
-	should_apply_unemployment_penalties = single_alias_right[trigger]
+	should_apply_unemployment_penalties = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = planet root = planet }
-	unemployment_penalties = single_alias_right[modifier]
+	unemployment_penalties = single_alias_right[modifier_clause]
 
 	## cardinality = 0..inf
 	resettlement_cost = {
 		## cardinality = 0..inf
 		<resource> = int
 		## cardinality = 0..1
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 	}
 
 	## cardinality = 0..1

@@ -64,7 +64,7 @@ tradition = {
 	### accepts only country modifiers
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 	### the ai_weight in traditions applies both to the main traditions and the tradition swaps, there are no seperate fields.
 	## replace_scopes = { this = country root = country }
 	## cardinality = 0..1
@@ -73,10 +73,10 @@ tradition = {
 	}
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	possible = single_alias_right[trigger]
+	possible = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	on_enabled = single_alias_right[effect]
+	on_enabled = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	custom_tooltip = localisation
 	## cardinality = 0..1
@@ -101,11 +101,11 @@ tradition = {
 		### accepts only country modifiers
 		## cardinality = 0..1
 		## replace_scopes = { this = country root = country }
-		modifier = single_alias_right[modifier]
+		modifier = single_alias_right[modifier_clause]
 		# Should be only if not inheriting effects
 		## replace_scopes = { this = country root = country }
 		## cardinality = 0..1
-		on_enabled = single_alias_right[effect]
+		on_enabled = single_alias_right[effect_clause]
 		### this determines the chances of a tradition swap appearing for a given empire IF multiple swaps are potential.
 		## replace_scopes = { this = country root = country }
 		## cardinality = 0..1
@@ -114,14 +114,14 @@ tradition = {
 		}
 		## cardinality = 0..1
 		## replace_scopes = { this = country root = country }
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 	}
 }
 
 tradition_category = {
 	## cardinality = 0..inf
 	desc = {
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 		text = localisation
 	}
 
@@ -136,7 +136,7 @@ tradition_category = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }

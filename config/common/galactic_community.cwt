@@ -45,13 +45,13 @@ galactic_focus = {
 	icon = <sprite>
 	### effect applied to community members if fulfilled, scope is country
 	## replace_scopes = { this = country root = country }
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 	### potential trigger, no scope check
 	## replace_scopes = { this = no_scope root = no_scope }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 	### trigger to determine if the focus has been fulfilled, no scope check
 	## replace_scopes = { this = no_scope root = no_scope }
-	trigger = single_alias_right[trigger]
+	trigger = single_alias_right[trigger_clause]
 	### weight to determine which focus should be selected, no scope check
 	## replace_scopes = { this = no_scope root = no_scope }
 	## cardinality = 0..1
@@ -96,27 +96,27 @@ resolution = {
 	harmful = bool
 	### Modifier to be applied to all community members if passed. Apparently. Not sure about that...
 	## cardinality = 0..1
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 	### Modifier to be applied to all community members if passed and the potential trigger is true
 	## cardinality = 0..inf
-	triggered_modifier = single_alias_right[triggered_modifier]
+	triggered_modifier = single_alias_right[triggered_modifier_clause]
 	### Effect to be applied if passed, scope is country
 	## cardinality = 0..1
-	effect = single_alias_right[effect]
+	effect = single_alias_right[effect_clause]
 	### Effect to be applied if failed, scope is country
 	## cardinality = 0..1
-	fail_effects = single_alias_right[effect]
+	fail_effects = single_alias_right[effect_clause]
 	## cardinality = 0..1
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 	### Resolution only in effect while this trigger is met
 	## cardinality = 0..1
-	active = single_alias_right[trigger]
+	active = single_alias_right[trigger_clause]
 	## cardinality = 0..1
-	allow = single_alias_right[trigger]
+	allow = single_alias_right[trigger_clause]
 	## cardinality = 0..1
-	breach = single_alias_right[trigger]
+	breach = single_alias_right[trigger_clause]
 	## cardinality = 0..1
-	valid_target = single_alias_right[trigger]
+	valid_target = single_alias_right[trigger_clause]
 	ai_weight = {
 		enum[weight_or_base] = float
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]

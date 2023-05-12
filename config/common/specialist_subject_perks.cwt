@@ -48,11 +48,11 @@ specialist_subject_perk = {
     ## cardinality = 0..1
     ## replace_scopes = { this = agreement root = agreement  }
 	### Invoked when the perk is activated (target is the specialist subject)
-	activate_effect = single_alias_right[effect]
+	activate_effect = single_alias_right[effect_clause]
     ## cardinality = 0..1
     ## replace_scopes = { this =  agreement root = agreement }
 	### Invoked when the perk is deactivated (target is the specialist subject)
-	deactivate_effect = single_alias_right[effect]
+	deactivate_effect = single_alias_right[effect_clause]
     ## cardinality = 0..1
 	### Static modifiers that are applied to the overlord's planets if the capitals of both empires are connected via the hyperlane network
     overlord_relay_network_modifier = {

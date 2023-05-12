@@ -72,7 +72,7 @@ single_alias[economic_subplan] = {
 	optional = bool
 
 	## replace_scopes = { this = country root = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	income = {

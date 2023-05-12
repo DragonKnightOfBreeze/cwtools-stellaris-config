@@ -207,13 +207,13 @@ species_class = {
 	archetype = <species_archetype>
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..1
-	playable = single_alias_right[trigger]
+	playable = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	randomized = bool
 	## cardinality = 0..1
-	randomized = single_alias_right[trigger]
+	randomized = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	uplifted_into = <species_class>
 	## cardinality = 0..1
@@ -254,10 +254,10 @@ species_class = {
 	custom_portraits = {
 		## replace_scopes = { root = no_scope this = no_scope }
 		## cardinality = 0..1
-		randomized = single_alias_right[trigger]
+		randomized = single_alias_right[trigger_clause]
 		## replace_scopes = { root = no_scope this = no_scope }
 		## cardinality = 0..1
-		playable = single_alias_right[trigger]
+		playable = single_alias_right[trigger_clause]
 		portraits = {
 			## cardinality = 0..inf
 			<portrait>
@@ -317,7 +317,7 @@ citizenship_type = {
 		{
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
-			trigger = single_alias_right[trigger]
+			trigger = single_alias_right[trigger_clause]
 			key = <resolution>
 		}
 	}
@@ -337,7 +337,7 @@ citizenship_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
@@ -349,7 +349,7 @@ citizenship_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = single_alias_right[modifier]
+	free_pop_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -360,11 +360,11 @@ citizenship_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	allow = single_alias_right[trigger]
+	allow = single_alias_right[trigger_clause]
 
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
@@ -374,7 +374,7 @@ citizenship_type = {
 
 	## cardinality = 0..inf
 	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier]
+	triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
 }
 
 colonization_control = {
@@ -387,7 +387,7 @@ colonization_control = {
 		{
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
-			trigger = single_alias_right[trigger]
+			trigger = single_alias_right[trigger_clause]
 			key = <resolution>
 		}
 	}
@@ -397,7 +397,7 @@ colonization_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
@@ -409,7 +409,7 @@ colonization_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = single_alias_right[modifier]
+	free_pop_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -420,11 +420,11 @@ colonization_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	allow = single_alias_right[trigger]
+	allow = single_alias_right[trigger_clause]
 
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
@@ -434,7 +434,7 @@ colonization_control = {
 
 	## cardinality = 0..inf
 	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier]
+	triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
 }
 
 living_standard = {
@@ -447,14 +447,14 @@ living_standard = {
 		{
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
-			trigger = single_alias_right[trigger]
+			trigger = single_alias_right[trigger_clause]
 			key = <resolution>
 		}
 	}
 
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
@@ -466,7 +466,7 @@ living_standard = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = single_alias_right[modifier]
+	free_pop_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -477,11 +477,11 @@ living_standard = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	allow = single_alias_right[trigger]
+	allow = single_alias_right[trigger_clause]
 
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
@@ -491,7 +491,7 @@ living_standard = {
 
 	## cardinality = 0..inf
 	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier]
+	triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
 }
 
 migration_control = {
@@ -504,7 +504,7 @@ migration_control = {
 		{
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
-			trigger = single_alias_right[trigger]
+			trigger = single_alias_right[trigger_clause]
 			key = <resolution>
 		}
 	}
@@ -514,7 +514,7 @@ migration_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
@@ -526,7 +526,7 @@ migration_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = single_alias_right[modifier]
+	free_pop_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -537,11 +537,11 @@ migration_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	allow = single_alias_right[trigger]
+	allow = single_alias_right[trigger_clause]
 
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
@@ -551,7 +551,7 @@ migration_control = {
 
 	## cardinality = 0..inf
 	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier]
+	triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
 }
 
 military_service_type = {
@@ -564,14 +564,14 @@ military_service_type = {
 		{
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
-			trigger = single_alias_right[trigger]
+			trigger = single_alias_right[trigger_clause]
 			key = <resolution>
 		}
 	}
 
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
@@ -583,7 +583,7 @@ military_service_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = single_alias_right[modifier]
+	free_pop_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -594,11 +594,11 @@ military_service_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	allow = single_alias_right[trigger]
+	allow = single_alias_right[trigger_clause]
 
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
@@ -608,7 +608,7 @@ military_service_type = {
 
 	## cardinality = 0..inf
 	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier]
+	triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
 }
 
 population_control = {
@@ -621,7 +621,7 @@ population_control = {
 		{
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
-			trigger = single_alias_right[trigger]
+			trigger = single_alias_right[trigger_clause]
 			key = <resolution>
 		}
 	}
@@ -631,7 +631,7 @@ population_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
@@ -643,7 +643,7 @@ population_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = single_alias_right[modifier]
+	free_pop_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -654,11 +654,11 @@ population_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	allow = single_alias_right[trigger]
+	allow = single_alias_right[trigger_clause]
 
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
@@ -668,7 +668,7 @@ population_control = {
 
 	## cardinality = 0..inf
 	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier]
+	triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
 }
 
 purge_type = {
@@ -681,7 +681,7 @@ purge_type = {
 		{
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
-			trigger = single_alias_right[trigger]
+			trigger = single_alias_right[trigger_clause]
 			key = <resolution>
 		}
 	}
@@ -692,7 +692,7 @@ purge_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
@@ -704,7 +704,7 @@ purge_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = single_alias_right[modifier]
+	free_pop_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -715,11 +715,11 @@ purge_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	allow = single_alias_right[trigger]
+	allow = single_alias_right[trigger_clause]
 
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
@@ -729,7 +729,7 @@ purge_type = {
 
 	## cardinality = 0..inf
 	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier]
+	triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
 }
 
 slavery_type = {
@@ -742,7 +742,7 @@ slavery_type = {
 		{
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
-			trigger = single_alias_right[trigger]
+			trigger = single_alias_right[trigger_clause]
 			key = <resolution>
 		}
 	}
@@ -753,7 +753,7 @@ slavery_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
@@ -765,7 +765,7 @@ slavery_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = single_alias_right[modifier]
+	free_pop_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -776,11 +776,11 @@ slavery_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	allow = single_alias_right[trigger]
+	allow = single_alias_right[trigger_clause]
 
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
@@ -790,7 +790,7 @@ slavery_type = {
 
 	## cardinality = 0..inf
 	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier]
+	triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
 }
 
 enums = {

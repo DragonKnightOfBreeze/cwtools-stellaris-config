@@ -43,7 +43,7 @@ special_project = {
 	## cardinality = 0..inf
 	desc = {
 		text = localisation
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 	}
 
 	subtype[cost] = {
@@ -122,31 +122,31 @@ special_project = {
 	## push_scope = country
 	## cardinality = 0..1
 	### this = country (project owner); from = event scope (planet or ship, MIGHT NOT EXIST); fromfrom = project creation scope (usually equals location)
-	abort_trigger = single_alias_right[trigger]
+	abort_trigger = single_alias_right[trigger_clause]
 
 	### this = event scope (ship or planet); from = project creation scope (usually equals location)
-	on_success = single_alias_right[effect]
+	on_success = single_alias_right[effect_clause]
 
 	## cardinality = 0..1
-	on_progress_25 = single_alias_right[effect]
+	on_progress_25 = single_alias_right[effect_clause]
 
 	## cardinality = 0..1
-	on_progress_50 = single_alias_right[effect]
+	on_progress_50 = single_alias_right[effect_clause]
 
 	## cardinality = 0..1
-	on_progress_75 = single_alias_right[effect]
+	on_progress_75 = single_alias_right[effect_clause]
 
 	## cardinality = 0..1
-	on_start = single_alias_right[effect]
+	on_start = single_alias_right[effect_clause]
 
 	## push_scope = country
 	## cardinality = 0..1
 	### this = country (project owner); from = project creation scope (usually equals location)
-	on_fail = single_alias_right[effect]
+	on_fail = single_alias_right[effect_clause]
 	## push_scope = country
 	## cardinality = 0..1
 	### new thing from 2.1.3 patch, have it from?
-	on_cancel = single_alias_right[effect]
+	on_cancel = single_alias_right[effect_clause]
 }
 
 

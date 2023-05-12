@@ -11,7 +11,7 @@ ai_budget = {
 	type = upkeep
 	category = <economic_category>
 
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 
 	### The fraction of total income that should be spent on this
 	## cardinality = 0..1

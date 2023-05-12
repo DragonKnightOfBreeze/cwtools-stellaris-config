@@ -65,9 +65,9 @@ deposit = {
 		## cardinality = 0..1
 		time = int
 		## cardinality = 0..1
-		on_cleared = single_alias_right[effect]
+		on_cleared = single_alias_right[effect_clause]
 		## cardinality = 0..1
-		can_be_cleared = single_alias_right[trigger]
+		can_be_cleared = single_alias_right[trigger_clause]
 		## cardinality = 0..1
 		blocker_swap_types = {
 			## cardinality = 1..inf
@@ -93,17 +93,17 @@ deposit = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = planet root = planet }
-	planet_modifier = single_alias_right[modifier]
+	planet_modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	country_modifier = single_alias_right[modifier]
+	country_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = planet root = planet }
-	triggered_planet_modifier = single_alias_right[triggered_modifier]
+	triggered_planet_modifier = single_alias_right[triggered_modifier_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	triggered_country_modifier = single_alias_right[triggered_modifier]
+	triggered_country_modifier = single_alias_right[triggered_modifier_clause]
 
 	subtype[colonisable] = {
 		## cardinality = 0..1
@@ -124,7 +124,7 @@ deposit = {
 	}
 
 	## cardinality = 0..1
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 	subtype[!not_dropped] = {
 		drop_weight = {
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]

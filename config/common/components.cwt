@@ -160,12 +160,12 @@ component_template = {
 	custom_tooltip = localisation
 	## cardinality = 0..inf
 	## replace_scopes = { this = ship root = ship }
-	triggered_ship_modifier = single_alias_right[triggered_modifier]
+	triggered_ship_modifier = single_alias_right[triggered_modifier_clause]
 	## cardinality = 0..1
 	should_ai_use = bool
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country }
- 	valid_for_country = single_alias_right[trigger]
+ 	valid_for_country = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -182,10 +182,10 @@ component_template = {
 		size = enum[utility_slot_size]
 		## cardinality = 0..1
 		## replace_scopes = { this = ship root = ship }
-		modifier = single_alias_right[modifier]
+		modifier = single_alias_right[modifier_clause]
 		## cardinality = 0..1
 		## replace_scopes = { this = ship root = ship }
-		ship_modifier = single_alias_right[modifier]
+		ship_modifier = single_alias_right[modifier_clause]
 		## cardinality = 0..1
 		ftl = bool
 		## cardinality = 0..1
@@ -203,7 +203,7 @@ component_template = {
 			name = scalar
 			## cardinality = 0..1
 			## push_scope = ship
-			limit = single_alias_right[trigger]
+			limit = single_alias_right[trigger_clause]
 			## cardinality = 0..1
 			system_wide = bool
 			## cardinality = 0..1
@@ -218,7 +218,7 @@ component_template = {
 			}
 			## cardinality = 0..1
 			## replace_scopes = { this = ship root = ship }
-			modifier = single_alias_right[modifier]
+			modifier = single_alias_right[modifier_clause]
 
 			## cardinality = 0..1
 			graphics = {
@@ -239,7 +239,7 @@ component_template = {
 			name = scalar
 			## cardinality = 0..1
 			## push_scope = ship
-			limit = single_alias_right[trigger]
+			limit = single_alias_right[trigger_clause]
 			## cardinality = 0..1
 			system_wide = bool
 			## cardinality = 0..1
@@ -254,7 +254,7 @@ component_template = {
 			}
 			## cardinality = 0..1
 			## replace_scopes = { this = ship root = ship }
-			modifier = single_alias_right[modifier]
+			modifier = single_alias_right[modifier_clause]
 
 			## cardinality = 0..1
 			graphics = {
@@ -286,13 +286,13 @@ component_template = {
 
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
-		scripted_action_button_possible = single_alias_right[trigger]
+		scripted_action_button_possible = single_alias_right[trigger_clause]
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
-		scripted_action_possible = single_alias_right[trigger]
+		scripted_action_possible = single_alias_right[trigger_clause]
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
-		scripted_action_finished = single_alias_right[trigger]
+		scripted_action_finished = single_alias_right[trigger_clause]
 		## cardinality = 0..1
 		scripted_action_name = <on_action>
 		## cardinality = 0..1
@@ -319,10 +319,10 @@ component_template = {
 		type = enum[weapon_type2]
 		## cardinality = 0..1
 		## replace_scopes = { this = ship root = ship }
-		modifier = single_alias_right[modifier]
+		modifier = single_alias_right[modifier_clause]
 		## cardinality = 0..1
 		## replace_scopes = { this = ship root = ship }
-		ship_modifier = single_alias_right[modifier]
+		ship_modifier = single_alias_right[modifier_clause]
 
 		## cardinality = 0..1
 		projectile_gfx = <projectile>

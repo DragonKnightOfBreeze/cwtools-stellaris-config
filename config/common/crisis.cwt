@@ -38,7 +38,7 @@ types = {
 ## replace_scopes = { this = country root = country }
 crisis_level = {
 	## cardinality = 0..1
-	allow = single_alias_right[trigger]
+	allow = single_alias_right[trigger_clause]
 	required_menace = int
 
 	# REWARDS
@@ -47,7 +47,7 @@ crisis_level = {
 		<menace_perk>
 	}
 
-	on_unlock = single_alias_right[effect]
+	on_unlock = single_alias_right[effect_clause]
 }
 
 crisis_objective = {
@@ -70,9 +70,9 @@ menace_perk = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	on_unlock = single_alias_right[effect]
+	on_unlock = single_alias_right[effect_clause]
 }

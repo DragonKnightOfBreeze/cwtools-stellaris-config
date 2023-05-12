@@ -35,7 +35,7 @@ anomaly_category = {
 	## replace_scopes = { root = planet this = planet from = ship }
 	desc = {
 		### Scope: planet, from = ship
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 		### Localization key for description
 		text = localisation
 	}
@@ -69,7 +69,7 @@ anomaly_category = {
 	### Executes immediately when anomaly category is spawned. Scopes are this/root: planet, from: ship. NOTE: on_spawn effects will not run if category is spawned through console
 	## cardinality = 0..1
 	## replace_scopes = { root = planet this = planet from = ship }
-	on_spawn = single_alias_right[effect]
+	on_spawn = single_alias_right[effect_clause]
 
 	### Shorthand for on_success = { 1 = { anomaly_event = <event id> } }
 	### Only use if there is only one outcome in the category

@@ -1,6 +1,6 @@
 # modifier
 
-single_alias[modifier] = {
+single_alias[modifier_clause] = {
 	alias_name[modifier] = alias_match_left[modifier]
 
 	## cardinality = 0..1
@@ -19,14 +19,14 @@ single_alias[modifier] = {
 
 # triggered modifier
 
-single_alias[triggered_modifier] = {
+single_alias[triggered_modifier_clause] = {
 	## cardinality = 0..1
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	key = localisation
 
 	## cardinality = 0..1
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..inf
 	alias_name[modifier] = alias_match_left[modifier]
 
@@ -49,15 +49,15 @@ single_alias[triggered_modifier] = {
 	multiplier = value_field
 }
 
-single_alias[triggered_modifier_by_pop] = {
+single_alias[triggered_modifier_by_pop_clause] = {
 	## cardinality = 0..1
 	## push_scope = pop
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	key = localisation
 
 	## cardinality = 0..1
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..inf
 	alias_name[modifier] = alias_match_left[modifier]
 
@@ -80,15 +80,15 @@ single_alias[triggered_modifier_by_pop] = {
 	multiplier = value_field
 }
 
-single_alias[triggered_modifier_by_planet] = {
+single_alias[triggered_modifier_by_planet_clause] = {
 	## cardinality = 0..1
 	## push_scope = planet
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	key = localisation
 
 	## cardinality = 0..1
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..inf
 	alias_name[modifier] = alias_match_left[modifier]
 
@@ -111,15 +111,15 @@ single_alias[triggered_modifier_by_planet] = {
 	multiplier = value_field
 }
 
-single_alias[triggered_modifier_by_starbase] = {
+single_alias[triggered_modifier_by_starbase_clause] = {
 	## cardinality = 0..1
 	## push_scope = starbase
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	key = localisation
 
 	## cardinality = 0..1
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..inf
 	alias_name[modifier] = alias_match_left[modifier]
 
@@ -142,15 +142,15 @@ single_alias[triggered_modifier_by_starbase] = {
 	multiplier = value_field
 }
 
-single_alias[triggered_modifier_by_situation] = {
+single_alias[triggered_modifier_by_situation_clause] = {
 	## cardinality = 0..1
 	## push_scope = situation
-	potential = single_alias_right[trigger]
+	potential = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	key = localisation
 
 	## cardinality = 0..1
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..inf
 	alias_name[modifier] = alias_match_left[modifier]
 
@@ -175,20 +175,20 @@ single_alias[triggered_modifier_by_situation] = {
 
 # triggered desc
 
-single_alias[triggered_desc] = {
+single_alias[triggered_desc_clause] = {
 	## cardinality = 0..1
-	trigger = single_alias_right[trigger]
+	trigger = single_alias_right[trigger_clause]
 	text = localisation
 }
 
 # trigger
 
-single_alias[trigger] = {
+single_alias[trigger_clause] = {
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
 # effect
 
-single_alias[effect] = {
+single_alias[effect_clause] = {
 	alias_name[effect] = alias_match_left[effect]
 }

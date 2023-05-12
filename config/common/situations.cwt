@@ -26,38 +26,38 @@ situation_type = {
 	## cardinality = 0..inf
 	picture = {
 		picture = <sprite>
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 	}
 	## cardinality = 0..1
 	category = enum[situation_categories]
 
 	## cardinality = 0..inf
 	desc = {
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 		text = localisation
 	}
 	## cardinality = 0..1
-	on_start = single_alias_right[effect]
+	on_start = single_alias_right[effect_clause]
 	## cardinality = 0..1
-	on_fail = single_alias_right[effect]
+	on_fail = single_alias_right[effect_clause]
 	## cardinality = 0..1
-	on_abort = single_alias_right[effect]
+	on_abort = single_alias_right[effect_clause]
 	## cardinality = 0..1
-	abort_trigger = single_alias_right[trigger]
+	abort_trigger = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	## push_scope = country
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..1
 	## push_scope = planet
-	target_modifier = single_alias_right[modifier]
+	target_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..inf
 	## push_scope = country
-	triggered_modifier = single_alias_right[triggered_modifier_by_situation]
+	triggered_modifier = single_alias_right[triggered_modifier_by_situation_clause]
 	## cardinality = 0..inf
 	## push_scope = planet
-	triggered_target_modifier = single_alias_right[triggered_modifier_by_situation]
+	triggered_target_modifier = single_alias_right[triggered_modifier_by_situation_clause]
 
 	## cardinality = 0..1
 	on_monthly = {
@@ -78,7 +78,7 @@ situation_type = {
 	monthly_progress = {
 		alias_name[modifier_rule_with_loc] = alias_match_left[modifier_rule_with_loc]
 	}
-	on_progress_complete = single_alias_right[effect]
+	on_progress_complete = single_alias_right[effect_clause]
 
 	## cardinality = 0..inf
 	approach = {
@@ -88,23 +88,23 @@ situation_type = {
 		## cardinality = 0..1
 		default = yes
 		## cardinality = 0..1
-		allow = single_alias_right[trigger]
+		allow = single_alias_right[trigger_clause]
 		## cardinality = 0..1
-		potential = single_alias_right[trigger]
+		potential = single_alias_right[trigger_clause]
 
 		## cardinality = 0..1
 		## push_scope = country
-		modifier = single_alias_right[modifier]
+		modifier = single_alias_right[modifier_clause]
 		## cardinality = 0..1
 		## push_scope = planet
-		target_modifier = single_alias_right[modifier]
+		target_modifier = single_alias_right[modifier_clause]
 
 		## cardinality = 0..inf
 		## push_scope = country
-		triggered_modifier = single_alias_right[triggered_modifier_by_situation]
+		triggered_modifier = single_alias_right[triggered_modifier_by_situation_clause]
 		## cardinality = 0..inf
 		## push_scope = planet
-		triggered_target_modifier = single_alias_right[triggered_modifier_by_situation]
+		triggered_target_modifier = single_alias_right[triggered_modifier_by_situation_clause]
 
 		## cardinality = 0..1
 		resources = {
@@ -112,7 +112,7 @@ situation_type = {
 			alias_name[economic_template] = alias_match_left[economic_template]
 		}
 		## cardinality = 0..1
-		on_select = single_alias_right[effect]
+		on_select = single_alias_right[effect_clause]
 		## cardinality = 0..1
 		ai_weight = int
 		## cardinality = 0..1
@@ -156,23 +156,23 @@ situation_type = {
 			## cardinality = 0..1
 			custom_tooltip = localisation
 			## cardinality = 0..1
-			on_first_enter = single_alias_right[effect]
+			on_first_enter = single_alias_right[effect_clause]
 			## cardinality = 0..1
-			potential = single_alias_right[trigger]
+			potential = single_alias_right[trigger_clause]
 
 			## cardinality = 0..1
 			## push_scope = country
-			modifier = single_alias_right[modifier]
+			modifier = single_alias_right[modifier_clause]
 			## cardinality = 0..1
 			## push_scope = planet
-			target_modifier = single_alias_right[modifier]
+			target_modifier = single_alias_right[modifier_clause]
 
 			## cardinality = 0..inf
 			## push_scope = country
-			triggered_modifier = single_alias_right[triggered_modifier_by_situation]
+			triggered_modifier = single_alias_right[triggered_modifier_by_situation_clause]
 			## cardinality = 0..inf
 			## push_scope = planet
-			triggered_target_modifier = single_alias_right[triggered_modifier_by_situation]
+			triggered_target_modifier = single_alias_right[triggered_modifier_by_situation_clause]
 	    }
 	}
 }

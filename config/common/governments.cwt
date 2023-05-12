@@ -151,7 +151,7 @@ authority = {
 		alias_name[government_trigger] = alias_match_left[government_trigger]
 	}
 	## cardinality = 0..1
-	playable = single_alias_right[trigger]
+	playable = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	possible = {
 		## cardinality = 0..1
@@ -178,7 +178,7 @@ authority = {
 	}
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	country_modifier = single_alias_right[modifier]
+	country_modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..1
 	tags = {
 		## cardinality = 1..inf
@@ -189,7 +189,7 @@ authority = {
 government = {
 	### Determines if a government name can be chosen. AND trigger, scope: country; valid triggers: has_ethic, has_authority, has_valid_civic; everything else is undefined behavior!
 	## replace_scopes = { this = country root = country }
-	possible = single_alias_right[trigger]
+	possible = single_alias_right[trigger_clause]
 	### scriptable value, scope: country; the (possible) government type with the biggest weight is assigned to the country
 	## replace_scopes = { this = country root = country }
 	weight = {
@@ -229,11 +229,11 @@ civic_or_origin = {
 	### AND trigger, no scope; use this to prevent the civic from being selectable by the player (UI). Possibly only works with DLC checks.
 	## cardinality = 0..1
 	## replace_scopes = { this = no_scope root = no_scope }
-	playable = single_alias_right[trigger]
+	playable = single_alias_right[trigger_clause]
 	### AND trigger, no scope; use this to prevent the civic from being selectable by the AI. Possibly only works with DLC checks.
 	## cardinality = 0..1
 	## replace_scopes = { this = no_scope root = no_scope }
-	ai_playable = single_alias_right[trigger]
+	ai_playable = single_alias_right[trigger_clause]
 	### requirements list, supports country_type, ethics, authority and civics. See ../readme_requirements.txt
 	## cardinality = 0..1
 	potential = {
@@ -258,7 +258,7 @@ civic_or_origin = {
 	### modifier added to the country if the civic is selected and valid
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	starting_colony = <planet_class>
@@ -273,10 +273,10 @@ civic_or_origin = {
 		### If you want to use country scope here, you must always check is_scope_valid first (see civic_devouring_swarm), or you will get errors or it won't work as intended.
 		## cardinality = 0..1
 		description = localisation
-		trigger = single_alias_right[trigger]
+		trigger = single_alias_right[trigger_clause]
 		### modifier that is applied to the country when triggers are evaluated as true
 		## cardinality = 0..1
-		modifier = single_alias_right[modifier]
+		modifier = single_alias_right[modifier_clause]
 	}
 
 	subtype[civic] = {
@@ -387,17 +387,17 @@ councilor = {
 	}
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	possible = single_alias_right[trigger]
+	possible = single_alias_right[trigger_clause]
 	### Can a leader have this council position. Used to filter leaders. Scope: THIS = Leader.
 	## replace_scopes = { this = leader root = leader }
-	is_leader_possible = single_alias_right[trigger]
+	is_leader_possible = single_alias_right[trigger_clause]
 	### Civic that is required for this council position. Also used by UI. Default = none.
 	## cardinality = 0..1
 	civic = <civic_or_origin.civic>
 	### Country Modifier, that is multiplied by assigned Leader's level.
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	modifier = single_alias_right[modifier]
+	modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..1
 	icon = <sprite>
 	### Custom tooltip text shown for the modifier of the council position.
