@@ -128,10 +128,12 @@ archaeological_site_type = {
 }
 
 relic = {
+	## cardinality = 0..1
 	activation_duration = int[0..inf]
 	portrait = <sprite>
 	## cardinality = 0..1
 	sound = <sound_effect>
+	## cardinality = 0..1
 	score = int[0..inf]
 
 	### Possible check for activation
@@ -149,6 +151,7 @@ relic = {
 	## replace_scope = { root = country this = country }
 	triggered_country_modifier = single_alias_right[triggered_modifier]
 
+	## cardinality = 0..1
 	## replace_scope = { root = country this = country }
 	active_effect = {
 		alias_name[effect] = alias_match_left[effect]

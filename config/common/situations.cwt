@@ -68,10 +68,10 @@ situation_type = {
 
 	## cardinality = 0..inf
 	## push_scope = country
-	triggered_modifier = single_alias_right[triggered_modifier]
+	triggered_modifier = single_alias_right[triggered_modifier_by_situation]
 	## cardinality = 0..inf
 	## push_scope = planet
-	triggered_target_modifier = single_alias_right[triggered_modifier]
+	triggered_target_modifier = single_alias_right[triggered_modifier_by_situation]
 
 	## cardinality = 0..1
 	on_monthly = {
@@ -125,10 +125,10 @@ situation_type = {
 
 		## cardinality = 0..inf
 		## push_scope = country
-		triggered_modifier = single_alias_right[triggered_modifier]
+		triggered_modifier = single_alias_right[triggered_modifier_by_situation]
 		## cardinality = 0..inf
 		## push_scope = planet
-		triggered_target_modifier = single_alias_right[triggered_modifier]
+		triggered_target_modifier = single_alias_right[triggered_modifier_by_situation]
 
 		## cardinality = 0..1
 		resources = {
@@ -203,10 +203,10 @@ situation_type = {
 
 			## cardinality = 0..inf
 			## push_scope = country
-			triggered_modifier = single_alias_right[triggered_modifier]
+			triggered_modifier = single_alias_right[triggered_modifier_by_situation]
 			## cardinality = 0..inf
 			## push_scope = planet
-			triggered_target_modifier = single_alias_right[triggered_modifier]
+			triggered_target_modifier = single_alias_right[triggered_modifier_by_situation]
 	    }
 	}
 }

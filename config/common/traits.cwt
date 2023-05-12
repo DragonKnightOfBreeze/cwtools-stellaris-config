@@ -200,6 +200,11 @@ trait = {
 		system_modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
+		## cardinality = 0..1
+		## replace_scopes = { this = planet root = planet }
+		assist_research_planet_modifier = {
+			alias_name[modifier] = alias_match_left[modifier]
+		}
 
 		### Modifier applied to the leader itself if the given condition is fullfilled.
 		## cardinality = 0..inf
@@ -217,6 +222,9 @@ trait = {
 		## cardinality = 0..inf
 		## replace_scopes = { this = system root = system }
 		triggered_system_modifier = single_alias_right[triggered_modifier]
+		## cardinality = 0..inf
+		## replace_scopes = { this = planet root = planet }
+		assist_triggered_system_modifier = single_alias_right[triggered_modifier]
 
 		### Show key if trigger/exclusive_trigger is true.
 		## cardinality = 0..1
@@ -466,6 +474,8 @@ trait = {
 		}
 	}
 
+	## cardinality = 0..1
+	ai_weight = int
 	## cardinality = 0..1
 	ai_weight = {
 		enum[weight_or_factor] = int

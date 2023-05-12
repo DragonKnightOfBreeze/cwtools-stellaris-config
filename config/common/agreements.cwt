@@ -179,7 +179,7 @@ agreement_term_value = {
 	## cardinality = 0..1
 	ai_acceptance = {
 		## cardinality = 0..1
-		overload = int
+		overlord = int
 		## cardinality = 0..1
 		subject = int
 	}
@@ -196,7 +196,7 @@ agreement_term_value = {
 		## cardinality = 0..1
 		ai_acceptance = {
 			## cardinality = 0..1
-			overload = int
+			overlord = int
 			## cardinality = 0..1
 			subject = int
 		}

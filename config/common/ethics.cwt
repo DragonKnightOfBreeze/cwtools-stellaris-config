@@ -48,6 +48,7 @@ ethic = {
 	## cardinality = 0..1
 	fanatic_variant = <ethic>
 
+	## cardinality = 0..1
 	leader_background_job_weight = {
 		## cardinality = 0..inf
 		<job> = int

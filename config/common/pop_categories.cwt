@@ -45,7 +45,7 @@ pop_category = {
 	triggered_pop_modifier = single_alias_right[triggered_modifier_by_pop]
 	## cardinality = 0..inf
 	## replace_scope = { this = planet root = planet }
-	triggered_planet_modifier_pop = single_alias_right[triggered_modifier_by_pop]
+	triggered_planet_modifier = single_alias_right[triggered_modifier_by_pop]
 
 	###scope: pop to be resettled
 	allow_resettlement = {

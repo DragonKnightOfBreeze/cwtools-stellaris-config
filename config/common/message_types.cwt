@@ -10,6 +10,7 @@ message_type = {
 	### Sprite to use for gui item "message_icon_button"
 	icon =	<sprite>
 	### Frame index to use for gui item "message_frame"
+	## cardinality = 0..1
 	icon_frame = int
 	### Message key, used from code
 	key = scalar

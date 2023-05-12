@@ -198,10 +198,13 @@ building = {
 
 	## cardinality = 0..inf
 	## replace_scope = { this = planet root = planet }
-	triggered_planet_modifier_direct = single_alias_right[triggered_modifier]
+	triggered_planet_modifier = single_alias_right[triggered_modifier]
 	## cardinality = 0..inf
 	## replace_scope = { this = country root = country }
-	triggered_country_modifier_planet = single_alias_right[triggered_modifier_by_planet]
+	triggered_country_modifier = single_alias_right[triggered_modifier_by_planet]
+	## cardinality = 0..inf
+	## replace_scope = { this = army root = army }
+	triggered_army_modifier = single_alias_right[triggered_modifier_by_planet]
 
 	## cardinality = 0..inf
 	triggered_desc = single_alias_right[triggered_desc]

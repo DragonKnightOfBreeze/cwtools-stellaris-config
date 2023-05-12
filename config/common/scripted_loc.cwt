@@ -11,6 +11,7 @@ scripted_loc = {
 	name = scalar
 	## cardinality = 0..1
 	random = bool
+	# text or value (with optional default)
 	## cardinality = 1..inf
 	text = {
 		## cardinality = 0..1
@@ -23,6 +24,8 @@ scripted_loc = {
 		trigger = { alias_name[trigger] = alias_match_left[trigger] }
 		localization_key = localisation
 	}
+	## cardinality = 0..1
+	value = value_field
 	## cardinality = 0..1
 	default = localisation
 }

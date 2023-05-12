@@ -11,6 +11,7 @@ economic_plan = {
 	type = enum[game_stage]
 
 	### how much surplus income of resources the AI aims for
+	## cardinality = 0..1
 	income = {
 		## cardinality = 1..inf
 		<resource> = float
@@ -55,6 +56,7 @@ economic_plan = {
 	naval_cap = int
 
 	### ai weighting of plan, scope is country
+	## cardinality = 0..1
 	## replace_scope = { this = country root = country }
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]

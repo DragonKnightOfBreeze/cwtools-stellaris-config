@@ -30,7 +30,7 @@ modifier_categories = {
 		supported_scopes = { ship starbase fleet country }
 	}
 	Ships = {
-		supported_scopes = { ship starbase fleet planet country }
+		supported_scopes = { ship starbase fleet planet country leader }
 	}
 	Fleets = {
 		supported_scopes = { fleet country }
@@ -42,7 +42,7 @@ modifier_categories = {
 		supported_scopes = { species planet country }
 	}
 	Starbases = {
-		supported_scopes = { starbase country }
+		supported_scopes = { starbase planet country }
 	}
 	"Economic Units" = {
 		supported_scopes = { any }

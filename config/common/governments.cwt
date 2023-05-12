@@ -190,18 +190,6 @@ authority = {
 	}
 }
 
-enums = {
-	enum[election_types] = {
-		none
-		oligarchic
-		democratic
-	}
-	enum[authority_postfixes] = {
-		hive_mind
-		machine_intelligence
-	}
-}
-
 government = {
 	### Determines if a government name can be chosen. AND trigger, scope: country; valid triggers: has_ethic, has_authority, has_valid_civic; everything else is undefined behavior!
 	## replace_scope = { this = country root = country }
@@ -413,6 +401,7 @@ councilor = {
 		## cardinality = 0..inf
 		<leader_class>
 	}
+	## cardinality = 0..1
 	## replace_scope = { this = country root = country }
 	possible = {
 		alias_name[trigger] = alias_match_left[trigger]
@@ -431,6 +420,7 @@ councilor = {
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
+	## cardinality = 0..1
 	icon = <sprite>
 	### Custom tooltip text shown for the modifier of the council position.
 	## cardinality = 0..1
@@ -438,6 +428,18 @@ councilor = {
 	### Custom tooltip text shown for the requirements of the council position.
 	## cardinality = 0..1
 	conditional_tooltip = localisation
+}
+
+enums = {
+	enum[election_types] = {
+		none
+		oligarchic
+		democratic
+	}
+	enum[authority_postfixes] = {
+		hive_mind
+		machine_intelligence
+	}
 }
 
 #aliases - used in species_classes and perhaps other places.
