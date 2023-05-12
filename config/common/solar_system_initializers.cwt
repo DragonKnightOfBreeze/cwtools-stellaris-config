@@ -118,7 +118,6 @@ solar_system_initializer = {
 		spawn_chance = int
 		## cardinality = 0..1
 		trigger = {
-			## cardinality = 0..inf
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 	}

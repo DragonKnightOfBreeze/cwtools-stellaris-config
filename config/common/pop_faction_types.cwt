@@ -85,7 +85,6 @@ pop_faction = {
 	### Existence requirements for defined parameter
 	## cardinality = 0..1
 	valid = {
-		## cardinality = 0..1
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 

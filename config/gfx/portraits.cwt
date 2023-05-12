@@ -56,10 +56,9 @@ portrait_group = {
 	game_setup = {
 		## cardinality = 0..inf
 		add = {
-			## replace_scopes = { this = country root = country }
 			## cardinality = 0..1
+			## replace_scopes = { this = country root = country }
 			trigger = {
-				## cardinality = 0..inf
 				alias_name[trigger] = alias_match_left[trigger]
 			}
 			portraits = {

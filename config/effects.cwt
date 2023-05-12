@@ -3082,7 +3082,6 @@ alias[effect:switch] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..inf
 	scalar = {
-		## cardinality = 0..inf
 		alias_name[effect] = alias_match_left[effect]
 	}
 }

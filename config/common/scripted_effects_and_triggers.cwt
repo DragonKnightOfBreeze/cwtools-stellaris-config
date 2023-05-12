@@ -10,8 +10,8 @@ types = {
 }
 
 scripted_trigger = {
-	## cardinality = 0..1
 	## tag
+	## cardinality = 0..1
 	optimize_memory
 	alias_name[trigger] = alias_match_left[trigger]
 }

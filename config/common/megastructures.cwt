@@ -120,26 +120,22 @@ megastructure = {
 		## replace_scopes = { this = planet root = planet }
 		## cardinality = 0..1
 		planet_possible = {
-			## cardinality = 0..inf
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 	}
 	## cardinality = 0..1
 	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }
 	on_build_start = {
-		## cardinality = 0..inf
 		alias_name[effect] = alias_match_left[effect]
 	}
 	## cardinality = 0..1
 	## replace_scopes = { this = system root = system from = country }
 	on_build_cancel = {
-		## cardinality = 0..inf
 		alias_name[effect] = alias_match_left[effect]
 	}
 	## cardinality = 0..1
 	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }
 	on_build_complete = {
-		## cardinality = 0..inf
 		alias_name[effect] = alias_match_left[effect]
 	}
 	## cardinality = 0..1

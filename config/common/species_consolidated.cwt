@@ -258,7 +258,6 @@ species_class = {
 		## replace_scopes = { root = no_scope this = no_scope }
 		## cardinality = 0..1
 		playable = {
-			## cardinality = 0..1
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 		portraits = {
