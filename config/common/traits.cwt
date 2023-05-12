@@ -272,7 +272,7 @@ trait = {
 			## cardinality = 0..inf
 			subclass_background_icon = <sprite>
 		}
-		subtype[destiny_background] = {
+		subtype[destiny_trait] = {
 			## cardinality = 0..inf
 			destiny_background_icon = <sprite>
 		}
