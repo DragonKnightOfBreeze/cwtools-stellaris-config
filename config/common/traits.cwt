@@ -6,13 +6,33 @@ types = {
 		file_extension = .txt
 
 		subtype[leader_trait] = {
-			leader_trait = {}
-			leader_trait = all
+			leader_class = $any
+		}
+		subtype[starting_ruler_trait] = {
+			leader_class = $any
+			starting_ruler_trait = yes
+		}
+		subtype[subclass_trait] = {
+			leader_class = $any
+			subclass_trait = yes
+		}
+		subtype[destiny_trait] = {
+			leader_class = $any
+			destiny_trait = yes
+		}
+		subtype[ethic_destiny_trait] = {
+			leader_class = $any
+			ethic_destiny_trait = yes
+		}
+		subtype[councilor_trait] = {
+			leader_class = $any
+			councilor_trait = yes
 		}
 		subtype[species_trait] = {
-			## cardinality = 0..1
-			leader_trait = no
+			## cardinality = 0..0
+			leader_class = $any
 		}
+
 		localisation = {
 			## required
 			Name = "$"
@@ -54,6 +74,19 @@ trait = {
 		### This trait is available in ruler creation. Default is no.
 		## cardinality = 0..1
 		starting_ruler_trait = bool
+		## cardinality = 0..1
+		subclass_trait = bool
+		## cardinality = 0..1
+		destiny_trait = bool
+		## cardinality = 0..1
+		ethic_destiny_trait = bool
+		### Is this trait only active if the leader is on the Council? Default is no.
+		## cardinality = 0..1
+		councilor_trait = bool
+		### default: false
+		## cardinality = 0..1
+		veteran_class_locked_trait = bool
+
 		### OR - This trait is blocked in ruler creation if listed origins are selected.
 		## cardinality = 0..1
 		forbidden_origins = {
@@ -84,9 +117,6 @@ trait = {
 		## cardinality = 0..1
 		sorting_priority = int
 
-		### Is this trait only active if the leader is on the Council? Default is no.
-		## cardinality = 0..1
-		councilor_trait = bool
 		### Is this a negative trait? Default is no.
 		## cardinality = 0..1
 		negative = bool
@@ -96,6 +126,10 @@ trait = {
 		### Is this leader immortal? Default is no.
 		## cardinality = 0..1
 		immortal_leaders = bool
+
+		### Default is yes.
+		## cardinality = 0..1
+		initial = bool
 		### Is this trait available during leader generation, level up or yearly negative trait chance. Default is yes.
 		## cardinality = 0..1
 		randomized = bool
@@ -113,7 +147,7 @@ trait = {
 		### Modifier applied to scope leader is assigned to (e.g. fleet, or science ship) or country if councilor trait.
 		## cardinality = 0..1
 		## replace_scopes = { this = any root = any }
-		self_modifier = {
+		modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		### Modifier applied to planet if General assigned to defense army.
@@ -136,9 +170,11 @@ trait = {
 			potential = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
+			## cardinality = 0..1
 			modifier = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
+			alias_name[modifier] = alias_match_left[modifier]
 		}
 		### Modifier applied to location the leader is assigned to if the given condition is fullfilled.
 		## cardinality = 0..inf
@@ -147,9 +183,11 @@ trait = {
 			potential = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
+			## cardinality = 0..1
 			modifier = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
+			alias_name[modifier] = alias_match_left[modifier]
 		}
 		### Modifier applied to the planet on which General is assigned to defend if the given condition is fullfilled.
 		## cardinality = 0..inf
@@ -158,9 +196,11 @@ trait = {
 			potential = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
+			## cardinality = 0..1
 			modifier = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
+			alias_name[modifier] = alias_match_left[modifier]
 		}
 		# NOTE Should exist, but not referred in 000_documentation_leader_traits.txt
 		## cardinality = 0..inf
@@ -169,9 +209,11 @@ trait = {
 			potential = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
+			## cardinality = 0..1
 			modifier = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
+			alias_name[modifier] = alias_match_left[modifier]
 		}
 
 		### Show key if trigger/exclusive_trigger is true.
@@ -226,6 +268,15 @@ trait = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 
+		subtype[subclass_trait] = {
+			## cardinality = 0..inf
+			subclass_background_icon = <sprite>
+		}
+		subtype[destiny_background] = {
+			## cardinality = 0..inf
+			destiny_background_icon = <sprite>
+		}
+
 		### AND - Trait only available if the leaders species has this trait.
 		## cardinality = 0..1
 		requires_traits = {
@@ -233,6 +284,7 @@ trait = {
 			<trait.species_trait>
 		}
 		### OR - Trait only available if the Empire has this type of government form.
+		## cardinality = 0..1
 		requires_governments = {
 			## cardinality = 0..inf
 			<government>
@@ -250,6 +302,7 @@ trait = {
 			<trait.leader_trait>
 		}
 		### AND - Trait will remove listed traits currently on leader when added.
+		## cardinality = 0..1
 		replace_traits = {
 			## cardinality = 0..inf
 			<trait.leader_trait>
@@ -291,6 +344,13 @@ trait = {
 		icon = filepath
 		## cardinality = 0..1
 		sorting_priority = int
+
+		### Default is yes.
+		## cardinality = 0..1
+		initial = bool
+		### Is this trait available during leader generation, level up or yearly negative trait chance. Default is yes.
+		## cardinality = 0..1
+		randomized = bool
 
 		## cardinality = 0..1
 		valid_for_all_ethics = bool
@@ -390,9 +450,19 @@ trait = {
 		species_potential_remove = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
+		## replace_scope = { this = species root = species from = country }
+		## cardinality = 0..1
+		species_possible_remove = {
+			alias_name[trigger] = alias_match_left[trigger]
+		}
 		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
 		species_possible_merge_add = {
+			alias_name[trigger] = alias_match_left[trigger]
+		}
+		## replace_scope = { this = species root = species from = country }
+		## cardinality = 0..1
+		species_possible_merge_remove = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 

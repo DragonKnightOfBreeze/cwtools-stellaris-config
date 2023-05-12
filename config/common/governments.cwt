@@ -237,6 +237,13 @@ government = {
 }
 
 civic_or_origin = {
+	## cardinality = 0..1
+	## file_extensions = { .dds .png .tga }
+	icon = filepath
+	### localisation of custom effects
+	## cardinality = 0..1
+	description = localisation
+
 	### AND trigger, no scope; use this to prevent the civic from being selectable by the player (UI). Possibly only works with DLC checks.
 	## cardinality = 0..1
 	## replace_scope = { this = no_scope root = no_scope }
@@ -249,7 +256,16 @@ civic_or_origin = {
 	ai_playable = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
+	### requirements list, supports country_type, ethics, authority and civics. See ../readme_requirements.txt
+	## cardinality = 0..1
+	potential = {
+		## cardinality = 0..1
+		text = localisation
+		## cardinality = 0..1
+		always = bool
 
+		alias_name[government_trigger] = alias_match_left[government_trigger]
+	}
 	### requirements list, supports country_type, ethics, authority and civics. See ../readme_requirements.txt
 	## cardinality = 0..1
 	possible = {
@@ -261,30 +277,6 @@ civic_or_origin = {
 		alias_name[government_trigger] = alias_match_left[government_trigger]
 	}
 
-	### requirements list, supports country_type, ethics, authority and civics. See ../readme_requirements.txt
-	## cardinality = 0..1
-	potential = {
-		## cardinality = 0..1
-		text = localisation
-		## cardinality = 0..1
-		always = bool
-
-		alias_name[government_trigger] = alias_match_left[government_trigger]
-	}
-
-	## cardinality = 0..1
-	## file_extensions = { .dds .png .tga }
-	icon = filepath
-	### localisation of custom effects
-	## cardinality = 0..1
-	description = localisation
-	### scriptable weight for randomizing a civic; required, else the civic will not get assigned randomly
-	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
-	random_weight = {
-		alias_name[modifier_rule] = alias_match_left[modifier_rule]
-	}
-
 	### modifier added to the country if the civic is selected and valid
 	## cardinality = 0..1
 	## replace_scope = { this = country root = country }
@@ -294,6 +286,7 @@ civic_or_origin = {
 
 	## cardinality = 0..1
 	starting_colony = <planet_class>
+
 	## cardinality = 0..1
 	swap_type = {
 		## cardinality = 0..1
@@ -397,7 +390,18 @@ civic_or_origin = {
 		habitability_preference = <planet_class>
 		## cardinality = 0..1
 		preferred_planet_class_neighbor = no
+	}
 
+	## cardinality = 0..1
+	leader_background_job_weight = {
+		## cardinality = 0..inf
+		<job> = int
+	}
+
+	## cardinality = 0..1
+	## replace_scope = { this = country root = country }
+	random_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 }
 
