@@ -39,7 +39,5 @@ country_ship_of_size_limit = {
 	## cardinality = 0..1
 	naval_cap_fraction = float
 	### Trigger that defines if tooltip for naval capacity icon on the top bar should be shown
-	show = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	show = single_alias_right[trigger]
 }

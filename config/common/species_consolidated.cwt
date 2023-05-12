@@ -209,15 +209,11 @@ species_class = {
 	## replace_scopes = { this = pop root = pop }
 	modifier = single_alias_right[modifier]
 	## cardinality = 0..1
-	playable = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	playable = single_alias_right[trigger]
 	## cardinality = 0..1
 	randomized = bool
 	## cardinality = 0..1
-	randomized = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	randomized = single_alias_right[trigger]
 	## cardinality = 0..1
 	uplifted_into = <species_class>
 	## cardinality = 0..1
@@ -258,9 +254,7 @@ species_class = {
 	custom_portraits = {
 		## replace_scopes = { root = no_scope this = no_scope }
 		## cardinality = 0..1
-		randomized = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		randomized = single_alias_right[trigger]
 		## replace_scopes = { root = no_scope this = no_scope }
 		## cardinality = 0..1
 		playable = {
@@ -326,9 +320,7 @@ citizenship_type = {
 		{
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			key = <resolution>
 		}
 	}
@@ -371,15 +363,11 @@ citizenship_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	allow = single_alias_right[trigger]
 
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
@@ -402,9 +390,7 @@ colonization_control = {
 		{
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			key = <resolution>
 		}
 	}
@@ -437,15 +423,11 @@ colonization_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	allow = single_alias_right[trigger]
 
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
@@ -468,9 +450,7 @@ living_standard = {
 		{
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			key = <resolution>
 		}
 	}
@@ -500,15 +480,11 @@ living_standard = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	allow = single_alias_right[trigger]
 
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
@@ -531,9 +507,7 @@ migration_control = {
 		{
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			key = <resolution>
 		}
 	}
@@ -566,15 +540,11 @@ migration_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	allow = single_alias_right[trigger]
 
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
@@ -597,9 +567,7 @@ military_service_type = {
 		{
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			key = <resolution>
 		}
 	}
@@ -629,15 +597,11 @@ military_service_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	allow = single_alias_right[trigger]
 
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
@@ -660,9 +624,7 @@ population_control = {
 		{
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			key = <resolution>
 		}
 	}
@@ -695,15 +657,11 @@ population_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	allow = single_alias_right[trigger]
 
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
@@ -726,9 +684,7 @@ purge_type = {
 		{
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			key = <resolution>
 		}
 	}
@@ -762,15 +718,11 @@ purge_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	allow = single_alias_right[trigger]
 
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
@@ -793,9 +745,7 @@ slavery_type = {
 		{
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			key = <resolution>
 		}
 	}
@@ -829,15 +779,11 @@ slavery_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	allow = single_alias_right[trigger]
 
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {

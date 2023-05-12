@@ -12,7 +12,5 @@ start_screen_message = {
 	localization = localisation
 
 	## replace_scopes = { root = country this = country }
-	trigger = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	trigger = single_alias_right[trigger]
 }

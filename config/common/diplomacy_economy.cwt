@@ -11,9 +11,7 @@ diplomacy_economy = {
 		## cardinality = 0..inf
 		scalar = {
 			## replace_scopes = { this = country root = country from = country }
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			resources = {
 				category = <economic_category>
 				alias_name[economic_template] = alias_match_left[economic_template]
@@ -25,9 +23,7 @@ diplomacy_economy = {
 		## cardinality = 0..inf
 		scalar = {
 			## replace_scopes = { this = country root = country from = country }
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			resources = {
 				category = <economic_category>
 				alias_name[economic_template] = alias_match_left[economic_template]

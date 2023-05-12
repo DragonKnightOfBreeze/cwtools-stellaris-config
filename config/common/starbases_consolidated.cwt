@@ -57,28 +57,18 @@ starbase_building = {
 	show_in_tech = <technology>
 
 	## cardinality = 0..1
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	### entries in possible are displayed in game. Use custom_tooltip to replace localisations.
-	possible = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	possible = single_alias_right[trigger]
 
 	## cardinality = 0..1
-	abort_trigger = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	abort_trigger = single_alias_right[trigger]
 	## cardinality = 0..1
-	destroy_trigger = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	destroy_trigger = single_alias_right[trigger]
 	## cardinality = 0..1
-	abort_construction_trigger = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	abort_construction_trigger = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	equipped_component = <component_template>
@@ -157,17 +147,11 @@ starbase_building = {
 	triggered_planet_modifier = single_alias_right[triggered_modifier_by_starbase]
 
 	## cardinality = 0..1
-	replaceable = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	replaceable = single_alias_right[trigger]
 	## cardinality = 0..1
-	on_finished = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_finished = single_alias_right[effect]
 	## cardinality = 0..1
-	on_destroyed = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_destroyed = single_alias_right[effect]
 }
 
 #Done based on educated guesswork
@@ -194,14 +178,10 @@ starbase_module = {
 	}
 
 	## cardinality = 0..1
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 	## cardinality = 0..1
 	### entries in possible are displayed in game. Use custom_tooltip to replace localisations.
-	possible = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	possible = single_alias_right[trigger]
 	## cardinality = 0..1
 	equipped_component = <component_template>
 
@@ -209,13 +189,9 @@ starbase_module = {
 	custom_tooltip = localisation
 
 	## cardinality = 0..1
-	abort_trigger = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	abort_trigger = single_alias_right[trigger]
 	## cardinality = 0..1
-	destroy_trigger = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	destroy_trigger = single_alias_right[trigger]
 
 	### ship modifiers, apply on the starbase itself
 	## cardinality = 0..1
@@ -281,17 +257,11 @@ starbase_module = {
 	}
 
 	## cardinality = 0..1
-	replaceable = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	replaceable = single_alias_right[trigger]
 	## cardinality = 0..1
-	on_finished = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_finished = single_alias_right[effect]
 	## cardinality = 0..1
-	on_destroyed = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_destroyed = single_alias_right[effect]
 }
 
 starbase_level = {
@@ -325,25 +295,19 @@ starbase_level = {
 
 	## cardinality = 0..1
 	## replace_scopes = { root = starbase this = starbase }
-	upgrade_possible = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	upgrade_possible = single_alias_right[trigger]
 	## cardinality = 0..1
 	portrait = <sprite>
 	## cardinality = 0..1
 	special_construction = bool
 	## cardinality = 0..1
 	## replace_scopes = { root = starbase this = starbase }
-	downgrade_potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	downgrade_potential = single_alias_right[trigger]
 }
 
 starbase_type = {
 	## replace_scopes = { this = starbase root = starbase from = country }
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 	## replace_scopes = { this = starbase root = starbase from = country }
 	weight_modifier = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]

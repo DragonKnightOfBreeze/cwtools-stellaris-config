@@ -41,9 +41,7 @@ job = {
 	## cardinality = 0..inf
 	desc = {
 		## replace_scopes = { this = planet root = planet }
-		trigger = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		trigger = single_alias_right[trigger]
 		text = localisation
 	}
 
@@ -99,9 +97,7 @@ job = {
 	possible_precalc = enum[job_triggers]
 
 	## cardinality = 0..1
-	possible = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	possible = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	resources = {}

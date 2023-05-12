@@ -25,14 +25,10 @@ observation_station_mission = {
 	}
 	## replace_scopes = { this = country root = country from = planet }
 	## cardinality = 0..1
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 	## replace_scopes = { this = country root = country from = planet }
 	## cardinality = 0..1
-	valid = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	valid = single_alias_right[trigger]
 
 	#if you have monthly_progress you need completion_event and vice versa.
 	## cardinality = 0..1

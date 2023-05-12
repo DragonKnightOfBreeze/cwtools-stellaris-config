@@ -13,20 +13,14 @@ types = {
 
 policy = {
 	## cardinality = 0..1
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	## cardinality = 0..1
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	allow = single_alias_right[trigger]
 
 	### Fires when the policy group first becomes available
 	## cardinality = 0..1
-	on_activate = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_activate = single_alias_right[effect]
 
 	## cardinality = 2..20
 	option = {
@@ -40,9 +34,7 @@ policy = {
 			{
 				## cardinality = 0..1
 				## replace_scopes = { this = country root = country }
-				trigger = {
-					alias_name[trigger] = alias_match_left[trigger]
-				}
+				trigger = single_alias_right[trigger]
 				key = <resolution>
 			}
 		}
@@ -54,24 +46,16 @@ policy = {
 		}
 
 		## cardinality = 0..1
-		on_enabled = {
-			alias_name[effect] = alias_match_left[effect]
-		}
+		on_enabled = single_alias_right[effect]
 
 		## cardinality = 0..1
-		on_disabled = {
-			alias_name[effect] = alias_match_left[effect]
-		}
+		on_disabled = single_alias_right[effect]
 
 		## cardinality = 0..1
-		potential = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		potential = single_alias_right[trigger]
 
 		## cardinality = 0..1
-		valid = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		valid = single_alias_right[trigger]
 
 		## cardinality = 0..1
 		## replace_scopes = { this = country root = country }

@@ -57,15 +57,11 @@ edict = {
 
 	### country trigger to decide whether the edict should be shown.
 	## cardinality = 0..1
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	### country trigger to decide if whether this edict can be activated.
 	## cardinality = 0..1
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	allow = single_alias_right[trigger]
 
 	### tech requirements for this trigger.
 	## cardinality = 0..1
@@ -75,9 +71,7 @@ edict = {
 	}
 
 	## cardinality = 0..1
-	show_tech_unlock_if = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	show_tech_unlock_if = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	ai_weight = {
@@ -86,8 +80,6 @@ edict = {
 
 	### an effect that is executed when this trigger activates.
 	## cardinality = 0..1
-	effect = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	effect = single_alias_right[effect]
 }
 

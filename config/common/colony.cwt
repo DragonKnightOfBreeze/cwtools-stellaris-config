@@ -38,9 +38,7 @@ colony_type = {
 		## cardinality = 0..inf
 		<resource> = float
 		## replace_scopes = { this = planet root = planet }
-		trigger = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		trigger = single_alias_right[trigger]
 	}
 
 	### Used by AI to estimate the current effects of this designation
@@ -49,14 +47,10 @@ colony_type = {
 		## cardinality = 0..inf
 		<resource> = float
 		## replace_scopes = { this = planet root = planet }
-		trigger = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		trigger = single_alias_right[trigger]
 	}
 
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	custom_tooltip = localisation
@@ -77,9 +71,7 @@ colony_type = {
 colony_automation = {
 	category = <colony_automation_category>
 
-	available = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	available = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	prio_districts = {
@@ -92,9 +84,7 @@ colony_automation = {
 		int[1..inf] = {
 			building = <building>
 			## cardinality = 0..1
-			available = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			available = single_alias_right[trigger]
 		}
 	}
 }
@@ -102,9 +92,7 @@ colony_automation = {
 ## push_scope = planet
 colony_automation_category = {
 	## cardinality = 0..1
-	available = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	available = single_alias_right[trigger]
 }
 
 ## push_scope = planet
@@ -120,9 +108,7 @@ colony_automation_exception = {
 	## cardinality = 0..1
 	should_ai_use_job_micro = bool
 
-	available = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	available = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	prio_districts = {
@@ -136,13 +122,9 @@ colony_automation_exception = {
 		scalar = {
 			building = <building>
 			## cardinality = 0..1
-			available = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			available = single_alias_right[trigger]
 			## cardinality = 0..1
-			upgrade_trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			upgrade_trigger = single_alias_right[trigger]
 		}
 	}
 
@@ -150,9 +132,7 @@ colony_automation_exception = {
 	job_changes = {
 		scalar = {
 			## cardinality = 0..1
-			available = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			available = single_alias_right[trigger]
 			job = <job>
 			amount = int
 		}

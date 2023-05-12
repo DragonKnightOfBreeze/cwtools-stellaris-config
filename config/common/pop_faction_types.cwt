@@ -67,9 +67,7 @@ pop_faction = {
 	### Existence requirements for this faction
 	## push_scope = country
 	## cardinality = 0..1
-	is_potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	is_potential = single_alias_right[trigger]
 
 	#### Parameters, tied to this faction
 	## push_scope = country
@@ -80,9 +78,7 @@ pop_faction = {
 			## cardinality = 1..1
 			type = enum[scope_type_tokens]
 			## cardinality = 0..1
-			valid_objects = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			valid_objects = single_alias_right[trigger]
 		}
 	}
 
@@ -102,9 +98,7 @@ pop_faction = {
 
 	### Determines which pops are able to join this faction
 	## push_scope = pop
-	can_join_faction = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	can_join_faction = single_alias_right[trigger]
 
 	### Pop's willingness weight to join this faction
 	## push_scope = pop
@@ -123,16 +117,12 @@ pop_faction = {
 
 	### Some effects, immediately after faction has been established.
 	## cardinality = 0..1
-	on_create = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_create = single_alias_right[effect]
 
 	### Some effects, immediately after faction has been removed.
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	on_destroy = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_destroy = single_alias_right[effect]
 
 	### Faction dynamic requests & issues.
 	## cardinality = 0..inf
@@ -158,14 +148,10 @@ pop_faction = {
 		unfulfilled_effect = float
 
 		## cardinality = 0..1
-		potential = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		potential = single_alias_right[trigger]
 
 		## cardinality = 1..1
-		trigger = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		trigger = single_alias_right[trigger]
 	}
 
 	### Actions for this pop faction type (buttons)
@@ -184,19 +170,13 @@ pop_faction = {
 			}
 
 			## cardinality = 0..1
-			potential = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			potential = single_alias_right[trigger]
 
 			## cardinality = 0..1
-			valid = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			valid = single_alias_right[trigger]
 
 			## cardinality = 0..1
-			effect = {
-				alias_name[effect] = alias_match_left[effect]
-			}
+			effect = single_alias_right[effect]
 
 			## cardinality = 0..1
 			ai_weight = {

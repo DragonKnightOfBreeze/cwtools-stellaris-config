@@ -14,7 +14,7 @@ alias[modifier_rule:modifier] = {
 
 alias[modifier_rule:scaled_modifier] = {
 	## cardinality = 0..1
-	limit = { alias_name[trigger] = alias_match_left[trigger]  }
+	limit = single_alias_right[trigger]
 	## cardinality = 1..1
 	scope = scope[any]
 	## cardinality = 1..1
@@ -46,9 +46,7 @@ alias[modifier_rule:complex_trigger_modifier] = {
 	## cardinality = 0..1
 	desc = localisation
 	## cardinality = 0..1
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 }
 
 #modifier_rule_with_loc is deliberately more restrictive because of what we can make good tooltips with
@@ -78,9 +76,7 @@ alias[modifier_rule_with_loc:complex_trigger_modifier] = {
 	multiplier = value_field
 	desc = localisation
 	## cardinality = 0..1
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 }
 
 #calculation types

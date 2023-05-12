@@ -53,9 +53,7 @@ building = {
 	## cardinality = 0..inf
 	desc = {
 		## replace_scopes = { this = planet root = planet }
-		trigger = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		trigger = single_alias_right[trigger]
 		text = localisation
 	}
 	## cardinality = 0..1
@@ -103,9 +101,7 @@ building = {
 
 	### trigger for allowing/graying out building construction
 	## cardinality = 0..1
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	allow = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	empire_limit = {
@@ -116,69 +112,47 @@ building = {
 
 	### an action when queued
 	## cardinality = 0..1
-	on_queued = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_queued = single_alias_right[effect]
 
 	### an action when unqueued
 	## cardinality = 0..1
-	on_unqueued = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_unqueued = single_alias_right[effect]
 
 	### an action when built
 	## cardinality = 0..1
-	on_built = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_built = single_alias_right[effect]
 
 	### an action when destroyed
 	## cardinality = 0..1
-	on_destroy = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_destroy = single_alias_right[effect]
 
 	### an action when repaired
 	## cardinality = 0..1
-	on_repaired = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_repaired = single_alias_right[effect]
 
 	### trigger for displaying building in construction list
 	## cardinality = 0..1
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	### ongoing construction will be canceled if this trigger returns true
 	## cardinality = 0..1
-	abort_trigger = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	abort_trigger = single_alias_right[trigger]
 
 	### ongoing construction will be canceled if this trigger returns true
 	## cardinality = 0..1
-	abort_construction_trigger = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	abort_construction_trigger = single_alias_right[trigger]
 
 	### set building to ruined if this trigger returns true
 	## cardinality = 0..1
-	ruined_trigger = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	ruined_trigger = single_alias_right[trigger]
 
 	### building will be destroyed (more likely converted, see below) if this trigger returns true
 	## cardinality = 0..1
-	destroy_trigger = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	destroy_trigger = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country }
-	show_tech_unlock_if = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	show_tech_unlock_if = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = planet root = planet }
@@ -234,9 +208,7 @@ building = {
 		## cardinality = 1..inf
 		<resource> = int
 		## cardinality = 0..1
-		trigger = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		trigger = single_alias_right[trigger]
 		## cardinality = 0..inf
 		enum[complex_maths_enum] = value_field
 	}

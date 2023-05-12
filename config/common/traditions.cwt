@@ -73,14 +73,10 @@ tradition = {
 	}
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	possible = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	possible = single_alias_right[trigger]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	on_enabled = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_enabled = single_alias_right[effect]
 	## cardinality = 0..1
 	custom_tooltip = localisation
 	## cardinality = 0..1
@@ -109,9 +105,7 @@ tradition = {
 		# Should be only if not inheriting effects
 		## replace_scopes = { this = country root = country }
 		## cardinality = 0..1
-		on_enabled = {
-			alias_name[effect] = alias_match_left[effect]
-		}
+		on_enabled = single_alias_right[effect]
 		### this determines the chances of a tradition swap appearing for a given empire IF multiple swaps are potential.
 		## replace_scopes = { this = country root = country }
 		## cardinality = 0..1
@@ -120,18 +114,14 @@ tradition = {
 		}
 		## cardinality = 0..1
 		## replace_scopes = { this = country root = country }
-		trigger = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		trigger = single_alias_right[trigger]
 	}
 }
 
 tradition_category = {
 	## cardinality = 0..inf
 	desc = {
-		trigger = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		trigger = single_alias_right[trigger]
 		text = localisation
 	}
 

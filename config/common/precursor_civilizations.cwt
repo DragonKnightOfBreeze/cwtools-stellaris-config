@@ -10,7 +10,5 @@ precursors = {
 	size = int
 
 	## cardinality = 0..1
-	possible = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	possible = single_alias_right[trigger]
 }

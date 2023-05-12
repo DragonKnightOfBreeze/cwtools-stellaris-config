@@ -71,9 +71,7 @@ portrait_group = {
 		set = {
 			## replace_scopes = { this = country root = country }
 			## cardinality = 0..1
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			portraits = {
 				## cardinality = 0..inf
 				<portrait>
@@ -86,9 +84,7 @@ portrait_group = {
 		add = {
 			## replace_scopes = { this = leader root = leader }
 			## cardinality = 0..1
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			portraits = {
 				## cardinality = 0..inf
 				<portrait>
@@ -98,9 +94,7 @@ portrait_group = {
 		set = {
 			## replace_scopes = { this = leader root = leader }
 			## cardinality = 0..1
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			portraits = {
 				## cardinality = 0..inf
 				<portrait>
@@ -113,9 +107,7 @@ portrait_group = {
 		add = {
 			## replace_scopes = { this = leader root = leader }
 			## cardinality = 0..1
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			portraits = {
 				## cardinality = 0..inf
 				<portrait>
@@ -125,9 +117,7 @@ portrait_group = {
 		set = {
 			## replace_scopes = { this = leader root = leader }
 			## cardinality = 0..1
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			portraits = {
 				## cardinality = 0..inf
 				<portrait>
@@ -140,9 +130,7 @@ portrait_group = {
 		add = {
 			## replace_scopes = { this = pop root = pop }
 			## cardinality = 0..1
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			portraits = {
 				## cardinality = 0..inf
 				<portrait>
@@ -152,9 +140,7 @@ portrait_group = {
 		set = {
 			## replace_scopes = { this = pop root = pop }
 			## cardinality = 0..1
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			portraits = {
 				## cardinality = 0..inf
 				<portrait>
@@ -167,9 +153,7 @@ portrait_group = {
 		add = {
 			## replace_scopes = { this = species root = species }
 			## cardinality = 0..1
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			portraits = {
 				## cardinality = 0..inf
 				<portrait>
@@ -179,9 +163,7 @@ portrait_group = {
 		set = {
 			## replace_scopes = { this = species root = species }
 			## cardinality = 0..1
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			portraits = {
 				## cardinality = 0..inf
 				<portrait>

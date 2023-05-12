@@ -59,20 +59,14 @@ bypass = {
 	}
 	### an effect that is called just before the jump of a right click "explore" action of a fleet
 	## cardinality = 0..1
-	on_pre_explore = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_pre_explore = single_alias_right[effect]
 	### trigger to evaluate if a country can use bypasses of this type. this: country, from: (optional) system owner; default: { always = yes }
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country from = country }
-	country_can_use = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	country_can_use = single_alias_right[trigger]
 	#unsure about scope here
 	## cardinality = 0..1
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 	### The name of the on-action event that will be fired upon entering FTL (if set)
 	### THIS = Fleet
 	### FROM = System jumping to
@@ -83,14 +77,10 @@ bypass = {
 		scripted_connection = {
 			### defines endpoints that can only reach the "nexus"
 			## replace_scopes = { this = system root = system }
-			node = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			node = single_alias_right[trigger]
 			### defines endpoint(s) that can reach all "nodes" (but not other nexuses)
 			## replace_scopes = { this = system root = system }
-			nexus = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			nexus = single_alias_right[trigger]
 		}
 	}
 }

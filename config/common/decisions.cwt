@@ -41,43 +41,27 @@ decision = {
 
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country }
-	show_tech_unlock_if = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	show_tech_unlock_if = single_alias_right[trigger]
 
 	## cardinality = 0..1
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	## cardinality = 0..1
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	allow = single_alias_right[trigger]
 
 	## cardinality = 0..1
-	abort_trigger = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	abort_trigger = single_alias_right[trigger]
 
 	## cardinality = 0..1
-	abort_effect = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	abort_effect = single_alias_right[effect]
 
 	## cardinality = 0..1
-	on_queued = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_queued = single_alias_right[effect]
 
 	## cardinality = 0..1
-	on_unqueued = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_unqueued = single_alias_right[effect]
 
-	effect = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	effect = single_alias_right[effect]
 
 	## cardinality = 0..1
 	ai_weight = {

@@ -9,9 +9,7 @@ types = {
 ai_force_species = {
 	### Potential is checked for all AI planets for each species that can be grown there
 	## cardinality = 0..1
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 	### If potential is passed then weight is evaluated.
 	### AI will force grow the species with the highest weight above 0 on each planet individually
 	ai_weight = {

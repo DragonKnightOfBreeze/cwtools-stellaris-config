@@ -14,9 +14,7 @@ types = {
 mandate = {
 	## replace_scopes = { this = planet root = planet }
 	#im not 100% about the scopes here, this is what vanilla appear to be. It uses owner to scope to country
-	valid = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	valid = single_alias_right[trigger]
 	## cardinality = 0..1
 	parameters = {
 		## cardinality = 0..1
@@ -31,12 +29,8 @@ mandate = {
 	}
 	## replace_scopes = { this = planet root = planet } #im not 100% about the scopes here, this is what vanilla appear to be. It uses owner to scope to c ocountry
 	## cardinality = 0..1
-	on_term_started = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_term_started = single_alias_right[effect]
 	## replace_scopes = { this = planet root = planet } #im not 100% about the scopes here, this is what vanilla appear to be. It uses owner to scope to c ocountry
 	## cardinality = 0..1
-	on_term_ended = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_term_ended = single_alias_right[effect]
 }

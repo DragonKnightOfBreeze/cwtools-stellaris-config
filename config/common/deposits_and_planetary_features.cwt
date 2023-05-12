@@ -65,13 +65,9 @@ deposit = {
 		## cardinality = 0..1
 		time = int
 		## cardinality = 0..1
-		on_cleared = {
-			alias_name[effect] = alias_match_left[effect]
-		}
+		on_cleared = single_alias_right[effect]
 		## cardinality = 0..1
-		can_be_cleared = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		can_be_cleared = single_alias_right[trigger]
 		## cardinality = 0..1
 		blocker_swap_types = {
 			## cardinality = 1..inf
@@ -128,9 +124,7 @@ deposit = {
 	}
 
 	## cardinality = 0..1
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 	subtype[!not_dropped] = {
 		drop_weight = {
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]

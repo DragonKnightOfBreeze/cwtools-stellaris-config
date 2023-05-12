@@ -40,9 +40,7 @@ district = {
 	desc = localisation
 	## cardinality = 0..inf
 	desc = {
-		trigger = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		trigger = single_alias_right[trigger]
 		text = localisation
 	}
 	## cardinality = 0..1
@@ -61,42 +59,26 @@ district = {
 	can_demolish = bool
 
 	## cardinality = 0..1
-	destroy_trigger = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	destroy_trigger = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country }
-	show_tech_unlock_if = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	show_tech_unlock_if = single_alias_right[trigger]
 
 	## cardinality = 0..1
-	show_on_uncolonized = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	show_on_uncolonized = single_alias_right[trigger]
 
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	## cardinality = 0..1
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	allow = single_alias_right[trigger]
 
 	## cardinality = 0..1
-	on_queued = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_queued = single_alias_right[effect]
 	## cardinality = 0..1
-	on_unqueued = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_unqueued = single_alias_right[effect]
 	## cardinality = 0..1
-	on_built = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_built = single_alias_right[effect]
 
 	## cardinality = 0..1
 	prerequisites = {
@@ -137,9 +119,7 @@ district = {
 	ai_resource_production = {
 		<resource> = int
 		## cardinality = 0..1
-		trigger = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		trigger = single_alias_right[trigger]
 		## cardinality = 0..inf
 		enum[complex_maths_enum] = value_field
 	}

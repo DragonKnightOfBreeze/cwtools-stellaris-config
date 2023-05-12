@@ -51,21 +51,15 @@ types = {
 ascension_perk = {
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country }
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country }
-	possible = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	possible = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country }
-	on_enabled = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_enabled = single_alias_right[effect]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
@@ -100,9 +94,7 @@ ascension_perk = {
 		# Should be only if not inheriting effects
 		## replace_scopes = { this = country root = country }
 		## cardinality = 0..1
-		on_enabled = {
-			alias_name[effect] = alias_match_left[effect]
-		}
+		on_enabled = single_alias_right[effect]
 		### this determines the chances of a tradition swap appearing for a given empire IF multiple swaps are potential.
 		## replace_scopes = { this = country root = country }
 		## cardinality = 0..1
@@ -111,8 +103,6 @@ ascension_perk = {
 		}
 		## cardinality = 0..1
 		## replace_scopes = { this = country root = country }
-		trigger = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		trigger = single_alias_right[trigger]
 	}
 }

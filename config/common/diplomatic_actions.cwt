@@ -118,25 +118,25 @@ diplomatic_action = {
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country from = country }
 	### root is actor, from is recipient, decides if the action is shown
-	potential = { alias_name[trigger] = alias_match_left[trigger] }
+	potential = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country from = country }
 	### root is actor, from is recipient, decides if the action is still possible
-	possible = { alias_name[trigger] = alias_match_left[trigger] }
+	possible = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country from = country }
 	### root is actor, from is recipient, decides if the action is proposable
-	proposable = { alias_name[trigger] = alias_match_left[trigger] }
+	proposable = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country from = country }
-	on_accept = { alias_name[effect] = alias_match_left[effect] }
+	on_accept = single_alias_right[effect]
 
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country from = country }
-	on_decline = { alias_name[effect] = alias_match_left[effect] }
+	on_decline = single_alias_right[effect]
 
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country from = country }

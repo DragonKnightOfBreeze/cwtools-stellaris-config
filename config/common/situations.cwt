@@ -26,34 +26,24 @@ situation_type = {
 	## cardinality = 0..inf
 	picture = {
 		picture = <sprite>
-		trigger = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		trigger = single_alias_right[trigger]
 	}
 	## cardinality = 0..1
 	category = enum[situation_categories]
 
 	## cardinality = 0..inf
 	desc = {
-		trigger = { alias_name[trigger] = alias_match_left[trigger] }
+		trigger = single_alias_right[trigger]
 		text = localisation
 	}
 	## cardinality = 0..1
-	on_start = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_start = single_alias_right[effect]
 	## cardinality = 0..1
-	on_fail = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_fail = single_alias_right[effect]
 	## cardinality = 0..1
-	on_abort = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_abort = single_alias_right[effect]
 	## cardinality = 0..1
-	abort_trigger = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	abort_trigger = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## push_scope = country
@@ -88,9 +78,7 @@ situation_type = {
 	monthly_progress = {
 		alias_name[modifier_rule_with_loc] = alias_match_left[modifier_rule_with_loc]
 	}
-	on_progress_complete = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_progress_complete = single_alias_right[effect]
 
 	## cardinality = 0..inf
 	approach = {
@@ -100,13 +88,9 @@ situation_type = {
 		## cardinality = 0..1
 		default = yes
 		## cardinality = 0..1
-		allow = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		allow = single_alias_right[trigger]
 		## cardinality = 0..1
-		potential = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		potential = single_alias_right[trigger]
 
 		## cardinality = 0..1
 		## push_scope = country
@@ -128,9 +112,7 @@ situation_type = {
 			alias_name[economic_template] = alias_match_left[economic_template]
 		}
 		## cardinality = 0..1
-		on_select = {
-			alias_name[effect] = alias_match_left[effect]
-		}
+		on_select = single_alias_right[effect]
 		## cardinality = 0..1
 		ai_weight = int
 		## cardinality = 0..1
@@ -174,13 +156,9 @@ situation_type = {
 			## cardinality = 0..1
 			custom_tooltip = localisation
 			## cardinality = 0..1
-			on_first_enter = {
-				alias_name[effect] = alias_match_left[effect]
-			}
+			on_first_enter = single_alias_right[effect]
 			## cardinality = 0..1
-			potential = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			potential = single_alias_right[trigger]
 
 			## cardinality = 0..1
 			## push_scope = country

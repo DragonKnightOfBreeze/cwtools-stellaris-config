@@ -19,12 +19,8 @@ types = {
 ## replace_scopes = { this = country root = country }
 agenda = {
 	agenda_cost = int
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
+	allow = single_alias_right[trigger]
 	## cardinality = 0..1
 	modifiers = {
 		{
@@ -34,9 +30,7 @@ agenda = {
 	## cardinality = 0..1
 	finish_modifier = <static_modifier>
 	## cardinality = 0..1
-	effect = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	effect = single_alias_right[effect]
 	## cardinality = 0..1
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]

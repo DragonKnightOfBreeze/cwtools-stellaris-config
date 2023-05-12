@@ -152,13 +152,9 @@ event = {
 		## cardinality = 0..inf
 		desc = {
 			## cardinality = 0..1
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			## cardinality = 0..1
-			exclusive_trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			exclusive_trigger = single_alias_right[trigger]
 			## cardinality = 0..inf
 			text = localisation
 			## cardinality = 0..1
@@ -173,7 +169,7 @@ event = {
 			## cardinality = 0..1
 			sound_is_advisor = bool
 			## cardinality = 0..1
-			trigger = { alias_name[trigger] = alias_match_left[trigger] }
+			trigger = single_alias_right[trigger]
 		}
 		## cardinality = 0..1
 		### Force a diplomatic event to be viewed
@@ -216,17 +212,13 @@ event = {
 			name = localisation
 			## cardinality = 1..inf
 			name = {
-				trigger = {
-					alias_name[trigger] = alias_match_left[trigger]
-				}
+				trigger = single_alias_right[trigger]
 				## cardinality = 0..1
 				text = localisation
 			}
 			## cardinality = 1..inf
 			name = {
-				exclusive_trigger = {
-					alias_name[trigger] = alias_match_left[trigger]
-				}
+				exclusive_trigger = single_alias_right[trigger]
 				## cardinality = 0..1
 				text = localisation
 			}
@@ -243,19 +235,13 @@ event = {
 			sound = scalar
 
 			## cardinality = 0..1
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 
 			## cardinality = 0..1
-			allow = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			allow = single_alias_right[trigger]
 
 			## cardinality = 0..1
-			exclusive_trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			exclusive_trigger = single_alias_right[trigger]
 
 			## cardinality = 0..1
 			ai_chance = {
@@ -294,7 +280,7 @@ event = {
 		picture = {
 			picture = <sprite>
 			## cardinality = 0..1
-			trigger = { alias_name[trigger] = alias_match_left[trigger] }
+			trigger = single_alias_right[trigger]
 		}
 		## cardinality = 0..1
 		picture_event_data = {
@@ -371,20 +357,14 @@ event = {
 	subtype[major] = {
 		## cardinality = 0..1
 		### Triggers for other countries on whether a major event should show for them. I.e. if it reads has_ethic = ethic_materialist, then all materialist countries will see the event.
-		major_trigger = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		major_trigger = single_alias_right[trigger]
 	}
 	## cardinality = 0..1
 	### Event will cancel (disappear without executing any of the effects in the options) if these triggers return true.
-	abort_trigger = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	abort_trigger = single_alias_right[trigger]
 	## cardinality = 0..1
 	### Effects executed when abort_trigger returns true.
-	abort_effect = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	abort_effect = single_alias_right[effect]
 
 	## cardinality = 0..1
 	fire_only_once = bool
@@ -450,18 +430,12 @@ event = {
 	}
 
 	## cardinality = 0..1
-	trigger = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	trigger = single_alias_right[trigger]
 
 	## cardinality = 0..1
-	immediate = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	immediate = single_alias_right[effect]
 
 
 	## cardinality = 0..1
-	after = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	after = single_alias_right[effect]
 }

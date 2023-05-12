@@ -87,17 +87,13 @@ solar_system_initializer = {
 		### the scope here is galactic_object scope, with prev being set to the previous system that was initialized by this tree ( if any ). Root will point to the first system in the tree or the root of the calling event.
 		## replace_scopes = { this = galactic_object root = any }
 		## cardinality = 0..inf
-		init_effect = {
-			alias_name[effect] = alias_match_left[effect]
-		}
+		init_effect = single_alias_right[effect]
 	}
 	subtype[fallen_empire_initializer] = {
 		### the scope here is galactic_object scope, with prev being set to the previous system that was initialized by this tree ( if any ). Root will point to the first system in the tree or the root of the calling event.
 		## replace_scopes = { this = galactic_object root = country }
 		## cardinality = 0..inf
-		init_effect = {
-			alias_name[effect] = alias_match_left[effect]
-		}
+		init_effect = single_alias_right[effect]
 	}
 
 	## cardinality = 0..inf
@@ -221,9 +217,7 @@ alias[planet_initializer:planet] = {
 	## replace_scopes = { this = planet root = country prev = system prevprev = system }
 	## cardinality = 0..inf
 	## severity = info
-	init_effect = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	init_effect = single_alias_right[effect]
 	## push_scope = planet
 	alias_name[planet_initializer] = alias_match_left[planet_initializer]
 	## push_scope = planet
@@ -315,9 +309,7 @@ alias[moon_initializer:moon] = {
 	### The scope will be a planet scope, with prev being the system. prevprev will be the system that triggered this system's initialization ( if any ). Root will be the first system in this initializer tree
 	## replace_scopes = { this = planet root = country prev = system prevprev = system }
 	## cardinality = 0..inf
-	init_effect = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	init_effect = single_alias_right[effect]
 
 	## cardinality = 0..1
 	deposit_blockers = none

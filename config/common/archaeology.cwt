@@ -51,9 +51,7 @@ archaeological_site_type = {
 	## cardinality = 0..inf
 	desc = {
 		## replace_scopes = { this = archaeological_site root = archaeological_site }
-		trigger = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		trigger = single_alias_right[trigger]
 		text = localisation
 	}
 	### Max instances of this type a galaxy can have, only checked when using 'create_archaeological_site = random'
@@ -74,21 +72,15 @@ archaeological_site_type = {
 	### Trigger checking if a scope with this=fleet,from=archaeological site is potential to excavate (this will add/remove this option without giving the player a reason).
 	## cardinality = 0..1
 	## replace_scopes = { root = fleet this = fleet from = archaeological_site }
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	### Trigger checking if a scope with this=fleet,from=archaeological site is allowed to excavate (this will toggle enable/disabled mode on buttons etc).
 	## replace_scopes = { root = fleet this = fleet from = archaeological_site }
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	allow = single_alias_right[trigger]
 
 	### Trigger that checks if a scope with this=country can see the from=archaeological site
 	## replace_scopes = { root = country this = country from = archaeological_site }
-	visible = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	visible = single_alias_right[trigger]
 
 	### Stage definition, order dependent.
 	## cardinality = 0..inf
@@ -108,23 +100,17 @@ archaeological_site_type = {
 
 	### Effect to fire when a roll fails, with scope this=fleet, from=archaeological site.
 	## replace_scopes = { root = fleet this = fleet from = archaeological_site }
-	on_roll_failed = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_roll_failed = single_alias_right[effect]
 
 	### Effect to fire upon site creation, with scope this=archaeological site.
 	## cardinality = 0..1
 	## replace_scopes = { root = archaeological_site this = archaeological_site }
-	on_create = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_create = single_alias_right[effect]
 
 	### Effect to fire upon site visible, with scope this=country, from=archaeological site.
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country from = archaeological_site }
-	on_visible = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	on_visible = single_alias_right[effect]
 }
 
 relic = {
@@ -138,9 +124,7 @@ relic = {
 
 	### Possible check for activation
 	## replace_scopes = { root = country this = country }
-	possible = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	possible = single_alias_right[trigger]
 
 	resources = {
 		category = <economic_category>
@@ -153,9 +137,7 @@ relic = {
 
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country }
-	active_effect = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	active_effect = single_alias_right[effect]
 
 	## cardinality = 0..1
 	ai_weight = {
@@ -176,17 +158,11 @@ artifact_action = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 
 	## cardinality = 0..1
-	effect = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	effect = single_alias_right[effect]
 
 	## cardinality = 0..1
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	allow = single_alias_right[trigger]
 }

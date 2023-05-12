@@ -78,12 +78,8 @@ espionage_asset = {
 	}
     passive = single_alias_right[modifier]
     active = single_alias_right[modifier]
-    possible = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-    potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+    possible = single_alias_right[trigger]
+    potential = single_alias_right[trigger]
 	### primary category always goes first!
     categories = {
 		## cardinality = 1..inf
@@ -110,7 +106,7 @@ espionage_operation = {
 	### Description generator for the operation, with scope this=spy network
 	## cardinality = 1..inf
 	desc = {
-		trigger = { alias_name[trigger] = alias_match_left[trigger] }
+		trigger = single_alias_right[trigger]
 		text = localisation
 	}
 	stages = int
@@ -122,112 +118,74 @@ espionage_operation = {
 		alias_name[economic_template_no_produce] = alias_match_left[economic_template_no_produce]
     }
 
-    potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-    allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+    potential = single_alias_right[trigger]
+    allow = single_alias_right[trigger]
 	## cardinality = 0..1
-    abort = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+    abort = single_alias_right[trigger]
 
 	subtype[megastructure] = {
 		## cardinality = 0..1
 		## replace_scopes = { this = megastructure root = megastructure }
-		target_allow = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		target_allow = single_alias_right[trigger]
 		## cardinality = 0..1
 		## replace_scopes = { this = megastructure root = megastructure }
-		target_potential = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		target_potential = single_alias_right[trigger]
 	}
 	subtype[country] = {
 		## cardinality = 0..1
 		## replace_scopes = { this = country root = country }
-		target_allow = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		target_allow = single_alias_right[trigger]
 		## cardinality = 0..1
 		## replace_scopes = { this = country root = country }
-		target_potential = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		target_potential = single_alias_right[trigger]
 	}
 	subtype[fleet] = {
 		## cardinality = 0..1
 		## replace_scopes = { this = fleet root = fleet }
-		target_allow = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		target_allow = single_alias_right[trigger]
 		## cardinality = 0..1
 		## replace_scopes = { this = fleet root = fleet }
-		target_potential = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		target_potential = single_alias_right[trigger]
 	}
 	subtype[army] = {
 		## cardinality = 0..1
 		## replace_scopes = { this = megastructure root = megastructure }
-		target_allow = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		target_allow = single_alias_right[trigger]
 		## cardinality = 0..1
 		## replace_scopes = { this = megastructure root = megastructure }
-		target_potential = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		target_potential = single_alias_right[trigger]
 	}
 	subtype[pop_faction] = {
 		## cardinality = 0..1
 		## replace_scopes = { this = pop_faction root = pop_faction }
-		target_allow = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		target_allow = single_alias_right[trigger]
 		## cardinality = 0..1
 		## replace_scopes = { this = pop_faction root = pop_faction }
-		target_potential = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		target_potential = single_alias_right[trigger]
 	}
 	subtype[federation] = {
 		## cardinality = 0..1
 		## replace_scopes = { this = federation root = federation }
-		target_allow = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		target_allow = single_alias_right[trigger]
 		## cardinality = 0..1
 		## replace_scopes = { this = federation root = federation }
-		target_potential = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		target_potential = single_alias_right[trigger]
 	}
 	subtype[starbase] = {
 		## cardinality = 0..1
 		## replace_scopes = { this = starbase root = starbase }
-		target_allow = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		target_allow = single_alias_right[trigger]
 		## cardinality = 0..1
 		## replace_scopes = { this = starbase root = starbase }
-		target_potential = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		target_potential = single_alias_right[trigger]
 	}
 	subtype[spynetwork] = {
 		## cardinality = 0..1
 		## replace_scopes = { this = spy_network root = spy_network }
-		target_allow = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		target_allow = single_alias_right[trigger]
 		## cardinality = 0..1
 		## replace_scopes = { this = spy_network root = spy_network }
-		target_potential = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		target_potential = single_alias_right[trigger]
 	}
 
 	### Stage definition, order dependent.
@@ -242,12 +200,8 @@ espionage_operation = {
 	}
 
 	### Effect to fire when a roll fails, with scope this=spy operation.
-    on_roll_failed = {
-		alias_name[effect] = alias_match_left[effect]
-    }
+    on_roll_failed = single_alias_right[effect]
 	### Effect to fire upon operation creation, with scope this=spy operation.
-    on_create = {
-		alias_name[effect] = alias_match_left[effect]
-    }
+    on_create = single_alias_right[effect]
 }
 

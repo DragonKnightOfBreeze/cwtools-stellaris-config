@@ -130,9 +130,7 @@ ship_size = {
 	## cardinality = 0..1
 	enable_3dview_in_ship_browser = bool
 	## cardinality = 0..1
-	selectable = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	selectable = single_alias_right[trigger]
 	## cardinality = 0..1
 	default_behavior = <ship_behavior>
 	## cardinality = 0..1
@@ -145,7 +143,7 @@ ship_size = {
 		## cardinality = 0..inf
 		{
 			name = enum[component_tag]
-			trigger = { alias_name[trigger] = alias_match_left[trigger] }
+			trigger = single_alias_right[trigger]
 		}
 	}
 	## cardinality = 0..1
@@ -165,14 +163,10 @@ ship_size = {
 	construction_type = starbase_defenses
 	## cardinality = 0..1
 	## replace_scopes = { root = starbase this = starbase }
-	possible_starbase = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	possible_starbase = single_alias_right[trigger]
 	## cardinality = 0..1
 	## replace_scopes = { root = starbase this = starbase }
-	potential_starbase = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential_starbase = single_alias_right[trigger]
 	## cardinality = 0..inf
 	required_component_set = <component_set.required_component> #this is linked to required components defined as such under component_sets, and is also linked to global_ship_designs!
 	## cardinality = 0..1
@@ -194,36 +188,24 @@ ship_size = {
 	enable_3dview_in_ship_browser = yes
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country }
-	potential_country = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential_country = single_alias_right[trigger]
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country }
-	possible_country = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	possible_country = single_alias_right[trigger]
 	## cardinality = 0..1
 	## replace_scopes = { root = planet this = planet }
-	potential_planet = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential_planet = single_alias_right[trigger]
 	## cardinality = 0..1
 	## replace_scopes = { root = planet this = planet }
-	possible_planet = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	possible_planet = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { root = any this = any }
-	potential_construction = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential_construction = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	## replace_scopes = { root = any this = any }
-	possible_construction = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	possible_construction = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	resources = {

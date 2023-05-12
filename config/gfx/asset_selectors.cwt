@@ -42,7 +42,7 @@ asset_selector = {
 		no_texture = {
 			default = filepath
 			## cardinality = 0..inf
-			filepath = { alias_name[trigger] = alias_match_left[trigger] }
+			filepath = single_alias_right[trigger]
 		}
 
 		## cardinality = 0..1
@@ -53,14 +53,14 @@ asset_selector = {
 			## cardinality = 0..inf
 			random = {
 				## cardinality = 0..1
-				trigger = { alias_name[trigger] = alias_match_left[trigger] }
+				trigger = single_alias_right[trigger]
 				list = {
 					## cardinality = 0..inf
 					filepath
 				}
 			}
 			## cardinality = 0..inf
-			filepath = { alias_name[trigger] = alias_match_left[trigger] }
+			filepath = single_alias_right[trigger]
 		}
 
 		## cardinality = 0..1
@@ -71,7 +71,7 @@ asset_selector = {
 			## cardinality = 0..inf
 			random = {
 				## cardinality = 0..1
-				trigger = { alias_name[trigger] = alias_match_left[trigger] }
+				trigger = single_alias_right[trigger]
 				list = {
 					## cardinality = 0..inf
 					filepath
@@ -79,7 +79,7 @@ asset_selector = {
 			}
 
 			## cardinality = 0..inf
-			filepath = { alias_name[trigger] = alias_match_left[trigger] }
+			filepath = single_alias_right[trigger]
 		}
 
 		## cardinality = 0..1
@@ -90,14 +90,14 @@ asset_selector = {
 			## cardinality = 0..inf
 			random = {
 				## cardinality = 0..1
-				trigger = { alias_name[trigger] = alias_match_left[trigger] }
+				trigger = single_alias_right[trigger]
 				list = {
 					## cardinality = 0..inf
 					filepath
 				}
 			}
 			## cardinality = 0..inf
-			filepath = { alias_name[trigger] = alias_match_left[trigger] }
+			filepath = single_alias_right[trigger]
 		}
 
 		## cardinality = 0..1
@@ -108,14 +108,14 @@ asset_selector = {
 			## cardinality = 0..inf
 			random = {
 				## cardinality = 0..1
-				trigger = { alias_name[trigger] = alias_match_left[trigger] }
+				trigger = single_alias_right[trigger]
 				list = {
 					## cardinality = 0..inf
 					filepath
 				}
 			}
 			## cardinality = 0..inf
-			filepath = { alias_name[trigger] = alias_match_left[trigger] }
+			filepath = single_alias_right[trigger]
 		}
 
 		## cardinality = 0..1
@@ -126,14 +126,14 @@ asset_selector = {
 			## cardinality = 0..inf
 			random = {
 				## cardinality = 0..1
-				trigger = { alias_name[trigger] = alias_match_left[trigger] }
+				trigger = single_alias_right[trigger]
 				list = {
 					## cardinality = 0..inf
 					filepath
 				}
 			}
 			## cardinality = 0..inf
-			filepath = { alias_name[trigger] = alias_match_left[trigger] }
+			filepath = single_alias_right[trigger]
 		}
 	}
 	subtype[room] = {
@@ -147,9 +147,7 @@ asset_selector = {
 		## replace_scopes = { this = country root = country }
 		game_setup = {
 			## cardinality = 0..inf
-			scalar = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			scalar = single_alias_right[trigger]
 		}
 		## cardinality = 0..1
 		## replace_scopes = { this = leader root = leader }
@@ -159,14 +157,14 @@ asset_selector = {
 			## cardinality = 0..inf
 			random = {
 				## cardinality = 0..1
-				trigger = { alias_name[trigger] = alias_match_left[trigger] }
+				trigger = single_alias_right[trigger]
 				list = {
 					## cardinality = 0..inf
 					filepath
 				}
 			}
 			## cardinality = 0..inf
-			scalar = { alias_name[trigger] = alias_match_left[trigger] } # the scalar here is the same kind of file link as in the above!
+			scalar = single_alias_right[trigger] # the scalar here is the same kind of file link as in the above!
   		}
 	}
 	subtype[entity] = {
@@ -182,14 +180,14 @@ asset_selector = {
 			## cardinality = 0..inf
 			random = {
 				## cardinality = 0..1
-				trigger = { alias_name[trigger] = alias_match_left[trigger] }
+				trigger = single_alias_right[trigger]
 				list = {
 					## cardinality = 0..inf
 					filepath
 				}
 			}
 			## cardinality = 0..inf
-			<model_entity> = { alias_name[trigger] = alias_match_left[trigger] }
+			<model_entity> = single_alias_right[trigger]
 		}
 	}
 }

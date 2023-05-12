@@ -66,9 +66,7 @@ resource = {
 	}
 
 	## cardinality = 0..1
-	visibility_prerequisite = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	visibility_prerequisite = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	ai_weight = {

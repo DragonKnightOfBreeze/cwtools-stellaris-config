@@ -5,6 +5,4 @@ types = {
 	}
 }
 
-game_rule = {
-	alias_name[trigger] = alias_match_left[trigger]
-}
+game_rule = single_alias_right[trigger]

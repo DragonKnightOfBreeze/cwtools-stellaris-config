@@ -170,9 +170,7 @@ ai_personality = {
 	}
 
 	## cardinality = 0..1
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	allow = single_alias_right[trigger]
 
 	## cardinality = 0..1
 	weight_modifier = {

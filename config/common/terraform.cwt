@@ -19,19 +19,13 @@ terraform_link = {
 	## cardinality = 0..1
 	### displayed in game, hence functions like after effect and requires localisations in the same way.
 	## replace_scopes = { this = country root = country from = planet }
-	condition = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	condition = single_alias_right[trigger]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country from = planet }
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	potential = single_alias_right[trigger]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country from = planet }
-	effect = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	effect = single_alias_right[effect]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country from = planet }
 	ai_weight = {

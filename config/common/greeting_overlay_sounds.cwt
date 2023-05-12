@@ -8,9 +8,7 @@ types = {
 ## replace_scopes = { this = country root = country }
 greeting_overlay_sound = {
 	soundeffect = <sound_effect>
-	possible = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	possible = single_alias_right[trigger]
 	weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}

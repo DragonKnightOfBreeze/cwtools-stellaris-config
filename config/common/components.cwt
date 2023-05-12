@@ -165,9 +165,7 @@ component_template = {
 	should_ai_use = bool
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country }
- 	valid_for_country = {
-		alias_name[trigger] = alias_match_left[trigger]
- 	}
+ 	valid_for_country = single_alias_right[trigger]
 	## cardinality = 0..1
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -205,9 +203,7 @@ component_template = {
 			name = scalar
 			## cardinality = 0..1
 			## push_scope = ship
-			limit = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			limit = single_alias_right[trigger]
 			## cardinality = 0..1
 			system_wide = bool
 			## cardinality = 0..1
@@ -243,9 +239,7 @@ component_template = {
 			name = scalar
 			## cardinality = 0..1
 			## push_scope = ship
-			limit = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			limit = single_alias_right[trigger]
 			## cardinality = 0..1
 			system_wide = bool
 			## cardinality = 0..1
@@ -292,19 +286,13 @@ component_template = {
 
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
-		scripted_action_button_possible = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		scripted_action_button_possible = single_alias_right[trigger]
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
-		scripted_action_possible = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		scripted_action_possible = single_alias_right[trigger]
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
-		scripted_action_finished = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		scripted_action_finished = single_alias_right[trigger]
 		## cardinality = 0..1
 		scripted_action_name = <on_action>
 		## cardinality = 0..1

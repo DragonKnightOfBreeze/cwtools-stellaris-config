@@ -16,7 +16,7 @@ diplo_phrase_greetings = {
 	## cardinality = 0..inf
 	localisation = {
 		## replace_scope = { root = country this = country from = country }
-		trigger = { alias_name[trigger] = alias_match_left[trigger] }
+		trigger = single_alias_right[trigger]
 		## cardinality = 0..1
 		weight = {
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -31,7 +31,7 @@ diplo_phrase = {
 		localisation = {
 			## replace_scopes = { root = country this = country from = country }
 			## cardinality = 0..1
-			trigger = { alias_name[trigger] = alias_match_left[trigger] }
+			trigger = single_alias_right[trigger]
 			## cardinality = 0..1
 			weight = {
 				alias_name[modifier_rule] = alias_match_left[modifier_rule]

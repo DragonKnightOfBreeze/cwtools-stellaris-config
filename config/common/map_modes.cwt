@@ -52,9 +52,7 @@ map_mode = {
 		## cardinality = 0..1
 		hardcoded_tooltip = enum[hardcoded_map_mode_tooltip]
 		## replace_scopes = { root = country this = country from = country }
-		condition = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		condition = single_alias_right[trigger]
 		## cardinality = 0..1
 		filter = enum[hardcoded_map_mode_filters]
 	}

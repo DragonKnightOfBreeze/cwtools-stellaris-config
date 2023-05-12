@@ -142,9 +142,7 @@ trait = {
 				### Scripted trigger. If false, hide layer. THIS = Leader
 				## cardinality = 0..1
 				## replace_scopes = { this = leader root = leader }
-				visible = {
-					alias_name[trigger] = alias_match_left[trigger]
-				}
+				visible = single_alias_right[trigger]
 			}
 		}
 		## cardinality = 0..1
@@ -225,14 +223,10 @@ trait = {
 		triggered_desc = {
 			### Trigger appends additional localization key to existing text. THIS = Leader
 			## cardinality = 0..1
-			trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			trigger = single_alias_right[trigger]
 			### Exclusive trigger replaces all other text in tooltip with localization key. THIS = Leader
 			## cardinality = 0..1
-			exclusive_trigger = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
+			exclusive_trigger = single_alias_right[trigger]
 			## cardinality = 0..inf
 			text = localisation
 		}
@@ -250,9 +244,7 @@ trait = {
 		### Effects in this block fire when trait is acquired. THIS = Leader.
 		## cardinality = 0..1
 		## replace_scopes = { this = leader root = leader }
-		on_gained_effect = {
-			alias_name[effect] = alias_match_left[effect]
-		}
+		on_gained_effect = single_alias_right[effect]
 
 		### Limits which leader classes that can get this trait.
 		## cardinality = 0..1
@@ -267,14 +259,10 @@ trait = {
 		### If exists, evaluates if leader can get trait. Scope: THIS = Leader, FROM = Country.
 		## cardinality = 0..1
 		## replace_scopes = { this = leader root = leader from = country }
-		leader_potential_add = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		leader_potential_add = single_alias_right[trigger]
 		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
-		species_potential_add = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		species_potential_add = single_alias_right[trigger]
 
 		subtype[subclass_trait] = {
 			## cardinality = 0..inf
@@ -414,34 +402,22 @@ trait = {
 
 		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
-		species_potential_add = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		species_potential_add = single_alias_right[trigger]
 		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
-		species_potential_remove = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		species_potential_remove = single_alias_right[trigger]
 		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
-		species_possible_add = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		species_possible_add = single_alias_right[trigger]
 		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
-		species_possible_remove = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		species_possible_remove = single_alias_right[trigger]
 		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
-		species_possible_merge_add = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		species_possible_merge_add = single_alias_right[trigger]
 		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
-		species_possible_merge_remove = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		species_possible_merge_remove = single_alias_right[trigger]
 
 		## cardinality = 0..1
 		prerequisites = {

@@ -57,13 +57,9 @@ graphical_culture = {
 		ambient_far = float
 	}
 	## cardinality = 0..1
-	randomized = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	randomized = single_alias_right[trigger]
 	## cardinality = 0..1
-	selectable = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	selectable = single_alias_right[trigger]
 }
 
 # graphical_culture = {
