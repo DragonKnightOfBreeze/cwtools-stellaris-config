@@ -207,9 +207,7 @@ species_class = {
 	archetype = <species_archetype>
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	modifier = single_alias_right[modifier]
 	## cardinality = 0..1
 	playable = {
 		alias_name[trigger] = alias_match_left[trigger]
@@ -350,9 +348,7 @@ citizenship_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
@@ -364,9 +360,7 @@ citizenship_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	free_pop_modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -420,9 +414,7 @@ colonization_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
@@ -434,9 +426,7 @@ colonization_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	free_pop_modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -487,9 +477,7 @@ living_standard = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
@@ -501,9 +489,7 @@ living_standard = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	free_pop_modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -557,9 +543,7 @@ migration_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
@@ -571,9 +555,7 @@ migration_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	free_pop_modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -624,9 +606,7 @@ military_service_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
@@ -638,9 +618,7 @@ military_service_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	free_pop_modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -694,9 +672,7 @@ population_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
@@ -708,9 +684,7 @@ population_control = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	free_pop_modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -765,9 +739,7 @@ purge_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
@@ -779,9 +751,7 @@ purge_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	free_pop_modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -836,9 +806,7 @@ slavery_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
@@ -850,9 +818,7 @@ slavery_type = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	free_pop_modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right

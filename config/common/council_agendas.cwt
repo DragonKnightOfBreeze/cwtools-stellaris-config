@@ -27,9 +27,7 @@ agenda = {
 	}
 	## cardinality = 0..1
 	modifiers = {
-		{
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		single_alias_right[modifier]
 	}
 	## cardinality = 0..1
 	finish_modifier = <static_modifier>

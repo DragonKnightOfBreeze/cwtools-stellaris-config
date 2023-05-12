@@ -152,27 +152,19 @@ agreement_term_value = {
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	### A modifier that applies to the Agreement owner country. Can stack multiple times.
-	owner_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
- 	}
+	owner_modifier = single_alias_right[modifier]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	### A modifier that applies to the Agreement owner country. Only applies once.
-	unique_owner_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
- 	}
+	unique_owner_modifier = single_alias_right[modifier]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	### A modifier that applies to the Agreement target country. Can stack multiple times.
-	target_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	target_modifier = single_alias_right[modifier]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	### A modifier that applies to the Agreement target country. Only applies once.
-	unique_target_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	unique_target_modifier = single_alias_right[modifier]
 	## cardinality = 0..1
 	### How much the subject's loyalty will change when a new agreement with this term starts
 	loyalty_change = int

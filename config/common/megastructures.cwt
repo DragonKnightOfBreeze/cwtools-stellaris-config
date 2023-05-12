@@ -111,15 +111,11 @@ megastructure = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = ship root = ship }
-	ship_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	ship_modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	## replace_scopes = { this = megastructure root = megastructure }
-	station_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	station_modifier = single_alias_right[modifier]
 
 	## cardinality = 0..1
 	placement_rules = {

@@ -1,3 +1,24 @@
+# modifier
+
+single_alias[modifier] = {
+	## cardinality = 0..1
+	description = localisation
+	## cardinality = 0..1
+	description_parameters = {
+		### Any value can go here to be used in localisation
+		## cardinality = 0..inf
+		$localisation_parameter = scalar
+	}
+	## cardinality = 0..1
+	show_only_custom_tooltip = bool
+	## cardinality = 0..1
+	custom_tooltip = localisation
+
+	alias_name[modifier] = alias_match_left[modifier]
+}
+
+# triggered modifier
+
 single_alias[triggered_modifier] = {
 	## cardinality = 0..1
 	potential = {
@@ -6,9 +27,7 @@ single_alias[triggered_modifier] = {
 	## cardinality = 0..1
 	key = localisation
 	## cardinality = 0..1
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	modifier = single_alias_right[modifier]
 	## cardinality = 0..inf
 	alias_name[modifier] = alias_match_left[modifier]
 	## cardinality = 0..inf
@@ -26,9 +45,7 @@ single_alias[triggered_modifier_by_pop] = {
 	## cardinality = 0..1
 	key = localisation
 	## cardinality = 0..1
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	modifier = single_alias_right[modifier]
 	## cardinality = 0..inf
 	alias_name[modifier] = alias_match_left[modifier]
 	## cardinality = 0..inf
@@ -46,9 +63,7 @@ single_alias[triggered_modifier_by_planet] = {
 	## cardinality = 0..1
 	key = localisation
 	## cardinality = 0..1
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	modifier = single_alias_right[modifier]
 	## cardinality = 0..inf
 	alias_name[modifier] = alias_match_left[modifier]
 	## cardinality = 0..inf
@@ -66,9 +81,7 @@ single_alias[triggered_modifier_by_starbase] = {
 	## cardinality = 0..1
 	key = localisation
 	## cardinality = 0..1
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	modifier = single_alias_right[modifier]
 	## cardinality = 0..inf
 	alias_name[modifier] = alias_match_left[modifier]
 	## cardinality = 0..inf
@@ -86,9 +99,7 @@ single_alias[triggered_modifier_by_situation] = {
 	## cardinality = 0..1
 	key = localisation
 	## cardinality = 0..1
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	modifier = single_alias_right[modifier]
 	## cardinality = 0..inf
 	alias_name[modifier] = alias_match_left[modifier]
 	## cardinality = 0..inf
@@ -97,10 +108,24 @@ single_alias[triggered_modifier_by_situation] = {
 	multiplier = value_field
 }
 
+# triggered desc
+
 single_alias[triggered_desc] = {
 	## cardinality = 0..1
 	trigger = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	text = localisation
+}
+
+# trigger
+
+single_alias[trigger] = {
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+# effect
+
+single_alias[effect] = {
+	alias_name[effect] = alias_match_left[effect]
 }

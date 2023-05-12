@@ -3605,6 +3605,9 @@ alias[effect:force_add_civic] = <civic_or_origin.civic>
 
 ### Removes civic from a government without checking the restrictions
 ## scopes = { country }
+alias[effect:force_remove_civic] = int[0..inf]
+### Removes civic from a government without checking the restrictions
+## scopes = { country }
 alias[effect:force_remove_civic] = <civic_or_origin.civic>
 
 ### Completes a specific special project for the country, firing the on complete effects

@@ -182,32 +182,22 @@ trait = {
 		### Modifier applied to the leader itself.
 		## cardinality = 0..1
 		## replace_scopes = { this = leader root = leader }
-		self_modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		self_modifier = single_alias_right[modifier]
 		### Modifier applied to scope leader is assigned to (e.g. fleet, or science ship) or country if councilor trait.
 		## cardinality = 0..1
 		## replace_scopes = { this = any root = any }
-		modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		modifier = single_alias_right[modifier]
 		### Modifier applied to planet if General assigned to defense army.
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
-		planet_modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		planet_modifier = single_alias_right[modifier]
 		### Modifier applied to system if General or Governor is assigned to planet within it.
 		## cardinality = 0..1
 		## replace_scopes = { this = system root = system }
-		system_modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		system_modifier = single_alias_right[modifier]
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
-		assist_research_planet_modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		assist_research_planet_modifier = single_alias_right[modifier]
 
 		### Modifier applied to the leader itself if the given condition is fullfilled.
 		## cardinality = 0..inf
@@ -375,24 +365,16 @@ trait = {
 
 		## cardinality = 0..1
 		## replace_scopes = { this = country root = country }
-		modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		modifier = single_alias_right[modifier]
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
-		assembling_modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		assembling_modifier = single_alias_right[modifier]
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
-		declining_modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		declining_modifier = single_alias_right[modifier]
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
-		growing_modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		growing_modifier = single_alias_right[modifier]
 
 		### won't show in trait tooltips, use custom_tooltip/custom_tooltip_with_modifiers
 		## cardinality = 0..inf
@@ -438,6 +420,11 @@ trait = {
 		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
 		species_potential_remove = {
+			alias_name[trigger] = alias_match_left[trigger]
+		}
+		## replace_scopes = { this = species root = species from = country }
+		## cardinality = 0..1
+		species_possible_add = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 		## replace_scopes = { this = species root = species from = country }

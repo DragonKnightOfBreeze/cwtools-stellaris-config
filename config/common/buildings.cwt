@@ -182,19 +182,13 @@ building = {
 
 	## cardinality = 0..1
 	## replace_scopes = { this = planet root = planet }
-	planet_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	planet_modifier = single_alias_right[modifier]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	country_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	country_modifier = single_alias_right[modifier]
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
-	army_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	army_modifier = single_alias_right[modifier]
 
 	## cardinality = 0..inf
 	## replace_scopes = { this = planet root = planet }

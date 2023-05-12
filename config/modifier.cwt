@@ -1,15 +1,3 @@
-alias[modifier:description] = localisation
-
-alias[modifier:description_parameters] = {
-	### Any value can go here to be used in localisation
-	## cardinality = 0..inf
-	$localisation_parameter = scalar
-}
-
-alias[modifier:show_only_custom_tooltip] = bool
-
-alias[modifier:custom_tooltip] = localisation
-
 ### Applies the value of the static modifier X right hand side factor
 alias[modifier:<static_modifier>] = float
 

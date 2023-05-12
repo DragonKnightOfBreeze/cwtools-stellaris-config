@@ -53,9 +53,7 @@ edict = {
 	}
 
 	## cardinality = 0..1
-	relay_network_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	relay_network_modifier = single_alias_right[modifier]
 
 	### country trigger to decide whether the edict should be shown.
 	## cardinality = 0..1

@@ -76,12 +76,8 @@ espionage_asset = {
 		## cardinality = 0..1
 		default_portrait = <sprite>
 	}
-    passive = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
-    active = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+    passive = single_alias_right[modifier]
+    active = single_alias_right[modifier]
     possible = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}

@@ -57,14 +57,10 @@ situation_type = {
 
 	## cardinality = 0..1
 	## push_scope = country
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	modifier = single_alias_right[modifier]
 	## cardinality = 0..1
 	## push_scope = planet
-	target_modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	target_modifier = single_alias_right[modifier]
 
 	## cardinality = 0..inf
 	## push_scope = country
@@ -114,14 +110,10 @@ situation_type = {
 
 		## cardinality = 0..1
 		## push_scope = country
-		modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		modifier = single_alias_right[modifier]
 		## cardinality = 0..1
 		## push_scope = planet
-		target_modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		target_modifier = single_alias_right[modifier]
 
 		## cardinality = 0..inf
 		## push_scope = country
@@ -192,14 +184,10 @@ situation_type = {
 
 			## cardinality = 0..1
 			## push_scope = country
-			modifier = {
-				alias_name[modifier] = alias_match_left[modifier]
-			}
+			modifier = single_alias_right[modifier]
 			## cardinality = 0..1
 			## push_scope = planet
-			target_modifier = {
-				alias_name[modifier] = alias_match_left[modifier]
-			}
+			target_modifier = single_alias_right[modifier]
 
 			## cardinality = 0..inf
 			## push_scope = country

@@ -102,9 +102,7 @@ resolution = {
 	harmful = bool
 	### Modifier to be applied to all community members if passed. Apparently. Not sure about that...
 	## cardinality = 0..1
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	modifier = single_alias_right[modifier]
 	### Modifier to be applied to all community members if passed and the potential trigger is true
 	## cardinality = 0..inf
 	triggered_modifier = single_alias_right[triggered_modifier]

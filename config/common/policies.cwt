@@ -75,9 +75,7 @@ policy = {
 
 		## cardinality = 0..1
 		## replace_scopes = { this = country root = country }
-		modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		modifier = single_alias_right[modifier]
 
 		## cardinality = 0..1
 		prerequisites = {

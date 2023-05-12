@@ -19,7 +19,5 @@ cloaking_strength_level = {
 	### The modifiers to be applied
 	## cardinality = 0..1
 	## replace_scopes = { this = ship root = ship }
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	modifier = single_alias_right[modifier]
 }

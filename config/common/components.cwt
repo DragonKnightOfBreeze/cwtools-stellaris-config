@@ -184,14 +184,10 @@ component_template = {
 		size = enum[utility_slot_size]
 		## cardinality = 0..1
 		## replace_scopes = { this = ship root = ship }
-		modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		modifier = single_alias_right[modifier]
 		## cardinality = 0..1
 		## replace_scopes = { this = ship root = ship }
-		ship_modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		ship_modifier = single_alias_right[modifier]
 		## cardinality = 0..1
 		ftl = bool
 		## cardinality = 0..1
@@ -226,9 +222,7 @@ component_template = {
 			}
 			## cardinality = 0..1
 			## replace_scopes = { this = ship root = ship }
-			modifier = {
-				alias_name[modifier] = alias_match_left[modifier]
-			}
+			modifier = single_alias_right[modifier]
 
 			## cardinality = 0..1
 			graphics = {
@@ -266,9 +260,7 @@ component_template = {
 			}
 			## cardinality = 0..1
 			## replace_scopes = { this = ship root = ship }
-			modifier = {
-				alias_name[modifier] = alias_match_left[modifier]
-			}
+			modifier = single_alias_right[modifier]
 
 			## cardinality = 0..1
 			graphics = {
@@ -300,6 +292,11 @@ component_template = {
 
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
+		scripted_action_button_possible = {
+			alias_name[trigger] = alias_match_left[trigger]
+		}
+		## cardinality = 0..1
+		## replace_scopes = { this = planet root = planet }
 		scripted_action_possible = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
@@ -309,11 +306,12 @@ component_template = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 		## cardinality = 0..1
-		scripted_action_name = localisation
+		scripted_action_name = <on_action>
 		## cardinality = 0..1
 		scripted_action_tooltip = localisation
 		## cardinality = 0..1
 		scripted_action_icon = <sprite>
+		scripted_action_on_cancel = <on_action>
 		## cardinality = 0..1
 		scripted_action_activity_key = localisation
 		## cardinality = 0..1
@@ -332,14 +330,10 @@ component_template = {
 		type = enum[weapon_type2]
 		## cardinality = 0..1
 		## replace_scopes = { this = ship root = ship }
-		modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		modifier = single_alias_right[modifier]
 		## cardinality = 0..1
 		## replace_scopes = { this = ship root = ship }
-		ship_modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		ship_modifier = single_alias_right[modifier]
 
 		## cardinality = 0..1
 		projectile_gfx = <projectile>
