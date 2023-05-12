@@ -117,9 +117,7 @@ solar_system_initializer = {
 		## cardinality = 0..1
 		spawn_chance = int
 		## cardinality = 0..1
-		trigger = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		trigger = single_alias_right[trigger]
 	}
 }
 alias[planet_initializer:planet] = {

@@ -3081,9 +3081,7 @@ alias[effect:stop_crisis_sound] = yes
 alias[effect:switch] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..inf
-	scalar = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	scalar = single_alias_right[effect]
 }
 
 ### Just a tooltip (shows the effect but does not run it)

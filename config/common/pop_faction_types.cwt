@@ -84,9 +84,7 @@ pop_faction = {
 
 	### Existence requirements for defined parameter
 	## cardinality = 0..1
-	valid = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
+	valid = single_alias_right[trigger]
 
 	### Determines which pops are able to join this faction. Only uses certain simple triggers.
 	## push_scope = pop

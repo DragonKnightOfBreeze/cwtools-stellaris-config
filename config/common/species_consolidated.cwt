@@ -257,9 +257,7 @@ species_class = {
 		randomized = single_alias_right[trigger]
 		## replace_scopes = { root = no_scope this = no_scope }
 		## cardinality = 0..1
-		playable = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
+		playable = single_alias_right[trigger]
 		portraits = {
 			## cardinality = 0..inf
 			<portrait>
