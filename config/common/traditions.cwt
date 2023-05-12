@@ -58,6 +58,8 @@ types = {
 }
 
 tradition = {
+	unlocks_agenda = <agenda>
+
 	### accepts only country modifiers
 	## cardinality = 0..1
 	## replace_scope = { this = country root = country }

@@ -112,9 +112,9 @@ war_goal = {
 	## cardinality = 0..1
 	release_occupied_systems_on_status_quo = bool
 
-	### Default no
+	### default: no
 	## cardinality = 0..1
-	show_agreement_terms = yes
+	show_agreement_terms = bool
 
 	### FROM = The targeted country, THIS = The acting country
 	## cardinality = 0..1

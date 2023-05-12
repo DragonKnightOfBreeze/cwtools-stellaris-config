@@ -57,6 +57,7 @@ enums = {
 		follow
 		stay_at_range
 		flee
+		maintain_distance
 	}
 	enum[combat_anchor] = {
 		root

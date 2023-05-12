@@ -103,22 +103,11 @@ resolution = {
 	### Modifier to be applied to all community members if passed. Apparently. Not sure about that...
 	## cardinality = 0..1
 	modifier = {
-		## cardinality = 0..1
-		custom_tooltip = localisation
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 	### Modifier to be applied to all community members if passed and the potential trigger is true
 	## cardinality = 0..inf
-	triggered_modifier = {
-		potential = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
-		## cardinality = 0..1
-		modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	triggered_modifier = single_alias_right[triggered_modifier]
 	### Effect to be applied if passed, scope is country
 	## cardinality = 0..1
 	effect = {

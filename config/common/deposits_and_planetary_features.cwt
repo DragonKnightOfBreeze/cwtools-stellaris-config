@@ -96,6 +96,11 @@ deposit = {
 	}
 
 	## cardinality = 0..1
+	## replace_scope = { this = planet root = planet }
+	planet_modifier = {
+		alias_name[modifier] = alias_match_left[modifier]
+	}
+	## cardinality = 0..1
 	## replace_scope = { this = country root = country }
 	country_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
@@ -103,11 +108,10 @@ deposit = {
 
 	## cardinality = 0..1
 	## replace_scope = { this = planet root = planet }
-	planet_modifier = {
-		## cardinality = 0..1
-		custom_tooltip = localisation
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	triggered_planet_modifier = single_alias_right[triggered_modifier]
+	## cardinality = 0..1
+	## replace_scope = { this = country root = country }
+	triggered_country_modifier = single_alias_right[triggered_modifier]
 
 	subtype[colonisable] = {
 		## cardinality = 0..1
@@ -149,9 +153,8 @@ deposit = {
 		station = shipclass_research_station
 	}
 
-	alias_name[triggered_planet_modifier] = alias_match_left[triggered_planet_modifier]
-
 	alias_name[resources_template_optional] = alias_match_left[resources_template_optional]
+
 	#	## cardinality = 0..1
 	#	resources = {
 	#		category = <economic_category>

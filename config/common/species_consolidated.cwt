@@ -394,7 +394,8 @@ citizenship_type = {
 	}
 
 	## cardinality = 0..inf
-	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
+	## replace_scope = { this = pop root = pop }
+	triggered_pop_modifier = single_alias_right[triggered_modifier]
 }
 
 colonization_control = {
@@ -463,7 +464,8 @@ colonization_control = {
 	}
 
 	## cardinality = 0..inf
-	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
+	## replace_scope = { this = pop root = pop }
+	triggered_pop_modifier = single_alias_right[triggered_modifier]
 }
 
 living_standard = {
@@ -529,7 +531,8 @@ living_standard = {
 	}
 
 	## cardinality = 0..inf
-	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
+	## replace_scope = { this = pop root = pop }
+	triggered_pop_modifier = single_alias_right[triggered_modifier]
 }
 
 migration_control = {
@@ -598,7 +601,8 @@ migration_control = {
 	}
 
 	## cardinality = 0..inf
-	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
+	## replace_scope = { this = pop root = pop }
+	triggered_pop_modifier = single_alias_right[triggered_modifier]
 }
 
 military_service_type = {
@@ -664,7 +668,8 @@ military_service_type = {
 	}
 
 	## cardinality = 0..inf
-	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
+	## replace_scope = { this = pop root = pop }
+	triggered_pop_modifier = single_alias_right[triggered_modifier]
 }
 
 population_control = {
@@ -733,7 +738,8 @@ population_control = {
 	}
 
 	## cardinality = 0..inf
-	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
+	## replace_scope = { this = pop root = pop }
+	triggered_pop_modifier = single_alias_right[triggered_modifier]
 }
 
 purge_type = {
@@ -803,7 +809,8 @@ purge_type = {
 	}
 
 	## cardinality = 0..inf
-	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
+	## replace_scope = { this = pop root = pop }
+	triggered_pop_modifier = single_alias_right[triggered_modifier]
 }
 
 slavery_type = {
@@ -873,7 +880,8 @@ slavery_type = {
 	}
 
 	## cardinality = 0..inf
-	alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
+	## replace_scope = { this = pop root = pop }
+	triggered_pop_modifier = single_alias_right[triggered_modifier]
 }
 
 enums = {

@@ -168,9 +168,13 @@ trait = {
 		### Is this leader immortal? Default is no.
 		## cardinality = 0..1
 		immortal_leaders = bool
+		### default: no
 		## cardinality = 0..1
-		### Default = no
 		hide_age = bool
+
+		### default: no
+		## cardinality = 0..1
+		ftl_inhibitor = bool
 
 		### Modifier applied to the leader itself.
 		## cardinality = 0..1
@@ -200,55 +204,19 @@ trait = {
 		### Modifier applied to the leader itself if the given condition is fullfilled.
 		## cardinality = 0..inf
 		## replace_scopes = { this = leader root = leader }
-		triggered_self_modifier = {
-			potential = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
-			## cardinality = 0..1
-			modifier = {
-				alias_name[modifier] = alias_match_left[modifier]
-			}
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		triggered_self_modifier = single_alias_right[triggered_modifier]
 		### Modifier applied to location the leader is assigned to if the given condition is fullfilled.
 		## cardinality = 0..inf
 		## replace_scopes = { this = any root = any }
-		triggered_modifier = {
-			potential = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
-			## cardinality = 0..1
-			modifier = {
-				alias_name[modifier] = alias_match_left[modifier]
-			}
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		triggered_modifier = single_alias_right[triggered_modifier]
 		### Modifier applied to the planet on which General is assigned to defend if the given condition is fullfilled.
 		## cardinality = 0..inf
 		## replace_scopes = { this = planet root = planet }
-		triggered_planet_modifier = {
-			potential = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
-			## cardinality = 0..1
-			modifier = {
-				alias_name[modifier] = alias_match_left[modifier]
-			}
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		triggered_planet_modifier = single_alias_right[triggered_modifier]
 		# NOTE Should exist, but not referred in 000_documentation_leader_traits.txt
 		## cardinality = 0..inf
 		## replace_scopes = { this = system root = system }
-		triggered_system_modifier = {
-			potential = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
-			## cardinality = 0..1
-			modifier = {
-				alias_name[modifier] = alias_match_left[modifier]
-			}
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		triggered_system_modifier = single_alias_right[triggered_modifier]
 
 		### Show key if trigger/exclusive_trigger is true.
 		## cardinality = 0..1
@@ -266,7 +234,7 @@ trait = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
 			## cardinality = 0..inf
-			text = localisatiofn
+			text = localisation
 		}
 
 		### Replaces auto-generated trait subtitle with localization key.
@@ -412,10 +380,11 @@ trait = {
 
 		### won't show in trait tooltips, use custom_tooltip/custom_tooltip_with_modifiers
 		## cardinality = 0..inf
-		alias_name[triggered_pop_modifier] = alias_match_left[triggered_pop_modifier]
+		## replace_scope = { this = pop root = pop }
+		triggered_pop_modifiers = single_alias_right[triggered_modifier]
 		## cardinality = 0..inf
 		## replace_scopes = { this = planet root = planet from = species fromfrom = country }
-		alias_name[triggered_planet_growth_habitability_modifier] = alias_match_left[triggered_planet_growth_habitability_modifier]
+		triggered_planet_growth_habitability_modifier = single_alias_right[triggered_modifier]
 
 		## cardinality = 0..1
 		custom_tooltip = localisation

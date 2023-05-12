@@ -123,8 +123,12 @@ district = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
-	alias_name[triggered_planet_modifier] = alias_match_left[triggered_planet_modifier]
-	alias_name[triggered_desc] = alias_match_left[triggered_desc]
+	## cardinality = 0..inf
+	## replace_scope = { this = planet root = planet }
+	triggered_planet_modifier = single_alias_right[triggered_modifier]
+
+	## cardinality = 0..inf
+	triggered_desc = single_alias_right[triggered_desc]
 
 	## cardinality = 0..1
 	ai_weight = {

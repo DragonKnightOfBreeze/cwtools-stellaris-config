@@ -316,6 +316,7 @@ enums = {
 		federation
 		## modifier_categories = { Espionage "AI Economy" }
 		espionage
+		species
 	}
 	enum[job_triggers] = {
 		can_fill_drone_job

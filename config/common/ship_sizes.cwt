@@ -70,6 +70,9 @@ ship_size = {
 	build_time = int
 	## cardinality = 0..1
 	is_civilian = bool
+	### default: no
+	## cardinality = 0..1
+	cloaking_forbidden = bool
 	## cardinality = 0..1
 	build_block_radius = int
 	## cardinality = 0..1

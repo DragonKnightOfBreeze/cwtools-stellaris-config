@@ -132,31 +132,31 @@ relic = {
 	portrait = <sprite>
 	## cardinality = 0..1
 	sound = <sound_effect>
+	score = int[0..inf]
+
+	### Possible check for activation
+	## replace_scope = { root = country this = country }
+	possible = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	resources = {
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
 
-
-	## cardinality = 0..1
-	ai_weight = {
-		alias_name[modifier_rule] = alias_match_left[modifier_rule]
-	}
-
-	alias_name[triggered_country_modifier_country] = alias_match_left[triggered_country_modifier_country]
-
-	score = int[0..inf]
+	## cardinality = 0..inf
+	## replace_scope = { root = country this = country }
+	triggered_country_modifier = single_alias_right[triggered_modifier]
 
 	## replace_scope = { root = country this = country }
 	active_effect = {
 		alias_name[effect] = alias_match_left[effect]
 	}
 
-	### Possible check for activation
-	## replace_scope = { root = country this = country }
-	possible = {
-		alias_name[trigger] = alias_match_left[trigger]
+	## cardinality = 0..1
+	ai_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 }
 

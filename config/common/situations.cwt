@@ -60,35 +60,18 @@ situation_type = {
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
-	## cardinality = 0..inf
-	## push_scope = country
-	triggered_modifier = {
-		potential = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
-		## cardinality = 0..1
-		modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
-		alias_name[modifier] = alias_match_left[modifier]
-	}
 	## cardinality = 0..1
 	## push_scope = planet
 	target_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
+
+	## cardinality = 0..inf
+	## push_scope = country
+	triggered_modifier = single_alias_right[triggered_modifier]
 	## cardinality = 0..inf
 	## push_scope = planet
-	triggered_target_modifier = {
-		potential = {
-			alias_name[trigger] = alias_match_left[trigger]
-		}
-		## cardinality = 0..1
-		modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
-		alias_name[modifier] = alias_match_left[modifier]
-	}
+	triggered_target_modifier = single_alias_right[triggered_modifier]
 
 	## cardinality = 0..1
 	on_monthly = {
@@ -128,21 +111,10 @@ situation_type = {
 		potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
+
 		## cardinality = 0..1
 		## push_scope = country
 		modifier = {
-			alias_name[modifier] = alias_match_left[modifier]
-		}
-		## cardinality = 0..inf
-		## push_scope = country
-		triggered_modifier = {
-			potential = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
-			## cardinality = 0..1
-			modifier = {
-				alias_name[modifier] = alias_match_left[modifier]
-			}
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		## cardinality = 0..1
@@ -150,18 +122,14 @@ situation_type = {
 		target_modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
+
+		## cardinality = 0..inf
+		## push_scope = country
+		triggered_modifier = single_alias_right[triggered_modifier]
 		## cardinality = 0..inf
 		## push_scope = planet
-		triggered_target_modifier = {
-			potential = {
-				alias_name[trigger] = alias_match_left[trigger]
-			}
-			## cardinality = 0..1
-			modifier = {
-				alias_name[modifier] = alias_match_left[modifier]
-			}
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+		triggered_target_modifier = single_alias_right[triggered_modifier]
+
 		## cardinality = 0..1
 		resources = {
 			category = <economic_category>
@@ -171,6 +139,8 @@ situation_type = {
 		on_select = {
 			alias_name[effect] = alias_match_left[effect]
 		}
+		## cardinality = 0..1
+		ai_weight = int
 		## cardinality = 0..1
 		ai_weight = {
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -189,10 +159,10 @@ situation_type = {
 	subtype[bidirectional] = {
 		### Only for progress_direction = bidirectional - only affects progress towards completetion (right)
 		## cardinality = 0..1
-		complete_category = negative
+		complete_category = enum[situation_categories]
 		### Only for progress_direction = bidirectional - only affects progress towards fail (left)
 		## cardinality = 0..1
-		fail_category = negative
+		fail_category = enum[situation_categories]
 	}
 
 	complete_icon = <sprite>
@@ -219,21 +189,10 @@ situation_type = {
 			potential = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
+
 			## cardinality = 0..1
 			## push_scope = country
 			modifier = {
-				alias_name[modifier] = alias_match_left[modifier]
-			}
-			## cardinality = 0..inf
-			## push_scope = country
-			triggered_modifier = {
-				potential = {
-					alias_name[trigger] = alias_match_left[trigger]
-				}
-				## cardinality = 0..1
-				modifier = {
-					alias_name[modifier] = alias_match_left[modifier]
-				}
 				alias_name[modifier] = alias_match_left[modifier]
 			}
 			## cardinality = 0..1
@@ -241,18 +200,13 @@ situation_type = {
 			target_modifier = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
+
+			## cardinality = 0..inf
+			## push_scope = country
+			triggered_modifier = single_alias_right[triggered_modifier]
 			## cardinality = 0..inf
 			## push_scope = planet
-			triggered_target_modifier = {
-				potential = {
-					alias_name[trigger] = alias_match_left[trigger]
-				}
-				## cardinality = 0..1
-				modifier = {
-					alias_name[modifier] = alias_match_left[modifier]
-				}
-				alias_name[modifier] = alias_match_left[modifier]
-			}
+			triggered_target_modifier = single_alias_right[triggered_modifier]
 	    }
 	}
 }
