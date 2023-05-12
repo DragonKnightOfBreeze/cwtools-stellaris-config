@@ -296,6 +296,27 @@ component_template = {
 				armor_penetration = float
 			}
 		}
+
+		## cardinality = 0..1
+		## replace_scope = { this = planet root = planet }
+		scripted_action_possible = {
+			alias_name[trigger] = alias_match_left[trigger]
+		}
+		## cardinality = 0..1
+		## replace_scope = { this = planet root = planet }
+		scripted_action_finished = {
+			alias_name[trigger] = alias_match_left[trigger]
+		}
+		## cardinality = 0..1
+		scripted_action_name = localisation
+		## cardinality = 0..1
+		scripted_action_tooltip = localisation
+		## cardinality = 0..1
+		scripted_action_icon = <sprite>
+		## cardinality = 0..1
+		scripted_action_activity_key = localisation
+		## cardinality = 0..1
+		scripted_action_context_menu_name = localisation
 	}
 	subtype[weapon_component_template] = {
 		## cardinality = 0..1

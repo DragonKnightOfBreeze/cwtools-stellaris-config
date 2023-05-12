@@ -70,6 +70,41 @@ trait = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
+	## cardinality = 0..1
+	valid_for_all_ethics = bool
+	## cardinality = 0..1
+	valid_for_all_origins = bool
+
+	### This only does something if valid_for_all_ethics is set to no
+	## cardinality = 0..1
+	allowed_ethics = {
+		## cardinality = 1..inf
+		<ethic>
+	}
+	### This only does something if valid_for_origins is set to no
+	## cardinality = 0..1
+	allowed_origins = {
+		## cardinality = 1..inf
+		<civic_or_origin.origin>
+	}
+	## cardinality = 0..1
+	allowed_archetypes = {
+		## cardinality = 1..inf
+		<species_archetype>
+	}
+	## cardinality = 0..1
+	allowed_planet_classes = {
+		## cardinality = 1..inf
+		<planet_class>
+	}
+	## cardinality = 0..1
+	ideal_planet_class = <planet_class>
+	## cardinality = 0..1
+	species_class = {
+		## cardinality = 1..inf
+		<species_class>
+	}
+
 	subtype[leader_trait] = {
 		### This trait is available in ruler creation. Default is no.
 		## cardinality = 0..1
@@ -123,9 +158,6 @@ trait = {
 		### Does the "modifier" block apply to empire if leader is ruler? Default is no.
 		## cardinality = 0..1
 		is_councilor_trait_for_ruler = bool
-		### Is this leader immortal? Default is no.
-		## cardinality = 0..1
-		immortal_leaders = bool
 
 		### Default is yes.
 		## cardinality = 0..1
@@ -133,7 +165,9 @@ trait = {
 		### Is this trait available during leader generation, level up or yearly negative trait chance. Default is yes.
 		## cardinality = 0..1
 		randomized = bool
-
+		### Is this leader immortal? Default is no.
+		## cardinality = 0..1
+		immortal_leaders = bool
 		## cardinality = 0..1
 		### Default = no
 		hide_age = bool
@@ -351,41 +385,9 @@ trait = {
 		### Is this trait available during leader generation, level up or yearly negative trait chance. Default is yes.
 		## cardinality = 0..1
 		randomized = bool
-
+		### Is this leader immortal? Default is no.
 		## cardinality = 0..1
-		valid_for_all_ethics = bool
-		## cardinality = 0..1
-		valid_for_all_origins = bool
-
-		### This only does something if valid_for_all_ethics is set to no
-		## cardinality = 0..1
-		allowed_ethics = {
-			## cardinality = 1..inf
-			<ethic>
-		}
-		### This only does something if valid_for_origins is set to no
-		## cardinality = 0..1
-		allowed_origins = {
-			## cardinality = 1..inf
-			<civic_or_origin.origin>
-		}
-		## cardinality = 0..1
-		allowed_archetypes = {
-			## cardinality = 1..inf
-			<species_archetype>
-		}
-		## cardinality = 0..1
-		allowed_planet_classes = {
-			## cardinality = 1..inf
-			<planet_class>
-		}
-		## cardinality = 0..1
-		ideal_planet_class = <planet_class>
-		## cardinality = 0..1
-		species_class = {
-			## cardinality = 1..inf
-			<species_class>
-		}
+		immortal_leaders = bool
 
 		## cardinality = 0..1
 		## replace_scopes = { this = country root = country }

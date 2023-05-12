@@ -119,6 +119,9 @@ colony_automation_exception = {
 	### default: no
 	## cardinality = 0..1
 	empire_wide_emergency = bool
+	### default: no
+	## cardinality = 0..1
+	should_ai_use_job_micro = bool
 
 	available = {
 		alias_name[trigger] = alias_match_left[trigger]

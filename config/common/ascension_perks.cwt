@@ -2,6 +2,7 @@ types = {
 	type[ascension_perk] = {
 		path = "game/common/ascension_perks"
 		file_extension = .txt
+
 		localisation = {
 			## required
 			Name = "$"
@@ -11,6 +12,38 @@ types = {
 		images = {
 			## primary
 			icon = "gfx/interface/icons/ascension_perks/$.dds" # inferred
+		}
+	}
+	## type_key_filter = tradition_swap
+	type[swapped_ascension_perk] = {
+		base_type = ascension_perk
+		path = "game/common/ascension_perks"
+		skip_root_key = any
+		name_field = name
+		subtype[not_inheriting_name] = {
+			## cardinality = 0..0
+			inherit_name = yes
+		}
+		subtype[not_inheriting_effects] = {
+			## cardinality = 0..0
+			inherit_effects = yes
+		}
+		localisation = {
+			subtype[not_inheriting_name] = {
+				## required
+				Name = "$"
+				## optional
+				Flavor = "$_delayed"
+			}
+			subtype[not_inheriting_effects] = {
+				## optional
+				Effects = "$_desc"
+			}
+		}
+		images = {
+			## primary
+			icon = "gfx/interface/icons/ascension_perks/$.dds" # inferred
+			# TODO inherit icon from parent original ascension perk if inherit_icon = yes
 		}
 	}
 }
@@ -44,5 +77,46 @@ ascension_perk = {
 	## replace_scope = { root = country this = country }
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	## cardinality = 0..inf
+	tradition_swap = {
+		name = localisation
+		name = scalar
+		## cardinality = 0..1
+		inherit_icon = bool
+		## cardinality = 0..1
+		inherit_name = bool
+		## cardinality = 0..1
+		inherit_effects = bool
+		## cardinality = 0..1
+		custom_tooltip = localisation
+		## cardinality = 0..1
+		custom_tooltip_with_modifiers = localisation
+
+		# Should be only if not inheriting effects
+		### accepts only country modifiers
+		## cardinality = 0..1
+		## replace_scope = { this = country root = country }
+		modifier = {
+			alias_name[modifier] = alias_match_left[modifier]
+		}
+		# Should be only if not inheriting effects
+		## replace_scope = { this = country root = country }
+		## cardinality = 0..1
+		on_enabled = {
+			alias_name[effect] = alias_match_left[effect]
+		}
+		### this determines the chances of a tradition swap appearing for a given empire IF multiple swaps are potential.
+		## replace_scope = { this = country root = country }
+		## cardinality = 0..1
+		weight = {
+			alias_name[modifier_rule] = alias_match_left[modifier_rule]
+		}
+		## cardinality = 0..1
+		## replace_scope = { this = country root = country }
+		trigger = {
+			alias_name[trigger] = alias_match_left[trigger]
+		}
 	}
 }

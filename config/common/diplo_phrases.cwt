@@ -2,44 +2,27 @@ types = {
 	type[diplo_phrase] = {
 		path = "game/common/diplo_phrases"
 		file_extension = .txt
-		name_from_file = yes
 	}
 }
 
 diplo_phrase = {
-	## cardinality = 0..1
-	greetings = {
+	## cardinality = 0..inf
+	enum[diplo_phrase_type] = {
 		## cardinality = 0..inf
 		localisation = {
 			## replace_scope = { root = country this = country from = country }
+			## cardinality = 0..1
 			trigger = { alias_name[trigger] = alias_match_left[trigger] }
 			## cardinality = 0..1
 			weight = {
 				alias_name[modifier_rule] = alias_match_left[modifier_rule]
 			}
-		}
-	}
-
-	## cardinality = 0..inf
-	<diplomatic_action> = {
-		## cardinality = 0..inf
-		enum[diplo_phrase_type] = {
-			## cardinality = 0..inf
-			localisation = {
-				## replace_scope = { root = country this = country from = country }
-				## cardinality = 0..1
-				trigger = { alias_name[trigger] = alias_match_left[trigger] }
-				## cardinality = 0..1
-				weight = {
-					alias_name[modifier_rule] = alias_match_left[modifier_rule]
-				}
-				### Only with action_offer_trade_deal
-				## cardinality = 0..1
-				only_for_trade = yes
-				### Only with action_offer_trade_deal
-				## cardinality = 0..1
-				only_for_gift = yes
-			}
+			### Only with action_offer_trade_deal
+			## cardinality = 0..1
+			only_for_trade = yes
+			### Only with action_offer_trade_deal
+			## cardinality = 0..1
+			only_for_gift = yes
 		}
 	}
 }

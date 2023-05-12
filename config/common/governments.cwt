@@ -523,7 +523,8 @@ alias[government_trigger:ethics] = {
 	}
 }
 alias[government_trigger:civics] = {
-	## cardinality = 0..3
+	## cardinality = 0..2
+	## cardinality_max_define = "NGameplay/GOVERNMENT_CIVIC_POINTS_BASE"
 	value = <civic_or_origin.civic>
 
 	## cardinality = 0..inf

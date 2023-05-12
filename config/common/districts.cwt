@@ -30,6 +30,10 @@ types = {
 
 ## push_scope = planet
 district = {
+	### default: no
+	## cardinality = 0..1
+	expansion_planner = bool
+
 	## cardinality = 0..1
 	base_buildtime = int
 	## cardinality = 0..inf

@@ -19,14 +19,13 @@ types = {
 	}
 }
 
-## replace_scope = { this = situation root = situation }
+## replace_scopes = { root = situation this = situation }
 situation_type = {
 	## cardinality = 0..inf
 	picture = <sprite>
 	## cardinality = 0..inf
 	picture = {
 		picture = <sprite>
-		## replace_scope = { root = situation this = situation }
 		trigger = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
@@ -35,7 +34,6 @@ situation_type = {
 	category = enum[situation_categories]
 
 	## cardinality = 0..inf
-	## replace_scope = { root = situation this = situation }
 	desc = {
 		trigger = { alias_name[trigger] = alias_match_left[trigger] }
 		text = localisation
@@ -58,22 +56,20 @@ situation_type = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
 	## push_scope = country
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 	## cardinality = 0..inf
+	## push_scope = country
 	triggered_modifier = {
 		potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 		## cardinality = 0..1
-		## push_scope = country
 		modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
-		## push_scope = country
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 	## cardinality = 0..1
@@ -82,16 +78,15 @@ situation_type = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 	## cardinality = 0..inf
+	## push_scope = planet
 	triggered_target_modifier = {
 		potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
-		## push_scope = planet
 		## cardinality = 0..1
 		modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
-		## push_scope = planet
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
@@ -139,16 +134,15 @@ situation_type = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		## cardinality = 0..inf
+		## push_scope = country
 		triggered_modifier = {
 			potential = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
 			## cardinality = 0..1
-			## push_scope = country
 			modifier = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
-			## push_scope = country
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		## cardinality = 0..1
@@ -157,16 +151,15 @@ situation_type = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		## cardinality = 0..inf
+		## push_scope = planet
 		triggered_target_modifier = {
 			potential = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
-			## push_scope = planet
 			## cardinality = 0..1
 			modifier = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
-			## push_scope = planet
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		## cardinality = 0..1
@@ -232,16 +225,15 @@ situation_type = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
 			## cardinality = 0..inf
+			## push_scope = country
 			triggered_modifier = {
 				potential = {
 					alias_name[trigger] = alias_match_left[trigger]
 				}
 				## cardinality = 0..1
-				## push_scope = country
 				modifier = {
 					alias_name[modifier] = alias_match_left[modifier]
 				}
-				## push_scope = country
 				alias_name[modifier] = alias_match_left[modifier]
 			}
 			## cardinality = 0..1
@@ -250,16 +242,15 @@ situation_type = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
 			## cardinality = 0..inf
+			## push_scope = planet
 			triggered_target_modifier = {
 				potential = {
 					alias_name[trigger] = alias_match_left[trigger]
 				}
-				## push_scope = planet
 				## cardinality = 0..1
 				modifier = {
 					alias_name[modifier] = alias_match_left[modifier]
 				}
-				## push_scope = planet
 				alias_name[modifier] = alias_match_left[modifier]
 			}
 	    }

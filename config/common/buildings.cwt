@@ -39,6 +39,7 @@ enums = {
 		government
 		pop_assembly
 		resource
+		resources
 		unity
 		research
 		trade
@@ -134,6 +135,12 @@ building = {
 	### an action when destroyed
 	## cardinality = 0..1
 	on_destroy = {
+		alias_name[effect] = alias_match_left[effect]
+	}
+
+	### an action when repaired
+	## cardinality = 0..1
+	on_repaired = {
 		alias_name[effect] = alias_match_left[effect]
 	}
 
@@ -244,4 +251,6 @@ building = {
 	## cardinality = 0..1
 	### Property on buildings which when added to the AI build queue will remove all non essential build tasks.
 	is_essential = bool
+	## cardinality = 0..1
+	ai_estimate_without_unemployment = bool
 }

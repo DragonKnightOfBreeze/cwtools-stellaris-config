@@ -176,6 +176,13 @@ agreement_term_value = {
 	## cardinality = 0..1
 	### How much the subject's loyalty will change when a new agreement with this term starts
 	loyalty_change = int
+	## cardinality = 0..1
+	ai_acceptance = {
+		## cardinality = 0..1
+		overload = int
+		## cardinality = 0..1
+		subject = int
+	}
 	## cardinality = 0..inf
 	### How much the subject's loyalty will additionally change when a new agreement with this term starts, if "trigger" is true
 	triggered_loyalty_change = {
@@ -186,6 +193,13 @@ agreement_term_value = {
 		}
 		## cardinality = 1..1
 		loyalty_change = int
+		## cardinality = 0..1
+		ai_acceptance = {
+			## cardinality = 0..1
+			overload = int
+			## cardinality = 0..1
+			subject = int
+		}
 	}
 	## cardinality = 0..1
 	## replace_scope = { this = agreement root = agreement }
@@ -274,9 +288,12 @@ agreement_preset = {
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	## cardinality = 0..1
 	### Whether the term should show up on the agreement negotiation screen (default: no)
+	## cardinality = 0..1
 	hidden = bool
+	### The ai will skip this when trying to find best/preffered agreement preset to negotiate existing or propose new agreement (default: yes)
+	## cardinality = 0..1
+	should_ai_use_for_proposals = bool
 }
 
 agreement_resource = {

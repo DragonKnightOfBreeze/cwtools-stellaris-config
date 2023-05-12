@@ -59,7 +59,7 @@ job = {
 	clothes_texture_index = int
 	## cardinality = 0..1
 	## file_extensions = { .dds .png .tga }
-	icon = filepath[gfx/interface/icons/jobs/job_]
+	icon = icon[gfx/interface/icons/jobs/job_]
 
 	## cardinality = 0..1
 	exempt_from_ai_amenity_prioritization = bool

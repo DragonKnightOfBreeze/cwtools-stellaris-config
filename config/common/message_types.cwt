@@ -7,16 +7,46 @@ types = {
 }
 
 message_type = {
+	### Sprite to use for gui item "message_icon_button"
 	icon =	<sprite>
+	### Frame index to use for gui item "message_frame"
 	icon_frame = int
+	### Message key, used from code
 	key = scalar
+	### Localization key to use for title, if empty it will use "MESSAGE_<key>_TITLE instead.
 	## cardinality = 0..1
 	name = localisation
+	### Sound to play on message creation
 	## cardinality = 0..1
 	sound = <sound_effect>
+	### Deprecated and does nothing.
 	## cardinality = 0..1
 	sound_is_advisor = bool
-	ping = <pingmap>
+	### Specifies if the message should be auto opened or not, valid: 'none', 'player', 'others' and 'all' (default: 'player'). Some messages as events are ignoring this since thay have their own option.
 	## cardinality = 0..1
 	auto_opens = scalar
+	### Ping map to use for map visualization.
+	ping = <pingmap>
+	### default: no
+	## cardinality = 0..1
+	default_toast = bool
+	### Filter category in message settings, valid: 'diplomacy', 'military', 'economy', 'government', 'science', 'fleets', 'planets', 'leaders', 'other' (default: 'other').
+	## cardinality = 0..1
+	category = enum[message_type_category]
+	### Default message settings (custom settings are saved to message_settings.txt in the user directory).
+	## cardinality = 0..1
+	message_settings = {
+		## cardinality = 0..1
+		### Show the message as an alert (default yes).
+		alert = bool
+		## cardinality = 0..1
+		### Does the message auto-pause the game (default no).
+		pausegame = bool
+	}
+}
+
+enums = {
+	enum[message_type_category] = {
+		diplomacy military economy government science fleets planets leaders other
+	}
 }

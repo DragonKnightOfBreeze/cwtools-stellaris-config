@@ -30,7 +30,7 @@ modifier_categories = {
 		supported_scopes = { ship starbase fleet country }
 	}
 	Ships = {
-		supported_scopes = { ship starbase fleet country }
+		supported_scopes = { ship starbase fleet planet country }
 	}
 	Fleets = {
 		supported_scopes = { fleet country }
@@ -69,6 +69,6 @@ modifier_categories = {
 		supported_scopes = { ship starbase fleet country }
 	}
 	Deposits = {
-		supported_scopes = { country deposit }
+		supported_scopes = { country planet deposit }
 	}
 }
