@@ -3377,7 +3377,7 @@ alias[trigger:has_pre_ftl_age] = <pre_ftl_age>
 
 ### Checks the scope leader's years of service
 ## scopes = { leader }
-alias[trigger:years_of_service] = int
+alias[trigger:leader_years_of_service] = int
 
 ### Checks the number of leader traits or total tiers of traits for a specific leader
 ## scopes = { leader }

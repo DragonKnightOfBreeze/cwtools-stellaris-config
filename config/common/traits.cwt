@@ -220,16 +220,15 @@ trait = {
 
 		### Show key if trigger/exclusive_trigger is true.
 		## cardinality = 0..1
+		## replace_scopes = { this = leader root = leader }
 		triggered_desc = {
 			### Trigger appends additional localization key to existing text. THIS = Leader
 			## cardinality = 0..1
-			## replace_scopes = { this = leader root = leader }
 			trigger = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
 			### Exclusive trigger replaces all other text in tooltip with localization key. THIS = Leader
 			## cardinality = 0..1
-			## replace_scopes = { this = leader root = leader }
 			exclusive_trigger = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
