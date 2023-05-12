@@ -4,6 +4,8 @@ single_alias[triggered_modifier] = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality = 0..1
+	key = localisation
+	## cardinality = 0..1
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -21,6 +23,8 @@ single_alias[triggered_modifier_by_pop] = {
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
+	## cardinality = 0..1
+	key = localisation
 	## cardinality = 0..1
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
@@ -40,6 +44,8 @@ single_alias[triggered_modifier_by_planet] = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality = 0..1
+	key = localisation
+	## cardinality = 0..1
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -57,6 +63,8 @@ single_alias[triggered_modifier_by_starbase] = {
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
+	## cardinality = 0..1
+	key = localisation
 	## cardinality = 0..1
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
@@ -76,24 +84,7 @@ single_alias[triggered_modifier_by_situation] = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality = 0..1
-	modifier = {
-		alias_name[modifier] = alias_match_left[modifier]
-	}
-	## cardinality = 0..inf
-	alias_name[modifier] = alias_match_left[modifier]
-	## cardinality = 0..inf
-	mult = value_field
-	## cardinality = 0..inf
-	multiplier = value_field
-}
-
-single_alias[triggered_modifier_with_key] = {
-	## cardinality = 0..1
 	key = localisation
-	## cardinality = 0..1
-	potential = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
 	## cardinality = 0..1
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]

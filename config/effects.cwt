@@ -1727,12 +1727,20 @@ alias[effect:create_leader] = {
 	sub_type = survey
 	## cardinality = 0..1
 	skip_background_generation = bool
+	### default: yes
+	## cardinality = 0..1
+	can_manually_change_location = bool
+	### default: yes
+	## cardinality = 0..1
+	can_see_in_list = bool
 	## cardinality = 0..1
 	custom_catch_phrase = localisation
 	## cardinality = 0..1
 	custom_description = localisation
 	## cardinality = 0..1
 	background_ethic = <ethic>
+	## cardinality = 0..1
+	randomize_traits = bool
 	## cardinality = 0..1
 	traits = {
 		## cardinality = 0..inf

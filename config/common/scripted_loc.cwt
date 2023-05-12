@@ -12,7 +12,7 @@ scripted_loc = {
 	## cardinality = 0..1
 	random = bool
 	# text or value (with optional default)
-	## cardinality = 1..inf
+	## cardinality = 0..inf
 	text = {
 		## cardinality = 0..1
 		weight = {

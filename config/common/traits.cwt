@@ -126,7 +126,7 @@ trait = {
 		## cardinality = 0..1
 		forbidden_origins = {
 			## cardinality = 0..inf
-			<civic_or_origin.civic>
+			<civic_or_origin.origin>
 		}
 
 		### Layered icon format introduced in Galactic Paragons.
@@ -165,6 +165,9 @@ trait = {
 		### Is this trait available during leader generation, level up or yearly negative trait chance. Default is yes.
 		## cardinality = 0..1
 		randomized = bool
+		### Default is yes
+		## cardinality = 0..1
+		notify_on_gained = bool
 		### Is this leader immortal? Default is no.
 		## cardinality = 0..1
 		immortal_leaders = bool
@@ -270,10 +273,16 @@ trait = {
 		### Limits which leader classes that can get this trait.
 		## cardinality = 0..1
 		leader_class = all
+
 		### If exists, evaluates if leader can get trait. Scope: THIS = Leader, FROM = Country.
 		## cardinality = 0..1
 		## replace_scopes = { this = leader root = leader from = country }
 		leader_potential_add = {
+			alias_name[trigger] = alias_match_left[trigger]
+		}
+		## replace_scopes = { this = species root = species from = country }
+		## cardinality = 0..1
+		species_potential_add = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 
@@ -388,7 +397,10 @@ trait = {
 		### won't show in trait tooltips, use custom_tooltip/custom_tooltip_with_modifiers
 		## cardinality = 0..inf
 		## replace_scopes = { this = pop root = pop }
-		triggered_pop_modifiers = single_alias_right[triggered_modifier]
+		triggered_pop_modifier = single_alias_right[triggered_modifier]
+		## cardinality = 0..inf
+		## replace_scopes = { this = leader root = leader }
+		triggered_leader_modifier = single_alias_right[triggered_modifier]
 		## cardinality = 0..inf
 		## replace_scopes = { this = planet root = planet from = species fromfrom = country }
 		triggered_planet_growth_habitability_modifier = single_alias_right[triggered_modifier]
