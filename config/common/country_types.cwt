@@ -278,25 +278,25 @@ country_type = {
 	fleet_manager = {
 		### effect fired when fleet owned by country is hired
 		### Scope - Fleet, From - Country that hired the fleet, FromFrom - Country that owns fleet, FromFromFrom - Country that initiated the ending of the contract
-		## replace_scope = { this = fleet root = fleet from = country fromfrom = country fromfromfrom = country }
+		## replace_scopes = { this = fleet root = fleet from = country fromfrom = country fromfromfrom = country }
 		on_contract_started = {
 			alias_name[effect] = alias_match_left[effect]
 		}
 		### effect fired when hire contract of a fleet owned by country is expired
 		### Scope - Fleet, From - Country that hired the fleet, FromFrom - Country that owns fleet, FromFromFrom - Country that initiated the ending of the contract
-		## replace_scope = { this = fleet root = fleet from = country fromfrom = country fromfromfrom = country }
+		## replace_scopes = { this = fleet root = fleet from = country fromfrom = country fromfromfrom = country }
 		on_contract_expired = {
 			alias_name[effect] = alias_match_left[effect]
 		}
 		### effect fired when hire contract of a fleet owned by country is cancelled (when controller prematurely finishes the contract or when the contract cancellation is a part of trade deal)
 		### Scope - Fleet, From - Country that hired the fleet, FromFrom - Country that owns fleet, FromFromFrom - Country that initiated the ending of the contract (trade deal actor when the contract cancellation is a part of trade deal)
-		## replace_scope = { this = fleet root = fleet from = country fromfrom = country fromfromfrom = country }
+		## replace_scopes = { this = fleet root = fleet from = country fromfrom = country fromfromfrom = country }
 		on_contract_cancelled = {
 			alias_name[effect] = alias_match_left[effect]
 		}
 		### effect fired when hire contract of a fleet owned by country is broken (when country is attacked by someone of when a war is started)
 		### Scope - Fleet, From - Country that hired the fleet, FromFrom - Country that owns fleet, FromFromFrom - Country that initiated the ending of the contract (main attacker in a case of war)
-		## replace_scope = { this = fleet root = fleet from = country fromfrom = country fromfromfrom = country }
+		## replace_scopes = { this = fleet root = fleet from = country fromfrom = country fromfromfrom = country }
 		on_contract_broken = {
 			alias_name[effect] = alias_match_left[effect]
 		}
@@ -310,7 +310,7 @@ country_type = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	trade_routes_available = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}

@@ -150,25 +150,25 @@ agreement_term_value = {
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	### A modifier that applies to the Agreement owner country. Can stack multiple times.
 	owner_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
  	}
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	### A modifier that applies to the Agreement owner country. Only applies once.
 	unique_owner_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
  	}
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	### A modifier that applies to the Agreement target country. Can stack multiple times.
 	target_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	### A modifier that applies to the Agreement target country. Only applies once.
 	unique_target_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
@@ -187,7 +187,7 @@ agreement_term_value = {
 	### How much the subject's loyalty will additionally change when a new agreement with this term starts, if "trigger" is true
 	triggered_loyalty_change = {
 		## cardinality = 1..1
-		## replace_scope = { this = agreement root = agreement }
+		## replace_scopes = { this = agreement root = agreement }
 		trigger = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
@@ -202,22 +202,22 @@ agreement_term_value = {
 		}
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = agreement root = agreement }
+	## replace_scopes = { this = agreement root = agreement }
 	activate_effect = {
 		alias_name[effect] = alias_match_left[effect]
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = agreement root = agreement }
+	## replace_scopes = { this = agreement root = agreement }
 	deactivate_effect = {
 		alias_name[effect] = alias_match_left[effect]
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = agreement root = agreement }
+	## replace_scopes = { this = agreement root = agreement }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality = 0..inf
-	## replace_scope = { this = agreement root = agreement }
+	## replace_scopes = { this = agreement root = agreement }
 	possible = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -274,17 +274,17 @@ agreement_preset = {
 		}
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country from = country }
+	## replace_scopes = { this = country root = country from = country }
 	overlord_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country from = country }
+	## replace_scopes = { this = country root = country from = country }
 	subject_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country from = country }
+	## replace_scopes = { this = country root = country from = country }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}

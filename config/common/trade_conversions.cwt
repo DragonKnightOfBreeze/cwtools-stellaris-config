@@ -6,7 +6,7 @@ types = {
 }
 
 trade_conversion = {
-	## replace_scope = { this = country from = country }
+	## replace_scopes = { this = country from = country }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}

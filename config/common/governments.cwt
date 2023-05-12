@@ -163,12 +163,12 @@ authority = {
 
 		alias_name[government_trigger] = alias_match_left[government_trigger]
 	}
-	## replace_scope = { this = no_scope root = no_scope } #this can check has_dlc and other likewise triggers, but thats it.
+	## replace_scopes = { this = no_scope root = no_scope } #this can check has_dlc and other likewise triggers, but thats it.
 	## cardinality = 0..1
 	random_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	## cardinality = 0..1
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -179,7 +179,7 @@ authority = {
 		trait = <trait>
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	country_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -192,12 +192,12 @@ authority = {
 
 government = {
 	### Determines if a government name can be chosen. AND trigger, scope: country; valid triggers: has_ethic, has_authority, has_valid_civic; everything else is undefined behavior!
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	possible = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	### scriptable value, scope: country; the (possible) government type with the biggest weight is assigned to the country
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
@@ -218,7 +218,7 @@ government = {
 	leader_class = enum[leader_classes_no_ruler]
 
 	## cardinality = 0..1
-	## replace_scope = { this = leader root = leader }
+	## replace_scopes = { this = leader root = leader }
 	election_candidates = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
@@ -234,13 +234,13 @@ civic_or_origin = {
 
 	### AND trigger, no scope; use this to prevent the civic from being selectable by the player (UI). Possibly only works with DLC checks.
 	## cardinality = 0..1
-	## replace_scope = { this = no_scope root = no_scope }
+	## replace_scopes = { this = no_scope root = no_scope }
 	playable = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	### AND trigger, no scope; use this to prevent the civic from being selectable by the AI. Possibly only works with DLC checks.
 	## cardinality = 0..1
-	## replace_scope = { this = no_scope root = no_scope }
+	## replace_scopes = { this = no_scope root = no_scope }
 	ai_playable = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -267,7 +267,7 @@ civic_or_origin = {
 
 	### modifier added to the country if the civic is selected and valid
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -331,7 +331,7 @@ civic_or_origin = {
 		}
 
 		## cardinality = 0..1
-		## replace_scope = { this = country root = country }
+		## replace_scopes = { this = country root = country }
 		ai_weight = {
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		}
@@ -389,7 +389,7 @@ civic_or_origin = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	random_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
@@ -402,12 +402,12 @@ councilor = {
 		<leader_class>
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	possible = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	### Can a leader have this council position. Used to filter leaders. Scope: THIS = Leader.
-	## replace_scope = { this = leader root = leader }
+	## replace_scopes = { this = leader root = leader }
 	is_leader_possible = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -416,7 +416,7 @@ councilor = {
 	civic = <civic_or_origin.civic>
 	### Country Modifier, that is multiplied by assigned Leader's level.
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}

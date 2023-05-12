@@ -29,17 +29,17 @@ types = {
 	}
 }
 
-## replace_scope = { this = planet root = planet from = species }
+## replace_scopes = { this = planet root = planet from = species }
 army = {
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	resources = {
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
 
 	## cardinality = 0..1
-	###Specify another army type to use names from, instead of having to copy them for each name list.
+	### Specify another army type to use names from, instead of having to copy them for each name list.
 	use_armynames_from = <army>
 	## cardinality = 0..1
 	defensive = bool
@@ -81,7 +81,7 @@ army = {
 		<technology>
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	show_tech_unlock_if = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -90,7 +90,7 @@ army = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	potential_country = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -108,7 +108,7 @@ army = {
 	}
 	subtype[pop_spawned] = {
 		## cardinality = 0..1
-		## replace_scope = { this = pop root = pop }
+		## replace_scopes = { this = pop root = pop }
 		### spawn_chance: only works on defensive armies; \
 		### pop scope check that lets you give weights for what sort of army should be spawned. \
 		### Calculation is health * spawn_chance (default: 1), and it always picks the best one
@@ -119,7 +119,7 @@ army = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}

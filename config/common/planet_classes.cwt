@@ -142,13 +142,13 @@ planet_class = {
 	## cardinality = 0..1
 	colonization_tech = { <technology> }
 	## cardinality = 0..1
-	###this is only required if using a picture defined for another planet
+	### this is only required if using a picture defined for another planet
 	picture = scalar
 	## cardinality = 0..1
-	###this is only required if using a tile-set defined for another planet
+	### this is only required if using a tile-set defined for another planet
 	tile_set = <planet_class>
 	## cardinality = 0..1
-	## replace_scope = { this = planet root = planet }
+	## replace_scopes = { this = planet root = planet }
 	modifier = {
 		## cardinality = 0..inf
 		alias_name[modifier] = alias_match_left[modifier]

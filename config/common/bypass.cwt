@@ -64,7 +64,7 @@ bypass = {
 	}
 	### trigger to evaluate if a country can use bypasses of this type. this: country, from: (optional) system owner; default: { always = yes }
 	## cardinality = 0..1
-	## replace_scope = { root = country this = country from = country }
+	## replace_scopes = { root = country this = country from = country }
 	country_can_use = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -82,12 +82,12 @@ bypass = {
 	subtype[scripted] = {
 		scripted_connection = {
 			### defines endpoints that can only reach the "nexus"
-			## replace_scope = { this = system root = system }
+			## replace_scopes = { this = system root = system }
 			node = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
 			### defines endpoint(s) that can reach all "nodes" (but not other nexuses)
-			## replace_scope = { this = system root = system }
+			## replace_scopes = { this = system root = system }
 			nexus = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}

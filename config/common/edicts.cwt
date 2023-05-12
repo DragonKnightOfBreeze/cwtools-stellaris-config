@@ -18,7 +18,7 @@ types = {
 	}
 }
 
-## replace_scope = { this = country root = country }
+## replace_scopes = { this = country root = country }
 edict = {
 	### number of days the trigger is active.
 	length = int

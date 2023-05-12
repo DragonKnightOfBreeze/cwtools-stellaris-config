@@ -79,7 +79,7 @@ ship_size = {
 	can_disable = bool
 	subtype[starbase] = {
 		## cardinality = 0..1
-		## replace_scope = { this = starbase root = starbase }
+		## replace_scopes = { this = starbase root = starbase }
 		modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
@@ -88,13 +88,13 @@ ship_size = {
 	}
 	subtype[!starbase] = {
 		## cardinality = 0..1
-		## replace_scope = { this = ship root = ship }
+		## replace_scopes = { this = ship root = ship }
 		modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = ship root = ship }
+	## replace_scopes = { this = ship root = ship }
 	ship_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -115,7 +115,7 @@ ship_size = {
 		}
 	}
 	## cardinality = 0..1
-	###Determines sprites. ship_size_military_1 is default. The following sprite keys are generated from it: GFX_text_<key>, GFX_<key>, GFX_<key>_top, GFX_<key>_top_damaged
+	### Determines sprites. ship_size_military_1 is default. The following sprite keys are generated from it: GFX_text_<key>, GFX_<key>, GFX_<key>_top, GFX_<key>_top_damaged
 	icon = scalar
 	## cardinality = 0..1
 	use_shipnames_from = <ship_size>
@@ -170,12 +170,12 @@ ship_size = {
 	## cardinality = 0..1
 	construction_type = starbase_defenses
 	## cardinality = 0..1
-	## replace_scope = { root = starbase this = starbase }
+	## replace_scopes = { root = starbase this = starbase }
 	possible_starbase = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality = 0..1
-	## replace_scope = { root = starbase this = starbase }
+	## replace_scopes = { root = starbase this = starbase }
 	potential_starbase = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -196,37 +196,37 @@ ship_size = {
 	## cardinality = 0..1
 	combat_disengage_chance = float
 	## cardinality = 0..1
-	###if yes, ship design will have a 3d view in the ship browser
+	### if yes, ship design will have a 3d view in the ship browser
 	enable_3dview_in_ship_browser = yes
 	## cardinality = 0..1
-	## replace_scope = { root = country this = country }
+	## replace_scopes = { root = country this = country }
 	potential_country = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality = 0..1
-	## replace_scope = { root = country this = country }
+	## replace_scopes = { root = country this = country }
 	possible_country = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality = 0..1
-	## replace_scope = { root = planet this = planet }
+	## replace_scopes = { root = planet this = planet }
 	potential_planet = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality = 0..1
-	## replace_scope = { root = planet this = planet }
+	## replace_scopes = { root = planet this = planet }
 	possible_planet = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { root = any this = any }
+	## replace_scopes = { root = any this = any }
 	potential_construction = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { root = any this = any }
+	## replace_scopes = { root = any this = any }
 	possible_construction = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -254,12 +254,12 @@ ship_size = {
 		## cardinality = 0..1
 		planet_mult = value_field
 		## cardinality = 0..1
-		## replace_scope = { this = country root = country }
+		## replace_scopes = { this = country root = country }
 		fraction = {
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		}
 		## cardinality = 0..1
-		## replace_scope = { this = country root = country }
+		## replace_scopes = { this = country root = country }
 		fraction = float
 	}
 }

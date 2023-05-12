@@ -6,15 +6,15 @@ types = {
 }
 
 button_effect = {
-	## replace_scope = { this = any root = any from = country }
+	## replace_scopes = { this = any root = any from = country }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	## replace_scope = { this = any root = any from = country }
+	## replace_scopes = { this = any root = any from = country }
 	allow = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	## replace_scope = { this = any root = any from = country }
+	## replace_scopes = { this = any root = any from = country }
 	## cardinality = 0..1
 	effect = {
 		alias_name[effect] = alias_match_left[effect]

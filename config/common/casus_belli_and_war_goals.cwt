@@ -37,7 +37,7 @@ casus_belli = {
 	### trigger to make some CBs invalid for certain types of countries; \
 	### this = attacker (CB owner); default: { always = yes }
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -45,7 +45,7 @@ casus_belli = {
 	### trigger, evaluated daily to check if CB should be created or destroyed automatically, does not affect CBs granted via script; \
 	### this = attacker (CB owner), from = defender (target country); default: { always = yes }
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country from = country }
+	## replace_scopes = { this = country root = country from = country }
 	is_valid = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -53,7 +53,7 @@ casus_belli = {
 	### trigger, evaluated daily to destroy CBs that have been granted via script ahead of expiration date; \
 	### this = attacker (CB owner), from = defender (target country); default: { always = no }
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country from = country }
+	## replace_scopes = { this = country root = country from = country }
 	destroy_if = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -118,14 +118,14 @@ war_goal = {
 
 	### FROM = The targeted country, THIS = The acting country
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country from = country }
+	## replace_scopes = { this = country root = country from = country }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
 	### FROM = The targeted country, THIS = The acting country
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country from = country }
+	## replace_scopes = { this = country root = country from = country }
 	possible = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -138,33 +138,33 @@ war_goal = {
 
 	### Run when war ends in status quo. The targeted country, THIS = The acting country
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country from = country }
+	## replace_scopes = { this = country root = country from = country }
 	on_status_quo = {
 		alias_name[effect] = alias_match_left[effect]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country from = country }
+	## replace_scopes = { this = country root = country from = country }
 	on_wargoal_set = {
 		alias_name[effect] = alias_match_left[effect]
 	}
 
 	### Run when target surrenders after claims are ceded. The targeted country, THIS = The acting country
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country from = country }
+	## replace_scopes = { this = country root = country from = country }
 	on_accept = {
 		alias_name[effect] = alias_match_left[effect]
 	}
 
 	### FROM = The targeted country, THIS = The acting country
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country from = country }
+	## replace_scopes = { this = country root = country from = country }
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country from = country }
+	## replace_scopes = { this = country root = country from = country }
 	galactic_empire_joins_defender = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}

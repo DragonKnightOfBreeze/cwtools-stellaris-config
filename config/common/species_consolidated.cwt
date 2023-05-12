@@ -206,7 +206,7 @@ species_class = {
 	## cardinality = 0..1
 	archetype = <species_archetype>
 	## cardinality = 0..1
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -230,7 +230,7 @@ species_class = {
 		<portrait_group>
 	}
 	## cardinality = 0..1
-	## replace_scope = { root = country this = country }
+	## replace_scopes = { root = country this = country }
 	possible = {
 		## cardinality = 0..1
 		always = bool
@@ -240,7 +240,7 @@ species_class = {
 		alias_name[government_trigger] = alias_match_left[government_trigger]
 	}
 	## cardinality = 0..1
-	## replace_scope = { root = country this = country }
+	## replace_scopes = { root = country this = country }
 	possible_secondary = {
 		## cardinality = 0..1
 		always = bool
@@ -258,12 +258,12 @@ species_class = {
 	}
 	## cardinality = 0..inf
 	custom_portraits = {
-		## replace_scope = { root = no_scope this = no_scope }
+		## replace_scopes = { root = no_scope this = no_scope }
 		## cardinality = 0..1
 		randomized = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
-		## replace_scope = { root = no_scope this = no_scope }
+		## replace_scopes = { root = no_scope this = no_scope }
 		## cardinality = 0..1
 		playable = {
 			## cardinality = 0..1
@@ -327,7 +327,7 @@ citizenship_type = {
 		## cardinality = 0..inf
 		{
 			## cardinality = 0..1
-			## replace_scope = { this = country root = country }
+			## replace_scopes = { this = country root = country }
 			trigger = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
@@ -349,13 +349,13 @@ citizenship_type = {
 	new_pop_weight = float
 
 	## cardinality = 0..1
-	## replace_scope = { this = army root = army }
+	## replace_scopes = { this = army root = army }
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	pop_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 		## cardinality = 0..1
@@ -363,7 +363,7 @@ citizenship_type = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	free_pop_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -376,25 +376,25 @@ citizenship_type = {
 	pop_status_frame = int
 
 	## cardinality = 0..1
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	allow = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
 		factor = float
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
 	## cardinality = 0..inf
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	triggered_pop_modifier = single_alias_right[triggered_modifier]
 }
 
@@ -407,7 +407,7 @@ colonization_control = {
 		## cardinality = 0..inf
 		{
 			## cardinality = 0..1
-			## replace_scope = { this = country root = country }
+			## replace_scopes = { this = country root = country }
 			trigger = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
@@ -419,13 +419,13 @@ colonization_control = {
 	can_colonize = no
 
 	## cardinality = 0..1
-	## replace_scope = { this = army root = army }
+	## replace_scopes = { this = army root = army }
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	pop_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 		## cardinality = 0..1
@@ -433,7 +433,7 @@ colonization_control = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	free_pop_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -446,25 +446,25 @@ colonization_control = {
 	pop_status_frame = int
 
 	## cardinality = 0..1
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	allow = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
 		factor = float
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
 	## cardinality = 0..inf
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	triggered_pop_modifier = single_alias_right[triggered_modifier]
 }
 
@@ -477,7 +477,7 @@ living_standard = {
 		## cardinality = 0..inf
 		{
 			## cardinality = 0..1
-			## replace_scope = { this = country root = country }
+			## replace_scopes = { this = country root = country }
 			trigger = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
@@ -486,13 +486,13 @@ living_standard = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = army root = army }
+	## replace_scopes = { this = army root = army }
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	pop_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 		## cardinality = 0..1
@@ -500,7 +500,7 @@ living_standard = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	free_pop_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -513,25 +513,25 @@ living_standard = {
 	pop_status_frame = int
 
 	## cardinality = 0..1
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	allow = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
 		factor = float
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
 	## cardinality = 0..inf
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	triggered_pop_modifier = single_alias_right[triggered_modifier]
 }
 
@@ -544,7 +544,7 @@ migration_control = {
 		## cardinality = 0..inf
 		{
 			## cardinality = 0..1
-			## replace_scope = { this = country root = country }
+			## replace_scopes = { this = country root = country }
 			trigger = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
@@ -556,13 +556,13 @@ migration_control = {
 	can_migrate = no
 
 	## cardinality = 0..1
-	## replace_scope = { this = army root = army }
+	## replace_scopes = { this = army root = army }
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	pop_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 		## cardinality = 0..1
@@ -570,7 +570,7 @@ migration_control = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	free_pop_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -583,25 +583,25 @@ migration_control = {
 	pop_status_frame = int
 
 	## cardinality = 0..1
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	allow = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
 		factor = float
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
 	## cardinality = 0..inf
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	triggered_pop_modifier = single_alias_right[triggered_modifier]
 }
 
@@ -614,7 +614,7 @@ military_service_type = {
 		## cardinality = 0..inf
 		{
 			## cardinality = 0..1
-			## replace_scope = { this = country root = country }
+			## replace_scopes = { this = country root = country }
 			trigger = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
@@ -623,13 +623,13 @@ military_service_type = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = army root = army }
+	## replace_scopes = { this = army root = army }
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	pop_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 		## cardinality = 0..1
@@ -637,7 +637,7 @@ military_service_type = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	free_pop_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -650,25 +650,25 @@ military_service_type = {
 	pop_status_frame = int
 
 	## cardinality = 0..1
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	allow = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
 		factor = float
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
 	## cardinality = 0..inf
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	triggered_pop_modifier = single_alias_right[triggered_modifier]
 }
 
@@ -681,7 +681,7 @@ population_control = {
 		## cardinality = 0..inf
 		{
 			## cardinality = 0..1
-			## replace_scope = { this = country root = country }
+			## replace_scopes = { this = country root = country }
 			trigger = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
@@ -693,13 +693,13 @@ population_control = {
 	can_reproduce = no
 
 	## cardinality = 0..1
-	## replace_scope = { this = army root = army }
+	## replace_scopes = { this = army root = army }
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	pop_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 		## cardinality = 0..1
@@ -707,7 +707,7 @@ population_control = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	free_pop_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -720,25 +720,25 @@ population_control = {
 	pop_status_frame = int
 
 	## cardinality = 0..1
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	allow = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
 		factor = float
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
 	## cardinality = 0..inf
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	triggered_pop_modifier = single_alias_right[triggered_modifier]
 }
 
@@ -751,7 +751,7 @@ purge_type = {
 		## cardinality = 0..inf
 		{
 			## cardinality = 0..1
-			## replace_scope = { this = country root = country }
+			## replace_scopes = { this = country root = country }
 			trigger = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
@@ -764,13 +764,13 @@ purge_type = {
 	pop_decline_rate = float
 
 	## cardinality = 0..1
-	## replace_scope = { this = army root = army }
+	## replace_scopes = { this = army root = army }
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	pop_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 		## cardinality = 0..1
@@ -778,7 +778,7 @@ purge_type = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	free_pop_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -791,25 +791,25 @@ purge_type = {
 	pop_status_frame = int
 
 	## cardinality = 0..1
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	allow = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
 		factor = float
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
 	## cardinality = 0..inf
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	triggered_pop_modifier = single_alias_right[triggered_modifier]
 }
 
@@ -822,7 +822,7 @@ slavery_type = {
 		## cardinality = 0..inf
 		{
 			## cardinality = 0..1
-			## replace_scope = { this = country root = country }
+			## replace_scopes = { this = country root = country }
 			trigger = {
 				alias_name[trigger] = alias_match_left[trigger]
 			}
@@ -835,13 +835,13 @@ slavery_type = {
 	ai_can_colonize = yes
 
 	## cardinality = 0..1
-	## replace_scope = { this = army root = army }
+	## replace_scopes = { this = army root = army }
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	pop_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 		## cardinality = 0..1
@@ -849,7 +849,7 @@ slavery_type = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	free_pop_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -862,25 +862,25 @@ slavery_type = {
 	pop_status_frame = int
 
 	## cardinality = 0..1
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	allow = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
-	## replace_scope = { this = species root = species from = country }
+	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
 		factor = float
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
 	## cardinality = 0..inf
-	## replace_scope = { this = pop root = pop }
+	## replace_scopes = { this = pop root = pop }
 	triggered_pop_modifier = single_alias_right[triggered_modifier]
 }
 

@@ -387,7 +387,7 @@ trait = {
 
 		### won't show in trait tooltips, use custom_tooltip/custom_tooltip_with_modifiers
 		## cardinality = 0..inf
-		## replace_scope = { this = pop root = pop }
+		## replace_scopes = { this = pop root = pop }
 		triggered_pop_modifiers = single_alias_right[triggered_modifier]
 		## cardinality = 0..inf
 		## replace_scopes = { this = planet root = planet from = species fromfrom = country }
@@ -428,7 +428,7 @@ trait = {
 		species_potential_remove = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
-		## replace_scope = { this = species root = species from = country }
+		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
 		species_possible_remove = {
 			alias_name[trigger] = alias_match_left[trigger]
@@ -438,7 +438,7 @@ trait = {
 		species_possible_merge_add = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
-		## replace_scope = { this = species root = species from = country }
+		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
 		species_possible_merge_remove = {
 			alias_name[trigger] = alias_match_left[trigger]

@@ -10,7 +10,7 @@ diplo_phrase = {
 	enum[diplo_phrase_type] = {
 		## cardinality = 0..inf
 		localisation = {
-			## replace_scope = { root = country this = country from = country }
+			## replace_scopes = { root = country this = country from = country }
 			## cardinality = 0..1
 			trigger = { alias_name[trigger] = alias_match_left[trigger] }
 			## cardinality = 0..1

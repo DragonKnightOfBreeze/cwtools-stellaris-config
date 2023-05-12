@@ -37,7 +37,7 @@ colony_type = {
 	ai_resource_conversion = {
 		## cardinality = 0..inf
 		<resource> = float
-		## replace_scope = { this = planet root = planet }
+		## replace_scopes = { this = planet root = planet }
 		trigger = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
@@ -48,7 +48,7 @@ colony_type = {
 	ai_resource_current_conversion = {
 		## cardinality = 0..inf
 		<resource> = float
-		## replace_scope = { this = planet root = planet }
+		## replace_scopes = { this = planet root = planet }
 		trigger = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
@@ -62,12 +62,12 @@ colony_type = {
 	custom_tooltip = localisation
 
 	## cardinality = 0..1
-	## replace_scope = { this = planet root = planet }
+	## replace_scopes = { this = planet root = planet }
 	planet_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 	## cardinality = 0..inf
-	## replace_scope = { this = planet root = planet }
+	## replace_scopes = { this = planet root = planet }
 	triggered_planet_modifier = single_alias_right[triggered_modifier]
 
 	weight_modifier = {

@@ -16,7 +16,7 @@ types = {
 }
 
 bombardment_stance = {
-	## replace_scope = { root = fleet this = fleet }
+	## replace_scopes = { root = fleet this = fleet }
 	trigger = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -46,7 +46,7 @@ bombardment_stance = {
 	min_pops_to_kill_pop = int
 #	add_blocker_chance = float
 #	max_blockers = int
-	## replace_scope = { root = fleet this = fleet from = planet }
+	## replace_scopes = { root = fleet this = fleet from = planet }
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}

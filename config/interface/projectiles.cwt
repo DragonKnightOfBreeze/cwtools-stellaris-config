@@ -78,7 +78,7 @@ projectile = {
 	entity = <model_entity>
 	## cardinality = 0..1
 	speed = float
-	###Speed of projectile might be scaled up in order to guarantee reaching the target within <max_duration> seconds
+	### Speed of projectile might be scaled up in order to guarantee reaching the target within <max_duration> seconds
 	## cardinality = 0..1
 	max_duration = float
 

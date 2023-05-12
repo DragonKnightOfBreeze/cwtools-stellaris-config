@@ -176,7 +176,7 @@ event = {
 			trigger = { alias_name[trigger] = alias_match_left[trigger] }
 		}
 		## cardinality = 0..1
-		###Force a diplomatic event to be viewed
+		### Force a diplomatic event to be viewed
 		force_open = bool
 
 		## cardinality = 0..1
@@ -203,7 +203,7 @@ event = {
 		diplomatic = bool
 
 		## cardinality = 0..1
-		###Forces the event to pop-up even if player has suppressed pop ups
+		### Forces the event to pop-up even if player has suppressed pop ups
 		auto_opens = bool
 
 		## cardinality = 0..1
@@ -366,22 +366,22 @@ event = {
 		}
 	}
 	## cardinality = 0..1
-	###Event will show for other countries if this is set to yes. Those countries can be narrowed down with major_trigger.
+	### Event will show for other countries if this is set to yes. Those countries can be narrowed down with major_trigger.
 	major = yes
 	subtype[major] = {
 		## cardinality = 0..1
-		###Triggers for other countries on whether a major event should show for them. I.e. if it reads has_ethic = ethic_materialist, then all materialist countries will see the event.
+		### Triggers for other countries on whether a major event should show for them. I.e. if it reads has_ethic = ethic_materialist, then all materialist countries will see the event.
 		major_trigger = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 	}
 	## cardinality = 0..1
-	###Event will cancel (disappear without executing any of the effects in the options) if these triggers return true.
+	### Event will cancel (disappear without executing any of the effects in the options) if these triggers return true.
 	abort_trigger = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality = 0..1
-	###Effects executed when abort_trigger returns true.
+	### Effects executed when abort_trigger returns true.
 	abort_effect = {
 		alias_name[effect] = alias_match_left[effect]
 	}
@@ -418,7 +418,7 @@ event = {
 
 	subtype[diplomatic] = {
 		## cardinality = 0..1
-		###The title that shows at the top of the diplomatic screen (above the portrait/room, not above the event text)
+		### The title that shows at the top of the diplomatic screen (above the portrait/room, not above the event text)
 		diplomatic_title = localisation
 		## cardinality = 0..1
 		custom_gui = scalar #same as previous, needs to be gui_type
@@ -428,7 +428,7 @@ event = {
 
 	subtype[planet] = {
 		## cardinality = 0..1
-		###Like trigger, but only uses certain simple triggers
+		### Like trigger, but only uses certain simple triggers
 		pre_triggers = {
 			alias_name[planet_pre_trigger] = alias_match_left[planet_pre_trigger]
 		}

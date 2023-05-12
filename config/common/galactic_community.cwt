@@ -44,22 +44,22 @@ types = {
 galactic_focus = {
 	icon = <sprite>
 	### effect applied to community members if fulfilled, scope is country
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	effect = {
 		alias_name[effect] = alias_match_left[effect]
 	}
 	### potential trigger, no scope check
-	## replace_scope = { this = no_scope root = no_scope }
+	## replace_scopes = { this = no_scope root = no_scope }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	### trigger to determine if the focus has been fulfilled, no scope check
-	## replace_scope = { this = no_scope root = no_scope }
+	## replace_scopes = { this = no_scope root = no_scope }
 	trigger = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	### weight to determine which focus should be selected, no scope check
-	## replace_scope = { this = no_scope root = no_scope }
+	## replace_scopes = { this = no_scope root = no_scope }
 	## cardinality = 0..1
 	weight = {
 		weight = float
@@ -83,7 +83,7 @@ resolution_group = {
 	text_color_code = <textcolor>
 }
 
-## replace_scope = { this = country root = country from = country }
+## replace_scopes = { this = country root = country from = country }
 resolution = {
 	icon = scalar #not really
 	resources = {

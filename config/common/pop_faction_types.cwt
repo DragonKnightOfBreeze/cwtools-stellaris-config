@@ -41,7 +41,7 @@ enums = {
 	}
 }
 
-## replace_scope = { this = pop_faction root = pop_faction from = country }
+## replace_scopes = { this = pop_faction root = pop_faction from = country }
 pop_faction = {
 	### Allows to have multiple of this faction type within a single country
 	unique = bool

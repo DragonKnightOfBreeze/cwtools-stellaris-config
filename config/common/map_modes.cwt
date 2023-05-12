@@ -51,7 +51,7 @@ map_mode = {
 		custom_tooltip = localisation
 		## cardinality = 0..1
 		hardcoded_tooltip = enum[hardcoded_map_mode_tooltip]
-		## replace_scope = { root = country this = country from = country }
+		## replace_scopes = { root = country this = country from = country }
 		condition = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}

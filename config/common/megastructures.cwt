@@ -77,12 +77,12 @@ megastructure = {
 		prereq_name = localisation
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = system root = system from = country }
+	## replace_scopes = { this = system root = system from = country }
 	possible = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -103,20 +103,20 @@ megastructure = {
 	is_ruined_orbital_ring = bool
 	### accepts country modifiers
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	country_modifier = {
 		## cardinality = 0..inf
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = ship root = ship }
+	## replace_scopes = { this = ship root = ship }
 	ship_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = megastructure root = megastructure }
+	## replace_scopes = { this = megastructure root = megastructure }
 	station_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -125,7 +125,7 @@ megastructure = {
 	placement_rules = {
 		## cardinality = 0..inf
 		alias_name[trigger] = alias_match_left[trigger]
-		## replace_scope = { this = planet root = planet }
+		## replace_scopes = { this = planet root = planet }
 		## cardinality = 0..1
 		planet_possible = {
 			## cardinality = 0..inf
@@ -133,25 +133,25 @@ megastructure = {
 		}
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = system root = system from = country fromfrom = megastructure }
+	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }
 	on_build_start = {
 		## cardinality = 0..inf
 		alias_name[effect] = alias_match_left[effect]
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = system root = system from = country }
+	## replace_scopes = { this = system root = system from = country }
 	on_build_cancel = {
 		## cardinality = 0..inf
 		alias_name[effect] = alias_match_left[effect]
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = system root = system from = country fromfrom = megastructure }
+	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }
 	on_build_complete = {
 		## cardinality = 0..inf
 		alias_name[effect] = alias_match_left[effect]
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = system root = system from = country fromfrom = megastructure }
+	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}

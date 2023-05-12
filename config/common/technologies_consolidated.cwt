@@ -89,7 +89,7 @@ technology = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -131,7 +131,7 @@ technology = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -149,20 +149,20 @@ technology = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	weight_modifier = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
 	subtype[start] = {
 		## cardinality = 0..1
-		## replace_scope = { this = country root = country }
+		## replace_scopes = { this = country root = country }
 		starting_potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
@@ -228,7 +228,7 @@ technology_tier = {
 	## cardinality = 0..1
 	previously_unlocked = int
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	weight_modifier = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
@@ -239,7 +239,7 @@ technology_category = {
 	## file_extensions = { .dds .png .tga }
 	icon = filepath
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	weight_modifier = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}

@@ -123,12 +123,12 @@ special_project = {
 
 	## push_scope = country
 	## cardinality = 0..1
-	###this = country (project owner); from = event scope (planet or ship, MIGHT NOT EXIST); fromfrom = project creation scope (usually equals location)
+	### this = country (project owner); from = event scope (planet or ship, MIGHT NOT EXIST); fromfrom = project creation scope (usually equals location)
 	abort_trigger = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
-	###this = event scope (ship or planet); from = project creation scope (usually equals location)
+	### this = event scope (ship or planet); from = project creation scope (usually equals location)
 	on_success = {
 		alias_name[effect] = alias_match_left[effect]
 	}
@@ -155,7 +155,7 @@ special_project = {
 
 	## push_scope = country
 	## cardinality = 0..1
-	###this = country (project owner); from = project creation scope (usually equals location)
+	### this = country (project owner); from = project creation scope (usually equals location)
 	on_fail = {
 		alias_name[effect] = alias_match_left[effect]
 	}

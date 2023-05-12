@@ -97,7 +97,7 @@ espionage_asset = {
 
 espionage_category = {}
 
-## replace_scope = { this = spy_network root = spy_network }
+## replace_scopes = { this = spy_network root = spy_network }
 espionage_operation = {
 	### Valid target types are country, megastructure, starbase, fleet, army, pop_faction, spynetwork, federation and none (spy network target is the target then)
 	## cardinality = 0..1
@@ -139,96 +139,96 @@ espionage_operation = {
 
 	subtype[megastructure] = {
 		## cardinality = 0..1
-		## replace_scope = { this = megastructure root = megastructure }
+		## replace_scopes = { this = megastructure root = megastructure }
 		target_allow = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 		## cardinality = 0..1
-		## replace_scope = { this = megastructure root = megastructure }
+		## replace_scopes = { this = megastructure root = megastructure }
 		target_potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 	}
 	subtype[country] = {
 		## cardinality = 0..1
-		## replace_scope = { this = country root = country }
+		## replace_scopes = { this = country root = country }
 		target_allow = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 		## cardinality = 0..1
-		## replace_scope = { this = country root = country }
+		## replace_scopes = { this = country root = country }
 		target_potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 	}
 	subtype[fleet] = {
 		## cardinality = 0..1
-		## replace_scope = { this = fleet root = fleet }
+		## replace_scopes = { this = fleet root = fleet }
 		target_allow = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 		## cardinality = 0..1
-		## replace_scope = { this = fleet root = fleet }
+		## replace_scopes = { this = fleet root = fleet }
 		target_potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 	}
 	subtype[army] = {
 		## cardinality = 0..1
-		## replace_scope = { this = megastructure root = megastructure }
+		## replace_scopes = { this = megastructure root = megastructure }
 		target_allow = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 		## cardinality = 0..1
-		## replace_scope = { this = megastructure root = megastructure }
+		## replace_scopes = { this = megastructure root = megastructure }
 		target_potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 	}
 	subtype[pop_faction] = {
 		## cardinality = 0..1
-		## replace_scope = { this = pop_faction root = pop_faction }
+		## replace_scopes = { this = pop_faction root = pop_faction }
 		target_allow = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 		## cardinality = 0..1
-		## replace_scope = { this = pop_faction root = pop_faction }
+		## replace_scopes = { this = pop_faction root = pop_faction }
 		target_potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 	}
 	subtype[federation] = {
 		## cardinality = 0..1
-		## replace_scope = { this = federation root = federation }
+		## replace_scopes = { this = federation root = federation }
 		target_allow = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 		## cardinality = 0..1
-		## replace_scope = { this = federation root = federation }
+		## replace_scopes = { this = federation root = federation }
 		target_potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 	}
 	subtype[starbase] = {
 		## cardinality = 0..1
-		## replace_scope = { this = starbase root = starbase }
+		## replace_scopes = { this = starbase root = starbase }
 		target_allow = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 		## cardinality = 0..1
-		## replace_scope = { this = starbase root = starbase }
+		## replace_scopes = { this = starbase root = starbase }
 		target_potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 	}
 	subtype[spynetwork] = {
 		## cardinality = 0..1
-		## replace_scope = { this = spy_network root = spy_network }
+		## replace_scopes = { this = spy_network root = spy_network }
 		target_allow = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 		## cardinality = 0..1
-		## replace_scope = { this = spy_network root = spy_network }
+		## replace_scopes = { this = spy_network root = spy_network }
 		target_potential = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}

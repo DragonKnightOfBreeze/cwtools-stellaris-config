@@ -47,17 +47,17 @@ name_list = {
 
 	## cardinality = 0..1
 	selectable = {
-		## replace_scope = { this = country root = country } #i think, might be no_scope though
+		## replace_scopes = { this = country root = country } #i think, might be no_scope though
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	trigger = {
 		## cardinality = 0..1
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 	## cardinality = 0..1
-	###It appears that randomized = yes will be read as randomized = no. Anyway yes is default.
+	### It appears that randomized = yes will be read as randomized = no. Anyway yes is default.
 	randomized = no
 	## cardinality = 0..1
 	alias = scalar

@@ -10,13 +10,13 @@ types = {
 }
 
 system_type = {
-	## replace_scope = { this = system root = system }
+	## replace_scopes = { this = system root = system }
 	#TODO: it appears so, but the file uses owner (not space_owner). Check pls
 	potential = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
-	## replace_scope = { this = system root = system }
+	## replace_scopes = { this = system root = system }
 	#TODO: it appears so, but the file uses owner (not space_owner). Check pls
 	## cardinality = 0..1
 	weight_modifier = {

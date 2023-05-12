@@ -76,7 +76,7 @@ empire_name_parts_list = {
 
 ### This block contains rules for picking a specific name format
 empire_name_format = {
-	## replace_scope = { root = country this = country }
+	## replace_scopes = { root = country this = country }
 	### Conditional weight for choosing this format
 	random_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -108,7 +108,7 @@ federation_name_parts_list = {
 
 ### This block contains rules for picking a specific name format
 federation_name_format = {
-	## replace_scope = { root = federation this = federation }
+	## replace_scopes = { root = federation this = federation }
 	### Conditional weight for choosing this format
 	random_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -128,7 +128,7 @@ pop_faction_name_parts_list = {
 }
 
 pop_faction_name_format = {
-	## replace_scope = { root = pop_faction this = pop_faction }
+	## replace_scopes = { root = pop_faction this = pop_faction }
 	### Conditional weight for choosing this format
 	random_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -150,7 +150,7 @@ pre_communications_name_parts_list = {
 }
 
 pre_communications_name_format = {
-	## replace_scope = { root = country this = country }
+	## replace_scopes = { root = country this = country }
 	### Conditional weight for choosing this format
 	random_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -170,7 +170,7 @@ war_name_parts_list = {
 }
 
 war_name_format = {
-	## replace_scope = { root = war this = war }
+	## replace_scopes = { root = war this = war }
 	### Conditional weight for choosing this format
 	random_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]

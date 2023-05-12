@@ -81,15 +81,15 @@ static_modifier = {
 	## cardinality = 0..1
 	apply_modifier_to_other_planets = <static_modifier>
 	## cardinality = 0..1
-	###Hides it from the country government modifiers interface
+	### Hides it from the country government modifiers interface
 	hide_from_country_list = yes
 }
 
 
 opinion_modifier = {
-	## replace_scope = { this = country root = country from = country }
+	## replace_scopes = { this = country root = country from = country }
 	opinion = {
-		###root = country with the opinion, from = country it has the opinion of
+		### root = country with the opinion, from = country it has the opinion of
 		## cardinality = 0..inf
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
@@ -99,31 +99,31 @@ opinion_modifier = {
 		## cardinality = 0..1
 		decay = float
 		## cardinality = 0..1
-		## replace_scope = { this = country root = country from = country }
+		## replace_scopes = { this = country root = country from = country }
 		decay = {
-			###root = country with the opinion, from = country it has the opinion of
+			### root = country with the opinion, from = country it has the opinion of
 			## cardinality = 0..inf
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		}
 		## cardinality = 0..1
 		growth = float
 		## cardinality = 0..1
-		## replace_scope = { this = country root = country from = country }
+		## replace_scopes = { this = country root = country from = country }
 		growth = {
-			###root = country with the opinion, from = country it has the opinion of
+			### root = country with the opinion, from = country it has the opinion of
 			## cardinality = 0..inf
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		}
 
 		## cardinality = 0..1
-		###No by default
+		### No by default
 		accumulative = bool
 
 		## cardinality = 0..1
-		###For use with accumulative if the base is negative
+		### For use with accumulative if the base is negative
 		min = int[-9999...-1]
 		## cardinality = 0..1
-		###For use with accumulative if the base is positive
+		### For use with accumulative if the base is positive
 		max = int[1...999]
 
 		## cardinality = 0..1
@@ -140,17 +140,17 @@ opinion_modifier = {
 		### stops modifier from automatically triggering when trigger evaluates to true
 		block_triggered = yes
 		## cardinality = 0..1
-		###For use with accumulative if the base is negative
+		### For use with accumulative if the base is negative
 		min = int[-9999...-1]
 		## cardinality = 0..1
-		###For use with accumulative if the base is positive
+		### For use with accumulative if the base is positive
 		max = int[1...999]
 	}
 
 
 	subtype[triggered_opinion_modifier] = {
-		###root = country with the opinion, from = country it has the opinion of
-		## replace_scope = { this = country root = country from = country }
+		### root = country with the opinion, from = country it has the opinion of
+		## replace_scopes = { this = country root = country from = country }
 		trigger = { alias_name[trigger] = alias_match_left[trigger] }
 	}
 }

@@ -10,11 +10,11 @@ alias[modifier:show_only_custom_tooltip] = bool
 
 alias[modifier:custom_tooltip] = localisation
 
-###Applies the value of the static modifier X right hand side factor
+### Applies the value of the static modifier X right hand side factor
 alias[modifier:<static_modifier>] = float
 
-###Applies the value of a scripted modifier from common/scripted_modifiers
+### Applies the value of a scripted modifier from common/scripted_modifiers
 alias[modifier:<scripted_modifier>] = float
 
-###Merges in the CWT-generated modifiers
+### Merges in the CWT-generated modifiers
 alias[modifier:<modifier>] = float

@@ -29,7 +29,7 @@ section_template = {
 	entity = scalar #TODO: graphical culture <model_entity>
 
 	## cardinality = 0..1
-	###As far as I can tell, this is unused (the Vanilla ones refer to non-existent sprites and I couldn't find an ingame effect) -Caligula
+	### As far as I can tell, this is unused (the Vanilla ones refer to non-existent sprites and I couldn't find an ingame effect) -Caligula
 	icon = scalar
 	## cardinality = 0..1
 	icon_frame = int
@@ -83,12 +83,12 @@ section_template = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { this = ship root = ship }
+	## replace_scopes = { this = ship root = ship }
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 	## cardinality = 0..1
-	## replace_scope = { this = ship root = ship }
+	## replace_scopes = { this = ship root = ship }
 	ship_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}

@@ -38,11 +38,11 @@ alert_icon = <sprite>
 
 achievement = {
 	id = int
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	possible = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	## replace_scope = { this = country root = country }
+	## replace_scopes = { this = country root = country }
 	happened = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}

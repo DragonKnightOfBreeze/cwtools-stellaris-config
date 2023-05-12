@@ -16,7 +16,7 @@ types = {
 	}
 }
 
-## replace_scope = { this = country root = country }
+## replace_scopes = { this = country root = country }
 agenda = {
 	agenda_cost = int
 	potential = {

@@ -159,12 +159,12 @@ component_template = {
 	## cardinality = 0..1
 	custom_tooltip = localisation
 	## cardinality = 0..inf
-	## replace_scope = { this = ship root = ship }
+	## replace_scopes = { this = ship root = ship }
 	triggered_ship_modifier = single_alias_right[triggered_modifier]
 	## cardinality = 0..1
 	should_ai_use = bool
 	## cardinality = 0..1
-	## replace_scope = { root = country this = country }
+	## replace_scopes = { root = country this = country }
  	valid_for_country = {
 		alias_name[trigger] = alias_match_left[trigger]
  	}
@@ -174,7 +174,7 @@ component_template = {
 	}
 	subtype[utility_component_template] = {
 		## cardinality = 0..1
-		## replace_scope = { root = ship this = ship }
+		## replace_scopes = { root = ship this = ship }
 		resources = {
 			category = <economic_category>
 			alias_name[economic_template] = alias_match_left[economic_template]
@@ -183,12 +183,12 @@ component_template = {
 		power = int
 		size = enum[utility_slot_size]
 		## cardinality = 0..1
-		## replace_scope = { this = ship root = ship }
+		## replace_scopes = { this = ship root = ship }
 		modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		## cardinality = 0..1
-		## replace_scope = { this = ship root = ship }
+		## replace_scopes = { this = ship root = ship }
 		ship_modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
@@ -225,7 +225,7 @@ component_template = {
 				priority = int
 			}
 			## cardinality = 0..1
-			## replace_scope = { this = ship root = ship }
+			## replace_scopes = { this = ship root = ship }
 			modifier = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
@@ -265,7 +265,7 @@ component_template = {
 				priority = int
 			}
 			## cardinality = 0..1
-			## replace_scope = { this = ship root = ship }
+			## replace_scopes = { this = ship root = ship }
 			modifier = {
 				alias_name[modifier] = alias_match_left[modifier]
 			}
@@ -299,12 +299,12 @@ component_template = {
 		}
 
 		## cardinality = 0..1
-		## replace_scope = { this = planet root = planet }
+		## replace_scopes = { this = planet root = planet }
 		scripted_action_possible = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
 		## cardinality = 0..1
-		## replace_scope = { this = planet root = planet }
+		## replace_scopes = { this = planet root = planet }
 		scripted_action_finished = {
 			alias_name[trigger] = alias_match_left[trigger]
 		}
@@ -321,7 +321,7 @@ component_template = {
 	}
 	subtype[weapon_component_template] = {
 		## cardinality = 0..1
-		## replace_scope = { root = ship this = ship }
+		## replace_scopes = { root = ship this = ship }
 		resources = {
 			category = <economic_category>
 			alias_name[economic_template_no_produce] = alias_match_left[economic_template_no_produce]
@@ -331,12 +331,12 @@ component_template = {
 		size = enum[weapon_slot_size]
 		type = enum[weapon_type2]
 		## cardinality = 0..1
-		## replace_scope = { this = ship root = ship }
+		## replace_scopes = { this = ship root = ship }
 		modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
 		## cardinality = 0..1
-		## replace_scope = { this = ship root = ship }
+		## replace_scopes = { this = ship root = ship }
 		ship_modifier = {
 			alias_name[modifier] = alias_match_left[modifier]
 		}
@@ -415,7 +415,7 @@ component_template = {
 	}
 	subtype[strike_craft_component_template] = {
 		## cardinality = 0..1
-		## replace_scope = { root = ship this = ship }
+		## replace_scopes = { root = ship this = ship }
 		resources = {
 			category = <economic_category>
 			alias_name[economic_template_no_produce] = alias_match_left[economic_template_no_produce]

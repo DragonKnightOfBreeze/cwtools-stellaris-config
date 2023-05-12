@@ -19,7 +19,7 @@ types = {
 	}
 }
 
-## replace_scope = { this = planet root = planet from = country }
+## replace_scopes = { this = planet root = planet from = country }
 decision = {
 	## cardinality = 0..1
 	owned_planets_only = bool
@@ -40,7 +40,7 @@ decision = {
 	}
 
 	## cardinality = 0..1
-	## replace_scope = { root = country this = country }
+	## replace_scopes = { root = country this = country }
 	show_tech_unlock_if = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
