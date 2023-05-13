@@ -234,10 +234,10 @@ trait = {
 		## cardinality = 0..1
 		custom_subtitle = localisation
 		### Replaces auto-generated modifier effect text with localization key.
-		## cardinality = 0..1
+		## cardinality = 0..inf
 		custom_tooltip = localisation
 		### Appends localization key to the end of auto-generated modifier effect text.
-		## cardinality = 0..1
+		## cardinality = 0..inf
 		custom_tooltip_with_modifiers = localisation
 
 		### Effects in this block fire when trait is acquired. THIS = Leader.
@@ -374,10 +374,10 @@ trait = {
 		## replace_scopes = { this = planet root = planet from = species fromfrom = country }
 		triggered_planet_growth_habitability_modifier = single_alias_right[triggered_modifier_clause]
 
-		## cardinality = 0..1
+		## cardinality = 0..inf
 		custom_tooltip = localisation
 		### unlike custom_tooltip, this shows in addition to the modifiers
-		## cardinality = 0..1
+		## cardinality = 0..inf
 		custom_tooltip_with_modifiers = localisation
 
 		## cardinality = 0..1

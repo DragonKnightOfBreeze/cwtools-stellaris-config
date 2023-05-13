@@ -35,6 +35,9 @@ pop_category = {
 	## cardinality = 0..1
 	## replace_scopes = { this = pop root = pop }
 	pop_modifier = single_alias_right[modifier_clause]
+	## cardinality = 0..1
+	## replace_scopes = { this = planet root = planet }
+	planet_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..inf
 	## replace_scopes = { this = pop root = pop }

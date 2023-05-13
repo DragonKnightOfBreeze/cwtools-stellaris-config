@@ -81,9 +81,10 @@ ascension_perk = {
 		inherit_name = bool
 		## cardinality = 0..1
 		inherit_effects = bool
-		## cardinality = 0..1
+
+		## cardinality = 0..inf
 		custom_tooltip = localisation
-		## cardinality = 0..1
+		## cardinality = 0..inf
 		custom_tooltip_with_modifiers = localisation
 
 		# Should be only if not inheriting effects
