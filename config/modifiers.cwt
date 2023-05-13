@@ -421,12 +421,12 @@ modifiers = {
 	# <economic_category>_<resource>_enum[economic_modifier_categories]_enum[economic_modifier_types] = { "AI Economy" }
 
 	# ship_size modifiers
-	shipsize_<ship_shze>_build_speed_mult = { Planets Megastructures Starbases }
-	shipsize_<ship_shze>_hull_mult = { Ships }
-	shipsize_<ship_shze>_hull_add = { Ships }
-	shipsize_<ship_shze>_evasion_mult = { Ships }
-	shipsize_<ship_shze>_disengage_chance_mult = { Ships }
-	shipsize_<ship_shze>_tracking_mult = { Ships }
+	shipsize_<ship_size>_build_speed_mult = { Planets Megastructures Starbases }
+	shipsize_<ship_size>_hull_mult = { Ships }
+	shipsize_<ship_size>_hull_add = { Ships }
+	shipsize_<ship_size>_evasion_mult = { Ships }
+	shipsize_<ship_size>_disengage_chance_mult = { Ships }
+	shipsize_<ship_size>_tracking_mult = { Ships }
 
 	# damage_vs_country_type modifiers
 	damage_vs_country_type_<country_type>_mult = { Ships }
