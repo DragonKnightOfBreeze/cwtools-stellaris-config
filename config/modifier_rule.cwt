@@ -3,9 +3,9 @@ alias[modifier_rule:enum[complex_maths_enum]] = value_field
 alias[modifier_rule:enum[simple_maths_enum]] = yes
 
 alias[modifier_rule:modifier] = {
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	enum[complex_maths_enum] = value_field
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	enum[simple_maths_enum] = yes
 	alias_name[trigger] = alias_match_left[trigger]
 	## cardinality = 0..1

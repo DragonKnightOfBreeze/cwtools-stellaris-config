@@ -439,6 +439,20 @@ modifiers = {
 	<species_archetype.not_robotic.use_modifiers>_pop_growth_speed = { Planets }
 	<species_archetype.not_robotic.use_modifiers>_pop_growth_speed_reduction = { Planets }
 
+	# predefined species_archetype modifiers (lowercase name)
+	biological_species_trait_points_add = { Countries }
+	biological_species_trait_picks_add = { Countries }
+	biological_pop_happiness = { Pops }
+	biological_pop_growth_from_immigration = { Planets }
+	biological_pop_growth_speed = { Planets }
+	biological_pop_growth_speed_reduction = { Planets }
+	lithoid_species_trait_points_add = { Countries }
+	lithoid_species_trait_picks_add = { Countries }
+	lithoid_pop_happiness = { Pops }
+	lithoid_pop_growth_from_immigration = { Planets }
+	lithoid_pop_growth_speed = { Planets }
+	lithoid_pop_growth_speed_reduction = { Planets }
+
 	# planet_class modifiers
 	<planet_class>_habitability = { Habitability }
 
@@ -458,6 +472,7 @@ modifiers = {
 
 	# building modifiers
 	planet_<building>_build_speed_mult = { Planets }
+	<building.capped>_max = { Planets }
 
 	# pop_category modifiers
 	pop_cat_<pop_category>_happiness = { Pops }
