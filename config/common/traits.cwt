@@ -40,20 +40,15 @@ types = {
 			Description = "$_desc"
 		}
 		images = {
-			subtype[leader_trait] = {
-				# Since 3.8, leader trait is dynamic, with optional color filled, and layer based,
-				# and declared with many inline scripts
+			# Since 3.8, leader trait can be dynamic - layer based, optional color filled, and with a visible trigger
+			# It's not very necessary for PLS to render such a complex icon (while it's dynamic in real)
 
-				# It's not very necessary for PLS to render such a complex icon (while it's dynamic in real)
-			}
-			subtype[species_trait] = {
-				## primary
-				## required
-				icon = "#icon" # filepath
-				## primary
-				## required
-				icon = "gfx/interface/icons/traits/$.dds" # inferred
-			}
+			## primary
+			## required
+			icon = "#icon" # filepath
+			## primary
+			## required
+			icon = "gfx/interface/icons/traits/$.dds" # inferred
 		}
 	}
 }
@@ -129,7 +124,12 @@ trait = {
 			<civic_or_origin.origin>
 		}
 
+		## cardinality = 0..1
+		## file_extensions = { .dds .png .tga }
+		icon = filepath
+
 		### Layered icon format introduced in Galactic Paragons.
+		## cardinality = 0..1
 		icon = {
 			### There are no limits to the amount of layers that can be used.
 			## cardinality = 1..inf
@@ -145,6 +145,7 @@ trait = {
 				visible = single_alias_right[trigger_clause]
 			}
 		}
+
 		## cardinality = 0..1
 		leader_trait_rarity = enum[leader_trait_rarity]
 		## cardinality = 0..1
