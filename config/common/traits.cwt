@@ -127,7 +127,7 @@ trait = {
 		icon = filepath
 
 		### Layered icon format introduced in Galactic Paragons.
-		## cardinality = 0..1
+		## cardinality = 0..inf
 		icon = {
 			### There are no limits to the amount of layers that can be used.
 			## cardinality = 1..inf
@@ -459,6 +459,7 @@ trait = {
 
 enums = {
 	enum[leader_trait_rarity] = {
+		common
 		veteran
 		free_orveteran
 
