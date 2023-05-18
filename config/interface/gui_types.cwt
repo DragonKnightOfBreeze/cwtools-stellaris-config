@@ -608,6 +608,7 @@ alias[gui:listBoxType] = {
 alias[gui:gridBoxType] = {
 	name = scalar
 
+	## cardinality = 0..1
 	slotSize = {
 		width = int
 		height = int

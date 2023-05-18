@@ -4,11 +4,11 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			name = " council_agenda_$_name"
+			name = "council_agenda_$_name"
 			## required
-			desc = " council_agenda_$_desc"
-			council_agenda_$_name = " council_agenda_$_name"
-			council_agenda_$_desc = " council_agenda_$_desc"
+			desc = "council_agenda_$_desc"
+			council_agenda_$_name = "council_agenda_$_name"
+			council_agenda_$_desc = "council_agenda_$_desc"
 		}
 		images = {
 			icon = "gfx/interface/icons/agenda_icons/$.dds"  # inferred
