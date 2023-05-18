@@ -149,6 +149,9 @@ event = {
 		title = localisation
 		desc = localisation
 
+		## cardinality = 0..1
+		diplomatic_title = localisation
+
 		## cardinality = 0..inf
 		desc = {
 			## cardinality = 0..1
@@ -161,119 +164,6 @@ event = {
 			show_sound = <sound_effect>
 		}
 
-		## cardinality = 0..inf
-		show_sound = <sound_effect>
-		## cardinality = 0..inf
-		show_sound = {
-			sound = <sound_effect>
-			## cardinality = 0..1
-			sound_is_advisor = bool
-			## cardinality = 0..1
-			trigger = single_alias_right[trigger_clause]
-		}
-		## cardinality = 0..1
-		### Force a diplomatic event to be viewed
-		force_open = bool
-
-		## cardinality = 0..1
-		location = scope[planet]
-		## cardinality = 0..1
-		location = scope[system]
-		## cardinality = 0..1
-		location = scope[ship]
-		## cardinality = 0..1
-		location = scope[fleet]
-		## cardinality = 0..1
-		location = scope[country]
-		## cardinality = 0..1
-		location = scope[pop]
-		## cardinality = 0..1
-		location = scope[starbase]
-		## cardinality = 0..1
-		location = scope[megastructure]
-
-		## cardinality = 0..1
-		situation = scope[situation]
-
-		## cardinality = 0..1
-		diplomatic = bool
-
-		## cardinality = 0..1
-		### Forces the event to pop-up even if player has suppressed pop ups
-		auto_opens = bool
-
-		## cardinality = 0..1
-		is_test_event = bool
-
-
-		## cardinality = 0..inf
-		option = {
-			## cardinality = 1..inf
-			name = localisation
-			## cardinality = 1..inf
-			name = {
-				trigger = single_alias_right[trigger_clause]
-				## cardinality = 0..1
-				text = localisation
-			}
-			## cardinality = 1..inf
-			name = {
-				exclusive_trigger = single_alias_right[trigger_clause]
-				## cardinality = 0..1
-				text = localisation
-			}
-
-			## cardinality = 0..1
-			icon = {
-				icon = <sprite>
-				## cardinality = 0..1
-				icon_background = <sprite>
-				text = localisation
-			}
-
-			## cardinality = 0..1
-			sound = scalar
-
-			## cardinality = 0..1
-			trigger = single_alias_right[trigger_clause]
-
-			## cardinality = 0..1
-			allow = single_alias_right[trigger_clause]
-
-			## cardinality = 0..1
-			exclusive_trigger = single_alias_right[trigger_clause]
-
-			## cardinality = 0..1
-			ai_chance = {
-				alias_name[modifier_rule] = alias_match_left[modifier_rule]
-			}
-
-			subtype[diplomatic] = {
-
-				## cardinality = 0..1
-				response_text = localisation
-
-				## cardinality = 0..1
-				is_dialog_only = bool
-
-				## cardinality = 0..1
-				custom_gui = scalar #points to a gui_type, currently all are defined as aliases but this needs to be updated
-
-				## cardinality = 0..1
-				### Binds this option to the "dismiss" action
-				default_hide_option = bool
-			}
-
-			## cardinality = 0..1
-			default_hide_option = bool
-			## cardinality = 0..1
-			custom_gui = scalar #points to a gui_type, currently all are defined as aliases but this needs to be updated
-
-			alias_name[effect] = alias_match_left[effect]
-		}
-	}
-
-	subtype[!hidden] = {
 		## cardinality = 1..inf
 		picture = <sprite>
 		## cardinality = 0..inf
@@ -328,7 +218,122 @@ event = {
 			## cardinality = 0..1
 			city_level = scope[planet]
 		}
+		## cardinality = 0..1
+		event_window_type = leader_recruit
+		## cardinality = 0..1
+		event_window_type = leader_story
+
+		## cardinality = 0..inf
+		show_sound = <sound_effect>
+		## cardinality = 0..inf
+		show_sound = {
+			sound = <sound_effect>
+			## cardinality = 0..1
+			sound_is_advisor = bool
+			## cardinality = 0..1
+			trigger = single_alias_right[trigger_clause]
+		}
+		### Force a diplomatic event to be viewed
+		## cardinality = 0..1
+		force_open = bool
+
+		## cardinality = 0..1
+		location = scope[planet]
+		## cardinality = 0..1
+		location = scope[system]
+		## cardinality = 0..1
+		location = scope[ship]
+		## cardinality = 0..1
+		location = scope[fleet]
+		## cardinality = 0..1
+		location = scope[country]
+		## cardinality = 0..1
+		location = scope[pop]
+		## cardinality = 0..1
+		location = scope[starbase]
+		## cardinality = 0..1
+		location = scope[megastructure]
+
+		## cardinality = 0..1
+		diplomatic = bool
+
+		### Forces the event to pop-up even if player has suppressed pop ups
+		## cardinality = 0..1
+		auto_opens = bool
+
+		## cardinality = 0..1
+		is_test_event = bool
+
+		## cardinality = 0..inf
+		option = {
+			## cardinality = 1..inf
+			name = localisation
+			## cardinality = 1..inf
+			name = {
+				trigger = single_alias_right[trigger_clause]
+				## cardinality = 0..1
+				text = localisation
+			}
+			## cardinality = 1..inf
+			name = {
+				exclusive_trigger = single_alias_right[trigger_clause]
+				## cardinality = 0..1
+				text = localisation
+			}
+
+			## cardinality = 0..1
+			icon = {
+				icon = <sprite>
+				## cardinality = 0..1
+				icon_background = <sprite>
+				text = localisation
+			}
+
+			## cardinality = 0..1
+			sound = scalar
+
+			## cardinality = 0..1
+			trigger = single_alias_right[trigger_clause]
+
+			## cardinality = 0..1
+			allow = single_alias_right[trigger_clause]
+
+			## cardinality = 0..1
+			exclusive_trigger = single_alias_right[trigger_clause]
+
+			## cardinality = 0..1
+			ai_chance = {
+				alias_name[modifier_rule] = alias_match_left[modifier_rule]
+			}
+
+			## cardinality = 0..1
+			response_text = localisation
+
+			## cardinality = 0..1
+			is_dialog_only = bool
+
+			subtype[diplomatic] = {
+				## cardinality = 0..1
+				custom_gui = scalar #points to a gui_type, currently all are defined as aliases but this needs to be updated
+				### Binds this option to the "dismiss" action
+				## cardinality = 0..1
+				default_hide_option = bool
+			}
+
+			## cardinality = 0..1
+			default_hide_option = bool
+			## cardinality = 0..1
+			custom_gui = scalar #points to a gui_type, currently all are defined as aliases but this needs to be updated
+
+			## cardinality = 0..1
+			tag = value_set[event_option_tag]
+
+			alias_name[effect] = alias_match_left[effect]
+		}
 	}
+
+	## cardinality = 0..1
+	situation = scope[situation]
 
 	## cardinality = 0..1
 	message_desc = localisation
@@ -338,6 +343,9 @@ event = {
 
 	## cardinality = 0..1
 	is_triggered_only = bool
+
+	## cardinality = 0..1
+	auto_opens = bool
 
 	## cardinality = 0..1
 	is_test_event = bool
@@ -351,19 +359,19 @@ event = {
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		}
 	}
-	## cardinality = 0..1
 	### Event will show for other countries if this is set to yes. Those countries can be narrowed down with major_trigger.
+	## cardinality = 0..1
 	major = yes
 	subtype[major] = {
-		## cardinality = 0..1
 		### Triggers for other countries on whether a major event should show for them. I.e. if it reads has_ethic = ethic_materialist, then all materialist countries will see the event.
+		## cardinality = 0..1
 		major_trigger = single_alias_right[trigger_clause]
 	}
-	## cardinality = 0..1
 	### Event will cancel (disappear without executing any of the effects in the options) if these triggers return true.
-	abort_trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..1
+	abort_trigger = single_alias_right[trigger_clause]
 	### Effects executed when abort_trigger returns true.
+	## cardinality = 0..1
 	abort_effect = single_alias_right[effect_clause]
 
 	## cardinality = 0..1
@@ -397,8 +405,8 @@ event = {
 	}
 
 	subtype[diplomatic] = {
-		## cardinality = 0..1
 		### The title that shows at the top of the diplomatic screen (above the portrait/room, not above the event text)
+		## cardinality = 0..1
 		diplomatic_title = localisation
 		## cardinality = 0..1
 		custom_gui = scalar #same as previous, needs to be gui_type
@@ -407,8 +415,8 @@ event = {
 	}
 
 	subtype[planet] = {
-		## cardinality = 0..1
 		### Like trigger, but only uses certain simple triggers
+		## cardinality = 0..1
 		pre_triggers = {
 			alias_name[planet_pre_trigger] = alias_match_left[planet_pre_trigger]
 		}

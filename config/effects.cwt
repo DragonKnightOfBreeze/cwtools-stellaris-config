@@ -2043,14 +2043,15 @@ alias[effect:add_random_research_option] = {
 	area = enum[technology_areas]
 	## cardinality = 0..1
 	tier = <technology_tier>
+	## cardinality = 0..1
 	add_progress = value_field[0.1..1.0]
 	## cardinality = 0..1
 	fail_effects = single_alias_right[effect_clause]
-	## cardinality = 0..1
 	### default no
+	## cardinality = 0..1
 	ignore_prereqs = bool
- 	## cardinality = 0..1
 	### default yes
+ 	## cardinality = 0..1
 	ignore_rare = bool
 }
 
@@ -2094,6 +2095,7 @@ alias[effect:add_trust] = {
 ## scopes = { ship fleet }
 alias[effect:auto_follow_fleet] = {
 	target = scope[fleet]
+	## cardinality = 0..1
 	attack_fleet = bool
 }
 
@@ -2338,7 +2340,7 @@ alias[effect:create_fleet] = {
 	name = scope[fleet]
 	## cardinality = 0..1
 	set_take_point = bool
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	settings = single_alias_right[fleet_settings]
 	### Must include set_owner, set_location and create_ship (here or in last_created_country). Todo: Check this somehow
 	## cardinality = 0..1
@@ -2383,19 +2385,27 @@ alias[effect:create_message] = {
 	variable = {
 		## cardinality = 0..1
 		varname = value[variable]
-		type = name
-		type = variable
-		localization = scalar		#not localisation, but rather something that can be used in localisation
-		scope = scope[any]
-	}
-	## cardinality = 0..100
-	variable = {
+		## cardinality = 0..1
+		type = enum[mesage_variable_type]
+		## cardinality = 0..1
 		key = scalar
+		## cardinality = 0..1
 		value = scalar
+		## cardinality = 0..1
+		localization = scalar		#not localisation, but rather something that can be used in localisation
+		## cardinality = 0..1
+		scope = scope[any]
 	}
 }
 
-#
+enums = {
+	enum[mesage_variable_type] = {
+		key
+		name
+		variable
+	}
+}
+
 ### Creates a military fleet with the designs of a specified country.
 ## scopes = any
 alias[effect:create_military_fleet] = {
