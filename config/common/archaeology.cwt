@@ -4,9 +4,9 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Desc = "#desc"
+			desc = "#desc"
 		}
 		images = {
 			## primary
@@ -18,9 +18,9 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Desc = "$_desc"
+			desc = "$_desc"
 		}
 		images = {
 			## primary
@@ -32,9 +32,9 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Desc = "$_desc"
+			desc = "$_desc"
 		}
 	}
 }

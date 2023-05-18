@@ -10,14 +10,14 @@ types = {
 		}
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Description = "$_DESC"
+			desc = "$_DESC"
 			subtype[base_level] = {
 				## required
-				Details = "$_MEGASTRUCTURE_DETAILS"
+				details = "$_MEGASTRUCTURE_DETAILS"
 				## optional
-				"Delayed info" = "$_CONSTRUCTION_INFO_DELAYED"
+				delayed_info = "$_CONSTRUCTION_INFO_DELAYED"
 			}
 		}
 		images = {

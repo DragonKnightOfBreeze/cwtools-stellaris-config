@@ -11,11 +11,11 @@ types = {
 		}
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Desc = "$_desc"
+			desc = "$_desc"
 			## required
-			Plural = "$_plural"
+			plural = "$_plural"
 		}
 		images = {
 			## primary

@@ -10,13 +10,13 @@ types = {
 		}
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## optional
-			Description = "$_DESC"
+			desc = "$_DESC"
 			## optional
-			"Ship Description" = "ship_$_DESC"
+			ship_desc = "ship_$_DESC"
 			## optional
-			"Station Description" = "station_$_DESC"
+			station_desc = "station_$_DESC"
 		}
 		images = {
 			subtype[!required_component] = {
@@ -53,7 +53,7 @@ types = {
 		}
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 		}
 		images = {
 			## primary

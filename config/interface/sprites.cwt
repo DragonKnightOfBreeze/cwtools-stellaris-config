@@ -75,6 +75,8 @@ sprite = {
 		## cardinality = 0..1
 		close_up = bool
 		## cardinality = 0..1
+		mid_close_up = bool
+		## cardinality = 0..1
 		tilingCenter = bool
 		## cardinality = 0..1
 		clicksound = <sound_effect>
@@ -198,6 +200,7 @@ enums = {
 		planet
 		room
 		character
+		character_large
 	}
 	enum[texture_size] = {
 		small

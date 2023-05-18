@@ -13,59 +13,59 @@ types = {
 		localisation = {
 			subtype[playable] = {
 				## required
-				Name = "$"
+				name = "$"
 				## required
-				Description = "$_desc"
+				desc = "$_desc"
 				## required
-				Plural = "$_plural"
+				plural = "$_plural"
 				## required
-				Insult = "$_insult_01"
+				insult = "$_insult_01"
 				## required
-				"Insult plural" = "$_insult_plural_01"
+				insult_plural = "$_insult_plural_01"
 				## required
-				Compliment = "$_compliment_01"
+				compliment = "$_compliment_01"
 				## required
-				"Compliment plural" = "$_compliment_plural_01"
+				compliment_plural = "$_compliment_plural_01"
 				## required
-				Spawn = "$_spawn"
+				spawn = "$_spawn"
 				## required
-				"Spawn plural" = "$_spawn_plural"
+				spawn_plural = "$_spawn_plural"
 				## required
-				"Sound 01" = "$_sound_01"
+				sound_01 = "$_sound_01"
 				## required
-				"Sound 02" = "$_sound_02"
+				sound_02 = "$_sound_02"
 				## required
-				"Sound 03" = "$_sound_03"
+				sound_03 = "$_sound_03"
 				## required
-				"Sound 04" = "$_sound_04"
+				sound_04 = "$_sound_04"
 				## required
-				"Sound 05" = "$_sound_05"
+				sound_05 = "$_sound_05"
 				## required
-				Organ = "$_organ"
+				organ = "$_organ"
 				## required
-				Organ plural = "$_organ_plural"
+				organ_plural = "$_organ_plural"
 				## required
-				Mouth = "$_mouth"
+				mouth = "$_mouth"
 				## required
-				Hand = "$_hand"
+				hand = "$_hand"
 				## required
-				Hand plural = "$_hand_plural"
+				hand_plural = "$_hand_plural"
 				## required
-				Ear = "$_ear"
+				ear = "$_ear"
 				## required
-				Ear plural = "$_ear_plural"
+				ear_plural = "$_ear_plural"
 				## required
-				Tooth = "$_tooth"
+				tooth = "$_tooth"
 				## required
-				Tooth plural = "$_tooth_plural"
+				tooth_plural = "$_tooth_plural"
 				## required
-				Fossil = "$_fossil"
+				fossil = "$_fossil"
 				## required
-				Fossil plural = "$_fossil_plural"
+				fossil_plural = "$_fossil_plural"
 				## required
-				Remnant = "$_remnant"
+				remnant = "$_remnant"
 				## required
-				Remnant plural = "$_remnant_plural"
+				remnant_plural = "$_remnant_plural"
 			}
 		}
 	}

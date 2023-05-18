@@ -4,9 +4,9 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "pft_$"
+			name = "pft_$"
 			## required
-			Description = "pft_$_desc"
+			desc = "pft_$_desc"
 		}
 		images = {
 			## primary

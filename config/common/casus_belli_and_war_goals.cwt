@@ -4,18 +4,18 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "casus_belli_$"
+			name = "casus_belli_$"
 			## optional
-			Hint = "casus_belli_$_acquire_hint"
+			hint = "casus_belli_$_acquire_hint"
 		}
 	}
 	type[war_goal] = {
 		path = "game/common/war_goals"
 		localisation = {
 			## required
-			Name = "war_goal_$"
+			name = "war_goal_$"
 			## required
-			Desc = "war_goal_$_desc"
+			desc = "war_goal_$_desc"
 		}
 	}
 }

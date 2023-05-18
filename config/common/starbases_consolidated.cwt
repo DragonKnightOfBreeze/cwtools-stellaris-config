@@ -4,9 +4,9 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "sm_$"
+			name = "sm_$"
 			## required
-			Description = "sm_$_desc"
+			desc = "sm_$_desc"
 		}
 		images = {
 			icon = "#icon" # <sprite>
@@ -21,9 +21,9 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "sm_$"
+			name = "sm_$"
 			## required
-			Description = "sm_$_desc"
+			desc = "sm_$_desc"
 		}
 		images = {
 			## primary
@@ -37,7 +37,7 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 		}
 	}
 }

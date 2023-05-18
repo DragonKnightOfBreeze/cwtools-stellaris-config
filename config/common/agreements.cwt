@@ -20,11 +20,11 @@ types = {
 		localisation = {
 			subtype[!hidden] = {
 				## required
-				Name = "$"
+				name = "$"
 				## required
-				Description = "$_desc"
+				desc = "$_desc"
 				## optional
-				Tooltip = "$_tooltip"
+				tooltip = "$_tooltip"
 			}
 		}
 	}
@@ -47,9 +47,9 @@ types = {
 			Name = "$"
 			subtype[!resource] = {
 				## required
-				Description = "$_desc"
+				desc = "$_desc"
 				## required
-				Tooltip = "$_tooltip"
+				tooltip = "$_tooltip"
 			}
 		}
 	}
@@ -69,11 +69,11 @@ types = {
 		localisation = {
 			subtype[!hidden] = {
 				## required
-				Name = "$"
+				name = "$"
 				## required
-				Description = "$_desc"
+				desc = "$_desc"
 				## required
-				Flavor = "$_flavor_desc"
+				flavor = "$_flavor_desc"
 			}
 		}
 	}
@@ -82,7 +82,7 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 		}
 	}
 }

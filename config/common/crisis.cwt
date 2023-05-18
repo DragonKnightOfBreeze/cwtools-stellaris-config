@@ -4,9 +4,9 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Description = "$_desc"
+			desc = "$_desc"
 		}
 	}
 	type[crisis_objective] = {
@@ -14,9 +14,9 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$_name"
+			name = "$_name"
 			## required
-			Description = "$_desc"
+			desc = "$_desc"
 		}
 	}
 	type[menace_perk] = {
@@ -24,9 +24,9 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Description = "$_desc"
+			desc = "$_desc"
 		}
 		images = {
 			## primary

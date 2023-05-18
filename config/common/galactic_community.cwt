@@ -4,9 +4,9 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Description = "$_desc"
+			desc = "$_desc"
 		}
 	}
 	type[resolution_category] = {
@@ -14,7 +14,7 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 		}
 		images = {
 			## primary
@@ -30,9 +30,9 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Description = "$_desc"
+			desc = "$_desc"
 		}
 		images = {
 			## primary

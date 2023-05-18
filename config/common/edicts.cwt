@@ -7,9 +7,9 @@ types = {
 		}
 		localisation = {
 			## required
-			Name = "edict_$"
+			name = "edict_$"
 			## required
-			Description = "edict_$_desc"
+			description = "edict_$_desc"
 		}
 		images = {
 			## primary

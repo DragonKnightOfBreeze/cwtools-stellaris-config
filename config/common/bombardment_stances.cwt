@@ -4,9 +4,9 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "bombardment_$"
+			name = "bombardment_$"
 			## required
-			Desc = "bombardment_$_desc"
+			desc = "bombardment_$_desc"
 		}
 		images = {
 			fleet_view = "gfx/interface/fleet_view/fleet_task_group_support_$_action.dds" # inferred

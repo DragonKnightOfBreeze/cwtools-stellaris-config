@@ -4,9 +4,9 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "MANDATE_$"
+			name = "MANDATE_$"
 			## required
-			Desc = "MANDATE_$_DESC"
+			desc = "MANDATE_$_DESC"
 		}
 	}
 }

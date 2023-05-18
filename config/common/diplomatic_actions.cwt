@@ -4,11 +4,11 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## primary
-			Title = "$_TITLE"
-			Desc = "$_DESC"
-			"Long desc" = "$_LONG_DESC"
-			Type = "$_TYPE"
-			"Type desc" = "$_TYPE_DESC"
+			title = "$_TITLE"
+			desc = "$_DESC"
+			long_desc = "$_LONG_DESC"
+			type = "$_TYPE"
+			type_desc = "$_TYPE_DESC"
 		}
 		images = {
 			## primary

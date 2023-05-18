@@ -7,8 +7,8 @@ types = {
 			name = "council_agenda_$_name"
 			## required
 			desc = "council_agenda_$_desc"
-			council_agenda_$_name = "council_agenda_$_name"
-			council_agenda_$_desc = "council_agenda_$_desc"
+			council_agenda_name = "council_agenda_$_name"
+			council_agenda_desc = "council_agenda_$_desc"
 		}
 		images = {
 			icon = "gfx/interface/icons/agenda_icons/$.dds"  # inferred

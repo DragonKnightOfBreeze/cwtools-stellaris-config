@@ -9,7 +9,7 @@ types = {
 		localisation = {
 			subtype[needs_locs] = {
 				## required
-				Name = "$"
+				name = "$"
 			}
 		}
 		images = {

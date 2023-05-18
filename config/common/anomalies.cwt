@@ -5,11 +5,11 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Desc = "$_desc"
+			desc = "$_desc"
 			## required
-			Desc = "#desc" # localisation
+			desc = "#desc" # localisation
 		}
 		images = {
 			## primary

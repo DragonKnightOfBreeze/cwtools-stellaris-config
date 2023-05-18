@@ -13,7 +13,7 @@ types = {
             ## required
             name = "$"
             ## optional
-            description = "$_desc"
+            desc = "$_desc"
 		}
 		images = {
 			subtype[non_main] = {

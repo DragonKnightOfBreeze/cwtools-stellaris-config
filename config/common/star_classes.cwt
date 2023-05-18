@@ -5,9 +5,9 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## optional
-			Description = "$_desc"
+			desc = "$_desc"
 		}
 	}
 	## type_key_filter = random_list

@@ -35,9 +35,9 @@ types = {
 
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Description = "$_desc"
+			desc = "$_desc"
 		}
 		images = {
 			# Since 3.8, leader trait can be dynamic - layer based, optional color filled, and with a visible trigger

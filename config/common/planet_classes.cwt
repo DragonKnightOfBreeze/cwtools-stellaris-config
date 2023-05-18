@@ -20,18 +20,18 @@ types = {
 		}
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Description = "$_desc"
+			desc = "$_desc"
 			subtype[habitable_planet] = {
 				## required
-				Adjective = "$_adj"
+				adjective = "$_adj"
 				## required
-				Habitability = "mod_$_habitability"
+				habitability = "mod_$_habitability"
 				## required
-				"Preference trait" = "trait_$_preference"
+				preference_trait = "trait_$_preference"
 				## required
-				"Preference trait description" = "trait_$_preference_desc"
+				preference_trait_desc = "trait_$_preference_desc"
 			}
 		}
 		images = {

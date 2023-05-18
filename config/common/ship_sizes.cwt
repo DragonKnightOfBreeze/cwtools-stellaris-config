@@ -18,9 +18,9 @@ types = {
 		}
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Plural = "$_plural"
+			plural = "$_plural"
 		}
 	}
 }

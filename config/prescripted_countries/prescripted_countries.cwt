@@ -3,8 +3,8 @@ types = {
 		path = "game/prescripted_countries"
 		file_extension = .txt
 		localisation = {
-			Name = "#name"
-			Description = "EMPIRE_DESIGN_$_desc"
+			name = "#name"
+			desc = "EMPIRE_DESIGN_$_desc"
 		}
 	}
 }

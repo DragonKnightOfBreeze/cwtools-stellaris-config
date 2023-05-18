@@ -88,6 +88,26 @@ enums = {
 		smoothstep
 		linear
 	}
+	enum[gui_direction] = {
+		top|left
+		top|right
+		top|hcenter
+		bottom|left
+		bottom|right
+		bottom|hcenter
+		center
+		center|hcenter
+		right
+		right|vcenter
+		left
+		left|vcenter
+		hcenter
+		hcenter|vcenter
+		vertical
+		vcenter|hcenter
+		vcenter|left
+		vcenter|right
+	}
 	complex_enum[scrollbar_type] = {
 		path = "game/interface"
 		name = {
@@ -211,10 +231,7 @@ alias[gui:smoothListboxType] = {
 
 	## cardinality = 0..inf
 	if_resolution = {
-		## cardinality = 0..1
-		max_height = int
-		## cardinality = 0..1
-		min_height = int
+		alias_name[gui_size] = alias_match_left[gui_size]
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
@@ -224,10 +241,7 @@ alias[gui:smoothListboxType] = {
 
 	## cardinality = 0..inf
 	if_scaled_resolution = {
-		## cardinality = 0..1
-		max_height = int
-		## cardinality = 0..1
-		min_height = int
+		alias_name[gui_size] = alias_match_left[gui_size]
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
@@ -264,10 +278,7 @@ alias[gui:containerWindowType] = {
 	click_to_front = bool
 	## cardinality = 0..inf
 	if_resolution = {
-		## cardinality = 0..1
-		max_height = int
-		## cardinality = 0..1
-		min_height = int
+		alias_name[gui_size] = alias_match_left[gui_size]
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
@@ -277,10 +288,7 @@ alias[gui:containerWindowType] = {
 	}
 	## cardinality = 0..inf
 	if_scaled_resolution = {
-		## cardinality = 0..1
-		max_height = int
-		## cardinality = 0..1
-		min_height = int
+		alias_name[gui_size] = alias_match_left[gui_size]
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
@@ -290,11 +298,10 @@ alias[gui:containerWindowType] = {
 	}
 	## cardinality = 0..1
 	origo = enum[direction]
-	## default: yes
-	## cardinality = 0..1
-	moveable = bool
 	## cardinality = 0..1
 	clipping = bool
+	## cardinality = 0..1
+	respect_parent_boundaries = bool
 	## cardinality = 0..1
 	margin = {
 		## cardinality = 0..1
@@ -348,10 +355,7 @@ alias[gui_button:iconType] = {
 
 	## cardinality = 0..inf
 	if_resolution = {
-		## cardinality = 0..1
-		max_height = int
-		## cardinality = 0..1
-		min_height = int
+		alias_name[gui_size] = alias_match_left[gui_size]
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
@@ -360,10 +364,7 @@ alias[gui_button:iconType] = {
 	}
 	## cardinality = 0..inf
 	if_scaled_resolution = {
-		## cardinality = 0..1
-		max_height = int
-		## cardinality = 0..1
-		min_height = int
+		alias_name[gui_size] = alias_match_left[gui_size]
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
@@ -388,10 +389,7 @@ alias[gui_button:buttonType] = {
 
 	## cardinality = 0..inf
 	if_resolution = {
-		## cardinality = 0..1
-		max_height = int
-		## cardinality = 0..1
-		min_height = int
+		alias_name[gui_size] = alias_match_left[gui_size]
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
@@ -400,10 +398,7 @@ alias[gui_button:buttonType] = {
 	}
 	## cardinality = 0..inf
 	if_scaled_resolution = {
-		## cardinality = 0..1
-		max_height = int
-		## cardinality = 0..1
-		min_height = int
+		alias_name[gui_size] = alias_match_left[gui_size]
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
 		alias_name[gui] = alias_match_left[gui]
@@ -582,6 +577,11 @@ alias[gui:OverlappingElementsBoxType] = {
 
 	## cardinality = 0..1
 	spacing = float
+	## cardinality = 0..1
+	direction = enum[gui_direction]
+	### default: no
+	## cardinality = 0..1
+	first_on_top = bool
 
 	alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 	alias_name[gui_navigation] = alias_match_left[gui_navigation]
@@ -645,8 +645,6 @@ alias[gui:gridBoxType] = {
 alias[gui:windowType] = {
 	name = scalar
 
-	## cardinality = 0..1
-	moveable = int
 	## cardinality = 0..1
 	dontRender = scalar
 	## cardinality = 0..1
@@ -767,6 +765,8 @@ alias[gui_standard_element:maxHeight] = int
 alias[gui_standard_element:defaultSelection] = bool
 alias[gui_standard_element:scale] = float
 alias[gui_standard_element:alwaysTransparent] = bool
+## default: yes
+alias[gui_standard_element:moveable] = bool
 
 alias[gui_sprite:spriteType] = <sprite>
 alias[gui_sprite:spriteType] = <progressbar>
@@ -845,3 +845,8 @@ alias[gui_background:background] = {
 	alias_name[gui_localisation] = alias_match_left[gui_localisation]
 	alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 }
+
+alias[gui_size:min_height] = int
+alias[gui_size:max_height] = int
+alias[gui_size:min_width] = int
+alias[gui_size:max_width] = int

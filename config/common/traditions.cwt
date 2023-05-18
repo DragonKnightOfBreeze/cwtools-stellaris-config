@@ -3,11 +3,11 @@ types = {
 		path = "game/common/traditions"
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## optional
-			Flavor = "$_delayed"
+			flavor = "$_delayed"
 			## optional
-			Effects = "$_desc"
+			effects = "$_desc"
 		}
 		images = {
 			## primary
@@ -31,13 +31,13 @@ types = {
 		localisation = {
 			subtype[not_inheriting_name] = {
 				## required
-				Name = "$"
+				name = "$"
 				## optional
-				Flavor = "$_delayed"
+				flavor = "$_delayed"
 			}
 			subtype[not_inheriting_effects] = {
 				## optional
-				Effects = "$_desc"
+				effects = "$_desc"
 			}
 		}
 		images = {
@@ -50,9 +50,9 @@ types = {
 		path = "game/common/tradition_categories"
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Desc = "$_desc"
+			desc = "$_desc"
 		}
 	}
 }

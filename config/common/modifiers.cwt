@@ -10,7 +10,7 @@ types = {
 		}
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 		}
 	}
 	type[static_modifier] = {
@@ -21,14 +21,14 @@ types = {
 		}
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			subtype[planet] = {
 				## required
-				Description = "$_desc"
+				desc = "$_desc"
 			}
 			subtype[!planet] = {
 				## optional
-				Description = "$_desc"
+				desc = "$_desc"
 			}
 		}
 		images = {
@@ -52,9 +52,9 @@ types = {
 		file_extension = .txt
 		localisation = {
 			## required
-			Name = "$"
+			name = "$"
 			## required
-			Description = "$_desc"
+			desc = "$_desc"
 		}
 		images = {
 			## primary
