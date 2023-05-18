@@ -219,9 +219,11 @@ event = {
 			city_level = scope[planet]
 		}
 		## cardinality = 0..1
-		event_window_type = leader_recruit
+		event_window_type = enum[event_window_type]
 		## cardinality = 0..1
-		event_window_type = leader_story
+		event_picture_background = <sprite>
+		## cardinality = 0..1
+		notification_event_icon = <sprite>
 
 		## cardinality = 0..inf
 		show_sound = <sound_effect>
@@ -438,12 +440,21 @@ event = {
 	}
 
 	## cardinality = 0..1
+	pre_triggers = single_alias_right[trigger_clause]
+
+	## cardinality = 0..1
 	trigger = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	immediate = single_alias_right[effect_clause]
 
-
 	## cardinality = 0..1
 	after = single_alias_right[effect_clause]
+}
+
+enums = {
+	enum[event_window_type] = {
+		leader_recruit
+		leader_story
+	}
 }

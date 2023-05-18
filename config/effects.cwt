@@ -761,6 +761,8 @@ alias[effect:kill_leader] = {
 	## cardinality = 0..1
 	show_notification = bool
 	## cardinality = 0..1
+	ruler = bool
+	## cardinality = 0..1
 	heir = bool
 	## cardinality = 0..1
 	### default: no; if yes, fires on_leader_fired instead of on_leader_death
@@ -972,6 +974,9 @@ alias[effect:add_monthly_resource_mult] = {
 ### Adds a specific trait to the scoped leader
 ## scopes = { leader }
 alias[effect:add_trait] = <trait.leader_trait>
+### Adds a specific trait to the scoped leader
+## scopes = { leader }
+alias[effect:add_trait] = random_negative
 ### Removes a specific trait from the scoped leader
 ## scopes = { leader }
 alias[effect:remove_trait] = <trait.leader_trait>
@@ -1710,6 +1715,9 @@ alias[effect:create_leader] = {
 	can_manually_change_location = bool
 	### default: yes
 	## cardinality = 0..1
+	can_assign_to_council = bool
+	### default: yes
+	## cardinality = 0..1
 	can_see_in_list = bool
 	## cardinality = 0..1
 	custom_catch_phrase = localisation
@@ -1767,13 +1775,11 @@ alias[effect:clone_leader] = {
 	sub_type = survey
 	## cardinality = 0..1
 	traits = {
-		## cardinality = 0..5
-		add_trait = <trait.leader_trait>
-		## cardinality = 0..5
-		add_trait = random_trait
-		## cardinality = 0..5
+		## cardinality = 0..inf
+		int = <trait.leader_trait>
+		## cardinality = 0..inf
 		trait = <trait.leader_trait>
-		## cardinality = 0..5
+		## cardinality = 0..inf
 		trait = random_trait
 	}
 	## cardinality = 0..1
@@ -2269,6 +2275,8 @@ alias[effect:create_ambient_object] = {
 	## cardinality = 0..1
 	entity_scale_to_size = bool
 	## cardinality = 0..1
+	scripted_scale = value[variable]
+	## cardinality = 0..1
 	play_animation_once = bool
 	## cardinality = 0..1
 	duration = int
@@ -2379,6 +2387,10 @@ alias[effect:create_message] = {
 	type = <message_type>
 	localization = localisation
 	days = int #no variables here atm
+	## cardinality = 0..1
+	custom_toast_content_text = localisation
+	## cardinality = 0..1
+	custom_toast_content_icon = <sprite>
 	## cardinality = 0..1
 	target = scope[any]
 	## cardinality = 0..100
@@ -2513,13 +2525,11 @@ alias[effect:create_saved_leader] = {
 	skill = int[1..20]
 	## cardinality = 0..1
 	traits = {
-		## cardinality = 0..5
-		add_trait = <trait.leader_trait>
-		## cardinality = 0..5
-		add_trait = random_trait
-		## cardinality = 0..5
+		## cardinality = 0..inf
+		int = <trait.leader_trait>
+		## cardinality = 0..inf
 		trait = <trait.leader_trait>
-		## cardinality = 0..5
+		## cardinality = 0..inf
 		trait = random_trait
 	}
 	## push_scope = leader
@@ -4234,6 +4244,14 @@ alias[effect:finish_current_operation_stage] = bool
 ## scopes = { fleet }
 alias[effect:end_fleet_contract] = yes
 
+### Breaks fleet lease contract
+## scopes = { fleet }
+alias[effect:end_fleet_contract] = {
+	initiator = scope[country]
+	reason = broken
+	reason = cancelled
+}
+
 ### Sets awareness for the scoped (pre-FTL) country
 ## scopes = { country }
 alias[effect:set_awareness] = float[0.0..100.0]
@@ -4330,7 +4348,7 @@ alias[effect:stop_terraform_process] = bool
 ## scopes = { country }
 alias[effect:reset_event_chain_counter] = {
 	event_chain = <event_chain>
-	counter = <event_chain_counter>
+	counter = enum[event_chain_counter]
 }
 
 ### Instantly adds council agenda progress
@@ -4362,6 +4380,37 @@ alias[effect:set_council_position] = <councilor>
 ## scopes = { fleet }
 alias[effect:prolong_fleet_contract] = {
 	days = int_value_field
+}
+
+# missing effects in effects.log
+
+## scopes = { country }
+alias[effect:ai_trade_facility] = {
+	### default: no
+	## cardinality = 0..1
+	offer_hire_mercenary_fleet = bool
+	### default: no
+	## cardinality = 0..1
+	offer_prolong_fleet_contract = bool
+	## cardinality = 0..1
+	info_gathering = {
+		alias_name[effect] = alias_match_left[effect]
+	}
+	## cardinality = 0..1
+	option_selection = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
+	allow = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	alias_name[effect] = alias_match_left[effect]
+}
+
+## scopes = { country }
+alias[effect:run_in_ai_mode] = {
+	# without this immediate is not invoked when event runs in a special mode that allows AI to collect trade data
+	run_in_ai_mode = yes
 }
 
 # fleet actions
