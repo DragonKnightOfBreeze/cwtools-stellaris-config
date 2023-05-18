@@ -21,9 +21,9 @@ types = {
 		## type_key_filter = portraitType
 		subtype[portrait_sprite] = {}
 		## type_key_filter = progressbartype
-		type[progressbar] = {}
+		subtype[progressbar] = {}
 		## type_key_filter = PieChartType
-		type[piechart] = {}
+		subtype[piechart] = {}
 
 		images = {
 			subtype[!progressbar&!piechart] = {

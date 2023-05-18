@@ -84,6 +84,7 @@ particle_type = {
 				float
 			}
 		}
+		## cardinality = 0..1
 		duration = float
 		life = {
 			## cardinality = 1..2

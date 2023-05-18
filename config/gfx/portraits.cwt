@@ -40,12 +40,13 @@ portrait = {
 			filepath
 		}
 		## cardinality = 0..1
-		custom_close_up_position_offset = {
-			x = int
-			y = iint
-		}
+		custom_close_up_position_offset = { x = int y = int }
 		## cardinality = 0..1
-		custom_close_up_scale = int
+		custom_close_up_scale = float
+		## cardinality = 0..1
+		custom_mid_close_up_position_offset = { x = int y = int }
+		## cardinality = 0..1
+		custom_mid_close_up_scale = float
 	}
 }
 

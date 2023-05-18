@@ -290,6 +290,9 @@ alias[gui:containerWindowType] = {
 	}
 	## cardinality = 0..1
 	origo = enum[direction]
+	## default: yes
+	## cardinality = 0..1
+	moveable = bool
 	## cardinality = 0..1
 	clipping = bool
 	## cardinality = 0..1
