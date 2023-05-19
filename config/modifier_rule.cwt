@@ -30,7 +30,7 @@ alias[modifier_rule:scaled_modifier] = {
 }
 
 alias[modifier_rule:complex_trigger_modifier] = {
-	# for value of this property, scope context will be overridden by:
+	# for this property, scope context will be overridden by:
 	# icu.windea.pls.lang.scope.impl.ParadoxComplexTriggerModifierOverriddenScopeContextProvider
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..1
@@ -62,14 +62,15 @@ alias[modifier_rule_with_loc:modifier] = {
 	alias_name[trigger] = alias_match_left[trigger]
 }
 alias[modifier_rule_with_loc:complex_trigger_modifier] = {
+	# for value of this property, scope context will be overridden by:
+	# icu.windea.pls.lang.scope.impl.StellarisComplexTriggerModifierOverriddenScopeContextProvider
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..1
 	trigger_scope = scope[any]
+	# for value of this property, config will be overridden by:
+	# icu.windea.pls.lang.config.impl.StellarisComplexTriggerModifierOverriddenConfigProvider
 	## cardinality = 0..1
-	parameters = {
-		## cardinality = 0..inf
-		scalar = $any # not only scalar, but also can be a nested clause
-	}
+	parameters = {}
 	mode = enum[complex_maths_enum]
 	## cardinality = 0..1
 	mult = value_field

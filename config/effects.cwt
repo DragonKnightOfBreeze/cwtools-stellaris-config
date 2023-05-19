@@ -2641,6 +2641,8 @@ alias[effect:guarantee_country] = {
 alias[effect:inverted_switch] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..inf
+	# for key of this property, config will be overridden by:
+	# icu.windea.pls.lang.config.impl.ParadoxSwitchCaseOverriddenConfigProvider
 	scalar = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	default = single_alias_right[effect_clause]
@@ -3095,12 +3097,17 @@ alias[effect:start_colony] = {
 ### Stops the crisis ambient loop
 ## scopes = any
 alias[effect:stop_crisis_sound] = yes
+
 ### Executes the first appropriate effect set for a specific trigger
 ## scopes = any
 alias[effect:switch] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..inf
-	scalar = single_alias_right[effect_clause]
+	# for key of this property, config will be overridden by:
+	# icu.windea.pls.lang.config.impl.ParadoxSwitchCaseOverriddenConfigProvider
+	scalar = single_alias_right[trigger_clause]
+	## cardinality = 0..1
+	default = single_alias_right[trigger_clause]
 }
 
 ### Just a tooltip (shows the effect but does not run it)

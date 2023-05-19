@@ -1402,8 +1402,12 @@ alias[trigger:intel_level] = {
 ## scopes = any
 alias[trigger:inverted_switch] = {
 	trigger = alias_keys_field[trigger]
-	## cardinality = 0..inf
+	## cardinality = ~1..inf
+	# for key of this property, config will be overridden by:
+	# icu.windea.pls.lang.config.impl.ParadoxSwitchCaseOverriddenConfigProvider
 	scalar = single_alias_right[trigger_clause]
+	## cardinality = ~1..1
+	default = single_alias_right[trigger_clause]
 }
 
 ### checks if a country has an advisor
@@ -1796,9 +1800,9 @@ alias[trigger:success_text] = {
 ## scopes = any
 alias[trigger:switch] = {
 	trigger = alias_keys_field[trigger]
+	## cardinality = ~1..inf
 	# for key of this property, config will be overridden by:
-	# icu.windea.pls.lang.config.impl.StellarisSwitchCaseOverriddenConfigProvider
-	## cardinality = 0..inf
+	# icu.windea.pls.lang.config.impl.ParadoxSwitchCaseOverriddenConfigProvider
 	scalar = single_alias_right[trigger_clause]
 	## cardinality = ~1..1
 	default = single_alias_right[trigger_clause]
