@@ -3105,9 +3105,9 @@ alias[effect:switch] = {
 	## cardinality = 0..inf
 	# for key of this property, config will be overridden by:
 	# icu.windea.pls.lang.config.impl.ParadoxSwitchCaseOverriddenConfigProvider
-	scalar = single_alias_right[trigger_clause]
+	scalar = single_alias_right[effect_clause]
 	## cardinality = 0..1
-	default = single_alias_right[trigger_clause]
+	default = single_alias_right[effect_clause]
 }
 
 ### Just a tooltip (shows the effect but does not run it)
