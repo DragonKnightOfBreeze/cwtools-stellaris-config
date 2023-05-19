@@ -16,7 +16,6 @@ alias[trigger:<scripted_trigger>] = {
 ## scopes = any
 alias[trigger:if] = {
 	## cardinality = ~1..1
-	## severity = info
 	limit = single_alias_right[trigger_clause]
 	alias_name[trigger] = alias_match_left[trigger]
 }
@@ -26,7 +25,6 @@ alias[trigger:if] = {
 ## scopes = any
 alias[trigger:else_if] = {
 	## cardinality = ~1..1
-	## severity = info
 	limit = single_alias_right[trigger_clause]
 	alias_name[trigger] = alias_match_left[trigger]
 }
@@ -1798,10 +1796,13 @@ alias[trigger:success_text] = {
 ## scopes = any
 alias[trigger:switch] = {
 	trigger = alias_keys_field[trigger]
+	# for key of this property, config will be overridden by:
+	# icu.windea.pls.lang.config.impl.StellarisSwitchCaseOverriddenConfigProvider
 	## cardinality = 0..inf
 	scalar = single_alias_right[trigger_clause]
+	## cardinality = ~1..1
+	default = single_alias_right[trigger_clause]
 }
-
 
 ### Checks if planet is terraformed by country.
 ## scopes = { planet }

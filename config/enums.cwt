@@ -54,6 +54,7 @@ enums = {
 		female
 		indeterminable
 		not_set
+		random
 	}
 	enum[hyperlane_euclidean] = {
 		hyperlane

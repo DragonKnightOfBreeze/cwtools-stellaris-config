@@ -33,6 +33,7 @@ alias[effect:hidden_effect] = single_alias_right[effect_clause]
 ### Executes enclosed effects if limit criteria are met
 ## scopes = any
 alias[effect:if] = {
+	## cardinality = ~1..1
 	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
@@ -41,7 +42,7 @@ alias[effect:if] = {
 ### if = { limit = { <triggers> } <effects> }
 ## scopes = any
 alias[effect:else_if] = {
-	## severity = info
+	## cardinality = ~1..1
 	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
@@ -4398,7 +4399,7 @@ alias[effect:ai_trade_facility] = {
 	}
 	## cardinality = 0..1
 	option_selection = {
-		alias_name[trigger] = alias_match_left[trigger]
+		alias_name[effect] = alias_match_left[effect]
 	}
 	## cardinality = 0..1
 	allow = {
@@ -4407,11 +4408,9 @@ alias[effect:ai_trade_facility] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
+### without this immediate is not invoked when event runs in a special mode that allows AI to collect trade data
 ## scopes = { country }
-alias[effect:run_in_ai_mode] = {
-	# without this immediate is not invoked when event runs in a special mode that allows AI to collect trade data
-	run_in_ai_mode = yes
-}
+alias[effect:run_in_ai_mode] = bool
 
 # fleet actions
 
