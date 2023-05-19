@@ -440,9 +440,6 @@ event = {
 	}
 
 	## cardinality = 0..1
-	pre_triggers = single_alias_right[trigger_clause]
-
-	## cardinality = 0..1
 	trigger = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
