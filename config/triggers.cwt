@@ -50,13 +50,13 @@ alias[trigger:relative_power] = {
 	who = scope_group[target_country]
 	who = scope[federation]
 	## cardinality = 0..1
-	category = enum[relative_power_categories]
-	value = enum[relative_power_values]
+	category = enum[relative_power_category]
+	value = enum[relative_power_value]
 }
 
 ### Checks if the country has a specific election type
 ## scopes = { country }
-alias[trigger:has_election_type] = enum[election_types]
+alias[trigger:has_election_type] = enum[election_type]
 
 ### Checks if the scope object has a certain modifier
 ## scopes = { megastructure planet country ship pop fleet galactic_object pop_faction federation spy_network espionage_operation }
@@ -549,7 +549,7 @@ alias[trigger:is_war_participant] = {
 	## cardinality = 0..1
 	side = scope_group[target_country]
 	## cardinality = 0..1
-	side = enum[war_sides]
+	side = enum[war_side]
 }
 ### Checks if target country is participating in the war on the specified side
 ## scopes = { country war }
@@ -644,7 +644,7 @@ alias[trigger:is_designable] = bool
 
 ### Checks if the leader is of a specific class
 ## scopes = { leader }
-alias[trigger:leader_class] = enum[leader_class]
+alias[trigger:leader_class] = enum[leader_clas]
 
 ### Checks if the observation post has a specific mission
 ## scopes = { fleet }
@@ -685,17 +685,17 @@ alias[trigger:is_ship_size] = <ship_size>
 
 ### Checks if the ship/fleet/design is a specific class
 ## scopes = { ship fleet design }
-alias[trigger:is_ship_class] = enum[ship_class]
+alias[trigger:is_ship_class] = enum[ship_clas]
 
 ### Checks the scientist's field of research
 ## scopes = { leader }
-alias[trigger:is_researching_area] = enum[research_areas]
+alias[trigger:is_researching_area] = enum[research_area]
 
 #should have < >
 ### Checks the country's number available tech research options in a specific field
 ## scopes = { country }
 alias[trigger:count_tech_options] = {
-	area = enum[research_areas]
+	area = enum[research_area]
 	count = int_value_field
 }
 
@@ -703,7 +703,7 @@ alias[trigger:count_tech_options] = {
 ## scopes = { country }
 ## push_scope = leader
 alias[trigger:research_leader] = {
-	area = enum[research_areas]
+	area = enum[research_area]
 	## cardinality = 0..100
 	alias_name[trigger] = alias_match_left[trigger]
 }
@@ -1010,7 +1010,7 @@ alias[trigger:has_deposit] = <deposit>
 
 ### Checks if the planet has a deposit for a specific ship class
 ## scopes = { planet }
-alias[trigger:has_deposit_for] = enum[ship_class]
+alias[trigger:has_deposit_for] = enum[ship_clas]
 
 ### Checks if the country has claims on the given country or system.
 ## scopes = { country }
@@ -1098,7 +1098,7 @@ alias[trigger:can_join_factions] = bool
 ### Checks if one of the faction's parameters is the same as target scope
 ## scopes = { pop_faction }
 alias[trigger:check_pop_faction_parameter] = {
-	which = enum[pop_faction_parameters]
+	which = enum[pop_faction_parameter]
 	value = scope[any]
 }
 
@@ -1263,7 +1263,7 @@ alias[trigger:has_experience] == int_value_field
 
 ### Checks if the ship/fleet has a specific fleet order. survey_planet_order is a valid entry, I (Caligula) don't know any others but there are likely some
 ## scopes = { ship fleet }
-alias[trigger:has_fleet_order] = enum[fleet_orders]
+alias[trigger:has_fleet_order] = enum[fleet_order]
 
 ### Checks if the system has a hyperlane connection to target system
 ## scopes = { galactic_object }
@@ -1346,10 +1346,10 @@ alias[trigger:has_starbase_size] = <ship_size.starbase>
 
 ### Checks the current status of the scoped ship or fleet.
 ## scopes = { ship fleet }
-alias[trigger:has_status] = enum[colossus_status]
+alias[trigger:has_status] = enum[colossus_statu]
 
 enums = {
-	enum[colossus_status] = {
+	enum[colossus_statu] = {
 		charging
 		firing
 	}
@@ -1675,7 +1675,7 @@ alias[trigger:num_researched_techs_of_tier] = {
 ### Checks whether the country can research a certain tech tier
 ## scopes = { country }
 alias[trigger:can_research_tier] = {
-	area = enum[technology_areas]
+	area = enum[technology_area]
 	tier = int
 }
 
@@ -2295,7 +2295,7 @@ alias[trigger:has_unlocked_all_traditions] = bool
 
 ### Checks currently in the specified scope:
 ## scopes = any
-alias[trigger:is_scope_type] = enum[scope_type_tokens]
+alias[trigger:is_scope_type] = enum[scope_type_token]
 
 # 2.5.1 (or missing from earlier)
 
@@ -2452,7 +2452,7 @@ alias[trigger:in_breach_of] = <resolution>
 
 ### Checks if given setting is on for scoped federation
 ## scopes = { federation }
-alias[trigger:has_federation_setting] = enum[federation_settings]
+alias[trigger:has_federation_setting] = enum[federation_setting]
 
 ### Compares the number of council positions in the Galactic Community.
 ## scopes = any
@@ -2485,7 +2485,7 @@ alias[trigger:is_harming_relations_with] = scope_group[target_country]
 ## scopes = { country }
 alias[trigger:opinion_level] = {
 	who = scope_group[target_country]
-	level = enum[opinion_levels]
+	level = enum[opinion_level]
 }
 
 ### Check if the species in the scope is a robot species or not
@@ -2527,7 +2527,7 @@ alias[trigger:num_fallen_empires_setting] == int_value_field
 alias[trigger:has_envoy_task] = {
 	## cardinality = 0..1
 	target = scope[country]
-	task = enum[envoy_tasks]
+	task = enum[envoy_task]
 }
 
 ### Checks the scoped envoy currently has a cooldown on its status.
@@ -2585,14 +2585,14 @@ alias[trigger:has_any_sector_focus] = bool
 ### Checks if the planet has the specified tag for district usage:
 ## scopes = { planet }
 ## severity = warning
-alias[trigger:uses_district_set] = enum[district_sets]
+alias[trigger:uses_district_set] = enum[district_set]
 
 ### Checks specific resource value for scoped planet. Warning: performance-intensive trigger!
 ## scopes = { planet }
 alias[trigger:planet_resource_compare] = {
 	## cardinality = 0..1
 	### Default: Balance
-	type = enum[planet_resource_compare_types]
+	type = enum[planet_resource_compare_type]
 	resource = <resource>
 	value = value_field
 }
@@ -2653,7 +2653,7 @@ alias[trigger:num_ai_empires_setting] == int_value_field
 
 ### Checks if a specific name list is used for the a species during empire creation
 ## scopes = { dlc_recommendation }
-alias[trigger:name_list_category] = enum[name_list_categories]
+alias[trigger:name_list_category] = enum[name_list_category]
 
 # 3.0
 
@@ -2738,7 +2738,7 @@ alias[trigger:galactic_defense_force_exists] = bool
 alias[trigger:check_variable_arithmetic] = {
 	which = value_field
 	## cardinality = 0..inf
-	enum[maths] = value_field
+	enum[math] = value_field
 	### Specify >/< on the value or variable fields
 	value = value_field
 }
@@ -2752,7 +2752,7 @@ alias[trigger:check_modifier_value] = {
 
 ### Checks which crisis is allowed to spawn in the current game
 ## scopes = any
-alias[trigger:allowed_crisis_type] = enum[crisis_types]
+alias[trigger:allowed_crisis_type] = enum[crisis_type]
 
 ### Checks if the first contact site has a specific flag
 ## scopes = { first_contact }
@@ -2773,7 +2773,7 @@ alias[trigger:can_copy_random_tech_from] = {
 	## cardinality = 0..1
 	category = <technology_category>
 	## cardinality = 0..1
-	area = enum[research_areas]
+	area = enum[research_area]
 }
 
 ### Checks the country's Intel on the target country
@@ -2803,14 +2803,14 @@ alias[trigger:has_intel_report] = {
 ## scopes = { country }
 alias[trigger:has_intel] = {
 	who = scope_group[target_country]
-	intel = enum[intel_tokens]
+	intel = enum[intel_token]
 }
 
 ### Checks if the specified intel is stale for the target country (available intel will not return true)
 ## scopes = { country }
 alias[trigger:has_stale_intel] = {
 	who = scope_group[target_country]
-	intel = enum[intel_tokens]
+	intel = enum[intel_token]
 }
 
 ### Checks the number of defensive pacts the current country has.
@@ -2904,7 +2904,7 @@ alias[trigger:num_espionage_assets] == int_value_field
 
 ### Checks if the ship/fleet/design has a specific owner type (country/federation/galactic_community/global_ship_design)
 ## scopes = { ship fleet design }
-alias[trigger:has_ship_owner_type] = enum[ship_owner_types]
+alias[trigger:has_ship_owner_type] = enum[ship_owner_type]
 
 ### Checks if a country has a specific Crisis Level unlocked.
 ## scopes = { country }
@@ -2971,7 +2971,7 @@ alias[trigger:market_resource_price] = {
 	amount = int #no variables here
 	## cardinality = 0..1
 	### market_buy/market_sell/not_set (i.e. price without market fees)
-	trade_type = enum[trade_types]
+	trade_type = enum[trade_type]
 	value = value_field
 }
 
@@ -2994,7 +2994,7 @@ alias[trigger:has_job_category] = <pop_category>
 ### Checks the value for a specific option from the galaxy setup
 ## scopes = any
 alias[trigger:check_galaxy_setup_value] = {
-	setting = enum[galaxy_setup_values]
+	setting = enum[galaxy_setup_value]
 	value = value_field
 }
 
@@ -3073,16 +3073,16 @@ alias[trigger:situation_monthly_progress] == value_field
 
 ### Checks if the specified approach has been picked on the scoped situation.
 ## scopes = { situation }
-alias[trigger:current_situation_approach] = enum[situation_approaches]
+alias[trigger:current_situation_approach] = enum[situation_approach]
 
 ### Checks if the specified approach is allowed to be picked (according to potential and allow triggers) on the scoped situation.
 ## scopes = { situation }
-alias[trigger:can_set_situation_approach] = enum[situation_approaches]
+alias[trigger:can_set_situation_approach] = enum[situation_approach]
 
 # ### Checks if the specified severity level is currently active in the scoped situation.
 ### Checks if the specified stage is currently active in the scoped situation.
 ## scopes = { situation }
-alias[trigger:current_stage] = enum[situation_stages]
+alias[trigger:current_stage] = enum[situation_stage]
 
 ### Checks if the scoped situation is a certain type.
 ## scopes = { situation }
@@ -3170,7 +3170,7 @@ alias[trigger:has_monthly_loyalty] == int_value_field[-100..100]
 ## scopes = { country }
 alias[trigger:has_attitude_behavior] = {
 	target = scope_group[target_country]
-	behavior = enum[ai_attitude_behaviours]
+	behavior = enum[ai_attitude_behaviour]
 }
 
 ### Checks if the agreement has a specific specialist perk active

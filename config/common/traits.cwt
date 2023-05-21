@@ -249,7 +249,7 @@ trait = {
 		## cardinality = 0..1
 		leader_class = {
 			## cardinality = 1..5
-			enum[leader_class]
+			enum[leader_clas]
 		}
 		### Limits which leader classes that can get this trait.
 		## cardinality = 0..1

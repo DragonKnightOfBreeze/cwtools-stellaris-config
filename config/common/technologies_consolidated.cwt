@@ -58,7 +58,7 @@ types = {
 }
 
 technology = {
-	area = enum[research_areas]
+	area = enum[research_area]
 	tier = <technology_tier>
 	category = { <technology_category> }
 
@@ -125,7 +125,7 @@ technology = {
 	## cardinality = 0..1
 	feature_flags = {
 		## cardinality = 0..100
-		enum[feature_flags]
+		enum[feature_flag]
 	}
 
 	## cardinality = 0..1
@@ -135,9 +135,9 @@ technology = {
 	## cardinality = 0..1
 	prereqfor_desc = {
 		## cardinality = 0..4
-		hide_prereq_for_desc = enum[prereq_for_categories]
+		hide_prereq_for_desc = enum[prereq_for_category]
 		## cardinality = 0..4
-		enum[prereq_for_categories] = {
+		enum[prereq_for_category] = {
 			title = localisation
 			## cardinality = 0..1
 			desc = localisation
@@ -164,7 +164,7 @@ technology = {
 }
 
 enums = {
-	enum[prereq_for_categories] = {
+	enum[prereq_for_category] = {
 		ship
 		custom
 		component
@@ -172,7 +172,7 @@ enums = {
 		feature
 		resource
 	}
-	enum[feature_flags] = {
+	enum[feature_flag] = {
 		experimental_subspace_navigation
 		robot_leaders
 		megaengineering
@@ -204,7 +204,7 @@ enums = {
 		active_reconnaissance_unlocked
 		assist_cloaking_detection_unlocked
 	}
-	enum[technology_areas] = {
+	enum[technology_area] = {
 		engineering
 		society
 		physics

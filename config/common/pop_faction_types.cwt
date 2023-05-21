@@ -19,7 +19,7 @@ types = {
 # parameters
 enums = {
 	## search_scope_type = definition
-	complex_enum[pop_faction_parameters] = {
+	complex_enum[pop_faction_parameter] = {
 		path = "game/common/pop_faction_types"
 		name = {
 			parameters = {
@@ -31,7 +31,7 @@ enums = {
 
 # actions
 enums = {
-	complex_enum[pop_faction_actions] = {
+	complex_enum[pop_faction_action] = {
 		path = "game/common/pop_faction_types"
 		name = {
 			actions = {
@@ -76,7 +76,7 @@ pop_faction = {
 		## cardinality = 0..1
 		scalar = {
 			## cardinality = 1..1
-			type = enum[scope_type_tokens]
+			type = enum[scope_type_token]
 			## cardinality = 0..1
 			valid_objects = single_alias_right[trigger_clause]
 		}

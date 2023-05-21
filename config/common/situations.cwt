@@ -29,7 +29,7 @@ situation_type = {
 		trigger = single_alias_right[trigger_clause]
 	}
 	## cardinality = 0..1
-	category = enum[situation_categories]
+	category = enum[situation_category]
 
 	## cardinality = 0..inf
 	desc = {
@@ -133,10 +133,10 @@ situation_type = {
 	subtype[bidirectional] = {
 		### Only for progress_direction = bidirectional - only affects progress towards completetion (right)
 		## cardinality = 0..1
-		complete_category = enum[situation_categories]
+		complete_category = enum[situation_category]
 		### Only for progress_direction = bidirectional - only affects progress towards fail (left)
 		## cardinality = 0..1
-		fail_category = enum[situation_categories]
+		fail_category = enum[situation_category]
 	}
 
 	complete_icon = <sprite>
@@ -178,7 +178,7 @@ situation_type = {
 }
 
 enums = {
-	complex_enum[situation_approaches] = {
+	complex_enum[situation_approach] = {
 		path = "game/common/situations"
 		name = {
 			approach = {
@@ -186,7 +186,7 @@ enums = {
 			}
 		}
 	}
-	complex_enum[situation_stages] = {
+	complex_enum[situation_stage] = {
 		path = "game/common/situations"
 		name = {
 			stages = {
@@ -194,7 +194,7 @@ enums = {
 			}
 		}
 	}
-	enum[situation_categories] = {
+	enum[situation_category] = {
 		positive
 		negative
 		neutral

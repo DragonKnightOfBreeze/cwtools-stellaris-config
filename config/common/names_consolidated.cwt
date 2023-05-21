@@ -28,7 +28,7 @@ types = { #these are all connected. I added the others so whoever does these in 
 }
 
 enums = {
-	complex_enum[name_list_categories] = {
+	complex_enum[name_list_category] = {
 		path = "game/common/name_lists"
 		name = {
 			category = enum_name

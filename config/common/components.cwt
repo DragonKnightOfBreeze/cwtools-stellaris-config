@@ -125,7 +125,7 @@ component_template = {
 	## cardinality = 0..1
 	class_restriction = {
 		## cardinality = 1..inf
-		enum[ship_class]
+		enum[ship_clas]
 	}
 	## cardinality = 0..1
 	upgrades_to = <component_template>
@@ -211,7 +211,7 @@ component_template = {
 			## cardinality = 0..1
 			system_wide = bool
 			## cardinality = 0..1
-			apply_on = enum[aura_types]
+			apply_on = enum[aura_type]
 			stack_info = {
 				id = scalar
 				priority = int
@@ -247,7 +247,7 @@ component_template = {
 			## cardinality = 0..1
 			system_wide = bool
 			## cardinality = 0..1
-			apply_on = enum[aura_types]
+			apply_on = enum[aura_type]
 			stack_info = {
 				id = scalar
 				priority = int
@@ -487,7 +487,7 @@ enums = {
 		small
 		aux
 	}
-	enum[aura_types] = {
+	enum[aura_type] = {
 		ships
 		fleets
 	}

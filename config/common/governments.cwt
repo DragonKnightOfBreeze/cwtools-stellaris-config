@@ -105,7 +105,7 @@ authority = {
 	## cardinality = 0..1
 	has_heir = bool
 	## cardinality = 0..1
-	election_type = enum[election_types]
+	election_type = enum[election_type]
 	## cardinality = 0..1
 	### default = 0, hence required if defined to oligarchic or democratic
 	election_term_years = int
@@ -135,7 +135,7 @@ authority = {
 	## cardinality = 0..1
 	valid_for_released_vassal = bool
 	## cardinality = 0..1
-	localization_postfix = enum[authority_postfixes]
+	localization_postfix = enum[authority_postfix]
 	## cardinality = 0..1
 	localization_postfix = scalar
 
@@ -409,12 +409,12 @@ councilor = {
 }
 
 enums = {
-	enum[election_types] = {
+	enum[election_type] = {
 		none
 		oligarchic
 		democratic
 	}
-	enum[authority_postfixes] = {
+	enum[authority_postfix] = {
 		hive_mind
 		machine_intelligence
 	}

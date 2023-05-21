@@ -33,7 +33,7 @@ types = {
 }
 
 enums = {
-	enum[building_categories] = {
+	enum[building_category] = {
 		army
 		manufacturing
 		government
@@ -69,7 +69,7 @@ building = {
 	exempt_from_ai_planet_specialization = bool
 
 	## cardinality = 0..1
-	category = enum[building_categories]
+	category = enum[building_category]
 
 	## cardinality = 0..1
 	icon = icon[gfx/interface/icons/buildings] #todo: filepath

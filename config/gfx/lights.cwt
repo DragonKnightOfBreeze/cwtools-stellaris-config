@@ -50,7 +50,7 @@ light = {
 }
 alias[intensity:intensity] = scalar #TODO #int,<light_animation>
 alias[intensity:intensity] = int
-alias[intensity:intensity] = enum[light_animations]
+alias[intensity:intensity] = enum[light_animation]
 
 enums = {
 	enum[animation_op] = {
@@ -58,7 +58,7 @@ enums = {
 		"ADD"
 		"ABS"
 	}
-	complex_enum[light_animations] = {
+	complex_enum[light_animation] = {
 		path = "game/gfx/lights"
 		name = {
 			animation = {

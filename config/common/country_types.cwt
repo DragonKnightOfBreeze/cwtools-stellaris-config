@@ -319,7 +319,7 @@ country_type = {
 		## cardinality = 0..1
 		standard_diplomacy_module = {
 			## cardinality = 0..1
-			contact_rule = enum[contact_rules]
+			contact_rule = enum[contact_rule]
 		}
 		## cardinality = 0..1
 		standard_technology_module = {}
@@ -334,7 +334,7 @@ country_type = {
 		## cardinality = 0..1
 		exclusive_diplomacy_module = {
 			## cardinality = 0..1
-			contact_rule = enum[contact_rules]
+			contact_rule = enum[contact_rule]
 			## cardinality = 0..1
 			can_receive = {
 				## cardinality = 0..inf

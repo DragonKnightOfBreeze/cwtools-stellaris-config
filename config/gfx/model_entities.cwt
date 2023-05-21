@@ -48,7 +48,7 @@ model_entity = {
 	playback_rate = float
 
 	## cardinality = 0..1
-	default_state = enum[model_states]
+	default_state = enum[model_state]
 	## cardinality = 0..1
 	default_state = scalar
 	## cardinality = 0..1
@@ -67,13 +67,13 @@ model_entity = {
 		looping = bool
 
 		## cardinality = 0..1
-		next_state = enum[model_states]
+		next_state = enum[model_state]
 		## cardinality = 0..1
 		next_state = scalar
 		## cardinality = 0..1
 		propagate_state = {
-			enum[model_attachments] = enum[model_states]
-			enum[model_attachments] = scalar
+			enum[model_attachment] = enum[model_state]
+			enum[model_attachment] = scalar
 		}
 
 		## cardinality = 0..1
@@ -84,9 +84,9 @@ model_entity = {
 		chance = {
 			if_current_state = {
 				## cardinality = 0..inf
-				enum[model_states] = 0
+				enum[model_state] = 0
 				## cardinality = 0..inf
-				enum[model_states] = 100
+				enum[model_state] = 100
 			}
 			## cardinality = 0..1
 			default = int
@@ -96,7 +96,7 @@ model_entity = {
 		## cardinality = 0..1
 		animation = <model_animation> #animations are defined in a different file in the same folder, also a *.asset file
 		## cardinality = 0..1
-		animation = enum[model_animation_types]
+		animation = enum[model_animation_type]
 		## cardinality = 0..1
 		animation = scalar #TODO
 		## cardinality = 0..1
@@ -142,7 +142,7 @@ model_entity = {
 			## cardinality = 0..1
 			time = float
 			## cardinality = 0..1
-			node = enum[model_locators] # "bombardment_location_2" for example, this seem to point to a *.mesh file
+			node = enum[model_locator] # "bombardment_location_2" for example, this seem to point to a *.mesh file
 			## cardinality = 0..1
 			node = scalar # TODO: Some locators are in .mesh files, so are missed by the enum
 			## cardinality = 0..1
@@ -177,7 +177,7 @@ model_entity = {
 			## cardinality = 0..1
 			trigger_once = bool
 			## cardinality = 0..1
-			node = enum[model_locators] # "bombardment_location_2" for example, this seem to point to a *.mesh file
+			node = enum[model_locator] # "bombardment_location_2" for example, this seem to point to a *.mesh file
 			## cardinality = 0..1
 			node = scalar # TODO: Some locators are in .mesh files, so are missed by the enum
 			## cardinality = 0..1
@@ -199,7 +199,7 @@ model_entity = {
 	## cardinality = 0..inf
 	attach = {
 		## cardinality = 0..inf
-		enum[model_locators] = <model_entity> # see locator in this file.
+		enum[model_locator] = <model_entity> # see locator in this file.
 		## cardinality = 0..inf
 		scalar = <model_entity> # TODO: Some locators are in .mesh files, so are missed by the enum
 		## cardinality = 0..1
@@ -336,7 +336,7 @@ model_mesh = { #the container for all meshes is defined as objectTypes = { at th
 	}
 	## cardinality = 0..inf
 	animation = {
-		id = enum[model_animation_types] #example = "idle"
+		id = enum[model_animation_type] #example = "idle"
 		id = scalar #example = "idle"
 		type = <model_animation> #this connects to an animation defined in an *.asset file!
 	}
@@ -351,7 +351,7 @@ model_animation = { #the container here is called animation = { for each animati
 }
 
 enums = {
-	enum[model_animation_types] = {
+	enum[model_animation_type] = {
 		idle
 		idle2
 		sad
@@ -374,7 +374,7 @@ enums = {
 }
 
 enums = {
-	complex_enum[model_animations] = {
+	complex_enum[model_animation] = {
 		path = "game/gfx/models"
 		file_extension = .gfx
 		start_from_root = yes
@@ -390,7 +390,7 @@ enums = {
 	}
 
 	## search_scope_type = definition
-	complex_enum[model_states] = {
+	complex_enum[model_state] = {
 		path = "game/gfx"
 		file_extension = .asset
 		start_from_root = yes
@@ -404,7 +404,7 @@ enums = {
 	}
 
 	## search_scope_type = definition
-	complex_enum[model_locators] = {
+	complex_enum[model_locator] = {
 		path = "game/gfx"
 		file_extension = .asset
 		start_from_root = yes
@@ -423,7 +423,7 @@ enums = {
 	}
 
 	## search_scope_type = definition
-	complex_enum[model_attachments] = {
+	complex_enum[model_attachment] = {
 		path = "game/gfx"
 		file_extension = .asset
 		start_from_root = yes

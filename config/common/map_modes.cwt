@@ -54,6 +54,6 @@ map_mode = {
 		## replace_scopes = { root = country this = country from = country }
 		condition = single_alias_right[trigger_clause]
 		## cardinality = 0..1
-		filter = enum[hardcoded_map_mode_filters]
+		filter = enum[hardcoded_map_mode_filter]
 	}
 }

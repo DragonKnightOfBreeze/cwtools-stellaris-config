@@ -373,7 +373,7 @@ alias[effect:add_modifier] = {
 	modifier = <static_modifier>
 	# severity = info
 	## cardinality = 0..1
-	enum[days_months_years] = int
+	enum[days_months_year] = int
 	## cardinality = 0..1
 	mult = value_field
 	## cardinality = 0..1
@@ -567,134 +567,134 @@ alias[effect:remove_agreement_flag] = value[agreement_flag]
 ## scopes = { country }
 alias[effect:set_timed_country_flag] = {
 	flag = value_set[country_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped planet for a set duration
 ## scopes = { planet }
 alias[effect:set_timed_planet_flag] = {
 	flag = value_set[planet_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped pop faction for a set duration
 ## scopes = { pop pop_faction }
 alias[effect:set_timed_pop_faction_flag] = {
 	flag = value_set[pop_faction_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped system for a set duration
 ## scopes = { galactic_object }
 alias[effect:set_timed_star_flag] = {
 	flag = value_set[star_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped species for a set duration
 ## scopes = { species }
 alias[effect:set_timed_species_flag] = {
 	flag = value_set[species_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped pop for a set duration
 ## scopes = { pop }
 alias[effect:set_timed_pop_flag] = {
 	flag = value_set[pop_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped fleet for a set duration
 ## scopes = { fleet }
 alias[effect:set_timed_fleet_flag] = {
 	flag = value_set[fleet_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped ship for a set duration
 ## scopes = { ship }
 alias[effect:set_timed_ship_flag] = {
 	flag = value_set[ship_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named global flag for a set duration
 ## scopes = any
 alias[effect:set_timed_global_flag] = {
 	flag = value_set[global_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped leader for a set duration
 ## scopes = { leader }
 alias[effect:set_timed_leader_flag] = {
 	flag = value_set[leader_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped ambient object for a set duration
 ## scopes = { fleet }
 alias[effect:set_timed_ambient_object_flag] = {
 	flag = value_set[ambient_object_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped mega structure for a set duration
 ## scopes = { megastructure }
 alias[effect:set_timed_megastructure_flag] = {
 	flag = value_set[megastructure_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped deposit for a set duration
 ## scopes = { deposit }
 alias[effect:set_timed_deposit_flag] = {
 	flag = value_set[deposit_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped sector for a set duration
 ## scopes = { sector }
 alias[effect:set_timed_sector_flag] = {
 	flag = value_set[sector_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped arc site for a set duration
 ## scopes = { archaeological_site }
 alias[effect:set_timed_archaeology_flag] = {
 	flag = value_set[archaeology_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped starbase for a set duration
 ## scopes = { starbase }
 alias[effect:set_timed_starbase_flag] = {
 	flag = value_set[starbase_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped spy network for a set duration
 ## scopes = { spy_network }
 alias[effect:set_timed_spynetwork_flag] = {
 	flag = value_set[spynetwork_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped espionage asset for a set duration
 ## scopes = { espionage_asset }
 alias[effect:set_timed_espionage_asset_flag] = {
 	flag = value_set[espionage_asset_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped war for a set duration
 ## scopes = { war }
 alias[effect:set_timed_war_flag] = {
 	flag = value_set[war_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped army for a set duration
 ## scopes = { army }
 alias[effect:set_timed_army_flag] = {
 	flag = value_set[army_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Sets an arbitrarily-named flag on the scoped situation for a set duration
 ## scopes = { situation }
 alias[effect:set_timed_situation_flag] = {
 	flag = value_set[situation_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 
 ### Sets an arbitrarily-named flag on the scoped agreement for a set duration
 ## scopes = { agreement }
 alias[effect:set_timed_agreement_flag] = {
 	flag = value_set[agreement_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 
 ### Removes a mega structure.
@@ -712,7 +712,7 @@ alias[effect:set_relation_flag] = {
 alias[effect:set_timed_relation_flag] = {
 	who = scope_group[target_country]
 	flag = value_set[relation_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Removes a specific relation flag towards target country from the scoped country
 ## scopes = { country }
@@ -756,7 +756,7 @@ alias[effect:change_government] = {
 ## scopes = { planet country ship fleet leader army }
 alias[effect:kill_leader] = {
 	## cardinality = 0..1
-	type = enum[leader_class]
+	type = enum[leader_clas]
 	## cardinality = 0..1
 	type = random
 	## cardinality = 0..1
@@ -1475,7 +1475,7 @@ alias[effect:create_country] = {
 	## cardinality = 0..1
 	type = <country_type>
 	## cardinality = 0..1
-	contact_rule = enum[contact_rules]
+	contact_rule = enum[contact_rule]
 	## cardinality = 0..1
 	auto_delete = bool
 	## cardinality = 0..1
@@ -1681,7 +1681,7 @@ alias[effect:create_leader] = {
 	alias_name[name] = alias_match_left[name]
 	## cardinality = 0..1
 	name = random
-	class = enum[leader_class]
+	class = enum[leader_clas]
 	class = random
 	class = random_ruler
 	## cardinality = 0..1
@@ -1694,7 +1694,7 @@ alias[effect:create_leader] = {
 	## cardinality = 0..1
 	leader_age_max = int	#should not be less than min...
 	## cardinality = 0..1
-	gender = enum[genders]
+	gender = enum[gender]
 	## cardinality = 0..1
 	set_age = value_field
 	## cardinality = 0..1
@@ -1752,7 +1752,7 @@ alias[effect:clone_leader] = {
 	## cardinality = 0..1
 	name = random
 	## cardinality = 0..1
-	class = enum[leader_class]
+	class = enum[leader_clas]
 	## cardinality = 0..1
 	species = scope_group[target_species]
 	## cardinality = 0..1
@@ -1762,7 +1762,7 @@ alias[effect:clone_leader] = {
 	## cardinality = 0..1
 	leader_age_max = int	#should not be less than min...
 	## cardinality = 0..1
-	gender = enum[genders]
+	gender = enum[gender]
 	## cardinality = 0..1
 	set_age = value_field
 	## cardinality = 0..1
@@ -2047,7 +2047,7 @@ alias[effect:add_random_research_option] = {
 	## cardinality = 0..1
 	category = <technology_category>
 	## cardinality = 0..1
-	area = enum[technology_areas]
+	area = enum[technology_area]
 	## cardinality = 0..1
 	tier = <technology_tier>
 	## cardinality = 0..1
@@ -2509,11 +2509,11 @@ alias[effect:create_saved_leader] = {
 	## cardinality = 0..1
 	alias_name[name] = alias_match_left[name]
 	## cardinality = 0..1
-	gender = enum[genders]
+	gender = enum[gender]
 	## cardinality = 0..1
 	class = random
 	## cardinality = 0..1
-	class = enum[leader_class]
+	class = enum[leader_clas]
 	species = scope_group[target_species]
 	species = enum[buildable_pop_species]
 	## cardinality = 0..1
@@ -2621,7 +2621,7 @@ alias[effect:force_faction_evaluation] = yes
 ## scopes = any
 alias[effect:get_galaxy_setup_value] = {
 	which = value_set[variable]
-	setting = enum[galaxy_setup_values]
+	setting = enum[galaxy_setup_value]
 	## cardinality = 0..1
 	scale_by = int #no variables here atm
 }
@@ -2963,7 +2963,7 @@ alias[effect:set_starbase_module] = {
 alias[effect:set_starbase_size] = <ship_size.starbase>
 ### Changes the scoped country's tutorial level (0 none, 1 limited, 2 full)
 ## scopes = { country }
-alias[effect:set_tutorial_level] = enum[tutorial_levels]
+alias[effect:set_tutorial_level] = enum[tutorial_level]
 ### Spawns a mega structure in a system.
 ## scopes = { galactic_object }
 alias[effect:spawn_megastructure] = {
@@ -3316,7 +3316,7 @@ alias[effect:expire_site_event] = <event.fleet>
 ## scopes = { leader }
 alias[effect:add_timed_trait] = {
 	trait = <trait>
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 
 ### Recomputes strategic war ( attack / defense ) data for AI = yes
@@ -3359,7 +3359,7 @@ alias[effect:set_federation_flag] = value_set[federation_flag]
 ## scopes = { federation }
 alias[effect:set_timed_federation_flag] = {
 	flag = value_set[federation_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Removes a flag from the scoped federation
 ## scopes = { federation }
@@ -3401,11 +3401,11 @@ alias[effect:set_federation_type] = <federation_type>
 ### Sets federation succession type to the scoped federation.
 ### Please don't use outside law on_enact, functional effect! Use set_federation_law and has_federation_law instead.
 ## scopes = { federation }
-alias[effect:set_federation_succession_type] = enum[federation_succession_types]
+alias[effect:set_federation_succession_type] = enum[federation_succession_type]
 
 ### Sets federation succession term to the scoped federation. Please don't use outside law on_enact, functional effect! Use set_federation_law and has_federation_law instead.
 ## scopes = { federation }
-alias[effect:set_federation_succession_term] = enum[federation_succession_terms]
+alias[effect:set_federation_succession_term] = enum[federation_succession_term]
 
 ### Sets exclusive right to build fleets by federation leader.
 ### Please don't use outside law on_enact, functional effect! Use set_federation_law and has_federation_law instead.
@@ -3429,9 +3429,9 @@ alias[effect:set_diplomacy_action_setting] = {
 	action = <diplomatic_action>
 	settings = {
 		## cardinality = 0..1
-		vote_type = enum[vote_types] #unanimous_vote majority_vote leader
+		vote_type = enum[vote_type] #unanimous_vote majority_vote leader
 		## cardinality = 0..1
-		acceptance_type = enum[acceptance_types] #leader default
+		acceptance_type = enum[acceptance_type] #leader default
 	}
 }
 
@@ -3444,7 +3444,7 @@ alias[effect:set_free_migration] = bool
 ### Please don't use outside law on_enact, functional effect! Use set_federation_law and has_federation_law instead.
 ## scopes = { federation }
 alias[effect:set_federation_settings] = {
-	enum[federation_settings] = bool
+	enum[federation_setting] = bool
 }
 
 ### Add cohesion to the federation
@@ -3571,7 +3571,7 @@ alias[effect:complete_special_project] = {
 ## scopes = { country }
 alias[effect:set_truce] = {
 	target = scope_group[target_country]
-	type = enum[truce_types]
+	type = enum[truce_type]
 }
 
 ### Force-end truce with target country
@@ -3694,7 +3694,7 @@ alias[effect:set_first_contact_flag] = value_set[first_contact_flag]
 ## scopes = { first_contact }
 alias[effect:set_timed_first_contact_flag] = {
 	flag = value_set[first_contact_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 ### Removes a flag from the scoped first contact site
 ## scopes = { first_contact }
@@ -3712,7 +3712,7 @@ alias[effect:copy_random_tech_from] = {
 	## cardinality = 0..1
 	category = <technology_category>
 	## cardinality = 0..1
-	area = enum[research_areas]
+	area = enum[research_area]
 	## cardinality = 0..1
 	### Optional: this makes it grant the tech option rather than the whole tech
 	progress = value_field[0.0..1.0]
@@ -3762,14 +3762,14 @@ alias[effect:remove_espionage_operation_flag] = value[espionage_operation_flag]
 ## severity = warning
 alias[effect:set_timed_espionage_operation_flag] = {
 	flag = value_set[espionage_operation_flag]
-	enum[days_months_years] = int_value_field
+	enum[days_months_year] = int_value_field
 }
 
 ### Joins the war on the specified side.
 ## scopes = { country }
 alias[effect:join_war_on_side] = {
 	war = scope[war]
-	side = enum[war_sides]
+	side = enum[war_side]
 	side = scope_group[target_country]
 }
 
@@ -3862,7 +3862,7 @@ alias[effect:add_stage_modifier] = {
 	modifier = <static_modifier>
 	# severity = info
 	## cardinality = 0..1
-	enum[days_months_years] = int
+	enum[days_months_year] = int
 	## cardinality = 0..1
 	multiplier = float #no variables here atm
 }
@@ -4077,7 +4077,7 @@ alias[effect:destroy_situation] = scope[situation]
 alias[effect:add_situation_progress] = value_field
 ### Sets the approach to the Situation. Respects allow and potential triggers.
 ## scopes = { situation }
-alias[effect:set_situation_approach] = enum[situation_approaches]
+alias[effect:set_situation_approach] = enum[situation_approach]
 ### Sets the planet's ascension tier to the specified value
 ## scopes = { planet }
 alias[effect:set_planetary_ascension_tier] = int_value_field
@@ -4107,10 +4107,10 @@ alias[effect:set_rule_can_subject_expand] = enum[agreement_subject_expand]
 alias[effect:set_rule_can_subject_vote] = bool
 ### Changes the agreement term for Subject to join Overlord wars
 ## scopes = { agreement }
-alias[effect:set_rule_join_overlord_wars] = enum[agreement_wars]
+alias[effect:set_rule_join_overlord_wars] = enum[agreement_war]
 ### Changes the agreement term for Overlord to wars of its Subject
 ## scopes = { agreement }
-alias[effect:set_rule_join_subject_wars] = enum[agreement_wars]
+alias[effect:set_rule_join_subject_wars] = enum[agreement_war]
 ### Changes the agreement term for whether the Subject can access the overlord's territory (and territories the overlord has access to) despite closed borders
 ## scopes = { agreement }
 alias[effect:set_rule_subject_has_access] = bool
@@ -4329,7 +4329,7 @@ alias[effect:set_years_served] = scope[leader]
 
 ### Sets the gender of the scoped leader
 ## scopes = { leader }
-alias[effect:set_gender] = enum[genders]
+alias[effect:set_gender] = enum[gender]
 
 ### Copies all script flags and variables from the specified scope to the current one.
 ## scopes = any

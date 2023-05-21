@@ -25,7 +25,7 @@ section_template = {
 	ship_size = <ship_size>
 	## cardinality = 0..inf
 	#TODO section slots
-	fits_on_slot = enum[section_slots]
+	fits_on_slot = enum[section_slot]
 	entity = scalar #TODO: graphical culture <model_entity>
 
 	## cardinality = 0..1
@@ -55,7 +55,7 @@ section_template = {
 	component_slot = {
 		name = scalar
 		template = <component_slot_template>
-		locatorname = enum[model_locators]
+		locatorname = enum[model_locator]
 		locatorname = scalar # TODO: Some locators are in .mesh files, so are missed by the enum
 		## cardinality = 0..1
 		is_side_slot = bool
@@ -95,7 +95,7 @@ enums = {
 		strike_craft
 		weapon
 	}
-	complex_enum[component_slots] = {
+	complex_enum[component_slot] = {
 		path = "game/common/section_templates"
 		name = {
 			component_slot = {
@@ -103,7 +103,7 @@ enums = {
 			}
 		}
 	}
-	enum[utility_component_slots] = {
+	enum[utility_component_slot] = {
 		SMALL_UTILITY_1
 		SMALL_UTILITY_2
 		SMALL_UTILITY_3

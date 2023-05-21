@@ -382,12 +382,12 @@ modifiers = {
 	habitability_ceil_mult = { Habitability }
 
 	# ship_class modifiers
-	enum[ship_class]_build_cost_mult = { Planets Megastructures Starbases }
-	enum[ship_class]_build_speed_mult = { Planets Megastructures Starbases }
-	enum[ship_class]_hull_mult = { Ships }
-	enum[ship_class]_damage_mult = { Ships }
-	enum[ship_class]_evasion_add = { Ships }
-	enum[ship_class]_disengage_mult = { Ships }
+	enum[ship_clas]_build_cost_mult = { Planets Megastructures Starbases }
+	enum[ship_clas]_build_speed_mult = { Planets Megastructures Starbases }
+	enum[ship_clas]_hull_mult = { Ships }
+	enum[ship_clas]_damage_mult = { Ships }
+	enum[ship_clas]_evasion_add = { Ships }
+	enum[ship_clas]_disengage_mult = { Ships }
 
 	# weapon_type modifiers
 	enum[component_tag]_weapon_damage_mult = { Ships }
@@ -409,16 +409,16 @@ modifiers = {
 	# economic_category modifiers
 	#
 	# actual generated modifiers are based on detailed declaration
-	# actual modifier categories are from modifier_category property + "AI Economy", see enum[scripted_modifier_categories]
+	# actual modifier categories are from modifier_category property + "AI Economy", see enum[scripted_modifier_category]
 	#
-	# enum[economic_modifier_categories]_enum[economic_modifier_types] - actual allowed values are:
+	# enum[economic_modifier_category]_enum[economic_modifier_type] - actual allowed values are:
 	# from generate_mult_modifiers = {...}, generate_add_modifiers = {...}
 	# from triggered_produces_modifier = {...}, triggered_cost_modifier = {...}, triggered_upkeep_modifier = {...}
 	#
 	# will generate if use_for_ai_budget = yes (inherited by parent property for _mult modifiers)
-	# <economic_category>_enum[economic_modifier_categories]_enum[economic_modifier_types] = { "AI Economy" }
+	# <economic_category>_enum[economic_modifier_category]_enum[economic_modifier_type] = { "AI Economy" }
 	# will generate:
-	# <economic_category>_<resource>_enum[economic_modifier_categories]_enum[economic_modifier_types] = { "AI Economy" }
+	# <economic_category>_<resource>_enum[economic_modifier_category]_enum[economic_modifier_type] = { "AI Economy" }
 
 	# ship_size modifiers
 	shipsize_<ship_size>_build_speed_mult = { Planets Megastructures Starbases }

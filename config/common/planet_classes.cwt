@@ -177,7 +177,7 @@ planet_class = {
 
 	subtype[habitable_planet] = {
 		## severity = warning
-		district_set = enum[district_sets]
+		district_set = enum[district_set]
 
 		## cardinality = 0..1
 		climate = localisation
@@ -196,7 +196,7 @@ planet_class = {
 	subtype[unhabitable_ringworld] = {
 		## severity = warning
 		## cardinality = 0..1
-		district_set = enum[district_sets]
+		district_set = enum[district_set]
 	}
 	## cardinality = 0..1
 	colonizable_by_event = bool
@@ -222,7 +222,7 @@ planet_class_random_list = {
 }
 
 enums = {
-	complex_enum[district_sets] = {
+	complex_enum[district_set] = {
 		path = "game/common/planet_classes"
 		name = {
 			district_set = enum_name

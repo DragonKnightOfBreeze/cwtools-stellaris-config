@@ -10,7 +10,7 @@ types = {
 }
 
 enums = {
-	complex_enum[intel_tokens] = {
+	complex_enum[intel_token] = {
 		path = "game/common/intel_categories"
 		name = {
 			intel_level = {

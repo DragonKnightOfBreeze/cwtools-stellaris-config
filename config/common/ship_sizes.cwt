@@ -103,7 +103,7 @@ ship_size = {
 		## cardinality = 1..inf
 		scalar = { #this is connected to the section templates and global ship designs files!
 			## cardinality = 1..inf
-			locator = enum[model_locators] # this is connected to the ship asset files.
+			locator = enum[model_locator] # this is connected to the ship asset files.
 			## cardinality = 1..inf
 			locator = scalar # TODO: Some locators are in .mesh files, so are missed by the enum
 		}
@@ -152,7 +152,7 @@ ship_size = {
 		<technology>
 	}
 	#this is where ship classes are defined! this is important for other files, and it also causes the game to auto generate modifiers for each shipclass!
-	class = enum[ship_class]
+	class = enum[ship_clas]
 	## cardinality = 0..1
 	construction_type = starbase
 	## cardinality = 0..1
@@ -241,7 +241,7 @@ ship_size = {
 }
 
 #enums = { #you can change, mod, remove and add new shipclasses. This is not an enum!
-#	enum[ship_class] = {
+#	enum[ship_clas] = {
 #		shipclass_military
 #		shipclass_military_station
 #		shipclass_military_special
@@ -264,13 +264,13 @@ ship_size = {
 #}
 
 enums = {
-	complex_enum[ship_class] = {
+	complex_enum[ship_clas] = {
 		path = "game/common/ship_sizes"
 		name = {
 			class = enum_name
 		}
 	}
-	complex_enum[section_slots] = {
+	complex_enum[section_slot] = {
 		path = "game/common/ship_sizes"
 		name = {
 			section_slots = {

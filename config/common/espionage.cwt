@@ -93,7 +93,7 @@ espionage_category = {}
 espionage_operation = {
 	### Valid target types are country, megastructure, starbase, fleet, army, pop_faction, spynetwork, federation and none (spy network target is the target then)
 	## cardinality = 0..1
-	target = enum[espionage_operation_targets]
+	target = enum[espionage_operation_target]
     categories = {
 		## cardinality = 1..inf
 		<espionage_category>

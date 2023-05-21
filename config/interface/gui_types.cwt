@@ -314,7 +314,7 @@ alias[gui:containerWindowType] = {
 		right = int
 	}
 	## cardinality = 0..1
-	verticalScrollbar = enum[vertical_scrollbar_types]
+	verticalScrollbar = enum[vertical_scrollbar_type]
 	## cardinality = 0..1
 	dontRender = scalar
 	## cardinality = 0..1

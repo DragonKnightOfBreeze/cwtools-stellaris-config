@@ -1,6 +1,6 @@
 
 enums = {
-	enum[leader_class] = {
+	enum[leader_clas] = {
 		scientist
 		admiral
 		governor
@@ -13,7 +13,7 @@ enums = {
 		governor
 		general
 	}
-	enum[days_months_years] = {
+	enum[days_months_year] = {
 		days
 		months
 		years
@@ -26,25 +26,25 @@ enums = {
 		weight
 		factor
 	}
-	enum[relative_power_categories] = {
+	enum[relative_power_category] = {
 		all
 		fleet
 		technology
 		economy
 	}
-	enum[relative_power_values] = {
+	enum[relative_power_value] = {
 		pathetic
 		inferior
 		equivalent
 		superior
 		overwhelming
 	}
-	enum[research_areas] = {
+	enum[research_area] = {
 		physics
 		society
 		engineering
 	}
-	enum[genders] = {
+	enum[gender] = {
 		female
 		male
 		indeterminable
@@ -60,16 +60,16 @@ enums = {
 		hyperlane
 		euclidean
 	}
-	enum[election_types] = {
+	enum[election_type] = {
 		none
 		democratic
 		oligarchic
 	}
-	enum[war_sides] = {
+	enum[war_side] = {
 		attackers
 		defenders
 	}
-	enum[scope_type_tokens] = {
+	enum[scope_type_token] = {
 		none
 		megastructure
 		planet
@@ -111,7 +111,7 @@ enums = {
 		research_station
 		observation_post
 	}
-	enum[tutorial_levels] = {
+	enum[tutorial_level] = {
 		0
 		1
 		2
@@ -124,20 +124,20 @@ enums = {
 		passive
 		evasive
 	}
-	enum[action_types] = {
+	enum[action_type] = {
 		positive
 		negative
 		aggressive
 		neutral
 	}
-	enum[truce_types] = {
+	enum[truce_type] = {
 		war
 		liberation
 		alliance
 		guarantee
 		none
 	}
-	enum[fleet_orders] = {
+	enum[fleet_order] = {
 		move_to_system_point_order
 		orbit_planet_order
 		build_orbital_station_order
@@ -170,7 +170,7 @@ enums = {
 		experimental_subspace_navigation_fleet_order
 		excavate_archaeological_site_fleet_order
 	}
-	enum[galaxy_setup_values] = {
+	enum[galaxy_setup_value] = {
 		num_empires
 		num_advanced_empires
 		num_fallen_empires
@@ -187,7 +187,7 @@ enums = {
 		crisis_strength_scale
 		tech_costs_scale
 	}
-	enum[federation_succession_types] = {
+	enum[federation_succession_type] = {
 		strongest
 		diplomatic_weight
 		rotation
@@ -196,34 +196,34 @@ enums = {
 		tech
 		fleet
 	}
-	enum[federation_succession_terms] = {
+	enum[federation_succession_term] = {
 		status_change
 		years_10
 		years_20
 		years_30
 		years_40
 	}
-	enum[federation_settings] = {
+	enum[federation_setting] = {
 		research_sharing
 		failed_vote_half_price
 	}
-	enum[vote_types] = {
+	enum[vote_type] = {
 		unanimous_vote
 		majority_vote
 		leader
 	}
-	enum[acceptance_types] = {
+	enum[acceptance_type] = {
 		default
 		leader
 	}
-	enum[opinion_levels] = {
+	enum[opinion_level] = {
 		terrible
 		poor
 		neutral
 		good
 		excellent
 	}
-	enum[envoy_tasks] = {
+	enum[envoy_task] = {
 		improve_relations
 		harm_relations
 		federation
@@ -234,43 +234,43 @@ enums = {
 		undermine_imperial_authority
 		none
 	}
-	enum[planet_resource_compare_types] = {
+	enum[planet_resource_compare_type] = {
 		produces
 		upkeep
 		balance
 	}
-	enum[contact_rules] = {
+	enum[contact_rule] = {
 		always
 		never
 		on_action_only
 		does_first_contact_sites
 		auto
 	}
-	enum[maths] = {
+	enum[math] = {
 		add
 		subtract
 		multiply
 		divide
 		modulo
 	}
-	enum[crisis_types] = {
+	enum[crisis_type] = {
 		prethoryn
 		unbidden
 		contingency
 		all
 	}
-	enum[ship_owner_types] = {
+	enum[ship_owner_type] = {
 		country
 		federation
 		galactic_community
 		global_ship_design
 	}
-	enum[trade_types] = {
+	enum[trade_type] = {
 		market_buy
 		market_sell
 		not_set
 	}
-	enum[espionage_operation_targets] = {
+	enum[espionage_operation_target] = {
 		none
 		megastructure
 		country
@@ -282,7 +282,7 @@ enums = {
 		spynetwork
 	}
 	# these modifier_categories options are used to get modifier categories of generated modifiers from economic categories
-	enum[scripted_modifier_categories] = {
+	enum[scripted_modifier_category] = {
 		all
 		## modifier_categories = { Pops "AI Economy" }
 		pop
@@ -319,7 +319,7 @@ enums = {
 		espionage
 		species
 	}
-	enum[job_triggers] = {
+	enum[job_trigger] = {
 		can_fill_drone_job
 		can_fill_worker_job
 		can_fill_specialist_job
@@ -330,7 +330,7 @@ enums = {
 		can_expand_with_tithe
 		cannot_expand
 	}
-	enum[agreement_wars] = {
+	enum[agreement_war] = {
 		none
 		defensive
 		offensive
@@ -341,7 +341,7 @@ enums = {
 		self_type
 		multi_stage_type
 	}
-	enum[ai_attitude_behaviours] = {
+	enum[ai_attitude_behaviour] = {
 		attack
 		weaken
 		alliance
@@ -369,7 +369,7 @@ enums = {
 		country
 		intel
 	}
-	enum[hardcoded_map_mode_filters] = {
+	enum[hardcoded_map_mode_filter] = {
 		exploration
 		expansion
 		exploitation

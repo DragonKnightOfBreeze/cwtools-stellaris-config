@@ -21,12 +21,12 @@ types = {
 }
 
 enums = {
-	enum[cede_claims] = {
+	enum[cede_claim] = {
 		yes
 		occupied_only
 		no
 	}
-	enum[peace_offers] = {
+	enum[peace_offer] = {
 		status_quo
 		surrender
 		demand_surrender
@@ -69,7 +69,7 @@ war_goal = {
 
 	### Cede claims on peace? Yes by default (I think - Caligula)
 	## cardinality = 0..1
-	cede_claims = enum[cede_claims]
+	cede_claims = enum[cede_claim]
 	### Defenders get this war goal if no war goal is picked in time. If multiple war goals are set to be defender default, the first one scripted in the file is chosen. No by default.
 	## cardinality = 0..1
 	defender_default = bool
@@ -123,7 +123,7 @@ war_goal = {
 	### Set what peace offers are allowed. Leaving this out means no peace, which is usually a bug, hence making this a necessary field.
 	allowed_peace_offers = {
 		## cardinality = 0..3
-		enum[peace_offers]
+		enum[peace_offer]
 	}
 
 	### Run when war ends in status quo. The targeted country, THIS = The acting country
