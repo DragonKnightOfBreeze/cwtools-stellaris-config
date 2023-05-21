@@ -172,7 +172,7 @@ alias[gui:instantTextboxType] = {
 	appendtext = scalar
 
 	## cardinality = 0..1
-	scrollbarType = enum[scrollbar_types]
+	scrollbarType = enum[scrollbar_type]
 	## cardinality = 0..1
 	truncate = bool
 	## cardinality = 0..1
@@ -227,7 +227,7 @@ alias[gui:smoothListboxType] = {
 		y = int
 	}
 	## cardinality = 0..1
-	scrollbarType = enum[scrollbar_types] #this is tied to instances defind as <scrollbarType> with a unique key.
+	scrollbarType = enum[scrollbar_type] #this is tied to instances defind as <scrollbarType> with a unique key.
 
 	## cardinality = 0..inf
 	if_resolution = {
@@ -598,7 +598,7 @@ alias[gui:listBoxType] = {
 	## cardinality = 0..1
 	alwaystransparent = bool
 	## cardinality = 0..1
-	scrollbartype = enum[scrollbar_types]
+	scrollbartype = enum[scrollbar_type]
 
 	alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 	alias_name[gui_background] = alias_match_left[gui_background]
@@ -636,7 +636,7 @@ alias[gui:gridBoxType] = {
 		bottom = int
 	}
 	## cardinality = 0..1
-	scrollbarType = enum[scrollbar_types]
+	scrollbarType = enum[scrollbar_type]
 
 	alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 	alias_name[gui_background] = alias_match_left[gui_background]
