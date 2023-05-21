@@ -313,6 +313,7 @@ trait = {
 		## cardinality = 0..1
 		## replace_scopes = { this = leader root = leader from = country }
 		selectable_weight = {
+			## cardinality = 0..1
 			weight = int
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		}
