@@ -170,6 +170,7 @@ component_template = {
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
+	
 	subtype[utility_component_template] = {
 		## cardinality = 0..1
 		## replace_scopes = { root = ship this = ship }
@@ -198,91 +199,6 @@ component_template = {
 		sensor_range = int
 		## cardinality = 0..1
 		hyperlane_range = int
-		## cardinality = 0..1
-		friendly_aura = {
-			name = scalar
-			## cardinality = 0..1
-			## push_scope = ship
-			limit = single_alias_right[trigger_clause]
-			## cardinality = 0..1
-			system_wide = bool
-			## cardinality = 0..1
-			radius = int
-			## cardinality = 0..1
-			system_wide = bool
-			## cardinality = 0..1
-			apply_on = enum[aura_type]
-			stack_info = {
-				id = scalar
-				priority = int
-			}
-			## cardinality = 0..1
-			## replace_scopes = { this = ship root = ship }
-			modifier = single_alias_right[modifier_clause]
-
-			## cardinality = 0..1
-			graphics = {
-				## cardinality = 0..inf
-				area_effect = {
-					entity = <model_entity>
-					dynamic_scale = bool
-				}
-				## cardinality = 0..inf
-				ship_effect = {
-					entity = <model_entity>
-					dynamic_scale = bool
-				}
-			}
-		}
-		## cardinality = 0..inf
-		hostile_aura = {
-			name = scalar
-			## cardinality = 0..1
-			## push_scope = ship
-			limit = single_alias_right[trigger_clause]
-			## cardinality = 0..1
-			system_wide = bool
-			## cardinality = 0..1
-			radius = int
-			## cardinality = 0..1
-			system_wide = bool
-			## cardinality = 0..1
-			apply_on = enum[aura_type]
-			stack_info = {
-				id = scalar
-				priority = int
-			}
-			## cardinality = 0..1
-			## replace_scopes = { this = ship root = ship }
-			modifier = single_alias_right[modifier_clause]
-
-			## cardinality = 0..1
-			graphics = {
-				## cardinality = 0..inf
-				area_effect = {
-					entity = <model_entity>
-					dynamic_scale = bool
-				}
-				## cardinality = 0..inf
-				ship_effect = {
-					entity = <model_entity>
-					dynamic_scale = bool
-				}
-			}
-			## cardinality = 0..1
-			damage_per_day = {
-				## cardinality = 0..1
-				accuracy = float
-				## cardinality = 0..1
-				damage = { min = int max = int }
-				## cardinality = 0..1
-				shield_damage = float
-				## cardinality = 0..1
-				shield_penetration = float
-				## cardinality = 0..1
-				armor_penetration = float
-			}
-		}
 
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
@@ -306,6 +222,7 @@ component_template = {
 		## cardinality = 0..1
 		scripted_action_context_menu_name = localisation
 	}
+	
 	subtype[weapon_component_template] = {
 		## cardinality = 0..1
 		## replace_scopes = { root = ship this = ship }
@@ -396,6 +313,7 @@ component_template = {
 		## cardinality = 0..1
 		point_defence_targets = { enum[point_defence_target] }
 	}
+	
 	subtype[strike_craft_component_template] = {
 		## cardinality = 0..1
 		## replace_scopes = { root = ship this = ship }
@@ -449,6 +367,92 @@ component_template = {
 		attack_range = float
 		## cardinality = 0..1
 		point_defence_targets = { enum[point_defence_target] }
+	}
+
+	## cardinality = 0..inf
+	friendly_aura = {
+		name = scalar
+		## cardinality = 0..1
+		## push_scope = ship
+		limit = single_alias_right[trigger_clause]
+		## cardinality = 0..1
+		system_wide = bool
+		## cardinality = 0..1
+		radius = int
+		## cardinality = 0..1
+		system_wide = bool
+		## cardinality = 0..1
+		apply_on = enum[aura_type]
+		stack_info = {
+			id = scalar
+			priority = int
+		}
+		## cardinality = 0..1
+		## replace_scopes = { this = ship root = ship }
+		modifier = single_alias_right[modifier_clause]
+
+		## cardinality = 0..1
+		graphics = {
+			## cardinality = 0..inf
+			area_effect = {
+				entity = <model_entity>
+				dynamic_scale = bool
+			}
+			## cardinality = 0..inf
+			ship_effect = {
+				entity = <model_entity>
+				dynamic_scale = bool
+			}
+		}
+	}
+	## cardinality = 0..inf
+	hostile_aura = {
+		name = scalar
+		## cardinality = 0..1
+		## push_scope = ship
+		limit = single_alias_right[trigger_clause]
+		## cardinality = 0..1
+		system_wide = bool
+		## cardinality = 0..1
+		radius = int
+		## cardinality = 0..1
+		system_wide = bool
+		## cardinality = 0..1
+		apply_on = enum[aura_type]
+		stack_info = {
+			id = scalar
+			priority = int
+		}
+		## cardinality = 0..1
+		## replace_scopes = { this = ship root = ship }
+		modifier = single_alias_right[modifier_clause]
+
+		## cardinality = 0..1
+		graphics = {
+			## cardinality = 0..inf
+			area_effect = {
+				entity = <model_entity>
+				dynamic_scale = bool
+			}
+			## cardinality = 0..inf
+			ship_effect = {
+				entity = <model_entity>
+				dynamic_scale = bool
+			}
+		}
+		## cardinality = 0..1
+		damage_per_day = {
+			## cardinality = 0..1
+			accuracy = float
+			## cardinality = 0..1
+			damage = { min = int max = int }
+			## cardinality = 0..1
+			shield_damage = float
+			## cardinality = 0..1
+			shield_penetration = float
+			## cardinality = 0..1
+			armor_penetration = float
+		}
 	}
 }
 
