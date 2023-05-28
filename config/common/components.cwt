@@ -277,15 +277,18 @@ component_template = {
 		## cardinality = 0..1
 		damage = { min = float max = float }
 		## cardinality = 0..1
-		shield_damage = float
-		## cardinality = 0..1
-		shield_penetration = float
-		## cardinality = 0..1
 		hull_damage = float
 		## cardinality = 0..1
 		armor_damage = float
 		## cardinality = 0..1
+		shield_damage = float
+		## cardinality = 0..1
 		armor_penetration = float
+		## cardinality = 0..1
+		shield_penetration = float
+		## cardinality = 0..1
+		size_damage_factor = float
+		
 		## cardinality = 0..1
 		windup = { min = float max = float }
 		## cardinality = 0..1
@@ -337,15 +340,18 @@ component_template = {
 		## cardinality = 0..1
 		damage = { min = float max = float }
 		## cardinality = 0..1
-		shield_damage = float
-		## cardinality = 0..1
-		shield_penetration = float
-		## cardinality = 0..1
 		hull_damage = float
 		## cardinality = 0..1
 		armor_damage = float
 		## cardinality = 0..1
+		shield_damage = float
+		## cardinality = 0..1
 		armor_penetration = float
+		## cardinality = 0..1
+		shield_penetration = float
+		## cardinality = 0..1
+		size_damage_factor = float
+		
 		## cardinality = 0..1
 		range = float
 		## cardinality = 0..1
@@ -444,14 +450,21 @@ component_template = {
 		damage_per_day = {
 			## cardinality = 0..1
 			accuracy = float
+
 			## cardinality = 0..1
-			damage = { min = int max = int }
+			damage = { min = float max = float }
+			## cardinality = 0..1
+			hull_damage = float
+			## cardinality = 0..1
+			armor_damage = float
 			## cardinality = 0..1
 			shield_damage = float
 			## cardinality = 0..1
+			armor_penetration = float
+			## cardinality = 0..1
 			shield_penetration = float
 			## cardinality = 0..1
-			armor_penetration = float
+			size_damage_factor = float
 		}
 	}
 }
