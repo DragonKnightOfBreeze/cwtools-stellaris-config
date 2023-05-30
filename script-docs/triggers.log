@@ -1,4 +1,4 @@
-[10:05:25][game_application.cpp:2097]: 
+[19:45:00][game_application.cpp:2097]: 
 == TRIGGER DOCUMENTATION ==
 text - For 'desc={trigger={' use. Shows custom text
 text = <text>

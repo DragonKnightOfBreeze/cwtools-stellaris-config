@@ -4394,6 +4394,10 @@ alias[effect:prolong_fleet_contract] = {
 	days = int_value_field
 }
 
+### Unlocks council selection
+## scopes = { country }
+alias[effect:unlock_council_selection] = bool
+
 # missing effects in effects.log
 
 ## scopes = { country }

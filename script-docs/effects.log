@@ -1,4 +1,4 @@
-[10:05:25][game_application.cpp:2100]: 
+[19:45:00][game_application.cpp:2100]: 
 == EFFECT DOCUMENTATION ==
 tooltip - Just a tooltip
 Supported Scopes: all
@@ -2575,6 +2575,10 @@ Supported Scopes: country
 
 remove_from_federation - The scoped country is removed from any federation its in
 remove_from_federation = yes
+Supported Scopes: country
+
+unlock_council_selection - Unlocks council selection
+unlock_council_selection = yes
 Supported Scopes: country
 
 validate_planet_buildings_and_districts - Checks whether the planets and districts on the planet are valid (their potential triggers are fulfilled), removes or replaces them if not.

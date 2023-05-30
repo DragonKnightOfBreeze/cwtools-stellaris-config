@@ -298,6 +298,7 @@ modifiers = {
 	empire_size_colonies_mult = { Countries }
 	empire_size_pops_mult = { Countries }
 	empire_size_mult = { Countries }
+	empire_size_add = { Countries }
 	government_election_years_add = { Countries }
 	government_election_years_mult = { Countries }
 	federation_fleet_contribution_factor = { Federations }
