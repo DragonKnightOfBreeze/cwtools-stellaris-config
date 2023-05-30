@@ -403,9 +403,16 @@ councilor = {
 	### Custom tooltip text shown for the modifier of the council position.
 	## cardinality = 0..1
 	custom_tooltip = localisation
+	## cardinality = 0..1
+	custom_tooltip_with_modifiers = localisation
+	## cardinality = 0..1
+	custom_unlock_title = localisation
 	### Custom tooltip text shown for the requirements of the council position.
 	## cardinality = 0..1
 	conditional_tooltip = localisation
+	### Is this position forced to be on the council. Default = no
+	## cardinality = 0..1
+	required = bool
 }
 
 enums = {

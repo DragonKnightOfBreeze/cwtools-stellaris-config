@@ -1667,6 +1667,9 @@ alias[effect:create_army] = {
 	species = scope_group[target_species]
 	## cardinality = 0..1
 	species = enum[buildable_pop_species]
+	### default: no
+	## cardinality = 0..1
+	land_army = bool
 	## cardinality = 0..1
 	leader = scope_group[target_leader]
 	## cardinality = 0..1
