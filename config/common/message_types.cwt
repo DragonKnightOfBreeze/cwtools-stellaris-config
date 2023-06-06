@@ -44,6 +44,9 @@ message_type = {
 		### Does the message auto-pause the game (default no).
 		pausegame = bool
 	}
+	### default: no
+	## cardinality = 0..1
+	hidden_in_message_settings = bool
 }
 
 enums = {
