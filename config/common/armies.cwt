@@ -20,6 +20,8 @@ types = {
 			## required
 			name = "$"
 			## required
+			plural = "$_plural"
+			## required
 			desc = "$_desc"
 		}
 		images = {
