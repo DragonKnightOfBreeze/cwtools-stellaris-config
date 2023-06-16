@@ -23,9 +23,12 @@ scripted_loc = {
 		## cardinality = 0..1
 		trigger = single_alias_right[trigger_clause]
 		localization_key = localisation
+		localization_key = <sprite> # GFX reference is also accepted
 	}
 	## cardinality = 0..1
 	value = value_field
 	## cardinality = 0..1
 	default = localisation
+	## cardinality = 0..1
+	default = <sprite> # GFX reference is also accepted
 }
