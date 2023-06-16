@@ -3,6 +3,14 @@ types = {
 		path = "game/common/message_types"
 		file_extension = .txt
 		name_field = key
+		localisation = {
+			## primary
+			## required
+			name = "#name" # localisation
+			## primary
+			## required
+			name = "MESSAGE_$_TITLE" # inferred
+		}
 	}
 }
 
