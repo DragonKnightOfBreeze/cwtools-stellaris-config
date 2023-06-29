@@ -17,13 +17,17 @@ types = {
 			desc = "job_$_desc"
 			## optional
 			effect = "job_$_effect_desc" # inferred
-			subtype[uncapped] = {
+			subtype[capped] = {
 				## required
 				modifier = mod_job_$_add
 				## optional
 				per_pop_modifier = mod_job_$_per_pop
 				## optional
 				per_pop_modifier_short = mod_job_$_per_pop_short
+				## optional
+				per_crime_modifier = mod_job_$_per_crime
+				## optional
+				per_crime_modifier_short = mod_job_$_per_crime_short
 			}
 		}
 		images = {

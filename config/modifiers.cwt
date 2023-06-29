@@ -462,8 +462,8 @@ modifiers = {
 	category_<technology_category>_draw_chance_mult = { Countries }
 
 	# district modifiers
-	<district.capped>_max = { Planets }
 	planet_<district>_build_speed_mult = { Planets }
+	<district.capped>_max = { Planets }
 	# planet_<district.capped>_uncapped_build_speed_mult = { Planets }
 
 	# bypass modifiers
@@ -480,9 +480,9 @@ modifiers = {
 	pop_cat_<pop_category>_political_power = { Pops }
 
 	# job modifiers
-	job_<job>_add = { Planets }
-	job_<job>_per_pop = { Planets }
-	job_<job>_per_crime = { Planets }
+	job_<job.capped>_add = { Planets }
+	job_<job.capped>_per_pop = { Planets }
+	job_<job.capped>_per_crime = { Planets }
 
 	# ethic modifiers
 	pop_<ethic>_attraction_mult = { Pops }
