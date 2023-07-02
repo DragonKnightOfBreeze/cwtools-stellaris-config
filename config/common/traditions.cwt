@@ -15,7 +15,7 @@ types = {
 		}
 	}
 	## type_key_filter = tradition_swap
-	type[swapped_trandition] = {
+	type[swapped_tradition] = {
 		base_type = tradition
 		path = "game/common/traditions"
 		skip_root_key = any
