@@ -7,7 +7,7 @@ types = {
 			desc = "pft_$_desc"
 		}
 		images = {
-			icon = "GFX_faction_icon_$"
+			icon = "GFX_faction_icon_$" # inferred
 			election_header = election_header # <sprite>
 		}
 	}

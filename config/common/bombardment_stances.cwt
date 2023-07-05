@@ -7,8 +7,8 @@ types = {
 			desc = "bombardment_$_desc"
 		}
 		images = {
-			fleet_view = "gfx/interface/fleet_view/fleet_task_group_support_$_action.dds" # inferred
-			fleet_view_selected = "gfx/interface/fleet_view/fleet_task_group_support_$_selected.dds" # inferred
+			fleet_view = "GFX_fleet_order_button_ground_support_$" # inferred
+			fleet_view_selected = "GFX_fleet_order_button_ground_support_$_selected" # inferred
 		}
 	}
 }

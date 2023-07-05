@@ -8,7 +8,7 @@ types = {
 			desc = "$_desc"
 		}
 		images = {
-			icon = "gfx/interface/icons/ascension_perks/$.dds" # inferred
+			icon = "GFX_$" # inferred
 		}
 	}
 	## type_key_filter = tradition_swap
@@ -23,7 +23,7 @@ types = {
 		}
 		subtype[not_inheriting_icon] = {
 			## cardinality = 0..0
-			inherit_name = yes
+			inherit_icon = yes
 		}
 		subtype[not_inheriting_effects] = {
 			## cardinality = 0..0
@@ -42,7 +42,7 @@ types = {
 		}
 		images = {
 			subtype[not_inheriting_icon] = {
-				icon = "gfx/interface/icons/ascension_perks/$.dds" # inferred
+				icon = "GFX_$" # inferred
 			}
 		}
 	}

@@ -9,7 +9,7 @@ types = {
 			effects = "$_desc"
 		}
 		images = {
-			icon = "gfx/interface/icons/traditions/$.dds" # inferred
+			icon = "GFX_$" # inferred, ignored for xxx_adopt and xxx_finish
 		}
 	}
 	## type_key_filter = tradition_swap
@@ -43,7 +43,7 @@ types = {
 		}
 		images = {
 			subtype[not_inheriting_icon] = {
-				icon = "gfx/interface/icons/traditions/$.dds" # inferred
+				icon = "GFX_$" # inferred, ignored for xxx_adopt and xxx_finish
 			}
 		}
 	}
