@@ -95,7 +95,7 @@ sprite = {
 			animationmaskfile = filepath
 			## file_extensions = { .dds .png .tga }
 			## cardinality = 0..1
-			animationtexturefile = filepath
+			animationtextureFile = filepath
 			## cardinality = 0..1
 			animationrotation = float[-360..360]
 			## cardinality = 0..1
@@ -121,6 +121,8 @@ sprite = {
 	}
 	subtype[flag_sprite] = {
 		## cardinality = 0..1
+		texture_size = enum[texture_size]
+		## cardinality = 0..1
 		bg_position = { x = float y = float }
 		## cardinality = 0..1
 		bg_size = { width = int height = int }
@@ -128,8 +130,6 @@ sprite = {
 		symbol_position = { x = float y = float }
 		## cardinality = 0..1
 		symbol_size = { width = int height = int }
-		## cardinality = 0..1
-		texture_size = enum[texture_size]
 	}
 	subtype[framed_animated_sprite] = {
 		## cardinality = 0..1
@@ -150,7 +150,7 @@ sprite = {
 	subtype[progressbar] = {
 		name = scalar
 
-		#either texturefile, or both texturefile1 and 2 - need to be worked out.
+		# either textureFile, or both textureFile1 and 2 - need to be worked out.
 
 		## file_extensions = { .dds .png .tga }
 		## cardinality = 0..1

@@ -8,7 +8,7 @@ types = {
 		skip_root_key = portraits
 		severity = warning
 		subtype[static] = {
-			texturefile = scalar # filepath
+			textureFile = scalar # filepath
 		}
 	}
 	type[portrait_group] = {
@@ -22,7 +22,7 @@ types = {
 portrait = {
 	subtype[static] = {
 		## file_extensions = { .dds .png .tga }
-		texturefile = filepath
+		textureFile = filepath
 	}
 	subtype[!static] = {
 		entity = <model_entity>

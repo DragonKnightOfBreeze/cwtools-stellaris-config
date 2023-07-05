@@ -104,7 +104,8 @@ types = {
 		}
 		images = {
 			subtype[!hidden] = {
-				picture = picture # <sprite>, can be triggered
+				## primary
+				picture = picture # <sprite>, can be triggered or/and multiple
 			}
 		}
 	}
