@@ -18,7 +18,7 @@ types = {
 			subtype[non_main] = {
 				## required
 				## primary
-				icon = "#icon" # <sprite>
+				icon = icon # <sprite>
 			}
 		}
 	}

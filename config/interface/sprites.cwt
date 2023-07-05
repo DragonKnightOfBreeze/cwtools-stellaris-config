@@ -28,15 +28,15 @@ types = {
 		images = {
 			subtype[!progressbar&!piechart] = {
 				## primary
-				texture = "#textureFile" # filepath
+				texture = textureFile # filepath
 				## primary
-				texture = "#sprite_sheet_sprite_type|#default_frame" # <sprite>
-				masking_texture = "#masking_texture" # filepath
+				texture = sprite_sheet_sprite_type|default_frame # <sprite>
+				masking_texture = masking_texture # filepath
 			}
 			subtype[progressbar] = {
-				textureFile = "#textureFile" # filepath
-				textureFile1 = "#textureFile1" # filepath
-				textureFile2 = "#textureFile2" # filepath
+				textureFile = textureFile # filepath
+				textureFile1 = textureFile1 # filepath
+				textureFile2 = textureFile2 # filepath
 			}
 		}
 	}

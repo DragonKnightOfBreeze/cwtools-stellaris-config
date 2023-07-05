@@ -13,7 +13,7 @@ types = {
 		}
 		images = {
 			# ## primary
-			# icon = "#icon" # from cwtools: unused
+			# icon = icon # from cwtools: unused
 		}
 	}
 }

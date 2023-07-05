@@ -17,7 +17,7 @@ types = {
 		images = {
 			## primary
 			## required
-			icon = "#icon" # icon[gfx/interface/icons/districts]
+			icon = icon # icon[gfx/interface/icons/districts]
 			## primary
 			## required
 			icon = "gfx/interface/icons/districts/$.dds" # inferred

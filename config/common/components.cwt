@@ -21,7 +21,7 @@ types = {
 			subtype[!required_component] = {
 				## required
 				## primary
-				icon = "#icon|#icon_frame" # <sprite>
+				icon = icon|icon_frame # <sprite>
 			}
 		}
 	}
@@ -56,7 +56,7 @@ types = {
 		images = {
 			## primary
 			## required
-			icon = "#icon|#icon_frame" # <sprite>
+			icon = icon|icon_frame # <sprite>
 		}
 	}
 }

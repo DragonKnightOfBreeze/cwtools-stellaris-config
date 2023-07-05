@@ -54,7 +54,7 @@ types = {
 			on_success = "$_on_success"
 		}
 		images = {
-			picture = "#picture" # <sprite>
+			picture = picture # <sprite>
 		}
 	}
 }

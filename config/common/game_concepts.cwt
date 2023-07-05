@@ -8,7 +8,7 @@ types = {
 		}
 		images = {
 			## cardinality = 0..1
-			icon = "#icon" # icon[gfx/interface/icons/concepts]
+			icon = icon # icon[gfx/interface/icons/concepts]
 		}
 	}
 }

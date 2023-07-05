@@ -11,7 +11,7 @@ types = {
 		images = {
 			subtype[!hidden] = {
 				## primary
-				icon = "#icon" # icon[gfx/interface/icons/jobs]
+				icon = icon # icon[gfx/interface/icons/jobs]
 			}
 		}
 	}

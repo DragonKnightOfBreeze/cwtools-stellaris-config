@@ -37,7 +37,7 @@ types = {
 		}
 		images = {
 			## primary
-			icon = "#icon" # <sprite>
+			icon = icon # <sprite>
 		}
 	}
 }

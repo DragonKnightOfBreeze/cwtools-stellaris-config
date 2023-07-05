@@ -12,7 +12,7 @@ types = {
 			desc = "$_desc"
 		}
 		images = {
-			picture = "#picture" # <sprite>
+			picture = picture # <sprite>
 		}
 	}
 }

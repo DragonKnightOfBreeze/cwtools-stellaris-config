@@ -4,8 +4,8 @@ types = {
 		file_extension = .txt
 		images = {
 			## primary
-			icon = "#icon" # <sprite>
-			picture = "#picture" # <sprite>
+			icon = icon # <sprite>
+			picture = picture # <sprite>
 		}
 	}
 }

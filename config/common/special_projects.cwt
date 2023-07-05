@@ -14,8 +14,8 @@ types = {
 		}
 		images = {
 			## primary
-			icon = "#icon" # filepath
-			picture = "#picture" # <sprite>
+			icon = icon # filepath
+			picture = picture # <sprite>
 		}
 	}
 }

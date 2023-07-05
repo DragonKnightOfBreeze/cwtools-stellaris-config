@@ -8,7 +8,7 @@ types = {
 		}
 		images = {
 			## primary
-			icon = "#icon" # icon[gfx/interface/icons/decisions]
+			icon = icon # icon[gfx/interface/icons/decisions]
 			## primary
 			icon = "gfx/interface/icons/decisions/$.dds" # inferred
 		}

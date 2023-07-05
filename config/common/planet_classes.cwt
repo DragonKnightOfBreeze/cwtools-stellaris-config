@@ -30,7 +30,7 @@ types = {
 		}
 		images = {
 			## primary
-			icon = "#icon" # <sprite>
+			icon = icon # <sprite>
 		}
 	}
 	## type_key_filter = random_list

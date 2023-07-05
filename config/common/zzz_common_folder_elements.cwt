@@ -8,8 +8,8 @@ types = {
 		skip_root_key = alerts
 		images = {
 			## primary
-			icon = "#icon" # <sprite>
-			category = "#category" # <alert_icon>
+			icon = icon # <sprite>
+			category = category # <alert_icon>
 		}
 	}
 	type[alert_icon] = {
@@ -17,8 +17,7 @@ types = {
 		path_file = "alerts.txt"
 		skip_root_key = icon
 		images = {
-			## primary
-			icon = "#" # the string value (not some property value in the block value) of the definition
+			icon = "" # string value of the definition, not some property value in a clause
 		}
 	}
 	type[achievement] = {

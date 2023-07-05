@@ -9,7 +9,7 @@ types = {
 		images = {
 			## primary
 			## required
-			icon = "#icon" # filepath
+			icon = icon # filepath
 			## primary
 			## required
 			icon = "gfx/interface/icons/governments/authorities/$.dds" # inferred
@@ -43,7 +43,7 @@ types = {
 		images = {
 			## primary
 			## required
-			icon = "#icon" # filepath
+			icon = icon # filepath
 			subtype[civic] = {
 				## primary
 				## required
@@ -53,7 +53,7 @@ types = {
 				## primary
 				## required
 				icon = "gfx/interface/icons/origins/$.dds" # inferred
-				picture = "#picture" # <sprite>
+				picture = picture # <sprite>
 			}
 		}
 	}
@@ -83,7 +83,7 @@ types = {
 			desc = "$_desc"
 		}
 		images = {
-			icon = "#icon" # <sprite>
+			icon = icon # <sprite>
 		}
 	}
 }

@@ -6,7 +6,7 @@ types = {
 		}
 		images = {
 			## primary
-			icon = "#icon" # icon[gfx/interface/icons/modifiers]
+			icon = icon # icon[gfx/interface/icons/modifiers]
 			## primary
 			icon = "gfx/interface/icons/modifiers/mod_$.dds" # inferred
 		}

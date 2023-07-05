@@ -25,7 +25,7 @@ types = {
 		}
 		images = {
 			## primary
-			icon = "#icon" # icon[gfx/interface/icons/deposits]
+			icon = icon # icon[gfx/interface/icons/deposits]
 			## primary
 			icon = "gfx/interface/icons/deposits/$.dds" # inferred
 		}

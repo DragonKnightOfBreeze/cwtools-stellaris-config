@@ -15,7 +15,7 @@ types = {
 		}
 		images = {
 			## primary
-			icon = "#icon" <sprite>
+			icon = icon <sprite>
 		}
 	}
 	type[resolution_group] = {
@@ -31,7 +31,7 @@ types = {
 		}
 		images = {
 			## primary
-			icon = "#icon" # <sprite> | scalar
+			icon = icon # <sprite> | scalar
 		}
 	}
 }

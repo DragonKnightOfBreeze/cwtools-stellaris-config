@@ -8,7 +8,7 @@ types = {
 		}
 		images = {
 			## primary
-			picture = "#picture" # <sprite>
+			picture = picture # <sprite>
 		}
 	}
 	type[relic] = {

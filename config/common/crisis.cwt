@@ -24,7 +24,7 @@ types = {
 		}
 		images = {
 			## primary
-			portrait = "#portrait" # <sprite>
+			portrait = portrait # <sprite>
 		}
 	}
 }

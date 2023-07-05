@@ -30,7 +30,7 @@ types = {
 		}
 		images = {
 			## primary
-			icon = "#icon" # filepath, from cwtools: only subtype[planet] has icon_frame
+			icon = icon # filepath, from cwtools: only subtype[planet] has icon_frame
 		}
 	}
 	type[planet_modifier] = {
@@ -53,7 +53,7 @@ types = {
 		}
 		images = {
 			## primary
-			icon = "#icon" # filepath
+			icon = icon # filepath
 		}
 	}
 }

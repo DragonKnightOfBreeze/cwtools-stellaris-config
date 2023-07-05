@@ -7,7 +7,7 @@ types = {
 			desc = "sm_$_desc"
 		}
 		images = {
-			icon = "#icon" # <sprite>
+			icon = icon # <sprite>
 		}
 	}
 	type[starbase_level] = {
@@ -23,7 +23,7 @@ types = {
 		}
 		images = {
 			## primary
-			icon = "#icon" # <sprite>
+			icon = icon # <sprite>
 			## primary
 			icon = "gfx/interface/icons/modules/spaceport_module_$.dds" # inferred
 		}
