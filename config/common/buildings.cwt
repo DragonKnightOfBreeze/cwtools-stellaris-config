@@ -22,9 +22,9 @@ types = {
 			desc = "$_desc"
 		}
 		images = {
-			## primary
+			## optional
 			icon = icon # icon[gfx/interface/icons/buildings] | <building>
-			## primary
+			## optional
 			icon = "gfx/interface/icons/buildings/$.dds" # inferred
 		}
 	}
@@ -70,7 +70,7 @@ building = {
 	category = enum[building_category]
 
 	## cardinality = 0..1
-	icon = icon[gfx/interface/icons/buildings] #todo: filepath
+	icon = icon[gfx/interface/icons/buildings]
 	## cardinality = 0..1
 	icon = <building>
 	## cardinality = 0..1

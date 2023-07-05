@@ -14,7 +14,6 @@ types = {
 			name = "$"
 		}
 		images = {
-			## primary
 			icon = icon <sprite>
 		}
 	}
@@ -30,7 +29,6 @@ types = {
 			desc = "$_desc"
 		}
 		images = {
-			## primary
 			icon = icon # <sprite> | scalar
 		}
 	}

@@ -10,7 +10,7 @@ types = {
 			type_desc = "$_TYPE_DESC"
 		}
 		images = {
-			## primary
+			## optional
 			icon = icon # <sprite>
 		}
 	}

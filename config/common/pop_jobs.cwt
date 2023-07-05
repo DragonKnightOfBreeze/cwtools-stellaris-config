@@ -26,10 +26,9 @@ types = {
 			}
 		}
 		images = {
-			## primary
 			icon = icon # filepath[gfx/interface/icons/jobs/job_,.dds]
-			## primary
 			icon = "gfx/interface/icons/jobs/job_$.dds" # inferred
+			## optional
 			building_icon = building_icon #  <building> | icon[gfx/interface/icons/buildings]
 		}
 	}

@@ -19,8 +19,6 @@ types = {
 		}
 		images = {
 			subtype[!required_component] = {
-				## required
-				## primary
 				icon = icon|icon_frame # <sprite>
 			}
 		}

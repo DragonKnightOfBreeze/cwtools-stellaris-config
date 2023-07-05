@@ -9,7 +9,6 @@ types = {
 			effects = "$_desc"
 		}
 		images = {
-			## primary
 			icon = "gfx/interface/icons/traditions/$.dds" # inferred
 		}
 	}

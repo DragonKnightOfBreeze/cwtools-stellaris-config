@@ -14,7 +14,6 @@ types = {
 			desc = "$_desc"
 		}
 		images = {
-			## primary
 			icon = "gfx/interface/icons/resources/$.dds" # inferred
 			## optional
 			icon_grey = "gfx/interface/icons/resources/$_grey.dds" # inferred

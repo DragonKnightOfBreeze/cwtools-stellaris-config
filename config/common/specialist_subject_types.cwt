@@ -11,10 +11,7 @@ types = {
 			neighbor_desc = "$_neighbor_desc"
 		}
 		images = {
-			## primary
-			## required
 			icon = icon # <sprite>
-			## required
 			icon_large = icon_large # <sprite>
 		}
 	}

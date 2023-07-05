@@ -16,8 +16,6 @@ types = {
 		}
 		images = {
 			subtype[non_main] = {
-				## required
-				## primary
 				icon = icon # <sprite>
 			}
 		}

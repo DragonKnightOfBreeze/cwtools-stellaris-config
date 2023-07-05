@@ -7,8 +7,7 @@ types = {
 			desc = "pft_$_desc"
 		}
 		images = {
-			## primary
-			icon = "gfx/interface/icons/faction_icons/faction_icons_$s.dds" # inferred, but GFX_faction_icon_$ should exists
+			icon = "gfx/interface/icons/faction_icons/faction_icons_$s.dds" # NOTE inferred, but GFX_faction_icon_$ should exists
 			# election_header = election_header # <sprite>
 		}
 	}
@@ -58,8 +57,8 @@ pop_faction = {
 	## cardinality = 0..1
 	use_guiding_ethic_as_pop_filter = bool
 
-	## cardinality = 0..1
 	### UI color for candidate header
+	## cardinality = 0..1
 	election_header =  <sprite>
 
 	### Existence requirements for this faction

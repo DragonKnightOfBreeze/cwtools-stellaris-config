@@ -17,7 +17,7 @@ types = {
 			}
 		}
 		images = {
-			## primary
+			## optional
 			portrait = portrait # <sprite>
 		}
 	}

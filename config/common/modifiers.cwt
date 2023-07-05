@@ -29,7 +29,7 @@ types = {
 			}
 		}
 		images = {
-			## primary
+			## optional
 			icon = icon # filepath, from cwtools: only subtype[planet] has icon_frame
 		}
 	}
@@ -40,7 +40,7 @@ types = {
 			is_null = yes
 		}
 		images = {
-			## primary
+			## optional
 			icon = "gfx/interface/icons/planet_modifiers/$.dds" # inferred
 		}
 	}
@@ -52,7 +52,7 @@ types = {
 			desc = "$_desc"
 		}
 		images = {
-			## primary
+			## optional
 			icon = icon # filepath
 		}
 	}

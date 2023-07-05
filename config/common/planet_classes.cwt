@@ -29,7 +29,7 @@ types = {
 			}
 		}
 		images = {
-			## primary
+			## optional
 			icon = icon # <sprite>
 		}
 	}

@@ -11,9 +11,6 @@ types = {
 			## optional
 			desc = "$_desc"
 		}
-		images = {
-			picture = picture # <sprite>
-		}
 	}
 }
 

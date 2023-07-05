@@ -8,7 +8,6 @@ types = {
 			desc = "pop_cat_$_desc"
 		}
 		images = {
-			## primary
 			icon = "gfx/interface/icons/pop_categories/pop_cat_$.dds" # inferred
 		}
 	}

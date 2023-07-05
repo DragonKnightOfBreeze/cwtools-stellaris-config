@@ -3,7 +3,7 @@ types = {
 		path = "game/common/first_contact"
 		file_extension = .txt
 		images = {
-			## primary
+			## optional
 			icon = icon # <sprite>
 			picture = picture # <sprite>
 		}

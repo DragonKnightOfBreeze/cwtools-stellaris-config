@@ -22,7 +22,7 @@ types = {
 			desc = "$_desc"
 		}
 		images = {
-			## primary
+			## optional
 			icon = icon # <sprite>
 		}
 	}

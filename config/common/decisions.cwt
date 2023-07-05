@@ -7,9 +7,9 @@ types = {
 			desc = "$_desc"
 		}
 		images = {
-			## primary
-			icon = icon # icon[gfx/interface/icons/decisions]
-			## primary
+			## optional
+			icon = icon # icon[gfx/interface/icons/decisions] | <decision>
+			## optional
 			icon = "gfx/interface/icons/decisions/$.dds" # inferred
 		}
 	}

@@ -7,7 +7,6 @@ types = {
 
 		skip_root_key = alerts
 		images = {
-			## primary
 			icon = icon # <sprite>
 			category = category # <alert_icon>
 		}
@@ -17,7 +16,7 @@ types = {
 		path_file = "alerts.txt"
 		skip_root_key = icon
 		images = {
-			icon = "" # string value of the definition, not some property value in a clause
+			icon = "" # string value of the corresponding definition, not some property value in a clause
 		}
 	}
 	type[achievement] = {

@@ -31,11 +31,15 @@ types = {
 				texture = textureFile # filepath
 				## primary
 				texture = sprite_sheet_sprite_type|default_frame # <sprite>
+				## optional
 				masking_texture = masking_texture # filepath
 			}
 			subtype[progressbar] = {
+				## optional
 				textureFile = textureFile # filepath
+				## optional
 				textureFile1 = textureFile1 # filepath
+				## optional
 				textureFile2 = textureFile2 # filepath
 			}
 		}

@@ -10,7 +10,6 @@ types = {
 			description = "edict_$_desc"
 		}
 		images = {
-			## primary
 			icon = icon # <sprite>
 		}
 	}
