@@ -13,7 +13,9 @@ types = {
 			subtype[show_name] = {
 				name = "$"
 			}
+			## optional
 			desc = description
+			## optional
 			tooltip = tooltip
 		}
 	}

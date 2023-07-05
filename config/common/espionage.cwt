@@ -5,6 +5,7 @@ types = {
 		file_extension = .txt
 		localisation = {
 			name = "$"
+			## optional
 			desc = "$_desc"
 		}
 	}
@@ -13,6 +14,7 @@ types = {
 		file_extension = .txt
 		localisation = {
 			name = "$"
+			## optional
 			desc = "$_desc"
 		}
 	}
@@ -49,7 +51,9 @@ types = {
 		}
 		localisation = {
 			name = "$"
+			## optional
 			desc = "$_desc"
+			## optional
 			no_dlc_desc = "$_no_dlc_desc"
 			on_success = "$_on_success"
 		}

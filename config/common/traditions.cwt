@@ -22,6 +22,10 @@ types = {
 			## cardinality = 0..0
 			inherit_name = yes
 		}
+		subtype[not_inheriting_icon] = {
+			## cardinality = 0..0
+			inherit_icon = yes
+		}
 		subtype[not_inheriting_effects] = {
 			## cardinality = 0..0
 			inherit_effects = yes
@@ -38,9 +42,9 @@ types = {
 			}
 		}
 		images = {
-			## primary
-			icon = "gfx/interface/icons/traditions/$.dds" # inferred
-			# TODO inherit icon from parent original tradition if inherit_icon = yes
+			subtype[not_inheriting_icon] = {
+				icon = "gfx/interface/icons/traditions/$.dds" # inferred
+			}
 		}
 	}
 	type[tradition_category] = { #this defines the contents of tradition trees

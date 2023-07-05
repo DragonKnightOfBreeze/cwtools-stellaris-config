@@ -18,7 +18,9 @@ types = {
 		}
 		localisation = {
 			name = "$"
+			## optional
 			plural = "$_plural"
+			## optional
 			desc = "$_desc"
 		}
 		images = {

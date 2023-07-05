@@ -8,7 +8,8 @@ types = { #these are all connected. I added the others so whoever does these in 
 			randomized = bool
 		}
 		localisation = {
-			name = "name_list_$"
+			## optional
+			name = "name_list_$" # optional to compatible with non-selectable name lists
 			## optional
 			desc = "name_list_$_desc"
 		}

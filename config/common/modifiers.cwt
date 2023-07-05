@@ -20,13 +20,8 @@ types = {
 		}
 		localisation = {
 			name = "$"
-			subtype[planet] = {
-				desc = "$_desc"
-			}
-			subtype[!planet] = {
-				## optional
-				desc = "$_desc"
-			}
+			## optional
+			desc = "$_desc"
 		}
 		images = {
 			## optional
@@ -49,6 +44,7 @@ types = {
 		file_extension = .txt
 		localisation = {
 			name = "$"
+			## optional
 			desc = "$_desc"
 		}
 		images = {

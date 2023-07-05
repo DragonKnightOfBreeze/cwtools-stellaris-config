@@ -21,10 +21,13 @@ types = {
 		}
 		localisation = {
 			name = "$"
+			## optional
 			desc = "$_desc"
 		}
 		images = {
+			## optional
 			icon = icon # icon[gfx/interface/icons/deposits]
+			## optional
 			icon = "gfx/interface/icons/deposits/$.dds" # inferred
 		}
 	}

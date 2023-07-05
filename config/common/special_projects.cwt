@@ -13,6 +13,7 @@ types = {
 			desc = "$_DESC"
 		}
 		images = {
+			## optional
 			icon = icon # filepath
 			## optional
 			picture = picture # <sprite>

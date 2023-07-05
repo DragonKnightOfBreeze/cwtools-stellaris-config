@@ -10,8 +10,11 @@ types = {
 		}
 		localisation = {
 			name = "job_$"
+			## optional
 			plural = "job_$_plural"
+			## optional
 			desc = "job_$_desc"
+			## optional
 			effect = "job_$_effect_desc"
 			subtype[capped] = {
 				modifier = mod_job_$_add

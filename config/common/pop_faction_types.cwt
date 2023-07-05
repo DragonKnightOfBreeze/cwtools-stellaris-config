@@ -7,8 +7,8 @@ types = {
 			desc = "pft_$_desc"
 		}
 		images = {
-			icon = "gfx/interface/icons/faction_icons/faction_icons_$s.dds" # NOTE inferred, but GFX_faction_icon_$ should exists
-			# election_header = election_header # <sprite>
+			icon = "GFX_faction_icon_$"
+			election_header = election_header # <sprite>
 		}
 	}
 }

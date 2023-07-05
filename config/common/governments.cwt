@@ -74,6 +74,7 @@ types = {
 			desc = "$_desc"
 		}
 		images = {
+			## optional
 			icon = icon # <sprite>
 		}
 	}

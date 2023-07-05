@@ -10,6 +10,7 @@ types = {
 		}
 		images = {
 			## primary
+			## optional
 			picture = picture # <sprite>
 		}
 	}

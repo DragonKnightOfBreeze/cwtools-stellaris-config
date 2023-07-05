@@ -3,10 +3,15 @@ types = {
 		path = "game/common/diplomatic_actions"
 		file_extension = .txt
 		localisation = {
+			## uppercase
 			title = "$_TITLE"
+			## uppercase
 			desc = "$_DESC"
+			## uppercase
 			long_desc = "$_LONG_DESC"
+			## uppercase
 			type = "$_TYPE"
+			## uppercase
 			type_desc = "$_TYPE_DESC"
 		}
 		images = {

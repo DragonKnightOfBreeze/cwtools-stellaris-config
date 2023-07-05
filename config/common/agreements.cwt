@@ -45,6 +45,7 @@ types = {
 			name = "$"
 			subtype[!resource] = {
 				desc = "$_desc"
+				## optional
 				tooltip = "$_tooltip"
 			}
 		}

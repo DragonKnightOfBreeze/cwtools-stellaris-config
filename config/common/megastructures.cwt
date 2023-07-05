@@ -13,6 +13,7 @@ types = {
 			desc = "$_DESC"
 			subtype[base_level] = {
 				details = "$_MEGASTRUCTURE_DETAILS"
+				## optional
 				delayed_info = "$_CONSTRUCTION_INFO_DELAYED"
 			}
 		}
