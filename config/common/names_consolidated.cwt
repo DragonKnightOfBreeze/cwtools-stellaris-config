@@ -8,7 +8,6 @@ types = { #these are all connected. I added the others so whoever does these in 
 			randomized = bool
 		}
 		localisation = {
-			## required
 			name = "name_list_$"
 			## optional
 			desc = "name_list_$_desc"

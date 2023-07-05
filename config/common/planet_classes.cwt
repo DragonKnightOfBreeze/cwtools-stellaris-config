@@ -19,18 +19,12 @@ types = {
 			colonizable = no
 		}
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 			subtype[habitable_planet] = {
-				## required
 				adjective = "$_adj"
-				## required
 				habitability = "mod_$_habitability"
-				## required
 				preference_trait = "trait_$_preference"
-				## required
 				preference_trait_desc = "trait_$_preference_desc"
 			}
 		}

@@ -10,11 +10,8 @@ types = {
 			is_capped_by_modifier = no
 		}
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
-			## required
 			plural = "$_plural"
 		}
 		images = {

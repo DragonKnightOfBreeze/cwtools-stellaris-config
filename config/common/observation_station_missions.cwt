@@ -3,9 +3,7 @@ types = {
 		path = "game/common/observation_station_missions"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "mission_$"
-			## required
 			desc = "mission_$_desc"
 		}
 		images = {

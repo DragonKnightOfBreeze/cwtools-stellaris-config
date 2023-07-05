@@ -3,9 +3,7 @@ types = {
 		path = "game/common/council_agendas"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "council_agenda_$_name"
-			## required
 			desc = "council_agenda_$_desc"
 			council_agenda_name = "council_agenda_$_name"
 			council_agenda_desc = "council_agenda_$_desc"

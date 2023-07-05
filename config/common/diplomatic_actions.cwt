@@ -3,7 +3,6 @@ types = {
 		path = "game/common/diplomatic_actions"
 		file_extension = .txt
 		localisation = {
-			## primary
 			title = "$_TITLE"
 			desc = "$_DESC"
 			long_desc = "$_LONG_DESC"

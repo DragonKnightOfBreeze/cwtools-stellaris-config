@@ -8,7 +8,6 @@ types = {
 		}
 		localisation = {
 			subtype[needs_locs] = {
-				## required
 				name = "$"
 			}
 		}

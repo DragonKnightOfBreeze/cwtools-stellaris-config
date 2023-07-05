@@ -6,9 +6,7 @@ types = {
 			is_wartime_edict = yes
 		}
 		localisation = {
-			## required
 			name = "edict_$"
-			## required
 			description = "edict_$_desc"
 		}
 		images = {

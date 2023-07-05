@@ -9,14 +9,10 @@ types = {
 			prerequisites = {}
 		}
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_DESC"
 			subtype[base_level] = {
-				## required
 				details = "$_MEGASTRUCTURE_DETAILS"
-				## optional
 				delayed_info = "$_CONSTRUCTION_INFO_DELAYED"
 			}
 		}

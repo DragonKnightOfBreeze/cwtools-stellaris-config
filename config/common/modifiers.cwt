@@ -9,7 +9,6 @@ types = {
 			block_triggered = yes
 		}
 		localisation = {
-			## required
 			name = "$"
 		}
 	}
@@ -20,10 +19,8 @@ types = {
 			icon_frame = int
 		}
 		localisation = {
-			## required
 			name = "$"
 			subtype[planet] = {
-				## required
 				desc = "$_desc"
 			}
 			subtype[!planet] = {
@@ -51,9 +48,7 @@ types = {
 		path = "game/common/notification_modifiers"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 		}
 		images = {

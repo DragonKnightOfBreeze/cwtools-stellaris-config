@@ -3,13 +3,9 @@ types = {
 		path = "game/common/leader_classes"
 		file_extension = .txt
 		localisation = {
-			## primary
-			## required
-			name = "#name" # localisation
-			## required
-			name_plural = "#name_plural" # localisation
-			## required
-			desc = "#description" # localisation
+			name = name
+			name_plural = name_plural
+			desc = description"
 		}
 	}
 }

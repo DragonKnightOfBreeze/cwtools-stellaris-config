@@ -17,9 +17,7 @@ types = {
 			is_designable = yes
 		}
 		localisation = {
-			## required
 			name = "$"
-			## required
 			plural = "$_plural"
 		}
 	}

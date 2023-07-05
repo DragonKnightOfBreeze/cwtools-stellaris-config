@@ -12,59 +12,32 @@ types = {
 		}
 		localisation = {
 			subtype[playable] = {
-				## required
 				name = "$"
-				## required
 				desc = "$_desc"
-				## required
 				plural = "$_plural"
-				## required
 				insult = "$_insult_01"
-				## required
 				insult_plural = "$_insult_plural_01"
-				## required
 				compliment = "$_compliment_01"
-				## required
 				compliment_plural = "$_compliment_plural_01"
-				## required
 				spawn = "$_spawn"
-				## required
 				spawn_plural = "$_spawn_plural"
-				## required
 				sound_01 = "$_sound_01"
-				## required
 				sound_02 = "$_sound_02"
-				## required
 				sound_03 = "$_sound_03"
-				## required
 				sound_04 = "$_sound_04"
-				## required
 				sound_05 = "$_sound_05"
-				## required
 				organ = "$_organ"
-				## required
 				organ_plural = "$_organ_plural"
-				## required
 				mouth = "$_mouth"
-				## required
 				hand = "$_hand"
-				## required
 				hand_plural = "$_hand_plural"
-				## required
 				ear = "$_ear"
-				## required
 				ear_plural = "$_ear_plural"
-				## required
 				tooth = "$_tooth"
-				## required
 				tooth_plural = "$_tooth_plural"
-				## required
 				fossil = "$_fossil"
-				## required
 				fossil_plural = "$_fossil_plural"
-				## required
 				remnant = "$_remnant"
-				## required
 				remnant_plural = "$_remnant_plural"
 			}
 		}
@@ -89,96 +62,72 @@ types = {
 		path = "game/common/species_rights/citizenship_types"
 		file_extension = .txt
 		localisation = {
-			## required
-			Name = "$"
-			## required
-			Tooltip = "$_tooltip"
-			## required
-			"Delayed tooltip" = "$_tooltip_delayed"
+			name = "$"
+			tooltip = "$_tooltip"
+			delayed_tooltip = "$_tooltip_delayed"
 		}
 	}
 	type[colonization_control] = {
 		path = "game/common/species_rights/colonization_controls"
 		file_extension = .txt
 		localisation = {
-			## required
-			Name = "$"
-			## required
-			Tooltip = "$_tooltip"
-			## required
-			"Delayed tooltip" = "$_tooltip_delayed"
+			name = "$"
+			tooltip = "$_tooltip"
+			delayed_tooltip = "$_tooltip_delayed"
 		}
 	}
 	type[living_standard] = {
 		path = "game/common/species_rights/living_standards"
 		file_extension = .txt
 		localisation = {
-			## required
-			Name = "$"
-			## required
-			Tooltip = "$_tooltip"
-			## required
-			"Delayed tooltip" = "$_tooltip_delayed"
+			name = "$"
+			tooltip = "$_tooltip"
+			delayed_tooltip = "$_tooltip_delayed"
 		}
 	}
 	type[migration_control] = {
 		path = "game/common/species_rights/migration_controls"
 		file_extension = .txt
 		localisation = {
-			## required
-			Name = "$"
-			## required
-			Tooltip = "$_tooltip"
-			## required
-			"Delayed tooltip" = "$_tooltip_delayed"
+			name = "$"
+			tooltip = "$_tooltip"
+			delayed_tooltip = "$_tooltip_delayed"
 		}
 	}
 	type[military_service_type] = {
 		path = "game/common/species_rights/military_service_types"
 		file_extension = .txt
 		localisation = {
-			## required
-			Name = "$"
-			## required
-			Tooltip = "$_tooltip"
-			## required
-			"Delayed tooltip" = "$_tooltip_delayed"
+			name = "$"
+			tooltip = "$_tooltip"
+			delayed_tooltip = "$_tooltip_delayed"
 		}
 	}
 	type[population_control] = {
 		path = "game/common/species_rights/population_controls"
 		file_extension = .txt
 		localisation = {
-			## required
-			Name = "$"
-			## required
-			Tooltip = "$_tooltip"
-			## required
-			"Delayed tooltip" = "$_tooltip_delayed"
+			name = "$"
+			tooltip = "$_tooltip"
+			delayed_tooltip = "$_tooltip_delayed"
 		}
 	}
 	type[purge_type] = {
 		path = "game/common/species_rights/purge_types"
 		file_extension = .txt
 		localisation = {
-			## required
-			Name = "$"
-			## required
-			Tooltip = "$_tooltip"
-			## required
-			"Delayed tooltip" = "$_tooltip_delayed"
+			name = "$"
+			tooltip = "$_tooltip"
+			delayed_tooltip = "$_tooltip_delayed"
 		}
 	}
 	type[slavery_type] = {
 		path = "game/common/species_rights/slavery_types"
 		file_extension = .txt
 		localisation = {
-			## required
-			Name = "$"
-			## required
-			Tooltip = "$_tooltip"
-			## required
-			"Delayed tooltip" = "$_tooltip_delayed"
+			name = "$"
+			tooltip = "$_tooltip"
+			delayed_tooltip = "$_tooltip_delayed"
 		}
 	}
 }

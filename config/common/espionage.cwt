@@ -4,9 +4,7 @@ types = {
 		path = "game/common/espionage_operation_categories"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 		}
 	}
@@ -14,9 +12,7 @@ types = {
 		path = "game/common/espionage_assets"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 		}
 	}
@@ -52,13 +48,9 @@ types = {
 			target = spynetwork
 		}
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
-			## required
 			no_dlc_desc = "$_no_dlc_desc"
-			## required
 			on_success = "$_on_success"
 		}
 		images = {

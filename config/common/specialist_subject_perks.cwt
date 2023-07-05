@@ -10,7 +10,6 @@ types = {
 			main_perk = no
 		}
 		localisation = {
-            ## required
             name = "$"
             ## optional
             desc = "$_desc"

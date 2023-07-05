@@ -19,9 +19,7 @@ types = {
 		}
 		localisation = {
 			subtype[!hidden] = {
-				## required
 				name = "$"
-				## required
 				desc = "$_desc"
 				## optional
 				tooltip = "$_tooltip"
@@ -44,11 +42,9 @@ types = {
 			term = <agreement_term.resource>
 		}
 		localisation = {
-			Name = "$"
+			name = "$"
 			subtype[!resource] = {
-				## required
 				desc = "$_desc"
-				## required
 				tooltip = "$_tooltip"
 			}
 		}
@@ -68,11 +64,8 @@ types = {
 		}
 		localisation = {
 			subtype[!hidden] = {
-				## required
 				name = "$"
-				## required
 				desc = "$_desc"
-				## required
 				flavor = "$_flavor_desc"
 			}
 		}
@@ -81,7 +74,6 @@ types = {
 		path = "game/common/agreement_resources"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
 		}
 	}

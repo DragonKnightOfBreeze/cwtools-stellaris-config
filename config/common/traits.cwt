@@ -34,9 +34,7 @@ types = {
 		}
 
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 		}
 		images = {

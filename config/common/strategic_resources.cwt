@@ -10,9 +10,7 @@ types = {
 			max = int
 		}
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 		}
 		images = {

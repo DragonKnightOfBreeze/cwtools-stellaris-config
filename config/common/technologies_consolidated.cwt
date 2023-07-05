@@ -22,9 +22,7 @@ types = {
 		}
 
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 		}
 		images = {
@@ -45,9 +43,7 @@ types = {
 		path = "game/common/technology/category"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 		}
 		images = {

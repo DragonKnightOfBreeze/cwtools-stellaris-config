@@ -17,13 +17,10 @@ types = {
 			is_null = yes
 		}
 		subtype[not_dropped] = {
-			potential = {
-				always = no }
+			potential = { always = no }
 		}
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 		}
 		images = {

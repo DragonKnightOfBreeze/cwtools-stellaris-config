@@ -3,9 +3,7 @@ types = {
 		path = "game/common/governments/authorities"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 		}
 		images = {
@@ -22,9 +20,7 @@ types = {
 		file_extension = .txt
 		path_strict = yes
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 		}
 	}
@@ -32,11 +28,10 @@ types = {
 		path = "game/common/governments/civics"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
-			effect = "#description"
+			## optional
+			effect = description
 		}
 		subtype[civic] = {
 			## cardinality = 0..1
@@ -70,11 +65,10 @@ types = {
 		skip_root_key = any
 		name_field = "name"
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
-			effect = "#description"
+			## optional
+			effect = description
 		}
 	}
 	type[councilor] = {
@@ -85,9 +79,7 @@ types = {
 			civic = scalar
 		}
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 		}
 		images = {

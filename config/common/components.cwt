@@ -9,7 +9,6 @@ types = {
 			required_component_set = yes
 		}
 		localisation = {
-			## required
 			name = "$"
 			## optional
 			desc = "$_DESC"
@@ -52,7 +51,6 @@ types = {
 			type = planet_killer
 		}
 		localisation = {
-			## required
 			name = "$"
 		}
 		images = {

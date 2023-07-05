@@ -3,9 +3,7 @@ types = {
 		path = "game/common/starbase_buildings"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "sm_$"
-			## required
 			desc = "sm_$_desc"
 		}
 		images = {
@@ -20,9 +18,7 @@ types = {
 		path = "game/common/starbase_modules"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "sm_$"
-			## required
 			desc = "sm_$_desc"
 		}
 		images = {
@@ -36,7 +32,6 @@ types = {
 		path = "game/common/starbase_types"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
 		}
 	}

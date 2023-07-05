@@ -3,11 +3,9 @@ types = {
 		path = "game/common/specialist_subject_types"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
 			## optional
 			desc = "$_desc"
-			## required
 			neighbor_name = "$_neighbor"
 			## optional
 			neighbor_desc = "$_neighbor_desc"

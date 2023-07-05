@@ -4,13 +4,10 @@ types = {
 		file_extension = .txt
 
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 		}
 		images = {
-			## primary
 			icon = "gfx/interface/icons/ascension_perks/$.dds" # inferred
 		}
 	}
@@ -30,7 +27,6 @@ types = {
 		}
 		localisation = {
 			subtype[not_inheriting_name] = {
-				## required
 				name = "$"
 				## optional
 				flavor = "$_delayed"

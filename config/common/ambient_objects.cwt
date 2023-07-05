@@ -11,11 +11,10 @@ types = {
 		}
 		localisation = {
 			subtype[show_name] = {
-				## required
 				name = "$"
 			}
-			desc = "#description"
-			tooltip = "#tooltip"
+			desc = description
+			tooltip = tooltip
 		}
 	}
 }

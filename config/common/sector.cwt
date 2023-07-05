@@ -3,7 +3,6 @@ types = {
 		path = "game/common/sector_types"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
 		}
 	}
@@ -15,9 +14,7 @@ types = {
 		}
 		localisation = {
 			subtype[!hidden] = {
-				## required
 				name = "st_$"
-				## required
 				desc = "st_$_desc"
 			}
 		}

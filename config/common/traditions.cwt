@@ -2,7 +2,6 @@ types = {
 	type[tradition] = {
 		path = "game/common/traditions"
 		localisation = {
-			## required
 			name = "$"
 			## optional
 			flavor = "$_delayed"
@@ -30,7 +29,6 @@ types = {
 		}
 		localisation = {
 			subtype[not_inheriting_name] = {
-				## required
 				name = "$"
 				## optional
 				flavor = "$_delayed"
@@ -49,9 +47,7 @@ types = {
 	type[tradition_category] = { #this defines the contents of tradition trees
 		path = "game/common/tradition_categories"
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 		}
 	}

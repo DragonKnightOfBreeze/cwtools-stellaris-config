@@ -3,7 +3,6 @@ types = {
 		path = "game/common/system_types"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
 		}
 	}

@@ -4,12 +4,9 @@ types = {
 		path = "game/common/anomalies"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
-			## required
-			desc = "#desc" # localisation
+			desc = desc
 		}
 		images = {
 			## primary

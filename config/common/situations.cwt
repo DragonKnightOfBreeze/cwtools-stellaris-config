@@ -6,12 +6,10 @@ types = {
 			progress_direction = bidirectional
 		}
 		localisation = {
-			## required
 			name = "$"
-			## required
 			type_name = "$_type"
 			## optional
-			description = "$_desc"
+			desc = "$_desc"
 		}
 		images = {
 			picture = "#picture" # <sprite>

@@ -98,9 +98,8 @@ types = {
 
 		localisation = {
 			subtype[!hidden] = {
-				## primary
-				title = "#title"
-				desc = "#desc"
+				title = title
+				desc = desc
 			}
 		}
 		images = {

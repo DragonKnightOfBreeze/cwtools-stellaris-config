@@ -15,7 +15,6 @@ types = {
 		}
 	}
 }
-SS
 
 song = {
 	name = scalar

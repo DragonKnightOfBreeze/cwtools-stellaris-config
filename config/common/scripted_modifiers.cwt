@@ -2,7 +2,6 @@ types = {
 	type[scripted_modifier] = {
 		path = "game/common/scripted_modifiers"
 		localisation = {
-			## required
 			name = "mod_$"
 		}
 		images = {

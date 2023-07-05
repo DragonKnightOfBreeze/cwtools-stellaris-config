@@ -3,7 +3,6 @@ types = {
 		path = "game/common/casus_belli"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "casus_belli_$"
 			## optional
 			hint = "casus_belli_$_acquire_hint"
@@ -12,9 +11,7 @@ types = {
 	type[war_goal] = {
 		path = "game/common/war_goals"
 		localisation = {
-			## required
 			name = "war_goal_$"
-			## required
 			desc = "war_goal_$_desc"
 		}
 	}

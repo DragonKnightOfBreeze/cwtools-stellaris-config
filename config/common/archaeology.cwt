@@ -3,10 +3,8 @@ types = {
 		path = "game/common/archaeological_site_types"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
-			## required
-			desc = "#desc"
+			desc = desc
 		}
 		images = {
 			## primary
@@ -17,9 +15,7 @@ types = {
 		path = "game/common/relics"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 		}
 		images = {
@@ -31,9 +27,7 @@ types = {
 		path = "game/common/artifact_actions"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 		}
 	}

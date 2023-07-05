@@ -3,9 +3,7 @@ types = {
 		path = "game/common/personalities"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "personality_$"
-			## required
 			desc = "personality_$_desc"
 		}
 	}

@@ -17,7 +17,6 @@ types = {
 			has_species = no
 		}
 		localisation = {
-			## required
 			name = "$"
 			plural = "$_plural"
 			desc = "$_desc"

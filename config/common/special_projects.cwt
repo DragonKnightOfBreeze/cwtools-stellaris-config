@@ -8,7 +8,6 @@ types = {
 			cost = int[1..9999999]
 		}
 		localisation = {
-			## required
 			name = "$"
 			## optional
 			desc = "$_DESC"

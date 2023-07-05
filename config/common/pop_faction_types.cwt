@@ -3,9 +3,7 @@ types = {
 		path = "game/common/pop_faction_types"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "pft_$"
-			## required
 			desc = "pft_$_desc"
 		}
 		images = {

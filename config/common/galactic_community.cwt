@@ -3,9 +3,7 @@ types = {
 		path = "game/common/galactic_focuses"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 		}
 	}
@@ -13,7 +11,6 @@ types = {
 		path = "game/common/resolution_categories"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
 		}
 		images = {
@@ -29,9 +26,7 @@ types = {
 		path = "game/common/resolutions"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "$"
-			## required
 			desc = "$_desc"
 		}
 		images = {

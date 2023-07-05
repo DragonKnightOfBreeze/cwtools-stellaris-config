@@ -9,16 +9,11 @@ types = {
 			is_capped_by_modifier = no
 		}
 		localisation = {
-			## required
 			name = "job_$"
-			## required
 			plural = "job_$_plural"
-			## required
 			desc = "job_$_desc"
-			## optional
-			effect = "job_$_effect_desc" # inferred
+			effect = "job_$_effect_desc"
 			subtype[capped] = {
-				## required
 				modifier = mod_job_$_add
 				## optional
 				per_pop_modifier = mod_job_$_per_pop

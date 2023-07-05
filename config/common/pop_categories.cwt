@@ -3,11 +3,8 @@ types = {
 		path = "game/common/pop_categories"
 		file_extension = .txt
 		localisation = {
-			## required
 			name = "pop_cat_$"
-			## required
 			plural = "pop_cat_$_plural"
-			## required
 			desc = "pop_cat_$_desc"
 		}
 		images = {
