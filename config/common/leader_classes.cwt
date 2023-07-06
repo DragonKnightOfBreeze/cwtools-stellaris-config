@@ -4,7 +4,9 @@ types = {
 		file_extension = .txt
 		localisation = {
 			name = name
+			## optional
 			name_plural = name_plural
+			## optional
 			desc = description"
 		}
 	}

@@ -9,13 +9,15 @@ types = {
 			required_component_set = yes
 		}
 		localisation = {
-			name = "$"
-			## optional
-			desc = "$_DESC"
-			## optional
-			ship_desc = "ship_$_DESC"
-			## optional
-			station_desc = "station_$_DESC"
+			subtype[!required_component] = {
+				name = "$"
+				## optional
+				desc = "$_DESC"
+				## optional
+				ship_desc = "ship_$_DESC"
+				## optional
+				station_desc = "station_$_DESC"
+			}
 		}
 		images = {
 			subtype[!required_component] = {
