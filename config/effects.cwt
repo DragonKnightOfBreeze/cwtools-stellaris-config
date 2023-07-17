@@ -2648,8 +2648,7 @@ alias[effect:guarantee_country] = {
 alias[effect:inverted_switch] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..inf
-	# for key of this property, config will be overridden by:
-	# icu.windea.pls.lang.config.impl.ParadoxSwitchCaseOverriddenConfigProvider
+	# for key of this property, config will be overridden by: icu.windea.pls.lang.config.impl.ParadoxSwitchOverriddenConfigProvider
 	scalar = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	default = single_alias_right[effect_clause]
@@ -3110,8 +3109,7 @@ alias[effect:stop_crisis_sound] = yes
 alias[effect:switch] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..inf
-	# for key of this property, config will be overridden by:
-	# icu.windea.pls.lang.config.impl.ParadoxSwitchCaseOverriddenConfigProvider
+	# for key of this property, config will be overridden by: icu.windea.pls.lang.config.impl.ParadoxSwitchOverriddenConfigProvider
 	scalar = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	default = single_alias_right[effect_clause]
@@ -3918,17 +3916,15 @@ alias[effect:ceiling_variable] = value[variable]
 ### Exports the value of a trigger to a specified variable (so for num_pops, it'll export the number of pops).
 ## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
 alias[effect:export_trigger_value_to_variable] = {
-	## cardinality = 0..1
-	### specify extra parameters for triggers with { }, e.g. resource = energy
-	parameters = {
-		## cardinality = 0..1
-		## push_scope = any
-		limit = single_alias_right[trigger_clause]
-		## cardinality = 0..inf
-		scalar = $any # not only scalar, but also can be a nested clause
-	}
 	trigger = alias_keys_field[trigger]
+	## cardinality = 0..1
+	# for value of this property, config will be overridden by: icu.windea.pls.lang.config.impl.ParadoxTriggerWithParametersAwareOverriddenConfigProvider
+	## cardinality = 0..1
+	parameters = $any
 	variable = value_set[variable]
+	### default: no
+	## cardinality = 0..1
+	rounded = yes
 }
 
 ### Exports the value of the current country's stockpile of the specified resource to a variable.
