@@ -108,9 +108,9 @@ alias[economic_template:cost] = {
 	trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..inf
 	<resource> = float
-	## cardinality = 0..inf
+	## cardinality = 0..1
 	multiplier = value_field
-	## cardinality = 0..inf
+	## cardinality = 0..1
 	mult = value_field
 }
 
@@ -119,9 +119,9 @@ alias[economic_template:produces] = {
 	trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..inf
 	<resource> = float
-	## cardinality = 0..inf
+	## cardinality = 0..1
 	multiplier = value_field
-	## cardinality = 0..inf
+	## cardinality = 0..1
 	mult = value_field
 }
 
@@ -130,9 +130,9 @@ alias[economic_template:upkeep] = {
 	trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..inf
 	<resource> = float
-	## cardinality = 0..inf
+	## cardinality = 0..1
 	multiplier = value_field
-	## cardinality = 0..inf
+	## cardinality = 0..1
 	mult = value_field
 }
 
@@ -148,9 +148,9 @@ alias[economic_template_no_produce:cost] = {
 	trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..inf
 	<resource> = float
-	## cardinality = 0..inf
+	## cardinality = 0..1
 	multiplier = value_field
-	## cardinality = 0..inf
+	## cardinality = 0..1
 	mult = value_field
 }
 
@@ -159,9 +159,9 @@ alias[economic_template_no_produce:upkeep] = {
 	trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..inf
 	<resource> = float
-	## cardinality = 0..inf
+	## cardinality = 0..1
 	multiplier = value_field
-	## cardinality = 0..inf
+	## cardinality = 0..1
 	mult = value_field
 }
 
