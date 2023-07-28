@@ -1687,9 +1687,10 @@ alias[effect:create_leader] = {
 	class = enum[leader_clas]
 	class = random
 	class = random_ruler
-	## cardinality = 0..1
 	### Other scopes will simply default to this.owner_main_species
+	## cardinality = 0..1
 	species = scope_group[target_species]
+	### Other scopes will simply default to this.owner_main_species
 	## cardinality = 0..1
 	species = enum[buildable_pop_species]
 	## cardinality = 0..1
@@ -1761,7 +1762,13 @@ alias[effect:clone_leader] = {
 	## cardinality = 0..1
 	class = enum[leader_clas]
 	## cardinality = 0..1
+	class = random
+	## cardinality = 0..1
+	class = random_ruler
+	### Other scopes will simply default to this.owner_main_species
+	## cardinality = 0..1
 	species = scope_group[target_species]
+	### Other scopes will simply default to this.owner_main_species
 	## cardinality = 0..1
 	species = enum[buildable_pop_species]
 	## cardinality = 0..1
@@ -1773,14 +1780,40 @@ alias[effect:clone_leader] = {
 	## cardinality = 0..1
 	set_age = value_field
 	## cardinality = 0..1
+	hide_age = bool
+	## cardinality = 0..1
 	skill = random
 	## cardinality = 0..1
 	skill = int[1..20]
 	## cardinality = 0..1
+	immortal = bool
+	## cardinality = 0..1
 	event_leader = bool
-	#Not sure what other types there are
 	## cardinality = 0..1
 	sub_type = survey
+	## cardinality = 0..1
+	skip_background_generation = bool
+	### default: yes
+	## cardinality = 0..1
+	can_manually_change_location = bool
+	### default: yes
+	## cardinality = 0..1
+	can_assign_to_council = bool
+	### default: yes
+	## cardinality = 0..1
+	can_see_in_list = bool
+	## cardinality = 0..1
+	custom_catch_phrase = localisation
+	## cardinality = 0..1
+	custom_description = localisation
+	## cardinality = 0..1
+	background_ethic = <ethic>
+	## cardinality = 0..1
+	background_job = <job>
+	## cardinality = 0..1
+	background_planet = scope[planet]
+	## cardinality = 0..1
+	randomize_traits = bool
 	## cardinality = 0..1
 	traits = {
 		## cardinality = 0..inf
