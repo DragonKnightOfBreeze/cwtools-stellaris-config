@@ -458,7 +458,8 @@ enums = {
 	enum[leader_trait_rarity] = {
 		common
 		veteran
-		free_orveteran
+		free_or_veteran
+		paragon
 
 	}
 	enum[trait_ai_category] = {
