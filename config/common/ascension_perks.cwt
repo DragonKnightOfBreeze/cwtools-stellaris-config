@@ -15,6 +15,7 @@ types = {
 	type[swapped_ascension_perk] = {
 		base_type = ascension_perk
 		path = "game/common/ascension_perks"
+		file_extension = .txt
 		skip_root_key = any
 		name_field = name
 		subtype[not_inheriting_name] = {
