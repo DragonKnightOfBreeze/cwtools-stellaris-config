@@ -64,6 +64,8 @@ types = {
 ### Define possible parts of empire name here, such as "Glorious Empire of". When generating random name for empire, format can refer to it via <key> and pick random part.
 empire_name_parts_list = {
 	key = scalar
+	## cardinality = 0..1
+	cycle = bool
 	### List of possible parts. Random weights to the right are optional
 	parts = {
 		## cardinality = 0..inf
@@ -95,6 +97,8 @@ empire_name_format = {
 ### Define possible parts of federation name here. When generating random name for federation, format can refer to it via <key> and pick random part.
 federation_name_parts_list = {
 	key = scalar
+	## cardinality = 0..1
+	cycle = bool
 	### List of possible parts. Random weights to the right are optional
 	parts = {
 		## cardinality = 0..inf
@@ -117,6 +121,8 @@ federation_name_format = {
 
 pop_faction_name_parts_list = {
 	key = scalar
+	## cardinality = 0..1
+	cycle = bool
 	### List of possible parts. Random weights to the right are optional
 	parts = {
 		## cardinality = 0..inf
@@ -138,6 +144,9 @@ pop_faction_name_format = {
 
 pre_communications_name_parts_list = {
 	key = scalar
+	### default: no
+	## cardinality = 0..1
+	cycle = bool
 	### List of possible parts. Random weights to the right are optional
 	parts = {
 		## cardinality = 0..inf
@@ -159,6 +168,8 @@ pre_communications_name_format = {
 
 war_name_parts_list = {
 	key = scalar
+	## cardinality = 0..1
+	cycle = bool
 	### List of possible parts. Random weights to the right are optional
 	parts = {
 		## cardinality = 0..inf
