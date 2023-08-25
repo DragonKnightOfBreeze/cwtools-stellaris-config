@@ -30,7 +30,7 @@ types = {
 				## primary
 				texture = textureFile # filepath
 				## primary
-				texture = sprite_sheet_sprite_type|default_frame # <sprite>
+				texture = sprite_sheet_sprite_type # <sprite>
 				## optional
 				masking_texture = masking_texture # filepath
 			}
