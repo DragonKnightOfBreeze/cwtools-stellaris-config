@@ -148,7 +148,7 @@ prescripted_country = {
 		heir_title_female = localisation
 
 		## cardinality = 0..1
-		leader_class = enum[leader_clas]
+		leader_class = enum[leader_class]
 		## cardinality = 0..inf
 	    trait = <trait.leader_trait>
 	}

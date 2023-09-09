@@ -1,6 +1,6 @@
 
 enums = {
-	enum[leader_clas] = {
+	enum[leader_class] = {
 		scientist
 		admiral
 		governor

@@ -150,7 +150,7 @@ ship_size = {
 		<technology>
 	}
 	#this is where ship classes are defined! this is important for other files, and it also causes the game to auto generate modifiers for each shipclass!
-	class = enum[ship_clas]
+	class = enum[ship_class]
 	## cardinality = 0..1
 	construction_type = starbase
 	## cardinality = 0..1
@@ -239,7 +239,7 @@ ship_size = {
 }
 
 #enums = { #you can change, mod, remove and add new shipclasses. This is not an enum!
-#	enum[ship_clas] = {
+#	enum[ship_class] = {
 #		shipclass_military
 #		shipclass_military_station
 #		shipclass_military_special
@@ -262,7 +262,7 @@ ship_size = {
 #}
 
 enums = {
-	complex_enum[ship_clas] = {
+	complex_enum[ship_class] = {
 		path = "game/common/ship_sizes"
 		name = {
 			class = enum_name

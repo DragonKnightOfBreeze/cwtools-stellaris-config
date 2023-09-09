@@ -142,7 +142,7 @@ alias[planet_initializer:planet] = {
 	## cardinality = 0..1
 	class = star
 	## cardinality = 0..1
-	class = enum[solar_sys_init_planet_clas]
+	class = enum[solar_sys_init_planet_class]
 	## cardinality = 0..1
 	class = ideal_design_class
 
@@ -243,7 +243,7 @@ alias[moon_initializer:moon] = {
 	## cardinality = 0..1
 	class = star
 	## cardinality = 0..1
-	class = enum[solar_sys_init_planet_clas]
+	class = enum[solar_sys_init_planet_class]
 	## cardinality = 0..1
 	class = ideal_design_class
 
@@ -334,7 +334,7 @@ enums = {
 		upper_case_roman_numerals
 		lower_case_latin_letters
 	}
-	enum[solar_sys_init_planet_clas] = {
+	enum[solar_sys_init_planet_class] = {
 		random
 		random_colonizable
 		random_non_ideal

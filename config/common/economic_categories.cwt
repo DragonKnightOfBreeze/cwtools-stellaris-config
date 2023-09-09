@@ -2,9 +2,6 @@ types = {
 	type[economic_category] = {
 		path = "game/common/economic_categories"
 		file_extension = .txt
-		subtype[has_parent] = {
-			parent = scalar
-		}
 		subtype[hidden] = {
 			hidden = yes
 		}
@@ -19,7 +16,8 @@ types = {
 
 economic_category = {
 	## cardinality = 0..1
-    parent = <economic_category>
+	parent = <economic_category>
+	## default: no
 	## cardinality = 0..1
 	use_for_ai_budget = bool
 	subtype[!hidden] = {
@@ -38,69 +36,40 @@ economic_category = {
 	## cardinality = 0..1
 	hidden = bool
 
-	### sets the modifier category, which is sometimes used to determine whether it is applied to a certain object (so make sure this is set to what you want)
 	## cardinality = 0..1
-	category = enum[scripted_modifier_category]
+	generate_mult_modifiers = single_alias_right[economic_category_generate_modifiers]
+	## cardinality = 0..1
+	generate_add_modifiers = single_alias_right[economic_category_generate_modifiers]
 
 	## cardinality = 0..inf
-	triggered_produces_modifier = {
-		subtype[has_parent] = {
-			## cardinality = 0..1
-			use_parent_icon = yes
-		}
-		key = scalar
-		## cardinality = 0..1
-		use_parent_icon = yes
-		## cardinality = 0..1
-		trigger = single_alias_right[trigger_clause]
-		modifier_types = {
-			## cardinality = 0..2
-			enum[economic_modifier_type]
-		}
-	}
+	triggered_produces_modifier = single_alias_right[economic_category_triggered_modifier]
 	## cardinality = 0..inf
-	triggered_cost_modifier = {
-		key = scalar
-		## cardinality = 0..1
-		use_parent_icon = yes
-		## cardinality = 0..1
-		trigger = single_alias_right[trigger_clause]
-		## cardinality = 0..1
-		use_parent_icon = yes
-		modifier_types = {
-			## cardinality = 0..2
-			enum[economic_modifier_type]
-		}
-
-	}
+	triggered_cost_modifier = single_alias_right[economic_category_triggered_modifier]
 	## cardinality = 0..inf
-	triggered_upkeep_modifier = {
-		key = scalar
-		## cardinality = 0..1
-		use_parent_icon = yes
-		## cardinality = 0..1
-		trigger = single_alias_right[trigger_clause]
-		modifier_types = {
-			## cardinality = 0..2
-			enum[economic_modifier_type]
-		}
+	triggered_upkeep_modifier = single_alias_right[economic_category_triggered_modifier]
 
-	}
 	## cardinality = 0..1
 	ai_use_parent_for_resources_upkeep = {
 		## cardinality = 1..inf
 		<resource>
 	}
+}
+
+single_alias[economic_category_generate_modifiers] = {
+	## cardinality = 1..3
+	enum[economic_modifier_category]
+}
+
+single_alias[economic_category_triggered_modifier] = {
+	key = scalar
 	## cardinality = 0..1
-	generate_mult_modifiers = {
-		## cardinality = 1..3
-		enum[economic_modifier_category]
+	use_parent_icon = yes
+	modifier_types = {
+		## cardinality = 0..2
+		enum[economic_modifier_type]
 	}
 	## cardinality = 0..1
-	generate_add_modifiers = {
-		## cardinality = 1..3
-		enum[economic_modifier_category]
-	}
+	trigger = single_alias_right[trigger_clause]
 }
 
 alias[economic_template:cost] = {

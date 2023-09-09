@@ -91,7 +91,7 @@ special_project = {
 		shipclass_transport = int
 
 		## cardinality = 0..1
-		leader = enum[leader_clas]
+		leader = enum[leader_class]
 
 		## cardinality = 0..1
 		assault_armies = int

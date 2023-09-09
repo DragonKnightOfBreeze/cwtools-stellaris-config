@@ -383,12 +383,12 @@ modifiers = {
 	habitability_ceil_mult = { Habitability }
 
 	# ship_class modifiers
-	enum[ship_clas]_build_cost_mult = { Planets Megastructures Starbases }
-	enum[ship_clas]_build_speed_mult = { Planets Megastructures Starbases }
-	enum[ship_clas]_hull_mult = { Ships }
-	enum[ship_clas]_damage_mult = { Ships }
-	enum[ship_clas]_evasion_add = { Ships }
-	enum[ship_clas]_disengage_mult = { Ships }
+	enum[ship_class]_build_cost_mult = { Planets Megastructures Starbases }
+	enum[ship_class]_build_speed_mult = { Planets Megastructures Starbases }
+	enum[ship_class]_hull_mult = { Ships }
+	enum[ship_class]_damage_mult = { Ships }
+	enum[ship_class]_evasion_add = { Ships }
+	enum[ship_class]_disengage_mult = { Ships }
 
 	# weapon_type modifiers
 	enum[component_tag]_weapon_damage_mult = { Ships }
