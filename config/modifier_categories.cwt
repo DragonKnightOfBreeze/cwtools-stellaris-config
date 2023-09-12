@@ -71,4 +71,7 @@ modifier_categories = {
 	Deposits = {
 		supported_scopes = { country planet deposit }
 	}
+	"Ship Design Stats" = {
+		supported_scopes = { design }
+	}
 }

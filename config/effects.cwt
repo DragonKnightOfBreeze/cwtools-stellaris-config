@@ -4430,6 +4430,45 @@ alias[effect:prolong_fleet_contract] = {
 ## scopes = { country }
 alias[effect:unlock_council_selection] = bool
 
+# 3.9.1
+
+### Changes which design a ship uses/all ships in a fleet use, to the target design
+## scopes = { ship fleet }
+alias[effect:set_ship_design] = {
+	## cardinality = 0..1
+	design = scope[design]
+	## cardinality = 0..1
+	design = last_created_design
+	## cardinality = 0..1
+	random_existing_design = <ship_size>
+}
+
+### Gives percentage progress (-1.0-1.0) in the current agenda to the scoped country
+## scopes = { country }
+alias[effect:add_council_agenda_progress_percent] = value_field
+
+### Sets the scoped country's male ruler's title.
+## scopes = { country }
+alias[effect:set_ruler_title_male] = localisation
+
+### Sets the scoped country's female ruler's title.
+## scopes = { country }
+alias[effect:set_ruler_title_female] = localisation
+
+### Sets the scoped country's council position's male title.
+## scopes = { country }
+alias[effect:set_council_position_title_male] = {
+	position_tag = localisation
+	title = localisation
+}
+
+### Sets the scoped country's council position's female title.
+## scopes = { country }
+alias[effect:set_council_position_title_female] = {
+	position_tag = localisation
+	title = localisation
+}
+
 # missing effects in effects.log
 
 ## scopes = { country }

@@ -1191,7 +1191,7 @@ alias[trigger:former_slavery_type] = <slavery_type>
 alias[trigger:galaxy_percentage] == value_field[0.0..1.0]
 
 ### Checks if the country has specific graphical culture
-## scopes = { country ship }
+## scopes = { megastructure country ship }
 alias[trigger:graphical_culture] = <graphical_culture>
 
 ### Checks the average happiness on the planet
@@ -2572,14 +2572,6 @@ alias[trigger:num_planets_in_system] == int_value_field
 ## scopes = { planet }
 alias[trigger:is_sector_capital] = bool
 
-### Checks if the sector has a certain focus
-## scopes = { sector }
-alias[trigger:has_sector_focus] = <sector_focus>
-
-### Checks if the sector has any focus
-## scopes = { sector }
-alias[trigger:has_any_sector_focus] = bool
-
 ### Checks if the planet has the specified tag for district usage:
 ## scopes = { planet }
 ## severity = warning
@@ -3465,6 +3457,36 @@ alias[trigger:is_background_planet] = scope[planet]
 ### Checks if scoped leader is a member of the Empire Council or the Ruler
 ## scopes = { leader }
 alias[trigger:is_councilor] = bool
+
+# 3.9.1
+
+### Checks the progress of the current Agenda.
+## scopes = { country }
+alias[trigger:council_agenda_progress] = value_field
+
+### Checks if the leader is hidden from the player
+## scopes = { leader }
+alias[trigger:is_hidden] = bool
+
+### Checks if the scoped fleet is a garrison.
+## scopes = { fleet }
+alias[trigger:is_garrison] = bool
+
+### Checks the country/pop/leader/species' number of positive traits (traits with a cost strictly greater than 0 count as positive)
+## scopes = { country pop leader species }
+alias[trigger:num_positive_traits] = int
+
+### Checks the country/pop/leader/species' number of negative traits (traits with a cost strictly lower than 0 count as negative)
+## scopes = { country pop leader species }
+alias[trigger:num_negative_traits] = int
+
+### Checks if the current player is currently viewing the galaxy map.
+## scopes = { planet country ship pop fleet }
+alias[trigger:is_on_galaxy_map] = bool
+
+### Checks if the current player is currently paused.
+## scopes = { planet country ship pop fleet }
+alias[trigger:is_paused] = bool
 
 # scope links
 

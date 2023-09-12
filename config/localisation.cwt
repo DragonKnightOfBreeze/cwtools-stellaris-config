@@ -133,7 +133,6 @@ localisation_commands = {
     GetRemnantName = { species }
     GetRemnantNamePlural = { species }
     GetNumPlayerFleetsGoneMIA = { war }
-    GetFocus = { sector }
     GetType = { sector }
     GetProgress = { situation }
     GetDescription = { debris }
