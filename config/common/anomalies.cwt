@@ -87,7 +87,10 @@ anomaly_category = {
 
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 
+			## cardinality = 0..1
 			anomaly_event = <event.ship>
+			## cardinality = 0..1
+			ship_event = <event.ship>
 		}
 	}
 }

@@ -206,9 +206,13 @@ civic_or_origin = {
 	## cardinality = 0..1
 	## file_extensions = { .dds .png .tga }
 	icon = filepath
-	### localisation of custom effects
+	
+	### Custom text that will appear under the "Effects" heading.
 	## cardinality = 0..1
 	description = localisation
+	### Custom text that will appear under the "Penalties" heading.
+	## cardinality = 0..1
+	negative_description = localisation
 
 	### AND trigger, no scope; use this to prevent the civic from being selectable by the player (UI). Possibly only works with DLC checks.
 	## cardinality = 0..1
@@ -314,8 +318,12 @@ civic_or_origin = {
 			## cardinality = 1..inf
 			<solar_system_initializer>
 		}
+		## default: no
 		## cardinality = 0..1
-		max_once_global = yes
+		max_once_global = bool
+		## default: no
+		## cardinality = 0..1
+		hide_modifiers = bool
 		## cardinality = 0..1
 		flags = {
 			## cardinality = 0..inf

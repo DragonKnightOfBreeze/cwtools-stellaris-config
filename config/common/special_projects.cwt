@@ -25,44 +25,45 @@ types = {
 special_project = {
 	key = localisation
 	## cardinality = 0..1
+	event_chain = <event_chain>
+	
+	## cardinality = 0..1
 	cost = int
 	## cardinality = 0..1
 	cost = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 	## cardinality = 0..1
-	timelimit = int
+	energy = int
+
+	subtype[cost] = {
+		tech_department = enum[tech_department]
+	}
+	subtype[!cost] = {
+		## cardinality = 0..1
+		tech_department = enum[tech_department]
+	}
 	## cardinality = 0..1
-	days_to_research = int
-	## cardinality = 0..1
-	location = bool
+	picture =  <sprite>
 	## cardinality = 0..1
 	## file_extensions = { .dds .png .tga }
 	icon = filepath
+	### default: no
+	## cardinality = 0..1
+	location = bool
+	event_scope = enum[sp_event_scope]
 
+	## cardinality = 0..1
+	timelimit = int
+	## cardinality = 0..1
+	days_to_research = int
+	
 	## cardinality = 0..inf
 	desc = {
 		text = localisation
 		trigger = single_alias_right[trigger_clause]
 	}
-
-	subtype[cost] = {
-		tech_department = enum[tech_department]
-	}
-
-	subtype[!cost] = {
-		## cardinality = 0..1
-		tech_department = enum[tech_department]
-	}
-
-	## cardinality = 0..1
-	picture =  <sprite>
-
-	event_scope = enum[sp_event_scope]
-
-	## cardinality = 0..1
-	event_chain = <event_chain>
-
+	
 	## cardinality = 0..1
 	same_option_group_as = {
 		## cardinality = 1..100

@@ -437,6 +437,20 @@ modifiers = {
 	# damage_vs_country_type modifiers
 	damage_vs_country_type_<country_type>_mult = { Ships }
 
+	# predefined species_archetype modifiers (lowercase name)
+	biological_species_trait_points_add = { Countries }
+	biological_species_trait_picks_add = { Countries }
+	biological_pop_happiness = { Pops }
+	biological_pop_growth_from_immigration = { Planets }
+	biological_pop_growth_speed = { Planets }
+	biological_pop_growth_speed_reduction = { Planets }
+	lithoid_species_trait_points_add = { Countries }
+	lithoid_species_trait_picks_add = { Countries }
+	lithoid_pop_happiness = { Pops }
+	lithoid_pop_growth_from_immigration = { Planets }
+	lithoid_pop_growth_speed = { Planets }
+	lithoid_pop_growth_speed_reduction = { Planets }
+	
 	# species_archetype modifiers
 	<species_archetype.use_modifiers>_species_trait_points_add = { Countries }
 	<species_archetype.use_modifiers>_species_trait_picks_add = { Countries }
@@ -444,11 +458,7 @@ modifiers = {
 	<species_archetype.not_robotic.use_modifiers>_pop_growth_from_immigration = { Planets }
 	<species_archetype.not_robotic.use_modifiers>_pop_growth_speed = { Planets }
 	<species_archetype.not_robotic.use_modifiers>_pop_growth_speed_reduction = { Planets }
-
-	# predefined species_archetype modifiers (lowercase name)
-	biological_pop_happiness = { Pops }
-	lithoid_pop_happiness = { Pops }
-
+	
 	# planet_class modifiers
 	<planet_class>_habitability = { Habitability }
 

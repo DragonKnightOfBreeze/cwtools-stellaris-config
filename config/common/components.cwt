@@ -156,9 +156,6 @@ component_template = {
 	}
 	## cardinality = 0..1
 	custom_tooltip = localisation
-	## cardinality = 0..inf
-	## replace_scopes = { this = ship root = ship }
-	triggered_ship_modifier = single_alias_right[triggered_modifier_clause]
 	## cardinality = 0..1
 	should_ai_use = bool
 	## cardinality = 0..1
@@ -179,12 +176,24 @@ component_template = {
 		## cardinality = 0..1
 		power = int
 		size = enum[utility_slot_size]
+		
 		## cardinality = 0..1
 		## replace_scopes = { this = ship root = ship }
 		modifier = single_alias_right[modifier_clause]
 		## cardinality = 0..1
 		## replace_scopes = { this = ship root = ship }
 		ship_modifier = single_alias_right[modifier_clause]
+		## cardinality = 0..1
+		## replace_scopes = { this = design root = design }
+		ship_design_modifier = single_alias_right[modifier_clause]
+		
+		## cardinality = 0..inf
+		## replace_scopes = { this = ship root = ship }
+		triggered_ship_modifier = single_alias_right[triggered_modifier_clause]
+		## cardinality = 0..inf
+		## replace_scopes = { this = design root = design }
+		triggered_ship_design_modifier = single_alias_right[triggered_modifier_clause]
+		
 		## cardinality = 0..1
 		ftl = bool
 		## cardinality = 0..1
@@ -232,12 +241,23 @@ component_template = {
 		power = float
 		size = enum[weapon_slot_size]
 		type = enum[weapon_type2]
+
 		## cardinality = 0..1
 		## replace_scopes = { this = ship root = ship }
 		modifier = single_alias_right[modifier_clause]
 		## cardinality = 0..1
 		## replace_scopes = { this = ship root = ship }
 		ship_modifier = single_alias_right[modifier_clause]
+		## cardinality = 0..1
+		## replace_scopes = { this = design root = design }
+		ship_design_modifier = single_alias_right[modifier_clause]
+
+		## cardinality = 0..inf
+		## replace_scopes = { this = ship root = ship }
+		triggered_ship_modifier = single_alias_right[triggered_modifier_clause]
+		## cardinality = 0..inf
+		## replace_scopes = { this = design root = design }
+		triggered_ship_design_modifier = single_alias_right[triggered_modifier_clause]
 
 		## cardinality = 0..1
 		projectile_gfx = <projectile>

@@ -16,14 +16,13 @@ types = {
 
 ## replace_scopes = { this = country root = country }
 agenda = {
-	agenda_cost = int
+	agenda_cost = value_field
+	agenda_cooldown = value_field
 	potential = single_alias_right[trigger_clause]
 	allow = single_alias_right[trigger_clause]
 	## cardinality = 0..1
-	modifiers = {
-		{
-			alias_name[modifier] = alias_match_left[modifier]
-		}
+	modifier = {
+		alias_name[modifier] = alias_match_left[modifier]
 	}
 	## cardinality = 0..1
 	finish_modifier = <static_modifier>

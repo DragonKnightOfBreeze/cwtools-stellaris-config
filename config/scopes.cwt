@@ -87,6 +87,9 @@ scopes = {
 	Debris = {
 		aliases = { debris }
 	}
+    Design = {
+        aliases = { design }
+    }
 }
 
 scope_groups = {

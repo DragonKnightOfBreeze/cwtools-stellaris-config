@@ -1667,9 +1667,6 @@ alias[effect:create_army] = {
 	species = scope_group[target_species]
 	## cardinality = 0..1
 	species = enum[buildable_pop_species]
-	### default: no
-	## cardinality = 0..1
-	land_army = bool
 	## cardinality = 0..1
 	leader = scope_group[target_leader]
 	## cardinality = 0..1
@@ -1684,58 +1681,24 @@ alias[effect:create_leader] = {
 	alias_name[name] = alias_match_left[name]
 	## cardinality = 0..1
 	name = random
-	class = enum[leader_class]
-	class = random
-	class = random_ruler
 	### Other scopes will simply default to this.owner_main_species
 	## cardinality = 0..1
 	species = scope_group[target_species]
 	### Other scopes will simply default to this.owner_main_species
 	## cardinality = 0..1
 	species = enum[buildable_pop_species]
+	class = enum[leader_class]
+	class = random
+	class = random_ruler
+	### The leader skill level, minimum LEADER_SKILL_MIN and maximum LEADER_MAX_SKILL_CAP.
 	## cardinality = 0..1
-	leader_age_min = int
-	## cardinality = 0..1
-	leader_age_max = int	#should not be less than min...
-	## cardinality = 0..1
-	gender = enum[gender]
-	## cardinality = 0..1
-	set_age = value_field
-	## cardinality = 0..1
-	hide_age = bool
+	skill = int[1..20]
+	### The leader skill level, minimum LEADER_SKILL_MIN and maximum LEADER_MAX_SKILL_CAP.
 	## cardinality = 0..1
 	skill = random
 	## cardinality = 0..1
-	skill = int[1..20]
-	## cardinality = 0..1
-	immortal = bool
-	## cardinality = 0..1
-	event_leader = bool
-	## cardinality = 0..1
-	sub_type = survey
-	## cardinality = 0..1
-	skip_background_generation = bool
-	### default: yes
-	## cardinality = 0..1
-	can_manually_change_location = bool
-	### default: yes
-	## cardinality = 0..1
-	can_assign_to_council = bool
-	### default: yes
-	## cardinality = 0..1
-	can_see_in_list = bool
-	## cardinality = 0..1
-	custom_catch_phrase = localisation
-	## cardinality = 0..1
-	custom_description = localisation
-	## cardinality = 0..1
-	background_ethic = <ethic>
-	## cardinality = 0..1
-	background_job = <job>
-	## cardinality = 0..1
-	background_planet = scope[planet]
-	## cardinality = 0..1
-	randomize_traits = bool
+	set_age = value_field
+	### The traits of the leader, i.e. "1 = leader_trait_bureaucrat".
 	## cardinality = 0..1
 	traits = {
 		## cardinality = 0..inf
@@ -1745,9 +1708,64 @@ alias[effect:create_leader] = {
 		## cardinality = 0..inf
 		trait = random_trait
 	}
+
+	### Optional, default = random.
+	## cardinality = 0..1
+	gender = enum[gender]
+	### Optional, default = no. Sets if this is a event leader or not. Is checked through is_event_leader.
+	### default: no
+	## cardinality = 0..1
+	event_leader = bool
+	### Optional, default = no.
+	## cardinality = 0..1
+	immortal = bool
+	### Optional, default = no.
+	## cardinality = 0..1
+	hide_age = bool
+	### Optional. Used for scientist subtypes.
+	## cardinality = 0..1
+	sub_type = survey
+	### Optional, default = yes.
+	## cardinality = 0..1
+	can_manually_change_location = bool
+	### Optional, default = yes.
+	## cardinality = 0..1
+	can_assign_to_council = bool
+	### Optional, default = no. Hides the leader from the player's list of leaders, and doesn't count them towards the leader cap.
+	## cardinality = 0..1
+	hide_leader = bool
+	### Optional, default = yes.
+	## cardinality = 0..1
+	randomize_traits = bool
+	### Optional, but requires leader_age_max if used. Used to randomize leader age within the age span between this and leader_age_max.
+	## cardinality = 0..1
+	leader_age_min = int
+	### Optional, but requires leader_age_min if used. Used to randomize leader age within the age span between this and leader_age_min.
+	## cardinality = 0..1
+	leader_age_max = int
+	### Optional. Scripted effect(s) that are run on the leader after it has been created.
 	## cardinality = 0..1
 	## push_scope = leader
 	effect = single_alias_right[effect_clause]
+	
+	### Optional.
+	## cardinality = 0..1
+	custom_description = localisation
+	### Optional.
+	## cardinality = 0..1
+	custom_catch_phrase = localisation
+	### Optional, default = no. Disables random generation of a background.
+	## cardinality = 0..1
+	skip_background_generation = bool
+	### Optional. Used as the home planet of the leader.
+	## cardinality = 0..1
+	background_planet = scope[planet]
+	### Optional.
+	## cardinality = 0..1
+	background_job = <job>
+	### Optional.
+	## cardinality = 0..1
+	background_ethic = <ethic>
 }
 
 #Same as create, but all optional except target
@@ -1755,16 +1773,11 @@ alias[effect:create_leader] = {
 ## scopes = { country }
 alias[effect:clone_leader] = {
 	target = scope_group[target_leader]
+
 	## cardinality = 0..1
 	alias_name[name] = alias_match_left[name]
 	## cardinality = 0..1
 	name = random
-	## cardinality = 0..1
-	class = enum[leader_class]
-	## cardinality = 0..1
-	class = random
-	## cardinality = 0..1
-	class = random_ruler
 	### Other scopes will simply default to this.owner_main_species
 	## cardinality = 0..1
 	species = scope_group[target_species]
@@ -1772,48 +1785,20 @@ alias[effect:clone_leader] = {
 	## cardinality = 0..1
 	species = enum[buildable_pop_species]
 	## cardinality = 0..1
-	leader_age_min = int
+	class = enum[leader_class]
 	## cardinality = 0..1
-	leader_age_max = int	#should not be less than min...
+	class = random
 	## cardinality = 0..1
-	gender = enum[gender]
+	class = random_ruler
+	### The leader skill level, minimum LEADER_SKILL_MIN and maximum LEADER_MAX_SKILL_CAP.
 	## cardinality = 0..1
-	set_age = value_field
-	## cardinality = 0..1
-	hide_age = bool
+	skill = int[1..20]
+	### The leader skill level, minimum LEADER_SKILL_MIN and maximum LEADER_MAX_SKILL_CAP.
 	## cardinality = 0..1
 	skill = random
 	## cardinality = 0..1
-	skill = int[1..20]
-	## cardinality = 0..1
-	immortal = bool
-	## cardinality = 0..1
-	event_leader = bool
-	## cardinality = 0..1
-	sub_type = survey
-	## cardinality = 0..1
-	skip_background_generation = bool
-	### default: yes
-	## cardinality = 0..1
-	can_manually_change_location = bool
-	### default: yes
-	## cardinality = 0..1
-	can_assign_to_council = bool
-	### default: yes
-	## cardinality = 0..1
-	can_see_in_list = bool
-	## cardinality = 0..1
-	custom_catch_phrase = localisation
-	## cardinality = 0..1
-	custom_description = localisation
-	## cardinality = 0..1
-	background_ethic = <ethic>
-	## cardinality = 0..1
-	background_job = <job>
-	## cardinality = 0..1
-	background_planet = scope[planet]
-	## cardinality = 0..1
-	randomize_traits = bool
+	set_age = value_field
+	### The traits of the leader, i.e. "1 = leader_trait_bureaucrat".
 	## cardinality = 0..1
 	traits = {
 		## cardinality = 0..inf
@@ -1823,9 +1808,64 @@ alias[effect:clone_leader] = {
 		## cardinality = 0..inf
 		trait = random_trait
 	}
+
+	### Optional, default = random.
+	## cardinality = 0..1
+	gender = enum[gender]
+	### Optional, default = no. Sets if this is a event leader or not. Is checked through is_event_leader.
+	### default: no
+	## cardinality = 0..1
+	event_leader = bool
+	### Optional, default = no.
+	## cardinality = 0..1
+	immortal = bool
+	### Optional, default = no.
+	## cardinality = 0..1
+	hide_age = bool
+	### Optional. Used for scientist subtypes.
+	## cardinality = 0..1
+	sub_type = survey
+	### Optional, default = yes.
+	## cardinality = 0..1
+	can_manually_change_location = bool
+	### Optional, default = yes.
+	## cardinality = 0..1
+	can_assign_to_council = bool
+	### Optional, default = no. Hides the leader from the player's list of leaders, and doesn't count them towards the leader cap.
+	## cardinality = 0..1
+	hide_leader = bool
+	### Optional, default = yes.
+	## cardinality = 0..1
+	randomize_traits = bool
+	### Optional, but requires leader_age_max if used. Used to randomize leader age within the age span between this and leader_age_max.
+	## cardinality = 0..1
+	leader_age_min = int
+	### Optional, but requires leader_age_min if used. Used to randomize leader age within the age span between this and leader_age_min.
+	## cardinality = 0..1
+	leader_age_max = int
+	### Optional. Scripted effect(s) that are run on the leader after it has been created.
 	## cardinality = 0..1
 	## push_scope = leader
 	effect = single_alias_right[effect_clause]
+
+	### Optional.
+	## cardinality = 0..1
+	custom_description = localisation
+	### Optional.
+	## cardinality = 0..1
+	custom_catch_phrase = localisation
+	### Optional, default = no. Disables random generation of a background.
+	## cardinality = 0..1
+	skip_background_generation = bool
+	### Optional. Used as the home planet of the leader.
+	## cardinality = 0..1
+	background_planet = scope[planet]
+	### Optional.
+	## cardinality = 0..1
+	background_job = <job>
+	### Optional.
+	## cardinality = 0..1
+	background_ethic = <ethic>
 }
 
 ### Sets the age of the scoped leader
@@ -2545,9 +2585,9 @@ alias[effect:create_saved_leader] = {
 	## cardinality = 0..1
 	creator = scope_group[target_country]
 	## cardinality = 0..1
-	name = random
-	## cardinality = 0..1
 	alias_name[name] = alias_match_left[name]
+	## cardinality = 0..1
+	name = random
 	## cardinality = 0..1
 	gender = enum[gender]
 	## cardinality = 0..1
@@ -2582,9 +2622,9 @@ alias[effect:create_saved_leader] = {
 ## scopes = { fleet starbase }
 alias[effect:create_ship] = {
 	## cardinality = 0..1
-	name = random
-	## cardinality = 0..1
 	alias_name[name] = alias_match_left[name]
+	## cardinality = 0..1
+	name = random
 	## cardinality = 0..1
 	name = scope[ship]
 	## severity = warning
@@ -4413,7 +4453,7 @@ alias[effect:add_age] = value_field
 
 ### Adds to the scoped leader's skill level but does not select any traits
 ## scopes = { leader }
-alias[effect:add_skill_without_trait_selection] = int
+alias[effect:add_skill_without_trait_selection] = value_field
 
 ### Sets the scoped leader immortal. The 'no' case will not override immortality granted by species characteristics (but will disable immortality granted by this effect).
 ### set_immortal = yes

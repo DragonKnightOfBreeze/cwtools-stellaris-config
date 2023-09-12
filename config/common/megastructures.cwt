@@ -36,6 +36,7 @@ megastructure = {
 	construction_entity = scalar #TODO entity suffixes
 	## cardinality = 0..1
 	portrait = <sprite>
+	### default: yes
 	## cardinality = 0..1
 	place_entity_on_planet_plane = bool
 	## cardinality = 0..1
@@ -44,9 +45,13 @@ megastructure = {
 	construction_blocks_others = bool
 	## cardinality = 0..1
 	build_outside_gravity_well = bool
+	### default: yes
 	## cardinality = 0..1
 	show_galactic_map_icon = bool
-	### Default yes, if yes megastructure will be shown in outliner
+	### default: no
+	## cardinality = 0..1
+	hide_name = bool
+	### default: yes
 	## cardinality = 0..1
 	show_in_outliner = bool
 	## cardinality = 0..1
