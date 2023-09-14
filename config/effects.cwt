@@ -1747,7 +1747,7 @@ alias[effect:create_leader] = {
 	## cardinality = 0..1
 	## push_scope = leader
 	effect = single_alias_right[effect_clause]
-	
+
 	### Optional.
 	## cardinality = 0..1
 	custom_description = localisation
@@ -2721,7 +2721,7 @@ alias[effect:guarantee_country] = {
 alias[effect:inverted_switch] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..inf
-	# for key of this property, config will be overridden by: icu.windea.pls.lang.config.impl.ParadoxSwitchOverriddenConfigProvider
+	# for key of this property, config will be overridden by: icu.windea.pls.lang.overridden.impl.ParadoxSwitchOverriddenConfigProvider
 	scalar = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	default = single_alias_right[effect_clause]
@@ -3182,7 +3182,7 @@ alias[effect:stop_crisis_sound] = yes
 alias[effect:switch] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..inf
-	# for key of this property, config will be overridden by: icu.windea.pls.lang.config.impl.ParadoxSwitchOverriddenConfigProvider
+	# for key of this property, config will be overridden by: icu.windea.pls.lang.overridden.impl.ParadoxSwitchOverriddenConfigProvider
 	scalar = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	default = single_alias_right[effect_clause]
@@ -3991,7 +3991,7 @@ alias[effect:ceiling_variable] = value[variable]
 alias[effect:export_trigger_value_to_variable] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..1
-	# for value of this property, config will be overridden by: icu.windea.pls.lang.config.impl.ParadoxTriggerWithParametersAwareOverriddenConfigProvider
+	# for value of this property, config will be overridden by: icu.windea.pls.lang.overridden.impl.ParadoxTriggerWithParametersAwareOverriddenConfigProvider
 	## cardinality = 0..1
 	parameters = $any
 	variable = value_set[variable]
