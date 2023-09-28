@@ -68,6 +68,7 @@ map_setup_scenario = {
 	num_stars = int
 	### should be less than 500, preferably less than ~460
 	radius = float
+
 	### limits player customization
 	num_empires = {
 		min = int
@@ -85,7 +86,7 @@ map_setup_scenario = {
 	## cardinality = 0..1
 	extra_crisis_strength = {
 		## cardinality = 0..inf
-		int
+		float
 	}
 	## cardinality = 0..1
 	default = bool
@@ -142,6 +143,69 @@ map_setup_scenario = {
 
 	## cardinality = 1..inf
 	supports_shape = <galaxy_shape>
+
+	# from static_galaxy_example.txt
+
+	## cardinality = 0..1
+	random_hyperlanes = bool
+	## cardinality = 0..1
+	core_radius = int
+	### Subsequent systems will have the coordinates entered for them altered by these numbers
+	## cardinality = 0..1
+	coordinate_transform = {
+		x = single_alias_right[coordinate_transform]
+		y = single_alias_right[coordinate_transform]
+		z = single_alias_right[coordinate_transform]
+	}
+	## cardinality = 0..inf
+	system = {
+		id = enum[map_setup_scenario_system_id]
+		name = localisation
+		name = scalar
+		position = {
+			x = int
+			x = { min = int max = int }
+			y = int
+			y = { min = int max = int }
+		}
+		## cardinality = 0..1
+		initializer = <solar_system_initializer>
+		## cardinality = 0..1
+		spawn_weight = {
+			alias_name[modifier_rule] = alias_match_left[modifier_rule]
+		}
+		## cardinality = 0..1
+		## replace_scopes = { this = system root = system }
+		effect = {
+			alias_name[effect] = alias_match_left[effect]
+		}
+	}
+	## cardinality = 0..inf
+	add_hyperlane = {
+		from = enum[map_setup_scenario_system_id]
+		to = enum[map_setup_scenario_system_id]
+	}
+	## cardinality = 0..inf
+	prevent_hyperlane = {
+		from = enum[map_setup_scenario_system_id]
+		to = enum[map_setup_scenario_system_id]
+	}
+	## cardinality = 0..inf
+	nebula = {
+		name = scalar
+		name = localisation
+		position = {
+			x = int
+			y = int
+			z = int
+		}
+		radius = int
+	}
+}
+
+single_alias[coordinate_transform] = {
+	## cardinality = 0..inf
+	enum[coordinate_transform_operator] = float
 }
 
 enums = {
@@ -154,5 +218,24 @@ enums = {
 	}
 	enum[open_space_method] = {
 		depth_first
+	}
+	enum[coordinate_transform_operator] = {
+		add
+		sub
+		mul
+		div
+	}
+}
+
+enums = {
+	## search_scope_type = definition
+	complex_enum[map_setup_scenario_system_id] = {
+		path = "game/map/setup_scenarios"
+		file_extension = .txt
+		name = {
+			system = {
+				id = enum_name
+			}
+		}
 	}
 }
