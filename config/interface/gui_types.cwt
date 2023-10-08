@@ -3,6 +3,7 @@ types = {
 	type[gui_type] = {
 		path = "game/interface"
 		path_extension = .gui
+		name_field = "" # anonymous
 		severity = warning
 	}
 }
