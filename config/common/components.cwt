@@ -165,71 +165,7 @@ component_template = {
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
-	
-	subtype[utility_component_template] = {
-		## cardinality = 0..1
-		## replace_scopes = { root = ship this = ship }
-		resources = {
-			category = <economic_category>
-			alias_name[economic_template] = alias_match_left[economic_template]
-		}
-		## cardinality = 0..1
-		power = int
-		size = enum[utility_slot_size]
-		
-		## cardinality = 0..1
-		## replace_scopes = { this = ship root = ship }
-		modifier = single_alias_right[modifier_clause]
-		## cardinality = 0..1
-		## replace_scopes = { this = ship root = ship }
-		ship_modifier = single_alias_right[modifier_clause]
-		## cardinality = 0..1
-		## replace_scopes = { this = design root = design }
-		ship_design_modifier = single_alias_right[modifier_clause]
-		
-		## cardinality = 0..inf
-		## replace_scopes = { this = ship root = ship }
-		triggered_ship_modifier = single_alias_right[triggered_modifier_clause]
-		## cardinality = 0..inf
-		## replace_scopes = { this = design root = design }
-		triggered_ship_design_modifier = single_alias_right[triggered_modifier_clause]
-		
-		## cardinality = 0..1
-		ftl = bool
-		## cardinality = 0..1
-		ftl_inhibitor = bool
-		## cardinality = 0..1
-		jumpdrive = bool
-		## cardinality = 0..1
-		ship_behavior = <ship_behavior>
-		## cardinality = 0..1
-		sensor_range = int
-		## cardinality = 0..1
-		hyperlane_range = int
 
-		## cardinality = 0..1
-		## replace_scopes = { this = planet root = planet }
-		scripted_action_button_possible = single_alias_right[trigger_clause]
-		## cardinality = 0..1
-		## replace_scopes = { this = planet root = planet }
-		scripted_action_possible = single_alias_right[trigger_clause]
-		## cardinality = 0..1
-		## replace_scopes = { this = planet root = planet }
-		scripted_action_finished = single_alias_right[trigger_clause]
-		## cardinality = 0..1
-		scripted_action_name = <on_action>
-		## cardinality = 0..1
-		scripted_action_tooltip = localisation
-		## cardinality = 0..1
-		scripted_action_icon = <sprite>
-		## cardinality = 0..1
-		scripted_action_on_cancel = <on_action>
-		## cardinality = 0..1
-		scripted_action_activity_key = localisation
-		## cardinality = 0..1
-		scripted_action_context_menu_name = localisation
-	}
-	
 	subtype[weapon_component_template] = {
 		## cardinality = 0..1
 		## replace_scopes = { root = ship this = ship }
@@ -306,7 +242,7 @@ component_template = {
 		shield_penetration = float
 		## cardinality = 0..1
 		size_damage_factor = float
-		
+
 		## cardinality = 0..1
 		windup = { min = float max = float }
 		## cardinality = 0..1
@@ -334,7 +270,7 @@ component_template = {
 		## cardinality = 0..1
 		point_defence_targets = { enum[point_defence_target] }
 	}
-	
+
 	subtype[strike_craft_component_template] = {
 		## cardinality = 0..1
 		## replace_scopes = { root = ship this = ship }
@@ -369,7 +305,7 @@ component_template = {
 		shield_penetration = float
 		## cardinality = 0..1
 		size_damage_factor = float
-		
+
 		## cardinality = 0..1
 		range = float
 		## cardinality = 0..1
@@ -391,6 +327,70 @@ component_template = {
 		attack_range = float
 		## cardinality = 0..1
 		point_defence_targets = { enum[point_defence_target] }
+	}
+
+	subtype[utility_component_template] = {
+		## cardinality = 0..1
+		## replace_scopes = { root = ship this = ship }
+		resources = {
+			category = <economic_category>
+			alias_name[economic_template] = alias_match_left[economic_template]
+		}
+		## cardinality = 0..1
+		power = int
+		size = enum[utility_slot_size]
+
+		## cardinality = 0..1
+		## replace_scopes = { this = ship root = ship }
+		modifier = single_alias_right[modifier_clause]
+		## cardinality = 0..1
+		## replace_scopes = { this = ship root = ship }
+		ship_modifier = single_alias_right[modifier_clause]
+		## cardinality = 0..1
+		## replace_scopes = { this = design root = design }
+		ship_design_modifier = single_alias_right[modifier_clause]
+
+		## cardinality = 0..inf
+		## replace_scopes = { this = ship root = ship }
+		triggered_ship_modifier = single_alias_right[triggered_modifier_clause]
+		## cardinality = 0..inf
+		## replace_scopes = { this = design root = design }
+		triggered_ship_design_modifier = single_alias_right[triggered_modifier_clause]
+
+		## cardinality = 0..1
+		ftl = bool
+		## cardinality = 0..1
+		ftl_inhibitor = bool
+		## cardinality = 0..1
+		jumpdrive = bool
+		## cardinality = 0..1
+		ship_behavior = <ship_behavior>
+		## cardinality = 0..1
+		sensor_range = int
+		## cardinality = 0..1
+		hyperlane_range = int
+
+		## cardinality = 0..1
+		## replace_scopes = { this = planet root = planet }
+		scripted_action_button_possible = single_alias_right[trigger_clause]
+		## cardinality = 0..1
+		## replace_scopes = { this = planet root = planet }
+		scripted_action_possible = single_alias_right[trigger_clause]
+		## cardinality = 0..1
+		## replace_scopes = { this = planet root = planet }
+		scripted_action_finished = single_alias_right[trigger_clause]
+		## cardinality = 0..1
+		scripted_action_name = <on_action>
+		## cardinality = 0..1
+		scripted_action_tooltip = localisation
+		## cardinality = 0..1
+		scripted_action_icon = <sprite>
+		## cardinality = 0..1
+		scripted_action_on_cancel = <on_action>
+		## cardinality = 0..1
+		scripted_action_activity_key = localisation
+		## cardinality = 0..1
+		scripted_action_context_menu_name = localisation
 	}
 
 	## cardinality = 0..inf
