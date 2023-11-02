@@ -1403,7 +1403,6 @@ alias[trigger:intel_level] = {
 alias[trigger:inverted_switch] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = ~1..inf
-	# for key of this property, config will be overridden by: icu.windea.pls.lang.overridden.impl.ParadoxSwitchOverriddenConfigProvider
 	scalar = single_alias_right[trigger_clause]
 	## cardinality = ~1..1
 	default = single_alias_right[trigger_clause]
@@ -1800,7 +1799,6 @@ alias[trigger:success_text] = {
 alias[trigger:switch] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = ~1..inf
-	# for key of this property, config will be overridden by: icu.windea.pls.lang.overridden.impl.ParadoxSwitchOverriddenConfigProvider
 	scalar = single_alias_right[trigger_clause]
 	## cardinality = ~1..1
 	default = single_alias_right[trigger_clause]

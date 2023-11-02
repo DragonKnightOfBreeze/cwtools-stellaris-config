@@ -30,12 +30,9 @@ alias[modifier_rule:scaled_modifier] = {
 }
 
 alias[modifier_rule:complex_trigger_modifier] = {
-	# for value of this property, scope context will be overridden by: icu.windea.pls.lang.overridden.impl.ParadoxTriggerWithParametersAwareOverriddenScopeContextProvider
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..1
 	trigger_scope = scope[any]
-	# for value of this property, config will be overridden by: icu.windea.pls.lang.overridden.impl.icu.windea.pls.lang.overridden.impl.ParadoxTriggerWithParametersAwareOverriddenConfigProvider
-	# for this property, scope context will be overridden by: icu.windea.pls.lang.overridden.impl.ParadoxTriggerWithParametersAwareOverriddenScopeContextProvider
 	## cardinality = 0..1
 	parameters = $any
 	mode = enum[complex_maths_enum]
@@ -61,12 +58,9 @@ alias[modifier_rule_with_loc:modifier] = {
 	alias_name[trigger] = alias_match_left[trigger]
 }
 alias[modifier_rule_with_loc:complex_trigger_modifier] = {
-	# for value of this property, scope context will be overridden by: icu.windea.pls.lang.overridden.impl.ParadoxTriggerWithParametersAwareOverriddenScopeContextProvider
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..1
 	trigger_scope = scope[any]
-	# for value of this property, config will be overridden by: icu.windea.pls.lang.overridden.impl.ParadoxTriggerWithParametersAwareOverriddenConfigProvider
-	# for this property, scope context will be overridden by: icu.windea.pls.lang.overridden.impl.ParadoxTriggerWithParametersAwareOverriddenScopeContextProvider
 	## cardinality = 0..1
 	parameters = $any
 	mode = enum[complex_maths_enum]
