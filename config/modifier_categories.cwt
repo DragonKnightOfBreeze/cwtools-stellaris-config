@@ -74,4 +74,7 @@ modifier_categories = {
 	"Ship Design Stats" = {
 		supported_scopes = { design }
 	}
+	"Astral Rift" = {
+		supported_scopes = { astral_rift }
+	}
 }

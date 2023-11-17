@@ -64,10 +64,13 @@ alias[effect:save_global_event_target_as] = value_set[global_event_target]
 alias[effect:ship_event] = {
 	id = <event.scopeless>
 	id = <event.ship>
+	### optional: specify delay
 	## cardinality = 0..1
 	days = int
+	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
+	### optional: specify scope overrides
 	## cardinality = 0..1
 	scopes = {
 		## cardinality = 0..1
@@ -86,10 +89,13 @@ alias[effect:ship_event] = {
 alias[effect:country_event] = {
 	id = <event.scopeless>
 	id = <event.country>
+	### optional: specify delay
 	## cardinality = 0..1
 	days = int
+	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
+	### optional: specify scope overrides
 	## cardinality = 0..1
 	scopes = {
 		## cardinality = 0..1
@@ -108,10 +114,13 @@ alias[effect:country_event] = {
 alias[effect:first_contact_event] = {
 	id = <event.scopeless>
 	id = <event.first_contact>
+	### optional: specify delay
 	## cardinality = 0..1
 	days = int
+	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
+	### optional: specify scope overrides
 	## cardinality = 0..1
 	scopes = {
 		## cardinality = 0..1
@@ -130,10 +139,13 @@ alias[effect:first_contact_event] = {
 alias[effect:observer_event] = {
 	id = <event.scopeless>
 	id = <event.observer>
+	### optional: specify delay
 	## cardinality = 0..1
 	days = int
+	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
+	### optional: specify scope overrides
 	## cardinality = 0..1
 	scopes = {
 		## cardinality = 0..1
@@ -152,10 +164,13 @@ alias[effect:observer_event] = {
 alias[effect:pop_faction_event] = {
 	id = <event.scopeless>
 	id = <event.pop_faction>
+	### optional: specify delay
 	## cardinality = 0..1
 	days = int
+	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
+	### optional: specify scope overrides
 	## cardinality = 0..1
 	scopes = {
 		## cardinality = 0..1
@@ -174,10 +189,13 @@ alias[effect:pop_faction_event] = {
 alias[effect:pop_event] = {
 	id = <event.scopeless>
 	id = <event.pop>
+	### optional: specify delay
 	## cardinality = 0..1
 	days = int
+	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
+	### optional: specify scope overrides
 	## cardinality = 0..1
 	scopes = {
 		## cardinality = 0..1
@@ -196,10 +214,13 @@ alias[effect:pop_event] = {
 alias[effect:fleet_event] = {
 	id = <event.scopeless>
 	id = <event.fleet>
+	### optional: specify delay
 	## cardinality = 0..1
 	days = int
+	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
+	### optional: specify scope overrides
 	## cardinality = 0..1
 	scopes = {
 		## cardinality = 0..1
@@ -218,10 +239,13 @@ alias[effect:fleet_event] = {
 alias[effect:planet_event] = {
 	id = <event.scopeless>
 	id = <event.planet>
+	### optional: specify delay
 	## cardinality = 0..1
 	days = int
+	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
+	### optional: specify scope overrides
 	## cardinality = 0..1
 	scopes = {
 		## cardinality = 0..1
@@ -240,10 +264,13 @@ alias[effect:planet_event] = {
 alias[effect:leader_event] = {
 	id = <event.scopeless>
 	id = <event.leader>
+	### optional: specify delay
 	## cardinality = 0..1
 	days = int
+	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
+	### optional: specify scope overrides
 	## cardinality = 0..1
 	scopes = {
 		## cardinality = 0..1
@@ -262,10 +289,13 @@ alias[effect:leader_event] = {
 alias[effect:situation_event] = {
 	id = <event.scopeless>
 	id = <event.situation>
+	### optional: specify delay
 	## cardinality = 0..1
 	days = int
+	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
+	### optional: specify scope overrides
 	## cardinality = 0..1
 	scopes = {
 		## cardinality = 0..1
@@ -284,10 +314,13 @@ alias[effect:situation_event] = {
 alias[effect:agreement_event] = {
 	id = <event.scopeless>
 	id = <event.agreement>
+	### optional: specify delay
 	## cardinality = 0..1
 	days = int
+	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
+	### optional: specify scope overrides
 	## cardinality = 0..1
 	scopes = {
 		## cardinality = 0..1
@@ -306,10 +339,13 @@ alias[effect:agreement_event] = {
 alias[effect:starbase_event] = {
 	id = <event.scopeless>
 	id = <event.starbase>
+	### optional: specify delay
 	## cardinality = 0..1
 	days = int
+	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
+	### optional: specify scope overrides
 	## cardinality = 0..1
 	scopes = {
 		## cardinality = 0..1
@@ -327,11 +363,14 @@ alias[effect:starbase_event] = {
 ## scopes = { galactic_object }
 alias[effect:system_event] = {
 	id = <event.scopeless>
-	id = <event.system>
+	id = <event.galactic_object>
+	### optional: specify delay
 	## cardinality = 0..1
 	days = int
+	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
+	### optional: specify scope overrides
 	## cardinality = 0..1
 	scopes = {
 		## cardinality = 0..1
@@ -350,10 +389,13 @@ alias[effect:system_event] = {
 alias[effect:espionage_operation_event] = {
 	id = <event.scopeless>
 	id = <event.espionage_operation>
+	### optional: specify delay
 	## cardinality = 0..1
 	days = int
+	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
+	### optional: specify scope overrides
 	## cardinality = 0..1
 	scopes = {
 		## cardinality = 0..1
@@ -368,7 +410,7 @@ alias[effect:espionage_operation_event] = {
 }
 
 ### Adds a specific modifier to the scoped object for a set duration
-## scopes = { megastructure planet country ship pop fleet galactic_object pop_faction federation spy_network espionage_operation }
+## scopes = { megastructure planet country ship pop fleet galactic_object pop_faction federation spy_network espionage_operation astral_rift }
 alias[effect:add_modifier] = {
 	modifier = <static_modifier>
 	# severity = info
@@ -402,7 +444,7 @@ alias[effect:remove_opinion_modifier] = {
 }
 
 ### Removes a specific modifier from the scope object
-## scopes = { megastructure planet country ship pop fleet galactic_object pop_faction federation spy_network espionage_operation }
+## scopes = { megastructure planet country ship pop fleet galactic_object pop_faction federation spy_network espionage_operation astral_rift }
 alias[effect:remove_modifier] = <static_modifier>
 
 # flags
@@ -897,14 +939,14 @@ alias[effect:set_location] = {
 # variables
 
 ### Sets or creates an arbitrarily-named variable with a specific value in the current scope
-## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[effect:set_variable] = {
 	which = value_set[variable]
 	value = value_field
 }
 
 ### Sets a variable to a random value within the specified bounds
-## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[effect:set_variable_to_random_value] = {
 	which = value_set[variable]
 	min = value_field
@@ -914,49 +956,49 @@ alias[effect:set_variable_to_random_value] = {
 
 #presumably need to check the variable exists first for these, somehow
 ### Increments a previously-set variable by a specific amount
-## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[effect:change_variable] = {
 	which = value_set[variable]
 	value = value_field
 }
 
 ### Decrements a previously-set variable by a specific amount
-## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[effect:subtract_variable] = {
 	which = value[variable]
 	value = value_field
 }
 
 ### Multiplies a previously-set variable by a specific amount
-## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[effect:multiply_variable] = {
 	which = value[variable]
 	value = value_field
 }
 
 ### Divides a previously-set variable by a specific amount
-## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[effect:divide_variable] = {
 	which = value[variable]
 	value = value_field
 }
 
 ### Modulos a previously-set variable by a specific amount i.e. X % Y
-## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[effect:modulo_variable] = {
 	which = value[variable]
 	value = value_field
 }
 
 ### Rounds a previously-set variable to the closest X
-## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[effect:round_variable_to_closest] = {
 	which = value[variable]
 	value = value_field
 }
 
 ### Clears a previously-set variable from the game.
-## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[effect:clear_variable] = value[variable]
 
 
@@ -1142,7 +1184,7 @@ alias[effect:set_war_goal] = {
 }
 
 ### Sets the planet or system as un/surveyed by target country
-## scopes = { planet galactic_object }
+## scopes = { planet galactic_object astral_rift }
 alias[effect:set_surveyed] = {
 	surveyed = bool
 	## cardinality = 0..1
@@ -1952,10 +1994,10 @@ alias[effect:change_pc] = {
 alias[effect:set_planet_size] = int_value_field
 
 ### Adds resource deposit to the scoped planet (note: if you add a blocker, it will add a random deposit that can be blocked by that deposit)
-## scopes = { planet }
+## scopes = { planet astral_rift }
 alias[effect:add_deposit] = <deposit>
 ### Adds resource deposit to the scoped planet (note: if you add a blocker, it will add a random deposit that can be blocked by that deposit)
-## scopes = { planet }
+## scopes = { planet astral_rift }
 alias[effect:add_deposit] = enum[add_deposit_type]
 ### Replaces resource deposit on the scoped planet
 ## scopes = { planet }
@@ -2513,7 +2555,7 @@ alias[effect:create_military_fleet] = {
 }
 
 ### Creates a mining station in orbit of the scoped planet
-## scopes = { planet }
+## scopes = { planet astral_rift }
 alias[effect:create_mining_station] = {
 	owner = scope_group[target_country]
 	## cardinality = 0..1
@@ -2573,7 +2615,7 @@ alias[effect:create_pop] = {
 }
 
 ### Creates a research station in orbit of the scoped planet
-## scopes = { planet }
+## scopes = { planet astral_rift }
 alias[effect:create_research_station] = {
 	owner = scope_group[target_country]
 	## cardinality = 0..1
@@ -3207,10 +3249,10 @@ alias[effect:add_resource] = {
 }
 
 ### Remove resource deposit on the scoped planet or deposit, does not fire on_cleared if used on a blocker
-## scopes = { planet deposit }
+## scopes = { planet deposit astral_rift }
 alias[effect:remove_deposit] = yes
 ### Remove resource deposit on the scoped planet or deposit, does not fire on_cleared if used on a blocker
-## scopes = { planet deposit }
+## scopes = { planet deposit astral_rift }
 alias[effect:remove_deposit] = <deposit>
 
 ### Fires scoped pop from its job
@@ -3321,22 +3363,22 @@ alias[effect:reroll_deposits] = yes
 # 2.3
 
 ### Creates a archaeological site associated with the scope object
-## scopes = { megastructure planet ship fleet galactic_object ambient_object starbase debris }
+## scopes = { megastructure planet ship fleet galactic_object ambient_object starbase debris astral_rift }
 alias[effect:create_archaeological_site] = <archaeological_site_type>
 ### Creates a archaeological site associated with the scope object
-## scopes = { megastructure planet ship fleet galactic_object ambient_object starbase debris }
+## scopes = { megastructure planet ship fleet galactic_object ambient_object starbase debris astral_rift }
 alias[effect:create_archaeological_site] = random
 ### Destroys a archaeological site in right hand site event target
 ## scopes = any
 alias[effect:destroy_archaeological_site] = scope[archaeological_site]
 ### Adds clues to the current stage of an archaeological or first contact site
-## scopes = { archaeological_site first_contact }
+## scopes = { archaeological_site first_contact astral_rift }
 alias[effect:add_stage_clues] = int_value_field
 ### Adds clues to the current stage of an archaeological or first contact site
-## scopes = { archaeological_site first_contact }
+## scopes = { archaeological_site first_contact astral_rift }
 alias[effect:add_stage_clues] = lower_insight_reward
 ### Adds clues to the current stage of an archaeological or first contact site
-## scopes = { archaeological_site first_contact }
+## scopes = { archaeological_site first_contact astral_rift }
 alias[effect:add_stage_clues] = higher_insight_reward
 ### Adds clues to the current stage of a archaeological site
 ### add_stage_clues = <int>
@@ -3611,10 +3653,6 @@ alias[effect:set_cooldown] = int_value_field
 ### Sets the scoped planet to be the capital of the sector it is part of. If used in the capital sector, it will shift the empire capital. Warning: Experimental, may have unintended consequences.
 ## scopes = { planet }
 alias[effect:set_sector_capital] = yes
-
-### Sets the sector's focus
-## scopes = { sector }
-alias[effect:set_sector_focus] = <sector_focus>
 
 ### Sets the colony's designation type
 ## scopes = { planet }
@@ -3929,7 +3967,7 @@ alias[effect:set_galactic_defense_force] = bool
 alias[effect:add_imperial_authority] = value_field
 
 ### Adds a specific modifier to the current espionage operation stage for a set duration or until stage is changed
-## scopes = { espionage_operation }
+## scopes = { espionage_operation astral_rift }
 alias[effect:add_stage_modifier] = {
 	modifier = <static_modifier>
 	# severity = info
@@ -3940,7 +3978,7 @@ alias[effect:add_stage_modifier] = {
 }
 
 ### Removes a specific modifier from the espionage operation current stage
-## scopes = { espionage_operation }
+## scopes = { espionage_operation astral_rift }
 alias[effect:remove_stage_modifier] = <static_modifier>
 
 ### Moves all owned GDF fleets to the target.
@@ -3969,19 +4007,19 @@ alias[effect:clear_intel_report] = {
 }
 
 ### Rounds a previously-set variable to the closest integer.
-## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[effect:round_variable] = value[variable]
 
 ### Rounds a previously-set variable down to the previous integer.
-## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[effect:floor_variable] = value[variable]
 
 ### Rounds a previously-set variable up to the next integer.
-## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[effect:ceiling_variable] = value[variable]
 
 ### Exports the value of a trigger to a specified variable (so for num_pops, it'll export the number of pops).
-## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[effect:export_trigger_value_to_variable] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..1
@@ -4091,7 +4129,7 @@ alias[effect:add_blocker] = {
 }
 
 ### Sets an arbitrarily-named date flag for the scoped object. Acts both as an <scope object>_flag and as a means for saving a date. The flag can then be referred to in localisations [This.<flag>] to produce the date.
-## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[effect:set_saved_date] = {
 	### Refer to this in locs; note: this is actually a <country/whatever>_flag
 	key = value_set[variable] # TODO actually a flag of the current scope type, currently threat as a variable
@@ -4505,6 +4543,172 @@ alias[effect:set_council_position_title_male] = {
 alias[effect:set_council_position_title_female] = {
 	position_tag = localisation
 	title = localisation
+}
+
+# 3.10.0
+
+### Freezes the scoped leader's age. The 'no' case will disable the freeze granted by this effect.
+## scopes = { leader }
+alias[effect:freeze_leader_age] = bool
+
+### Sets an arbitrarily-named flag on the scoped astral rift
+## scopes = { astral_rift }
+alias[effect:set_astral_rift_flag] = value[astral_rift_flag]
+
+### Removes a flag from the scoped astral rift
+## scopes = { astral_rift }
+alias[effect:remove_astral_rift_flag] = value[astral_rift_flag]
+
+### Exports the remaining duration of a specified modifier in the current scope to a specified variable.
+## scopes = { planet country pop fleet }
+alias[effect:export_modifier_duration_to_variable] = {
+	modifier = <modifier>
+	variable = value[variable]
+}
+
+### Deletes the target dimensional fleet
+## scopes = any
+alias[effect:delete_dimensional_fleet] = scope_field
+
+### Deletes the target dimensional fleet
+## scopes = any
+alias[effect:delete_dimensional_fleet] = {
+	target = scope_field
+}
+
+### Spawns a new astral rift in the scoped system.
+### If the id is not set or equal to none, spawns a random rift from the pool once exploration begins.
+### Can be spawned relatively to an existing spatial object, tolerance is applied to the angle to avoid already existing planets.
+## scopes = { galactic_object }
+alias[effect:spawn_astral_rift] = {
+	### default = no, exclusive with relative_to and in_place_of
+	## cardinality = 0..1
+	random_pos = bool
+	orbit_distance = int
+	orbit_angle = int
+	## cardinality = 0..1
+	id = <astral_rift>
+	## cardinality = 0..1
+	id = none
+	## cardinality = 0..1
+	relative_to = scope_field
+	## cardinality = 0..1
+	tolerance = scope_field
+	## cardinality = 0..1
+	in_place_of = scope_group[spatial_object]
+	## cardinality = 0..1
+	graphics_entity_name = <model_entity>
+	### default = yes
+	## cardinality = 0..1
+	spawn_sound = bool
+	## cardinality = 0..1
+	## push_scope = galactic_object
+	init_effect = single_alias_right[effect_clause]
+}
+
+### Destroys target Astral Rift
+## scopes = any
+alias[effect:destroy_astral_rift] = <astral_rift>
+
+### Changes the target of a Situation.
+## scopes = { situation }
+alias[effect:change_situation_target] = scope_field
+
+### Changes the target of a Situation.
+## scopes = { situation }
+alias[effect:change_situation_target] = none
+
+### Assigns a council position to the country's council, if possible.
+## scopes = { country }
+alias[effect:set_council_position_to_council] = <<council_position>>
+
+### Renew a Bypass Lock's duration as if it was just built.
+## scopes = { bypass }
+alias[effect:renew_bypass_lock] = bool
+
+### Lock a Bypass for exclusive access for a given country.
+## scopes = { bypass }
+alias[effect:lock_bypass] = {
+	country = scope[country]
+	duration = int_value_field
+}
+
+### Starts the cooldown of an astral action defined with uses_custom_cooldown = yes
+### start_astral_action_cooldown=<key>
+## scopes = { country }
+alias[effect:start_astral_action_cooldown] = <astral_action.use_custom_cooldown>
+
+### Unlocks Astral Actions that have become unlockable since the last time this effect was called.
+## scopes = { country }
+alias[effect:perform_astral_action_unlock_check] = bool
+
+### Fires an astral rift event with optional DAYS and RANDOM
+### delay
+## scopes = { astral_rift }
+alias[effect:astral_rift_event] = {
+	id = <event.scopeless>
+	id = <event.astral_rift>
+	### optional: specify delay
+	## cardinality = 0..1
+	days = int
+	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
+	## cardinality = 0..1
+	random = int
+	### optional: specify scope overrides
+	## cardinality = 0..1
+	scopes = {
+		## cardinality = 0..1
+		from = scope[any]
+		## cardinality = 0..1
+		fromfrom = scope[any]
+		## cardinality = 0..1
+		fromfromfrom = scope[any]
+		## cardinality = 0..1
+		fromfromfromfrom = scope[any]
+	}
+}
+
+### Fills the astral rift event pool for every playable country.
+## scopes = { country }
+alias[effect:fill_astral_rift_event_pool] = {
+}
+
+### Fires a bypass event for the scoped bypass, with optional DAYS and RANDOM delay
+## scopes = { bypass }
+alias[effect:bypass_event] = {
+	id = <event.scopeless>
+	id = <event.situation>
+	## cardinality = 0..1
+	days = int
+	## cardinality = 0..1
+	random = int
+	## cardinality = 0..1
+	scopes = {
+		## cardinality = 0..1
+		from = scope[any]
+		## cardinality = 0..1
+		fromfrom = scope[any]
+		## cardinality = 0..1
+		fromfromfrom = scope[any]
+		## cardinality = 0..1
+		fromfromfromfrom = scope[any]
+	}
+}
+
+### Ends the Astral Rift exploration
+## scopes = { astral_rift }
+alias[effect:finish_astral_rift] = bool
+
+### Sets next Astral Rift event through an astral rift event ID, and another astral rift event ID to be called in case of a roll failed, alongside a trigger probability.	To fire an Astral Rift event immediately, use astral_rift_event instead.
+## scopes = { astral_rift }
+alias[effect:set_next_astral_rift_event] = {
+	id = <event>
+	### optional: specify astral rift event set when a roll fails
+	## cardinality = 0..1
+	### optional: specify astral rift event probability to trigger on a failed roll
+	on_roll_failed = <event>
+	## cardinality = 0..1
+	fail_probability = float
 }
 
 # missing effects in effects.log
@@ -7202,6 +7406,68 @@ alias[effect:ordered_observed_pre_ftl_within_border] = {
 ## scopes = { country sector }
 ## push_scope = country
 alias[effect:every_observed_pre_ftl_within_border] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through every astral rift - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+## scopes = any
+alias[effect:random_astral_rift] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+	### adds weights to affect the chance a specific object is selected
+	## cardinality = 0..1
+	weights = { alias_name[modifier_rule] = alias_match_left[modifier_rule] }
+}
+
+### Iterate through every astral rift - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
+## scopes = any
+alias[effect:ordered_astral_rift] = {
+	position = int
+	order_by = value_field
+	## cardinality = 0..1
+	inverse = bool
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through every astral rift - executes the enclosed effects on all of them for which the limit triggers return true
+## scopes = any
+alias[effect:every_astral_rift] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through every bypass - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+## scopes = any
+alias[effect:random_bypass] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+	### adds weights to affect the chance a specific object is selected
+	## cardinality = 0..1
+	weights = { alias_name[modifier_rule] = alias_match_left[modifier_rule] }
+}
+
+### Iterate through every bypass - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
+## scopes = any
+alias[effect:ordered_bypass] = {
+	position = int
+	order_by = value_field
+	## cardinality = 0..1
+	inverse = bool
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through every bypass - executes the enclosed effects on all of them for which the limit triggers return true
+## scopes = any
+alias[effect:every_bypass] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]

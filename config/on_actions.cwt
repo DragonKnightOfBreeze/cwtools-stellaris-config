@@ -71,6 +71,10 @@ on_actions = {
 
 	## replace_scopes = { this = country root = country }
 	## event_type = country
+	on_yearly_random_pulse_country_caravaneers_list = {}
+
+	## replace_scopes = { this = country root = country }
+	## event_type = country
 	on_bi_yearly_pulse_country = {}
 
 	## replace_scopes = { this = country root = country }
@@ -106,7 +110,15 @@ on_actions = {
 
 	## replace_scopes = { this = country root = country }
 	## event_type = country
+	on_five_year_random_pulse_country_fe_list = {}
+
+	## replace_scopes = { this = country root = country }
+	## event_type = country
 	on_decade_pulse_country = {}
+
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_decade_pulse_skrand_country = {}
 
 	## replace_scopes = { this = country root = country }
 	## event_type = country
@@ -265,7 +277,14 @@ on_actions = {
 	### From = Planet
 	## replace_scopes = { this = ship root = ship from = planet }
 	## event_type = ship
-	on_survey = {}
+	on_survey_planet = {}
+
+	### A ship has surveyed an Astral Rift.
+	### Scope = Ship
+	### From = Astral Rift
+	## replace_scopes = { this = ship root = ship from = astral_rift }
+	## event_type = ship
+	on_survey_astral_rift = {}
 
 	### A country has gained a surveyed status on a planet. Happens after "on_survey" if a science ship surveyed a planet. (Can also happen without a ship through changes in intel levels)
 	### Root = Planet
@@ -274,6 +293,14 @@ on_actions = {
 	## replace_scopes = { this = planet root = planet from = country formfrom = fleet }
 	## event_type = planet
 	on_planet_surveyed = {}
+
+	### A country has gained a surveyed status on an astral rift. Happens after "on_survey" if a science ship surveyed an astral rift. (Can also happen without a ship through changes in intel levels)
+	### Root = Astral Rift
+	### From = Country
+	### FromFrom = Fleet of the science ship that surveyed it, if any
+	## replace_scopes = { this = astral_rift root = astral_rift from = country formfrom = fleet }
+	## event_type = astral_rift
+	on_astral_rift_surveyed = {}
 
 	### A country has gained a surveyed status on a planet. Happens after "on_survey" if a science ship surveyed a planet.
 	### Root = Country
@@ -397,6 +424,12 @@ on_actions = {
 	## replace_scopes = { this = country root = country from = fleet }
 	## event_type = country
 	on_fleet_disbanded = {}
+
+	### This = owner of ship
+	### From = disbanded ship
+	## replace_scopes = { this = country root = country from = ship }
+	## event_type = country
+	on_ship_disbanded = {}
 
 	### This = owner of fleet
 	### From = fleet
@@ -1175,6 +1208,11 @@ on_actions = {
 	## event_type = planet
 	on_colony_25_years_old = {}
 
+	### Fires for each planet every month (counting up from colonisation date, includes home planet)
+	## replace_scopes = { this = planet root = planet }
+	## event_type = planet
+	on_colony_monthly_pulse = {}
+
 	### Fires for each planet every year (counting up from colonisation date, includes home planet)
 	## replace_scopes = { this = planet root = planet }
 	## event_type = planet
@@ -1189,6 +1227,10 @@ on_actions = {
 	## replace_scopes = { this = planet root = planet }
 	## event_type = planet
 	on_colony_10_year_pulse = {}
+
+	## replace_scopes = { this = pop root = pop }
+	## event_type = pop
+	on_colony_10_year_pulse_random_pop_events_list = {}
 
 	### a new leader is generated for an empire, to be available for recruitment
 	### scope: country, from: leader
@@ -1258,6 +1300,14 @@ on_actions = {
 	## replace_scopes = { this = fleet root = fleet from = system fromfrom = system }
 	## event_type = fleet
 	on_entering_shroud_tunnel = {}
+
+	### Called upon entering FTL (on-action name scripted on the Bypass type)
+	### THIS = Fleet
+	### FROM = System jumping to
+	### FROMFROM = System jumped from
+	## replace_scopes = { this = fleet root = fleet from = system fromfrom = system }
+	## event_type = fleet
+	on_entering_strange_wormhole = {}
 
 	### THIS = Ship
 	## replace_scopes = { this = ship root = ship }
@@ -1335,7 +1385,17 @@ on_actions = {
 	### This = Country
 	## replace_scopes = { this = country from = country }
 	## event_type = country
+	on_relic_received = {}
+
+	### This = Country
+	## replace_scopes = { this = country from = country }
+	## event_type = country
 	on_relic_activated = {}
+
+	### This = Country
+	## replace_scopes = { this = country from = country }
+	## event_type = country
+	on_relic_lost = {}
 
 	### This = Fleet ( science vessel )
 	### From = Archaeological Site
@@ -1703,6 +1763,35 @@ on_actions = {
 	## event_type = country
 	on_shroudwalker_insight_situation_finish = {}
 
+	### Executed when an astral rift spawns
+	## replace_scopes = { this = astral_rift root = astral_rift }
+	## event_type = astral_rift
+	on_astral_rift_spawned = {}
+
+	### Executed when the exploration of an astral rift starts
+	### THIS = Country: Explorer country
+	### FROM = AstralRift: Explored astral rift
+	### FROMFROM = Exploring Fleet
+	## replace_scopes = { this = country root = country from = astral_rift fromfrom = fleet }
+	## event_type = astral_rift
+	on_astral_rift_exploration_start = {}
+
+	### Executed when an astral rift event is about to be fired
+	### THIS = Country: Explorer country
+	### FROM = AstralRift: Explored astral rift
+	### FROMFROM = Exploring Fleet
+	## replace_scopes = { this = country root = country from = astral_rift fromfrom = fleet }
+	## event_type = astral_rift
+	on_astral_rift_pre_event_fire = {}
+
+	### Executed when the exploration of an astral rift ends
+	### THIS = Country: Explorer country
+	### FROM = AstralRift: Explored astral rift
+	### FROMFROM = Exploring Fleet
+	## replace_scopes = { this = country root = country from = astral_rift fromfrom = fleet }
+	## event_type = astral_rift
+	on_astral_rift_exploration_complete = {}
+
 	### Beholder Leader's Planetfall action
 	## replace_scopes = { this = planet root = planet }
 	## event_type = planet
@@ -1761,6 +1850,43 @@ on_actions = {
 	## replace_scopes = { this = country root = country }
 	## event_type = country
 	on_country_attacked = {}
+
+	### Fired when a bypass Dimensional Lock expires
+	### This = Bypass
+	## replace_scopes = { this = bypass root = bypass }
+	## event_type = bypass
+	on_dimensional_lock_expired = {}
+
+	### Fired when a Space Storm is created
+	### This = System containing the Storm
+	## replace_scopes = { this = system root = system }
+	## event_type = system
+	on_space_storm_created = {}
+
+	### Fired when a Space Storm is destroyed
+	### This = System containing the Storm
+	## replace_scopes = { this = system root = system }
+	## event_type = system
+	on_space_storm_destroyed = {}
+
+	## replace_scopes = { this = leader root = leader }
+	## event_type = leader
+	on_machine_leader_malfunction = {}
+
+	## replace_scopes = { this = leader root = leader }
+	## event_type = leader
+	on_synth_leader_malfunction = {}
+
+	## replace_scopes = { this = any root = any }
+	## event_type = any
+	on_galaxy_map_during_tutorial = {}
+
+	### Fired when a truce is over
+	### This = owner of the truce
+	### From = target of the truce
+	## replace_scopes = { this = country root = country from = country }
+	## event_type = country
+	on_truce_end = {}
 
 	# Scope:
 	# this/root = planet that have been fired upon

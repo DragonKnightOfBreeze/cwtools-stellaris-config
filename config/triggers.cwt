@@ -59,7 +59,7 @@ alias[trigger:relative_power] = {
 alias[trigger:has_election_type] = enum[election_type]
 
 ### Checks if the scope object has a certain modifier
-## scopes = { megastructure planet country ship pop fleet galactic_object pop_faction federation spy_network espionage_operation }
+## scopes = { megastructure planet country ship pop fleet galactic_object pop_faction federation spy_network espionage_operation astral_rift }
 alias[trigger:has_modifier] = <static_modifier>
 
 ### Checks if the country has a specific opinion modifier towards target country or anyone
@@ -114,7 +114,7 @@ alias[trigger:has_ship_flag] = value[ship_flag]
 ## severity = warning
 alias[trigger:has_global_flag] = value[global_flag]
 ### Checks if the specified variable is set on the current scope. Use to avoid unset variables errors
-## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 ## severity = warning
 alias[trigger:is_variable_set] = value[variable]
 ### Checks if the leader has a specific flag
@@ -342,7 +342,7 @@ alias[trigger:is_within_borders_of] = scope_group[target_country]
 ## scopes = { country }
 alias[trigger:has_non_aggression_pact] = scope_group[target_country]
 ### Checks if the planet/ship/fleet is controlled by the target country
-## scopes = { planet ship fleet }
+## scopes = { planet ship fleet astral_rift }
 alias[trigger:is_controlled_by] = scope_group[target_country]
 ### Checks if the country/planet is neighbors with target country
 ## scopes = { planet country ship fleet galactic_object }
@@ -792,7 +792,7 @@ alias[trigger:has_active_tradition] = <tradition>
 
 
 ### Checks a variable for the country/leader/planet/system/fleet
-## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[trigger:check_variable] = {
 	which = value[variable]
 	## cardinality = 1..2
@@ -978,20 +978,20 @@ alias[trigger:has_country_resource] = {
 	amount = value_field
 }
 ### Checks if the planet has a specific amount of a specific resource
-## scopes = { planet country deposit }
+## scopes = { planet country deposit astral_rift }
 alias[trigger:has_resource] = <resource>
 ### Checks if the planet has a specific amount of a specific resource
-## scopes = { planet country deposit }
+## scopes = { planet country deposit astral_rift }
 alias[trigger:has_resource] = bool
 ### Checks if the planet has a specific amount of a specific resource
-## scopes = { planet country deposit }
+## scopes = { planet country deposit astral_rift }
 alias[trigger:has_resource] = {
 	type = <resource>
 	amount = int #no variables here for some reason atm
 }
 
 ### Checks if the planet has any strategic resource
-## scopes = { planet }
+## scopes = { planet astral_rift }
 alias[trigger:has_strategic_resource] = bool
 
 ### Checks the country's monthly income of a specific resource
@@ -1531,7 +1531,7 @@ alias[trigger:is_scope_valid] = bool
 alias[trigger:is_species] = scalar #TODO species
 
 ### Checks if the planet/system has been survey by target country
-## scopes = { planet galactic_object }
+## scopes = { planet galactic_object astral_rift }
 alias[trigger:is_surveyed] = {
 	who = scope_group[target_country]
 	status = bool
@@ -2227,11 +2227,11 @@ alias[trigger:last_activated_relic] = <relic>
 alias[trigger:last_activated_relic] = <relic>
 
 ### Compares the last dice roll.
-## scopes = { archaeological_site first_contact }
+## scopes = { archaeological_site first_contact astral_rift }
 alias[trigger:is_site_last_die_result] == int_value_field
 
 ### Compares the current stage difficulty.
-## scopes = { archaeological_site first_contact }
+## scopes = { archaeological_site first_contact astral_rift }
 alias[trigger:is_current_stage_difficulty] == int_value_field
 
 ### Compares the current stage index.
@@ -2264,17 +2264,17 @@ alias[trigger:is_site_completed] = bool
 alias[trigger:is_site_under_excavation] = bool
 
 ### Compares the current stage discovery score.
-## scopes = { archaeological_site first_contact }
+## scopes = { archaeological_site first_contact astral_rift }
 alias[trigger:is_site_current_stage_score] == int_value_field
 ### Compares the current stage discovery score.
-## scopes = { archaeological_site first_contact }
+## scopes = { archaeological_site first_contact astral_rift }
 alias[trigger:is_site_current_stage_score] = lower_insight_score
 ### Compares the current stage discovery score.
-## scopes = { archaeological_site first_contact }
+## scopes = { archaeological_site first_contact astral_rift }
 alias[trigger:is_site_current_stage_score] = higher_insight_score
 
 ### Compares the current stage discovery score excluding the current die roll.
-## scopes = { archaeological_site first_contact }
+## scopes = { archaeological_site first_contact astral_rift }
 alias[trigger:is_site_current_stage_score_no_die] == int_value_field
 
 ### Checks last excavating country.
@@ -2714,7 +2714,7 @@ alias[trigger:is_capital_system] = bool
 
 ### Checks if the espionage operation has a certain modifier specific for the current stage
 ### has_modifier = <modifier>
-## scopes = { espionage_operation }
+## scopes = { espionage_operation astral_rift }
 alias[trigger:has_stage_modifier] = <static_modifier>
 
 ### Checks if the Galactic Defense Force or Imperial Armada exists
@@ -2722,7 +2722,7 @@ alias[trigger:has_stage_modifier] = <static_modifier>
 alias[trigger:galactic_defense_force_exists] = bool
 
 ### Checks a variable for the scope if a certain amount of arithmetic is done to it (note: the variable's value is not changed by this trigger)
-## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation }
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[trigger:check_variable_arithmetic] = {
 	which = value_field
 	## cardinality = 0..inf
@@ -2936,7 +2936,7 @@ alias[trigger:galactic_defense_force_exists] = bool
 
 ### Checks if the espionage operation has a certain modifier specific for the current stage
 ### has_modifier = <modifier>
-## scopes = { espionage_operation }
+## scopes = { espionage_operation astral_rift }
 alias[trigger:has_stage_modifier] = <static_modifier>
 
 ### Checks the number of unemployed pops on the planet
@@ -3485,6 +3485,84 @@ alias[trigger:is_on_galaxy_map] = bool
 ### Checks if the current player is currently paused.
 ## scopes = { planet country ship pop fleet }
 alias[trigger:is_paused] = bool
+
+# 3.10.0
+
+### Checks the scope leader's lifespan
+## scopes = { leader }
+alias[trigger:leader_lifespan] = int_value_field
+
+### Checks if the specified relic was the last lost one
+## scopes = { country }
+alias[trigger:last_lost_relic] = <relic>
+
+### Checks if the specified relic was the last received one
+## scopes = { country }
+alias[trigger:last_received_relic] = <relic>
+
+### Checks if the planet is an astral scar
+## scopes = { planet }
+alias[trigger:is_astral_scar] = bool
+
+### Returns true if the Bypass Lock can be renewed
+## scopes = { bypass }
+alias[trigger:can_lock_be_renewed] = bool
+
+### Checks current value for council legitimacy for the scoped country.
+## scopes = { country }
+alias[trigger:council_legitimacy] = int_value_field
+
+### Checks if the astral rift has a specific flag
+## scopes = { astral_rift }
+alias[trigger:has_astral_rift_flag] = value[astral_rift_flag]
+
+### Checks if the country has completed a specific event chain
+## scopes = { country }
+alias[trigger:has_completed_event_chain] = <event_chain>
+
+### Checks the distance of a controlled system to its owner's capital
+## scopes = { galactic_object }
+alias[trigger:distance_to_capital] = int_value_field
+
+### Returns true if the astral rift starting event pool is empty
+## scopes = { country }
+alias[trigger:is_astral_rift_pool_empty] = bool
+
+### Returns true if the scopes system contains at least one astral rift
+## scopes = { galactic_object }
+alias[trigger:has_astral_rift] = bool
+
+### Checks if an archaeological site has progression locked or not.
+## scopes = { archaeological_site }
+alias[trigger:is_site_locked] = bool
+
+### Checks the number of days left for the Relics Triumph
+## scopes = { country }
+alias[trigger:triumph_days_left] = int_value_field
+
+### Checks the difference between an explorer's level and an Astral Rift current difficulty
+## scopes = { astral_rift }
+alias[trigger:astral_rift_relative_difficulty] = int_value_field
+
+### Return how many Astral Rifts were completed by the country
+## scopes = { country }
+alias[trigger:astral_rifts_completed] = int_value_field
+
+### Returns true if the astral rift with the given id is or was explored by the scoped country
+## scopes = { country }
+alias[trigger:is_astral_rift_explored] = <astral_rift>
+
+### Returns true if the scope bypass is of type <type>
+## scopes = { bypass }
+alias[trigger:is_bypass_type] = <bypass>
+
+### Returns true if the bypass is locked by a dimensional lock
+## scopes = { bypass }
+alias[trigger:has_lock] = bool
+
+### Checks if the scoped fleet can go MIA.
+## scopes = { fleet }
+alias[trigger:can_go_mia] = bool
 
 # scope links
 
@@ -4714,6 +4792,32 @@ alias[trigger:any_observed_pre_ftl_within_border] = single_alias_right[trigger_c
 ## scopes = { country sector }
 ## push_scope = country
 alias[trigger:count_observed_pre_ftl_within_border] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	count = int_value_field
+	count = all
+}
+
+### Iterate through every astral rift - checks whether the enclosed triggers return true for any of them
+## scopes = any
+alias[trigger:any_astral_rift] = single_alias_right[trigger_clause]
+
+### Iterate through every astral rift - checks whether the enclosed triggers return true for X/all of them
+## scopes = any
+alias[trigger:count_astral_rift] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	count = int_value_field
+	count = all
+}
+
+### Iterate through every bypass - checks whether the enclosed triggers return true for any of them
+## scopes = any
+alias[trigger:any_bypass] = single_alias_right[trigger_clause]
+
+### Iterate through every bypass - checks whether the enclosed triggers return true for X/all of them
+## scopes = any
+alias[trigger:count_bypass] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 	count = int_value_field

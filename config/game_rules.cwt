@@ -488,10 +488,15 @@ game_rules = {
 	## replace_scopes = { this = pop root = pop }
 	can_fill_specialist_job = {}
 
-	### checked if job's possible_precalc = can_fill_ruler_job
+	### checked if job's possible_precalc = can_fill_precursor_job
 	### this/root = pop
 	## replace_scopes = { this = pop root = pop }
 	can_fill_ruler_job = {}
+
+	### checked if job's possible_precalc = can_fill_ruler_job
+	### this/root = pop
+	## replace_scopes = { this = pop root = pop }
+	can_fill_precursor_job = {}
 
 	### checked if job's possible_precalc = can_fill_worker_job
 	### this/root = pop
@@ -588,6 +593,16 @@ game_rules = {
 	## replace_scopes = { this = fleet root = country from = country }
 	can_trade_fleet = {}
 
+	### this = leader
+	### from = country scope
+	## replace_scopes = { this = leader from = country }
+	can_leader_be_ruler = {}
+
+	### this = leader
+	### from = country scope
+	## replace_scopes = { this = leader from = country }
+	can_leader_be_councilor = {}
+
 	### Determines if pre-ftl country is unaware of alien life
 	### this: pre-ftl country
 	## replace_scopes = { this = country }
@@ -647,4 +662,43 @@ game_rules = {
 	### From = planet
 	## replace_scopes = { this = country root = country from = planet }
 	can_build_starbase_around = {}
+
+	### Checks if the country's capital has any kind of relevancy (aka is the capital in the galaxy really theirs)
+	### Root/this = country
+	## replace_scopes = { this = country root = country }
+	has_inworld_capital = {}
+
+	### Checks if target country has economy power relative to begin with
+	### Root/this = trading country
+	### From = country traded with
+	## replace_scopes = { this = country root = country from = country }
+	has_relative_economy_power = {}
+
+	### Checks if the country can trade sensor
+	### Root/this = trading country
+	### From = country traded with
+	## replace_scopes = { this = country root = country from = country }
+	can_trade_sensor = {}
+
+	### Checks if the country can trade favor
+	### Root/this = trading country
+	### From = country traded with
+	## replace_scopes = { this = country root = country from = country }
+	can_trade_favor = {}
+
+	### THIS = country
+	### FROM = Astral Rift checked
+	## replace_scopes = { this = country from = astral_rift }
+	can_interact_with_astral_rift = {}
+
+	### THIS = country
+	### FROM = Astral Rift checked
+	## replace_scopes = { this = country from = astral_rift }
+	can_explore_astral_rift = {}
+
+	### Checks if the selected leader can explore the rift
+	### THIS = leader
+	### FROM = Astral Rift checked
+	## replace_scopes = { this = leader from = astral_rift }
+	can_leader_explore_astral_rift = {}
 }

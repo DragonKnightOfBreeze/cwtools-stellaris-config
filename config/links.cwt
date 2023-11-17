@@ -22,8 +22,8 @@ links = {
 	### Scopes to the owner of the current object. Works on any object that could be construed as being owned by a country (incl. planets, ships, fleets, leaders, pops, solar systems, pop factions, megastructures, first contacts, spy networks, espionage operations, armies, starbases, deposits, sectors, arc sites)
 	owner = {
 		input_scopes = {
-			megastructure planet country ship pop fleet galactic_object leader army pop_faction starbase deposit
-			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris
+			megastructure planet country ship pop fleet galactic_object leader army bypass pop_faction starbase deposit
+			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris astral_rift
 		}
 		output_scope = country
 	}
@@ -49,7 +49,7 @@ links = {
 	}
 	### Scopes from an object to its leader, e.g. country->ruler, fleet->admiral/scientist, sector->governor, army->general, arc site->scientist...
 	leader = {
-		input_scopes = { planet country ship fleet leader army pop_faction federation archaeological_site first_contact spy_network espionage_operation }
+		input_scopes = { planet country ship fleet leader army pop_faction federation archaeological_site first_contact spy_network espionage_operation astral_rift }
 		output_scope = leader
 	}
 	### Scopes to the last leader that was created anywhere in the game.
@@ -60,8 +60,8 @@ links = {
 	### Scopes from an object to the solar system it is in. Works on all objects visible in star system view.
 	solar_system = {
 		input_scopes = { #matches celestial_coordinate scope_group
-			megastructure planet country ship pop fleet galactic_object leader army ambient_object starbase deposit
-			archaeological_site first_contact debris
+			megastructure planet country ship pop fleet galactic_object leader army ambient_object bypass starbase deposit
+			archaeological_site first_contact debris astral_rift
 		}
 		output_scope = galactic_object
 	}
@@ -110,9 +110,9 @@ links = {
 		input_scopes = { all }
 		output_scope = fleet
 	}
-	### Scopes from a ship, starbase or leader to its fleet, or from an army to the fleet its army transport is part of.
+	### Scopes from a ship, starbase, astral rift or leader to its fleet, or from an army to the fleet its army transport is part of.
 	fleet = {
-		input_scopes = { ship fleet leader army starbase }
+		input_scopes = { ship fleet leader army starbase astral_rift }
 		output_scope = fleet
 	}
 	### Scopes from an arc site to the fleet whose leader is currently investigating it.
@@ -161,8 +161,8 @@ links = {
 	### Scopes to the main species of the owner of the current object. Works in every scope that 'owner' would work in.
 	owner_main_species = {
 		input_scopes = { #matches owner
-			megastructure planet country ship pop fleet galactic_object leader army species pop_faction starbase deposit
-			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris
+			megastructure planet country ship pop fleet galactic_object leader army species bypass pop_faction starbase deposit
+			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris astral_rift
 		}
 		output_scope = species
 	}
@@ -194,7 +194,7 @@ links = {
 	### Scopes from an object to the sector it is in. Works on all objects visible objects visible in star system view, plus star systems themselves and leaders (scopes to the sector the leader is currently located in, not necessarily the one they are assigned to as a governor).
 	sector = {
 		input_scopes = {
-			megastructure planet ship pop fleet galactic_object leader army ambient_object starbase deposit
+			megastructure planet ship pop fleet galactic_object leader army ambient_object bypass starbase deposit
 			sector archaeological_site first_contact debris
 		}
 		output_scope = sector
@@ -202,21 +202,22 @@ links = {
 	### Scopes to the ruler of a country (or the ruler of the object's owner).
 	ruler = {
 		input_scopes = { #matches owner
-			megastructure planet country ship pop fleet galactic_object leader army pop_faction starbase deposit
-			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris
+			megastructure planet country ship pop fleet galactic_object leader army bypass pop_faction starbase deposit
+			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris astral_rift
 		}
 		output_scope = leader
 	}
 	### Scopes to the heir of a country (or the heir of the object's owner).
 	heir = {
 		input_scopes = { #matches owner
-			megastructure planet country ship pop fleet galactic_object leader army pop_faction starbase deposit sector archaeological_site first_contact spy_network espionage_operation agreement situation debris
+			megastructure planet country ship pop fleet galactic_object leader army bypass pop_faction starbase deposit
+			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris astral_rift
 		}
 		output_scope = leader
 	}
 	### Scopes from an object to the primary star (planet scope) of the system it is in. Works on all objects visible in star system view.
 	star = {
-		input_scopes = { megastructure planet ship fleet galactic_object ambient_object starbase archaeological_site first_contact debris }
+		input_scopes = { megastructure planet ship fleet galactic_object ambient_object bypass starbase archaeological_site first_contact debris astral_rift }
 		output_scope = planet
 	}
 	### Scopes to the last created ship design
@@ -241,9 +242,9 @@ links = {
 	}
 	### Scopes from an object to the primary star (planet scope) of the system it is in. Works on all objects visible in star system view.
 	system_star = {
-		input_scopes = { #matches celestial_coordinate scope_group
-			megastructure planet country ship pop fleet galactic_object leader army ambient_object starbase deposit
-			archaeological_site first_contact debris
+		input_scopes = {
+			megastructure planet country ship pop fleet galactic_object leader army ambient_object bypass starbase deposit
+			archaeological_site first_contact debris astral_rift
 		}
 		output_scope = Planet
 	}
@@ -368,6 +369,24 @@ links = {
 	### Scopes to the leader's country of origin
 	creator = {
 		input_scopes = { leader }
+		output_scope = country
+	}
+
+	# 3.10
+
+	### Scopes from an astral rift to the country whose leader is exploring, or has explored it.
+	explorer = {
+		input_scopes = { astral_rift }
+		output_scope = country
+	}
+	### Scopes to the astral rift in the same system.
+	astral_rift = {
+		input_scopes = { galactic_object leader }
+		output_scope = astral_rift
+	}
+	### Scopes from a bypass to the country who locked it.
+	lock_country = {
+		input_scopes = { bypass }
 		output_scope = country
 	}
 
