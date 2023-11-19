@@ -1,18 +1,4 @@
-
 enums = {
-	enum[leader_class] = {
-		scientist
-		admiral
-		governor
-		general
-		envoy
-	}
-	enum[leader_classes_no_ruler] = {
-		scientist
-		admiral
-		governor
-		general
-	}
 	enum[days_months_year] = {
 		days
 		months
@@ -164,6 +150,7 @@ enums = {
 		planet_killer_weapon_windup_order
 		planet_killer_weapon_fire_order
 		explore_bypass_order
+		explore_astral_rift_fleet_order
 		use_bypass_order
 		jumpdrive_order
 		jumpdrive_windup
@@ -320,10 +307,11 @@ enums = {
 		species
 	}
 	enum[job_trigger] = {
-		can_fill_drone_job
-		can_fill_worker_job
-		can_fill_specialist_job
 		can_fill_ruler_job
+		can_fill_specialist_job
+		can_fill_worker_job
+		can_fill_drone_job
+		can_fill_precursor_job
 	}
 	enum[agreement_subject_expand] = {
 		can_expand

@@ -24,10 +24,6 @@ types = {
 			leader_class = $any
 			ethic_destiny_trait = yes
 		}
-		subtype[councilor_trait] = {
-			leader_class = $any
-			councilor_trait = yes
-		}
 		subtype[species_trait] = {
 			## cardinality = 0..0
 			leader_class = $any
@@ -106,7 +102,7 @@ trait = {
 		ethic_destiny_trait = bool
 		### Is this trait only active if the leader is on the Council? Default is no.
 		## cardinality = 0..1
-		councilor_trait = bool
+		force_councilor_trait = bool
 		### default: false
 		## cardinality = 0..1
 		veteran_class_locked_trait = bool
@@ -148,9 +144,6 @@ trait = {
 		### Is this a negative trait? Default is no.
 		## cardinality = 0..1
 		negative = bool
-		### Does the "modifier" block apply to empire if leader is ruler? Default is no.
-		## cardinality = 0..1
-		is_councilor_trait_for_ruler = bool
 
 		### Default is yes.
 		## cardinality = 0..1
@@ -184,6 +177,9 @@ trait = {
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
 		planet_modifier = single_alias_right[modifier_clause]
+		## cardinality = 0..1
+		## replace_scopes = { this = fleet root = fleet }
+		fleet_modifier = single_alias_right[modifier_clause]
 		### Modifier applied to system if General or Governor is assigned to planet within it.
 		## cardinality = 0..1
 		## replace_scopes = { this = system root = system }
@@ -191,26 +187,61 @@ trait = {
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
 		assist_research_planet_modifier = single_alias_right[modifier_clause]
+		## cardinality = 0..1
+		## replace_scopes = { this = sector root = sector }
+		sector_modifier = single_alias_right[modifier_clause]
+		## cardinality = 0..1
+		## replace_scopes = { this = army root = army }
+		army_modifier = single_alias_right[modifier_clause]
+		## cardinality = 0..1
+		## replace_scopes = { this = country root = country }
+		galcom_modifier = single_alias_right[modifier_clause]
+		## cardinality = 0..1
+		## replace_scopes = { this = federation root = federation }
+		federation_modifier = single_alias_right[modifier_clause]
+		## cardinality = 0..1
+		## replace_scopes = { this = planet root = planet }
+		background_planet_modifier = single_alias_right[modifier_clause]
+		## cardinality = 0..1
+		## replace_scopes = { this = country root = country }
+		councilor_modifier = single_alias_right[modifier_clause]
 
 		### Modifier applied to the leader itself if the given condition is fullfilled.
 		## cardinality = 0..inf
 		## replace_scopes = { this = leader root = leader }
-		triggered_self_modifier = single_alias_right[triggered_modifier_clause]
+		triggered_self_modifier = single_alias_right[triggered_modifier_by_leader_clause]
 		### Modifier applied to location the leader is assigned to if the given condition is fullfilled.
 		## cardinality = 0..inf
 		## replace_scopes = { this = any root = any }
-		triggered_modifier = single_alias_right[triggered_modifier_clause]
+		triggered_modifier = single_alias_right[triggered_modifier_by_leader_clause]
 		### Modifier applied to the planet on which General is assigned to defend if the given condition is fullfilled.
 		## cardinality = 0..inf
-		## replace_scopes = { this = planet root = planet }
-		triggered_planet_modifier = single_alias_right[triggered_modifier_clause]
-		# NOTE Should exist, but not referred in 000_documentation_leader_traits.txt
+		## replace_scopes = { this = planet root = planet from = planet }
+		triggered_planet_modifier = single_alias_right[triggered_modifier_by_leader_clause]
 		## cardinality = 0..inf
-		## replace_scopes = { this = system root = system }
-		triggered_system_modifier = single_alias_right[triggered_modifier_clause]
+		## replace_scopes = { this = fleet root = fleet from = fleet }
+		triggered_fleet_modifier = single_alias_right[triggered_modifier_by_leader_clause]
 		## cardinality = 0..inf
-		## replace_scopes = { this = planet root = planet }
-		assist_triggered_system_modifier = single_alias_right[triggered_modifier_clause]
+		## replace_scopes = { this = system root = system from = system }
+		triggered_system_modifier = single_alias_right[triggered_modifier_by_leader_clause]
+		## cardinality = 0..inf
+		## replace_scopes = { this = planet root = sector from = sector }
+		triggered_sector_modifier = single_alias_right[triggered_modifier_by_leader_clause]
+		## cardinality = 0..inf
+		## replace_scopes = { this = army root = army from = army }
+		triggered_army_modifier = single_alias_right[triggered_modifier_by_leader_clause]
+		## cardinality = 0..inf
+		## replace_scopes = { this = country root = country from = country }
+		triggered_galcom_modifier = single_alias_right[triggered_modifier_by_leader_clause]
+		## cardinality = 0..inf
+		## replace_scopes = { this = federation root = federation from = federation }
+		triggered_federation_modifier = single_alias_right[triggered_modifier_by_leader_clause]
+		## cardinality = 0..inf
+		## replace_scopes = { this = planet root = planet from = planet }
+		triggered_background_planet_modifier = single_alias_right[triggered_modifier_by_leader_clause]
+		## cardinality = 0..inf
+		## replace_scopes = { this = country root = country from = country }
+		triggered_councilor_modifier = single_alias_right[triggered_modifier_by_leader_clause]
 
 		### Show key if trigger/exclusive_trigger is true.
 		## cardinality = 0..1
@@ -245,7 +276,7 @@ trait = {
 		## cardinality = 0..1
 		leader_class = {
 			## cardinality = 1..5
-			enum[leader_class]
+			<leader_class>
 		}
 		### Limits which leader classes that can get this trait.
 		## cardinality = 0..1
@@ -261,11 +292,11 @@ trait = {
 
 		subtype[subclass_trait] = {
 			## cardinality = 0..inf
-			subclass_background_icon = <sprite>
+			background_icon = <sprite>
 		}
 		subtype[destiny_trait] = {
 			## cardinality = 0..inf
-			destiny_background_icon = <sprite>
+			background_icon = <sprite>
 		}
 
 		### AND - Trait only available if the leaders species has this trait.

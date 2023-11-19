@@ -10,6 +10,8 @@ types = {
 			type_name = "$_type"
 			## optional
 			desc = "$_desc"
+			## optional
+			active_tooltip = active_tooltip
 		}
 	}
 }
@@ -27,10 +29,18 @@ situation_type = {
 	category = enum[situation_category]
 
 	## cardinality = 0..inf
+	title = {
+		trigger = single_alias_right[trigger_clause]
+		text = localisation
+	}
+	## cardinality = 0..inf
 	desc = {
 		trigger = single_alias_right[trigger_clause]
 		text = localisation
 	}
+	## cardinality = 0..1
+	active_tooltip = localisation
+
 	## cardinality = 0..1
 	on_start = single_alias_right[effect_clause]
 	## cardinality = 0..1

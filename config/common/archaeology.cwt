@@ -49,9 +49,13 @@ archaeological_site_type = {
 		trigger = single_alias_right[trigger_clause]
 		text = localisation
 	}
+	
 	### Max instances of this type a galaxy can have, only checked when using 'create_archaeological_site = random'
 	## cardinality = 0..1
 	max_instances = int[1..inf]
+	## cardinality = 0..1
+	notification_duration = int
+
 	### Weight used for random weight, only used when using 'create_archaeological_site = random'. scriptable value type is defined either by '<int>' or '<mean time to happen>'.
 	## cardinality = 0..1
 	## replace_scopes = { root = planet this = planet }

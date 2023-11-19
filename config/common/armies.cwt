@@ -33,13 +33,6 @@ types = {
 ## replace_scopes = { this = planet root = planet from = species }
 army = {
 	## cardinality = 0..1
-	## replace_scopes = { this = country root = country }
-	resources = {
-		category = <economic_category>
-		alias_name[economic_template] = alias_match_left[economic_template]
-	}
-
-	## cardinality = 0..1
 	### Specify another army type to use names from, instead of having to copy them for each name list.
 	use_armynames_from = <army>
 	## cardinality = 0..1
@@ -76,11 +69,20 @@ army = {
 	rebel = bool
 	## cardinality = 0..1
 	occupation = bool
+
 	## cardinality = 0..1
 	prerequisites = {
 		## cardinality = 0..inf
 		<technology>
 	}
+
+	## cardinality = 0..1
+	## replace_scopes = { this = country root = country }
+	resources = {
+		category = <economic_category>
+		alias_name[economic_template] = alias_match_left[economic_template]
+	}
+
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	show_tech_unlock_if = single_alias_right[trigger_clause]
@@ -95,6 +97,17 @@ army = {
 	on_queued = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	on_unqueued = single_alias_right[effect_clause]
+
+	## cardinality = 0..1
+	## replace_scopes = { this = country root = country }
+	army_modifier = single_alias_right[modifier_clause]
+
+	## cardinality = 0..1
+	## replace_scopes = { this = country root = country }
+	ai_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
 	subtype[pop_spawned] = {
 		## cardinality = 0..1
 		## replace_scopes = { this = pop root = pop }
@@ -105,11 +118,5 @@ army = {
 			factor = float
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		}
-	}
-
-	## cardinality = 0..1
-	## replace_scopes = { this = country root = country }
-	ai_weight = {
-		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 }

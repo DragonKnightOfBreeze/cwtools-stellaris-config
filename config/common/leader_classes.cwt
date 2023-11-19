@@ -2,12 +2,18 @@ types = {
 	type[leader_class] = {
 		path = "game/common/leader_classes"
 		file_extension = .txt
+		subtype[capped] = {
+			leader_capacity = int[1..inf]
+		}
 		localisation = {
 			name = name
 			## optional
 			name_plural = name_plural
 			## optional
 			desc = description"
+		}
+		images = {
+			icon = GFX_text_$ # <sprite>
 		}
 	}
 }
@@ -16,41 +22,113 @@ leader_class = {
 	name = localisation
 	name_plural = localisation
 	description = localisation
-	## cardinality = 0..1
-	can_lead_navy = bool
+
+	### default: no
 	## cardinality = 0..1
 	can_lead_army = bool
+	### default: no
 	## cardinality = 0..1
-	can_research = bool
+	can_lead_navy = bool
+	### default: no
 	## cardinality = 0..1
 	can_govern_planet = bool
-	## cardinality = 0..1
-	can_rule_empire = bool
+	### default: no
 	## cardinality = 0..1
 	can_be_envoy = bool
+	### default: no
+	## cardinality = 0..1
+	can_research_tech = bool
+	### default: no
+	## cardinality = 0..1
+	can_research_special_projects = bool
+	### default: no
+	## cardinality = 0..1
+	can_crew_science_ship = bool
+	### default: no
+	## cardinality = 0..1
+	can_research_anomalies = bool
+	### default: no
+	## cardinality = 0..1
+	can_research_archaeology_site = bool
+	### default: no
+	## cardinality = 0..1
+	can_survey = bool
+	### default: no
+	## cardinality = 0..1
+	can_boost_cloaking_detection = bool
+	### default: no
+	## cardinality = 0..1
+	can_explore_rifts = bool
+	### default: no
+	## cardinality = 0..1
+	can_conduct_active_reconnaissance = bool
+	### default: no
+	## cardinality = 0..1
+	can_govern_planet = bool
+
+	### default: yes
+	## cardinality = 0..1
+	can_have_traits = bool
+	### default: yes
+	## cardinality = 0..1
+	can_rule_empire = bool
+	### default: yes
+	## cardinality = 0..1
+	recruitable = bool
+
+	## cardinality = 0..1
+	can_be_assigned_to_federation = bool
+	## cardinality = 0..1
+	can_be_assigned_to_galactic_community = bool
+
 	## cardinality = 0..1
 	max_trait_points = int[0..inf]
 	## cardinality = 0..1
-	can_have_traits = bool
+	### maximum number of leader of this type before you get maluses, 0 means no cap
+	leader_capacity = int[0..inf]
+
+	### used for backwards compatibility. When "old_class" appears in an old save, it is converted to this class at loading
+	### can appear multiple times
+	## cardinality = 0..inf
+	replaces_old_class = scalar # use scalar to represent old leader class
+
 	## cardinality = 0..1
 	resources = {
 		## cardinality = 0..1
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
-	default_category = <leader_class>
-	## cardinality = 0..1
-	assignment_cooldown = int[0..inf]
+
+	### used to determine which type of leader the AI prefers (frex: commanders for warlike leaders, and governor for pacifists)
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
+
+	### used to evaluate a specific leader for an assignment to the class,
+	### scope is the leader, from is the leader location (can be a planet, a fleet, an army etc)
+	## cardinality = 0..1
+	## replace_scopes = { this = leader root = leader }
+	ai_leader_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
 	## cardinality = 0..1
 	minimum_ai_target = int
+
+	## cardinality = 0..1
+	default_category = <leader_class>
+	## cardinality = 0..1
+	assignment_cooldown = int[0..inf]
+
 	## cardinality = 0..1
 	leader_background_job_weight = {
 		## cardinality = 0..inf
 		<job> = int
 	}
+
+	### 1-based index in the icon file. might be replaced by an icon name later
+	## cardinality = 0..1
+	icon = int
 }

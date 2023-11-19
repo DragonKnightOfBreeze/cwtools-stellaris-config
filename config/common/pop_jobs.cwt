@@ -76,14 +76,6 @@ job = {
 	}
 
 	## cardinality = 0..1
-	possible_precalc = can_fill_ruler_job
-	## cardinality = 0..1
-	possible_precalc = can_fill_specialist_job
-	## cardinality = 0..1
-	possible_precalc = can_fill_worker_job
-	## cardinality = 0..1
-	possible_precalc = can_fill_drone_job
-	## cardinality = 0..1
 	possible_precalc = enum[job_trigger]
 
 	## cardinality = 0..1

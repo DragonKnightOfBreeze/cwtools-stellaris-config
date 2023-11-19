@@ -26,7 +26,7 @@ special_project = {
 	key = localisation
 	## cardinality = 0..1
 	event_chain = <event_chain>
-	
+
 	## cardinality = 0..1
 	cost = int
 	## cardinality = 0..1
@@ -57,13 +57,13 @@ special_project = {
 	timelimit = int
 	## cardinality = 0..1
 	days_to_research = int
-	
+
 	## cardinality = 0..inf
 	desc = {
 		text = localisation
 		trigger = single_alias_right[trigger_clause]
 	}
-	
+
 	## cardinality = 0..1
 	same_option_group_as = {
 		## cardinality = 1..100
@@ -92,7 +92,7 @@ special_project = {
 		shipclass_transport = int
 
 		## cardinality = 0..1
-		leader = enum[leader_class]
+		leader = <leader_class>
 
 		## cardinality = 0..1
 		assault_armies = int

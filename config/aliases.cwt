@@ -173,6 +173,37 @@ single_alias[triggered_modifier_by_situation_clause] = {
 	multiplier = value_field
 }
 
+single_alias[triggered_modifier_by_leader_clause] = {
+	## cardinality = 0..1
+	## push_scope = leader
+	potential = single_alias_right[trigger_clause]
+	## cardinality = 0..1
+	key = localisation
+
+	## cardinality = 0..1
+	modifier = single_alias_right[modifier_clause]
+	## cardinality = 0..inf
+	alias_name[modifier] = alias_match_left[modifier]
+
+	## cardinality = 0..1
+	description = localisation
+	## cardinality = 0..1
+	description_parameters = {
+		### Any value can go here to be used in localisation
+		## cardinality = 0..inf
+		$localisation_parameter = scalar
+	}
+	## cardinality = 0..1
+	show_only_custom_tooltip = bool
+	## cardinality = 0..1
+	custom_tooltip = localisation
+
+	## cardinality = 0..inf
+	mult = value_field
+	## cardinality = 0..inf
+	multiplier = value_field
+}
+
 # triggered desc
 
 single_alias[triggered_desc_clause] = {

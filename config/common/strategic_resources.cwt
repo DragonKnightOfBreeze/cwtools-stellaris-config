@@ -45,6 +45,12 @@ resource = {
 	## cardinality = 0..1
 	special_max_amount = bool
 
+	## cardinality = 0..1
+	## replace_scopes = { root = country this = country }
+	dynamic_capacity = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
 	### default yes, only implemented for tech resources
 	## cardinality = 0..1
 	allow_deficit = bool

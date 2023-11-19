@@ -33,6 +33,12 @@ economic_category = {
 	## cardinality = 0..1
 	modifier_category = enum[scripted_modifier_category]
 
+	### default: no
+	## cardinality = 0..1
+	add_unscaled_value_to_tooltip = bool
+	## cardinality = 0..1
+	scaled_value_key = localisation
+
 	## cardinality = 0..1
 	hidden = bool
 

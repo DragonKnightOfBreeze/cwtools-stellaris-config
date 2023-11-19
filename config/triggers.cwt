@@ -644,7 +644,7 @@ alias[trigger:is_designable] = bool
 
 ### Checks if the leader is of a specific class
 ## scopes = { leader }
-alias[trigger:leader_class] = enum[leader_class]
+alias[trigger:leader_class] = <leader_class>
 
 ### Checks if the observation post has a specific mission
 ## scopes = { fleet }

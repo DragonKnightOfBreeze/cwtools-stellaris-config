@@ -798,7 +798,7 @@ alias[effect:change_government] = {
 ## scopes = { planet country ship fleet leader army }
 alias[effect:kill_leader] = {
 	## cardinality = 0..1
-	type = enum[leader_class]
+	type = <leader_class>
 	## cardinality = 0..1
 	type = random
 	## cardinality = 0..1
@@ -1017,6 +1017,9 @@ alias[effect:add_monthly_resource_mult] = {
 ### Adds a specific trait to the scoped leader
 ## scopes = { leader }
 alias[effect:add_trait] = <trait.leader_trait>
+### Adds a specific trait to the scoped leader
+## scopes = { leader }
+alias[effect:add_trait] = random_common
 ### Adds a specific trait to the scoped leader
 ## scopes = { leader }
 alias[effect:add_trait] = random_negative
@@ -1729,7 +1732,7 @@ alias[effect:create_leader] = {
 	### Other scopes will simply default to this.owner_main_species
 	## cardinality = 0..1
 	species = enum[buildable_pop_species]
-	class = enum[leader_class]
+	class = <leader_class>
 	class = random
 	class = random_ruler
 	### The leader skill level, minimum LEADER_SKILL_MIN and maximum LEADER_MAX_SKILL_CAP.
@@ -1827,7 +1830,7 @@ alias[effect:clone_leader] = {
 	## cardinality = 0..1
 	species = enum[buildable_pop_species]
 	## cardinality = 0..1
-	class = enum[leader_class]
+	class = <leader_class>
 	## cardinality = 0..1
 	class = random
 	## cardinality = 0..1
@@ -2094,6 +2097,8 @@ alias[effect:spawn_natural_wormhole] = {
 	}
 	## cardinality = 0..1
 	random_pos = bool
+	## cardinality = 0..1
+	graphics_entity_name = <model_entity>
 }
 
 ### Link the wormhole from the scoped system to the wormhole in the target system.
@@ -2519,6 +2524,8 @@ alias[effect:create_message] = {
 	custom_toast_content_icon = <sprite>
 	## cardinality = 0..1
 	target = scope[any]
+	## cardinality = 0..1
+	recipient = scope[any]
 	## cardinality = 0..100
 	variable = {
 		## cardinality = 0..1
@@ -2638,7 +2645,7 @@ alias[effect:create_saved_leader] = {
 	## cardinality = 0..1
 	class = random
 	## cardinality = 0..1
-	class = enum[leader_class]
+	class = <leader_class>
 	species = scope_group[target_species]
 	species = enum[buildable_pop_species]
 	## cardinality = 0..1
@@ -3149,6 +3156,9 @@ alias[effect:spawn_planet] = {
 	size = random
 	## cardinality = 0..1
 	has_ring = bool
+	### default: no
+	## cardinality = 0..1
+	spawn_beyond_gravity_well = bool
 	## cardinality = 0..1
 	orbit_angle = random
 	## cardinality = 0..1
@@ -4563,6 +4573,7 @@ alias[effect:remove_astral_rift_flag] = value[astral_rift_flag]
 ## scopes = { planet country pop fleet }
 alias[effect:export_modifier_duration_to_variable] = {
 	modifier = <modifier>
+	modifier = <static_modifier>
 	variable = value[variable]
 }
 
@@ -4584,6 +4595,7 @@ alias[effect:spawn_astral_rift] = {
 	### default = no, exclusive with relative_to and in_place_of
 	## cardinality = 0..1
 	random_pos = bool
+	## cardinality = 0..1
 	orbit_distance = int
 	orbit_angle = int
 	## cardinality = 0..1

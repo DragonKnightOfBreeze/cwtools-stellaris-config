@@ -125,6 +125,12 @@ megastructure = {
 	}
 	## cardinality = 0..1
 	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }
+	on_build_queued = single_alias_right[effect_clause]
+	## cardinality = 0..1
+	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }
+	on_build_unqueued = single_alias_right[effect_clause]
+	## cardinality = 0..1
+	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }
 	on_build_start = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = system root = system from = country }
@@ -145,6 +151,8 @@ megastructure = {
 	### the type of constructions that block (and are in turn blocked by) this construction, default: multi_stage_type
 	## cardinality = 0..1
 	construction_blocks_and_blocked_by = enum[megastructure_block_type]
+	## cardinality = 0..1
+	build_megastructure_no_cost_localization_key = localisation
 
 	## cardinality = 0..1
 	victory_score = int

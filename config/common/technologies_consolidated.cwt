@@ -119,7 +119,7 @@ technology = {
 	## cardinality = 0..1
 	feature_flags = {
 		## cardinality = 0..100
-		enum[feature_flag]
+		value[feature_flag]
 	}
 
 	## cardinality = 0..1
@@ -165,38 +165,6 @@ enums = {
 		diplo_action
 		feature
 		resource
-	}
-	enum[feature_flag] = {
-		experimental_subspace_navigation
-		robot_leaders
-		megaengineering
-		assist_research
-		tech_automated_exploration
-		wormhole_stabilization
-		gateway_activation
-		gateway_construction
-		jump_method
-		planetary_ftl_inhibitor
-		build_terraform_station
-		terraform_inhabited
-		uplifting
-		modify_traits
-		pop_self_modification
-		habitability_gene_modding
-		bliss_standard
-		campaign_edicts
-		unity_ambitions
-		modify_robots
-		advanced_gene_modding
-		add_advanced_traits
-		droids
-		robots
-		synths
-		unlock_arcane_deciphering
-		unlocks_auto_research
-		hyper_relay_construction
-		active_reconnaissance_unlocked
-		assist_cloaking_detection_unlocked
 	}
 	enum[technology_area] = {
 		engineering

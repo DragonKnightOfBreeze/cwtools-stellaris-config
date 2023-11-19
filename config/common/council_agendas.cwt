@@ -24,6 +24,10 @@ agenda = {
 	## cardinality = 0..1
 	allow = single_alias_right[trigger_clause]
 	## cardinality = 0..1
+	initial_effect_custom_loc = localisation
+	## cardinality = 0..1
+	init_effect = single_alias_right[effect_clause]
+	## cardinality = 0..1
 	modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
