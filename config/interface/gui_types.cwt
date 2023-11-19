@@ -32,14 +32,17 @@ enums = {
 	}
 	# Position of elements
 	enum[direction] = {
-	    UPPER_LEFT #can be lower case as well! Vanilla has a mix of the two for no reason.
+		#can be lower case as well! Vanilla has a mix of the two for no reason.
+		UPPER_CENTER
+	    UPPER_LEFT
 	    UPPER_RIGHT
-	    UPPER_CENTER
 		CENTER
+		CENTER_CENTER
 		CENTER_UP
 	    CENTER_DOWN
-		CENTER_CENTER
 		CENTERUP
+		CENTERED_LEFT
+		CENTERED_RIGHT
 		CENTERED_UP
 		CENTERED_DOWN
 		CENTER_LEFT
@@ -117,7 +120,7 @@ enums = {
 			}
 		}
 	}
-	complex_enum[vertical_scrollbar_type] = {
+	complex_enum[extended_scrollbar_type] = {
 		path = "game/interface"
 		name = {
 			extendedScrollbarType = {
@@ -150,6 +153,8 @@ alias[gui:positionType] = {
 ### Used to show in tooltip sections
 alias[gui:textboxType] = {
 	name = scalar
+	## cardinality = 0..1
+	textureFile = ""
 	## file_extensions = { .dds .png .tga }
 	## cardinality = 0..1
 	textureFile = filepath
@@ -315,7 +320,11 @@ alias[gui:containerWindowType] = {
 		right = int
 	}
 	## cardinality = 0..1
-	verticalScrollbar = enum[vertical_scrollbar_type]
+	verticalScrollbar = enum[extended_scrollbar_type]
+	## cardinality = 0..1
+	horizontalScrollbar = enum[extended_scrollbar_type]
+	## cardinality = 0..1
+	smooth_scrolling = bool
 	## cardinality = 0..1
 	dontRender = scalar
 	## cardinality = 0..1
@@ -612,7 +621,9 @@ alias[gui:gridBoxType] = {
 	## cardinality = 0..1
 	slotSize = {
 		width = int
+		width = percentage_field
 		height = int
+		height = percentage_field
 	}
 	## cardinality = 0..1
 	max_slots_horizontal = int
@@ -821,10 +832,9 @@ alias[gui_localisation:delayedTooltipText] = localisation
 alias[gui_localisation:pdx_tooltip] = scalar #since many are not defined anyway but are hardcoded.
 alias[gui_localisation:pdx_tooltip_delayed] = localisation
 alias[gui_localisation:pdx_tooltip_anchor_orientation] = enum[direction]
-alias[gui_localisation:pdx_tooltip_anchor_offset]= {
-	x = int
-	y = int
-}
+alias[gui_localisation:pdx_tooltip_anchor_offset] = { x = int y = int }
+### default: no
+alias[gui_localisation:concepts_show_missing_dlc] = bool
 alias[gui_button_element:shortcut] = scalar
 alias[gui_button_element:frame] = int
 alias[gui_button_element:buttonText] = scalar #since many are not defined anyway but are hardcoded.

@@ -3373,6 +3373,9 @@ alias[trigger:num_leader_traits] = {
 	### default: any
 	## cardinality = 0..1
 	is_councilor = enum[any_or_bool]
+	## default: yes
+	## cardinality = 0..1
+	is_subclass = bool
 	### default: any
 	## cardinality = 0..1
 	negative = enum[any_or_bool]

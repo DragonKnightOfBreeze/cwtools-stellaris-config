@@ -43,6 +43,7 @@ bypass = {
 	remember_instances = bool
 	galactic_map_tooltip_header = localisation
 	galactic_map_tooltip_desc = localisation
+	## cardinality = 0..1
 	system_view_tooltip_header = localisation
 	connection_type = enum[bypass_connection_type]
 	### what effect to spawn on the ship when they jump through the bypass
@@ -50,6 +51,7 @@ bypass = {
 	### what effect to spawn on the bypass when a ship jumps through
 	ftl_bypass_effect = <model_entity>
 	### default: no
+	## cardinality = 0..1
 	can_bypass_be_locked = bool
 	## cardinality = 0..1
 	bypass_effect = <model_entity>

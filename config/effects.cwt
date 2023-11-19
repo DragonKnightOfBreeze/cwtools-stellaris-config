@@ -4597,6 +4597,7 @@ alias[effect:spawn_astral_rift] = {
 	random_pos = bool
 	## cardinality = 0..1
 	orbit_distance = int
+	## cardinality = 0..1
 	orbit_angle = int
 	## cardinality = 0..1
 	id = <astral_rift>

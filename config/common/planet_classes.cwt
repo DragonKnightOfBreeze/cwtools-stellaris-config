@@ -77,6 +77,7 @@ planet_class = {
 		## cardinality = 0..1
 		star_gfx = bool
 	}
+	## cardinality = 0..1
 	astral_rift_gfx = bool
 	## cardinality = 0..1
 	spawn_odds = float

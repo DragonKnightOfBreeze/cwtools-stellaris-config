@@ -412,6 +412,7 @@ modifiers = {
 	enum[ship_class]_build_cost_mult = { Planets Megastructures Starbases }
 	enum[ship_class]_build_speed_mult = { Planets Megastructures Starbases }
 	enum[ship_class]_hull_mult = { Ships }
+	enum[ship_class]_armor_mult = { Ships }
 	enum[ship_class]_damage_mult = { Ships }
 	enum[ship_class]_evasion_add = { Ships }
 	enum[ship_class]_disengage_mult = { Ships }
@@ -506,7 +507,7 @@ modifiers = {
 	pop_cat_<pop_category>_political_power = { Pops }
 
 	# job modifiers
-	job_<job.capped>_add = { Planets }
+	job_<job>_add = { Planets }
 	job_<job.capped>_per_pop = { Planets }
 	job_<job.capped>_per_crime = { Planets }
 

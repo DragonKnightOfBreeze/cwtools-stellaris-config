@@ -130,6 +130,10 @@ sprite = {
 		symbol_position = { x = float y = float }
 		## cardinality = 0..1
 		symbol_size = { width = int height = int }
+		## cardinality = 0..1
+		mask_offset = { x = float y = float }
+		## cardinality = 0..1
+		mask_size = { width = int height = int }
 	}
 	subtype[framed_animated_sprite] = {
 		## cardinality = 0..1

@@ -23,6 +23,7 @@ decision = {
 	enactment_time = int
 	## cardinality = 0..1
 	sound = <sound>
+	## cardinality = 0..1
 	sound = <sound_effect>
 	## cardinality = 0..1
 	icon = icon[gfx/interface/icons/decisions]

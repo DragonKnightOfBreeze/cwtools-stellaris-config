@@ -400,6 +400,7 @@ councilor = {
 	## replace_scopes = { this = country root = country }
 	possible = single_alias_right[trigger_clause]
 	### Leader scope triggers to evaluate if a leader can be assigned to this position.
+	## cardinality = 0..1
 	## replace_scopes = { this = leader root = leader }
 	is_leader_possible = single_alias_right[trigger_clause]
 	### Custom tooltip text shown for the requirements of the council position.

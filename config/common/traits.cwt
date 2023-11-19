@@ -185,9 +185,6 @@ trait = {
 		## replace_scopes = { this = system root = system }
 		system_modifier = single_alias_right[modifier_clause]
 		## cardinality = 0..1
-		## replace_scopes = { this = planet root = planet }
-		assist_research_planet_modifier = single_alias_right[modifier_clause]
-		## cardinality = 0..1
 		## replace_scopes = { this = sector root = sector }
 		sector_modifier = single_alias_right[modifier_clause]
 		## cardinality = 0..1
@@ -381,6 +378,9 @@ trait = {
 		## cardinality = 0..1
 		## replace_scopes = { this = country root = country }
 		modifier = single_alias_right[modifier_clause]
+		## cardinality = 0..1
+		## replace_scopes = { this = planet root = planet }
+		planet_modifier = single_alias_right[modifier_clause]
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
 		assembling_modifier = single_alias_right[modifier_clause]

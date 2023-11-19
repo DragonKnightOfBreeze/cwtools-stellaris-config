@@ -1869,12 +1869,12 @@ on_actions = {
 	## event_type = system
 	on_space_storm_destroyed = {}
 
-	## replace_scopes = { this = leader root = leader }
-	## event_type = leader
+	## replace_scopes = { this = country root = country }
+	## event_type = country
 	on_machine_leader_malfunction = {}
 
-	## replace_scopes = { this = leader root = leader }
-	## event_type = leader
+	## replace_scopes = { this = country root = country }
+	## event_type = country
 	on_synth_leader_malfunction = {}
 
 	## replace_scopes = { this = any root = any }
