@@ -360,10 +360,10 @@ alias[effect:starbase_event] = {
 }
 
 ### Fires a system event for the scoped system, with optional DAYS and RANDOM delay
-## scopes = { galactic_object }
+## scopes = { system }
 alias[effect:system_event] = {
 	id = <event.scopeless>
-	id = <event.galactic_object>
+	id = <event.system>
 	### optional: specify delay
 	## cardinality = 0..1
 	days = int

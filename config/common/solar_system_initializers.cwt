@@ -125,7 +125,7 @@ alias[planet_initializer:planet] = {
 	name = localisation
 	### count is optional, default to 1 if isn't specified or written at all
 	## cardinality = 0..1
-	count = ints
+	count = int
 	## cardinality = 0..1
 	count = {
 		## cardinality = 0..1
