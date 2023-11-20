@@ -811,6 +811,8 @@ alias[effect:kill_leader] = {
 	ability = scalar # TODO PLS 1.2.4+
 	## cardinality = 0..1
 	show_notification = bool
+	## cardinality = 0..1
+	ruler = bool
 	### if added to type = ruler, will kill heir instead
 	## cardinality = 0..1
 	heir = bool
@@ -1360,6 +1362,10 @@ alias[effect:create_species] = {
 	## cardinality = 0..1
 	namelist = random_class
 	## cardinality = 0..1
+	plural = scope[any]
+	## cardinality = 0..1
+	plural = random
+	## cardinality = 0..1
 	plural = scalar
 	## cardinality = 0..1
 	species_bio = scalar
@@ -1390,7 +1396,7 @@ alias[effect:create_species] = {
 	## cardinality = 0..1
 	homeworld = scope_group[target_planet]
 	## cardinality = 0..1
-	homeworld = scope[species]
+	homeworld = scope_group[target_species]
 	# -> traits can be multiple. You can have traits = this, traits = { trait = xyz } at the same time
 	## cardinality = 0..2
 	traits = scope_group[target_species]
@@ -1450,7 +1456,7 @@ alias[effect:create_species] = {
 	can_be_modified = bool
 	## cardinality = 0..1
 	### determines if the species can be modified (default: yes)
-	can_be_modified = this
+	can_be_modified = scope[any]
 	## cardinality = 0..1
 	### speed at which the pops from that species grow automatically
 	pops_auto_growth = float[0.0..1.0]
@@ -1552,6 +1558,8 @@ alias[effect:create_country] = {
 	civics = scope_group[target_country]
 	## cardinality = 0..1
 	origin = <civic_or_origin.origin>
+	## cardinality = 0..1
+	origin = scope_group[target_country]
 	## cardinality = 0..1
 	### random includes starting civics
 	civics = random
@@ -4616,13 +4624,13 @@ alias[effect:spawn_astral_rift] = {
 	## cardinality = 0..1
 	orbit_angle = int
 	## cardinality = 0..1
+	tolerance = int
+	## cardinality = 0..1
 	id = <astral_rift>
 	## cardinality = 0..1
 	id = none
 	## cardinality = 0..1
 	relative_to = scope_field
-	## cardinality = 0..1
-	tolerance = scope_field
 	## cardinality = 0..1
 	in_place_of = scope_group[spatial_object]
 	## cardinality = 0..1
@@ -4649,7 +4657,7 @@ alias[effect:change_situation_target] = none
 
 ### Assigns a council position to the country's council, if possible.
 ## scopes = { country }
-alias[effect:set_council_position_to_council] = <council_position>
+alias[effect:set_council_position_to_council] = <councilor>
 
 ### Renew a Bypass Lock's duration as if it was just built.
 ## scopes = { bypass }
