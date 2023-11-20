@@ -136,7 +136,6 @@ alias[planet_initializer:planet] = {
 	## cardinality = 0..1
 	entity = scalar
 
-
 	### the class in planet init represents planet_class, not star_class. class = star means the planet class of this star is star.
 	## cardinality = 0..1
 	class = random
@@ -236,7 +235,6 @@ alias[moon_initializer:moon] = {
 	count = { min = int max = int }
 	## cardinality = 0..1
 	entity = scalar
-
 
 	### the class in planet init represents planet_class, not star_class. class = star means the planet class of this star is star.
 	## cardinality = 0..1

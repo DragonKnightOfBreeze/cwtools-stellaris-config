@@ -491,8 +491,8 @@ on_actions = {
 	on_building_<ship_size.starbase> = {}
 
 	### This = station
-	### From = planet it was built on
-	## replace_scopes = { this = ship root = ship from = planet }
+	### From = planet/astral_rift it was built on
+	## replace_scopes = { this = ship root = ship from = any }
 	## event_type = ship
 	on_destroying_station = {}
 

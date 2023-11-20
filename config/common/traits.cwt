@@ -222,7 +222,7 @@ trait = {
 		## replace_scopes = { this = system root = system from = system }
 		triggered_system_modifier = single_alias_right[triggered_modifier_by_leader_clause]
 		## cardinality = 0..inf
-		## replace_scopes = { this = planet root = sector from = sector }
+		## replace_scopes = { this = sector root = sector from = sector }
 		triggered_sector_modifier = single_alias_right[triggered_modifier_by_leader_clause]
 		## cardinality = 0..inf
 		## replace_scopes = { this = army root = army from = army }

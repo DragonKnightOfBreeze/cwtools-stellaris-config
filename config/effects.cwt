@@ -797,14 +797,21 @@ alias[effect:change_government] = {
 ### Kills the scoped leader or leader of the scoped country/fleet/ship/planet/army
 ## scopes = { planet country ship fleet leader army }
 alias[effect:kill_leader] = {
+	### if left out will kill scoped leader, can be used multiple times
 	## cardinality = 0..1
-	type = <leader_class>
+	class = <leader_class>
+	### if left out will kill scoped leader, can be used multiple times
 	## cardinality = 0..1
-	type = random
+	class = random
+	### if left out will kill scoped leader, can be used multiple times
+	## cardinality = 0..1
+	class = random_ruler
+	### see leader class for list of abilities, will kill leader that has this ability, can be used multiple times
+	## cardinality = 0..1
+	ability = scalar # TODO PLS 1.2.4+
 	## cardinality = 0..1
 	show_notification = bool
-	## cardinality = 0..1
-	ruler = bool
+	### if added to type = ruler, will kill heir instead
 	## cardinality = 0..1
 	heir = bool
 	## cardinality = 0..1
@@ -951,6 +958,7 @@ alias[effect:set_variable_to_random_value] = {
 	which = value_set[variable]
 	min = value_field
 	max = value_field
+	## cardinality = 0..1
 	rounded = bool
 }
 
@@ -1558,6 +1566,9 @@ alias[effect:create_country] = {
 	species = random
 	## cardinality = 0..1
 	species = scope_group[target_species]
+	### default: no
+	## cardinality = 0..1
+	set_capital_from_species = bool
 	## cardinality = 0..1
 	randomize_ethos = yes
 	## cardinality = 0..1
@@ -2184,6 +2195,9 @@ alias[effect:add_random_research_option] = {
 	### default no
 	## cardinality = 0..1
 	ignore_prereqs = bool
+	### default no
+	## cardinality = 0..1
+	only_rare = bool
 	### default yes
  	## cardinality = 0..1
 	ignore_rare = bool
@@ -2748,7 +2762,7 @@ alias[effect:get_galaxy_setup_value] = {
 	which = value_set[variable]
 	setting = enum[galaxy_setup_value]
 	## cardinality = 0..1
-	scale_by = int #no variables here atm
+	scale_by = float #no variables here atm
 }
 
 ### Makes a country guarantee another country
@@ -3129,6 +3143,8 @@ alias[effect:spawn_megastructure] = {
 alias[effect:spawn_planet] = {
 	class = <planet_class>
 	class = <planet_class_random_list>
+	class = random
+	class = random_colonizable
 	## cardinality = 0..1
 	name = localisation
 	## cardinality = 0..1
@@ -3796,7 +3812,7 @@ alias[effect:fire_on_action] = {
 
 ### Sets the current fleet to go missing in action with the MIA type defided by <key>
 ## scopes = { fleet }
-alias[effect:set_mia] = mia_return_home
+alias[effect:set_mia] = enum[mia_type]
 
 ### Sets the given stage for the scoped first contact
 ## scopes = { first_contact }
@@ -4563,7 +4579,7 @@ alias[effect:freeze_leader_age] = bool
 
 ### Sets an arbitrarily-named flag on the scoped astral rift
 ## scopes = { astral_rift }
-alias[effect:set_astral_rift_flag] = value[astral_rift_flag]
+alias[effect:set_astral_rift_flag] = value_set[astral_rift_flag]
 
 ### Removes a flag from the scoped astral rift
 ## scopes = { astral_rift }
@@ -4615,7 +4631,7 @@ alias[effect:spawn_astral_rift] = {
 	## cardinality = 0..1
 	spawn_sound = bool
 	## cardinality = 0..1
-	## push_scope = galactic_object
+	## push_scope = astral_rift
 	init_effect = single_alias_right[effect_clause]
 }
 
@@ -4633,7 +4649,7 @@ alias[effect:change_situation_target] = none
 
 ### Assigns a council position to the country's council, if possible.
 ## scopes = { country }
-alias[effect:set_council_position_to_council] = <<council_position>>
+alias[effect:set_council_position_to_council] = <council_position>
 
 ### Renew a Bypass Lock's duration as if it was just built.
 ## scopes = { bypass }
@@ -4649,7 +4665,7 @@ alias[effect:lock_bypass] = {
 ### Starts the cooldown of an astral action defined with uses_custom_cooldown = yes
 ### start_astral_action_cooldown=<key>
 ## scopes = { country }
-alias[effect:start_astral_action_cooldown] = <astral_action.use_custom_cooldown>
+alias[effect:start_astral_action_cooldown] = <astral_action.uses_custom_cooldown>
 
 ### Unlocks Astral Actions that have become unlockable since the last time this effect was called.
 ## scopes = { country }
@@ -4683,8 +4699,7 @@ alias[effect:astral_rift_event] = {
 
 ### Fills the astral rift event pool for every playable country.
 ## scopes = { country }
-alias[effect:fill_astral_rift_event_pool] = {
-}
+alias[effect:fill_astral_rift_event_pool] = bool
 
 ### Fires a bypass event for the scoped bypass, with optional DAYS and RANDOM delay
 ## scopes = { bypass }
@@ -7426,6 +7441,7 @@ alias[effect:every_observed_pre_ftl_within_border] = {
 
 ### Iterate through every astral rift - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
 ## scopes = any
+## push_scope = astral_rift
 alias[effect:random_astral_rift] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
@@ -7437,6 +7453,7 @@ alias[effect:random_astral_rift] = {
 
 ### Iterate through every astral rift - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
 ## scopes = any
+## push_scope = astral_rift
 alias[effect:ordered_astral_rift] = {
 	position = int
 	order_by = value_field
@@ -7449,6 +7466,7 @@ alias[effect:ordered_astral_rift] = {
 
 ### Iterate through every astral rift - executes the enclosed effects on all of them for which the limit triggers return true
 ## scopes = any
+## push_scope = astral_rift
 alias[effect:every_astral_rift] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
@@ -7457,6 +7475,7 @@ alias[effect:every_astral_rift] = {
 
 ### Iterate through every bypass - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
 ## scopes = any
+## push_scope = bypass
 alias[effect:random_bypass] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
@@ -7468,6 +7487,7 @@ alias[effect:random_bypass] = {
 
 ### Iterate through every bypass - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
 ## scopes = any
+## push_scope = bypass
 alias[effect:ordered_bypass] = {
 	position = int
 	order_by = value_field
@@ -7480,6 +7500,7 @@ alias[effect:ordered_bypass] = {
 
 ### Iterate through every bypass - executes the enclosed effects on all of them for which the limit triggers return true
 ## scopes = any
+## push_scope = bypass
 alias[effect:every_bypass] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]

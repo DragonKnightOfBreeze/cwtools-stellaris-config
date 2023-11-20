@@ -4803,10 +4803,12 @@ alias[trigger:count_observed_pre_ftl_within_border] = {
 
 ### Iterate through every astral rift - checks whether the enclosed triggers return true for any of them
 ## scopes = any
+## push_scope = astral_rift
 alias[trigger:any_astral_rift] = single_alias_right[trigger_clause]
 
 ### Iterate through every astral rift - checks whether the enclosed triggers return true for X/all of them
 ## scopes = any
+## push_scope = astral_rift
 alias[trigger:count_astral_rift] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
@@ -4816,10 +4818,12 @@ alias[trigger:count_astral_rift] = {
 
 ### Iterate through every bypass - checks whether the enclosed triggers return true for any of them
 ## scopes = any
+## push_scope = bypass
 alias[trigger:any_bypass] = single_alias_right[trigger_clause]
 
 ### Iterate through every bypass - checks whether the enclosed triggers return true for X/all of them
 ## scopes = any
+## push_scope = bypass
 alias[trigger:count_bypass] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]

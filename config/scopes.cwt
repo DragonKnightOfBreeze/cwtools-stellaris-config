@@ -90,6 +90,9 @@ scopes = {
     Design = {
         aliases = { design }
     }
+	"Astral Rift" = {
+		aliases = { astral_rift }
+	}
 }
 
 scope_groups = {

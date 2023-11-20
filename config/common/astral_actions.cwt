@@ -2,6 +2,9 @@ types = {
     type[astral_action] = {
         path = "game/common/astral_actions"
         file_extension = .txt
+		subtype[uses_custom_cooldown] = {
+			uses_custom_cooldown = yes
+		}
         localisation = {
             name = "$"
             desc = desc

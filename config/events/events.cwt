@@ -251,21 +251,7 @@ event = {
 		force_open = bool
 
 		## cardinality = 0..1
-		location = scope[planet]
-		## cardinality = 0..1
-		location = scope[system]
-		## cardinality = 0..1
-		location = scope[ship]
-		## cardinality = 0..1
-		location = scope[fleet]
-		## cardinality = 0..1
-		location = scope[country]
-		## cardinality = 0..1
-		location = scope[pop]
-		## cardinality = 0..1
-		location = scope[starbase]
-		## cardinality = 0..1
-		location = scope[megastructure]
+		location = scope_field
 
 		## cardinality = 0..1
 		diplomatic = bool
@@ -333,6 +319,9 @@ event = {
 				default_hide_option = bool
 			}
 
+			### default: no
+			## cardinality = 0..1
+			hide_option_if_not_allowed = bool
 			## cardinality = 0..1
 			default_hide_option = bool
 			## cardinality = 0..1
@@ -344,6 +333,9 @@ event = {
 			alias_name[effect] = alias_match_left[effect]
 		}
 	}
+
+	## cardinality = 0..1
+	event_chain = <event_chain>
 
 	## cardinality = 0..1
 	situation = scope[situation]
@@ -363,15 +355,6 @@ event = {
 	## cardinality = 0..1
 	is_test_event = bool
 
-	#I found these bits in the code. Need testing.
-	subtype[triggered] = {
-		## cardinality = 0..1
-		weight_multiplier = {
-			factor = float
-			## cardinality = 0..100
-			alias_name[modifier_rule] = alias_match_left[modifier_rule]
-		}
-	}
 	### Event will show for other countries if this is set to yes. Those countries can be narrowed down with major_trigger.
 	## cardinality = 0..1
 	major = yes
@@ -400,6 +383,14 @@ event = {
 	## cardinality = 0..1
 	auto_select = bool
 
+	subtype[triggered] = {
+		## cardinality = 0..1
+		weight_multiplier = {
+			factor = float
+			## cardinality = 0..100
+			alias_name[modifier_rule] = alias_match_left[modifier_rule]
+		}
+	}
 	subtype[!triggered] = {
 		## cardinality = 0..1
 		mean_time_to_happen = {
@@ -448,6 +439,12 @@ event = {
 	subtype[espionage_operation] = {
 		## cardinality = 0..1
 		espionage_operation = bool
+	}
+	subtype[astral_rift] = {
+		## cardinality = 0..1
+		astral_rift = bool
+		## cardinality = 0..1
+		difficulty = int
 	}
 
 	## cardinality = 0..1

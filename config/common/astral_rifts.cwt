@@ -9,7 +9,6 @@ types = {
     }
 }
 
-## replace_scopes = { this = astral_rift root = astral_rift }
 astral_rift = {
     name = localisation
     ### default: yes
@@ -18,11 +17,13 @@ astral_rift = {
     ## cardinality = 0..1
     flags = { value_set[astral_rift_flag] }
     ## cardinality = 0..1
+	## replace_scopes = { this = country root = country }
     event_weight = {
         alias_name[modifier_rule] = alias_match_left[modifier_rule]
     }
     event = <event.astral_rift>
     event = <event.scopeless>
     ## cardinality = 0..1
+	## replace_scopes = { this = astral_rift root = astral_rift }
     on_roll_failed = single_alias_right[effect_clause]
 }

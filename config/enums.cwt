@@ -165,6 +165,7 @@ enums = {
 		mid_game_year
 		end_game_year
 		victory_year
+		num_stars
 		num_guaranteed_colonies
 		num_gateways
 		num_wormhole_pairs
@@ -366,6 +367,10 @@ enums = {
 		players
 		sectors
 		trade_routes
+	}
+	enum[mia_type] = {
+		mia_return_home
+		mia_emergency_ftl
 	}
 	enum[any_or_bool] = {
 		any

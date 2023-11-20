@@ -1,18 +1,18 @@
 modifier_categories = {
 	Pops = {
-		supported_scopes = { pop planet galacticobject country }
+		supported_scopes = { pop planet sector galacticobject country }
 	}
 	Countries = {
-		supported_scopes = { country }
+		supported_scopes = { country federation }
 	}
 	Armies = {
-		supported_scopes = { army planet country }
+		supported_scopes = { army planet sector galacticobject country }
 	}
 	Leaders = {
 		supported_scopes = { leader country }
 	}
 	Planets = {
-		supported_scopes = { planet galacticobject country }
+		supported_scopes = { planet sector galacticobject country }
 	}
 	"Pop Factions" = {
 		supported_scopes = { popfaction country }
@@ -30,7 +30,7 @@ modifier_categories = {
 		supported_scopes = { ship starbase fleet country }
 	}
 	Ships = {
-		supported_scopes = { ship starbase fleet planet country leader }
+		supported_scopes = { ship starbase fleet planet sector galacticobject country leader }
 	}
 	Fleets = {
 		supported_scopes = { fleet country }
@@ -39,10 +39,10 @@ modifier_categories = {
 		supported_scopes = { megastructure country }
 	}
 	Habitability = {
-		supported_scopes = { species planet country }
+		supported_scopes = { species planet sector galacticobject country }
 	}
 	Starbases = {
-		supported_scopes = { starbase planet country }
+		supported_scopes = { starbase planet sector galacticobject country }
 	}
 	"Economic Units" = {
 		supported_scopes = { any }
@@ -60,7 +60,7 @@ modifier_categories = {
 		supported_scopes = { federation }
 	}
 	Espionage = {
-		supported_scopes = { country spynetwork }
+		supported_scopes = { spynetwork country }
 	}
 	"Orbital Stations" = {
 		supported_scopes = { ship starbase fleet country }
@@ -69,7 +69,7 @@ modifier_categories = {
 		supported_scopes = { ship starbase fleet country }
 	}
 	Deposits = {
-		supported_scopes = { country planet deposit }
+		supported_scopes = { deposit planet sector galacticobject country }
 	}
 	"Ship Design Stats" = {
 		supported_scopes = { design }
