@@ -2463,7 +2463,7 @@ alias[effect:create_bypass] = <bypass>
 ### Creates a cluster centered around the specified spatial object
 ## scopes = any
 alias[effect:create_cluster] = {
-	id = scalar
+	id = value_set[cluster_id]
 	radius = float #no variables here atm
 	center = scope[system]
 }
@@ -2907,7 +2907,6 @@ alias[effect:rename_species] = {
 ## scopes = { ship fleet }
 alias[effect:repair_percentage] = value_field[0.0..1.0]
 
-# TODO
 ### Restores all hull points to the scoped ship
 ## scopes = { ship }
 alias[effect:repair_ship] = yes
@@ -2955,7 +2954,7 @@ alias[effect:set_city_graphical_culture] = <graphical_culture>
 alias[effect:set_country_type] = <country_type>
 ### Sets the crisis ambient loop to the current effect
 ## scopes = any
-alias[effect:set_crisis_sound] = scalar #TODO sound
+alias[effect:set_crisis_sound] = <sound_effect>
 ### Sets a custom spatial object as custom country capital location.
 ## scopes = { country }
 alias[effect:set_custom_capital_location] = scope_group[spatial_object]
@@ -2967,7 +2966,7 @@ alias[effect:set_disable_at_health] = value_field[0.0..1.0]
 alias[effect:set_disabled] = bool
 ### Sets the flag of the current Empire.
 ## scopes = { country }
-alias[effect:set_empire_flag] = scalar #TODO
+alias[effect:set_empire_flag] = scalar #TODO PLS 1.2.4+
 ### Sets the name of the current Empire.
 ## scopes = { country }
 alias[effect:set_empire_name] = localisation
@@ -2989,7 +2988,7 @@ alias[effect:set_faction_hostility] = {
 
 ### Sets a country to lead a federation
 ## scopes = { country federation }
-alias[effect:set_federation_leader] = scalar #TODO unknown unsage
+alias[effect:set_federation_leader] = scope[country]
 ### Sets the bombardment stance of the scoped fleet
 ## scopes = { fleet }
 alias[effect:set_fleet_bombardment_stance] = <bombardment_stance>
@@ -3026,7 +3025,7 @@ alias[effect:set_mission] = <observation_station_mission>
 ## scopes = { planet }
 alias[effect:set_planet_entity] = {
 	## cardinality = 0..1
-	entity = scalar	#TODO: Link this to graphical culture <model_entity>
+	entity = <model_entity>
 	## cardinality = 0..1
 	graphical_culture = <graphical_culture>
 	## cardinality = 0..1

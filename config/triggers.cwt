@@ -1329,7 +1329,7 @@ alias[trigger:has_seen_any_bypass] = <bypass>
 
 ### Checks the scoped country has encountered a specific bypass before
 ## scopes = { country }
-alias[trigger:has_seen_specific_bypass] = scope[galactic_object] #TODO bypass scope? -Is this correct?
+alias[trigger:has_seen_specific_bypass] = scope[bypass]
 
 ### Checks if the starbase has a specific building
 ### WARNING: Does not count queued buildings
@@ -1468,7 +1468,7 @@ alias[trigger:is_fleet_idle] = bool
 
 ### Checks if the planet/system belongs to a specific spawning cluster
 ## scopes = { planet galactic_object }
-alias[trigger:is_in_cluster] = scalar #TODO cluster?
+alias[trigger:is_in_cluster] = value[cluster_id]
 
 ### Checks if the planet/ship/fleet/system is inside the borders of the target country
 ## scopes = { planet ship fleet galactic_object }

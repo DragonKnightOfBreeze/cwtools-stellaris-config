@@ -93,6 +93,9 @@ scopes = {
 	"Astral Rift" = {
 		aliases = { astral_rift }
 	}
+	Bypass = {
+		aliases = { bypass }
+	}
 }
 
 scope_groups = {
