@@ -533,7 +533,7 @@ modifiers = {
 	<leader_class>_exp_gain = { Leaders }
 	<leader_class>_skill_levels = { Leaders }
 	<leader_class>_initial_skill = { Leaders }
-	country_<leader_class.capped>_cap_add = { Countries } # TODO 1.2.3+
+	country_<leader_class.capped>_cap_add = { Countries } # TODO PLS 1.2.3+
 	<leader_class>_lifespan_add = { Leaders }
 	<leader_class>_lifespan_mult = { Leaders }
 
