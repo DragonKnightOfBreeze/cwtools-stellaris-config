@@ -436,7 +436,7 @@ alias[effect:add_opinion_modifier] = {
 	who = scope_group[target_country]
 	modifier = <opinion_modifier>
 }
-### Removes a specific opinion modifier towards target country or any contry from the scoped country
+### Removes a specific opinion modifier towards target country or any country from the scoped country
 ## scopes = { country }
 alias[effect:remove_opinion_modifier] = {
 	who = scope_group[target_country]
@@ -1385,6 +1385,8 @@ alias[effect:create_species] = {
 	## cardinality = 0..1
 	portrait = random
 	## cardinality = 0..1
+	portrait = this
+	## cardinality = 0..1
 	### Limits species to this gender
 	gender = enum[genders_not_set]
 	## cardinality = 0..1
@@ -1403,6 +1405,8 @@ alias[effect:create_species] = {
 	## cardinality = 0..2
 	traits = random
 	## cardinality = 0..2
+	traits = this
+	## cardinality = 0..2
 	traits = {
 		## cardinality = 0..1
 		ideal_planet_class = scope[planet]
@@ -1419,49 +1423,50 @@ alias[effect:create_species] = {
 		## cardinality = 0..10
 		add_trait = <trait.species_trait>
 	}
+	### determines if species is sapient (default: yes)
 	## cardinality = 0..1
 	sapient = bool
+	### determines if species is a modification of another (default: no)
 	## cardinality = 0..1
-	### determines if species is a modification of another
 	is_mod = bool
+	### determines if species leaders are immortal (default: no)
 	## cardinality = 0..1
-	### determines if species leaders are immortal
 	immortal = bool
-	## cardinality = 0..1
 	### determines if pops of that species can colonize
+	## cardinality = 0..1
 	pops_can_be_colonizers = bool
-	## cardinality = 0..1
 	### determines if pops of that species can migrate
+	## cardinality = 0..1
 	pops_can_migrate = bool
-	## cardinality = 0..1
 	### determines if pops of that species can reproduce
+	## cardinality = 0..1
 	pops_can_reproduce = bool
-	## cardinality = 0..1
 	### determines if pops of that species can join factions
+	## cardinality = 0..1
 	pops_can_join_factions = bool
-	## cardinality = 0..1
 	### determines if that species can generate leaders
+	## cardinality = 0..1
 	can_generate_leaders = bool
-	## cardinality = 0..1
 	### determines if pops from that species can become slaves
+	## cardinality = 0..1
 	pops_can_be_slaves = bool
-	## cardinality = 0..1
 	### determines if pops from that species have happiness
+	## cardinality = 0..1
 	pops_have_happiness = bool
-	## cardinality = 0..1
 	### determines if pops from need consumer goods
+	## cardinality = 0..1
 	consumer_goods = bool
-	## cardinality = 0..1
 	### determines if the species can be modified (default: yes)
+	## cardinality = 0..1
 	can_be_modified = bool
-	## cardinality = 0..1
 	### determines if the species can be modified (default: yes)
+	## cardinality = 0..1
 	can_be_modified = scope[any]
-	## cardinality = 0..1
 	### speed at which the pops from that species grow automatically
-	pops_auto_growth = float[0.0..1.0]
 	## cardinality = 0..1
+	pops_auto_growth = float[0.0..1.0]
 	### amount of energy each pop of that species consume monthly
+	## cardinality = 0..1
 	pop_maintenance = float[0.0..1.0]
 	## cardinality = 0..1
 	new_pop_resource_requirement = {
@@ -1470,17 +1475,20 @@ alias[effect:create_species] = {
 		type = scalar
 		value = float
 	}
-	## cardinality = 0..1
 	### Limits species to this gender
+	## cardinality = 0..1
 	gender = enum[genders_not_set]
-	## cardinality = 0..1
 	### Limits species to this gender
+	## cardinality = 0..1
 	gender = scope[species]
+	### Limits leader to this gender
 	## cardinality = 0..1
+	gender = scope[leader]
 	### (default: no)
-	clear_parent_species_link = bool
 	## cardinality = 0..1
+	clear_parent_species_link = bool
 	### (default: yes)
+	## cardinality = 0..1
 	allow_negative_traits = bool
 	## cardinality = 0..1
 	extra_trait_points = int
@@ -2120,8 +2128,8 @@ alias[effect:spawn_natural_wormhole] = {
 	graphics_entity_name = <model_entity>
 }
 
-### Link the wormhole from the scoped system to the wormhole in the target system.
-## scopes = { galactic_object }
+### Link the wormhole from the scoped system to the wormhole in the target system, or from the scope wormhole to the target wormhole.
+## scopes = { galactic_object bypass }
 alias[effect:link_wormholes] = scope[galactic_object]
 ### Executes an effect on systems with planets owned by the scoped country, starting at an origin, and until a certain percentage of owned planets matching the planet_limit has been covered.
 ## scopes = { country }
@@ -2884,12 +2892,7 @@ alias[effect:remove_point_of_interest] = value[point_of_interest]
 ## scopes = { country }
 alias[effect:remove_saved_leader] = value[saved_leader]
 
-### rename_species = {
-### use one of the following:
-### name = "an entry within the species name database"
-### name = random
-### name_list = "key"
-### }
+### Renames the species.
 ## scopes = { species }
 alias[effect:rename_species] = {
 	## cardinality = 0..1
@@ -3413,8 +3416,7 @@ alias[effect:add_stage_clues] = lower_insight_reward
 ### Adds clues to the current stage of an archaeological or first contact site
 ## scopes = { archaeological_site first_contact astral_rift }
 alias[effect:add_stage_clues] = higher_insight_reward
-### Adds clues to the current stage of a archaeological site
-### add_stage_clues = <int>
+### Adds a specific expedition log entry to an archaeological site chapter
 ## scopes = { archaeological_site }
 alias[effect:add_expedition_log_entry] = who_knows_tell_us_please
 ### Resets the current stage
@@ -3545,12 +3547,13 @@ alias[effect:add_federation_experience] = value_field
 ## scopes = { federation }
 alias[effect:set_federation_type] = <federation_type>
 
-### Sets federation succession type to the scoped federation.
+### Sets scoped federation's succession type to the specified value.
 ### Please don't use outside law on_enact, functional effect! Use set_federation_law and has_federation_law instead.
 ## scopes = { federation }
 alias[effect:set_federation_succession_type] = enum[federation_succession_type]
 
-### Sets federation succession term to the scoped federation. Please don't use outside law on_enact, functional effect! Use set_federation_law and has_federation_law instead.
+### Sets scoped federation's succession term to the specified value.
+### Please don't use outside law on_enact, functional effect! Use set_federation_law and has_federation_law instead.
 ## scopes = { federation }
 alias[effect:set_federation_succession_term] = enum[federation_succession_term]
 
@@ -3559,7 +3562,7 @@ alias[effect:set_federation_succession_term] = enum[federation_succession_term]
 ## scopes = { federation }
 alias[effect:set_only_leader_builds_fleets] = bool
 
-### Sets right for subjects to join federations.
+### Sets right for subjects to join federation.
 ### Please don't use outside law on_enact, functional effect! Use set_federation_law and has_federation_law instead.
 ## scopes = { federation }
 alias[effect:set_allow_subjects_to_join] = bool
@@ -4336,11 +4339,11 @@ alias[effect:remove_design_flag] = value_set[design_flag]
 ### Destroys a situation in right hand side event target, firing on_abort (use to cancel and fire that effect)
 ## scopes = any
 alias[effect:abort_situation] = scope[situation]
-### Starts the process of converting the subject of the scoped agreement to the given specialist type
+### Starts the process of converting the subject of the scoped agreement to the given specialist type.
 ### Can also be used to remove the specialization from a subject, by using 'none' as value
 ## scopes = { agreement }
 alias[effect:convert_to_specialist] = <agreement_term_value.specialist_type>
-### Starts the process of converting the subject of the scoped agreement to the given specialist type
+### Starts the process of converting the subject of the scoped agreement to the given specialist type.
 ### Can also be used to remove the specialization from a subject, by using 'none' as value
 ## scopes = { agreement }
 alias[effect:convert_to_specialist] = none
@@ -7229,7 +7232,7 @@ alias[effect:random_neighbor_system_euclidean] = {
 	weights = { alias_name[modifier_rule] = alias_match_left[modifier_rule] }
 }
 
-### Iterate through all a system's neigboring systems (by closeness, not by hyperlanes) - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
+### Iterate through all a system's neighboring systems (by closeness, not by hyperlanes) - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
 ## scopes = { galactic_object }
 ## push_scope = system
 alias[effect:ordered_neighbor_system_euclidean] = {
@@ -7242,7 +7245,7 @@ alias[effect:ordered_neighbor_system_euclidean] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
-### Iterate through all a system's neigboring systems (by closeness, not by hyperlanes) - executes the enclosed effects on all of them for which the limit triggers return true
+### Iterate through all a system's neighboring systems (by closeness, not by hyperlanes) - executes the enclosed effects on all of them for which the limit triggers return true
 ## scopes = { galactic_object }
 ## push_scope = system
 alias[effect:every_neighbor_system_euclidean] = {

@@ -372,7 +372,7 @@ links = {
 		output_scope = country
 	}
 
-	# 3.10
+	# 3.10.0
 
 	### Scopes from an astral rift to the country whose leader is exploring, or has explored it.
 	explorer = {
@@ -388,6 +388,14 @@ links = {
 	lock_country = {
 		input_scopes = { bypass }
 		output_scope = country
+	}
+
+	# 3.11.1
+
+	### Scopes from a leader to their background planet
+	background_planet = {
+		input_scopes = { leader }
+		output_scope = planet
 	}
 
 	# links from data

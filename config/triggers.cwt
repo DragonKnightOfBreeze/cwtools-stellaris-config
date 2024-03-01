@@ -597,7 +597,6 @@ alias[trigger:num_owned_active_gateways] == int_value_field
 ## scopes = any
 alias[trigger:num_active_gateways] == int_value_field
 ### Checks the country/pop/leader/species' number of traits points spent
-### num_traits < 3
 ## scopes = { country pop leader species }
 alias[trigger:num_trait_points] == int_value_field
 ### Checks if the leader has a specific experience level
@@ -609,7 +608,7 @@ alias[trigger:defender_war_exhaustion] == value_field[0.0..1.0]
 ### Checks the country's total war exhaustion for all offensive wars
 ## scopes = { country }
 alias[trigger:off_war_exhaustion_sum] == value_field
-### Checks the country's total war exhaustion for all defemsove wars
+### Checks the country's total war exhaustion for all defensive wars
 ## scopes = { country }
 alias[trigger:def_war_exhaustion_sum] == value_field
 
@@ -745,7 +744,6 @@ alias[trigger:has_observation_outpost] = bool
 alias[trigger:starting_system] = bool
 
 ### Checks if the planet is still owned by its first colonizer
-### original owner = yes
 ## scopes = { planet }
 alias[trigger:original_owner] = bool
 
@@ -939,7 +937,7 @@ alias[trigger:years_of_peace] = {
 ## scopes = { fleet }
 alias[trigger:fleet_size] == int_value_field
 
-### Checks the game's difficulty level (0 to 5, with 0 as Cadet and 5 as Grand Admiral
+### Checks the game's difficulty level (0 to 6, with 0 as Civilian and 6 as Grand Admiral)
 ## scopes = any
 alias[trigger:is_difficulty] == int_value_field[0..6]
 
@@ -951,7 +949,6 @@ alias[trigger:has_building] = bool
 alias[trigger:has_building] = <building>
 
 ### Checks if the planet has a specific building, and that that building is not disabled or ruined.
-### has_building = yes
 ## scopes = { planet }
 alias[trigger:has_active_building] = <building>
 
@@ -1408,7 +1405,7 @@ alias[trigger:inverted_switch] = {
 	default = single_alias_right[trigger_clause]
 }
 
-### checks if a country has an advisor
+### Checks if a country has an advisor
 ## scopes = { country }
 alias[trigger:is_advisor_active] = bool
 
@@ -1416,7 +1413,7 @@ alias[trigger:is_advisor_active] = bool
 ## scopes = { ship fleet }
 alias[trigger:is_being_repaired] = bool
 
-### Checks if the system is bottleneck within the range NDefines::NGameplay::SYSTEM_BOTTLENECK_RADIUSis_bottleneck_system = yes
+### Checks if the system is bottleneck within the range NDefines::NGameplay::SYSTEM_BOTTLENECK_RADIUS
 ## scopes = { galactic_object }
 alias[trigger:is_bottleneck_system] = bool
 
@@ -1462,7 +1459,7 @@ alias[trigger:is_event_leader] = bool
 ## scopes = { country }
 alias[trigger:is_federation_leader] = bool
 
-### Checks if the ship/fleet is idfle
+### Checks if the ship/fleet is idle
 ## scopes = { ship fleet }
 alias[trigger:is_fleet_idle] = bool
 
@@ -1728,7 +1725,7 @@ alias[trigger:can_live_on_planet] = scope_group[target_planet]
 # ### Checks if a pop, or the pops of a particular species can reproduce
 #alias[trigger:pop_can_reproduce] = bool
 
-### Checks the maintenace costs of a pop
+### Checks the maintenance costs of a pop
 ## scopes = { pop }
 alias[trigger:pop_maintenance_cost] = {
 	resource = <resource>
@@ -1917,7 +1914,7 @@ alias[trigger:is_half_species] = any
 ## scopes = { planet }
 alias[trigger:last_building_changed] = <building>
 
-### Checks the empire's size. Identical to empire_spraw trigger.
+### Checks the empire's size. Identical to empire_sprawl trigger.
 ## scopes = { country }
 alias[trigger:empire_size] == int_value_field
 
@@ -2142,7 +2139,7 @@ alias[trigger:controlled_colonizable] == int_value_field
 ## scopes = { country }
 alias[trigger:ai_colonize_plans] == int_value_field
 
-### Checks the countrys' number of scientists
+### Checks the country's number of scientists
 ## scopes = { country }
 alias[trigger:scientist_count] == int_value_field
 
@@ -2158,7 +2155,7 @@ alias[trigger:is_on_market] = <resource>
 ## scopes = { country }
 alias[trigger:can_buy_on_market] = <resource>
 
-### Checks the countrys' highest threat against it
+### Checks the country's highest threat against it
 ## scopes = { country }
 alias[trigger:highest_threat] == value_field
 
@@ -2170,7 +2167,7 @@ alias[trigger:has_rival] = scope_group[target_country]
 ## scopes = { country }
 alias[trigger:has_overlord] = scope_group[target_country]
 
-### Checks if the target country is the a subject of the current country.
+### Checks if the target country is a subject of the current country.
 ## scopes = { country }
 alias[trigger:has_subject] = scope_group[target_country]
 
@@ -2331,7 +2328,6 @@ alias[trigger:is_last_lost_relic] = <relic>
 alias[trigger:is_last_received_relic] = <relic>
 
 ### Checks if local humans founder species is a specific species class
-### is_species_class = MAM
 ## scopes = any
 alias[trigger:local_human_species_class] = <species_class>
 
@@ -2373,7 +2369,7 @@ alias[trigger:has_federation_law] = <federation_law>
 ## scopes = { country }
 alias[trigger:is_galactic_community_member] = bool
 
-### Checks how much the empire sprawl is over its admin capacity
+### CChecks how much the empire's sprawl is over its admin capacity
 ## scopes = { country }
 alias[trigger:empire_sprawl_over_cap] == int_value_field
 
@@ -2508,7 +2504,7 @@ alias[trigger:num_ships_in_debris] = {
 ## scopes = any
 alias[trigger:galaxy_size] = <map_setup_scenario>
 
-### Checks the countrys diplomacy weight
+### Checks the country's diplomatic weight
 ## scopes = { country }
 alias[trigger:diplomacy_weight] == value_field
 
@@ -2713,7 +2709,6 @@ alias[trigger:is_artificial] = bool
 alias[trigger:is_capital_system] = bool
 
 ### Checks if the espionage operation has a certain modifier specific for the current stage
-### has_modifier = <modifier>
 ## scopes = { espionage_operation astral_rift }
 alias[trigger:has_stage_modifier] = <static_modifier>
 
@@ -2993,7 +2988,6 @@ alias[trigger:is_mobile] = bool
 # 3.1
 
 ### Checks if the starbase is currently building a specific module
-### iss_starbase_building_module = <starbase module>
 ## scopes = { starbase }
 alias[trigger:is_starbase_building_module] = <starbase_module>
 
@@ -3093,7 +3087,6 @@ alias[trigger:has_planetary_ascension_tier] == int_value_field
 alias[trigger:num_galaxy_systems] == int_value_field
 
 ### Checks if the planet has an unemployed pop of a category
-### has_unemployed_of_pop_category = bio_trophy
 ## scopes = { planet }
 alias[trigger:has_unemployed_pop_of_category] = <pop_category>
 
@@ -3154,7 +3147,7 @@ alias[trigger:has_loyalty] == int_value_field[-100..100]
 ## scopes = { country }
 alias[trigger:has_monthly_loyalty] == int_value_field[-100..100]
 
-### Checks if the country has a ai behavior towards another country
+### Checks if the country has the specified AI behavior towards another country
 ## scopes = { country }
 alias[trigger:has_attitude_behavior] = {
 	target = scope_group[target_country]
@@ -3218,7 +3211,7 @@ alias[trigger:is_offer_terms_actual] = {
 	target = scope_group[target_country]
 }
 
-### Checks if the scoped country can afford the offer given by the target country
+### Checks if the scoped country can afford the offer given by the target country.
 ### Only works in certain parts of the script marked with ai_trade_facility.
 ## scopes = { country }
 alias[trigger:can_afford_special_offer] = {
@@ -3251,7 +3244,7 @@ alias[trigger:enclave_capacity_left] == int_value_field[0..inf]
 ## scopes = any
 alias[trigger:additional_crisis_strength] == int_value_field[0..inf]
 
-### Checks the countrys' number of civics
+### Checks the country's number of civics
 ## scopes = { country }
 alias[trigger:civics_count] == int_value_field[0..inf]
 
@@ -3566,6 +3559,12 @@ alias[trigger:has_lock] = bool
 ### Checks if the scoped fleet can go MIA.
 ## scopes = { fleet }
 alias[trigger:can_go_mia] = bool
+
+# 3.11.1
+
+### Checks if the last resolution the Galactic Community voted on or otherwise passed or failed is part of the specified category.
+## scopes = any
+alias[trigger:last_resolution_category_changed] = <resolution_category>
 
 # scope links
 
@@ -4711,12 +4710,12 @@ alias[trigger:count_neighbor_system] = {
 	count = all
 }
 
-### Iterate through all a system's neigboring systems (by closeness, not by hyperlanes) - checks whether the enclosed triggers return true for any of them
+### Iterate through all a system's neighboring systems (by closeness, not by hyperlanes) - checks whether the enclosed triggers return true for any of them
 ## scopes = { galactic_object }
 ## push_scope = system
 alias[trigger:any_neighbor_system_euclidean] = single_alias_right[trigger_clause]
 
-### Iterate through all a system's neigboring systems (by closeness, not by hyperlanes) - checks whether the enclosed triggers return true for X/all of them
+### Iterate through all a system's neighboring systems (by closeness, not by hyperlanes) - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { galactic_object }
 alias[trigger:count_neighbor_system_euclidean] = {
 	## cardinality = 0..1
