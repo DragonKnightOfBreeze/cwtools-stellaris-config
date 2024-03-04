@@ -12,14 +12,6 @@ types = {
 			leader_class = $any
 			starting_ruler_trait = yes
 		}
-		subtype[subclass_trait] = {
-			leader_class = $any
-			subclass_trait = yes
-		}
-		subtype[destiny_trait] = {
-			leader_class = $any
-			destiny_trait = yes
-		}
 		subtype[ethic_destiny_trait] = {
 			leader_class = $any
 			ethic_destiny_trait = yes
@@ -95,17 +87,10 @@ trait = {
 		## cardinality = 0..1
 		starting_ruler_trait = bool
 		## cardinality = 0..1
-		subclass_trait = bool
-		## cardinality = 0..1
-		destiny_trait = bool
-		## cardinality = 0..1
 		ethic_destiny_trait = bool
 		### Is this trait only active if the leader is on the Council? Default is no.
 		## cardinality = 0..1
 		force_councilor_trait = bool
-		### default: false
-		## cardinality = 0..1
-		veteran_class_locked_trait = bool
 
 		### OR - This trait is blocked in ruler creation if listed origins are selected.
 		## cardinality = 0..1
@@ -136,14 +121,13 @@ trait = {
 			}
 		}
 
+		### Determines when this trait can be gained, valid: 'basic', 'veteran', 'subclass', 'destiny', 'negative'. Default is 'basic'.
+		## cardinality = 0..1
+		leader_trait_type = enum[leader_trait_type]
 		## cardinality = 0..1
 		leader_trait_rarity = enum[leader_trait_rarity]
 		## cardinality = 0..1
 		sorting_priority = int
-
-		### Is this a negative trait? Default is no.
-		## cardinality = 0..1
-		negative = bool
 
 		### Default is yes.
 		## cardinality = 0..1
@@ -286,15 +270,6 @@ trait = {
 		## replace_scopes = { this = species root = species from = country }
 		## cardinality = 0..1
 		species_potential_add = single_alias_right[trigger_clause]
-
-		subtype[subclass_trait] = {
-			## cardinality = 0..inf
-			background_icon = <sprite>
-		}
-		subtype[destiny_trait] = {
-			## cardinality = 0..inf
-			background_icon = <sprite>
-		}
 
 		### AND - Trait only available if the leaders species has this trait.
 		## cardinality = 0..1
@@ -474,6 +449,10 @@ trait = {
 			## cardinality = 1..inf
 			<species_class> = float
 		}
+
+		### Background used in the subclass and destiny trait selection UI.
+		## cardinality = 0..1
+		background_icon = <sprite>
 	}
 
 	## cardinality = 0..1
@@ -486,6 +465,13 @@ trait = {
 }
 
 enums = {
+	enum[leader_trait_type] = {
+		basic
+		veteran
+		subclass
+		destiny
+		negative
+	}
 	enum[leader_trait_rarity] = {
 		common
 		veteran

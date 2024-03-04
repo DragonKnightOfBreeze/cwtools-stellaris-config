@@ -24,7 +24,7 @@ section_template = {
 	## cardinality = 0..inf
 	#TODO section slots
 	fits_on_slot = enum[section_slot]
-	entity = scalar #TODO: graphical culture <model_entity>
+	entity = scalar # TODO entity suffixes
 
 	## cardinality = 0..1
 	### As far as I can tell, this is unused (the Vanilla ones refer to non-existent sprites and I couldn't find an ingame effect) -Caligula

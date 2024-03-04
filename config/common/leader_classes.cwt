@@ -106,11 +106,12 @@ leader_class = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
-	### used to evaluate a specific leader for an assignment to the class,
+	### used to evaluate a specific leader for an assignment to a specific location (right now only used for fleet),
 	### scope is the leader, from is the leader location (can be a planet, a fleet, an army etc)
+	### if the score is 0 or less, the leader will not be assigned to that location
 	## cardinality = 0..1
-	## replace_scopes = { this = leader root = leader }
-	ai_leader_weight = {
+	## replace_scopes = { this = leader root = leader from = any }
+	ai_location_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
@@ -131,4 +132,8 @@ leader_class = {
 	### 1-based index in the icon file. might be replaced by an icon name later
 	## cardinality = 0..1
 	icon = int
+
+	### used to display a background behind paragon portraits
+	## cardinality = 0..1
+	paragon_background_selector = <asset_selector.asset>
 }

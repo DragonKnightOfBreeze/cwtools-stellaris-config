@@ -1148,6 +1148,20 @@ alias[trigger:distance_to_empire] = {
 ## scopes = { country }
 alias[trigger:expenses] == value_field
 
+## scopes = any
+alias[trigger:success_text] = localisation
+
+### For 'desc={trigger={' use. Shows custom text when the associated trigger passes.
+## scopes = any
+alias[trigger:success_text] = {
+	text = localisation
+	## cardinality = 0..inf
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
+## scopes = any
+alias[trigger:fail_text] = localisation
+
 ### For 'desc={trigger={' use. Shows custom text when the associated trigger fails.
 ## scopes = any
 alias[trigger:fail_text] = {
@@ -1775,21 +1789,6 @@ alias[trigger:stored_society_points] == int_value_field
 ### Checks if the current country is allowed by its overlord to take diplomatic action
 ## scopes = { country }
 alias[trigger:subject_can_diplomacy] = scope_group[target_country]
-
-### For 'desc={trigger={' use. Shows custom text when the associated trigger passes.
-## scopes = any
-alias[trigger:success_text] = {
-	text = localisation
-	## cardinality = 0..inf
-	alias_name[trigger] = alias_match_left[trigger]
-}
-
-#switch = {
-# 	trigger = pop_has_ethic
-# 	ethic_xenophile = { <trigger> }
-# 	ethic_xenophobe = { <trigger> }
-# 	default = { <trigger> }
-# }
 
 ### Switch case for a trigger
 ## scopes = any

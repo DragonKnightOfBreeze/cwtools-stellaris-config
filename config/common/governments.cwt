@@ -427,6 +427,8 @@ councilor = {
 	### Icon used for the council position, if a civic is not specified.
 	## cardinality = 0..1
 	icon = <sprite>
+	## cardinality = 0..1
+	ai_priority = int
 	### Country scope triggers to evaluate if the council position is optional. Default TRUE.
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }

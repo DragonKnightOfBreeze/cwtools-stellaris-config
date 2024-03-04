@@ -2126,6 +2126,9 @@ alias[effect:spawn_natural_wormhole] = {
 	random_pos = bool
 	## cardinality = 0..1
 	graphics_entity_name = <model_entity>
+	## cardinality = 0..1
+	## push_scope = bypass
+	init_effect = single_alias_right[effect_clause]
 }
 
 ### Link the wormhole from the scoped system to the wormhole in the target system, or from the scope wormhole to the target wormhole.
@@ -3027,6 +3030,8 @@ alias[effect:set_mission] = <observation_station_mission>
 ### Example:
 ## scopes = { planet }
 alias[effect:set_planet_entity] = {
+	## cardinality = 0..1
+	entity = scalar # TODO entity suffixes
 	## cardinality = 0..1
 	entity = <model_entity>
 	## cardinality = 0..1
