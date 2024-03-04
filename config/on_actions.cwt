@@ -91,6 +91,11 @@ on_actions = {
 	## event_type = country
 	on_five_year_random_pulse_overlord
 
+	### this = country, fired via action.220 from on_five_year_pulse_country
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_five_years_communication_spread_country
+
 	### this = country, fired via action.620
 	## replace_scopes = { this = country root = country }
 	## event_type = country
@@ -430,6 +435,12 @@ on_actions = {
 	## replace_scopes = { this = country root = country from = ship }
 	## event_type = country
 	on_ship_disbanded
+
+	### This = owner of army
+	### From = disbanded army
+	## replace_scopes = { this = country root = country from = army }
+	## event_type = country
+	on_army_disbanded
 
 	### This = owner of fleet
 	### From = fleet

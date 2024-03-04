@@ -701,4 +701,31 @@ game_rules = {
 	### FROM = Astral Rift checked
 	## replace_scopes = { this = leader from = astral_rift }
 	can_leader_explore_astral_rift
+
+	### FROM = country of the ai (in case it's relevant)
+	### THIS = planet
+	### this determines if the planet is allowed to receive a governor at all, and isn't called for a specific candidate
+	## replace_scopes = { this = planet from = country }
+	can_ai_assign_governor
+
+	### if the galactic community exists, is a galactic empire, and the country is part of it
+	### the ai will call this to see if it should set its delegate to strengthn it
+	### It is guaranteed that the galactic community exists, is an empire, and the country is part of it
+	### when this rule is called
+	### THIS = Country
+	### FROM = Galactic Emperor (Country)
+	## replace_scopes = { this = country from = country }
+	should_ai_support_galactic_empire
+
+	### if the galactic community exists, is a galactic empire, and the country is part of it
+	### and if it didn't decided to strengthen the empire,
+	### the ai will call this to see if it should set its delegate to undermine it
+	### if the ai neither wants to support nor undermine the galactic empire, it will just keep
+	### its emissary as a standard delegate
+	### It is guaranteed that the galactic community exists, is an empire, and the country is part of it
+	### when this rule is called
+	### THIS = Country
+	### FROM = Galactic Emperor (Country)
+	## replace_scopes = { this = country from = country }
+	should_ai_undermine_galactic_empire
 }
