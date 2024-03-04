@@ -29,6 +29,9 @@ single_alias[triggered_modifier_clause] = {
 	## cardinality = 0..1
 	show_if_not_potential = bool
 	## cardinality = 0..1
+	not_potential_override_text_key = localisation
+
+	## cardinality = 0..1
 	modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..inf
 	alias_name[modifier] = alias_match_left[modifier]
@@ -58,6 +61,12 @@ single_alias[triggered_modifier_by_pop_clause] = {
 	potential = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	key = localisation
+
+	## default: no
+	## cardinality = 0..1
+	show_if_not_potential = bool
+	## cardinality = 0..1
+	not_potential_override_text_key = localisation
 
 	## cardinality = 0..1
 	modifier = single_alias_right[modifier_clause]
@@ -90,6 +99,12 @@ single_alias[triggered_modifier_by_planet_clause] = {
 	## cardinality = 0..1
 	key = localisation
 
+	## default: no
+	## cardinality = 0..1
+	show_if_not_potential = bool
+	## cardinality = 0..1
+	not_potential_override_text_key = localisation
+
 	## cardinality = 0..1
 	modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..inf
@@ -120,6 +135,12 @@ single_alias[triggered_modifier_by_starbase_clause] = {
 	potential = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	key = localisation
+
+	## default: no
+	## cardinality = 0..1
+	show_if_not_potential = bool
+	## cardinality = 0..1
+	not_potential_override_text_key = localisation
 
 	## cardinality = 0..1
 	modifier = single_alias_right[modifier_clause]
@@ -152,6 +173,12 @@ single_alias[triggered_modifier_by_situation_clause] = {
 	## cardinality = 0..1
 	key = localisation
 
+	## default: no
+	## cardinality = 0..1
+	show_if_not_potential = bool
+	## cardinality = 0..1
+	not_potential_override_text_key = localisation
+
 	## cardinality = 0..1
 	modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..inf
@@ -182,6 +209,12 @@ single_alias[triggered_modifier_by_leader_clause] = {
 	potential = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	key = localisation
+
+	## default: no
+	## cardinality = 0..1
+	show_if_not_potential = bool
+	## cardinality = 0..1
+	not_potential_override_text_key = localisation
 
 	## cardinality = 0..1
 	modifier = single_alias_right[modifier_clause]

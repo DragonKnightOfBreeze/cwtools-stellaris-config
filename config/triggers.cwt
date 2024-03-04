@@ -3374,6 +3374,13 @@ alias[trigger:num_leader_traits] = {
 	### default: no
 	## cardinality = 0..1
 	count_tiers = bool
+	## cardinality = 0..1
+	### filters on whether the trait has a modifier that contains the specified string
+	contains_modifier = {
+		string = scalar
+		type = enum[any_or_bool]
+		is_subclass = enum[any_or_bool]
+	}
 }
 
 ### Checks if scoped leader is the Ruler of the Empire

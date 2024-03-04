@@ -322,6 +322,10 @@ trait = {
 			## cardinality = 1..4
 			enum[trait_ai_category]
 		}
+
+		### Background used in the subclass and destiny trait selection UI.
+		## cardinality = 0..1
+		background_icon = <sprite>
 	}
 
 	subtype[species_trait] = {
@@ -449,10 +453,6 @@ trait = {
 			## cardinality = 1..inf
 			<species_class> = float
 		}
-
-		### Background used in the subclass and destiny trait selection UI.
-		## cardinality = 0..1
-		background_icon = <sprite>
 	}
 
 	## cardinality = 0..1
