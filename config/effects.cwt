@@ -3982,10 +3982,13 @@ alias[effect:activate_crisis_progression] = yes
 
 ### Sets the room background of the empire. Provide an empty string to remove the override.
 ## scopes = { country }
-alias[effect:room_name_override] = <asset_selector.room>
+alias[effect:room_name_override] = <asset_selector.room>  ###这一个写法存疑，疑似没有效果
 ### Sets the room background of the empire. Provide an empty string to remove the override.
 ## scopes = { country }
 alias[effect:room_name_override] = ""
+### Sets the room background of the empire. Provide an empty string to remove the override.
+## scopes = { country }
+alias[effect:room_name_override] = icon[gfx/portraits/city_sets] ###经过测试，这个可以进行
 
 ### Sets the AI personality of a country to a new one
 ## scopes = { country }

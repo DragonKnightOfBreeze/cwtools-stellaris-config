@@ -147,7 +147,7 @@ asset_selector = {
 		## replace_scopes = { this = country root = country }
 		game_setup = {
 			## cardinality = 0..inf
-			scalar = single_alias_right[trigger_clause]
+			icon[gfx/portraits/city_sets] = single_alias_right[trigger_clause]  #这样可以直接找到对应图，这些图是不需要注册的，至少在蠢驴原版没有看见
 		}
 		## cardinality = 0..1
 		## replace_scopes = { this = leader root = leader }
@@ -164,7 +164,7 @@ asset_selector = {
 				}
 			}
 			## cardinality = 0..inf
-			scalar = single_alias_right[trigger_clause] # the scalar here is the same kind of file link as in the above!
+			icon[gfx/portraits/city_sets] = single_alias_right[trigger_clause] # the scalar here is the same kind of file link as in the above! 补充：同上
   		}
 	}
 	subtype[entity] = {
