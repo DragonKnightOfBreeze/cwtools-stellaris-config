@@ -436,6 +436,9 @@ alias[gui_button:effectButtonType] = {
 	### The effect key is defined under /common/button_effects.
 	effect = <button_effect>
 
+	### Auto warp buttonText
+	multiline = bool # 这是有效的（功能：自动换行）
+
 	alias_name[gui_localisation] = alias_match_left[gui_localisation]
 	alias_name[gui_sound] = alias_match_left[gui_sound]
 	alias_name[gui_sprite] = alias_match_left[gui_sprite]
