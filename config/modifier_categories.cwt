@@ -18,16 +18,16 @@ modifier_categories = {
 		supported_scopes = { popfaction country }
 	}
 	"Military Ships" = {
-		supported_scopes = { ship starbase fleet galacticobject country }
+		supported_scopes = { ship starbase fleet galacticobject country sector }
 	}
 	"Civilian Ships" = {
-		supported_scopes = { ship starbase fleet galacticobject country }
+		supported_scopes = { ship starbase fleet galacticobject country sector }
 	}
 	"Science Ships" = {
-		supported_scopes = { ship starbase fleet galacticobject country }
+		supported_scopes = { ship starbase fleet galacticobject country sector }
 	}
 	"Transport Ships" = {
-		supported_scopes = { ship starbase fleet galacticobject country }
+		supported_scopes = { ship starbase fleet galacticobject country sector }
 	}
 	Ships = {
 		supported_scopes = { ship starbase fleet planet sector galacticobject country leader }
@@ -63,10 +63,10 @@ modifier_categories = {
 		supported_scopes = { spynetwork country }
 	}
 	"Orbital Stations" = {
-		supported_scopes = { ship starbase fleet galacticobject country }
+		supported_scopes = { ship starbase fleet galacticobject country sector }
 	}
 	"Space Stations" = {
-		supported_scopes = { ship starbase fleet galacticobject country }
+		supported_scopes = { ship starbase fleet galacticobject country sector }
 	}
 	Deposits = {
 		supported_scopes = { deposit planet sector galacticobject country }
