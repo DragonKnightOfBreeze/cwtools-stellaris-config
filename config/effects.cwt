@@ -50,7 +50,9 @@ alias[effect:else_if] = {
 ### Executes enclosed effects if limit criteria of preceding 'if' or 'else_if' is not met
 ### if = { limit = { <triggers> } <effects> }
 ## scopes = any
-alias[effect:else] = single_alias_right[effect_clause]
+alias[effect:else] = {
+	alias_name[effect] = alias_match_left[effect]
+}
 
 ### Saves the current scope as an arbitrarily-named target to be referenced later in the (unbroken) event chain
 ## scopes = any
