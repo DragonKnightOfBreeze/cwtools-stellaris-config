@@ -1,6 +1,7 @@
 types = {
 	type[ai_budget] = {
 		path = "game/common/ai_budget"
+		file_extension = .txt
 	}
 }
 
