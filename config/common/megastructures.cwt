@@ -88,13 +88,25 @@ megastructure = {
 	build_time = int
 	## cardinality = 0..1
 	starbase = <starbase_level>
+
+	### an extra trigger to allow scripted reasons to hide the megastructure. if defined both show_in_outliner and this trigger need to be true for the megastructure to show in the outliner. scope: megastructure
+	## cardinality = 0..1
+	## replace_scopes = { this = megastructure root = megastructure }
+	outliner_trigger = single_alias_right[trigger_clause]
+
 	## cardinality = 0..1
 	resources = {
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
+
 	## cardinality = 0..1
 	overlord_can_upgrade = bool
+
+	### default = no; decides if the megastructure will mine the underlying resources if its on top of a planet/star
+	## cardinality = 0..1
+	use_planet_resource = bool
+
 	## cardinality = 0..1
 	scales_with_planet = bool
 	## cardinality = 0..1

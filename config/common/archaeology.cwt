@@ -130,6 +130,9 @@ relic = {
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
 
+	## cardinality = 0..1
+	can_be_stolen = bool
+
 	## cardinality = 0..inf
 	## replace_scopes = { root = country this = country }
 	triggered_country_modifier = single_alias_right[triggered_modifier_clause]

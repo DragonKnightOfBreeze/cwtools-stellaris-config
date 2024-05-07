@@ -118,5 +118,13 @@ job = {
 	weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
+
+	### The auto_trait_prio list on jobs should contain one valid trait swap for each trait category.
+	## cardinality = 0..1
+	auto_trait_prio = {
+		## cardinality = 1..inf
+		<trait>
+	}
+
 }
 

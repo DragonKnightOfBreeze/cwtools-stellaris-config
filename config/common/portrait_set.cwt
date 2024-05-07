@@ -1,0 +1,42 @@
+types = {
+    type[portrait_sets] = {
+        path = "game/common/portrait_sets"
+        file_extension = .txt
+    }
+}
+
+portrait_sets = {
+
+    ## cardinality = 1..1
+    species_class = <species_class>
+
+    ## cardinality = 0..1
+
+    portraits = {
+        <portrait>
+        <portrait_group>
+    }
+
+    ## cardinality = 0..1
+    conditional_portraits = {
+        randomizable = single_alias_right[trigger_clause]
+        playable = single_alias_right[trigger_clause]
+        portraits = {
+            <portrait>
+            <portrait_group>
+        }
+    }
+
+    ## cardinality = 0..1
+    non_randomized_portraits = {
+        <portrait>
+        <portrait_group>
+    }
+
+    ## cardinality = 0..1
+    non_pre_ftl_portraits = {
+        <portrait>
+        <portrait_group>
+    }
+
+}

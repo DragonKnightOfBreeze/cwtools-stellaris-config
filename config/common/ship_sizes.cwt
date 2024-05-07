@@ -217,6 +217,10 @@ ship_size = {
 		<resource> = float
 	}
 
+	### Removes the chance for the ship size to instantly get killed by emergency ftl. It can still be killed by the random Emergency FTL damage effect.
+	## cardinality = 0..1
+	never_lost = bool
+
 	## cardinality = 0..1
 	ai_ship_data = {
 		## cardinality = 0..1

@@ -212,6 +212,9 @@ planet_class = {
 	default_planet_selection = bool
 	## cardinality = 0..1
 	planet_custom_label_offset = int
+	### default = yes; Can be used to block all other additions of max building and district modifiers except the planet class specific ones.
+	## cardinality = 0..1
+	inherit_country_building_modifiers = bool
 }
 
 planet_class_random_list = {

@@ -1,0 +1,22 @@
+types = {
+    type[crisis_path] = {
+        path = "game/common/crisis_paths"
+        file_extension = .txt
+    }
+}
+
+crisis_path = {
+    ## cardinality = 1..1
+    crisis_currency = <resource>
+
+    ## cardinality = 1..1
+    levels = {
+        <crisis_level>
+    }
+
+    ## cardinality = 1..1
+    objectives = {
+        <crisis_objective>
+    }
+
+}

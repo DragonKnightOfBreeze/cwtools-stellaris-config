@@ -20,6 +20,9 @@ types = {
 			## cardinality = 0..0
 			leader_class = $any
 		}
+		subtype[auto_mod] = {
+			auto_mod = yes
+		}
 
 		localisation = {
 			name = "$"
@@ -81,6 +84,8 @@ trait = {
 		## cardinality = 1..inf
 		<species_class>
 	}
+
+
 
 	subtype[leader_trait] = {
 		### This trait is available in ruler creation. Default is no.
@@ -329,6 +334,21 @@ trait = {
 	}
 
 	subtype[species_trait] = {
+
+		subtype[auto_mod] = {
+			auto_mod = yes
+			category = enum[auto_mod_category]
+		}
+
+		subtype[!auto_mod] = {
+			## cardinality = 0..1
+			category = enum[auto_mod_category]
+		}
+
+		### Auto Mod traits require the following to function. default is yes
+		## cardinality = 0..1
+		auto_mod = bool
+
 		### evaluated when the game decides to build a species. Default is 0, anything positive adds some extra weight to \
 		### a species with that trait. (Has species and planet scope). A value of 0 does not stop it being picked, it just means this factor won't make \
 		### a difference. If you make it strongly negative, it will not pick this species. You probably only want to be in the range from -2 to 2 or so.
@@ -380,6 +400,11 @@ trait = {
 		## cardinality = 0..inf
 		## replace_scopes = { this = planet root = planet from = species fromfrom = country }
 		triggered_planet_growth_habitability_modifier = single_alias_right[triggered_modifier_clause]
+
+		#### Will show in trait tooltips if active. Tooltips will always use the player country as the country scope.
+		## cardinality = 0..inf
+		## replace_scopes = { this = species root = species from = country }
+		triggered_species_modifier = single_alias_right[triggered_modifier_clause]
 
 		## cardinality = 0..inf
 		custom_tooltip = localisation
@@ -484,5 +509,13 @@ enums = {
 		physics
 		society
 		survey
+	}
+	enum[auto_mod_category] = {
+		normal
+		cyborg
+		robotic
+		psionic
+		advanced_genetic
+		overtuned
 	}
 }
