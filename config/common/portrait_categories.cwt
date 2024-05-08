@@ -1,19 +1,14 @@
 types = {
-    type[portrait_categories] = {
+    type[portrait_category] = {
         path = "game/common/portrait_categories"
         file_extension = .txt
     }
 }
 
-portrait_categories = {
-
-    ## cardinality = 1..1
+portrait_category = {
     name = scalar
     name = localisation
-
-    ## cardinality = 1..1
     sets = {
         <portrait_sets>
     }
-
 }

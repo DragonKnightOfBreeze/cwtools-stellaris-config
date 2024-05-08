@@ -3010,7 +3010,7 @@ alias[trigger:starbase_buildable_is_in_queue_before] = {
 
 ### Checks number of tradition categories the country has picked
 ## scopes = { country }
-alias[trigger:num_tradition_categories] == int_value_field
+alias[trigger:num_tradition_category] == int_value_field
 
 ### Checks if the planet's climate is set to a specified string in planet_classes:
 ## scopes = { planet }
