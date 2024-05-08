@@ -180,6 +180,10 @@ planet_class = {
 		## severity = warning
 		district_set = enum[district_set]
 
+		### If assigned only buildings with a matching building set will be possible to build
+		## cardinality = 0..1
+		building_set = enum[building_set]
+
 		## cardinality = 0..1
 		climate = localisation
 		## cardinality = 0..1
@@ -232,4 +236,12 @@ enums = {
 			district_set = enum_name
 		}
 	}
+
+	complex_enum[building_set] = {
+		path = "game/common/planet_classes"
+		name = {
+			building_set = enum_name
+		}
+	}
+
 }
