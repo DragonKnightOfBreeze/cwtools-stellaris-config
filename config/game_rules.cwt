@@ -89,7 +89,7 @@ game_rules = {
 
 	### Root = country
 	### This = species
-	## replace_scopes = { this = country root = species }
+	## replace_scopes = { this = species root = country }
 	can_modify_species
 
 	### This rule is a condition for when subjects that normally cannot colonize outside their borders are allowed to
