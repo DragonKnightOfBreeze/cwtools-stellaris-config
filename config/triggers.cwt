@@ -4839,3 +4839,14 @@ alias[trigger:count_bypass] = {
 	count = int_value_field
 	count = all
 }
+
+### Check how many free jobs there are of a specific jobtype or pop category on a planet
+## scopes = { planet }
+alias[trigger:free_jobs_of_type] = {
+	job = <job>
+	category = <pop_category>
+	### default = no
+	include_deprioritized_jobs = bool
+	value = value_field
+
+}
