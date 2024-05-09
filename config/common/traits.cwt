@@ -463,6 +463,12 @@ trait = {
 		}
 
 		## cardinality = 0..1
+		forbidden_ethics = {
+			## cardinality = 0..inf
+			<ethic>
+		}
+
+		## cardinality = 0..1
 		potential_crossbreeding_chance = float
 
 		## cardinality = 0..1

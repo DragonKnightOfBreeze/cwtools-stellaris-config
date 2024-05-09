@@ -4843,10 +4843,14 @@ alias[trigger:count_bypass] = {
 ### Check how many free jobs there are of a specific jobtype or pop category on a planet
 ## scopes = { planet }
 alias[trigger:free_jobs_of_type] = {
+	## cardinality = 0..1
 	job = <job>
+	## cardinality = 0..1
 	category = <pop_category>
 	### default = no
+	## cardinality = 0..1
 	include_deprioritized_jobs = bool
+	## cardinality = 0..1
 	value = value_field
 
 }

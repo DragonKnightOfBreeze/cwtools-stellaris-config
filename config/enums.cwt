@@ -368,6 +368,12 @@ enums = {
 		sectors
 		trade_routes
 	}
+	enum[refresh_portraits] = {
+		planet
+		room
+		character
+		all
+	}
 	enum[mia_type] = {
 		mia_return_home
 		mia_emergency_ftl

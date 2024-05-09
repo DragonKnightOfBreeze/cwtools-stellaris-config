@@ -7530,3 +7530,15 @@ alias[effect:every_bypass] = {
 ### Can be used to reset a planets decline
 ## scopes = { planet }
 alias[effect:reset_decline] = bool
+
+### Signals to portrait objects that they need to refresh some of their properties
+## scopes = { country }
+alias[effect:refresh_portraits] = euem[refresh_portraits]
+
+### Used after an advanced authority swap to make sure things are changed properly
+## scopes = { country }
+alias[effect:advanced_authority_refresh] = bool
+
+### Enables or disables the date distortion effect
+## scopes = any
+alias[effect:date_distortion] = bool
