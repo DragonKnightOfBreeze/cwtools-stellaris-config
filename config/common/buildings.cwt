@@ -59,6 +59,12 @@ building = {
 	## cardinality = 0..1
 	owner_type = subject_holding
 
+	### used to match with a planet class' building set, can be assigned to multiple sets. Used to remove from construction lists
+	## cardinality = 0..1
+	building_sets = {
+		enum[building_set]
+	}
+
 	## cardinality = 0..1
 	base_buildtime = int
 
