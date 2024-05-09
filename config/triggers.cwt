@@ -4855,8 +4855,4 @@ alias[trigger:free_jobs_of_type] = {
 
 }
 
-### Not in log
-## scopes = { country }
-## push_scope = species
-alias[trigger:founder_species] = single_alias_right[trigger_clause]
 
