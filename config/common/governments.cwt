@@ -432,6 +432,10 @@ civic_or_origin = {
 		habitability_preference = <planet_class>
 		## cardinality = 0..1
 		preferred_planet_class_neighbor = no
+
+		### ORIGIN EXCLUSIVE: Makes sure that random empire creation does not create invalid combinations with individualistic machines. Defaults to yes. Required for all origins that should be blocked by individualist machines.
+		## cardinality = 0..1
+		blocks_random_machine_empire_generation = bool
 	}
 
 	## cardinality = 0..1
