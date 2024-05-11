@@ -2068,6 +2068,8 @@ alias[trigger:num_buildings] = {
 	## cardinality = 0..1
 	in_construction = bool
 	## cardinality = 0..1
+	owner_type = normal
+	## cardinality = 0..1
 	owner_type = corporate
 	## cardinality = 0..1
 	owner_type = subject_holding
@@ -4890,3 +4892,15 @@ alias[trigger:count_species_traits] = {
 ### Checks if the scoped pop faction is extorted
 ## scopes = { pop_faction }
 alias[trigger:is_faction_extorted] = bool
+
+### Checks if the the country has an extorted faction
+## scopes = { country }
+alias[trigger:has_extorted_faction] = bool
+
+### Checks if the planet has the specified tag for building usage:
+## scopes = { planet }
+alias[trigger:uses_building_set] = enum[building_set]
+
+### Checks if pop in the scope is being sold on the slave market:
+## scopes = { pop }
+alias[trigger:is_on_slave_market] = bool
