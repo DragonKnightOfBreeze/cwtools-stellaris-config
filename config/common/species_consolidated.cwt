@@ -176,10 +176,10 @@ species_class = {
 	## replace_scopes = { root = country this = country }
 	possible = {
 		## cardinality = 0..1
-		always = bool
-		## cardinality = 0..1
 		text = localisation
 		## cardinality = 0..1
+		always = bool
+		## cardinality = 0..inf
 		alias_name[government_trigger] = alias_match_left[government_trigger]
 	}
 	## cardinality = 0..1
@@ -315,6 +315,7 @@ citizenship_type = {
 	## replace_scopes = { this = species root = species from = country }
 	allow = single_alias_right[trigger_clause]
 
+	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
 		factor = float
@@ -375,6 +376,7 @@ colonization_control = {
 	## replace_scopes = { this = species root = species from = country }
 	allow = single_alias_right[trigger_clause]
 
+	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
 		factor = float
@@ -432,6 +434,7 @@ living_standard = {
 	## replace_scopes = { this = species root = species from = country }
 	allow = single_alias_right[trigger_clause]
 
+	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
 		factor = float
@@ -492,6 +495,7 @@ migration_control = {
 	## replace_scopes = { this = species root = species from = country }
 	allow = single_alias_right[trigger_clause]
 
+	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
 		factor = float
@@ -549,6 +553,7 @@ military_service_type = {
 	## replace_scopes = { this = species root = species from = country }
 	allow = single_alias_right[trigger_clause]
 
+	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
 		factor = float
@@ -609,6 +614,7 @@ population_control = {
 	## replace_scopes = { this = species root = species from = country }
 	allow = single_alias_right[trigger_clause]
 
+	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
 		factor = float
@@ -637,7 +643,7 @@ purge_type = {
 
 	pop_escape_chance = float
 	### Divide by 100 for monthy reduction, overrides BASE_POP_DECLINE
-	pop_decline_rate = float
+	pop_decline_rate = value_field
 
 	## cardinality = 0..1
 	## replace_scopes = { this = army root = army }
@@ -670,6 +676,7 @@ purge_type = {
 	## replace_scopes = { this = species root = species from = country }
 	allow = single_alias_right[trigger_clause]
 
+	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
 		factor = float
@@ -679,6 +686,10 @@ purge_type = {
 	## cardinality = 0..inf
 	## replace_scopes = { this = pop root = pop }
 	triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
+
+	## cardinality = 0..inf
+	hidden = single_alias_right[trigger_clause]
+
 }
 
 slavery_type = {
@@ -731,6 +742,7 @@ slavery_type = {
 	## replace_scopes = { this = species root = species from = country }
 	allow = single_alias_right[trigger_clause]
 
+	## cardinality = 0..1
 	## replace_scopes = { this = species root = species from = country }
 	ai_will_do = {
 		factor = float

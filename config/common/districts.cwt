@@ -116,4 +116,11 @@ district = {
 		## cardinality = 0..inf
 		enum[complex_maths_enum] = value_field
 	}
+
+	## cardinality = 0..1
+	ai_estimate_without_unemployment = bool
+	## cardinality = 0..1
+	additional_ai_weight = float
+	## cardinality = 0..1
+	ai_weight_coefficient = float
 }

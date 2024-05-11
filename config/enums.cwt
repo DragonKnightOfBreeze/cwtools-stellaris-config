@@ -378,6 +378,10 @@ enums = {
 		mia_return_home
 		mia_emergency_ftl
 	}
+	enum[range_components] = {
+		weapon
+		strike_craft
+	}
 	enum[any_or_bool] = {
 		any
 		yes
@@ -389,4 +393,5 @@ enums = {
 		yes
 		no
 	}
+
 }

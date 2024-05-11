@@ -236,12 +236,10 @@ enums = {
 			district_set = enum_name
 		}
 	}
-
 	complex_enum[building_set] = {
 		path = "game/common/planet_classes"
 		name = {
 			building_set = enum_name
 		}
 	}
-
 }

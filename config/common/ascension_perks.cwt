@@ -77,7 +77,9 @@ ascension_perk = {
 
 	## cardinality = 0..inf
 	tradition_swap = {
+		## cardinality = 0..1
 		name = localisation
+		## cardinality = 0..1
 		name = scalar
 		## cardinality = 0..1
 		inherit_icon = bool

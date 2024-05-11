@@ -578,7 +578,7 @@ modifiers = {
 	divided_patrongage_max_subjects = { Countries }
 	mining_district_housing_add = { Planets }
 	mining_district_buildings_add = { Planets }
-
+	auto_mod_monthly_add = { Countries Planets }
 	# councilor modifiers
 	<councilor>_exp_gain = { Leaders }
 }

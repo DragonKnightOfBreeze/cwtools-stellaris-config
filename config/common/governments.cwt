@@ -185,7 +185,7 @@ authority = {
 		## cardinality = 0..1
 		inherit_effects = bool
 		### Used to swap out the ruler council position
-		## cardinality = 1..1
+		## cardinality = 0..1
 		ruler_council_position = <councilor>
 		### This will decide when the swap to advanced authority type will be made
 		## cardinality = 0..1
@@ -496,7 +496,7 @@ councilor = {
 	optional = single_alias_right[trigger_clause]
 	### Calculates the weight of a leader passed as scope to determine whether to assign them or not
 	## cardinality = 0..1
-	## replace_scopes = { this = country root = country }
+	## replace_scopes = { this = leader root = leader }
 	ai_hiring_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}

@@ -33,7 +33,9 @@ types = {
 crisis_level = {
 	## cardinality = 0..1
 	allow = single_alias_right[trigger_clause]
-	required_menace = int
+
+	## cardinality = 1..1
+	required_crisis_currency = int
 
 	# REWARDS
 	perks = {
@@ -45,6 +47,10 @@ crisis_level = {
 }
 
 crisis_objective = {
+	## cardinality = 0..1
+	## replace_scope = { this = country root = country }
+	potential = single_alias_right[trigger_clause]
+
 	reward = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}

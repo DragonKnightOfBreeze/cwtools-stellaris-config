@@ -1796,7 +1796,7 @@ alias[trigger:switch] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = ~1..inf
 	scalar = single_alias_right[trigger_clause]
-	## cardinality = ~1..1
+	## cardinality = 0..1
 	default = single_alias_right[trigger_clause]
 }
 
@@ -2432,6 +2432,10 @@ alias[trigger:is_galactic_council_established] = bool
 ### Checks if scoped country has specified origin
 ## scopes = { country dlc_recommendation }
 alias[trigger:has_origin] = <civic_or_origin.origin>
+
+### Only used for the Empire Select View to see if the selected empire matches a specific
+## scopes = any
+alias[trigger:local_human_origin] = <civic_or_origin.origin>
 
 ### Checks if the provided Resolution is active in the Community
 ## scopes = any
@@ -4855,4 +4859,34 @@ alias[trigger:free_jobs_of_type] = {
 
 }
 
+### Checks number of tradition categories the country has picked
+## scopes = { country }
+alias[trigger:num_tradition_categories] = int
 
+### Checks if a country has a specific Crisis Perk unlocked.
+## scopes = { country }
+alias[trigger:has_crisis_perk] = <menace_perk>
+
+### Checks the number of unique traits within the set parameters on a species or pop
+## scopes = { Pop species }
+alias[trigger:count_traits] = {
+	limit = single_alias_right[trigger_clause]
+	category = enum[auto_mod_category]
+	cost = int
+	count = int_value_field
+	count = all
+}
+
+### Checks the number of unique traits within the set parameters on a species or pop
+## scopes = { Pop species }
+alias[trigger:count_species_traits] = {
+	limit = single_alias_right[trigger_clause]
+	category = enum[auto_mod_category]
+	cost = int
+	count = int_value_field
+	count = all
+}
+
+### Checks if the scoped pop faction is extorted
+## scopes = { pop_faction }
+alias[trigger:is_faction_extorted] = bool

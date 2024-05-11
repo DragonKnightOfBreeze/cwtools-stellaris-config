@@ -2545,6 +2545,8 @@ single_alias[fleet_settings] = {
 	is_boss = bool
 	## cardinality = 0..1
 	ai_ignore_strength = bool
+	## cardinality = 0..1
+	is_ultra_boss = bool
 }
 
 ### Creates a message, can take multiple variables
@@ -7542,3 +7544,20 @@ alias[effect:advanced_authority_refresh] = bool
 ### Enables or disables the date distortion effect
 ## scopes = any
 alias[effect:date_distortion] = bool
+
+### Creates cloud effect at every star system controlled by the country
+## scopes = country
+alias[effect:activate_fog_machine] = <dust_clouds>
+
+### Deactivates country fog machine
+## scopes = country
+alias[effect:deactivate_fog_machine] = yes
+
+### Swithces on/off galactic object ownership auto tracking for country fog machine
+## scopes = country
+alias[effect:fog_machine_auto_tracking] = bool
+
+### Sets the scope faction as extorted and removes extortion from any other ones
+## scopes = pop_faction
+alias[effect:set_faction_extorted] = bool
+

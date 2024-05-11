@@ -189,6 +189,12 @@ pop_faction = {
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
 
+	### Resource generated when the faction is being extorted
+	extortion_resource = {
+		category = <economic_category>
+		alias_name[economic_template] = alias_match_left[economic_template]
+	}
+
 	### Persistent factions will keep at least 1 pop in the faction until the faction fails the potential trigger
 	## cardinality = 0..1
 	persistent_faction = bool

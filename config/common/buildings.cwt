@@ -50,6 +50,7 @@ enums = {
 building = {
 	## cardinality = 0..inf
 	desc = {
+		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
 		trigger = single_alias_right[trigger_clause]
 		text = localisation
@@ -108,9 +109,11 @@ building = {
 	allow = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
+	## replace_scopes = { root = country this = country }
 	empire_limit = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
+
 	## cardinality = 0..1
 	empire_limit = float
 
@@ -133,6 +136,10 @@ building = {
 	### an action when repaired
 	## cardinality = 0..1
 	on_repaired = single_alias_right[effect_clause]
+
+	### don't know whether it have quantity limit
+	## cardinality = 0..inf
+	show_in_tech = <technology>
 
 	### trigger for displaying building in construction list
 	## cardinality = 0..1

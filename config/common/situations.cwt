@@ -48,6 +48,8 @@ situation_type = {
 	## cardinality = 0..1
 	on_abort = single_alias_right[effect_clause]
 	## cardinality = 0..1
+	triggered_blocked_desc = single_alias_right[triggered_desc_clause]
+	## cardinality = 0..1
 	abort_trigger = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1

@@ -19,8 +19,11 @@ portrait_sets = {
 
     ## cardinality = 0..1
     conditional_portraits = {
+        ## cardinality = 0..1
         randomizable = single_alias_right[trigger_clause]
+        ## cardinality = 0..1
         playable = single_alias_right[trigger_clause]
+        ## cardinality = 0..1
         portraits = {
             <portrait>
             <portrait_group>
@@ -35,6 +38,11 @@ portrait_sets = {
 
     ## cardinality = 0..1
     non_pre_ftl_portraits = {
+        <portrait>
+        <portrait_group>
+    }
+
+    uplifted_portraits = {
         <portrait>
         <portrait_group>
     }

@@ -69,7 +69,7 @@ game_rules = {
 
 	### Root = species
 	### This = planet
-	## replace_scopes = { this = country root = species }
+	## replace_scopes = { this = planet root = species }
 	can_generate_army_from_planet
 
 	### Root = planet

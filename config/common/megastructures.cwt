@@ -34,6 +34,9 @@ megastructure = {
 
 	## cardinality = 0..1
 	construction_entity = scalar # TODO entity suffixes
+	### to avoid z-fighting of consrucion entity with the base entity
+	## cardinality = 0..1
+	construction_scale = float
 	## cardinality = 0..1
 	portrait = <sprite>
 	### default: yes
@@ -41,6 +44,8 @@ megastructure = {
 	place_entity_on_planet_plane = bool
 	## cardinality = 0..1
 	entity_offset = { x = int y = int }
+	## cardinality = 0..1
+	plane_offset = int
 	## cardinality = 0..1
 	construction_blocks_others = bool
 	## cardinality = 0..1
@@ -115,6 +120,10 @@ megastructure = {
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	country_modifier = {
+		## cardinality = 0..1
+		custom_tooltip = localisation
+		## cardinality = 0..1
+		show_only_custom_tooltip = bool
 		## cardinality = 0..inf
 		alias_name[modifier] = alias_match_left[modifier]
 	}
@@ -136,10 +145,10 @@ megastructure = {
 		planet_possible = single_alias_right[trigger_clause]
 	}
 	## cardinality = 0..1
-	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }
+	## replace_scopes = { this = system root = system from = country fromfrom = fleet }
 	on_build_queued = single_alias_right[effect_clause]
 	## cardinality = 0..1
-	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }
+	## replace_scopes = { this = system root = system from = country fromfrom = fleet }
 	on_build_unqueued = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }

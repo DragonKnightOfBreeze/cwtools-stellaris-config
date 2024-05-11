@@ -331,6 +331,17 @@ trait = {
 		### Background used in the subclass and destiny trait selection UI.
 		## cardinality = 0..1
 		background_icon = <sprite>
+
+		###How much this trait increases the leader's value for the AI in trade deals. Default is TRADE_VALUE_LEADER_TRAIT_DEFAULT. Can be a scripted weight, scope: THIS = Leader.
+		## cardinality = 0..1
+		trade_acceptance_weight = int
+		## cardinality = 0..1
+		## replace_scopes = { this = leader }
+		trade_acceptance_weight = {
+			enum[weight_or_factor] = int
+			alias_name[modifier_rule] = alias_match_left[modifier_rule]
+		}
+
 	}
 
 	subtype[species_trait] = {
@@ -493,6 +504,8 @@ trait = {
 		enum[weight_or_factor] = int
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
+
+
 }
 
 enums = {

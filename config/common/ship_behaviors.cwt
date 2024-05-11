@@ -10,7 +10,9 @@ ship_behavior = {
 	name = scalar
 	## cardinality = 0..1
 	desc = localisation
-
+	### Which components' ranges will be used for calculating the max/min/median distances below. default = weapon
+	## cardinality = 0..1
+	range_components = enum[range_components]
 	## cardinality = 0..1
 	preferred_attack_range = int
 	## cardinality = 0..1
