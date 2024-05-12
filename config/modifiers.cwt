@@ -133,6 +133,7 @@ modifiers = {
 	planet_amenities_no_happiness_add = { Planets }
 	planet_amenities_no_happiness_mult = { Planets }
 	planet_stability_add = { Planets }
+	planet_stability_mult = { Planets }
 	planet_crime_add = { Planets }
 	planet_crime_mult = { Planets }
 	planet_crime_no_happiness_add = { Planets }
@@ -544,7 +545,8 @@ modifiers = {
 
 	pop_job_amenities_mult = { Pops }
 	pop_job_trade_mult = { Pops }
-	pop_lifestyle_trade_mult = { Pops }
+	pop_lifestyle_trade_value_mult = { Pops }
+	pop_lifestyle_trade_value_add = { Pops }
 	living_standard_trade_value_rulers_add = { Pops }
 	living_standard_trade_value_specialists_add = { Pops }
 	living_standard_trade_value_workers_add = { Pops }
@@ -579,6 +581,7 @@ modifiers = {
 	mining_district_housing_add = { Planets }
 	mining_district_buildings_add = { Planets }
 	auto_mod_monthly_add = { Countries Planets }
+	auto_mod_monthly_mult = { Countries Planets }
 	# councilor modifiers
 	<councilor>_exp_gain = { Leaders }
 }
