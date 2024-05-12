@@ -1,4 +1,6 @@
 game_rules = {
+	# from 00_rules.txt
+
 	### Root = target country
 	### This = country
 	## replace_scopes = { this = country root = country }
@@ -316,6 +318,10 @@ game_rules = {
 	### This = Planet
 	## replace_scopes = { this = planet }
 	should_spawn_deposits
+
+	### This = Planet
+	## replace_scopes = { this = planet }
+	can_get_colony_events
 
 	### # This = Planet
 	## replace_scopes = { this = planet }
@@ -728,4 +734,28 @@ game_rules = {
 	### FROM = Galactic Emperor (Country)
 	## replace_scopes = { this = country from = country }
 	should_ai_undermine_galactic_empire
+
+	# from 01_gui_rules.txt
+
+	### This = country
+	## replace_scopes = { thsi = country }
+	doom_clock_is_shown
+
+	### This = country
+	## replace_scopes = { thsi = country }
+	crisis_name_is_shown
+
+	### This = country
+	## replace_scopes = { thsi = country }
+	crisis_flag_is_shown
+
+	### This = country
+	## replace_scopes = { thsi = country }
+	crisis_opinion_is_shown
+
+	### Check if planets resources should be hidden
+	### this: planet
+	### root: country
+	## replace_scopes = { thsi = planet root = country }
+	should_hide_resources_for_planet
 }

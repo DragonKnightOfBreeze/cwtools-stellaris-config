@@ -1,4 +1,6 @@
 on_actions = {
+	# from 00_on_actions.txt
+
 	### Triggers when the game starts
 	## replace_scopes = { this = no_scope root = no_scope }
 	## event_type = scopeless
@@ -423,6 +425,15 @@ on_actions = {
 	## replace_scopes = { this = country root = country from = country fromfrom = fleet fromfromfrom = fleet }
 	## event_type = country
 	on_space_battle_lost
+
+	### This = owner of fleet 1 (winner)
+	### From = owner of fleet 2 (loser)
+	### FromFrom = fleet 1
+	### FromFromFrom = fleet 2
+	### Fires when a combat is finished from a lack of enemies
+	## replace_scopes = { this = country root = country from = country fromfrom = fleet fromfromfrom = fleet }
+	## event_type = country
+	on_space_battle_over
 
 	### This = owner of fleet
 	### From = disbanded fleet
@@ -1152,7 +1163,6 @@ on_actions = {
 	## replace_scopes = { this = country root = country from = megastructure fromfrom = system }
 	## event_type = country
 	on_megastructure_upgrade_begin
-	root
 
 	### A Megastructure has been upgraded
 	### Root = Country
@@ -1803,6 +1813,13 @@ on_actions = {
 	## event_type = country
 	on_astral_rift_exploration_complete
 
+	### Fired when a Commercial Pact is Broken for both parties
+	### This = Active Country
+	### From = Other participating Country
+	## replace_scopes = { this = country root = country from = country }
+	## event_type = country
+	on_commercial_pact_broken
+
 	### Beholder Leader's Planetfall action
 	## replace_scopes = { this = planet root = planet }
 	## event_type = planet
@@ -1817,6 +1834,10 @@ on_actions = {
 	## replace_scopes = { this = planet root = planet }
 	## event_type = planet
 	on_azaryn_action_cancel
+
+	## replace_scopes = { this = planet root = planet }
+	## event_type = planet
+	on_cosmogenesis_exodus_planet_reached
 
 	### Executed when a country activates an agenda
 	### THIS = country
@@ -1888,6 +1909,59 @@ on_actions = {
 	## event_type = country
 	on_synth_leader_malfunction
 
+	### Fired when a Pop has a change in their ethics
+	### This = Pop
+	### From = Planet Owner
+	## replace_scopes = { this = pop root = pop from = country }
+	## event_type = pop
+	on_pop_ethic_changed
+
+	### Situation Random Event Pool | Fired by cyber.5
+	### This = Situation
+	## replace_scopes = { this = situation root = situation }
+	## event_type = situation
+	on_cyberization_situation_random_events_list
+
+	## replace_scopes = { this = situation root = situation }
+	## event_type = situation
+	on_cyberization_hive_situation_random_events_list
+
+	### Situation Random Event Pool | Fired by synth.5
+	### This = Situation
+	## replace_scopes = { this = situation root = situation }
+	## event_type = situation
+	on_digitization_situation_random_events_list
+
+	### Work/Family Event Pool | Fired by cyber.600
+	### This = Country
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_futureshock_chain_work_family_events_list
+
+	### Leisure/Social Event Pool | Fired by cyber.1000
+	### This = Country
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_futureshock_chain_leisure_events_list
+
+	### Identity Event Pool | Fired by synth.600
+	### This = Country
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_synthshock_chain_identity_events_list
+
+	### Possibilities Event Pool | Fired by synth.1000
+	### This = Country
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_synthshock_chain_opportunity_events_list
+
+	### Synth Queen Random Demand Pool | Fired by situation_synth_queen_player_facing
+	### This = Country
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_synth_queen_random_demand_list
+
 	## replace_scopes = { this = any root = any }
 	## event_type = any
 	on_galaxy_map_during_tutorial
@@ -1898,6 +1972,15 @@ on_actions = {
 	## replace_scopes = { this = country root = country from = country }
 	## event_type = country
 	on_truce_end
+
+	### Fired when starbase is occupied and changes controller
+	### This = New controller
+	### From = Starbase being occupied
+	## replace_scopes = { this = country root = country from = starbase }
+	## event_type = country
+	on_starbase_occupied
+
+	# from 01_planet_destruction.txt
 
 	# Scope:
 	# this/root = planet that have been fired upon
