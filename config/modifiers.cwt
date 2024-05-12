@@ -411,7 +411,8 @@ modifiers = {
 	habitability_floor_mult = { Habitability }
 	habitability_ceil_add = { Habitability }
 	habitability_ceil_mult = { Habitability }
-
+	auto_mod_monthly_add = { Countries Planets }
+	auto_mod_monthly_mult = { Countries Planets }
 	# ship_class modifiers
 	enum[ship_class]_build_cost_mult = { Planets Megastructures Starbases }
 	enum[ship_class]_build_speed_mult = { Planets Megastructures Starbases }
@@ -543,8 +544,7 @@ modifiers = {
 	<leader_class>_lifespan_add = { Leaders }
 	<leader_class>_lifespan_mult = { Leaders }
 
-	auto_mod_monthly_add = { Countries Planets }
-	auto_mod_monthly_mult = { Countries Planets }
+
 	# councilor modifiers
 	<councilor>_exp_gain = { Leaders }
 }
