@@ -2653,9 +2653,12 @@ alias[effect:create_pop] = {
 		## cardinality = 1..1
 		ethic = <ethic>
 	}
+	## cardinality = 1..1
+	count = int
 	## cardinality = 0..1
 	## push_scope = pop
 	effect = single_alias_right[effect_clause]
+
 }
 
 ### Creates a research station in orbit of the scoped planet
