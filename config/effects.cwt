@@ -2653,7 +2653,7 @@ alias[effect:create_pop] = {
 		## cardinality = 1..1
 		ethic = <ethic>
 	}
-	## cardinality = 1..1
+	## cardinality = 0..1
 	count = int
 	## cardinality = 0..1
 	## push_scope = pop
