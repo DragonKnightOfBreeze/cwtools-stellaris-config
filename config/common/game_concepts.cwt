@@ -14,13 +14,30 @@ types = {
 }
 
 game_concept = {
-	## cardinality = 0..1
-	## file_extensions = { .dds .png .tga }
-	icon = filepath
+	### List of aliases that may be used instead of the ID.
+	### Any that are used without a replacement string must have a loc with an identical key.
 	## cardinality = 0..1
 	alias = {
 		## cardinality = 0..inf
 		scalar
 	}
+
+	### Icon shown in concept tooltip.
+	### If not specified, it will use NUncheckedDefines::NInterface::GAME_CONCEPT_ICON_DEFAULT from unchecked_defines/00_interface.txt.
+	## cardinality = 0..1
+	## file_extensions = { .dds .png .tga }
+	icon = filepath
+
+	### Alternative for "icon".
+	## cardinality = 0..1
+	## file_extensions = { .dds .png .tga }
+	texture = filepath
+
+	### Tooltip to use instead of the default. Can be either a loc key or a database object (see DATABASE CONCEPTS below).
+	## cardinality = 0..1
+	tooltip_override = localisation
+	### Tooltip to use instead of the default. Can be either a loc key or a database object (see DATABASE CONCEPTS below).
+	## cardinality = 0..1
+	tooltip_override = scalar # $database_object
 }
 
