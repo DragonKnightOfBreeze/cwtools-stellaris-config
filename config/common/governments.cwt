@@ -5,10 +5,52 @@ types = {
 		localisation = {
 			name = "$"
 			desc = "$_desc"
+			## optional
+			effect = description
+			## optional
+			negative_effect = negative_description
 		}
 		images = {
 			icon = icon # filepath
 			icon = "gfx/interface/icons/governments/authorities/$.dds" # inferred
+		}
+	}
+	## type_key_filter = advanced_authority_swap
+	type[swapped_authority] = {
+		base_type = authority
+		path = "game/common/governments/authorities"
+		file_extension = .txt
+		skip_root_key = any
+		name_field = "name"
+		subtype[not_inheriting_name] = {
+			## cardinality = 0..0
+			inherit_name = yes
+		}
+		subtype[not_inheriting_effects] = {
+			## cardinality = 0..0
+			inherit_effects = yes
+		}
+		subtype[not_inheriting_icon] = {
+			## cardinality = 0..0
+			inherit_icon = yes
+		}
+		localisation = {
+			subtype[not_inheriting_name] = {
+				name = "$"
+				desc = "$_desc"
+			}
+			subtype[not_inheriting_effects] = {
+				## optional
+				effect = description
+				## optional
+				negative_effect = negative_description
+			}
+		}
+		images = {
+			subtype[not_inheriting_icon] = {
+				icon = icon # filepath
+				icon = "gfx/interface/icons/governments/authorities/$.dds" # inferred
+			}
 		}
 	}
 	type[government] = {
@@ -28,6 +70,8 @@ types = {
 			desc = "$_desc"
 			## optional
 			effect = description
+			## optional
+			negative_effect = negative_description
 		}
 		subtype[civic] = {
 			## cardinality = 0..1
@@ -60,6 +104,12 @@ types = {
 			desc = "$_desc"
 			## optional
 			effect = description
+			## optional
+			negative_effect = negative_description
+		}
+		images = {
+			icon = icon # filepath
+			icon = "gfx/interface/icons/governments/civics/$.dds" # inferred
 		}
 	}
 	type[councilor] = {
@@ -81,6 +131,11 @@ types = {
 }
 
 authority = {
+	## cardinality = 0..1
+	description = localisation
+	## cardinality = 0..1
+	negative_description = localisation
+
 	## cardinality = 0..1
 	machine_empire = yes
 	## cardinality = 0..1
@@ -178,12 +233,16 @@ authority = {
 		### Used to customize the description in the case of a swap
 		## cardinality = 0..1
 		description = localisation
-		### Decides if we should inherit the icon of the original authority
 		## cardinality = 0..1
-		inherit_icon = bool
+		negative_description = negative_localisation
+		## cardinality = 0..1
+		inherit_name = bool
 		### Decides if we should inherit the modifiers from the base Authority and combine it with the advanced authority
 		## cardinality = 0..1
 		inherit_effects = bool
+		### Decides if we should inherit the icon of the original authority
+		## cardinality = 0..1
+		inherit_icon = bool
 		### Used to swap out the ruler council position
 		## cardinality = 0..1
 		ruler_council_position = <councilor>
@@ -323,6 +382,8 @@ civic_or_origin = {
 		### If you want to use country scope here, you must always check is_scope_valid first (see civic_devouring_swarm), or you will get errors or it won't work as intended.
 		## cardinality = 0..1
 		description = localisation
+		## cardinality = 0..1
+		negative_description = localisation
 		trigger = single_alias_right[trigger_clause]
 		### modifier that is applied to the country when triggers are evaluated as true
 		## cardinality = 0..1

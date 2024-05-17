@@ -22,13 +22,13 @@ types = {
 			## cardinality = 0..0
 			inherit_name = yes
 		}
-		subtype[not_inheriting_icon] = {
-			## cardinality = 0..0
-			inherit_icon = yes
-		}
 		subtype[not_inheriting_effects] = {
 			## cardinality = 0..0
 			inherit_effects = yes
+		}
+		subtype[not_inheriting_icon] = {
+			## cardinality = 0..0
+			inherit_icon = yes
 		}
 		localisation = {
 			subtype[not_inheriting_name] = {
