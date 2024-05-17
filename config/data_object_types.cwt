@@ -1,0 +1,61 @@
+# List of currently supported object types:
+#	ascension_perk
+#	authority
+#	authority_swaps
+#	building
+#	civic (includes origins)
+#	district
+#	edict
+#	ethic
+#	starbase_building
+#	starbase_module
+#	technology (note: the tooltip currently only shows the name and description)
+#	tradition
+#	tradition_category
+#	trait (both species and leader traits)
+
+data_object_types = {
+	ascension_perk = {
+		type = ascension_perk
+		swap_type = swapped_ascension_perk
+	}
+	authority = {
+		type = authority
+		swap_type = swapped_authority
+	}
+	building = {
+		type = building
+	}
+	civic = {
+		type = civic_or_origin
+		swap_type = swapped_civic
+	}
+	district = {
+		type = district
+	}
+	edict = {
+		type = edict
+	}
+	ethic = {
+		type = ethic
+	}
+	starbase_building = {
+		type = starbase_building
+	}
+	starbase_module = {
+		type = starbase_module
+	}
+	technology = {
+		type = technology
+	}
+	tradition = {
+		type = tradition
+		swap_type = swapped_tradition
+	}
+	tradition_category = {
+		type = tradition_category
+	}
+	trait = {
+		type = trait
+	}
+}
