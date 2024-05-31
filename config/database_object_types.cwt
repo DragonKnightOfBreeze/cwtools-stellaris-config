@@ -14,7 +14,7 @@
 #	tradition_category
 #	trait (both species and leader traits)
 
-data_object_types = {
+database_object_types = {
 	ascension_perk = {
 		type = ascension_perk
 		swap_type = swapped_ascension_perk
