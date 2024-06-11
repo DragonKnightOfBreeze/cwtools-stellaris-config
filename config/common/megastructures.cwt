@@ -186,12 +186,12 @@ megastructure = {
 	## cardinality = 0..1
 	dismantle_time = int
 	## cardinality = 0..1
-	## replace_scopes = { this = megastructure root = megastructure from = country }
+	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }
 	dismantle_potential = single_alias_right[trigger_clause]
 	## cardinality = 0..1
-	## replace_scopes = { this = megastructure root = megastructure from = country }
+	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }
 	dismantle_possible = single_alias_right[trigger_clause]
 	## cardinality = 0..1
-	## replace_scopes = { this = megastructure root = megastructure from = country }
+	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }
 	on_dismantle_complete = single_alias_right[effect_clause]
 }
