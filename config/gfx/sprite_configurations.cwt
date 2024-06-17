@@ -1,0 +1,20 @@
+
+types = {
+	type[sprite_configurations] = {
+		path = "game/gfx/portraits/sprite_configurations"
+		path_extension = .txt
+		path_strict = yes
+		skip_root_key = portraits
+	}
+}
+
+sprite_configurations = {
+	## cardinality = 0..1
+	trigger = single_alias_right[trigger_clause]
+
+	## file_extensions = { .dds .png .tga }
+	masking_texture = filepath
+
+	## file_extensions = { .shader }
+	effectFile = filepath
+}
