@@ -75,6 +75,10 @@ sprite = {
 		## cardinality = 0..1
 		type = enum[sprite_type]
 		## cardinality = 0..1
+		alternate_configurations = {
+			<sprite_configurations>
+		}
+		## cardinality = 0..1
 		character = bool
 		## cardinality = 0..1
 		close_up = bool
