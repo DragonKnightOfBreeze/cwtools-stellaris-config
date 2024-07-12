@@ -38,6 +38,6 @@ game_concept = {
 	tooltip_override = localisation
 	### Tooltip to use instead of the default. Can be either a loc key or a database object (see DATABASE CONCEPTS below).
 	## cardinality = 0..1
-	tooltip_override = scalar # $database_object
+	tooltip_override = $database_object
 }
 
