@@ -461,5 +461,6 @@ enums = {
 	enum[event_window_type] = {
 		leader_recruit
 		leader_story
+		crisis_leader_conversation
 	}
 }
