@@ -1,7 +1,7 @@
 localisation_commands = {
     GetYear = { any }
     LastKilledCountryName = { any }
-    GetName = { country planet ship starbase pop system fleet leader army ambient object species war pop faction federation first contact espionage operation espionage asset deposit megastructure sector situation }
+    GetName = { any }
     GetNamePersistent = { country planet ship starbase system fleet leader army species pop faction sector }
     GetAdj = { country planet system fleet species }
     GetAdjective = { country }
