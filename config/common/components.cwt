@@ -370,29 +370,39 @@ component_template = {
 		## cardinality = 0..1
 		hyperlane_range = int
 
+		### disables button if this trigger evaluates to false
 		## cardinality = 0..1
-		## replace_scopes = { this = planet root = planet }
+		## replace_scopes = { this = fleet root = fleet }
 		scripted_action_button_possible = single_alias_right[trigger_clause]
+		### check if a planet is a valid target
 		## cardinality = 0..1
-		## replace_scopes = { this = planet root = planet }
+		## replace_scopes = { this = planet root = planet from = fleet }
 		scripted_action_possible = single_alias_right[trigger_clause]
+		### if this trigger is evaluated to false, on_action will keep firing until trigger is true or fleet leaves planet's orbit
 		## cardinality = 0..1
-		## replace_scopes = { this = planet root = planet }
+		## replace_scopes = { this = planet root = planet from = fleet }
 		scripted_action_finished = single_alias_right[trigger_clause]
+		### scripted on_action name, scope: this = planet, from = fleet
 		## cardinality = 0..1
 		scripted_action_name = <on_action>
+		### button description
 		## cardinality = 0..1
 		scripted_action_tooltip = localisation
 		## cardinality = 0..1
 		scripted_action_icon = <sprite>
+		### not sure when this is fired, scope: this = planet, from = fleet
 		## cardinality = 0..1
 		scripted_action_on_cancel = <on_action>
+		### button title
 		## cardinality = 0..1
 		scripted_action_activity_key = localisation
+		### fleet action tooltip showed in fleet ui
 		## cardinality = 0..1
 		scripted_action_context_menu_name = localisation
+		### progress tooltip showed in fleet ui
 		## cardinality = 0..1
 		scripted_action_progress_activity_key = localisation
+		### windup time, in days
 		## cardinality = 0..1
 		scripted_action_required_progress = int
 	}

@@ -1821,21 +1821,21 @@ on_actions = {
 	on_commercial_pact_broken
 
 	### Beholder Leader's Planetfall action
-	## replace_scopes = { this = planet root = planet }
+	## replace_scopes = { this = planet root = planet from = fleet }
 	## event_type = planet
 	on_beholder_target_planet_reached
 
-	## replace_scopes = { this = planet root = planet }
+	## replace_scopes = { this = planet root = planet from = fleet }
 	## event_type = planet
 	on_azaryn_target_planet_reached
 
 	### Executed when a country activates an agenda
 	### THIS = country
-	## replace_scopes = { this = planet root = planet }
+	## replace_scopes = { this = planet root = planet from = fleet }
 	## event_type = planet
 	on_azaryn_action_cancel
 
-	## replace_scopes = { this = planet root = planet }
+	## replace_scopes = { this = planet root = planet from = fleet }
 	## event_type = planet
 	on_cosmogenesis_exodus_planet_reached
 
