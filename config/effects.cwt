@@ -2472,7 +2472,6 @@ alias[effect:create_army_transport] = {
 
 ### Creates a bypass in the parent SpatialObject (stored in FromFrom), of the type passed in "type".
 ## scopes = { megastructure }
-# alias[effect:create_bypass] = <bypass>
 alias[effect:create_bypass] = {
 	owner = scope_group[target_country]
 	type = <bypass>
