@@ -2112,6 +2112,8 @@ alias[effect:add_seen_bypass_type] = <bypass>
 ### Spawns a new natural wormhole in the scoped system.
 ## scopes = { galactic_object }
 alias[effect:spawn_natural_wormhole] = {
+	## cardinality = 0..1
+	in_place_of = scope[system]
 	bypass_type = <bypass>
 	## cardinality = 0..1
 	orbit_distance = float #no variables here atm
@@ -3236,6 +3238,9 @@ alias[effect:spawn_system] = {
 	direction = rimwards
 	## cardinality = 0..1
 	effect = single_alias_right[effect_clause]
+
+	## cardinality = 0..1
+	authorize_spawn_on_galactic_core = bool
 }
 
 ### Starts colonization of the scoped planet
@@ -4634,6 +4639,8 @@ alias[effect:delete_dimensional_fleet] = {
 ### Can be spawned relatively to an existing spatial object, tolerance is applied to the angle to avoid already existing planets.
 ## scopes = { galactic_object }
 alias[effect:spawn_astral_rift] = {
+	## cardinality = 0..1
+	in_place_of = scope[system]
 	### default = no, exclusive with relative_to and in_place_of
 	## cardinality = 0..1
 	random_pos = bool
@@ -4663,7 +4670,7 @@ alias[effect:spawn_astral_rift] = {
 
 ### Destroys target Astral Rift
 ## scopes = any
-alias[effect:destroy_astral_rift] = <astral_rift>
+alias[effect:destroy_astral_rift] = scope[astral_rift]
 
 ### Changes the target of a Situation.
 ## scopes = { situation }
