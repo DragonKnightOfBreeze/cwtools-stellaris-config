@@ -234,6 +234,11 @@ building = {
 	## cardinality = 0..1
 	### Property on buildings which when added to the AI build queue will remove all non essential build tasks.
 	is_essential = bool
+
 	## cardinality = 0..1
 	ai_estimate_without_unemployment = bool
+	## cardinality = 0..1
+	additional_ai_weight = float
+	## cardinality = 0..1
+	ai_weight_coefficient = float
 }

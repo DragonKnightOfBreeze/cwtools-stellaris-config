@@ -43,9 +43,9 @@ megastructure = {
 	## cardinality = 0..1
 	place_entity_on_planet_plane = bool
 	## cardinality = 0..1
-	entity_offset = { x = int y = int }
+	entity_offset = { x = float y = float }
 	## cardinality = 0..1
-	plane_offset = int
+	plane_offset = float
 	## cardinality = 0..1
 	construction_blocks_others = bool
 	## cardinality = 0..1

@@ -264,6 +264,13 @@ model_entity = {
 		dissolve_on_death = float
 		## cardinality = 0..1
 		ship_color = colour_field
+
+		## cardinality = 0..1
+		special_effect_intensity = float
+		## cardinality = 0..1
+		special_effect_speed = float
+		## cardinality = 0..1
+		flowmap_intensity = float
 	}
 	#locator here is linked to both attach = { in the same files and ship_sizes under common!
 	## cardinality = 0..inf
@@ -282,6 +289,9 @@ model_entity = {
 		## cardinality = 0..1
 		scale = float
 	}
+
+	## cardinality = 0..1
+	parent_joint = scalar # TODO
 
 	#these need to be updated and linked to other files
 	## cardinality = 0..inf

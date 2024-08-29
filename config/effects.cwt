@@ -1259,7 +1259,7 @@ alias[effect:set_name] = {
 	### string in localisation (which contains one or more bracket commands)
 	key = localisation
 	## required
-	## cardinality = 1..inf
+	## cardinality = 0..inf
 	### one of the bracket commands contained in the localisation referenced above, brackets optional (there should be 1 variable_string per unique bracket command)
 	variable_string = scalar
 }
@@ -2414,11 +2414,11 @@ alias[effect:create_ambient_object] = {
 	## cardinality = 0..1
 	use_3d_location = bool
 	## cardinality = 0..1
-	entity_offset = int
+	entity_offset = float
 	## cardinality = 0..1
 	entity_offset = {
-		min = int
-		max = int
+		min = float
+		max = float
 	}
 	## cardinality = 0..1
 	entity_offset_angle = int
@@ -2428,7 +2428,7 @@ alias[effect:create_ambient_object] = {
 		max = int
 	}
 	## cardinality = 0..1
-	entity_offset_height = int
+	entity_offset_height = float
 	## cardinality = 0..1
 	entity_offset_height = {
 		min = int
@@ -3180,6 +3180,8 @@ alias[effect:spawn_planet] = {
 	## cardinality = 0..1
 	orbit_distance_offset = float
 	## cardinality = 0..1
+	plane_offset = float
+	## cardinality = 0..1
 	deposit_blockers = none
 	## cardinality = 0..1
 	modifiers = none
@@ -3204,7 +3206,7 @@ alias[effect:spawn_planet] = {
 	## cardinality = 0..1
 	orbit_angle = float
 	## cardinality = 0..1
-	orbit_angle_offset = int
+	orbit_angle_offset = float
 	## cardinality = 0..1
 	## push_scope = planet
 	init_effect = single_alias_right[effect_clause]

@@ -211,8 +211,10 @@ enums = {
 	enum[sprite_type] = {
 		planet
 		room
+		empty_room
 		character
 		character_large
+		character_without_room
 	}
 	enum[texture_size] = {
 		small
