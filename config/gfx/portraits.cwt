@@ -47,6 +47,27 @@ portrait = {
 		custom_mid_close_up_position_offset = { x = int y = int }
 		## cardinality = 0..1
 		custom_mid_close_up_scale = float
+
+		## cardinality = 0..1
+		portrait_evolution = {
+			evolution_stages = {
+				## cardinality = 1..inf
+				{
+					values = {
+						## cardinality = 1..inf
+						{
+							## file_extensions = { .dds .png .tga }
+							decal = filepath
+							## file_extensions = { .dds .png .tga }
+							mask = filepath
+						}
+					}
+					### leader, pop or species scope (when called with species scope, from subscope can contain a country species related to)
+					## replace_scopes = { this = any root = any }
+					trigger = single_alias_right[trigger_clause]
+				}
+			}
+		}
 	}
 }
 

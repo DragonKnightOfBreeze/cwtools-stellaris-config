@@ -42,9 +42,9 @@ portrait_sets = {
         <portrait_group>
     }
 
+	## cardinality = 0..1
     uplifted_portraits = {
         <portrait>
         <portrait_group>
     }
-
 }

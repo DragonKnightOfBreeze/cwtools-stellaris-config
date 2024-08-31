@@ -145,8 +145,10 @@ starbase_building = {
 	## cardinality = 0..1
 	replaceable = single_alias_right[trigger_clause]
 	## cardinality = 0..1
+	## replace_scopes = { this = starbase root = starbase }
 	on_finished = single_alias_right[effect_clause]
 	## cardinality = 0..1
+	## replace_scopes = { this = starbase root = starbase }
 	on_destroyed = single_alias_right[effect_clause]
 }
 
@@ -258,8 +260,10 @@ starbase_module = {
 	## cardinality = 0..1
 	replaceable = single_alias_right[trigger_clause]
 	## cardinality = 0..1
+	## replace_scopes = { this = starbase root = starbase }
 	on_finished = single_alias_right[effect_clause]
 	## cardinality = 0..1
+	## replace_scopes = { this = starbase root = starbase }
 	on_destroyed = single_alias_right[effect_clause]
 }
 

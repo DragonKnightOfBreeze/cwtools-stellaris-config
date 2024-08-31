@@ -148,6 +148,26 @@ alias[gui:positionType] = {
 	dynamic_extra_height_max = float
 	## cardinality = 0..1
 	dynamic_extra_y = float
+
+	## cardinality = 0..inf
+	if_resolution = {
+		alias_name[gui_size] = alias_match_left[gui_size]
+		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
+		alias_name[gui_background] = alias_match_left[gui_background]
+		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_button] = alias_match_left[gui_button]
+		alias_name[gui_sound] = alias_match_left[gui_sound]
+	}
+
+	## cardinality = 0..inf
+	if_scaled_resolution = {
+		alias_name[gui_size] = alias_match_left[gui_size]
+		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
+		alias_name[gui_background] = alias_match_left[gui_background]
+		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_button] = alias_match_left[gui_button]
+		alias_name[gui_sound] = alias_match_left[gui_sound]
+	}
 }
 
 ### Used to show in tooltip sections
@@ -623,6 +643,8 @@ alias[gui:gridBoxType] = {
 	name = scalar
 
 	## cardinality = 0..1
+	slotSize = {}
+	## cardinality = 0..1
 	slotSize = {
 		width = int
 		width = percentage_field
@@ -675,6 +697,7 @@ alias[gui:windowType] = {
 	alias_name[gui] = alias_match_left[gui]
 	alias_name[gui_button] = alias_match_left[gui_button]
 	alias_name[gui_navigation] = alias_match_left[gui_navigation]
+	alias_name[gui_animation] = alias_match_left[gui_animation]
 }
 alias[gui:dropDownBoxType] = {
 	name = scalar
@@ -697,6 +720,8 @@ alias[gui:dropDownBoxType] = {
 		name = scalar
 
 		## cardinality = 0..1
+		verticalScrollbar = scalar
+		## cardinality = 0..1
 		margin = {
 			## cardinality = 0..1
 			top = int
@@ -708,7 +733,7 @@ alias[gui:dropDownBoxType] = {
 			right = int
 		}
 		## cardinality = 0..1
-		verticalScrollbar = scalar
+		click_to_front = bool
 
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
@@ -740,6 +765,7 @@ alias[overlay:overlay] = {
 		y = int
 	}
 }
+alias[gui_standard_element:size] = {}
 alias[gui_standard_element:size] = {
 	x = int
 	x = percentage_field
@@ -783,6 +809,8 @@ alias[gui_standard_element:scale] = float
 alias[gui_standard_element:alwaysTransparent] = bool
 ## default: yes
 alias[gui_standard_element:moveable] = bool
+alias[gui_standard_element:moveable] = 0
+alias[gui_standard_element:hide] = bool
 
 alias[gui_sprite:spriteType] = <sprite>
 alias[gui_sprite:spriteType] = <progressbar>
@@ -845,6 +873,8 @@ alias[gui_button_element:buttonText] = scalar #since many are not defined anyway
 alias[gui_button_element:buttonFont] = <bitmapfont>
 alias[gui_button_element:actionShortcut] = enum[actionshortcut]
 alias[gui_button_element:web_link] = scalar
+alias[gui_button_element:text_offset] = { x = int y = int }
+alias[gui_button_element:parent] = scalar
 
 alias[gui_navigation:navUp] = scalar
 alias[gui_navigation:navDown] = scalar
@@ -852,6 +882,7 @@ alias[gui_navigation:navLeft] = scalar
 alias[gui_navigation:navRight] = scalar
 
 alias[gui_background:background] = ""
+alias[gui_background:background] = background
 alias[gui_background:background] = <sprite>
 alias[gui_background:background] = {
 	name = scalar

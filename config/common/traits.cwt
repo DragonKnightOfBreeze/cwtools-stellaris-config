@@ -73,6 +73,11 @@ trait = {
 		<species_archetype>
 	}
 	## cardinality = 0..1
+	bound_to_planet_classes = {
+		## cardinality = 1..inf
+		<planet_class>
+	}
+	## cardinality = 0..1
 	allowed_planet_classes = {
 		## cardinality = 1..inf
 		<planet_class>

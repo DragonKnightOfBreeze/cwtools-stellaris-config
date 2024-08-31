@@ -48,6 +48,9 @@ situation_type = {
 	## cardinality = 0..1
 	on_abort = single_alias_right[effect_clause]
 	## cardinality = 0..1
+	on_progress_complete = single_alias_right[effect_clause]
+
+	## cardinality = 0..1
 	triggered_blocked_desc = single_alias_right[triggered_desc_clause]
 	## cardinality = 0..1
 	abort_trigger = single_alias_right[trigger_clause]
@@ -85,7 +88,6 @@ situation_type = {
 	monthly_progress = {
 		alias_name[modifier_rule_with_loc] = alias_match_left[modifier_rule_with_loc]
 	}
-	on_progress_complete = single_alias_right[effect_clause]
 
 	## cardinality = 0..inf
 	approach = {
@@ -148,7 +150,9 @@ situation_type = {
 		fail_category = enum[situation_category]
 	}
 
+	## cardinality = 0..1
 	complete_icon = <sprite>
+	## cardinality = 0..1
 	complete_icon_frame = <sprite>
 	## cardinality = 0..1
 	fail_icon = <sprite>

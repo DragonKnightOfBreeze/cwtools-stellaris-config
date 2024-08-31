@@ -144,7 +144,7 @@ pop_faction = {
 		### default: no
 		## cardinality = 0..1
 		council_demand = bool
-		
+
 		## cardinality = 0..1
 		potential = single_alias_right[trigger_clause]
 
@@ -199,4 +199,7 @@ pop_faction = {
 	## cardinality = 0..1
 	persistent_faction = bool
 
+	### default = yes; Stops factions from being renamable
+	## cardinality = 0..1
+	can_rename = bool
 }

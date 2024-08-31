@@ -1,14 +1,13 @@
 
 types = {
-	type[sprite_configurations] = {
+	type[sprite_configuration] = {
 		path = "game/gfx/portraits/sprite_configurations"
 		path_extension = .txt
 		path_strict = yes
-		skip_root_key = portraits
 	}
 }
 
-sprite_configurations = {
+sprite_configuration = {
 	## cardinality = 0..1
 	trigger = single_alias_right[trigger_clause]
 
