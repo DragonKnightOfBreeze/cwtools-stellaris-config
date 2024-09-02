@@ -408,7 +408,6 @@ links = {
 	# links from data
 
 	variable = {
-		desc = "Variable"
 		from_data = yes
 		type = value
 		data_source = value[variable]
