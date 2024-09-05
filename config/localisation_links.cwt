@@ -96,7 +96,7 @@ localisation_links = {
 	}
 	Target = {
 		input_scopes = { espionage_operation spy_network }
-		output_scope = country #any, but good enough
+		output_scope = any
 	}
 
 	# links from data
