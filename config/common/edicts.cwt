@@ -78,5 +78,10 @@ edict = {
 	### an effect that is executed when this trigger activates.
 	## cardinality = 0..1
 	effect = single_alias_right[effect_clause]
+
+	### an effect that is executed when this trigger activates.
+	## cardinality = 0..1
+	on_disabled = single_alias_right[effect_clause]
+
 }
 

@@ -131,7 +131,7 @@ starbase_building = {
 	triggered_orbit_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 	### planet modifiers, apply on system planets.
 	## cardinality = 0..inf
-	## replace_scopes = { this = planet root = planet }
+	## replace_scopes = { this = system root = system }
 	triggered_system_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 	### country modifiers
 	## cardinality = 0..inf
@@ -241,7 +241,7 @@ starbase_module = {
 	triggered_orbit_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 	### planet modifiers, apply on system planets.
 	## cardinality = 0..inf
-	## replace_scopes = { this = planet root = planet }
+	## replace_scopes = { this = system root = system }
 	triggered_system_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 	### country modifiers
 	## cardinality = 0..inf

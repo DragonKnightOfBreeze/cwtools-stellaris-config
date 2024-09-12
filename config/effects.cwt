@@ -1431,6 +1431,8 @@ alias[effect:create_species] = {
 	### determines if species is a modification of another (default: no)
 	## cardinality = 0..1
 	is_mod = bool
+	## cardinality = 0..1
+	mod_name_affix = localisation
 	### determines if species leaders are immortal (default: no)
 	## cardinality = 0..1
 	immortal = bool
@@ -7575,4 +7577,545 @@ alias[effect:fog_machine_auto_tracking] = bool
 ### Sets the scope faction as extorted and removes extortion from any other ones
 ## scopes = pop_faction
 alias[effect:set_faction_extorted] = bool
+
+### V3.13.0 ###
+
+### Creates a cosmic storm
+## scopes = any
+alias[effect:create_cosmic_storm] = {
+	## cardinality = 0..1
+	storm_start_position = scope[galactic_object]
+	## cardinality = 0..1
+	storm_end_position = scope[galactic_object]
+	## cardinality = 0..1
+	storm_min_radius = value_field
+	## cardinality = 0..1
+	storm_max_radius = value_field
+	## cardinality = 0..1
+	storm_max_range = value_field
+	## cardinality = 0..1
+	type = <storm_types>
+}
+
+### Destroy the scoped storm.
+## scopes = cosmic_storm
+alias[effect:destroy_cosmic_storm] = yes
+
+### Iterate through all cosmic storms in the galaxy - executes the enclosed effects on all of them for which the limit triggers return true
+## scopes = any
+## push_scope = cosmic_storm
+alias[effect:every_cosmic_storm] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Spawn a random storm type with a random start and end position
+## scopes = any
+alias[effect:spawn_random_storm] = {
+	## cardinality = 1..1
+	type = <storm_types>
+	## cardinality = 0..1
+	cosmic_storm_start_position = scope[system]
+	## cardinality = 0..1
+	cosmic_storm_start_position = random
+	## cardinality = 0..1
+	immediate = yes
+}
+
+### Creates a storm influence field in a certain radius
+## scopes = { planet starbase }
+alias[effect:create_cosmic_storm_influence_field] = {
+	## cardinality = 1..1
+	center = scope[system]
+	## cardinality = 1..1
+	radius = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+	## cardinality = 0..1
+	is_timed_influence_field = yes
+}
+
+### Destroys a storm influence field with center
+## scopes = { planet starbase }
+alias[effect:destroy_cosmic_storm_influence_field] = {
+	## cardinality = 1..1
+	center = scope[system]
+}
+
+Recalculates the influence for each system in an influence field
+## scopes = { cosmic_storm_influence_field }
+alias[effect:recalculate_storm_influence_field] = yes
+
+### Starts the storm placing mode with radius
+## scopes = any
+alias[effect:start_storm_area_placing] = {
+	## cardinality = 0..1
+	sacrifice_leader_with_ui = yes
+	## cardinality = 1..1
+	cosmic_storm = <storm_types>
+	## cardinality = 0..1
+	immediate = yes
+
+	## cardinality = 1..1
+	reticle_radius = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	## cardinality = 1..1
+	max_range = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	## cardinality = 0..1
+	on_confirm = {
+		single_alias_right[effect_clause]
+	}
+
+	## cardinality = 0..1
+	on_cancel = {
+		single_alias_right[effect_clause]
+	}
+}
+
+
+### Sets whether the emergency fund should be active or not.
+## scopes = any
+alias[effect:set_emergency_fund_active] = bool
+
+### Applies Cosmic Storm Aftermath Modifiers. You can specify up to a max of 10 Severities and each one will be chosen based on it's chance.
+## scopes = any
+alias[effect:storm_apply_aftermath_modifier] = {
+	severity = {
+		## cardinality = 1..1
+		modifier = <static_modifier>
+		## cardinality = 1..1
+		days = int
+
+		## cardinality = 0..1
+		chance = {
+			alias_name[modifier_rule] = alias_match_left[modifier_rule]
+		}
+
+		## cardinality = 0..1
+		effect  = {
+			single_alias_right[effect_clause]
+		}
+
+	}
+}
+
+
+### Sets a storm on a system
+## scopes = { galactic_object }
+alias[effect:set_cosmic_storm] = {
+	cosmic_storm = scope[cosmic_storm]
+}
+
+### Unsets a storm on a system
+## scopes = { galactic_object }
+alias[effect:unset_cosmic_storm] = bool
+
+### Sets rate for contributions to the emergency fund.
+## scopes = any
+alias[effect:set_emergency_fund_contribution_rate] = value_field
+
+### Increments (or decrements with negative values) a mission counter for the scoped country by a specific amount
+## scopes = { country }
+alias[effect:add_mission_counter] = {
+	mission = <missions>
+	counter = enum[mission_counter]
+	amount = int_value_field
+}
+
+### Sets an arbitrarily-named flag on the scoped cosmic storm.(note: one can use e.g. my_flag@from to track relationships between objects)
+## scopes = { cosmic_storm }
+alias[effect:set_storm_flag] = value_set[storm_flag]
+
+### Sets a mission counter for the scoped country to a specific amount
+## scopes = { country }
+alias[effect:set_mission_counter] = {
+	mission = <missions>
+	counter = enum[mission_counter]
+	amount = int_value_field
+}
+
+### Stops the mission with the given status, triggering the relevant effects.
+## scopes = { planet country ship pop }
+alias[effect:stop_mission] = {
+	mission = <missions>
+	status = enum[mission_status]
+}
+
+### Selects a decision on a planet
+## scopes = { planet }
+alias[effect:select_decision] = {
+	name = <decision>
+}
+
+### Returns the leader from a custom name
+## scopes = { country }
+alias[effect:return_leader_from_exile] = value[exiled_leader]
+
+### Kills the scoped leader saved with a custom name
+## scopes = { country }
+alias[effect:kill_exiled_leader] = value[exiled_leader]
+
+### If yes, locks a Cosmic Storm in place. If no, it advances again at its normal speed.
+## scopes = { cosmic_storm }
+alias[effect:lock_storm_in_place] = bool
+
+### Enables a mission for target country
+## scopes = any
+alias[effect:enable_mission] = {
+	name = <missions>
+}
+
+### Iterate through all cosmic storms in the galaxy - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+## scopes = any
+alias[effect:random_cosmic_storm] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	## cardinality = 0..1
+	### optional - adds weights to affect the chance a specific object is selected
+	weights = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	alias_name[effect] = alias_match_left[effect]
+
+}
+
+
+### Iterate through all cosmic storms in the galaxy - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
+## scopes = any
+alias[effect:ordered_cosmic_storm] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	## cardinality = 1..1
+	### integer, starting with 0
+	position = int
+
+	## cardinality = 1..1
+	### <variable>/trigger:<trigger>
+	order_by = value_field
+
+	## cardinality = 0..1
+	### default: no - if yes, then 0 is lowest rather than highest
+	inverse = bool
+
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all systems within the storm - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+## scopes = { cosmic_storm }
+alias[effect:random_system_within_storm] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	## cardinality = 0..1
+	### optional - adds weights to affect the chance a specific object is selected
+	weights = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	alias_name[effect] = alias_match_left[effect]
+
+}
+
+### Iterate through all systems within the storm - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
+## scopes = { cosmic_storm }
+alias[effect:ordered_system_within_storm] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	## cardinality = 1..1
+	### integer, starting with 0
+	position = int
+
+	## cardinality = 1..1
+	### <variable>/trigger:<trigger>
+	order_by = value_field
+
+	## cardinality = 0..1
+	### default: no - if yes, then 0 is lowest rather than highest
+	inverse = bool
+
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all systems within the storm - executes the enclosed effects on all of them for which the limit triggers return true
+## scopes = { cosmic_storm }
+alias[effect:every_system_within_storm] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+}
+
+random_cosmic_storm_start_position - Iterate through all systems valid to be a storms start position - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+## scopes = any
+alias[effect:random_cosmic_storm_start_position] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	## cardinality = 0..1
+	### optional - adds weights to affect the chance a specific object is selected
+	weights = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all systems valid to be a storms start position - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
+## scopes = any
+alias[effect:ordered_cosmic_storm_start_position] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	## cardinality = 1..1
+	### integer, starting with 0
+	position = int
+
+	## cardinality = 1..1
+	### <variable>/trigger:<trigger>
+	order_by = value_field
+
+	## cardinality = 0..1
+	### default: no - if yes, then 0 is lowest rather than highest
+	inverse = bool
+
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all systems valid to be a storms start position - executes the enclosed effects on all of them for which the limit triggers return true
+## scopes = any
+alias[effect:every_cosmic_storm_start_position] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all systems valid to be a storms end position - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+## scopes = any
+alias[effect:random_cosmic_storm_end_position] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	## cardinality = 0..1
+	### optional - adds weights to affect the chance a specific object is selected
+	weights = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all systems valid to be a storms end position - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
+## scopes = any
+alias[effect:ordered_cosmic_storm_end_position] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	## cardinality = 1..1
+	### integer, starting with 0
+	position = int
+
+	## cardinality = 1..1
+	### <variable>/trigger:<trigger>
+	order_by = value_field
+
+	## cardinality = 0..1
+	### default: no - if yes, then 0 is lowest rather than highest
+	inverse = bool
+
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all systems valid to be a storms end position - executes the enclosed effects on all of them for which the limit triggers return true
+## scopes = any
+alias[effect:every_cosmic_storm_end_position] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all systems added to the storm - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+## scopes = { cosmic_storm }
+alias[effect:random_system_added_to_storm] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	## cardinality = 0..1
+	### optional - adds weights to affect the chance a specific object is selected
+	weights = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all systems added to the storm - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
+## scopes = { cosmic_storm }
+alias[effect:ordered_system_added_to_storm] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	## cardinality = 1..1
+	### integer, starting with 0
+	position = int
+
+	## cardinality = 1..1
+	### <variable>/trigger:<trigger>
+	order_by = value_field
+
+	## cardinality = 0..1
+	### default: no - if yes, then 0 is lowest rather than highest
+	inverse = bool
+
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all systems added to the storm - executes the enclosed effects on all of them for which the limit triggers return true
+## scopes = { cosmic_storm }
+alias[effect:every_system_added_to_storm] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all systems removed from storm - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+## scopes = { cosmic_storm }
+alias[effect:random_system_removed_from_storm] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	## cardinality = 0..1
+	### optional - adds weights to affect the chance a specific object is selected
+	weights = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all systems removed from storm - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
+## scopes = { cosmic_storm }
+alias[effect:ordered_system_removed_from_storm] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	## cardinality = 1..1
+	### integer, starting with 0
+	position = int
+
+	## cardinality = 1..1
+	### <variable>/trigger:<trigger>
+	order_by = value_field
+
+	## cardinality = 0..1
+	### default: no - if yes, then 0 is lowest rather than highest
+	inverse = bool
+
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all systems removed from storm - executes the enclosed effects on all of them for which the limit triggers return true
+## scopes = cosmic_storm
+alias[effect:every_system_removed_from_storm] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all influence fields owned by a country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+## scopes = { country }
+alias[effect:random_owned_storm_influence_field] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	## cardinality = 0..1
+	### optional - adds weights to affect the chance a specific object is selected
+	weights = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all influence fields owned by a country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
+## scopes = { country }
+alias[effect:ordered_owned_storm_influence_field] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	## cardinality = 1..1
+	### integer, starting with 0
+	position = int
+
+	## cardinality = 1..1
+	### <variable>/trigger:<trigger>
+	order_by = value_field
+
+	## cardinality = 0..1
+	### default: no - if yes, then 0 is lowest rather than highest
+	inverse = bool
+
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all influence fields owned by a country - executes the enclosed effects on all of them for which the limit triggers return true
+## scopes = { country }
+alias[effect:every_owned_storm_influence_field] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all influence fields owned by a country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+## scopes = { cosmic_storm_influence_field }
+alias[effect:random_system_in_cosmic_storm_influence_field] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	## cardinality = 0..1
+	### optional - adds weights to affect the chance a specific object is selected
+	weights = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all influence fields owned by a country - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
+## scopes = { cosmic_storm_influence_field }
+alias[effect:ordered_system_in_cosmic_storm_influence_field] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	## cardinality = 1..1
+	### integer, starting with 0
+	position = int
+
+	## cardinality = 1..1
+	### <variable>/trigger:<trigger>
+	order_by = value_field
+
+	## cardinality = 0..1
+	### default: no - if yes, then 0 is lowest rather than highest
+	inverse = bool
+
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through all influence fields owned by a country - executes the enclosed effects on all of them for which the limit triggers return true
+## scopes = { cosmic_storm_influence_field }
+alias[effect:every_system_in_cosmic_storm_influence_field] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+}
+
 

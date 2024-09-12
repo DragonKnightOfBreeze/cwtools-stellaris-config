@@ -60,6 +60,6 @@ message_type = {
 
 enums = {
 	enum[message_type_category] = {
-		diplomacy military economy government science fleets planets leaders other
+		diplomacy military economy government science fleets planets leaders other cosmic_storm
 	}
 }

@@ -1,0 +1,123 @@
+types = {
+    type[storm_types] = {
+        path = "game/common/storm_types"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+            color_tooltip = "$_color_tooltip"
+            description = description
+        }
+        images = {
+            ## optional
+            icon = icon
+            picture = cosmic_storm_event_sprite
+        }
+    }
+}
+
+storm_types = {
+
+    ## cardinality = 1..1
+    storm_min_radius = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+    }
+    ## cardinality = 1..1
+    storm_max_radius = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+    }
+    ## cardinality = 1..1
+    storm_min_steps = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+    }
+    ## cardinality = 1..1
+    storm_max_steps = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+    }
+    ## cardinality = 1..1
+    storm_speed = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+    }
+    ## cardinality = 1..1
+    storm_activation_period_in_months = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+    }
+    ## cardinality = 1..1
+    storm_monthly_added_devastation = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+    }
+
+    ## cardinality = 0..1
+    affect_hp_regen = bool
+    ## cardinality = 0..1
+    affect_armor_regen = bool
+    ## cardinality = 0..1
+    affect_shield_regen = bool
+
+    ## cardinality = 0..1
+    occlude_system = bool
+
+    ## cardinality = 0..1
+    spawn_weight = float
+    spawn_weight = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+    }
+
+    ## cardinality = 0..1
+    description = localisation
+    ## cardinality = 0..1
+    custom_tooltip = localisation
+
+    ## cardinality = 0..inf
+    ## replace_scopes = { root = fleet this = fleet }
+    triggered_fleet_modifier = single_alias_right[triggered_modifier_clause]
+
+    ## cardinality = 0..inf
+    ## replace_scopes = { root = planet this = planet }
+    triggered_planet_modifier = single_alias_right[triggered_modifier_clause]
+
+    ## cardinality = 0..inf
+    ## replace_scopes = { root = ship this = ship }
+    triggered_ship_modifier = single_alias_right[triggered_modifier_clause]
+
+    ## cardinality = 0..inf
+    ## replace_scopes = { this = system root = system }
+    triggered_system_modifier = single_alias_right[triggered_modifier_by_leader_clause]
+
+    ## replace_scopes = { root = cosmic_storm this = cosmic_storm }
+    ## cardinality = 0..1
+    on_start = single_alias_right[effect_clause]
+
+    ## replace_scopes = { root = cosmic_storm this = cosmic_storm }
+    ## cardinality = 0..1
+    on_moved = single_alias_right[effect_clause]
+
+    ## replace_scopes = { root = cosmic_storm this = cosmic_storm }
+    ## cardinality = 0..1
+    on_finished = single_alias_right[effect_clause]
+
+    ## cardinality = 1..1
+    cosmic_storm_texture_path = filepath
+    ## cardinality = 1..1
+    cosmic_storm_texture_color_path = filepath
+    ## cardinality = 1..1
+    cosmic_storm_event_sprite = <sprite>
+    ## cardinality = 1..1
+    icon = <sprite>
+
+    ## cardinality = 0..1
+    cosmic_storm_texture_lightning_paths = {
+        ## cardinality = 0..inf
+        filepath
+    }
+
+    ## cardinality = 0..1
+    cosmic_storm_galaxy_lightning_time =float
+    ## cardinality = 0..1
+    cosmic_storm_galaxy_max_opacity = float
+
+    ## replace_scopes = { root = country this = country }
+    ## cardinality = 0..1
+    show_notification = single_alias_right[trigger_clause]
+
+}

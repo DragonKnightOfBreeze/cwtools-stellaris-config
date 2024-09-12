@@ -47,6 +47,7 @@ database_object_types = {
 	}
 	technology = {
 		type = technology
+		swap_type = swapped_technology
 	}
 	tradition = {
 		type = tradition
@@ -57,5 +58,8 @@ database_object_types = {
 	}
 	trait = {
 		type = trait
+	}
+	cosmic_storm = {
+		type = storm_types
 	}
 }

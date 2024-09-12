@@ -129,6 +129,14 @@ building = {
 	## cardinality = 0..1
 	on_built = single_alias_right[effect_clause]
 
+	### an action when enabled
+	## cardinality = 0..1
+	on_enabled = single_alias_right[effect_clause]
+
+	custom_storm_ai_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
 	### an action when destroyed
 	## cardinality = 0..1
 	on_destroy = single_alias_right[effect_clause]

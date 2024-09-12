@@ -96,6 +96,12 @@ scopes = {
 	Bypass = {
 		aliases = { bypass }
 	}
+    Cosmic_storm = {
+        aliases = { cosmic_storm }
+    }
+    Cosmic_storm_influence_field = {
+        aliases = { cosmic_storm_influence_field }
+    }
 }
 
 scope_groups = {

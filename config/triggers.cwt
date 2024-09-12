@@ -686,11 +686,6 @@ alias[trigger:is_ship_size] = <ship_size>
 ## scopes = { ship fleet design }
 alias[trigger:is_ship_class] = enum[ship_class]
 
-### Checks the scientist's field of research
-## scopes = { leader }
-alias[trigger:is_researching_area] = enum[research_area]
-
-#should have < >
 ### Checks the country's number available tech research options in a specific field
 ## scopes = { country }
 alias[trigger:count_tech_options] = {
@@ -994,7 +989,8 @@ alias[trigger:has_strategic_resource] = bool
 ### Checks the country's monthly income of a specific resource
 ## scopes = { country }
 alias[trigger:has_monthly_income] = {
-	resource = <resource>
+	## cardinality = 1..1
+	enum[type_or_resource] = <resource>
 	value = value_field
 }
 
@@ -1689,7 +1685,7 @@ alias[trigger:can_research_tier] = {
 }
 
 ### Checks the country/fleet's number of ships
-## scopes = { country fleet }
+## scopes = { country ship fleet }
 alias[trigger:num_ships] == int_value_field
 
 ### Checks the planet's total amount of society research
@@ -4900,3 +4896,217 @@ alias[trigger:uses_building_set] = enum[building_set]
 ### Checks if pop in the scope is being sold on the slave market:
 ## scopes = { pop }
 alias[trigger:is_on_slave_market] = bool
+
+### v3.13.0
+
+### Checks the ship's shield hit points
+## scopes = { ship }
+alias[trigger:has_shield_hp] = value_field
+
+### Checks if the system is inside any storm or a specific storm type.
+## scopes = { galactic_object }
+alias[trigger:is_inside_storm] = bool
+### Checks if the system is inside any storm or a specific storm type.
+## scopes = { galactic_object }
+alias[trigger:is_inside_storm] = <storm_types>
+
+### Checks if the system is on a countries border
+## scopes = { galactic_object }
+alias[trigger:is_on_border] = bool
+
+### Checks if the pop/species has any trait with infertile
+## scopes = { pop species }
+alias[trigger:is_infertile] = bool
+
+### Returns the amount of influence on a system
+## Scopes = { galactic_object }
+alias[trigger:cosmic_storm_influence_value] == int_value_field
+
+### Checks the amount of currently active cosmic storms.
+## scopes = any
+alias[trigger:num_cosmic_storms] == int_value_field
+
+### Checks the systems total cosmic storm influence
+## scopes = { galactic_object }
+alias[trigger:cosmic_storm_system_influence] == int_value_field
+
+### Checks if the planet is colonized (in planet scope) or the system has an owner (in system scope)
+## scopes = { galactic_object }
+alias[trigger:is_influence_center] = bool
+
+### Checks if the cosmic storm has a specific flag (note: one can use e.g. my_flag@from to track relationships between objects)
+## scopes = { cosmic_storm }
+alias[trigger:has_storm_flag] = <flag>
+
+### Checks the system's number of asteroid belts
+## scopes = { galactic_object }
+alias[trigger:num_asteroid_belts] == int_value_field
+
+### Checks if a star system has any environmental effects
+## scopes = { galactic_object }
+alias[trigger:has_environmental_effects] = bool
+
+### Returns the amount of all storms the country was affected by. Storms that leave stop affecting the country to return to it later are counted as multiple
+## scopes = { country }
+alias[trigger:num_cosmic_storms_encountered] == int_value_field
+
+### Returns the amount of all unique storms the country was affected by. Storms that leave stop affecting the country to return to it later are counted as one
+## scopes = { country }
+alias[trigger:num_unique_cosmic_storms_encountered] == int_value_field
+
+### Checks the number of cosmic storm exploitation buildings with positive effects on a country
+## scopes = { planet country }
+alias[trigger:num_storm_exploitation_buildings] == int_value_field
+
+### Checks if there is currently a storm active within the storm sector that this system belongs to. The galaxy is split up in multiple storm sectors, which we use to avoid spawning storms too close to each other.
+## scopes = { galactic_object }
+alias[trigger:is_storm_active_in_storm_sector] = bool
+
+### Checks the spawn storm chance scale in early game for cosmic storms
+## scopes = any
+alias[trigger:num_cosmic_storm_early_game_spawn_chance_scale_setting] == int_value_field
+
+### Checks the spawn storm chance scale in mid game for cosmic storms
+## scopes = any
+alias[trigger:num_cosmic_storm_mid_game_spawn_chance_scale_setting] == int_value_field
+
+### Checks the spawn storm chance scale in late game for cosmic storms
+## scopes = any
+alias[trigger:num_cosmic_storm_late_game_spawn_chance_scale_setting] == int_value_field
+
+### Checks the spawn storm max cap in early game for cosmic storms
+## scopes = any
+alias[trigger:num_cosmic_storm_early_game_spawn_max_cap_setting] == int_value_field
+
+### Checks the spawn storm max cap in mid game for cosmic storms
+## scopes = any
+alias[trigger:num_cosmic_storm_mid_game_spawn_max_cap_setting] == int_value_field
+
+### Checks the spawn storm max cap in late game for cosmic storms
+## scopes = any
+alias[trigger:num_cosmic_storm_late_game_spawn_max_cap_setting] == int_value_field
+
+### Checks the spawn storm cooldown scale for cosmic storms
+## scopes = any
+alias[trigger:num_cosmic_storm_spawn_cooldown_scale_setting] == int_value_field
+
+### Checks if the scoped Cosmic Storm's type is equal to <type>
+## scopes = cosmic_storm
+alias[trigger:is_storm_type] = <storm_types>
+
+### Compares ship size multiplier of the scoped design or ship.
+## scopes = { ship design }
+alias[trigger:ship_size_multiplier] == value_field
+
+### Iterate through all cosmic storms in the galaxy - checks whether the enclosed triggers return true for any of them
+## scopes = any
+alias[trigger:any_cosmic_storm] = single_alias_right[trigger_clause]
+
+### Iterate through all cosmic storms in the galaxy - checks whether the enclosed triggers return true for X/all of them
+## scopes = any
+alias[trigger:count_cosmic_storm] = {
+	## cardinality = 0..1
+	## push_scope = cosmic_storm
+	limit = single_alias_right[trigger_clause]
+	count = int_value_field
+	count = all
+}
+
+### Iterate through all systems within the storm - checks whether the enclosed triggers return true for any of them
+## scopes = { cosmic_storm }
+alias[trigger:any_system_within_storm] = single_alias_right[trigger_clause]
+
+### Iterate through all systems within the storm - checks whether the enclosed triggers return true for X/all of them
+## scopes = { cosmic_storm }
+alias[trigger:count_system_within_storm] = {
+	## cardinality = 0..1
+	## push_scope = system
+	limit = single_alias_right[trigger_clause]
+	count = int_value_field
+	count = all
+}
+
+### Iterate through all systems valid to be a storms start position - checks whether the enclosed triggers return true for any of them
+## scopes = any
+alias[trigger:any_cosmic_storm_start_position] = single_alias_right[trigger_clause]
+
+### Iterate through all systems valid to be a storms start position - checks whether the enclosed triggers return true for X/all of them
+## scopes = any
+alias[trigger:count_cosmic_storm_start_position] = {
+	## cardinality = 0..1
+	## push_scope = system
+	limit = single_alias_right[trigger_clause]
+	count = int_value_field
+	count = all
+}
+
+### Iterate through all systems valid to be a storms end position - checks whether the enclosed triggers return true for any of them
+## scopes = any
+alias[trigger:any_cosmic_storm_end_position] = { <triggers> }
+
+### Iterate through all systems valid to be a storms end position - checks whether the enclosed triggers return true for X/all of them
+## scopes = any
+alias[trigger:count_cosmic_storm_end_position] = {
+	## cardinality = 0..1
+	## push_scope = system
+	limit = single_alias_right[trigger_clause]
+	count = int_value_field
+	count = all
+}
+
+### Iterate through all systems added to the storm - checks whether the enclosed triggers return true for any of them
+## scopes = { cosmic_storm }
+alias[trigger:any_system_added_to_storm] = single_alias_right[trigger_clause]
+
+### Iterate through all systems added to the storm - checks whether the enclosed triggers return true for X/all of them
+## scopes = { cosmic_storm }
+alias[trigger:count_system_added_to_storm] = {
+	## cardinality = 0..1
+	## push_scope = system
+	limit = single_alias_right[trigger_clause]
+	count = int_value_field
+	count = all
+}
+
+### Iterate through all systems removed from storm - checks whether the enclosed triggers return true for any of them
+## scopes = { cosmic_storm }
+alias[trigger:any_system_removed_from_storm] = single_alias_right[trigger_clause]
+
+### Iterate through all systems removed from storm - checks whether the enclosed triggers return true for X/all of them
+## scopes = { cosmic_storm }
+alias[trigger:count_system_removed_from_storm] = {
+	## cardinality = 0..1
+	## push_scope = system
+	limit = single_alias_right[trigger_clause]
+	count = int_value_field
+	count = all
+}
+
+### Iterate through all influence fields owned by a country - checks whether the enclosed triggers return true for any of them
+## scopes = { country }
+alias[trigger:any_owned_storm_influence_field] = single_alias_right[trigger_clause]
+
+### Iterate through all influence fields owned by a country - checks whether the enclosed triggers return true for X/all of them
+## scopes = { country }
+alias[trigger:count_owned_storm_influence_field] = {
+	## cardinality = 0..1
+	## push_scope = cosmic_storm
+	limit = single_alias_right[trigger_clause]
+	count = int_value_field
+	count = all
+}
+
+### Iterate through all influence fields owned by a country - checks whether the enclosed triggers return true for any of them
+## scopes = { cosmic_storm_influence_field }
+alias[trigger:any_system_in_cosmic_storm_influence_field] = single_alias_right[trigger_clause]
+
+### Iterate through all influence fields owned by a country - checks whether the enclosed triggers return true for X/all of them
+## scopes = { cosmic_storm_influence_field }
+alias[trigger:count_system_in_cosmic_storm_influence_field] = {
+	## cardinality = 0..1
+	## push_scope = system
+	limit = single_alias_right[trigger_clause]
+	count = int_value_field
+	count = all
+}
+

@@ -49,6 +49,44 @@ types = {
 			icon = icon # filepath
 		}
 	}
+	## type_key_filter = technology_swap
+	type[swapped_technology] = {
+		base_type = technology
+		path = "game/common/technology"
+		file_extension = .txt
+		skip_root_key = any
+		name_field = name
+		subtype[not_inheriting_name] = {
+			## cardinality = 0..0
+			inherit_name = yes
+		}
+		subtype[not_inheriting_effects] = {
+			## cardinality = 0..0
+			inherit_effects = yes
+		}
+		subtype[not_inheriting_icon] = {
+			## cardinality = 0..0
+			inherit_icon = yes
+		}
+		localisation = {
+			subtype[not_inheriting_name] = {
+				name = "$"
+				desc = "$_desc"
+			}
+			subtype[not_inheriting_effects] = {
+				## optional
+				effect = description
+				## optional
+				negative_effect = negative_description
+			}
+		}
+		images = {
+			subtype[not_inheriting_icon] = {
+				icon = icon # filepath
+				icon = "gfx/interface/icons/governments/authorities/$.dds" # inferred
+			}
+		}
+	}
 }
 
 technology = {
@@ -80,6 +118,35 @@ technology = {
 	prerequisites = {
 		## cardinality = 0..inf
 		<technology>
+	}
+
+	## cardinality = 0..inf
+	technology_swap = {
+		## cardinality = 0..1
+		name = localisation
+		## cardinality = 0..1
+		name = scalar
+		## cardinality = 0..1
+		inherit_icon = bool
+		## cardinality = 0..1
+		inherit_name = bool
+		## cardinality = 0..1
+		inherit_effects = bool
+		## cardinality = 0..1
+		## replace_scopes = { this = country root = country }
+		trigger = single_alias_right[trigger_clause]
+		## cardinality = 0..1
+		prereqfor_desc = {
+			## cardinality = 0..4
+			hide_prereq_for_desc = enum[prereq_for_category]
+			## cardinality = 0..4
+			enum[prereq_for_category] = {
+				title = localisation
+				## cardinality = 0..1
+				desc = localisation
+			}
+		}
+		weight = float
 	}
 
 	## cardinality = 0..1
