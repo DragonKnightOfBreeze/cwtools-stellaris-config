@@ -96,8 +96,8 @@ scopes = {
 	Bypass = {
 		aliases = { bypass }
 	}
-    Cosmic_storm = {
-        aliases = { cosmic_storm }
+    Storm = {
+        aliases = { cosmic_storm storm }
     }
     Cosmic_storm_influence_field = {
         aliases = { cosmic_storm_influence_field }
