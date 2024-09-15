@@ -23,6 +23,12 @@ map_mode = {
 	display_claims = bool
 	## cardinality = 0..1
 	display_espionage_operations = bool
+	## cardinality = 0..1
+	display_storms = bool
+	## cardinality = 0..1
+	tutorial = "STORM_FORECAST_MAP_MODE"
+	## cardinality = 0..1
+	visible = single_alias_right[trigger_clause]
 
 	## cardinality = 1..inf
 	color = {

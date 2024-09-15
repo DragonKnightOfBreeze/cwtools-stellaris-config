@@ -136,6 +136,7 @@ modifiers = {
 	planet_stability_mult = { Planets }
 	planet_crime_add = { Planets }
 	planet_crime_mult = { Planets }
+	planet_crime_floor_add = { Planets }
 	planet_crime_no_happiness_add = { Planets }
 	planet_crime_no_happiness_mult = { Planets }
 	planet_housing_add = { Planets }
@@ -317,8 +318,10 @@ modifiers = {
 	empire_size_pops_mult = { Countries }
 	empire_size_mult = { Countries }
 	empire_size_add = { Countries }
-	government_election_years_add = { Countries }
-	government_election_years_mult = { Countries }
+	election_term_years_add = { Countries }
+	election_term_years_mult = { Countries }
+	election_term_variance_add = { Countries }
+	election_term_variance_mult = { Countries }
 	federation_fleet_contribution_factor = { Federations }
 	species_empire_size_mult = { Pops }
 	ship_federation_territory_speed_mult = { Ships }
@@ -413,6 +416,17 @@ modifiers = {
 	habitability_ceil_mult = { Habitability }
 	auto_mod_monthly_add = { Countries Planets }
 	auto_mod_monthly_mult = { Countries Planets }
+	country_storm_movement_intel_add = { Countries }
+	country_storm_location_intel_add = { Countries }
+	country_storm_protection_tech_level_add = { Countries }
+	system_storm_influence_add = { Planets Starbases }
+	country_storm_influence_mult = { Countries }
+	country_storm_attraction_influence_add = { Countries }
+	country_storm_repulsion_influence_add = { Countries }
+	planet_storm_influence_timed = { Planets }
+	planet_storm_devastation_mult = { Planets }
+	storm_ship_hull_breaker_mult = { Ships }
+	founder_species_growth_mult = { Planets }
 	# ship_class modifiers
 	enum[ship_class]_build_cost_mult = { Planets Megastructures Starbases }
 	enum[ship_class]_build_speed_mult = { Planets Megastructures Starbases }
@@ -490,6 +504,7 @@ modifiers = {
 
 	# planet_class modifiers
 	<planet_class>_habitability = { Habitability }
+	<planet_class>_max_buildings_add = { Planets }
 
 	# technology_category modifiers
 	category_<technology_category>_research_speed_mult = { Countries }
@@ -544,7 +559,11 @@ modifiers = {
 	<leader_class>_lifespan_add = { Leaders }
 	<leader_class>_lifespan_mult = { Leaders }
 
+	# pc modifier
+
+
 
 	# councilor modifiers
 	<councilor>_exp_gain = { Leaders }
+
 }

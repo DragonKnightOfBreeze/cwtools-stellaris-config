@@ -83,6 +83,8 @@ enums = {
 		espionage_asset
 		agreement
 		situation
+		cosmic_storm
+		cosmic_storm_influence_field
 	}
 	enum[intel_level] = {
 		none
@@ -393,6 +395,14 @@ enums = {
 		none
 		yes
 		no
+	}
+	enum[mission_status] = {
+		success
+		stop
+	}
+	enum[type_or_resource] = {
+		resource
+		type
 	}
 
 }

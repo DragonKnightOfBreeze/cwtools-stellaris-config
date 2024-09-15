@@ -1980,6 +1980,32 @@ on_actions = {
 	## event_type = country
 	on_starbase_occupied
 
+	### This: System
+	### From: Storm
+	## replace_scopes = { this = system root = system from = storm }
+	## event_type = system
+	on_storm_entered_system
+
+	### This: System
+	### From: Storm
+	## replace_scopes = { this = system root = system from = storm }
+	## event_type = system
+	on_storm_left_system
+
+	### This: Storm
+	## replace_scopes = { this = storm root = storm }
+	on_storm_finished
+
+	### This: Country
+	### From: Storm
+	## event_type = country
+	## replace_scopes = { this = country root = country from = storm }
+	on_storm_encountered
+
+	## replace_scopes = { this = no_scope root = no_scope }
+	## event_type = scopeless
+	debug_spawn_storm_random_system
+
 	# from 01_planet_destruction.txt
 
 	# Scope:

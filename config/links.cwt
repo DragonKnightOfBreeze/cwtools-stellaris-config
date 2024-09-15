@@ -405,6 +405,31 @@ links = {
 		output_scope = species
 	}
 
+	v 3.13.0
+	### Scopes from a cosmic storm to the galactic object that it is heading torwards.
+	target_system = {
+		input_scopes = { cosmic_storm }
+		output_scope = galactic_object
+	}
+
+	### Scopes from a galactic object to an inluence field with the galactic object as center
+	storm_influence_field = {
+		input_scopes = { galactic_object }
+		output_scope = cosmic_storm_influence_field
+	}
+
+	### Scopes to the last storm that was created anywhere in the game.
+	last_created_cosmic_storm = {
+		input_scopes = { all }
+		output_scope = cosmic_storm
+	}
+
+	### Scopes to the last storm influence field that was created anywhere in the game.
+	last_created_cosmic_storm_influence_field = {
+		input_scopes = { all }
+		output_scope = cosmic_storm_influence_field
+	}
+
 	# links from data
 
 	variable = {
