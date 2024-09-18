@@ -5,11 +5,14 @@ types = {
 		path = "game/events"
 		file_extension = .txt
 
-		subtype[hidden] = {
-			hide_window = yes
-		}
 		subtype[triggered] = {
 			is_triggered_only = yes
+		}
+		subtype[mean_time_to_happen] = {
+			mean_time_to_happen = {}
+		}
+		subtype[hidden] = {
+			hide_window = yes
 		}
 		subtype[major] = {
 			major = yes
