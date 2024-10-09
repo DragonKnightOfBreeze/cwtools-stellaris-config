@@ -224,6 +224,21 @@ name_list = {
 				localisation
 			}
 			## cardinality = 0..1
+			regnal_full_names = {
+				## cardinality = 0..inf
+				localisation
+			}
+			## cardinality = 0..1
+			regnal_full_names_female = {
+				## cardinality = 0..inf
+				localisation
+			}
+			## cardinality = 0..1
+			regnal_full_names_male = {
+				## cardinality = 0..inf
+				localisation
+			}
+			## cardinality = 0..1
 			regnal_first_names = {
 				## cardinality = 0..inf
 				localisation
@@ -243,6 +258,17 @@ name_list = {
 				## cardinality = 0..inf
 				localisation
 			}
+			## cardinality = 0..1
+			regnal_second_names_female = {
+				## cardinality = 0..inf
+				localisation
+			}
+			## cardinality = 0..1
+			regnal_second_names_male = {
+				## cardinality = 0..inf
+				localisation
+			}
+
 		}
 		## cardinality = 0..inf
 		scalar = {
@@ -299,6 +325,21 @@ name_list = {
 				localisation
 			}
 			## cardinality = 0..1
+			regnal_full_names = {
+				## cardinality = 0..inf
+				localisation
+			}
+			## cardinality = 0..1
+			regnal_full_names_female = {
+				## cardinality = 0..inf
+				localisation
+			}
+			## cardinality = 0..1
+			regnal_full_names_male = {
+				## cardinality = 0..inf
+				localisation
+			}
+			## cardinality = 0..1
 			regnal_first_names = {
 				## cardinality = 0..inf
 				localisation
@@ -318,18 +359,19 @@ name_list = {
 				## cardinality = 0..inf
 				localisation
 			}
-		}
-	}
-
-	## cardinality = 0..1
-	ruler_names = {
-		default = {
-			full_names = {
+			## cardinality = 0..1
+			regnal_second_names_female = {
+				## cardinality = 0..inf
+				localisation
+			}
+			## cardinality = 0..1
+			regnal_second_names_male = {
 				## cardinality = 0..inf
 				localisation
 			}
 		}
 	}
+
 }
 
 species_name = {

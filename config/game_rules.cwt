@@ -169,6 +169,21 @@ game_rules = {
 	## replace_scopes = { this = species root = planet }
 	can_species_be_assembled
 
+	###Root = country
+	###From = species
+	## replace_scopes = { this = country root = country from = species }
+	founder_species_uses_growth_speed
+
+	###Root = country
+	###From = species
+	## replace_scopes = { this = country root = country from = species }
+	founder_species_uses_organic_assembly
+
+	###Root = country
+	###From = species
+	## replace_scopes = { this = country root = country from = species }
+	founder_species_uses_assembly
+
 	### This rule is a condition for bombarding planets
 	### Root = fleet, potential attacker
 	### From = planet, potential target
@@ -734,6 +749,23 @@ game_rules = {
 	### FROM = Galactic Emperor (Country)
 	## replace_scopes = { this = country from = country }
 	should_ai_undermine_galactic_empire
+
+	### root/this = country
+	## replace_scopes = { this = country from = country }
+	can_country_initiate_storm
+
+	### root/this = star
+	## replace_scopes = { this = planet root = planet }
+	can_initiate_storm_on_planet
+
+	### root/this = system
+	## replace_scopes = { this = system root = system }
+	can_force_see_fleets_in_system
+
+	### root/this = country
+	### from = cosmic storm
+	## replace_scopes = { this = country root = country from = cosmic_storm }
+	has_breached_shroud_storm
 
 	# from 01_gui_rules.txt
 
