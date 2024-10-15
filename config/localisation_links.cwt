@@ -95,7 +95,7 @@ localisation_links = {
 		output_scope = spy_network
 	}
 	Target = {
-		input_scopes = { espionage_operation spy_network }
+		input_scopes = { espionage_operation spy_network agreement situation }
 		output_scope = any
 	}
 
