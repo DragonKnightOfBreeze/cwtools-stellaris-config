@@ -892,11 +892,15 @@ alias[effect:create_fleet_from_naval_cap] = {
 ### Reduces the hull points of the scoped ship by a specific amount
 ## scopes = { ship }
 alias[effect:reduce_hp] = int_value_field
-# ### Reduces the hull points of the scoped ship by a relative amount
-# alias[effect:reduce_hp_percent] = value_field[0.0..1.0]
 ### Reduces the hull points of the scoped ship by a relative amount
 ## scopes = { ship }
 alias[effect:reduce_hp_percent] = value_field[0..100]
+### Reduces the shield points of the scoped ship by a specific amount
+## scopes = { ship }
+alias[effect:reduce_shield] = int_value_field
+### Damages ship by a specific amount
+## scopes = { ship }
+alias[effect:damage_ship] = int_value_field
 ### Exiles the scoped country/fleet/army/pop faction's leader and saves them with a custom name
 ## scopes = { country fleet leader army }
 alias[effect:exile_leader_as] = value_set[exiled_leader]
