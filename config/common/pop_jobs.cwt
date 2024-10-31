@@ -81,15 +81,15 @@ job = {
 	## cardinality = 0..1
 	possible = single_alias_right[trigger_clause]
 
-	## cardinality = 0..1
-	resources = {}
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	resources = {
+		## cardinality = 0..1
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	overlord_resources = {
+		## cardinality = 0..1
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}

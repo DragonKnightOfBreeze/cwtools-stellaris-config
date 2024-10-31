@@ -103,7 +103,12 @@ technology = {
 	}
 
 	subtype[!start] = {
+		## cardinality = ~1..1
 		cost = int
+		## cardinality = ~1..1
+		cost = {
+			alias_name[modifier_rule] = alias_match_left[modifier_rule]
+		}
 		## cardinality = 0..1
 		is_rare = bool
 		## cardinality = 0..1
@@ -136,6 +141,9 @@ technology = {
 		## replace_scopes = { this = country root = country }
 		trigger = single_alias_right[trigger_clause]
 		## cardinality = 0..1
+		## replace_scopes = { this = country root = country }
+		modifier = single_alias_right[modifier_clause]
+		## cardinality = 0..1
 		prereqfor_desc = {
 			## cardinality = 0..4
 			hide_prereq_for_desc = enum[prereq_for_category]
@@ -146,7 +154,12 @@ technology = {
 				desc = localisation
 			}
 		}
+		## cardinality = 0..1
 		weight = float
+		## cardinality = 0..1
+		weight = {
+			alias_name[modifier_rule] = alias_match_left[modifier_rule]
+		}
 	}
 
 	## cardinality = 0..1

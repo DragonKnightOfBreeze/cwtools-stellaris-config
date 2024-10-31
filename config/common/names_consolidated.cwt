@@ -371,6 +371,16 @@ name_list = {
 			}
 		}
 	}
+	## cardinality = 0..1
+	by_rarity_names = {
+		## cardinality = 0..inf
+		localisation
+	}
+	## cardinality = 0..1
+	design_names = {
+		## cardinality = 0..inf
+		localisation
+	}
 
 }
 

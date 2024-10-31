@@ -77,6 +77,12 @@ enums = {
 component_set = {
 	## cardinality = 0..1
 	required_component_set = bool
+	## cardinality = 0..1
+	is_core_component_set = bool
+	## cardinality = 0..1
+	is_space_fauna_component_set = bool
+	## cardinality = 0..1
+	is_default_space_fauna_component_set = bool
 	subtype[required_component] = {
 		key = scalar
 		## cardinality = 0..1
@@ -96,6 +102,7 @@ component_slot_template = {
 	size = enum[weapon_slot_size]
 	component = weapon
 	component = strike_craft
+	component = any
 	## cardinality = 0..1
 	is_fixed = yes
 	## cardinality = 0..1
@@ -157,6 +164,20 @@ component_template = {
 	## cardinality = 0..1
 	custom_tooltip = localisation
 	## cardinality = 0..1
+	custom_tooltip = {
+		## cardinality = 0..1
+		text = ""
+		## cardinality = 0..1
+		text = localisation
+		## cardinality = 0..1
+		fail_text = default
+		## cardinality = 0..1
+		fail_text = localisation
+		## cardinality = 0..1
+		success_text = localisation
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	## cardinality = 0..1
 	should_ai_use = bool
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country }
@@ -167,10 +188,11 @@ component_template = {
 	}
 
 	subtype[weapon_component_template] = {
-		## cardinality = 0..1
+		## cardinality = 0..inf
 		## replace_scopes = { root = ship this = ship }
 		resources = {
-			category = <economic_category>
+			## cardinality = 0..1
+		category = <economic_category>
 			alias_name[economic_template_no_produce] = alias_match_left[economic_template_no_produce]
 		}
 		## cardinality = 0..1
@@ -178,6 +200,14 @@ component_template = {
 		size = enum[weapon_slot_size]
 		type = enum[weapon_type2]
 
+		## cardinality = 0..1
+		targetable_ship_sizes = {
+			## cardinality = 0..inf
+			<ship_size>
+
+			## cardinality = 0..1
+			null
+		}
 		## cardinality = 0..1
 		## replace_scopes = { this = ship root = ship }
 		modifier = single_alias_right[modifier_clause]
@@ -272,15 +302,22 @@ component_template = {
 	}
 
 	subtype[strike_craft_component_template] = {
-		## cardinality = 0..1
+		## cardinality = 0..inf
 		## replace_scopes = { root = ship this = ship }
 		resources = {
-			category = <economic_category>
+			## cardinality = 0..1
+		category = <economic_category>
 			alias_name[economic_template_no_produce] = alias_match_left[economic_template_no_produce]
 		}
+
+		## cardinality = 0..1
+		## replace_scopes = { this = ship root = ship }
+		ship_modifier = single_alias_right[modifier_clause]
+
 		size = enum[weapon_slot_size]
 		entity = scalar # TODO entity suffixes
 		weapon_type = enum[weapon_type2]
+		## cardinality = 0..1
 		ship_behavior = <ship_behavior>
 		## cardinality = 0..1
 		projectile_gfx = <projectile>
@@ -330,12 +367,15 @@ component_template = {
 	}
 
 	subtype[utility_component_template] = {
-		## cardinality = 0..1
+		## cardinality = 0..inf
 		## replace_scopes = { root = ship this = ship }
 		resources = {
-			category = <economic_category>
+			## cardinality = 0..1
+		category = <economic_category>
 			alias_name[economic_template] = alias_match_left[economic_template]
 		}
+		## cardinality = 0..1
+		is_default_component = bool
 		## cardinality = 0..1
 		power = int
 		size = enum[utility_slot_size]
@@ -423,6 +463,7 @@ component_template = {
 		apply_on = enum[aura_type]
 		stack_info = {
 			id = scalar
+			## cardinality = 0..1
 			priority = int
 		}
 		## cardinality = 0..1
@@ -459,6 +500,7 @@ component_template = {
 		apply_on = enum[aura_type]
 		stack_info = {
 			id = scalar
+			## cardinality = 0..1
 			priority = int
 		}
 		## cardinality = 0..1
@@ -514,6 +556,7 @@ enums = {
 		point_defence
 		missile
 		planet_killer
+		engulf
 	}
 	enum[weapon_slot_size] = {
 		extra_large
@@ -524,6 +567,8 @@ enums = {
 		point_defence
 		planet_killer
 		titanic
+		engulf
+		any
 	}
 	enum[point_defence_target] = {
 		missile

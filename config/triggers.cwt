@@ -59,7 +59,7 @@ alias[trigger:relative_power] = {
 alias[trigger:has_election_type] = enum[election_type]
 
 ### Checks if the scope object has a certain modifier
-## scopes = { megastructure planet country ship pop fleet galactic_object pop_faction federation spy_network espionage_operation astral_rift }
+## scopes = { megastructure planet country ship pop fleet galactic_object pop_faction federation starbase spy_network espionage_operation astral_rift }
 alias[trigger:has_modifier] = <static_modifier>
 
 ### Checks if the country has a specific opinion modifier towards target country or anyone
@@ -1249,7 +1249,7 @@ alias[trigger:has_designation] = <colony_type>
 alias[trigger:has_designation] = scope_group[target_planet]
 
 ### Checks if a ship has a certain component
-## scopes = { ship }
+## scopes = { design ship }
 alias[trigger:has_component] = <component_template>
 
 ### Checks if two countries have a migration treaty.
@@ -3221,7 +3221,7 @@ alias[trigger:can_afford_special_offer] = {
 
 ### Checks if the design has a specific flag
 ## scopes = { design }
-alias[trigger:has_design_flag] = value_set[design_flag]
+alias[trigger:has_design_flag] = value[design_flag]
 
 ### Checks if L-Gates are enabled in game setup
 ## scopes = any
@@ -3416,19 +3416,19 @@ alias[trigger:has_civic_in_slot] = {
 
 ### Compares the amount of total civic points.
 ## scopes = { country }
-alias[trigger:has_total_civic_points] = value_field
+alias[trigger:has_total_civic_points] == value_field
 
 ### Compares the amount of unused civic points.
 ## scopes = { country }
-alias[trigger:has_unused_civic_points] = value_field
+alias[trigger:has_unused_civic_points] == value_field
 
 ### Compares the number of times an election candidate was supported.
 ## scopes = { leader }
-alias[trigger:num_candidate_supported] = value_field
+alias[trigger:num_candidate_supported] == value_field
 
 ### Compares the progress (0-1) of the current Agenda.
 ## scopes = { country }
-alias[trigger:council_agenda_progress_percent] = value_field
+alias[trigger:council_agenda_progress_percent] == value_field
 
 ### Checks if the country has a specific Council Agenda selected, or any at all
 ## scopes = { country }
@@ -3439,7 +3439,7 @@ alias[trigger:has_agenda_selected] = <agenda>
 
 ### Compares the amount of unlocked council positions, typically from 'unlock_council_slots'
 ## scopes = { country }
-alias[trigger:has_unlocked_council_positions] = value_field
+alias[trigger:has_unlocked_council_positions] == value_field
 
 ### Checks if the leader's background contains a specific previous job, or any job if set to yes
 ## scopes = { leader }
@@ -3464,7 +3464,7 @@ alias[trigger:is_councilor] = bool
 
 ### Checks the progress of the current Agenda.
 ## scopes = { country }
-alias[trigger:council_agenda_progress] = value_field
+alias[trigger:council_agenda_progress] == value_field
 
 ### Checks if the leader is hidden from the player
 ## scopes = { leader }
@@ -3525,7 +3525,7 @@ alias[trigger:has_astral_rift_flag] = value[astral_rift_flag]
 alias[trigger:has_completed_event_chain] = <event_chain>
 
 ### Checks the distance of a controlled system to its owner's capital
-## scopes = { galactic_object }
+## scopes = { planet galactic_object }
 alias[trigger:distance_to_capital] = int_value_field
 
 ### Returns true if the astral rift starting event pool is empty
@@ -4901,7 +4901,7 @@ alias[trigger:is_on_slave_market] = bool
 
 ### Checks the ship's shield hit points
 ## scopes = { ship }
-alias[trigger:has_shield_hp] = value_field
+alias[trigger:has_shield_hp] == value_field
 
 ### Checks if the system is inside any storm or a specific storm type.
 ## scopes = { galactic_object }
@@ -4920,7 +4920,7 @@ alias[trigger:is_infertile] = bool
 
 ### Returns the amount of influence on a system
 ## Scopes = { galactic_object }
-alias[trigger:cosmic_storm_influence_value] == int_value_field
+alias[trigger:cosmic_storm_influence_value] == value_field
 
 ### Checks the amount of currently active cosmic storms.
 ## scopes = any
@@ -4936,7 +4936,7 @@ alias[trigger:is_influence_center] = bool
 
 ### Checks if the cosmic storm has a specific flag (note: one can use e.g. my_flag@from to track relationships between objects)
 ## scopes = { cosmic_storm }
-alias[trigger:has_storm_flag] = <flag>
+alias[trigger:has_storm_flag] = value[storm_flag]
 
 ### Checks the system's number of asteroid belts
 ## scopes = { galactic_object }
@@ -5109,4 +5109,175 @@ alias[trigger:count_system_in_cosmic_storm_influence_field] = {
 	count = int_value_field
 	count = all
 }
+
+### version v3.14.1
+
+### Checks if the scoped fleet or ship is reanimated (as set in ship sizes).
+## scopes = { ship fleet design }
+alias[trigger:is_reanimated] = bool
+
+### Returns the country's acquired specimens count
+## scopes = { country }
+alias[trigger:acquired_specimen_count] == int_value_field
+
+### Checks if any Flag has been set to the given scope
+## scopes = any
+alias[trigger:has_any_flag] = bool
+
+### Checks if the debris is set as "must scavenge"
+## scopes = { debris }
+alias[trigger:must_scavenge] = bool
+
+### Checks if the debris is set as "must research"
+## scopes = { debris }
+alias[trigger:must_research] = bool
+
+### Checks Voidworms presence scaling in game setup
+## scopes = any
+alias[trigger:voidworms_scaling] == value_field
+
+### Checks Cutholoids presence scaling in game setup
+## scopes = any
+alias[trigger:cutholoids_scaling] == value_field
+
+### Checks if a ship is orbiting a star
+## scopes = { ship fleet }
+alias[trigger:is_orbiting_star] = bool
+
+### Checks the ship's max hull points
+## scopes = { ship }
+alias[trigger:has_max_hp] == value_field
+
+### Checks the ship's max armor hit points
+## scopes = { ship }
+alias[trigger:has_max_armor_hp] == value_field
+
+### Checks the scoped object for the remaining days left of the specified timed flag (note: one can use e.g. my_flag@from to track relationships between objects)
+## scopes = { megastructure planet country ship pop fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector no_scope archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+alias[trigger:timed_flag_days_left] = {
+
+	flag = value[megastructure_flag]
+	flag = value[planet_flag]
+	flag = value[country_flag]
+	flag = value[ship_flag]
+	flag = value[pop_flag]
+	flag = value[fleet_flag]
+	flag = value[star_flag]
+	flag = value[leader_flag]
+	flag = value[army_flag]
+	flag = value[ambient_object_flag]
+	flag = value[species_flag]
+	flag = value[pop_faction_flag]
+	flag = value[war_flag]
+	flag = value[federation_flag]
+	flag = value[starbase_flag]
+	flag = value[deposit_flag]
+	flag = value[sector_flag]
+	flag = value[global_flag]
+	flag = value[archaeology_flag]
+	flag = value[first_contact_flag]
+	flag = value[spynetwork_flag]
+	flag = value[espionage_operation_flag]
+	flag = value[espionage_asset_flag]
+	flag = value[agreement_flag]
+	flag = value[situation_flag]
+	flag = value[astral_rift_flag]
+
+	value = int_value_field
+}
+
+### Returns true if the scoped galactic object has an asteroid belt.
+## scopes = { galactic_object }
+alias[trigger:has_asteroid_belt] = bool
+
+### Checks if the specified specimen was the last acquired one
+## scopes = { country }
+alias[trigger:last_acquired_specimen] = <specimen>
+
+### Checks if can give a specific specimen. Checks if specimen is already given and if there is an available exhibit slot
+## scopes = { country }
+alias[trigger:can_give_specimen] = <specimen>
+
+### Check if the scoped exhibit is active
+## scopes = { exhibit }
+alias[trigger:is_exhibit_active] = bool
+
+### Returns the country's used Vivarium slots
+## scopes = { country }
+alias[trigger:num_vivarium_slots] == int_value_field
+
+### Checks if the scoped country has the specified specimen
+## scopes = { country }
+alias[trigger:has_specimen] = <specimen>
+
+### Checks if the scoped country has the specified specimen
+## scopes = { country }
+alias[trigger:has_specimen] = scope[exhibit]
+
+### Checks if the scoped fleet or ship is space fauna (as set in ship sizes).
+## scopes = { ship fleet design }
+alias[trigger:is_space_fauna] = bool
+
+### Checks if the ship/design can be reanimated.
+## scopes = { ship design }
+alias[trigger:can_be_reanimated] = bool
+
+### Checks if the ship/fleet/design is a specific ship category
+## scopes = { ship fleet design }
+alias[trigger:is_ship_category] = <ship_categories>
+
+### Checks if the specified specimen contained by the scoped exhibit is of indicated rarity
+## scopes = { exhibit }
+alias[trigger:is_specimen_rarity] = eunm[specimens_rarity]
+
+### Checks if the specified specimen contained by the scoped exhibit is of indicated collection category
+## scopes = { exhibit }
+alias[trigger:is_specimen_category] = enum[specimen_types]
+
+### Checks the scoped leader trading value.
+## scopes = { leader }
+alias[trigger:trading_value] == value_field
+
+### Checks used naval cap by the scoped country or fleet's controlled ships which fulfill the specified criteria.
+## scopes = { country fleet }
+## push_scope = fleet
+alias[trigger:count_used_naval_cap] = {
+	limit = single_alias_right[trigger_clause]
+	count = all
+	count = int_value_field
+}
+
+### Retrieves the percentage of usage of a given resource in the ship size. If the ship size cost is 100 food and 300 minerals, the value when checking for food is 0.25
+### Only use in trigger value(complex_trigger_modifier export_trigger_value_to_variable )
+## scopes = { ship design }
+alias[trigger:ship_size_cost_resource_percent] = { resource = <resource> }
+
+### Check if dna has been acquired for the given category
+## scopes = { country }
+alias[trigger:has_dna] = {
+	ship_category = <ship_categories>
+	## cardinality = 0..1
+	rarity = eunm[ship_rarity]
+}
+
+### Checks if the last acquired specimen is of the given rarity
+## scopes = { country }
+alias[trigger:is_last_acquired_specimen_rarity] = eunm[specimens_rarity]
+
+### Iterate through every exhibit - checks whether the enclosed triggers return true for any of them
+## scopes = { country }
+## push_scope = exhibit
+alias[trigger:any_exhibit] = single_alias_right[trigger_clause]
+
+### Iterate through every exhibit - checks whether the enclosed triggers return true for X/all of them
+## scopes = { country }
+## push_scope = exhibit
+alias[trigger:count_exhibit] = {
+	## cardinality = 0..1
+	### push_scope = exhibit
+	limit = single_alias_right[trigger_clause]
+	count = int_value_field
+	count = all
+}
+
 

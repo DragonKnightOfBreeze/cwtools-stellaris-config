@@ -342,6 +342,13 @@ on_actions = {
 	## event_type = planet
 	on_colony_destroyed
 
+	### A colony has been destroyed by bombardment. Called after the planet's colony status has been cleared
+	### This = Planet
+	### From = Bombarder
+	## replace_scopes = { this = planet root = planet from = country }
+	## event_type = planet
+	on_colony_destroyed_by_bombardment
+
 	### This = owner of fleet 1
 	### From = owner of fleet 2
 	### FromFrom = fleet 1
@@ -1710,6 +1717,15 @@ on_actions = {
 	## event_type = country
 	on_debris_scavenged
 
+    ### Fired when a science ship succesfully analyzed or scavenged debris
+    ### this = country
+    ### from = debris
+    ### fromfrom = controller of destroyed ship
+    ### fromfromfrom = science ship
+    ## replace_scopes = { this = country root = country from = debris fromfrom = country fromfromfrom = ship }
+    ## event_type = country
+    on_debris_reanimated
+
 	### Fired when a science ship succesfully analyzed or scavenged debris
 	### this = country
 	### from = debris
@@ -1966,6 +1982,13 @@ on_actions = {
 	## event_type = any
 	on_galaxy_map_during_tutorial
 
+    ### A Gravity Snare was sent by a science fleet
+    ### This = Snare Fleet
+    ### From = Fleet that sent the snare
+    ## replace_scopes = { this = fleet root = fleet from = fleet }
+    ## event_type = fleet
+    on_snare_sent
+
 	### Fired when a truce is over
 	### This = owner of the truce
 	### From = target of the truce
@@ -1980,6 +2003,25 @@ on_actions = {
 	## event_type = country
 	on_starbase_occupied
 
+    ### A specimen has been acquired
+    ### This = country receiving the specimen
+    ## replace_scopes = { this = country root = country }
+	## event_type = country
+    on_specimen_acquired
+
+    ### A specimen has been sold
+    ### This = country selling the specimen
+    ## replace_scopes = { this = country root = country }
+	## event_type = country
+    on_specimen_sold
+
+    ### Fired when a ship engulfs another one with an engulf type weapon
+    ### This = Engulfed Ship (Defender)
+    ### From = Engulfing Ship (Attacker)
+    ## replace_scopes = { this = ship root = ship from = ship }
+	## event_type = ship
+    on_ship_engulfed
+
 	### This: System
 	### From: Storm
 	## replace_scopes = { this = system root = system from = storm }
@@ -1992,7 +2034,40 @@ on_actions = {
 	## event_type = system
 	on_storm_left_system
 
+	### Fired when a collection exhibit has been unlocked
+    ### This = Country
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+    on_exhibit_unlocked
+
+    ### Fired when a space fauna is captured
+    ### This = Ship captured by a gravity snare - deleted after event fired and sent to vivarium
+    ### From = Fleet / Gravity snare that captured the space fauna
+	## replace_scopes = { this = ship root = ship from = fleet }
+	## event_type = ship
+    on_fauna_captured
+
+    ### Performed once a space fauna capture attempt ends, no matter the outcome of the attempt
+    ### This = Fleet / Gravity Snare Fleet
+	## replace_scopes = { this = fleet root = fleet }
+	## event_type = fleet
+    on_fauna_capture_ended
+
+    ### Fired when a space fauna is added to the vivarium
+    ### This = Country
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_vivarium_populated
+
+    ### Fired when a space fauna is culled
+    ### From = Design
+    ### This = Country
+	## replace_scopes = { this = country root = country from = design }
+	## event_type = country
+    on_space_fauna_culled
+
 	### This: Storm
+	## event_type = storm
 	## replace_scopes = { this = storm root = storm }
 	on_storm_finished
 
@@ -2001,6 +2076,14 @@ on_actions = {
 	## event_type = country
 	## replace_scopes = { this = country root = country from = storm }
 	on_storm_encountered
+
+    ### This = Leader captured
+    ### from = perpetrator country
+    ### fromfrom = victim country
+    ### fromfromfrom = system where it happened
+    ## replace_scopes = { this = leader root = leader from = country from = country fromfromfrom = system }
+    ## event_type = leader
+    on_leader_captured
 
 	## replace_scopes = { this = no_scope root = no_scope }
 	## event_type = scopeless

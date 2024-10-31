@@ -1,0 +1,61 @@
+types = {
+	type[mutations] = {
+		path = "game/common/mutations"
+		file_extension = .txt
+		localisation = {
+			name = "$"
+			desc = "$_desc"
+		}
+		images = {
+			icon = icon
+		}
+	}
+}
+
+mutations = {
+	### Sets the mutation type (offensive/defensive/aux)
+	## cardinality = 1..1
+	type = enum[mutations_types]
+
+	### The icon for the mutation
+	## cardinality = 1..1
+	icon = <sprite>
+
+	## cardinality = 0..1
+	ship_limit = int
+
+	### List of components given by the mutation according to the ship size
+	## cardinality = 1..1
+	ship_components = {
+		## cardinality = 0..1
+		small = <component_template>
+		## cardinality = 0..1
+		medium = <component_template>
+		## cardinality = 0..1
+		large = <component_template>
+		## cardinality = 0..1
+		extra_large = <component_template>
+
+		## cardinality = 0..1
+		small = localisation
+		## cardinality = 0..1
+		medium = localisation
+		## cardinality = 0..1
+		large = localisation
+		## cardinality = 0..1
+		extra_large = localisation
+	}
+
+	### What other mutation that this mutation upgrades to
+	## cardinality = 0..1
+	upgrades_to = <mutations>
+
+	### Removes all components of the given slot size in the design
+	## cardinality = 0..1
+	component_slot_size_to_disable = enum[weapon_type2]
+
+	### default = no. Wether the mutation can be applied only once or not
+	## cardinality = 0..1
+	is_unique = bool
+
+}

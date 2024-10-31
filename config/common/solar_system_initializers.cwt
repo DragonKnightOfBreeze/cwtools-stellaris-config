@@ -16,6 +16,8 @@ types = {
 solar_system_initializer = {
 	## cardinality = 0..1
 	name = localisation
+	## cardinality = 0..1
+	namelist = value[custom_star_names]
 	#the class below here represents star class, which is the icon of the system in galactic view.
 	class = <star_class> #this also includes random lists of stars, as defined in the star_classes files
 	class = enum[star_class_random_list]

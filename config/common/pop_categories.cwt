@@ -60,16 +60,16 @@ pop_category = {
 		trigger = single_alias_right[trigger_clause]
 	}
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	unemployment_resources = {
+		## cardinality = 0..1
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
 
-	## cardinality = 0..1
-	resources = {}
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	resources = {
+		## cardinality = 0..1
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}

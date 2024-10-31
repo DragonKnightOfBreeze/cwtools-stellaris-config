@@ -17,6 +17,8 @@ country_type = {
 	can_receive_envoys = bool
 	## cardinality = 0..1
 	ownership_limits = default
+	## cardinality = 0..1
+	do_critters_age = bool
 	### no by default, decides if empty planets belonging to country are automatically removed from the country
 	## cardinality = 0..1
 	can_own_empty_planets = bool
@@ -165,6 +167,8 @@ country_type = {
 	### Fairly self explanatory. Will not show up in list of observable countries, and cannot be tagged to as observer
 	## cardinality = 0..1
 	observable = bool
+	## cardinality = 0..1
+	has_plural_name = bool
 	## cardinality = 0..1
 	uses_origins = bool
 	## cardinality = 0..1
@@ -332,6 +336,8 @@ country_type = {
 		## cardinality = 0..1
 		standard_species_rights_module = {}
 		## cardinality = 0..1
+		standard_grand_archive_module = {}
+		## cardinality = 0..1
 		exclusive_diplomacy_module = {
 			## cardinality = 0..1
 			contact_rule = enum[contact_rule]
@@ -360,12 +366,12 @@ country_type = {
 		## cardinality = 0..1
 		standard_trade_routes_module = {}
 	}
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	resources = {
 		category = country_base
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	branch_office_resources = {
 		category = planet_branch_offices
 		alias_name[economic_template] = alias_match_left[economic_template]
@@ -392,6 +398,7 @@ enums = {
 		military_minister_module
 		space_monsters_module
 		standard_species_rights_module
+		voidworms_module
 		swarm_interior_minister_module
 		swarm_military_minister_module
 		space_monsters_modules

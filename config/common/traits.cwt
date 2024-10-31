@@ -235,7 +235,7 @@ trait = {
 		triggered_councilor_modifier = single_alias_right[triggered_modifier_by_leader_clause]
 
 		### Show key if trigger/exclusive_trigger is true.
-		## cardinality = 0..1
+		## cardinality = 0..inf
 		## replace_scopes = { this = leader root = leader }
 		triggered_desc = {
 			### Trigger appends additional localization key to existing text. THIS = Leader

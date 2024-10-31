@@ -26,7 +26,8 @@ diplomacy_economy = {
 			## replace_scopes = { this = country root = country from = country }
 			trigger = single_alias_right[trigger_clause]
 			resources = {
-				category = <economic_category>
+				## cardinality = 0..1
+		category = <economic_category>
 				alias_name[economic_template] = alias_match_left[economic_template]
 			}
 		}

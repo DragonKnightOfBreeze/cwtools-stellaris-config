@@ -27,6 +27,9 @@ section_template = {
 	entity = scalar # TODO entity suffixes
 
 	## cardinality = 0..1
+    compatible_with_all_ship_sizes = yes
+
+	## cardinality = 0..1
 	### As far as I can tell, this is unused (the Vanilla ones refer to non-existent sprites and I couldn't find an ingame effect) -Caligula
 	icon = scalar
 	## cardinality = 0..1
@@ -38,8 +41,9 @@ section_template = {
 	}
 	## cardinality = 0..1
 	should_draw_components = bool
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	resources = {
+		## cardinality = 0..1
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
@@ -53,7 +57,9 @@ section_template = {
 	component_slot = {
 		name = scalar
 		template = <component_slot_template>
+		## cardinality = ~1..1
 		locatorname = enum[model_locator]
+		## cardinality = ~1..1
 		locatorname = scalar # TODO: Some locators are in .mesh files, so are missed by the enum
 		## cardinality = 0..1
 		is_side_slot = bool

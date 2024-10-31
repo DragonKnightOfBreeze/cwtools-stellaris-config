@@ -63,6 +63,9 @@ resource = {
 	deficit_situation = <situation_type>
 
 	## cardinality = 0..1
+	culling_conversion_value = int
+
+	## cardinality = 0..1
 	prerequisites = {
 		## cardinality = 0..inf
 		<technology>

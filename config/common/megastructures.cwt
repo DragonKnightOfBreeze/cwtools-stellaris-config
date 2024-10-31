@@ -31,7 +31,8 @@ megastructure = {
 	rotate_to_center = bool
 	## cardinality = 0..1
 	scale_offset = bool
-
+	## cardinality = 0..1
+	is_grand_archive = bool
 	## cardinality = 0..1
 	construction_entity = scalar # TODO entity suffixes
 	### to avoid z-fighting of consrucion entity with the base entity
@@ -103,8 +104,9 @@ megastructure = {
 	## replace_scopes = { this = megastructure root = megastructure }
 	outliner_trigger = single_alias_right[trigger_clause]
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	resources = {
+		## cardinality = 0..1
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
@@ -184,6 +186,7 @@ megastructure = {
 
 	## cardinality = 0..1
 	dismantle_cost = {
+		## cardinality = 0..1
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}

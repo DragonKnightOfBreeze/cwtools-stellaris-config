@@ -38,6 +38,11 @@ types = {
 ## replace_scopes = { this = starbase root = starbase from = country }
 starbase_building = {
 	icon = <sprite>
+	icon = {
+	    icon = <sprite>
+    	## cardinality = 0..1
+    	trigger = single_alias_right[trigger_clause]
+	}
 	## cardinality = 0..1
 	construction_days = int
 	## cardinality = 0..1
@@ -72,7 +77,9 @@ starbase_building = {
 	## cardinality = 0..inf
 	custom_tooltip = localisation
 
+	## cardinality = 0..inf
 	resources = {
+		## cardinality = 0..1
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
@@ -147,6 +154,15 @@ starbase_building = {
 	## cardinality = 0..1
 	## replace_scopes = { this = starbase root = starbase }
 	on_finished = single_alias_right[effect_clause]
+
+	## cardinality = 0..1
+	scripted_effect_cooldown = int
+	## cardinality = 0..1
+	scripted_effect_cooldown_flag = value_set[starbase_flag]
+	## cardinality = 0..1
+	## replace_scopes = { this = starbase root = starbase }
+    scripted_effect_cooldown_flag_desc = single_alias_right[triggered_desc_clause]
+
 	## cardinality = 0..1
 	## replace_scopes = { this = starbase root = starbase }
 	on_destroyed = single_alias_right[effect_clause]
@@ -155,10 +171,14 @@ starbase_building = {
 #Done based on educated guesswork
 ## replace_scopes = { this = starbase root = starbase from = country }
 starbase_module = {
+	icon =  <sprite>
+	icon = {
+	    icon = <sprite>
+    	## cardinality = 0..1
+    	trigger = single_alias_right[trigger_clause]
+	}
 	## cardinality = 0..1
 	section = <section_template>
-	## cardinality = 0..1
-	icon =  <sprite>
 	## cardinality = 0..1
 	construction_days = int
 	## cardinality = 0..1
@@ -173,7 +193,9 @@ starbase_module = {
 	## cardinality = 0..1
 	starbase_type = orbital_ring
 
+	## cardinality = 0..inf
 	resources = {
+		## cardinality = 0..1
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
@@ -183,6 +205,9 @@ starbase_module = {
 	## cardinality = 0..1
 	### entries in possible are displayed in game. Use custom_tooltip to replace localisations.
 	possible = single_alias_right[trigger_clause]
+	### trigger for module construction to be automatically aborted.
+	## cardinality = 0..1
+	abort_construction_trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	equipped_component = <component_template>
 

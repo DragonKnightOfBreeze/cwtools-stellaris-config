@@ -767,6 +767,68 @@ game_rules = {
 	## replace_scopes = { this = country root = country from = cosmic_storm }
 	has_breached_shroud_storm
 
+    ### this = fleet
+	## replace_scopes = { this = fleet }
+    is_science_fleet_gravity_snare_on_cooldown
+
+    ### this = fleet
+    ### from = country / Snare sender
+    can_fleet_be_captured_by_snares
+
+    ### THIS = country
+    ## replace_scopes = { this = country }
+    can_fauna_grow
+
+    ### THIS = country
+    ## replace_scopes = { this = country }
+    can_use_exhibits
+
+    ### THIS = country
+    ## replace_scopes = { this = country }
+    can_access_vivarium
+
+    ### this = debris
+    ### root = country who can explore debris
+    ## replace_scopes = { this = debris root = country }
+    can_scavenge_and_research_debris
+
+    ### this = debris
+    ### root = country who can explore debris
+    ## replace_scopes = { this = debris root = country }
+    can_scavenge_debris
+
+    ### this = country
+    ### from = location (galactic_object)
+    ## replace_scopes = { this = country from = galactic_object }
+    can_excavate_outside_borders
+
+    ### this = country
+    ## replace_scopes = { this = country }
+    can_voidworms_bombard_country
+
+    ### this = country
+    ## replace_scopes = { this = country }
+    can_use_mutations
+
+    ### this = country
+    ## replace_scopes = { this = country }
+    can_use_artificial_breeding
+
+    ### this = actor (country)
+    ### from = recipient (country)
+    ## replace_scopes = { this = country from = country }
+    can_trade_specimens
+
+    ### this = ship design
+    ### from = owner (country)
+    ## replace_scopes = { this = design from = country }
+    force_create_default_ship_design
+
+    ### from = owner (country)
+    ### This = fleet
+    ## replace_scopes = { this = fleet from = country }
+    is_seeded
+
 	# from 01_gui_rules.txt
 
 	### This = country

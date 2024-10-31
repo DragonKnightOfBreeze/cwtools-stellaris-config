@@ -142,7 +142,6 @@ alias[economic_template_no_produce:upkeep] = {
 
 ## cardinality = 0..1
 alias[resources_template_optional:resources] = {
-	## cardinality = 0..1
 	category = <economic_category>
 	alias_name[economic_template] = alias_match_left[economic_template]
 }

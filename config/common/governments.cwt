@@ -135,7 +135,12 @@ authority = {
 	description = localisation
 	## cardinality = 0..1
 	negative_description = localisation
-
+	## cardinality = 0..1
+	## color_type = hsv
+	color = {
+		## cardinality = 3..4
+		float
+	}
 	## cardinality = 0..1
 	machine_empire = yes
 	## cardinality = 0..1
@@ -338,6 +343,11 @@ civic_or_origin = {
 	## cardinality = 0..1
 	## replace_scopes = { this = no_scope root = no_scope }
 	ai_playable = single_alias_right[trigger_clause]
+	## cardinality = 0..1
+	flags = {
+		## cardinality = 0..inf
+		value_set[country_flag]
+	}
 	### requirements list, supports country_type, ethics, authority and civics. See ../readme_requirements.txt
 	## cardinality = 0..1
 	potential = {
@@ -461,11 +471,6 @@ civic_or_origin = {
 		## default: no
 		## cardinality = 0..1
 		hide_modifiers = bool
-		## cardinality = 0..1
-		flags = {
-			## cardinality = 0..inf
-			value_set[country_flag]
-		}
 		## cardinality = 0..1
 		advanced_start = bool
 		### default: empty; trait set to enforce on the primary species. They cannot be removed, but more can be added if points/picks permit
