@@ -59,6 +59,52 @@ types = {
 		file_extension = .txt
 		# name_field = format
 	}
+
+	## type_key_filter = species_modification_prefix
+	type[species_modification_prefix] = {
+		path = "game/common/random_names/base"
+		file_extension = .txt
+	}
+	## type_key_filter = species_modification_postfix
+	type[species_modification_postfix] = {
+		path = "game/common/random_names/base"
+		file_extension = .txt
+	}
+	## type_key_filter = black_hole_names
+	type[black_hole_names] = {
+		path = "game/common/random_names/base"
+		file_extension = .txt
+	}
+	## type_key_filter = asteroid_prefix
+	type[asteroid_prefix] = {
+		path = "game/common/random_names/base"
+		file_extension = .txt
+	}
+	## type_key_filter = asteroid_postfix
+	type[asteroid_postfix] = {
+		path = "game/common/random_names/base"
+		file_extension = .txt
+	}
+	## type_key_filter = star_names
+	type[star_names] = {
+		path = "game/common/random_names/base"
+		file_extension = .txt
+	}
+	## type_key_filter = nebula_names
+	type[nebula_names] = {
+		path = "game/common/random_names/base"
+		file_extension = .txt
+	}
+	## type_key_filter = cosmic_storm_name_prefixes
+	type[cosmic_storm_name_prefixes] = {
+		path = "game/common/random_names/base"
+		file_extension = .txt
+	}
+	## type_key_filter = custom_star_names
+	type[custom_star_names] = {
+		path = "game/common/random_names/base"
+		file_extension = .txt
+	}
 }
 
 ### Define possible parts of empire name here, such as "Glorious Empire of". When generating random name for empire, format can refer to it via <key> and pick random part.
@@ -192,3 +238,54 @@ war_name_format = {
 	### Format string for generating random name (proper noun form)
 	format = stellaris_name_format[war_name_parts]
 }
+
+species_modification_prefix = {
+	## cardinality = 0..inf
+	localisation
+}
+
+species_modification_postfix = {
+	## cardinality = 0..inf
+	localisation
+}
+
+black_hole_names = {
+	## cardinality = 0..inf
+	localisation
+}
+
+asteroid_prefix = {
+	## cardinality = 0..inf
+	localisation
+}
+
+asteroid_postfix = {
+	## cardinality = 0..inf
+	localisation
+	## cardinality = 0..inf
+	int
+}
+
+star_names = {
+	## cardinality = 0..inf
+	localisation
+}
+
+nebula_names = {
+	## cardinality = 0..inf
+	localisation
+}
+
+cosmic_storm_name_prefixes = {
+	## cardinality = 0..inf
+	localisation
+}
+
+custom_star_names = {
+	## cardinality = 0..inf
+	value_set[custom_star_names] = {
+		## cardinality = 0..inf
+		localisation
+	}
+}
+

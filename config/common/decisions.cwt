@@ -31,7 +31,7 @@ decision = {
 	icon = <decision>
     #icon = <sprite>
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	resources = {
 		## cardinality = 0..1
 		category = <economic_category>

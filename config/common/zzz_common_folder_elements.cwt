@@ -28,7 +28,9 @@ types = {
 alert = {
 	category = <alert_icon>
 	category = DISABLED
+	## cardinality = 0..1
 	sound = <sound_effect>
+	## cardinality = 0..1
 	icon = <sprite>
 }
 

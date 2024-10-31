@@ -9,6 +9,10 @@ types = {
 			## cardinality = 0..1
 			is_space_station = no
 		}
+		subtype[space_fauna] = {
+			## cardinality = 0..1
+			is_space_fauna_ship = yes
+		}
 		subtype[starbase] = {
 			class = shipclass_starbase
 		}
@@ -110,6 +114,9 @@ ship_size = {
 	### Determines sprites. ship_size_military_1 is default. The following sprite keys are generated from it: GFX_text_<key>, GFX_<key>, GFX_<key>_top, GFX_<key>_top_damaged
 	icon = scalar
 	## cardinality = 0..1
+	### Determines sprites. ship_size_military_1 is default. The following sprite keys are generated from it: GFX_text_<key>, GFX_<key>, GFX_<key>_top, GFX_<key>_top_damaged
+	icon_cloned = scalar
+	## cardinality = 0..1
 	use_shipnames_from = <ship_size>
 	## cardinality = 0..1
 	combat_size_multiplier = int
@@ -152,13 +159,12 @@ ship_size = {
 	#this is where ship classes are defined! this is important for other files, and it also causes the game to auto generate modifiers for each shipclass!
 	class = enum[ship_class]
 	## cardinality = 0..1
-	construction_type = starbase
+	construction_type = eunm[construction_type]
 	## cardinality = 0..1
-	construction_type = starbase_shipyard
-	## cardinality = 0..1
-	construction_type = spaceport
-	## cardinality = 0..1
-	construction_type = starbase_defenses
+	construction_type = {
+		## cardinality = 0..inf
+		eunm[construction_type]
+	}
 	## cardinality = 0..1
 	## replace_scopes = { root = starbase this = starbase }
 	possible_starbase = single_alias_right[trigger_clause]
@@ -175,6 +181,37 @@ ship_size = {
 	ship_class_icon_frame = int
 	## cardinality = 0..1
 	uses_name_prefix = bool
+	## cardinality = 0..1
+	is_space_fauna_ship = bool
+
+	subtype[space_fauna] = {
+		space_fauna_values = {
+			## cardinality = 0..1
+			age_threshold = {
+				## cardinality = 0..1
+				min = int
+				## cardinality = 0..1
+				max = int
+			}
+			## cardinality = 0..inf
+			culling_value = {
+				category = <economic_category>
+				alias_name[economic_template] = alias_match_left[economic_template]
+			}
+			## cardinality = 0..1
+			monthly_initial_breeding_chance = int
+			## cardinality = 0..1
+			monthly_increased_breeding_chance = int
+			## cardinality = 0..1
+			breeding_cooldown_months = int
+			## cardinality = 0..1
+			reanimated_ship_design = <global_ship_design>
+			## cardinality = 1..1
+			icon_frame = int
+
+		}
+	}
+
 	## cardinality = 0..1
 	takes_name_from_ship_design = bool
 	## cardinality = 0..1
@@ -205,8 +242,9 @@ ship_size = {
 	## replace_scopes = { root = any this = any }
 	possible_construction = single_alias_right[trigger_clause]
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	resources = {
+		## cardinality = 0..1
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}

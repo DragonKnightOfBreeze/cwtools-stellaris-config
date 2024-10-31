@@ -30,8 +30,10 @@ ambient_object = {
 		name = scalar
 	}
 	entity = <model_entity>
+	## cardinality = 0..1
 	selectable = bool
 	### Determines whether you can read the name of the object ingame.
+	## cardinality = 0..1
 	show_name = bool
 	## cardinality = 0..1
 	description = localisation

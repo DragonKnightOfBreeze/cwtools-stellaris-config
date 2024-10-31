@@ -92,7 +92,7 @@ leader_class = {
 	## cardinality = 0..inf
 	replaces_old_class = scalar # use scalar to represent old leader class
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	resources = {
 		## cardinality = 0..1
 		category = <economic_category>

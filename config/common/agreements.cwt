@@ -118,7 +118,7 @@ agreement_term_value = {
 	}
 	subtype[resource] = {
 		term = <agreement_term.resource>
-		## cardinality = 0..1
+		## cardinality = 0..inf
 		resources = {
 			## cardinality = 0..inf
 			<resource>
@@ -136,8 +136,9 @@ agreement_term_value = {
 	resource_max = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	overlord_resources = {
+		## cardinality = 0..1
 		category = <economic_category>
 		## cardinality = 0..inf
 		alias_name[economic_template] = alias_match_left[economic_template]
@@ -273,8 +274,9 @@ agreement_preset = {
 }
 
 agreement_resource = {
-	## cardinality = 1..1
+	## cardinality = 1..inf
 	resources = {
+		## cardinality = 0..1
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}

@@ -1,0 +1,29 @@
+types = {
+	type[ship_categories] = {
+		path = "game/common/ship_categories"
+		file_extension = .txt
+		localisation = {
+			name = "$"
+			desc = desc
+			## cardinality = 0..1
+			growth_tooltip = growth_tooltip
+		}
+	}
+}
+
+ship_categories = {
+	## cardinality = 1..1
+	rarity_icons = <sprite>
+	## cardinality = 1..1
+	namelist = <name_list>
+	## cardinality = 1..1
+	desc = localisation
+	## cardinality = 0..1
+	preferred_planet_class = <planet_class>
+	## cardinality = 0..1
+	sexual_breeding = bool
+	## cardinality = 0..1
+	growth_tooltip = localisation
+	## cardinality = 0..1
+	prefers_nebula = bool
+}

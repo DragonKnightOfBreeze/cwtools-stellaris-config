@@ -14,6 +14,9 @@
 #	tradition_category
 #	trait (both species and leader traits)
 
+# In GUI, instantTextBoxType has a "concepts_show_missing_dlc" parameter. If set to "yes", database concept tooltips inside the text box will show unmet DLC requirements for the database object.
+# Currently, this only works for authorities, civics, ethics and species traits.
+
 database_object_types = {
 	ascension_perk = {
 		type = ascension_perk
@@ -61,5 +64,8 @@ database_object_types = {
 	}
 	cosmic_storm = {
 		type = storm_types
+	}
+	modifier = {
+	    type = modifier
 	}
 }

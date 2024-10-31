@@ -125,7 +125,9 @@ relic = {
 	## replace_scopes = { root = country this = country }
 	possible = single_alias_right[trigger_clause]
 
+	## cardinality = 0..inf
 	resources = {
+		## cardinality = 0..1
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
@@ -149,11 +151,15 @@ relic = {
 
 ## push_scope = country
 artifact_action = {
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	resources = {
+		## cardinality = 0..1
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
+
+	## cardinality = 0..1
+	sound = <sound>
 
 	## cardinality = 0..1
 	ai_weight = {

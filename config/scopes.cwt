@@ -102,6 +102,9 @@ scopes = {
     Cosmic_storm_influence_field = {
         aliases = { cosmic_storm_influence_field }
     }
+    Exhibit = {
+        aliases = { exhibit }
+    }
 }
 
 scope_groups = {

@@ -50,7 +50,7 @@ situation_type = {
 	## cardinality = 0..1
 	on_progress_complete = single_alias_right[effect_clause]
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	triggered_blocked_desc = single_alias_right[triggered_desc_clause]
 	## cardinality = 0..1
 	abort_trigger = single_alias_right[trigger_clause]
@@ -121,9 +121,10 @@ situation_type = {
 
 		## cardinality = 0..1
 		active_tooltip = localisation
-		## cardinality = 0..1
+		## cardinality = 0..inf
 		resources = {
-			category = <economic_category>
+			## cardinality = 0..1
+		category = <economic_category>
 			alias_name[economic_template] = alias_match_left[economic_template]
 		}
 		## cardinality = 0..1

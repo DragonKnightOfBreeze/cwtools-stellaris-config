@@ -417,6 +417,8 @@ alias[gui_button:buttonType] = {
 	  y = int
 	}
 
+    ## cardinality = 0..1
+	centerPosition = bool
 	## cardinality = 0..inf
 	if_resolution = {
 		alias_name[gui_size] = alias_match_left[gui_size]

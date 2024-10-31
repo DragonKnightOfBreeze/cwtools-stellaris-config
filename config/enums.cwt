@@ -85,6 +85,8 @@ enums = {
 		situation
 		cosmic_storm
 		cosmic_storm_influence_field
+		galactic_community
+		exhibit
 	}
 	enum[intel_level] = {
 		none
@@ -98,6 +100,11 @@ enums = {
 		mining_station
 		research_station
 		observation_post
+		spaceport
+		starbase_shipyard
+		starbase_defenses
+		starbase_hatchery
+		starbase_beastport
 	}
 	enum[tutorial_level] = {
 		0
@@ -403,6 +410,33 @@ enums = {
 	enum[type_or_resource] = {
 		resource
 		type
+	}
+	enum[ship_rarity] = {
+		common
+		rare
+		epic
+		exceptional
+	}
+	enum[specimens_rarity] = {
+		common
+		rare
+		epic
+		exceptional
+	}
+	enum[growth_stance] = {
+		controlled
+		excessive
+		none
+	}
+	enum[specimen_types] = {
+		aesthetic_wonder
+		historical_item
+		xeno_geology
+	}
+	enum[mutations_types] = {
+		offensive
+		defensive
+		aux
 	}
 
 }

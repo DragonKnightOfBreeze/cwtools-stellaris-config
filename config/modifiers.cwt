@@ -86,6 +86,7 @@ modifiers = {
 	science_ship_survey_speed = { "Science Ships" }
 	ship_starting_experience_add = { Ships }
 	ship_experience_gain_mult = { Ships }
+	space_fauna_experience_gain_mult = { Ships }
 	ship_jumpdrive_cooldown_mult = { Ships }
 	mod_ship_naval_cap_usage_add = { Ships }
 	mod_ship_naval_cap_usage_mult = { Ships }
@@ -257,6 +258,12 @@ modifiers = {
 	starbase_shipyard_build_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	starbase_shipyard_build_time_mult = { Megastructures Starbases }
 	starbase_shipyard_build_speed_mult = { Megastructures Starbases }
+	starbase_shipyard_artificial_build_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	starbase_shipyard_artificial_build_time_mult = { Megastructures Starbases }
+	starbase_shipyard_artificial_build_speed_mult = { Megastructures Starbases }
+	starbase_shipyard_space_fauna_build_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	starbase_shipyard_space_fauna_build_time_mult = { Megastructures Starbases }
+	starbase_shipyard_space_fauna_build_speed_mult = { Megastructures Starbases }
 	starbase_upgrade_cost_mult = { Starbases }
 	starbase_upgrade_time_mult = { Starbases }
 	starbase_upgrade_speed_mult = { Starbases }
@@ -367,6 +374,7 @@ modifiers = {
 	damage_vs_superior_empires_mult = { Ships }
 	ship_community_territory_speed_mult = { Ships }
 	ship_military_speed_mult = { Ships }
+	ship_science_speed_mult = { Ships }
 	veto_cooldown_mult = { Countries }
 	emergency_measures_cooldown_mult = { Countries }
 	country_community_gdf_naval_capacity = { Countries }
@@ -380,6 +388,7 @@ modifiers = {
 	ship_astral_rift_speed_mult = { Ships }
 	ship_astral_rift_clues_add = { Ships }
 	ship_damage_against_starbases_mult = { Ships }
+	ship_damage_against_boss_mult = { Ships }
 	intel_gain_speed = { Espionage }
 	counter_intel_gain_speed = { Countries }
 	intel_reconnaissance_level_add = { Espionage }
@@ -397,6 +406,8 @@ modifiers = {
 	ship_repair_armor_mult = { "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" }
 	monthly_loyalty = { Countries Planets }
 	monthly_loyalty_from_subjects = { Countries }
+	monthly_loyalty_from_synthetic_subjects = { Countries }
+	monthly_loyalty_from_organic_subjects = { Countries }
 	ship_friendly_territory_armor_add = { Ships }
 	ship_friendly_territory_armor_mult = { Ships }
 	ship_friendly_territory_shield_add = { Ships }
@@ -416,6 +427,11 @@ modifiers = {
 	habitability_ceil_mult = { Habitability }
 	auto_mod_monthly_add = { Countries Planets }
 	auto_mod_monthly_mult = { Countries Planets }
+	ship_capture_chance_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	country_capture_chance_add = { Countries }
+	ship_capture_amount_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
+	country_capture_amount_add = { Countries }
+	country_capture_amount_mult = { Countries }
 	country_storm_movement_intel_add = { Countries }
 	country_storm_location_intel_add = { Countries }
 	country_storm_protection_tech_level_add = { Countries }
@@ -427,6 +443,30 @@ modifiers = {
 	planet_storm_devastation_mult = { Planets }
 	storm_ship_hull_breaker_mult = { Ships }
 	founder_species_growth_mult = { Planets }
+	diplo_weight_space_fauna_mult = { Countries }
+    ship_damage_against_space_fauna_mult = { Ships }
+    reanimated_ship_damage_mult = { Ships }
+    reanimated_ship_fire_rate_mult = { Ships }
+    space_fauna_reanimation_cost_mult = { Countries }
+    attached_space_fauna_component_damage_mult = { Ships }
+    attached_space_fauna_component_fire_rate_mult = { Ships }
+    sector_max_jumps_add = { Countries }
+    country_exhibit_unlocking_cost_mult = { Countries }
+    country_specimen_selling_cost_mult = { Countries }
+    country_vivarium_max_capacity_add = { Countries }
+    country_vivarium_max_capacity_mult = { Countries }
+    space_fauna_growth_rate_mult = { Countries "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" }
+    space_fauna_naval_cap_usage_mult = { Ships }
+    artificial_ship_naval_cap_usage_mult = { Ships }
+    space_fauna_ship_upkeep_mult = { "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" }
+    space_fauna_culling_reward_mult = { Countries }
+    space_fauna_monthly_increased_breeding_chance_add = { Countries }
+    gravity_snare_cost_mult = { Countries Fleets }
+    mutation_slots_add = { Countries }
+    ship_steal_defeated_ship_chance = { "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" }
+    fleet_capture_defeated_leader_chance = { "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" }
+    component_lifesteal_add = { "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" }
+
 	# ship_class modifiers
 	enum[ship_class]_build_cost_mult = { Planets Megastructures Starbases }
 	enum[ship_class]_build_speed_mult = { Planets Megastructures Starbases }
@@ -561,9 +601,37 @@ modifiers = {
 
 	# pc modifier
 
-
-
 	# councilor modifiers
 	<councilor>_exp_gain = { Leaders }
+
+	# space fauna ship
+
+    space_fauna_ship_hull_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    space_fauna_ship_hull_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    space_fauna_ship_armor_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    space_fauna_ship_armor_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    space_fauna_ship_shield_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    space_fauna_ship_shield_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    space_fauna_ship_size_shield_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    space_fauna_ship_size_shield_regen_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    space_fauna_ship_fire_rate_mult =  { Ships }
+    space_fauna_ship_damage_mult = { Ships }
+    space_fauna_ship_speed_mult = { Ships }
+    small_space_fauna_ship_hull_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    small_space_fauna_ship_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    small_space_fauna_build_speed_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    medium_space_fauna_ship_hull_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    medium_space_fauna_ship_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    medium_space_fauna_build_speed_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    large_space_fauna_ship_hull_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    large_space_fauna_ship_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    large_space_fauna_build_speed_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    extra_large_space_fauna_ship_hull_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    extra_large_space_fauna_ship_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    extra_large_space_fauna_build_speed_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    titanic_space_fauna_ship_hull_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    titanic_space_fauna_ship_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+    titanic_space_fauna_build_speed_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
+
 
 }

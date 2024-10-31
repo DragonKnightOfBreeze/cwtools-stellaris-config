@@ -33,8 +33,9 @@ sector_type = {
 		energy = int
 		minerals = int
 	}
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	resources = {
+		## cardinality = 0..1
 		category = <economic_category>
 	}
 	max_jumps = int
