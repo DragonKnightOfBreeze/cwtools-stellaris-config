@@ -133,6 +133,7 @@ building = {
 	## cardinality = 0..1
 	on_enabled = single_alias_right[effect_clause]
 
+	## cardinality = 0..1
 	custom_storm_ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
