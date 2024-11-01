@@ -8020,7 +8020,7 @@ alias[effect:set_ship_construction_type] = none
 
 ### Set scoped starbase's current construction type
 ## scopes = { starbase }
-alias[effect:set_ship_construction_type] = eunm[construction_type]
+alias[effect:set_ship_construction_type] = value[construction_type]
 
 ### Link the scoped megastructure bypass to the given target megastructure bypass.
 ## scopes = { megastructure }

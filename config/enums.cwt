@@ -101,10 +101,6 @@ enums = {
 		research_station
 		observation_post
 		spaceport
-		starbase_shipyard
-		starbase_defenses
-		starbase_hatchery
-		starbase_beastport
 	}
 	enum[tutorial_level] = {
 		0

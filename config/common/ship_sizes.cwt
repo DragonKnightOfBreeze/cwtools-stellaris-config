@@ -159,11 +159,11 @@ ship_size = {
 	#this is where ship classes are defined! this is important for other files, and it also causes the game to auto generate modifiers for each shipclass!
 	class = enum[ship_class]
 	## cardinality = 0..1
-	construction_type = eunm[construction_type]
+	construction_type = value_set[construction_type]
 	## cardinality = 0..1
 	construction_type = {
 		## cardinality = 0..inf
-		eunm[construction_type]
+		value_set[construction_type]
 	}
 	## cardinality = 0..1
 	## replace_scopes = { root = starbase this = starbase }

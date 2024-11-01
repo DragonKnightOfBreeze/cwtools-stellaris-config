@@ -1442,7 +1442,7 @@ alias[trigger:is_constructing] = <megastructure>
 alias[trigger:is_constructing] = <ship_size>
 ### Checks if the scoped construction ship is building the specified thing
 ## scopes = { ship fleet }
-alias[trigger:is_constructing] = enum[construction_type]
+alias[trigger:is_constructing] = value[construction_type]
 
 
 ### Check if current game allows crises
