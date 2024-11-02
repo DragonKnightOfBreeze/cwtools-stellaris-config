@@ -148,7 +148,6 @@ opinion_modifier = {
 	}
 }
 
-
 planet_modifier = {
 	## cardinality = 0..1
 	is_null = bool
