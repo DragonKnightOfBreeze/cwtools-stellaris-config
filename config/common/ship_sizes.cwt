@@ -184,6 +184,7 @@ ship_size = {
 	is_space_fauna_ship = bool
 
 	subtype[space_fauna] = {
+		## cardinality = ~1..1
 		space_fauna_values = {
 			## cardinality = 0..1
 			age_threshold = {
