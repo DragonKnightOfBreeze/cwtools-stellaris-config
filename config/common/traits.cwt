@@ -121,6 +121,8 @@ trait = {
 			layer = {
 				### Texture name defined in "interface" folder. Default trait icons are in "interface\icons\traits" folder.
 				icon = <sprite>
+				## file_extensions = { .dds .png .tga }
+				icon = filepath
 				### Layer color tint. Color name defined in "common\named_colors" folder.
 				## cardinality = 0..1
 				color = <named_color>
