@@ -664,6 +664,16 @@ alias[gui:gridBoxType] = {
 	## cardinality = 0..1
 	wraparound = bool
 
+	## cardinality = 0..inf
+	if_scaled_resolution = {
+		alias_name[gui_size] = alias_match_left[gui_size]
+		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
+		alias_name[gui_background] = alias_match_left[gui_background]
+		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_button] = alias_match_left[gui_button]
+		alias_name[gui_sound] = alias_match_left[gui_sound]
+	}
+
 	## cardinality = 0..1
 	padding = {
 		## cardinality = 0..1
@@ -708,6 +718,16 @@ alias[gui:dropDownBoxType] = {
 	### Will remove elements outside of size bounding box
 	clipping = bool
 
+	## cardinality = 0..inf
+	if_scaled_resolution = {
+		alias_name[gui_size] = alias_match_left[gui_size]
+		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
+		alias_name[gui_background] = alias_match_left[gui_background]
+		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_button] = alias_match_left[gui_button]
+		alias_name[gui_sound] = alias_match_left[gui_sound]
+	}
+
 	## cardinality = 0..1
 	expandButton = {
 		name = scalar
@@ -736,6 +756,16 @@ alias[gui:dropDownBoxType] = {
 		}
 		## cardinality = 0..1
 		click_to_front = bool
+
+		## cardinality = 0..inf
+		if_scaled_resolution = {
+			alias_name[gui_size] = alias_match_left[gui_size]
+			alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
+			alias_name[gui_background] = alias_match_left[gui_background]
+			alias_name[gui] = alias_match_left[gui]
+			alias_name[gui_button] = alias_match_left[gui_button]
+			alias_name[gui_sound] = alias_match_left[gui_sound]
+		}
 
 		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
 		alias_name[gui_background] = alias_match_left[gui_background]
@@ -892,6 +922,15 @@ alias[gui_background:background] = {
 	alias_name[gui_sound] = alias_match_left[gui_sound]
 	alias_name[gui_localisation] = alias_match_left[gui_localisation]
 	alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
+	## cardinality = 0..inf
+	if_scaled_resolution = {
+		alias_name[gui_size] = alias_match_left[gui_size]
+		alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
+		alias_name[gui_background] = alias_match_left[gui_background]
+		alias_name[gui] = alias_match_left[gui]
+		alias_name[gui_button] = alias_match_left[gui_button]
+		alias_name[gui_sound] = alias_match_left[gui_sound]
+	}
 }
 
 alias[gui_size:min_height] = int

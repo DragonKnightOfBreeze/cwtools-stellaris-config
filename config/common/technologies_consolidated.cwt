@@ -166,6 +166,8 @@ technology = {
 	## replace_scopes = { this = country root = country }
 	potential = single_alias_right[trigger_clause]
 
+	#TODO:pls update
+	#gateway actually get localisation:gateway_<localisation>
 	## cardinality = 0..1
 	gateway = scalar # can be any string
 
