@@ -433,8 +433,8 @@ links = {
 	# links from data
 
 	variable = {
-		from_data = yes
 		type = value
+		from_data = yes
 		data_source = value[variable]
 	}
 	script_value = {
@@ -444,24 +444,24 @@ links = {
 		data_source = <script_value>
     }
 	modifier = {
-		from_data = yes
 		type = value
+		from_data = yes
 		prefix = modifier:
 		data_source = alias_keys_field[modifier]
     }
 	trigger = {
-		from_data = yes
 		type = value
+		from_data = yes
 		prefix = trigger:
 		data_source = alias_keys_field[trigger]
 	}
 	pop_faction_parameter = {
-		from_data = yes
 		type = scope
+		from_data = yes
 		prefix = parameter:
 		data_source = enum[pop_faction_parameter]
-		for_definition_type = pop_faction
 		input_scopes = { pop_faction }
 		output_scope = country
+		for_definition_type = pop_faction
 	}
 }

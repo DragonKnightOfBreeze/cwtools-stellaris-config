@@ -102,8 +102,8 @@ localisation_links = {
 	# links from data
 
 	parameter = {
-		from_data = yes
 		type = scope
+		from_data = yes
 		prefix = parameter:
 		data_source = value[parameter]
 	}
