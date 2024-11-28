@@ -60,12 +60,18 @@ database_object_types = {
 		type = tradition_category
 	}
 	trait = {
+		type = trait.species_trait
+	}
+	leader_trait = {
+		type = trait.leader_trait
+	}
+	trait = {
 		type = trait
 	}
 	cosmic_storm = {
 		type = storm_types
 	}
 	modifier = {
-	    type = modifier
+	    type = static_modifier
 	}
 }
