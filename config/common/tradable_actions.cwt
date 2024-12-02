@@ -1,0 +1,53 @@
+types = {
+    type[tradable_actions] = {
+        path = "game/common/tradable_actions"
+        file_extension = .txt
+    }
+}
+
+tradable_actions =  {
+
+    ### If this is set to 'yes', then the action will be fired and then removed from the trade deal.
+    ### If 'no', then the trade deal will be treated as a treaty that lasts for at least 10 years.
+    ## cardinality = 0..1
+    fire_and_forget = bool
+
+    ### Determines if the action will show up in the list in the trade deals view.
+    ### SCOPE: Country "giving" the action
+    ### FROM: Country "receiving" the action
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country from = country }
+    potential = single_alias_right[trigger_clause]
+
+    ### If this trigger returns 'no', then the trade deal will be cancelled. Checked on daily tick. Only relevant if fire_and_forget is 'no'.
+    ### SCOPE: Country "giving" the action
+    ### FROM: Country "receiving" the action
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country from = country }
+    active = single_alias_right[trigger_clause]
+
+    ### Effect that fires when the trade deal is accepted.
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country from = country }
+    on_traded_effect = single_alias_right[effect_clause]
+
+    ### Effect that fires when the trade deal ends. Only relevant if fire_and_forget is 'no'.
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country from = country }
+    on_deal_ended_sender_effect = single_alias_right[effect_clause]
+
+    ### Effect that fires when the trade deal ends. Only relevant if fire_and_forget is 'no'.
+    ### SCOPE: Country "receiving" the action
+    ### FROM: Country "giving" the action. Not guaranteed to be valid, since a trade deal is cancelled if one of the countries dies.
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country from = country }
+    on_deal_ended_recipient_effect = single_alias_right[effect_clause]
+
+    ### Used to determine how much the AI will value the action in a trade deal.
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country from = country }
+    ai_weight = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+    }
+
+}
