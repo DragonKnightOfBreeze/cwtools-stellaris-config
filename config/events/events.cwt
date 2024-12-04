@@ -358,6 +358,9 @@ event = {
 	## cardinality = 0..1
 	is_test_event = bool
 
+	## cardinality = 0..1
+	specimen = <specimen>
+
 	### Event will show for other countries if this is set to yes. Those countries can be narrowed down with major_trigger.
 	## cardinality = 0..1
 	major = yes
