@@ -581,6 +581,12 @@ enums = {
 		small
 		aux
 	}
+	enum[mutation_components_size] = {
+		extra_large
+		large
+		medium
+		small
+	}
 	enum[aura_type] = {
 		ships
 		fleets

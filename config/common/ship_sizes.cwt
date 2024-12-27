@@ -28,6 +28,7 @@ types = {
 
 
 ship_size = {
+
 	## cardinality = 0..2
 	graphical_culture = {
 		## cardinality = 1..inf
@@ -184,6 +185,10 @@ ship_size = {
 	is_space_fauna_ship = bool
 
 	subtype[space_fauna] = {
+		## cardinality = 1..1
+		ship_category = <ship_categories>
+		## cardinality = 1..1
+		mutation_components_size = enum[mutation_components_size]
 		## cardinality = ~1..1
 		space_fauna_values = {
 			## cardinality = 0..1
