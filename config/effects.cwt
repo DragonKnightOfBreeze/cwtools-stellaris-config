@@ -7953,8 +7953,11 @@ alias[effect:give_culling_rewards] = {
 ### Gives given space fauna DNA with given rarity to the target country.
 ## scopes = { country }
 alias[effect:give_dna] = {
-	ship_category = <key>
-	rarity = <key> (optional)
+	## cardinality = 1..1
+	ship_category = <ship_categories>
+	### (optional)
+	## cardinality = 0..1
+	rarity = enum[specimens_rarity]
 }
 
 ### Gives Space Fauna in the Vivarium using given ship design with given rarity to the target country.
@@ -8043,17 +8046,16 @@ alias[effect:steal_specimens] = {
 ## scopes = { country }
 alias[effect:release_vivarium_fauna] = {
 	## cardinality = 1..1
-	category = <ship_category>/all
+	category = <ship_category>
 	## cardinality = 1..1
 	category = all
 	## cardinality = 0..1
-	location = <target>
+	location = scope_field
 	## cardinality = 0..1
-	owner = <country>
+	owner = scope[country]
 	## cardinality = 0..1
 	cull_vivarium_critter = bool
 }
-
 
 ### Releases into the wild a specific amount of space fauna contained in the scoped country's Vivarium.Rarest fauna is released in priority.	Resulting fleet owners can be specified.
 ## scopes = { country }
@@ -8077,7 +8079,6 @@ alias[effect:create_smaller_size_creature_in_fleet] = {
 	effect = single_alias_right[effect_clause]
 }
 
-
 ### Enables a mission for target country
 ## scopes = any
 alias[effect:enable_mission] = {
@@ -8087,7 +8088,6 @@ alias[effect:enable_mission] = {
 ### Refreshes the scoped country's leader pool.
 ## scopes = { country }
 alias[effect:refresh_leader_pool] = yes
-
 
 ### Adds specific resource to the stockpile for the country scope and creates a debris notification:
 ## scopes = { country }
@@ -8115,7 +8115,6 @@ alias[effect:random_cosmic_storm] = {
 	}
 
 	alias_name[effect] = alias_match_left[effect]
-
 }
 
 
