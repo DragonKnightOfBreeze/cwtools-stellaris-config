@@ -68,7 +68,11 @@ alias[effect:ship_event] = {
 	id = <event.ship>
 	### optional: specify delay
 	## cardinality = 0..1
-	days = int
+	days = int_value_field
+	## cardinality = 0..1
+	months = int_value_field
+	## cardinality = 0..1
+	years = int_value_field
 	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
@@ -93,11 +97,11 @@ alias[effect:country_event] = {
 	id = <event.country>
 	### optional: specify delay
 	## cardinality = 0..1
-	days = int
+	days = int_value_field
 	## cardinality = 0..1
-	months = int
+	months = int_value_field
 	## cardinality = 0..1
-	years = int
+	years = int_value_field
 	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
@@ -122,11 +126,11 @@ alias[effect:first_contact_event] = {
 	id = <event.first_contact>
 	### optional: specify delay
 	## cardinality = 0..1
-	days = int
+	days = int_value_field
 	## cardinality = 0..1
-	months = int
+	months = int_value_field
 	## cardinality = 0..1
-	years = int
+	years = int_value_field
 	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
@@ -151,11 +155,11 @@ alias[effect:observer_event] = {
 	id = <event.observer>
 	### optional: specify delay
 	## cardinality = 0..1
-	days = int
+	days = int_value_field
 	## cardinality = 0..1
-	months = int
+	months = int_value_field
 	## cardinality = 0..1
-	years = int
+	years = int_value_field
 	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
@@ -180,11 +184,11 @@ alias[effect:pop_faction_event] = {
 	id = <event.pop_faction>
 	### optional: specify delay
 	## cardinality = 0..1
-	days = int
+	days = int_value_field
 	## cardinality = 0..1
-	months = int
+	months = int_value_field
 	## cardinality = 0..1
-	years = int
+	years = int_value_field
 	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
@@ -209,11 +213,11 @@ alias[effect:pop_event] = {
 	id = <event.pop>
 	### optional: specify delay
 	## cardinality = 0..1
-	days = int
+	days = int_value_field
 	## cardinality = 0..1
-	months = int
+	months = int_value_field
 	## cardinality = 0..1
-	years = int
+	years = int_value_field
 	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
@@ -238,11 +242,11 @@ alias[effect:fleet_event] = {
 	id = <event.fleet>
 	### optional: specify delay
 	## cardinality = 0..1
-	days = int
+	days = int_value_field
 	## cardinality = 0..1
-	months = int
+	months = int_value_field
 	## cardinality = 0..1
-	years = int
+	years = int_value_field
 	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
@@ -267,11 +271,11 @@ alias[effect:planet_event] = {
 	id = <event.planet>
 	### optional: specify delay
 	## cardinality = 0..1
-	days = int
+	days = int_value_field
 	## cardinality = 0..1
-	months = int
+	months = int_value_field
 	## cardinality = 0..1
-	years = int
+	years = int_value_field
 	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
@@ -296,11 +300,11 @@ alias[effect:leader_event] = {
 	id = <event.leader>
 	### optional: specify delay
 	## cardinality = 0..1
-	days = int
+	days = int_value_field
 	## cardinality = 0..1
-	months = int
+	months = int_value_field
 	## cardinality = 0..1
-	years = int
+	years = int_value_field
 	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
@@ -325,11 +329,11 @@ alias[effect:situation_event] = {
 	id = <event.situation>
 	### optional: specify delay
 	## cardinality = 0..1
-	days = int
+	days = int_value_field
 	## cardinality = 0..1
-	months = int
+	months = int_value_field
 	## cardinality = 0..1
-	years = int
+	years = int_value_field
 	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
@@ -354,11 +358,11 @@ alias[effect:agreement_event] = {
 	id = <event.agreement>
 	### optional: specify delay
 	## cardinality = 0..1
-	days = int
+	days = int_value_field
 	## cardinality = 0..1
-	months = int
+	months = int_value_field
 	## cardinality = 0..1
-	years = int
+	years = int_value_field
 	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
@@ -383,11 +387,11 @@ alias[effect:starbase_event] = {
 	id = <event.starbase>
 	### optional: specify delay
 	## cardinality = 0..1
-	days = int
+	days = int_value_field
 	## cardinality = 0..1
-	months = int
+	months = int_value_field
 	## cardinality = 0..1
-	years = int
+	years = int_value_field
 	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
@@ -412,11 +416,11 @@ alias[effect:system_event] = {
 	id = <event.system>
 	### optional: specify delay
 	## cardinality = 0..1
-	days = int
+	days = int_value_field
 	## cardinality = 0..1
-	months = int
+	months = int_value_field
 	## cardinality = 0..1
-	years = int
+	years = int_value_field
 	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
@@ -441,11 +445,11 @@ alias[effect:espionage_operation_event] = {
 	id = <event.espionage_operation>
 	### optional: specify delay
 	## cardinality = 0..1
-	days = int
+	days = int_value_field
 	## cardinality = 0..1
-	months = int
+	months = int_value_field
 	## cardinality = 0..1
-	years = int
+	years = int_value_field
 	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
@@ -4838,11 +4842,11 @@ alias[effect:astral_rift_event] = {
 	id = <event.astral_rift>
 	### optional: specify delay
 	## cardinality = 0..1
-	days = int
+	days = int_value_field
 	## cardinality = 0..1
-	months = int
+	months = int_value_field
 	## cardinality = 0..1
-	years = int
+	years = int_value_field
 	### optional: specify random delay from 0 to value, which is added on to the 'days' delay
 	## cardinality = 0..1
 	random = int
@@ -4870,11 +4874,11 @@ alias[effect:bypass_event] = {
 	id = <event.scopeless>
 	id = <event.situation>
 	## cardinality = 0..1
-	days = int
+	days = int_value_field
 	## cardinality = 0..1
-	months = int
+	months = int_value_field
 	## cardinality = 0..1
-	years = int
+	years = int_value_field
 	## cardinality = 0..1
 	random = int
 	## cardinality = 0..1
