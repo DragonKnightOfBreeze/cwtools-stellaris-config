@@ -998,6 +998,8 @@ alias[effect:set_location] = {
 	## cardinality = 0..1
 	distance = float #No variables here atm
 	## cardinality = 0..1
+	distance = { min = float max = float }
+	## cardinality = 0..1
 	angle = int[0..360]
 	## cardinality = 0..1
 	angle = random
@@ -2185,14 +2187,13 @@ alias[effect:spawn_natural_wormhole] = {
 	## cardinality = 0..1
 	orbit_distance = float #no variables here atm
 	## cardinality = 0..1
+	orbit_distance = { min = float max = float }
+	## cardinality = 0..1
 	orbit_angle = random
 	## cardinality = 0..1
 	orbit_angle = int[-360..360]
 	## cardinality = 0..1
-	orbit_angle = {
-		min = int[-360..360]
-		max = int[-360..360]
-	}
+	orbit_angle = { min = int[-360..360] max = int[-360..360] }
 	## cardinality = 0..1
 	random_pos = bool
 	## cardinality = 0..1
@@ -2486,24 +2487,15 @@ alias[effect:create_ambient_object] = {
 	## cardinality = 0..1
 	entity_offset = float
 	## cardinality = 0..1
-	entity_offset = {
-		min = float
-		max = float
-	}
+	entity_offset = { min = float max = float }
 	## cardinality = 0..1
 	entity_offset_angle = int
 	## cardinality = 0..1
-	entity_offset_angle = {
-		min = int
-		max = int
-	}
+	entity_offset_angle = { min = int max = int }
 	## cardinality = 0..1
 	entity_offset_height = float
 	## cardinality = 0..1
-	entity_offset_height = {
-		min = int
-		max = int
-	}
+	entity_offset_height = { min = float max = float }
 	## cardinality = 0..1
 	base_angle_towards = scope[country]
 	## cardinality = 0..1
@@ -3246,12 +3238,11 @@ alias[effect:spawn_megastructure] = {
 	## cardinality = 0..1
 	orbit_angle = int[-360..360]
 	## cardinality = 0..1
-	orbit_angle = {
-		min = int[-360..360]
-		max = int[-360..360]
-	}
+	orbit_angle = { min = int[-360..360] max = int[-360..360] }
 	## cardinality = 0..1
 	orbit_distance = float
+	## cardinality = 0..1
+	orbit_distance = { min = float max = float }
 	## cardinality = 0..1
 	owner = scope_group[target_country]
 	## cardinality = 0..1
@@ -3286,6 +3277,8 @@ alias[effect:spawn_planet] = {
 	orbit_location = bool
 	## cardinality = 0..1
 	orbit_distance = float
+	## cardinality = 0..1
+	orbit_distance = { min = float max = float }
 	## cardinality = 0..1
 	orbit_distance_offset = value_field
 	## cardinality = 0..1
@@ -4775,7 +4768,9 @@ alias[effect:spawn_astral_rift] = {
 	## cardinality = 0..1
 	random_pos = bool
 	## cardinality = 0..1
-	orbit_distance = int
+	orbit_distance = float
+	## cardinality = 0..1
+	orbit_distance = { min = float max = float }
 	## cardinality = 0..1
 	orbit_angle = int
 	## cardinality = 0..1
