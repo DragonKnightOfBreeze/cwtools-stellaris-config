@@ -276,10 +276,10 @@ citizenship_type = {
 	in_breach_of = {
 		## cardinality = 0..inf
 		{
+			key = <resolution>
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
 			trigger = single_alias_right[trigger_clause]
-			key = <resolution>
 		}
 	}
 
@@ -347,10 +347,10 @@ colonization_control = {
 	in_breach_of = {
 		## cardinality = 0..inf
 		{
+			key = <resolution>
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
 			trigger = single_alias_right[trigger_clause]
-			key = <resolution>
 		}
 	}
 
@@ -408,10 +408,10 @@ living_standard = {
 	in_breach_of = {
 		## cardinality = 0..inf
 		{
+			key = <resolution>
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
 			trigger = single_alias_right[trigger_clause]
-			key = <resolution>
 		}
 	}
 
@@ -466,10 +466,10 @@ migration_control = {
 	in_breach_of = {
 		## cardinality = 0..inf
 		{
+			key = <resolution>
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
 			trigger = single_alias_right[trigger_clause]
-			key = <resolution>
 		}
 	}
 
@@ -527,10 +527,10 @@ military_service_type = {
 	in_breach_of = {
 		## cardinality = 0..inf
 		{
+			key = <resolution>
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
 			trigger = single_alias_right[trigger_clause]
-			key = <resolution>
 		}
 	}
 
@@ -585,10 +585,10 @@ population_control = {
 	in_breach_of = {
 		## cardinality = 0..inf
 		{
+			key = <resolution>
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
 			trigger = single_alias_right[trigger_clause]
-			key = <resolution>
 		}
 	}
 
@@ -646,10 +646,10 @@ purge_type = {
 	in_breach_of = {
 		## cardinality = 0..inf
 		{
+			key = <resolution>
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
 			trigger = single_alias_right[trigger_clause]
-			key = <resolution>
 		}
 	}
 
@@ -712,10 +712,10 @@ slavery_type = {
 	in_breach_of = {
 		## cardinality = 0..inf
 		{
+			key = <resolution>
 			## cardinality = 0..1
 			## replace_scopes = { this = country root = country }
 			trigger = single_alias_right[trigger_clause]
-			key = <resolution>
 		}
 	}
 

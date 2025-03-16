@@ -30,10 +30,10 @@ policy = {
 		in_breach_of = {
 			## cardinality = 0..inf
 			{
+				key = <resolution>
 				## cardinality = 0..1
 				## replace_scopes = { this = country root = country }
 				trigger = single_alias_right[trigger_clause]
-				key = <resolution>
 			}
 		}
 
