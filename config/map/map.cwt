@@ -153,20 +153,25 @@ map_setup_scenario = {
 	### Subsequent systems will have the coordinates entered for them altered by these numbers
 	## cardinality = 0..1
 	coordinate_transform = {
+		## cardinality = 0..1
 		x = single_alias_right[coordinate_transform]
+		## cardinality = 0..1
 		y = single_alias_right[coordinate_transform]
+		## cardinality = 0..1
 		z = single_alias_right[coordinate_transform]
 	}
 	## cardinality = 0..inf
 	system = {
+		## cardinality = 0..1
 		id = enum[map_setup_scenario_system_id]
 		name = localisation
+		## severity = information
 		name = scalar
 		position = {
-			x = int
-			x = { min = int max = int }
-			y = int
-			y = { min = int max = int }
+			x = float
+			x = { min = float max = float }
+			y = float
+			y = { min = float max = float }
 		}
 		## cardinality = 0..1
 		initializer = <solar_system_initializer>
