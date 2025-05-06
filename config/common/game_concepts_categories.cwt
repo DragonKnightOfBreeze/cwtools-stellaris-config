@@ -1,0 +1,19 @@
+types = {
+    type[game_concepts_categories] = {
+        path = "game/common/game_concept_categories"
+        file_extension = .txt
+        localisation = {
+            name = name
+        }
+        images = {
+            ## optional
+            icon = icon
+        }
+    }
+
+}
+
+game_concepts_categories = {
+    name = localisation
+    icon = <sprite>
+}

@@ -39,5 +39,17 @@ game_concept = {
 	### Tooltip to use instead of the default. Can be either a loc key or a database object (see DATABASE CONCEPTS below).
 	## cardinality = 0..1
 	tooltip_override = $database_object
+
+	## cardinality = 0..1
+	databank = {
+		category = <game_concepts_categories>
+		icon = <sprite>
+		picture = <sprite>
+	}
+
+	### Stellaris Wiki search string override. By default it is generated from the key. Probably not useful for modders currently as only the official wiki is supported.
+	## cardinality = 0..1
+	wiki = enum[wiki_key]
+
 }
 

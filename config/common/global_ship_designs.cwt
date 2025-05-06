@@ -26,6 +26,32 @@ global_ship_design = {
 	## cardinality = 0..1
 	is_event_design = bool
 	## cardinality = 0..1
+	growth_stages = {
+		## cardinality = 0..inf
+		{
+			ship_size = <ship_size>
+			## cardinality = 0..inf
+			section = {
+				## cardinality = 0..1
+				template = <section_template>
+				## cardinality = 0..1
+				slot = enum[section_slot] # this is connected to ship_sizes and section templates!
+				## cardinality = 0..inf
+				component = {
+					# one slot, of one type! so one of the these two varients- and these need to match the component template as it is defined!
+					## cardinality = 0..1
+					slot = enum[component_slot]
+					## cardinality = 0..1
+					slot = enum[utility_component_slot]
+					## cardinality = 0..1
+					template = <component_template>
+				}
+			}
+			## cardinality = 0..inf
+			required_component = <component_template.utility_component_template>
+		}
+	}
+	## cardinality = 0..1
 	use_design_name = bool
 	## cardinality = 0..1
 	regenerates_when_disabled = bool

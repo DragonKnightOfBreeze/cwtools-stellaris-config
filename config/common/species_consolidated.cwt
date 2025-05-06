@@ -148,6 +148,14 @@ species_archetype = {
 	robotic = bool
 	## cardinality = 0..1
 	uses_modifiers = bool
+
+	## cardinality = 0..inf
+	resources = {
+		## cardinality = 0..1
+		category = <economic_category>
+		alias_name[economic_template] = alias_match_left[economic_template]
+	}
+
 }
 
 #TODO Document
@@ -155,7 +163,7 @@ species_class = {
 	## cardinality = 0..1
 	archetype = <species_archetype>
 	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
+	## replace_scopes = { this = pop_group root = pop_group }
 	modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..1
 	playable = single_alias_right[trigger_clause]
@@ -233,7 +241,7 @@ species_class = {
 	## cardinality = 0..1
 	graphical_culture = <graphical_culture>
 	## cardinality = 0..1
-	move_pop_sound_effect = scalar #should be connected to sounds under game/sound
+	move_pop_sound_effect = <sound_effect> #should be connected to sounds under game/sound
 	## cardinality = 0..1
 	use_climate_preference = bool
 	## cardinality = 0..1
@@ -266,6 +274,8 @@ species_class = {
 
 	## cardinality = 0..1
 	trait = <trait>
+	## cardinality = 0..1
+	generate_shipset = bool
 }
 
 citizenship_type = {
@@ -301,16 +311,12 @@ citizenship_type = {
 	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	pop_modifier = {
+	## replace_scopes = { this = pop_group root = pop_group }
+	pop_group_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 		## cardinality = 0..1
 		custom_tooltip = localisation
 	}
-
-	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -335,8 +341,8 @@ citizenship_type = {
 	}
 
 	## cardinality = 0..inf
-	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
+	## replace_scopes = { this = pop_group root = pop_group }
+	triggered_pop_group_modifier = single_alias_right[triggered_modifier_clause]
 }
 
 colonization_control = {
@@ -362,16 +368,12 @@ colonization_control = {
 	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	pop_modifier = {
+	## replace_scopes = { this = pop_group root = pop_group }
+	pop_group_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 		## cardinality = 0..1
 		custom_tooltip = localisation
 	}
-
-	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -396,8 +398,8 @@ colonization_control = {
 	}
 
 	## cardinality = 0..inf
-	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
+	## replace_scopes = { this = pop_group root = pop_group }
+	triggered_pop_group_modifier = single_alias_right[triggered_modifier_clause]
 }
 
 living_standard = {
@@ -420,16 +422,12 @@ living_standard = {
 	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	pop_modifier = {
+	## replace_scopes = { this = pop_group root = pop_group }
+	pop_group_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 		## cardinality = 0..1
 		custom_tooltip = localisation
 	}
-
-	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -454,8 +452,8 @@ living_standard = {
 	}
 
 	## cardinality = 0..inf
-	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
+	## replace_scopes = { this = pop_group root = pop_group }
+	triggered_pop_group_modifier = single_alias_right[triggered_modifier_clause]
 }
 
 migration_control = {
@@ -481,16 +479,12 @@ migration_control = {
 	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	pop_modifier = {
+	## replace_scopes = { this = pop_group root = pop_group }
+	pop_group_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 		## cardinality = 0..1
 		custom_tooltip = localisation
 	}
-
-	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -515,8 +509,8 @@ migration_control = {
 	}
 
 	## cardinality = 0..inf
-	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
+	## replace_scopes = { this = pop_group root = pop_group }
+	triggered_pop_group_modifier = single_alias_right[triggered_modifier_clause]
 }
 
 military_service_type = {
@@ -539,16 +533,12 @@ military_service_type = {
 	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	pop_modifier = {
+	## replace_scopes = { this = pop_group root = pop_group }
+	pop_group_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 		## cardinality = 0..1
 		custom_tooltip = localisation
 	}
-
-	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -573,8 +563,8 @@ military_service_type = {
 	}
 
 	## cardinality = 0..inf
-	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
+	## replace_scopes = { this = pop_group root = pop_group }
+	triggered_pop_group_modifier = single_alias_right[triggered_modifier_clause]
 }
 
 population_control = {
@@ -600,16 +590,12 @@ population_control = {
 	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	pop_modifier = {
+	## replace_scopes = { this = pop_group root = pop_group }
+	pop_group_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 		## cardinality = 0..1
 		custom_tooltip = localisation
 	}
-
-	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -634,8 +620,8 @@ population_control = {
 	}
 
 	## cardinality = 0..inf
-	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
+	## replace_scopes = { this = pop_group root = pop_group }
+	triggered_pop_group_modifier = single_alias_right[triggered_modifier_clause]
 }
 
 purge_type = {
@@ -662,16 +648,12 @@ purge_type = {
 	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	pop_modifier = {
+	## replace_scopes = { this = pop_group root = pop_group }
+	pop_group_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 		## cardinality = 0..1
 		custom_tooltip = localisation
 	}
-
-	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -696,8 +678,8 @@ purge_type = {
 	}
 
 	## cardinality = 0..inf
-	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
+	## replace_scopes = { this = pop_group root = pop_group }
+	triggered_pop_group_modifier = single_alias_right[triggered_modifier_clause]
 
 	## cardinality = 0..inf
 	hidden = single_alias_right[trigger_clause]
@@ -728,16 +710,12 @@ slavery_type = {
 	modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	pop_modifier = {
+	## replace_scopes = { this = pop_group root = pop_group }
+	pop_group_modifier = {
 		alias_name[modifier] = alias_match_left[modifier]
 		## cardinality = 0..1
 		custom_tooltip = localisation
 	}
-
-	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	free_pop_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	### tooltip that appears on each Pop with this species right
@@ -762,8 +740,8 @@ slavery_type = {
 	}
 
 	## cardinality = 0..inf
-	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier_clause]
+	## replace_scopes = { this = pop_group root = pop_group }
+	triggered_pop_group_modifier = single_alias_right[triggered_modifier_clause]
 }
 
 enums = {

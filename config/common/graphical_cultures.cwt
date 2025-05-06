@@ -60,6 +60,17 @@ graphical_culture = {
 	randomized = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	selectable = single_alias_right[trigger_clause]
+	## cardinality = 0..1
+	ship_kinds = {
+		## cardinality = 0..inf
+		<ship_categories>
+	}
+	### the scope contains the species this is for. from contains the country this is for. the country's gfx culture is set to this gfx culture for easy access
+	## cardinality = 0..1
+	## replace_scopes = { this = species from = country }
+	ship_selection_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
 }
 
 # graphical_culture = {

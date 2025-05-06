@@ -1,0 +1,9 @@
+enums = {
+    complex_enum[trait_tag] = {
+        path = "game/common/trait_tags"
+        name = {
+            enum_name
+        }
+        start_from_root = yes
+    }
+}

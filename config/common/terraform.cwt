@@ -33,4 +33,13 @@ terraform_link = {
 	ai_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
+
+	## cardinality = 0..1
+	## replace_scopes = { this = planet root = planet from = country }
+	on_queued = single_alias_right[effect_clause]
+
+	## cardinality = 0..1
+	## replace_scopes = { this = planet root = planet from = country }
+	on_unqueued = single_alias_right[effect_clause]
+
 }

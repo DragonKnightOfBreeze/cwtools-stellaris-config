@@ -8,16 +8,27 @@ types = {
 			## cardinality = 0..1
 			growth_tooltip = growth_tooltip
 		}
+		subtype[namelist] = {
+			## cardinality = 1..1
+			namelist = <name_list>
+		}
+
 	}
 }
 
 ship_categories = {
-	## cardinality = 1..1
-	rarity_icons = <sprite>
-	## cardinality = 1..1
-	namelist = <name_list>
-	## cardinality = 1..1
-	desc = localisation
+	subtype[!namelist] = {
+		## cardinality = 0..1
+		uses_name_list = no
+	}
+	subtype[namelist] = {
+		## cardinality = 1..1
+		rarity_icons = <sprite>
+		## cardinality = 1..1
+		namelist = <name_list>
+		## cardinality = 1..1
+		desc = localisation
+	}
 	## cardinality = 0..1
 	preferred_planet_class = <planet_class>
 	## cardinality = 0..1

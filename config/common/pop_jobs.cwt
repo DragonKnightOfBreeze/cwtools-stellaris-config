@@ -18,7 +18,7 @@ types = {
 			effect = "job_$_effect_desc"
 		}
 		images = {
-			icon = icon # filepath[gfx/interface/icons/jobs/job_,.dds]
+			icon = icon
 			icon = "gfx/interface/icons/jobs/job_$.dds" # inferred
 			## optional
 			building_icon = building_icon #  <building> | icon[gfx/interface/icons/buildings]
@@ -26,34 +26,63 @@ types = {
 	}
 }
 
-## push_scope = pop
+## push_scope = pop_group
 job = {
-	## cardinality = 0..inf
-	desc = {
-		## replace_scopes = { this = planet root = planet }
-		trigger = single_alias_right[trigger_clause]
-		text = localisation
-	}
-
 	# make it optional to compatible with leader background jobs
 	## cardinality = 0..1
 	category = <pop_category>
+
 	## cardinality = 0..1
-	condition_string = localisation
+	swappable_data = {
+		default = {
+			## cardinality = 0..1
+			condition_string = localisation
+			## cardinality = 0..1
+			building_icon = <building>
+			## cardinality = 0..1
+			building_icon = icon[gfx/interface/icons/buildings]
+			## cardinality = 0..1
+			icon = filepath[gfx/interface/icons/jobs/job_,.dds]
+			## cardinality = 0..1
+			icon = <job>
+			## cardinality = 0..1
+			desc = localisation
+		}
+		## cardinality = 0..1
+		swap_type = {
+			## cardinality = 1..1
+			trigger = single_alias_right[trigger_clause]
+			## cardinality = 0..1
+			name = localisation
+			## cardinality = 0..1
+			desc = localisation
+			## cardinality = 0..1
+			icon = filepath[gfx/interface/icons/jobs/job_,.dds]
+			## cardinality = 0..1
+			icon = <job>
+			## cardinality = 0..1
+			building_icon = <building>
+			## cardinality = 0..1
+			building_icon = icon[gfx/interface/icons/buildings]
+			## cardinality = 0..1
+			condition_string = localisation
+			weight = float
+			weight = {
+				alias_name[modifier_rule] = alias_match_left[modifier_rule]
+			}
+		}
+	}
+
+	### Makes job count as unemployment for now
 	## cardinality = 0..1
-	building_icon = <building>
-	## cardinality = 0..1
-	building_icon = icon[gfx/interface/icons/buildings]
-	#building_icon = <sprite>
-	## cardinality = 0..1
-	clothes_texture_index = int
-	## cardinality = 0..1
-	icon = filepath[gfx/interface/icons/jobs/job_,.dds]
+	demotion_target = <pop_category>
 
 	## cardinality = 0..1
 	exempt_from_ai_amenity_prioritization = bool
 	## cardinality = 0..1
 	is_capped_by_modifier = bool
+	## cardinality = 0..1
+	count_as_available_for_ai =bool
 	## cardinality = 0..1
 	can_set_priority = bool
 	## cardinality = 0..1
@@ -76,6 +105,18 @@ job = {
 	}
 
 	## cardinality = 0..1
+	tags = {
+		## cardinality = 0..inf
+		enum[job_tag]
+	}
+
+	## cardinality = 0..1
+	localized_tags = {
+		## cardinality = 0..inf
+		localisation
+	}
+
+	## cardinality = 0..1
 	possible_precalc = enum[job_trigger]
 
 	## cardinality = 0..1
@@ -95,28 +136,42 @@ job = {
 	}
 
 	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	pop_modifier = single_alias_right[modifier_clause]
+	## replace_scopes = { this = pop_group root = pop_group }
+	pop_group_modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	country_modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = planet root = planet }
 	planet_modifier = single_alias_right[modifier_clause]
+	## cardinality = 0..1
+	## replace_scopes = { this = system root = system }
+	system_modifier= single_alias_right[modifier_clause]
 
 	## cardinality = 0..inf
-	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier_by_pop_clause]
+	## replace_scopes = { this = pop_group root = pop_group }
+	triggered_planet_pop_group_modifier = single_alias_right[triggered_modifier_by_pop_group_clause]
+	## cardinality = 0..inf
+	## replace_scopes = { this = pop_group root = pop_group }
+	triggered_pop_group_modifier = single_alias_right[triggered_modifier_by_pop_group_clause]
 	## cardinality = 0..inf
 	## replace_scopes = { this = country root = country }
-	triggered_country_modifier = single_alias_right[triggered_modifier_by_pop_clause]
+	triggered_country_modifier = single_alias_right[triggered_modifier_by_pop_group_clause]
 	## cardinality = 0..inf
 	## replace_scopes = { this = planet root = planet }
-	triggered_planet_modifier = single_alias_right[triggered_modifier_by_pop_clause]
-
+	triggered_planet_modifier = single_alias_right[triggered_modifier_by_pop_group_clause]
+	## cardinality = 0..1
+	## replace_scopes = { this = system root = system }
+	triggered_system_modifier= single_alias_right[triggered_modifier_by_pop_group_clause]
 	## cardinality = 0..1
 	weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	demotion = {
+		time = int
+		## replace_scopes = { this = system root = system }
+		effect = single_alias_right[effect_clause]
 	}
 
 	### The auto_trait_prio list on jobs should contain one valid trait swap for each trait category.
@@ -124,6 +179,13 @@ job = {
 	auto_trait_prio = {
 		## cardinality = 1..inf
 		<trait>
+	}
+
+	## cardinality = 0..1
+	promotion = {
+		time = int
+		## replace_scopes = { this = pop_group root = pop_group }
+		effect = single_alias_right[effect_clause]
 	}
 
 }

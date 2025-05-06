@@ -180,6 +180,8 @@ map_setup_scenario = {
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		}
 		## cardinality = 0..1
+		spawn_design = <prescripted_country>
+		## cardinality = 0..1
 		## replace_scopes = { this = system root = system }
 		effect = {
 			alias_name[effect] = alias_match_left[effect]

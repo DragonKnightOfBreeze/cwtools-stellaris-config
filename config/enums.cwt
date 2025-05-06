@@ -62,6 +62,9 @@ enums = {
 		country
 		ship
 		pop
+		pop_group
+		job
+		pop_job
 		fleet
 		galactic_object
 		leader
@@ -87,6 +90,8 @@ enums = {
 		cosmic_storm_influence_field
 		galactic_community
 		exhibit
+		ship_growth_stage
+		trait
 	}
 	enum[intel_level] = {
 		none
@@ -278,8 +283,10 @@ enums = {
 	# these modifier_categories options are used to get modifier categories of generated modifiers from economic categories
 	enum[scripted_modifier_category] = {
 		all
-		## modifier_categories = { Pops "AI Economy" }
-		pop
+		## modifier_categories = { "Pops" "AI Economy" }
+		pop_group
+		## modifier_categories = { Job "AI Economy" }
+		pop_job
 		## modifier_categories = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 		ship
 		## modifier_categories = { "Orbital Stations" "Space Stations" "AI Economy" }
@@ -307,7 +314,6 @@ enums = {
 		economic_unit
 		## modifier_categories = { "Star Systems" "AI Economy" }
 		system
-		trade
 		federation
 		## modifier_categories = { Espionage "AI Economy" }
 		espionage
@@ -434,5 +440,45 @@ enums = {
 		defensive
 		aux
 	}
-
+	enum[country_focus_rewards_mode] = {
+		right
+		left
+		end
+	}
+	enum[wiki_key] = {
+		"barren world"
+		"frozen world"
+		"gaia world"
+		"orbital habitat"
+		"machine world"
+		"molten world"
+		"tomb world"
+		"ocean world"
+		"relic world"
+		"main interface"
+		"trade"
+		"starbase"
+	}
+	enum[trigger_custom_progress] = {
+		normal
+		simplified
+		clamped
+	}
+	enum[target_type] = {
+		enemy
+		ally
+		controlled
+		owned
+	}
+	enum[mega_build_type] = {
+		inside_gravity_well
+		outside_gravity_well
+		around_planet
+	}
+	enum[onclick] = {
+		market
+		discoveries
+		technology
+		traditions
+	}
 }

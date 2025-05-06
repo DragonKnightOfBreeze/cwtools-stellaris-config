@@ -9,6 +9,9 @@ types = {
 		subtype[uncapped] = {
 			is_capped_by_modifier = no
 		}
+		subtype[starting_district] = {
+			default_starting_district = yes
+		}
 		localisation = {
 			name = "$"
 			desc = "$_desc"
@@ -17,6 +20,7 @@ types = {
 		images = {
 			icon = icon # icon[gfx/interface/icons/districts]
 			icon = "gfx/interface/icons/districts/$.dds" # inferred
+			background = GFX_$_bg
 		}
 	}
 }
@@ -26,9 +30,32 @@ district = {
 	### default: no
 	## cardinality = 0..1
 	expansion_planner = bool
+	## cardinality = 0..1
+	default_starting_district = bool
+	## cardinality = 0..1
+	base_cap_amount = int
+
+	subtype[starting_district] = {
+		## cardinality = 1..1
+		zone_slots = {
+			## cardinality = 1..inf
+			<zone_slots>
+		}
+	}
+
+	subtype[!starting_district] = {
+		## cardinality = 1..1
+		zone_slots = {
+			## cardinality = 0..inf
+			<zone_slots>
+		}
+	}
 
 	## cardinality = 0..1
 	base_buildtime = int
+	## cardinality = 0..1
+	inherits_capped_modifiers_from = <district>
+
 	## cardinality = 0..inf
 	desc = localisation
 	## cardinality = 0..inf
@@ -118,6 +145,14 @@ district = {
 		## cardinality = 0..inf
 		enum[complex_maths_enum] = value_field
 	}
+
+	## replace_scopes = { this = planet root = planet }
+	## cardinality = 0..inf
+	triggered_name = single_alias_right[triggered_desc_clause]
+
+	## replace_scopes = { this = planet root = planet }
+	## cardinality = 0..inf
+	triggered_flavor_desc = single_alias_right[triggered_desc_clause]
 
 	## cardinality = 0..1
 	ai_estimate_without_unemployment = bool

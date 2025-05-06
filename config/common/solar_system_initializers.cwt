@@ -98,6 +98,10 @@ solar_system_initializer = {
 		init_effect = single_alias_right[effect_clause]
 	}
 
+	### default: no. If yes, when a suitable neighbor is not found, a new solar system will be created to fulfill it.
+	## cardinality = 0..1
+	mandatory_neighbors = bool
+
 	## cardinality = 0..inf
 	neighbor_system = {
 		initializer = <solar_system_initializer>
@@ -116,6 +120,10 @@ solar_system_initializer = {
 		hyperlane_jumps = int
 		## cardinality = 0..1
 		hyperlane_jumps = { min = int max = int }
+		## cardinality = 0..1
+		min_orientation_angle = float
+		## cardinality = 0..1
+		max_orientation_angle = float
 		## cardinality = 0..1
 		spawn_chance = int
 		## cardinality = 0..1

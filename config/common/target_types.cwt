@@ -1,0 +1,13 @@
+types = {
+    type[target_type] = {
+        path = "game/common/target_types"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+        }
+    }
+}
+
+target_type = {
+    target_type = enum[target_type]
+}

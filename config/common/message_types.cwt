@@ -35,10 +35,22 @@ message_type = {
 	### Ping map to use for map visualization.
 	## cardinality = 0..1
 	ping = <pingmap>
-	
+
+	### Is notification enabled by default (default: yes).
+	## cardinality = 0..1
+	default_notification = bool
+
 	### default: no
 	## cardinality = 0..1
 	default_toast = bool
+
+	### Is popup enabled by default (default: no).
+	## cardinality = 0..1
+	default_popup = bool
+
+	### Is auto-pause enabled by default (default: no).
+	## cardinality = 0..1
+	default_autopause = bool
 
 	### If yes, the message type is not shown in the message settings UI (default: no).
 	## cardinality = 0..1

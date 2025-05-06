@@ -20,7 +20,6 @@ types = {
 		subtype[repeatable] = {
 			levels = int[-1..100]
 		}
-
 		localisation = {
 			name = "$"
 			desc = "$_desc"
@@ -92,7 +91,10 @@ types = {
 technology = {
 	area = enum[research_area]
 	tier = <technology_tier>
-	category = { <technology_category> }
+	category = {
+		## cardinality = 1..inf
+		<technology_category>
+	}
 
 	## cardinality = 0..1
 	icon = icon[gfx/interface/icons/technologies]
@@ -123,6 +125,11 @@ technology = {
 	prerequisites = {
 		## cardinality = 0..inf
 		<technology>
+		## cardinality = 0..1
+		OR = {
+			## cardinality = 0..inf
+			<technology>
+		}
 	}
 
 	## cardinality = 0..inf
@@ -153,6 +160,13 @@ technology = {
 				## cardinality = 0..1
 				desc = localisation
 			}
+		}
+		## cardinality = 0..1
+		area = enum[research_area]
+		## cardinality = 0..1
+		category = {
+			## cardinality = 1..inf
+			<technology_category>
 		}
 		## cardinality = 0..1
 		weight = float

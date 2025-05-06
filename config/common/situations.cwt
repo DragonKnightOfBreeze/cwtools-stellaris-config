@@ -140,6 +140,9 @@ situation_type = {
 	### Situation will start at this number. Default is 0
 	## cardinality = 0..1
 	start_value = int
+	### The value the situation progress is going to have when starting. Important for bidirectional situations. if it is lower than start_value, it will be changed to start_value
+	## cardinality = 0..1
+	initial_progress = int
 	### monodirectional/bidirectional (defaults to monodirectional)
 	## cardinality = 0..1
 	progress_direction = monodirectional
@@ -168,7 +171,11 @@ situation_type = {
 	stages = {
 		## cardinality = 1..inf
 	 	scalar = {
-	 		end = int
+	 		end = int_value_field
+			end = {
+				## replace_scopes = { this = situation root = situation }
+				alias_name[modifier_rule] = alias_match_left[modifier_rule]
+			}
 			icon = <sprite>
 			icon_background = <sprite>
 			## cardinality = 0..1

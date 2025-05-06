@@ -1,6 +1,6 @@
 localisation_links = {
 	Planet = {
-		input_scopes = { archaeological_site army pop megastructure deposit }
+		input_scopes = { archaeological_site army pop_group megastructure deposit }
 		output_scope = planet
 	}
 	Capital = {
@@ -52,7 +52,7 @@ localisation_links = {
 		output_scope = leader
 	}
 	Species = {
-		input_scopes = { country leader pop }
+		input_scopes = { country leader pop_group }
 		output_scope = species
 	}
 	Federation = {
@@ -60,7 +60,7 @@ localisation_links = {
 		output_scope = federation
 	}
 	Faction = {
-		input_scopes = { pop }
+		input_scopes = { pop_group }
 		output_scope = pop_faction
 	}
 	Sector = {
@@ -96,6 +96,46 @@ localisation_links = {
 	}
 	Target = {
 		input_scopes = { espionage_operation spy_network agreement situation }
+		output_scope = any
+	}
+	EVENT_TARGET_0 = {
+		input_scopes = any
+		output_scope = any
+	}
+	EVENT_TARGET_1 = {
+		input_scopes = any
+		output_scope = any
+	}
+	EVENT_TARGET_2 = {
+		input_scopes = any
+		output_scope = any
+	}
+	EVENT_TARGET_3 = {
+		input_scopes = any
+		output_scope = any
+	}
+	EVENT_TARGET_4 = {
+		input_scopes = any
+		output_scope = any
+	}
+	EVENT_TARGET_5 = {
+		input_scopes = any
+		output_scope = any
+	}
+	EVENT_TARGET_6 = {
+		input_scopes = any
+		output_scope = any
+	}
+	EVENT_TARGET_7 = {
+		input_scopes = any
+		output_scope = any
+	}
+	EVENT_TARGET_8 = {
+		input_scopes = any
+		output_scope = any
+	}
+	EVENT_TARGET_9 = {
+		input_scopes = any
 		output_scope = any
 	}
 

@@ -89,7 +89,7 @@ ethic = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 	## cardinality = 0..1
-	## replace_scopes = { root = pop this = pop from = planet }
+	## replace_scopes = { root = pop_group this = pop_group from = planet }
 	pop_attraction = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}

@@ -1,0 +1,66 @@
+types = {
+    type[resource_group] = {
+        path = "game/interface/resource_groups"
+        file_extension = .txt
+        subtype[category] = {
+            ## cardinality = 1..inf
+            category = {}
+        }
+    }
+}
+
+resource_group = {
+    ## cardinality = 0..inf
+    category = {
+        name = localisation
+        resources = {
+            ## cardinality = 0..inf
+            <resource>
+        }
+        ## cardinality = 0..1
+        onclick = enum[onclick]
+        ## cardinality = 0..1
+        show_only_if_owned = bool
+        ## cardinality = 0..1
+        additional_element_height = int
+    }
+    ## cardinality = 0..inf
+    subtype[!category] = {
+        ## cardinality = 1..1
+        resources = {
+            ## cardinality = 0..inf
+            <resource>
+        }
+    }
+    subtype[category] = {
+        ## cardinality = 0..1
+        resources = {
+            ## cardinality = 0..inf
+            <resource>
+        }
+    }
+    localization = {
+        ## cardinality = 0..inf
+        localisation = default
+        localisation = {
+            ## cardinality = 0..1
+            balance = int
+            ## cardinality = 0..1
+            total_balance = int
+            ## cardinality = 0..1
+            max = int
+            ## cardinality = 0..inf
+            stored = int
+            ## cardinality = 0..inf
+            stored = max
+            ## cardinality = 0..inf
+            total_stored = int
+            ## cardinality = 0..inf
+            total_stored = max
+        }
+    }
+    ## cardinality = 0..1
+    onclick = enum[onclick]
+    ## cardinality = 0..1
+    desc = localisation
+}

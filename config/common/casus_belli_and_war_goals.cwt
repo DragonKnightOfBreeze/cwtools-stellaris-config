@@ -101,6 +101,16 @@ war_goal = {
 	set_defender_wargoal = <war_goal>
 
 	## cardinality = 0..1
+	forbidden_peace_offers = {
+		## cardinality = 0..1
+		demand_surrender = localisation
+		## cardinality = 0..1
+		status_quo = localisation
+		## cardinality = 0..1
+		surrender = localisation
+	}
+
+	## cardinality = 0..1
 	release_occupied_systems_on_status_quo = bool
 
 	### default: no
@@ -117,6 +127,7 @@ war_goal = {
 	## replace_scopes = { this = country root = country from = country }
 	possible = single_alias_right[trigger_clause]
 
+	## cardinality = 0..1
 	### Set what peace offers are allowed. Leaving this out means no peace, which is usually a bug, hence making this a necessary field.
 	allowed_peace_offers = {
 		## cardinality = 0..3

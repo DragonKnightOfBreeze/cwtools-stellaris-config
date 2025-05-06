@@ -70,9 +70,9 @@ single_alias[triggered_modifier_clause] = {
 	multiplier = value_field
 }
 
-single_alias[triggered_modifier_by_pop_clause] = {
+single_alias[triggered_modifier_by_pop_group_clause] = {
 	## cardinality = 0..1
-	## push_scope = pop
+	## push_scope = pop_group
 	potential = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	key = localisation

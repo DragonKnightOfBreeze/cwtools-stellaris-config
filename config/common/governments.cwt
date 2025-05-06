@@ -455,7 +455,6 @@ civic_or_origin = {
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		}
 	}
-
 	subtype[origin] = {
 		is_origin = yes
 		## cardinality = 0..1
@@ -503,6 +502,13 @@ civic_or_origin = {
 		## cardinality = 0..1
 		blocks_random_machine_empire_generation = bool
 	}
+
+	## cardinality = 0..1
+	room = icon[gfx/portraits/city_sets]
+	## cardinality = 0..1
+	room = <asset_selector.room>
+	## cardinality = 0..1
+	city_graphical_culture = <graphical_culture>
 
 	## cardinality = 0..1
 	leader_background_job_weight = {
@@ -787,3 +793,30 @@ alias[government_trigger:AND] = {
 	always = bool
 }
 alias[government_trigger:host_has_dlc] = enum[dlc]
+alias[government_trigger:graphical_culture] = {
+	## cardinality = 0..1
+	value = <graphical_culture>
+
+	## cardinality = 0..inf
+	OR = {
+		## cardinality = 0..1
+		text = localisation
+		## severity = info
+		## cardinality = 1..99
+		value = <graphical_culture>
+	}
+	## cardinality = 0..inf
+	NOT = {
+		## cardinality = 0..1
+		text = localisation
+		value = <graphical_culture>
+	}
+	## cardinality = 0..inf
+	NOR = {
+		## cardinality = 0..1
+		text = localisation
+		## severity = info
+		## cardinality = 1..99
+		value = <graphical_culture>
+	}
+}

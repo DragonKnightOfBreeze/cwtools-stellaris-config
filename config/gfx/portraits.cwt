@@ -62,7 +62,7 @@ portrait = {
 							mask = filepath
 						}
 					}
-					### leader, pop or species scope (when called with species scope, from subscope can contain a country species related to)
+					### leader, pop_group or species scope (when called with species scope, from subscope can contain a country species related to)
 					## replace_scopes = { this = any root = any }
 					trigger = single_alias_right[trigger_clause]
 				}
@@ -144,10 +144,10 @@ portrait_group = {
 		}
 	}
 	## cardinality = 0..1
-	pop = {
+	pop_group = {
 		## cardinality = 0..inf
 		add = {
-			## replace_scopes = { this = pop root = pop }
+			## replace_scopes = { this = pop_group root = pop_group }
 			## cardinality = 0..1
 			trigger = single_alias_right[trigger_clause]
 			portraits = {
@@ -157,7 +157,7 @@ portrait_group = {
 		}
 		## cardinality = 0..inf
 		set = {
-			## replace_scopes = { this = pop root = pop }
+			## replace_scopes = { this = pop_group root = pop_group }
 			## cardinality = 0..1
 			trigger = single_alias_right[trigger_clause]
 			portraits = {

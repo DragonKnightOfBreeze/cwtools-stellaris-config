@@ -19,6 +19,12 @@ types = {
 			## cardinality = 0..1
 			is_designable = yes
 		}
+		subtype[bio_ship] = {
+			is_bio_ship = yes
+		}
+		subtype[hero_ship] = {
+			is_hero_ship = yes
+		}
 		localisation = {
 			name = "$"
 			plural = "$_plural"
@@ -47,8 +53,11 @@ ship_size = {
 	## cardinality = 0..1
 	entity = <model_entity>
 	## cardinality = 0..1
-	# reference to other ship_sizes + _entity, handled by manual validator
+	### reference to other ship_sizes + _entity, handled by manual validator
 	entity = scalar
+	### Used to filter ships sizes for graphical cultures
+	## cardinality = 0..1
+	ship_category = <ship_categories>
 	## cardinality = 0..1
 	formation_priority = int
 	## cardinality = 0..1
@@ -185,9 +194,9 @@ ship_size = {
 	is_space_fauna_ship = bool
 
 	subtype[space_fauna] = {
-		## cardinality = 1..1
+		## cardinality = ~1..1
 		ship_category = <ship_categories>
-		## cardinality = 1..1
+		## cardinality = ~1..1
 		mutation_components_size = enum[mutation_components_size]
 		## cardinality = ~1..1
 		space_fauna_values = {
@@ -283,6 +292,47 @@ ship_size = {
 		## replace_scopes = { this = country root = country }
 		fraction = float
 	}
+
+	## cardinality = 0..1
+	available_to_everyone = bool
+
+	## cardinality = 0..1
+	role_background = <sprite>
+
+	## cardinality = 0..1
+	on_click_sound = <sound_effect>
+
+	map_icon_override = {
+		## cardinality = 0..1
+		normal = <sprite>
+		## cardinality = 0..1
+		mixed = <sprite>
+		## cardinality = 0..1
+		cloaked = <sprite>
+	}
+
+	## cardinality = 0..1
+	custom_state_loc_prefix = localisation
+
+	## cardinality = 0..1
+	is_bio_ship = bool
+
+	subtype[bio_ship] = {
+		ship_family_name = localisation
+		growth_stage_descriptor  = localisation
+		evaluation_resource = <resource>
+		bioship_growth_progress_required = int
+		upgrades_to = <size>
+	}
+
+	## cardinality = 0..1
+	is_hero_ship = bool
+
+	subtype[hero_ship] = {
+		## cardinality = 0..1
+		hero_ship_fleet_background = <sprite>
+	}
+
 }
 
 #enums = { #you can change, mod, remove and add new shipclasses. This is not an enum!

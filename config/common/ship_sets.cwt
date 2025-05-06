@@ -1,0 +1,18 @@
+types = {
+	type[ship_set] = {
+		path = "game/common/ship_sets"
+		file_extension = .txt
+		localisation = {
+			name = "$"
+		}
+	}
+}
+
+ship_set = {
+
+	name = localisation
+	## replace_scopes = { this = country root = country }
+	## cardinality = 0..1
+	potential = single_alias_right[trigger_clause]
+
+}

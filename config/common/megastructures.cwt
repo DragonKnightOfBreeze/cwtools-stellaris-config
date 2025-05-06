@@ -49,8 +49,12 @@ megastructure = {
 	plane_offset = float
 	## cardinality = 0..1
 	construction_blocks_others = bool
+	### deprecated, replaced with `build_type = inside_gravity_well/outside_gravity_well/around_planet'
 	## cardinality = 0..1
 	build_outside_gravity_well = bool
+	### inside_gravity_well/outside_gravity_well/around_planet default = around_planet, decided how and where the MS is built
+	## cardinality = 0..1
+	build_type = enum[mega_build_type]
 	### default: yes
 	## cardinality = 0..1
 	show_galactic_map_icon = bool

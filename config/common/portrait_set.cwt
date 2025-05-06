@@ -25,6 +25,7 @@ portrait_sets = {
         playable = single_alias_right[trigger_clause]
         ## cardinality = 0..1
         portraits = {
+            ## cardinality = 0..inf
             <portrait>
             <portrait_group>
         }

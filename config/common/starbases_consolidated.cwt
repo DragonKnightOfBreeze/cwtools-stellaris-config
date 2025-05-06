@@ -78,6 +78,9 @@ starbase_building = {
 	custom_tooltip = localisation
 
 	## cardinality = 0..inf
+	custom_tooltip_with_modifiers = localisation
+
+	## cardinality = 0..inf
 	resources = {
 		## cardinality = 0..1
 		category = <economic_category>
@@ -214,6 +217,9 @@ starbase_module = {
 	## cardinality = 0..inf
 	custom_tooltip = localisation
 
+	## cardinality = 0..inf
+	custom_tooltip_with_modifiers = localisation
+
 	## cardinality = 0..1
 	abort_trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..1
@@ -315,6 +321,16 @@ starbase_level = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 	## cardinality = 0..1
+	### Optional - determines the image used when viewing the starbase. Default is GFX_starbase_background which
+	picture = {
+		## replace_scopes = { this = starbase root = starbase from = country }
+		trigger = single_alias_right[trigger_clause]
+		picture = <sprite>
+	}
+	## cardinality = 0..1
+	### Optional - determines the image used when viewing the starbase. Default is GFX_starbase_background which
+	picture = <sprite>
+	## cardinality = 0..1
 	### Default no, if yes starbase may be used as homebase for fleets
 	potential_home_base = bool
 	## cardinality = 0..1
@@ -331,11 +347,16 @@ starbase_level = {
 	## cardinality = 0..1
 	## replace_scopes = { root = starbase this = starbase }
 	downgrade_potential = single_alias_right[trigger_clause]
+
+	### Default no, if yes you can dismantle this starbase even if there are colonies
+	## cardinality = 0..1
+	can_always_dismantle = bool
 }
 
 starbase_type = {
 	## replace_scopes = { this = starbase root = starbase from = country }
 	potential = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	## replace_scopes = { this = starbase root = starbase from = country }
 	weight_modifier = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]

@@ -1,0 +1,27 @@
+types = {
+    ## type_key_filter = categories
+    type[gamesetup_setting_categories] = {
+        path = "game/common/gamesetup_settings"
+        file_extension = .txt
+    }
+}
+
+gamesetup_setting_categories = {
+    ## cardinality = 0..inf
+    {
+        ## cardinality = 1..1
+        name = localisation
+        ## cardinality = 1..1
+        settings = {
+            {
+                ## cardinality = 1..1
+                setting = value[token]
+                ## cardinality = 0..1
+                game_mode = enum[settings_game_mode]
+                ## cardinality = 0..1
+                ## replace_scopes = { this = no_scope root = no_scope }
+                visible = single_alias_right[trigger_clause]
+            }
+        }
+    }
+}

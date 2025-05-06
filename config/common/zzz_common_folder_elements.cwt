@@ -1,4 +1,4 @@
-#this file contains all elements that are stored in the common folder itself!
++#this file contains all elements that are stored in the common folder itself!
 
 types = {
 	type[alert] = {
@@ -38,6 +38,7 @@ alert_icon = <sprite>
 
 achievement = {
 	id = int
+	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	possible = single_alias_right[trigger_clause]
 	## replace_scopes = { this = country root = country }

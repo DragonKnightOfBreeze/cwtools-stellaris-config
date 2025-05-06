@@ -1,0 +1,106 @@
+types = {
+    type[country_card_categories] = {
+        path = "game/common/country_focus/card_categories"
+        file_extension = .txt
+    }
+    type[country_focus_cards] = {
+        path = "game/common/country_focus/focus_cards"
+        file_extension = .txt
+        subtype[country_focus_cards_base] = {
+            category = <country_card_categories>
+        }
+        subtype[country_focus_cards_not_base] = {
+            base = <country_focus_cards.country_focus_cards_base>
+        }
+    }
+    type[country_focus_rewards] = {
+        path = "game/common/country_focus/focus_rewards"
+        file_extension = .txt
+        localisation = {
+            name = "$.name"
+            desc = "$.desc"
+        }
+    }
+}
+
+country_card_categories = {
+    ## cardinality = 0..1
+    name = localisation
+    ## cardinality = 0..1
+    desc = localisation
+    ## cardinality = 0..1
+    background = <sprite>
+    ## cardinality = 0..1
+    background_expanded = <sprite>
+    ## cardinality = 0..1
+    icon = <sprite>
+    ## cardinality = 0..1
+    resources = {
+        ## cardinality = 0..1
+        category = <economic_category>
+        alias_name[economic_template] = alias_match_left[economic_template]
+    }
+
+    ## cardinality = 0..1
+    weights = {
+        ## cardinality = 0..inf
+         {
+            category = <country_card_categories>
+            value = {
+                alias_name[modifier_rule] = alias_match_left[modifier_rule]
+            }
+        }
+    }
+
+    ## cardinality = 0..1
+    starting_weight = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+    }
+
+    ### Categores are selectable by default ( selectable = yes )
+    ## cardinality = 0..1
+    selectable = bool
+
+}
+
+country_focus_cards = {
+    subtype[!country_focus_cards_base] = {
+        base = <country_focus_cards.country_focus_cards_base>
+    }
+    subtype[!country_focus_cards_not_base] = {
+        category = <country_card_categories>
+    }
+    subtype[country_focus_cards_base] = {
+        background = <sprite>
+        tier = int
+    }
+
+    name = localisation
+    desc = localisation
+    hint = localisation
+    lore = localisation
+
+    ## cardinality = 0..1
+    ## replace_scopes = { root = country this = country }
+    possible = single_alias_right[trigger_clause]
+
+    ## replace_scopes = { root = country this = country }
+    condition_for_achievement = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ## replace_scopes = { root = country this = country }
+    on_success = single_alias_right[effect_clause]
+
+
+}
+
+country_focus_rewards = {
+    category = <country_card_categories>
+    cost = int
+    mode = enum[country_focus_rewards_mode]
+
+    ## cardinality = 0..1
+    ## replace_scopes = { root = country this = country }
+    on_success = single_alias_right[effect_clause]
+
+}

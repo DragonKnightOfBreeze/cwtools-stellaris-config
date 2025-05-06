@@ -26,12 +26,15 @@ types = {
 			icon = icon # icon[gfx/interface/icons/buildings] | <building>
 			## optional
 			icon = "gfx/interface/icons/buildings/$.dds" # inferred
+			## optional
+			ruined_icon = ruined_icon
 		}
 	}
 }
 
 enums = {
 	enum[building_category] = {
+		planet_buildings
 		army
 		manufacturing
 		government
@@ -42,6 +45,7 @@ enums = {
 		research
 		trade
 		amenity
+		amenities
 	}
 }
 
@@ -59,11 +63,15 @@ building = {
 	owner_type = corporate
 	## cardinality = 0..1
 	owner_type = subject_holding
-
+	## cardinality = 0..1
+	ruined_icon = icon[gfx/interface/icons/buildings]
+	## cardinality = 0..1
+	ruined_icon = <sprite>
 	### used to match with a planet class' building set, can be assigned to multiple sets. Used to remove from construction lists
 	## cardinality = 0..1
 	building_sets = {
-		enum[building_set]
+		## cardinality = 0..inf
+		value_set[building_set]
 	}
 
 	## cardinality = 0..1
@@ -184,6 +192,9 @@ building = {
 	## replace_scopes = { this = army root = army }
 	army_modifier = single_alias_right[modifier_clause]
 
+	## cardinality = 0..1
+	## replace_scopes = { this = pop_group root = pop_group }
+	triggered_planet_pop_group_modifier = single_alias_right[triggered_modifier_clause]
 	## cardinality = 0..inf
 	## replace_scopes = { this = planet root = planet }
 	triggered_planet_modifier = single_alias_right[triggered_modifier_clause]

@@ -83,8 +83,8 @@ asset_selector = {
 		}
 
 		## cardinality = 0..1
-		## replace_scopes = { this = pop root = pop }
-		pop = {
+		## replace_scopes = { this = pop_group root = pop_group }
+		pop_group = {
 			## cardinality = 0..1
 			default = filepath
 			## cardinality = 0..inf

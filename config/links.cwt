@@ -19,10 +19,10 @@ links = {
 		input_scopes = { war }
 		output_scope = country
 	}
-	### Scopes to the owner of the current object. Works on any object that could be construed as being owned by a country (incl. planets, ships, fleets, leaders, pops, solar systems, pop factions, megastructures, first contacts, spy networks, espionage operations, armies, starbases, deposits, sectors, arc sites)
+	### Scopes to the owner of the current object. Works on any object that could be construed as being owned by a country (incl. planets, ships, fleets, leaders, pops, solar systems, pop_group factions, megastructures, first contacts, spy networks, espionage operations, armies, starbases, deposits, sectors, arc sites)
 	owner = {
 		input_scopes = {
-			megastructure planet country ship pop fleet galactic_object leader army bypass pop_faction starbase deposit
+			megastructure planet country ship pop_group fleet galactic_object leader army bypass pop_faction starbase deposit
 			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris astral_rift
 		}
 		output_scope = country
@@ -34,7 +34,7 @@ links = {
 	}
 	### Scopes from an object to the owner of the planet it is on. Works from army, megastructure, deposit and arc site scopes.
 	planet_owner = {
-		input_scopes = { megastructure planet pop leader army starbase deposit archaeological_site }
+		input_scopes = { megastructure planet pop_group leader army starbase deposit archaeological_site }
 		output_scope = country
 	}
 	### Scopes to the last country that was created anywhere in the game.
@@ -42,7 +42,7 @@ links = {
 		input_scopes = { all }
 		output_scope = country
 	}
-	### Scopes to the last country from which a pop fled to escape purge (via on_pop_displaced).
+	### Scopes to the last country from which a pop_group fled to escape purge (via on_pop_displaced).
 	last_refugee_country = {
 		input_scopes = { all }
 		output_scope = country
@@ -60,7 +60,7 @@ links = {
 	### Scopes from an object to the solar system it is in. Works on all objects visible in star system view.
 	solar_system = {
 		input_scopes = { #matches celestial_coordinate scope_group
-			megastructure planet country ship pop fleet galactic_object leader army ambient_object bypass starbase deposit
+			megastructure planet country ship pop_group fleet galactic_object leader army ambient_object bypass starbase deposit
 			archaeological_site first_contact debris astral_rift
 		}
 		output_scope = galactic_object
@@ -72,7 +72,7 @@ links = {
 	}
 	### Scopes from an object to the planet it is on. Works from army, megastructure, deposit and arc site scopes.
 	planet = {
-		input_scopes = { megastructure planet pop leader army starbase deposit archaeological_site }
+		input_scopes = { megastructure planet pop_group leader army starbase deposit archaeological_site }
 		output_scope = planet
 	}
 	### Scopes from an empire to its capital planet.
@@ -85,9 +85,9 @@ links = {
 		input_scopes = { planet ship fleet army starbase }
 		output_scope = planet
 	}
-	### Scopes to a species' home planet (also works from country, pop and leader; scopes to that object's species's home planet).
+	### Scopes to a species' home planet (also works from country, pop_group and leader; scopes to that object's species's home planet).
 	home_planet = {
-		input_scopes = { country pop leader species }
+		input_scopes = { country pop_group leader species }
 		output_scope = planet
 	}
 	### Scopes to the last ship that was created anywhere in the game.
@@ -125,20 +125,20 @@ links = {
 		input_scopes = { ship }
 		output_scope = design
 	}
-	### Scopes from an army to the pop that spawned it.
-	pop = {
-		input_scopes = { pop army }
-		output_scope = pop
+	### Scopes from an army to the pop_group that spawned it.
+	pop_group = {
+		input_scopes = { pop_group army }
+		output_scope = pop_group
 	}
-	### Scopes from a country or planet to its unhappiest pop.
+	### Scopes from a country or planet to its unhappiest pop_group.
 	unhappiest_pop = {
 		input_scopes = { planet country }
-		output_scope = pop
+		output_scope = pop_group
 	}
-	### Scopes to the last pop that was created anywhere in the game.
+	### Scopes to the last pop_group that was created anywhere in the game.
 	last_created_pop = {
 		input_scopes = { all }
-		output_scope = pop
+		output_scope = pop_group
 	}
 	### Scopes to the last ambient object that was created anywhere in the game.
 	last_created_ambient_object = {
@@ -153,7 +153,7 @@ links = {
 	### Scopes to the main species of the owner of the current object. Works in every scope that 'owner' would work in.
 	owner_species = {
 		input_scopes = { #matches owner
-			megastructure planet country ship pop fleet galactic_object leader army species pop_faction starbase deposit
+			megastructure planet country ship pop_group fleet galactic_object leader army species pop_faction starbase deposit
 			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris
 		}
 		output_scope = species
@@ -161,7 +161,7 @@ links = {
 	### Scopes to the main species of the owner of the current object. Works in every scope that 'owner' would work in.
 	owner_main_species = {
 		input_scopes = { #matches owner
-			megastructure planet country ship pop fleet galactic_object leader army species bypass pop_faction starbase deposit
+			megastructure planet country ship pop_group fleet galactic_object leader army species bypass pop_faction starbase deposit
 			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris astral_rift
 		}
 		output_scope = species
@@ -176,17 +176,17 @@ links = {
 		input_scopes = { country }
 		output_scope = species
 	}
-	### Scopes from a country, leader, pop, army or (colonist) ship to its species.
+	### Scopes from a country, leader, pop_group, army or (colonist) ship to its species.
 	species = {
-		input_scopes = { country ship pop leader army species }
+		input_scopes = { country ship pop_group leader army species }
 		output_scope = species
 	}
-	### Scopes from a pop or leader to its pop faction.
+	### Scopes from a pop_group or leader to its pop_group faction.
 	pop_faction = {
-		input_scopes = { pop leader pop_faction }
+		input_scopes = { pop_group leader pop_faction }
 		output_scope = pop_faction
 	}
-	### Scopes to the last pop faction that was created anywhere in the game.
+	### Scopes to the last pop_group faction that was created anywhere in the game.
 	last_created_pop_faction = {
 		input_scopes = { all }
 		output_scope = pop_faction
@@ -194,7 +194,7 @@ links = {
 	### Scopes from an object to the sector it is in. Works on all objects visible objects visible in star system view, plus star systems themselves and leaders (scopes to the sector the leader is currently located in, not necessarily the one they are assigned to as a governor).
 	sector = {
 		input_scopes = {
-			megastructure planet ship pop fleet galactic_object leader army ambient_object bypass starbase deposit
+			megastructure planet ship pop_group fleet galactic_object leader army ambient_object bypass starbase deposit
 			sector archaeological_site first_contact debris
 		}
 		output_scope = sector
@@ -202,7 +202,7 @@ links = {
 	### Scopes to the ruler of a country (or the ruler of the object's owner).
 	ruler = {
 		input_scopes = { #matches owner
-			megastructure planet country ship pop fleet galactic_object leader army bypass pop_faction starbase deposit
+			megastructure planet country ship pop_group fleet galactic_object leader army bypass pop_faction starbase deposit
 			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris astral_rift
 		}
 		output_scope = leader
@@ -210,7 +210,7 @@ links = {
 	### Scopes to the heir of a country (or the heir of the object's owner).
 	heir = {
 		input_scopes = { #matches owner
-			megastructure planet country ship pop fleet galactic_object leader army bypass pop_faction starbase deposit
+			megastructure planet country ship pop_group fleet galactic_object leader army bypass pop_faction starbase deposit
 			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris astral_rift
 		}
 		output_scope = leader
@@ -243,7 +243,7 @@ links = {
 	### Scopes from an object to the primary star (planet scope) of the system it is in. Works on all objects visible in star system view.
 	system_star = {
 		input_scopes = {
-			megastructure planet country ship pop fleet galactic_object leader army ambient_object bypass starbase deposit
+			megastructure planet country ship pop_group fleet galactic_object leader army ambient_object bypass starbase deposit
 			archaeological_site first_contact debris astral_rift
 		}
 		output_scope = Planet
@@ -292,6 +292,11 @@ links = {
 	last_added_deposit = {
 		input_scopes = { planet }
 		output_scope = deposit
+	}
+	### Scopes from an army to the planet that spawned it.
+	spawner_planet = {
+		input_scopes = { army }
+		output_scope = planet
 	}
 	### Scopes from an envoy to the empire it is appointed to.
 	envoy_location_country = {
@@ -428,6 +433,12 @@ links = {
 	last_created_cosmic_storm_influence_field = {
 		input_scopes = { all }
 		output_scope = cosmic_storm_influence_field
+	}
+
+	### Scopes to the ship's current growth stage inside the ship's design
+	ship_growth_stage = {
+		input_scopes = { ship }
+		output_scope = ship_growth_stage
 	}
 
 	# links from data

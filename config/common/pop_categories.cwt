@@ -13,7 +13,7 @@ types = {
 	}
 }
 
-## push_scope = pop
+## push_scope = pop_group
 pop_category = {
 	rank = int
 
@@ -29,20 +29,20 @@ pop_category = {
 	}
 
 	## cardinality = 0..1
-	## replace_scopes = { this = pop root = pop }
-	pop_modifier = single_alias_right[modifier_clause]
+	## replace_scopes = { this = pop_group root = pop_group }
+	pop_group_modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = planet root = planet }
 	planet_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..inf
-	## replace_scopes = { this = pop root = pop }
-	triggered_pop_modifier = single_alias_right[triggered_modifier_by_pop_clause]
+	## replace_scopes = { this = pop_group root = pop_group }
+	triggered_pop_group_modifier = single_alias_right[triggered_modifier_by_pop_group_clause]
 	## cardinality = 0..inf
 	## replace_scopes = { this = planet root = planet }
-	triggered_planet_modifier = single_alias_right[triggered_modifier_by_pop_clause]
+	triggered_planet_modifier = single_alias_right[triggered_modifier_by_pop_group_clause]
 
-	### scope: pop to be resettled
+	### scope: pop_group to be resettled
 	allow_resettlement = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1

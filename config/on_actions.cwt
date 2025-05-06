@@ -614,8 +614,8 @@ on_actions = {
 	### Pop is abducted by raiding stance
 	### This = Pop scope
 	### From = planet abducted from
-	## replace_scopes = { this = pop root = pop from = planet }
-	## event_type = pop
+	## replace_scopes = { this = pop_group root = pop_group from = planet }
+	## event_type = pop_group
 	on_pop_abducted
 
 	### Pop is enslaved
@@ -623,8 +623,8 @@ on_actions = {
 	### owner_species = { (species)
 	### owner = { owner_species = { (empire main species)
 	### owner = { (empire)
-	## replace_scopes = { this = pop root = pop }
-	## event_type = pop
+	## replace_scopes = { this = pop_group root = pop_group }
+	## event_type = pop_group
 	on_pop_enslaved
 
 	### Pop is released from slavery
@@ -632,15 +632,15 @@ on_actions = {
 	### owner_species = { (species)
 	### owner = { owner_species = { (empire main species)
 	### owner = { (empire)
-	## replace_scopes = { this = pop root = pop }
-	## event_type = pop
+	## replace_scopes = { this = pop_group root = pop_group }
+	## event_type = pop_group
 	on_pop_emancipated
 
 	### Pop is resettled
 	### From is previous planet
 	### planet = { } is new planet
-	## replace_scopes = { this = pop root = pop from = planet }
-	## event_type = pop
+	## replace_scopes = { this = pop_group root = pop_group from = planet }
+	## event_type = pop_group
 	on_pop_resettled
 
 	### Executed right before a country has established communications with another country
@@ -672,7 +672,7 @@ on_actions = {
 	on_presence_revealed
 
 	### Executed just after country has established communications with another country
-	### This = Planet where the pop was bombed to death
+	### This = Planet where the pop_group was bombed to death
 	### From = Country which is raining down fire and brimstone
 	## replace_scopes = { this = planet root = planet from = country }
 	## event_type = planet
@@ -837,6 +837,39 @@ on_actions = {
 	## event_type = country
 	on_modification_complete
 
+	### Triggers when a Sub-Species Integration performs a single step.
+	### Trigger once for each species being integrated.
+	###
+	### This = Country
+	### From = Species ( Post Modification )
+	## replace_scopes = { this = country root = country from = species }
+	## event_type = country
+	on_subspecies_integration_step
+
+	### Triggers when a Sub-Species Integration fully finishes upgrading a species template.
+	### Trigger once for each species being integrated.
+	###
+	### This = Country
+	### From = Species ( Post Modification )
+	## replace_scopes = { this = country root = country from = species }
+	## event_type = country
+	on_subspecies_integration_complete
+
+	### Triggers when a Country gets a new always available tech as a research option.
+	###
+	### This = Country
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_research_option_added
+
+	### Triggers when a Country gains a favor.
+	###
+	### This = Country that receives a favor
+	### From = Country a favor is from
+	## replace_scopes = { this = country root = country from = country }
+	## event_type = country
+	on_favor_gained
+
 	### A planets controller becomes a country not the same as the owner.
 	### Root = Planet
 	### From = Planet Owner
@@ -852,6 +885,19 @@ on_actions = {
 	## replace_scopes = { this = planet root = planet from = country fromfrom = country }
 	## event_type = planet
 	on_planet_returned
+
+	### A planet decision is enacted.
+	### Root = Planet
+	### From = Planet Owner
+	## replace_scopes = { this = planet root = planet from = country }
+	## event_type = planet
+	on_decision_enacted
+
+	### An edict is enacted.
+	### Root = Country
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_edict_activated
 
 	### A fleet has successfully escaped from combat, executed right before the fleet enters FTL
 	### This = escaping fleet
@@ -992,56 +1038,56 @@ on_actions = {
 	## event_type = country
 	on_status_quo_forced
 
-	### A pop has been added to the planet
-	### Root = pop
+	### A pop_group has been added to the planet
+	### Root = pop_group
 	### From = planet
-	## replace_scopes = { this = root root = pop from = planet }
-	## event_type = pop
+	## replace_scopes = { this = root root = pop_group from = planet }
+	## event_type = pop_group
 	on_pop_added
 
 	### We changed a species right
-	### This = pop
-	## replace_scopes = { this = pop root = pop }
-	## event_type = pop
+	### This = pop_group
+	## replace_scopes = { this = pop_group root = pop_group }
+	## event_type = pop_group
 	on_pop_rights_change
 
-	### A pop has finished growing
+	### A pop_group has finished growing
 	### This = Planet scope
 	### From = Country
 	### FromFrom = Pop
-	## replace_scopes = { this = planet root = planet from = country fromfrom = pop }
+	## replace_scopes = { this = planet root = planet from = country fromfrom = pop_group }
 	## event_type = planet
 	on_pop_grown
 
-	### A pop has finished assembling
+	### A pop_group has finished assembling
 	### This = Planet scope
 	### From = Country
 	### FromFrom = Pop
-	## replace_scopes = { this = planet root = planet from = country fromfrom = pop }
+	## replace_scopes = { this = planet root = planet from = country fromfrom = pop_group }
 	## event_type = planet
 	on_pop_assembled
 
-	### A pop has finished purging
+	### A pop_group has finished purging
 	### This = Planet scope
 	### From = Country
 	### FromFrom = Pop
-	## replace_scopes = { this = planet root = planet from = country fromfrom = pop }
+	## replace_scopes = { this = planet root = planet from = country fromfrom = pop_group }
 	## event_type = planet
 	on_pop_purged
 
-	### A pop has finished declining (while not being purged)
+	### A pop_group has finished declining (while not being purged)
 	### This = Planet scope
 	### From = Country
 	### FromFrom = Pop
-	## replace_scopes = { this = planet root = planet from = country fromfrom = pop }
+	## replace_scopes = { this = planet root = planet from = country fromfrom = pop_group }
 	## event_type = planet
 	on_pop_declined
 
-	### A pop has been displaced
+	### A pop_group has been displaced
 	### This = Planet scope
 	### From = Country
 	### FromFrom = Pop
-	## replace_scopes = { this = planet root = planet from = country fromfrom = pop }
+	## replace_scopes = { this = planet root = planet from = country fromfrom = pop_group }
 	## event_type = planet
 	on_pop_displaced
 
@@ -1098,6 +1144,20 @@ on_actions = {
 	## replace_scopes = { this = fleet root = fleet from = planet }
 	## event_type = fleet
 	on_fleet_enter_orbit
+
+	### Called when a ship is added to a fleet (for any reason)
+	### this/root = fleet
+	### from = ship
+	## replace_scopes = { this = fleet root = fleet from = ship }
+	## event_type = fleet
+	on_ship_enter_fleet
+
+	### Called when a ship is removed from a fleet (for any reason including it being destroyed, but the event fires before it completely dies)
+	### this/root = fleet
+	### from = ship
+	## replace_scopes = { this = fleet root = fleet from = ship }
+	## event_type = fleet
+	on_ship_leave_fleet
 
 	### This = Federation leader
 	### From = Joining member
@@ -1256,8 +1316,8 @@ on_actions = {
 	## event_type = planet
 	on_colony_10_year_pulse
 
-	## replace_scopes = { this = pop root = pop }
-	## event_type = pop
+	## replace_scopes = { this = pop_group root = pop_group }
+	## event_type = pop_group
 	on_colony_10_year_pulse_random_pop_events_list
 
 	### a new leader is generated for an empire, to be available for recruitment
@@ -1406,8 +1466,8 @@ on_actions = {
 	### This = Pop
 	### From = Country (buyer)
 	### Fromfrom = Country (seller)
-	## replace_scopes = { this = pop root = pop from = country fromfrom = country }
-	## event_type = pop
+	## replace_scopes = { this = pop_group root = pop_group from = country fromfrom = country }
+	## event_type = pop_group
 	on_slave_sold_on_market
 
 	### This = Country
@@ -1434,6 +1494,20 @@ on_actions = {
 	## replace_scopes = { this = fleet root = fleet from = archaeological_site }
 	## event_type = fleet
 	on_arch_site_finished
+
+	### A galcom resolution is moved to the senate floor
+	### this/root = proposer
+	### from = target if valid
+	## replace_scopes = { this = country root = country from = any }
+	## event_type = country
+	on_resolution_put_to_vote
+
+	### A galcom resolution is moved to the senate floor
+	### this/root = vetoer
+	### from = proposer
+	## replace_scopes = { this = country root = country from = any }
+	## event_type = country
+	on_resolution_vetoed
 
 	### A galcom resolution passed
 	### this/root = proposer
@@ -1928,8 +2002,8 @@ on_actions = {
 	### Fired when a Pop has a change in their ethics
 	### This = Pop
 	### From = Planet Owner
-	## replace_scopes = { this = pop root = pop from = country }
-	## event_type = pop
+	## replace_scopes = { this = pop_group root = pop_group from = country }
+	## event_type = pop_group
 	on_pop_ethic_changed
 
 	### Situation Random Event Pool | Fired by cyber.5

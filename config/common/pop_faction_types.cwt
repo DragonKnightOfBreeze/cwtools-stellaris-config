@@ -84,18 +84,18 @@ pop_faction = {
 	valid = single_alias_right[trigger_clause]
 
 	### Determines which pops are able to join this faction. Only uses certain simple triggers.
-	## push_scope = pop
+	## push_scope = pop_group
 	## cardinality = 0..1
 	can_join_pre_triggers = {
 		alias_name[pop_pre_trigger] = alias_match_left[pop_pre_trigger]
 	}
 
 	### Determines which pops are able to join this faction
-	## push_scope = pop
+	## push_scope = pop_group
 	can_join_faction = single_alias_right[trigger_clause]
 
 	### Pop's willingness weight to join this faction
-	## push_scope = pop
+	## push_scope = pop_group
 	## cardinality = 0..1
 	attraction = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -152,7 +152,7 @@ pop_faction = {
 		trigger = single_alias_right[trigger_clause]
 	}
 
-	### Actions for this pop faction type (buttons)
+	### Actions for this pop_group faction type (buttons)
 	## cardinality = 0..1
 	actions = {
 		## cardinality = 0..inf
@@ -198,7 +198,7 @@ pop_faction = {
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
 
-	### Persistent factions will keep at least 1 pop in the faction until the faction fails the potential trigger
+	### Persistent factions will keep at least 1 pop_group in the faction until the faction fails the potential trigger
 	## cardinality = 0..1
 	persistent_faction = bool
 

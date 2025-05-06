@@ -1,0 +1,102 @@
+types = {
+    type[zone] = {
+        path = "game/common/zones"
+        file_extension = .txt
+        localisation = {
+            name = $
+            desc = $_desc
+        }
+        images = {
+            icon = icon
+        }
+    }
+}
+
+zone = {
+    ## cardinality = 0..1
+    icon = <sprite>
+    ## cardinality = 0..1
+    icon = icon[gfx/interface/icons/zones]
+    ## cardinality = 0..1
+    base_buildtime = int
+
+    ## cardinality = 0..1
+    max_buildings_planet_class = bool
+
+    ## replace_scopes = { this = planet root = planet }
+    ## cardinality = 0..1
+    potential = single_alias_right[trigger_clause]
+
+    ## replace_scopes = { this = planet root = planet }
+    ## cardinality = 0..1
+    unlock = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    resources = {
+        ## cardinality = 0..1
+        category = <economic_category>
+        alias_name[economic_template] = alias_match_left[economic_template]
+    }
+
+    ## cardinality = 0..1
+    convert_to = {
+        ## cardinality = 0..inf
+        <zone>
+    }
+
+    ## cardinality = 0..1
+    max_buildings = int
+
+    ## cardinality = 0..1
+    include = {
+        ## cardinality = 0..1
+        all
+        ## cardinality = 0..inf
+        <building>
+    }
+
+    ## cardinality = 0..1
+    exclude = {
+        ## cardinality = 0..inf
+        <building>
+    }
+
+    ## cardinality = 0..1
+    included_building_sets = {
+        ## cardinality = 0..inf
+        value[building_set]
+    }
+
+    ## cardinality = 0..1
+    excluded_building_sets = {
+        ## cardinality = 0..inf
+        value[building_set]
+    }
+
+    ## cardinality = 0..1
+    ## replace_scopes = { this = planet root = planet }
+    planet_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    ## replace_scopes = { this = planet root = planet }
+    district_planet_modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..inf
+    ## replace_scopes = { this = planet root = planet }
+    triggered_planet_modifier = single_alias_right[triggered_modifier_clause]
+
+    ## cardinality = 0..inf
+    ## replace_scopes = { this = planet root = planet }
+    triggered_district_planet_modifier = single_alias_right[triggered_modifier_clause]
+
+    ## replace_scopes = { this = planet root = planet }
+    ## cardinality = 0..inf
+    triggered_desc = single_alias_right[triggered_desc_clause]
+
+    ## cardinality = 0..1
+    show_in_tech = <technology>
+
+}
+
+
+

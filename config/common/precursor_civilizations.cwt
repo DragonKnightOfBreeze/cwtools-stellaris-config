@@ -11,4 +11,8 @@ precursors = {
 
 	## cardinality = 0..1
 	possible = single_alias_right[trigger_clause]
+
+	## cardinality = 1..1
+	picture = <sprite>
+
 }

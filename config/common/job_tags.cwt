@@ -1,0 +1,11 @@
+enums = {
+    complex_enum[job_tag] = {
+        path = "game/common/job_tags"
+        name = {
+            enum_name
+        }
+        start_from_root = yes
+    }
+}
+
+

@@ -1,0 +1,34 @@
+types = {
+    type[timeline_events] = {
+        path = "game/common/timeline_events"
+        file_extension = .txt
+    }
+}
+
+timeline_events = {
+    ### determines whether or not it is only ever added once to the history of a country, which happens at the first addition of an event of this type.
+    fire_only_once = bool
+
+    ### The GUI type used for this type of timeline event
+    gui = { scalar }
+
+    ### determines the GUI class that will be used to display this event
+    ### Only added if there is no override on the add_timeline_event that uses this
+    ## cardinality = 0..1
+    type = {
+        ## cardinality = 0..inf
+        enum[scope_type_token]
+    }
+    ### Only added if there is no override on the add_timeline_event that uses this
+    ## cardinality = 0..1
+    tooltip = localisation
+
+    ### text = { "GUI_element_name:name_of_string" } # supports multiple text strings. Only added if there is no override on the add_timeline_event that uses this
+    ## cardinality = 0..1
+    text = { value[gui_element_name]:localisation }
+
+    ### texture = { "GUI_element_name:GFX_name" } # supports multiple textures. Only added if there is no override on the add_timeline_event that uses this
+    ## cardinality = 0..1
+    texture = { value[gui_element_name]:<sprite> }
+
+}

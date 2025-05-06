@@ -77,12 +77,20 @@ colony_automation = {
 		<district>
 	}
 
+	## cardinality = 0..1
+	prio_zones = {
+		## cardinality = 0..inf
+		<zone>
+	}
+
 	buildings = {
 		## cardinality = 1..inf
-		int[1..inf] = {
+		scalar = {
 			building = <building>
 			## cardinality = 0..1
 			available = single_alias_right[trigger_clause]
+			## cardinality = 0..1
+			planet_limit = int
 		}
 	}
 }

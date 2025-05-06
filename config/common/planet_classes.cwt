@@ -185,6 +185,9 @@ planet_class = {
 		building_set = enum[building_set]
 
 		## cardinality = 0..1
+		starting_district = <district>
+
+		## cardinality = 0..1
 		climate = localisation
 		## cardinality = 0..1
 		habitat = bool

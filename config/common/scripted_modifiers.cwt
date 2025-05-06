@@ -1,12 +1,19 @@
 types = {
 	type[scripted_modifier] = {
 		path = "game/common/scripted_modifiers"
+		subtype[hidden] = {
+			hidden = yes
+		}
 		localisation = {
-			name = "mod_$"
+			subtype[!hidden] = {
+				name = "mod_$"
+			}
 		}
 		images = {
-			icon = icon # icon[gfx/interface/icons/modifiers]
-			icon = "gfx/interface/icons/modifiers/mod_$.dds" # inferred
+			subtype[!hidden] = {
+				icon = icon # icon[gfx/interface/icons/modifiers]
+				icon = "gfx/interface/icons/modifiers/mod_$.dds" # inferred
+			}
 		}
 	}
 }

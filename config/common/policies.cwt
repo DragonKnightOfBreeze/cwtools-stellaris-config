@@ -20,7 +20,7 @@ policy = {
 	## cardinality = 0..1
 	on_activate = single_alias_right[effect_clause]
 
-	## cardinality = 2..20
+	## cardinality = 1..20
 	option = {
 		name = localisation
 		## cardinality = 0..1

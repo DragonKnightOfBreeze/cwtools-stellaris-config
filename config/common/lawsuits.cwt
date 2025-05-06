@@ -1,0 +1,30 @@
+types = {
+	type[lawsuit] = {
+		path = "game/common/lawsuit_type"
+		file_extension = .txt
+	}
+}
+
+lawsuit = {
+
+	### scaling effect, scope is country
+	## cardinality = 0..1
+	## push_scope = country
+	effect = single_alias_right[effect_clause]
+
+	### cost to settle the lawsuit
+	## cardinality = 0..inf
+	cost = {
+		## cardinality = 0..inf
+		<resource> = int
+		## cardinality = 0..inf
+		multiplier = int_value_field
+		## cardinality = 0..1
+		trigger = single_alias_right[trigger_clause]
+	}
+
+	### default duration of the lawsuit
+	## cardinality = 0..1
+	duration = int
+
+}

@@ -24,22 +24,22 @@ alias[planet_pre_trigger:is_occupied_flag] = bool
 
 #pops:
 
-#### whether the pop planet has an owner
+#### whether the pop_group planet has an owner
 alias[pop_pre_trigger:has_owner] = bool
 
-#### whether the pop is enslaved
+#### whether the pop_group is enslaved
 alias[pop_pre_trigger:is_enslaved] = bool
 
-#### whether the pop is being purged
+#### whether the pop_group is being purged
 alias[pop_pre_trigger:is_being_purged] = bool
 
-#### whether the pop is being assimilated
+#### whether the pop_group is being assimilated
 alias[pop_pre_trigger:is_being_assimilated] = bool
 
-#### whether the pop is on a planet or not
+#### whether the pop_group is on a planet or not
 alias[pop_pre_trigger:has_planet] = bool
 
-#### whether the pop is sapients
+#### whether the pop_group is sapients
 alias[pop_pre_trigger:is_sapient] = bool
 
 alias[pop_pre_trigger:is_robot_pop] = bool
