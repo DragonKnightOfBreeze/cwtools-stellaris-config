@@ -14,14 +14,15 @@ types = {
 			plural = "job_$_plural"
 			## optional
 			desc = "job_$_desc"
+			desc = swappable_data/default/desc
 			## optional
 			effect = "job_$_effect_desc"
 		}
 		images = {
-			icon = icon
-			icon = "gfx/interface/icons/jobs/job_$.dds" # inferred
-			## optional
-			building_icon = building_icon #  <building> | icon[gfx/interface/icons/buildings]
+			icon = swappable_data/default/icon
+			icon = "gfx/interface/icons/jobs/job_$.dds"
+			building_icon = swappable_data/default/building_icon
+			 #  <building> | icon[gfx/interface/icons/buildings]
 		}
 	}
 }
@@ -48,7 +49,7 @@ job = {
 			## cardinality = 0..1
 			desc = localisation
 		}
-		## cardinality = 0..1
+		## cardinality = 0..inf
 		swap_type = {
 			## cardinality = 1..1
 			trigger = single_alias_right[trigger_clause]
