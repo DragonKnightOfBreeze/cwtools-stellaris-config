@@ -5,18 +5,22 @@ types = {
 		path = "game/events"
 		file_extension = .txt
 
+		## group = event_attribute
 		subtype[triggered] = {
 			is_triggered_only = yes
 		}
 		subtype[mean_time_to_happen] = {
 			mean_time_to_happen = {}
 		}
+		## group = event_attribute
 		subtype[hidden] = {
 			hide_window = yes
 		}
+		## group = event_attribute
 		subtype[major] = {
 			major = yes
 		}
+		## group = event_attribute
 		subtype[diplomatic] = {
 			diplomatic = yes
 		}

@@ -5,18 +5,23 @@ types = {
 		file_extension = .txt
 		path_strict = yes
 
+		## group = technology_attribute
 		subtype[start] = {
 			start_tech = yes
 		}
+		## group = technology_attribute
 		subtype[rare] = {
 			is_rare = yes
 		}
+		## group = technology_attribute
 		subtype[dangerous] = {
 			is_dangerous = yes
 		}
+		## group = technology_attribute
 		subtype[insight] = {
 			is_insight = yes
 		}
+		## group = technology_attribute
 		subtype[repeatable] = {
 			levels = int[-1..100]
 		}
