@@ -17,6 +17,11 @@ types = {
 		skip_root_key = portrait_groups
 		severity = warning
 	}
+	## type_key_filter = portrait_evolution
+	type[portrait_evolution] = {
+		path = "game/gfx/portraits/portraits"
+		path_extension = .txt
+	}
 }
 
 portrait = {
@@ -50,10 +55,10 @@ portrait = {
 
 		## cardinality = 0..1
 		portrait_evolution = {
-			evolution_stages = {
-				## cardinality = 1..inf
+			variants = {
 				{
-					values = {
+					## cardinality = 1..inf
+					value = {
 						## cardinality = 1..inf
 						{
 							## file_extensions = { .dds .png .tga }
@@ -188,6 +193,36 @@ portrait_group = {
 				<portrait>
 			}
 		}
+	}
+}
+
+portrait_evolution = {
+	default_mask_pair = {
+		## file_extensions = { .dds .png .tga }
+		mask = filepath
+		## file_extensions = { .dds .png .tga }
+		decal = filepath
+	}
+
+	## color_type = hsv
+	mask_color = {
+		## cardinality = 4..4
+		float
+	}
+
+	evolution_stages = {
+		## cardinality = 0..1
+		variants = {
+			## cardinality = 1..inf
+			{
+				## cardinality = 1..1
+				value = scalar
+				### leader, pop_group or species scope (when called with species scope, from subscope can contain a country species related to)
+				## replace_scopes = { this = any root = any }
+				trigger = single_alias_right[trigger_clause]
+			}
+		}
+
 	}
 }
 
