@@ -1,4 +1,5 @@
 types = {
+	## type_key_filter = message_type
 	type[message_type] = {
 		path = "game/common/message_types"
 		file_extension = .txt
