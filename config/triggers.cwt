@@ -764,7 +764,7 @@ alias[trigger:original_owner] = bool
 
 ### Checks if the pop_group is a robot
 ## scopes = { pop_group }
-alias[trigger:is_robot_pop = bool
+alias[trigger:is_robot_pop] = bool
 
 ### Checks if the pop_group is a robot
 ## scopes = { pop_group }
