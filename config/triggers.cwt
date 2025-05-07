@@ -2004,10 +2004,10 @@ alias[trigger:resource_expenses_compare] = {
 ### Checks specific resource revenue value for the country scope:
 ## scopes = { country }
 alias[trigger:resource_revenue_compare] = {
-	resource = <resource>
 	### Optional; if not provided, will use sum for all Categories
 	## cardinality = 0..1
 	category = <economic_category>
+	resource = <resource>
 	value = value_field
 }
 
@@ -5241,7 +5241,7 @@ alias[trigger:cutholoids_scaling] == value_field
 
 ### Checks if a pop has already picked an auto modded habitability trait.
 ## scopes = { pop_group }
-has_picked_auto_mod_habitability = bool
+alias[trigger:has_picked_auto_mod_habitability] = bool
 
 ### Checks if the country has the highest technology score
 ## scopes = { country }
@@ -5249,7 +5249,7 @@ alias[trigger:has_highest_technology_score] = bool
 
 ### Checks if the ship growth progress has maxed out.
 ## scopes = { ship }
-is_growth_complete = bool
+alias[trigger:is_growth_complete] = bool
 
 ### Checks if a ship is orbiting a star
 ## scopes = { ship fleet }

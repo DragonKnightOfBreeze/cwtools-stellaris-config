@@ -34,9 +34,6 @@ types = {
 		path = "game/common/component_templates"
 		file_extension = .txt
 		## type_key_filter = utility_component_template
-		subtype[starbase] = {
-			class_restriction = { shipclass_starbase }
-		}
 		## type_key_filter = utility_component_template
 		subtype[utility_component_template] = {
 		}
@@ -148,6 +145,7 @@ component_template = {
 	component_set = <component_set>
 	## cardinality = 0..1
 	hidden = bool
+	### (DEPRECATED: use "potential" trigger instead) The ship class(es) that the component is restricted to.
 	## cardinality = 0..1
 	class_restriction = {
 		## cardinality = 1..inf
@@ -219,7 +217,7 @@ component_template = {
 		## replace_scopes = { root = ship this = ship }
 		resources = {
 			## cardinality = 0..1
-		category = <economic_category>
+			category = <economic_category>
 			alias_name[economic_template_no_produce] = alias_match_left[economic_template_no_produce]
 		}
 		## cardinality = 0..1
@@ -351,7 +349,7 @@ component_template = {
 		## replace_scopes = { root = ship this = ship }
 		resources = {
 			## cardinality = 0..1
-		category = <economic_category>
+			category = <economic_category>
 			alias_name[economic_template_no_produce] = alias_match_left[economic_template_no_produce]
 		}
 
@@ -416,7 +414,7 @@ component_template = {
 		## replace_scopes = { root = ship this = ship }
 		resources = {
 			## cardinality = 0..1
-		category = <economic_category>
+			category = <economic_category>
 			alias_name[economic_template] = alias_match_left[economic_template]
 		}
 		## cardinality = 0..1

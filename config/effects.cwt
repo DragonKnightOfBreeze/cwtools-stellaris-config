@@ -1439,7 +1439,7 @@ alias[effect:copy_techs_from] = {
 alias[effect:set_graphical_culture] = <graphical_culture>
 ### Sets the scoped object's graphical culture
 ## scopes = { megastructure country }
-alias[effect:set_graphical_culture] = scope[target_graphical_culture]
+alias[effect:set_graphical_culture] = scope_group[target_graphical_culture]
 ### Creates a new species. The habitability trait is determined by homeworld, traits = random, traits = { ideal_planet_class = <pc_XYZ> }, traits = <trait_pc_XYZ_preference>, or else is assigned randomly.
 ## scopes = any
 alias[effect:create_species] = {
@@ -2073,6 +2073,7 @@ alias[effect:modify_species] = {
 	base = none
 	## cardinality = 0..inf
 	add_trait = <trait>
+	### optional, pushes out other traits if needed
 	## cardinality = 0..1
 	add_traits_at_start_of_list = bool
 	## cardinality = 0..inf
@@ -2473,9 +2474,6 @@ alias[effect:change_species_characteristics] = {
 	add_trait = <trait.species_trait>
 	## cardinality = 0..inf
 	remove_trait = <trait.species_trait>
-	## cardinality = 0..1
-	### optional, pushes out other traits if needed
-	add_traits_at_start_of_list = yes
 	## cardinality = 0..1
 	### Limits species to this gender
 	gender = enum[genders_not_set]
@@ -3406,7 +3404,9 @@ alias[effect:spawn_planet] = {
 	## cardinality = 0..1
 	orbit_angle = random
 	## cardinality = 0..1
-	orbit_angle = float
+	orbit_angle = int[-360..360]
+	## cardinality = 0..1
+	orbit_angle = { min = int[-360..360] max = int[-360..360] }
 	## cardinality = 0..1
 	orbit_angle_offset = float
 	## cardinality = 0..1
@@ -3548,9 +3548,9 @@ alias[effect:add_timeline_event] = {
 
 ### Weighted random on owned popgroups based on the popgroup size. Supports the same scopes as the owned_pop_group script list
 ## scopes = { planet country pop_faction sector }
+## push_scope = pop_group
 alias[effect:weighted_random_owned_pop_group] = {
 	## cardinality = 0..1
-	## push_scope = pop_group
 	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 	### adds weights to affect the chance a specific object is selected
@@ -3633,7 +3633,10 @@ alias[effect:add_district] = <district>
 ## scopes = { planet }
 alias[effect:add_district] = {
 	district_type = <district>
+	## cardinality = 0..1
 	ignore_cap = yes
+	## cardinality = 0..1
+	type_conversion = yes
 }
 
 ### Enables a resource on the Galactic Market
@@ -4608,12 +4611,12 @@ alias[effect:set_agreement_preset] = {
 ### Adds a ship component to a starbase, standalone from any module or building
 ## scopes = { starbase }
 alias[effect:add_starbase_component] = {
-	component = <component_template.starbase>
+	component = <component_template>
 }
 ### Removes the specified ship component to a starbase. Only works for components that are standalone from any module or building.
 ## scopes = { starbase }
 alias[effect:remove_starbase_component] = {
-	component = <component_template.starbase>
+	component = <component_template>
 }
 ### Add loyalty to subject of an agreement
 ## scopes = { agreement }
@@ -8196,6 +8199,7 @@ alias[effect:start_storm_area_placing] = {
 ## scopes = { country }
 alias[effect:give_specimen] = {
 	key = <specimen>
+	## cardinality = 0..1
 	origin = localisation
 }
 
@@ -8322,7 +8326,7 @@ alias[effect:reanimate_space_fauna] = {
 ## scopes = { fleet }
 alias[effect:spawn_custom_debris] = {
 	## cardinality = 1..1
-	for = scope[country]
+	for = scope_group[target_country]
 	### (optional) used to check if the ship must be added to the debris.
 	## cardinality = 0..1
 	should_add_ship_to_debris = single_alias_right[trigger_clause]
@@ -8505,6 +8509,8 @@ alias[effect:transfer_pop_amount] = {
 	amount = int_value_field
 	## cardinality = 0..1
 	percentage = percentage_field
+	## cardinality = 0..1
+	percentage = 1
 }
 
 ### Set planet preference trait for scoped species (removing the current one, if any).
@@ -8531,6 +8537,7 @@ alias[effect:reset_growth] = bool
 alias[effect:remove_zone] = {
 	district = <district>
 	zone = <zone>
+	## cardinality = 0..1
 	zone_slot = <zone_slots>
 	## cardinality = 0..1
 	all = bool
@@ -8580,8 +8587,8 @@ alias[effect:random_cosmic_storm] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 
-	## cardinality = 0..1
 	### optional - adds weights to affect the chance a specific object is selected
+	## cardinality = 0..1
 	weights = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
@@ -8597,16 +8604,16 @@ alias[effect:ordered_cosmic_storm] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 
-	## cardinality = 1..1
 	### integer, starting with 0
+	## cardinality = 1..1
 	position = int
 
-	## cardinality = 1..1
 	### <variable>/trigger:<trigger>
+	## cardinality = 1..1
 	order_by = value_field
 
-	## cardinality = 0..1
-	### default: no - if yes, then 0 is lowest rather than highest
+
+	### default: no - if yes, then 0 is lowest rather than highest	## cardinality = 0..1
 	inverse = bool
 
 	alias_name[effect] = alias_match_left[effect]
@@ -8619,8 +8626,8 @@ alias[effect:random_system_within_storm] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 
-	## cardinality = 0..1
 	### optional - adds weights to affect the chance a specific object is selected
+	## cardinality = 0..1
 	weights = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
@@ -8636,16 +8643,16 @@ alias[effect:ordered_system_within_storm] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 
-	## cardinality = 1..1
 	### integer, starting with 0
+	## cardinality = 1..1
 	position = int
 
-	## cardinality = 1..1
 	### <variable>/trigger:<trigger>
+	## cardinality = 1..1
 	order_by = value_field
 
-	## cardinality = 0..1
-	### default: no - if yes, then 0 is lowest rather than highest
+
+	### default: no - if yes, then 0 is lowest rather than highest	## cardinality = 0..1
 	inverse = bool
 
 	alias_name[effect] = alias_match_left[effect]
@@ -8660,15 +8667,15 @@ alias[effect:every_system_within_storm] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
-random_cosmic_storm_start_position - Iterate through all systems valid to be a storms start position - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+### Iterate through all systems valid to be a storms start position - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
 ## scopes = any
 ## push_scope = cosmic_storm
 alias[effect:random_cosmic_storm_start_position] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 
-	## cardinality = 0..1
 	### optional - adds weights to affect the chance a specific object is selected
+	## cardinality = 0..1
 	weights = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
@@ -8683,16 +8690,16 @@ alias[effect:ordered_cosmic_storm_start_position] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 
-	## cardinality = 1..1
 	### integer, starting with 0
+	## cardinality = 1..1
 	position = int
 
-	## cardinality = 1..1
 	### <variable>/trigger:<trigger>
+	## cardinality = 1..1
 	order_by = value_field
 
-	## cardinality = 0..1
 	### default: no - if yes, then 0 is lowest rather than highest
+	## cardinality = 0..1
 	inverse = bool
 
 	alias_name[effect] = alias_match_left[effect]
@@ -8714,8 +8721,8 @@ alias[effect:random_cosmic_storm_end_position] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 
-	## cardinality = 0..1
 	### optional - adds weights to affect the chance a specific object is selected
+	## cardinality = 0..1
 	weights = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
@@ -8730,16 +8737,16 @@ alias[effect:ordered_cosmic_storm_end_position] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 
-	## cardinality = 1..1
 	### integer, starting with 0
+	## cardinality = 1..1
 	position = int
 
-	## cardinality = 1..1
 	### <variable>/trigger:<trigger>
+	## cardinality = 1..1
 	order_by = value_field
 
-	## cardinality = 0..1
 	### default: no - if yes, then 0 is lowest rather than highest
+	## cardinality = 0..1
 	inverse = bool
 
 	alias_name[effect] = alias_match_left[effect]
@@ -8761,8 +8768,8 @@ alias[effect:random_system_added_to_storm] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 
-	## cardinality = 0..1
 	### optional - adds weights to affect the chance a specific object is selected
+	## cardinality = 0..1
 	weights = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
@@ -8777,16 +8784,16 @@ alias[effect:ordered_system_added_to_storm] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 
-	## cardinality = 1..1
 	### integer, starting with 0
+	## cardinality = 1..1
 	position = int
 
-	## cardinality = 1..1
 	### <variable>/trigger:<trigger>
+	## cardinality = 1..1
 	order_by = value_field
 
-	## cardinality = 0..1
 	### default: no - if yes, then 0 is lowest rather than highest
+	## cardinality = 0..1
 	inverse = bool
 
 	alias_name[effect] = alias_match_left[effect]
@@ -8808,8 +8815,8 @@ alias[effect:random_system_removed_from_storm] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 
-	## cardinality = 0..1
 	### optional - adds weights to affect the chance a specific object is selected
+	## cardinality = 0..1
 	weights = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
@@ -8824,16 +8831,16 @@ alias[effect:ordered_system_removed_from_storm] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 
-	## cardinality = 1..1
 	### integer, starting with 0
+	## cardinality = 1..1
 	position = int
 
-	## cardinality = 1..1
 	### <variable>/trigger:<trigger>
+	## cardinality = 1..1
 	order_by = value_field
 
-	## cardinality = 0..1
 	### default: no - if yes, then 0 is lowest rather than highest
+	## cardinality = 0..1
 	inverse = bool
 
 	alias_name[effect] = alias_match_left[effect]
@@ -8855,8 +8862,8 @@ alias[effect:random_owned_storm_influence_field] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 
-	## cardinality = 0..1
 	### optional - adds weights to affect the chance a specific object is selected
+	## cardinality = 0..1
 	weights = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
@@ -8871,16 +8878,16 @@ alias[effect:ordered_owned_storm_influence_field] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 
-	## cardinality = 1..1
 	### integer, starting with 0
+	## cardinality = 1..1
 	position = int
 
-	## cardinality = 1..1
 	### <variable>/trigger:<trigger>
+	## cardinality = 1..1
 	order_by = value_field
 
-	## cardinality = 0..1
 	### default: no - if yes, then 0 is lowest rather than highest
+	## cardinality = 0..1
 	inverse = bool
 
 	alias_name[effect] = alias_match_left[effect]
@@ -8902,8 +8909,8 @@ alias[effect:random_system_in_cosmic_storm_influence_field] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 
-	## cardinality = 0..1
 	### optional - adds weights to affect the chance a specific object is selected
+	## cardinality = 0..1
 	weights = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
@@ -8918,16 +8925,16 @@ alias[effect:ordered_system_in_cosmic_storm_influence_field] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 
-	## cardinality = 1..1
 	### integer, starting with 0
+	## cardinality = 1..1
 	position = int
 
-	## cardinality = 1..1
 	### <variable>/trigger:<trigger>
+	## cardinality = 1..1
 	order_by = value_field
 
-	## cardinality = 0..1
 	### default: no - if yes, then 0 is lowest rather than highest
+	## cardinality = 0..1
 	inverse = bool
 
 	alias_name[effect] = alias_match_left[effect]
@@ -8941,5 +8948,4 @@ alias[effect:every_system_in_cosmic_storm_influence_field] = {
 	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
-
 

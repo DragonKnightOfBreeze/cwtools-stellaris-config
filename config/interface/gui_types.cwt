@@ -138,6 +138,8 @@ gui_type = {
 ### Used to set a position of entire containers or elements
 alias[gui:positionType] = {
 	name = scalar
+	### default: (0, 0)
+	## cardinality = 0..1
 	position = {
 		x = int
 		y = int
@@ -490,6 +492,8 @@ alias[gui_button:guiButtonType] = {
 alias[gui:browserType] = {
 	name = scalar
 	spriteType = <sprite>
+	### default: (0, 0)
+	## cardinality = 0..1
 	position = {
 		x = int
 		y = int
@@ -558,6 +562,7 @@ alias[gui:extendedScrollbarType] = {
 	track = {
 		name = scalar
 		alias_name[gui_sprite] = alias_match_left[gui_sprite]
+		### default: (0, 0)
 		## cardinality = 0..1
 		position = {
 			x = int
@@ -568,6 +573,7 @@ alias[gui:extendedScrollbarType] = {
 	slider = {
 		name = scalar
 		alias_name[gui_sprite] = alias_match_left[gui_sprite]
+		### default: (0, 0)
 		## cardinality = 0..1
 		position = {
 			x = int
@@ -578,6 +584,7 @@ alias[gui:extendedScrollbarType] = {
 	decreaseButton = {
 		name = scalar
 		alias_name[gui_sprite] = alias_match_left[gui_sprite]
+		### default: (0, 0)
 		## cardinality = 0..1
 		position = {
 			x = int
@@ -588,6 +595,7 @@ alias[gui:extendedScrollbarType] = {
 	increaseButton = {
 		name = scalar
 		alias_name[gui_sprite] = alias_match_left[gui_sprite]
+		### default: (0, 0)
 		## cardinality = 0..1
 		position = {
 			x = int
@@ -786,6 +794,7 @@ alias[overlay:overlay] = {
 	spriteType = <sprite>
 	## cardinality = 0..1
 	overSprite = <sprite>
+	### default: (0, 0)
 	## cardinality = 0..1
 	position = {
 		x = int

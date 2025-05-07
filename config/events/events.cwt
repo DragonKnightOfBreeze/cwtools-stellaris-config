@@ -292,6 +292,7 @@ event = {
 				icon = <sprite>
 				## cardinality = 0..1
 				icon_background = <sprite>
+				## cardinality = 0..1
 				text = localisation
 			}
 
