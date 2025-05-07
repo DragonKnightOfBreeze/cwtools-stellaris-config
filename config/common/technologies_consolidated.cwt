@@ -107,8 +107,9 @@ technology = {
 	subtype[start] = {
 		## cardinality = 0..1
 		cost = int
+		## cardinality = 0..1
+		weight = float
 	}
-
 	subtype[!start] = {
 		## cardinality = ~1..1
 		cost = int
@@ -126,6 +127,7 @@ technology = {
 		## cardinality = 0..1
 		levels = int[-1..100]
 	}
+
 	## cardinality = 0..1
 	prerequisites = {
 		## cardinality = 0..inf

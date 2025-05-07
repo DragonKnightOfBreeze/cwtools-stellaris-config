@@ -283,6 +283,7 @@ enums = {
 	# these modifier_categories options are used to get modifier categories of generated modifiers from economic categories
 	enum[scripted_modifier_category] = {
 		all
+		none
 		## modifier_categories = { "Pops" "AI Economy" }
 		pop_group
 		## modifier_categories = { Job "AI Economy" }
@@ -302,11 +303,13 @@ enums = {
 		## modifier_categories = { Planets "AI Economy" }
 		planet
 		component
+		## modifier_categories = { "Pop Factions" "AI Economy" }
 		pop_faction
 		## modifier_categories = { Deposits "AI Economy" }
 		deposit
 		## modifier_categories = { Megastructures "AI Economy" }
 		megastructure
+		## modifier_categories = { Habitability "AI Economy" }
 		habitability
 		## modifier_categories = { Starbases "AI Economy" }
 		starbase
@@ -314,6 +317,7 @@ enums = {
 		economic_unit
 		## modifier_categories = { "Star Systems" "AI Economy" }
 		system
+		## modifier_categories = { Federations "AI Economy" }
 		federation
 		## modifier_categories = { Espionage "AI Economy" }
 		espionage

@@ -18,7 +18,7 @@ modifier_categories = {
 		supported_scopes = { planet sector galacticobject country }
 	}
 	"Pop Factions" = {
-		supported_scopes = { popfaction country }
+		supported_scopes = { pop_faction country }
 	}
 	"Military Ships" = {
 		supported_scopes = { ship starbase fleet galacticobject country sector }
