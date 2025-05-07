@@ -7,6 +7,9 @@ types = {
 			name = name
 			name = "MESSAGE_$_TITLE"
 		}
+		images = {
+			icon = icon
+		}
 	}
 }
 
