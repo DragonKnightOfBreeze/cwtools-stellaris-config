@@ -2967,7 +2967,7 @@ alias[trigger:num_associates] == int_value_field
 ## scopes = { army }
 alias[trigger:is_defensive_army] = bool
 
-### Checks if the pop_group is currently working this strata job (worker, specialist, complex_drone, etc.) Returns false if unemployed.
+### Checks if the job has a specific category set.
 ## scopes = { pop_job }
 alias[trigger:has_job_category] = <pop_category>
 
