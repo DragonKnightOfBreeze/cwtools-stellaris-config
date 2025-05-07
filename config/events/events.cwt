@@ -242,8 +242,6 @@ event = {
 		event_picture_background = <sprite>
 		## cardinality = 0..1
 		notification_event_icon = <sprite>
-		## cardinality = 0..1
-		event_message_type = <message_type>
 
 		## cardinality = 0..inf
 		show_sound = <sound_effect>
@@ -342,6 +340,9 @@ event = {
 			alias_name[effect] = alias_match_left[effect]
 		}
 	}
+
+	## cardinality = 0..1
+	event_message_type = <message_type>
 
 	## cardinality = 0..1
 	event_chain = <event_chain>
