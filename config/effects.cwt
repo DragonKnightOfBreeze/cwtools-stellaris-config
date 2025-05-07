@@ -2073,6 +2073,7 @@ alias[effect:modify_species] = {
 	base = none
 	## cardinality = 0..inf
 	add_trait = <trait>
+	### optional, pushes out other traits if needed
 	## cardinality = 0..1
 	add_traits_at_start_of_list = bool
 	## cardinality = 0..inf
@@ -2473,9 +2474,6 @@ alias[effect:change_species_characteristics] = {
 	add_trait = <trait.species_trait>
 	## cardinality = 0..inf
 	remove_trait = <trait.species_trait>
-	## cardinality = 0..1
-	### optional, pushes out other traits if needed
-	add_traits_at_start_of_list = yes
 	## cardinality = 0..1
 	### Limits species to this gender
 	gender = enum[genders_not_set]
@@ -3633,7 +3631,10 @@ alias[effect:add_district] = <district>
 ## scopes = { planet }
 alias[effect:add_district] = {
 	district_type = <district>
+	## cardinality = 0..1
 	ignore_cap = yes
+	## cardinality = 0..1
+	type_conversion = yes
 }
 
 ### Enables a resource on the Galactic Market
@@ -4608,12 +4609,12 @@ alias[effect:set_agreement_preset] = {
 ### Adds a ship component to a starbase, standalone from any module or building
 ## scopes = { starbase }
 alias[effect:add_starbase_component] = {
-	component = <component_template.starbase>
+	component = <component_template>
 }
 ### Removes the specified ship component to a starbase. Only works for components that are standalone from any module or building.
 ## scopes = { starbase }
 alias[effect:remove_starbase_component] = {
-	component = <component_template.starbase>
+	component = <component_template>
 }
 ### Add loyalty to subject of an agreement
 ## scopes = { agreement }
@@ -8196,6 +8197,7 @@ alias[effect:start_storm_area_placing] = {
 ## scopes = { country }
 alias[effect:give_specimen] = {
 	key = <specimen>
+	## cardinality = 0..1
 	origin = localisation
 }
 
@@ -8505,6 +8507,8 @@ alias[effect:transfer_pop_amount] = {
 	amount = int_value_field
 	## cardinality = 0..1
 	percentage = percentage_field
+	## cardinality = 0..1
+	percentage = 1
 }
 
 ### Set planet preference trait for scoped species (removing the current one, if any).
@@ -8538,7 +8542,7 @@ alias[effect:remove_zone] = {
 
 ### Instantly destroys part of the assigned pops to this job
 ## scopes = { pop_job }
-kill_assigned_pop_amount = {
+alias[effect:kill_assigned_pop_amount] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 	## cardinality = 0..1
@@ -8660,7 +8664,7 @@ alias[effect:every_system_within_storm] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
-random_cosmic_storm_start_position - Iterate through all systems valid to be a storms start position - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+### Iterate through all systems valid to be a storms start position - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
 ## scopes = any
 ## push_scope = cosmic_storm
 alias[effect:random_cosmic_storm_start_position] = {
