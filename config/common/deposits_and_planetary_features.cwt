@@ -131,17 +131,9 @@ deposit = {
 
 	## cardinality = 0..1
 	potential = single_alias_right[trigger_clause]
-	subtype[!not_dropped] = {
-		drop_weight = {
-			alias_name[modifier_rule] = alias_match_left[modifier_rule]
-		}
-	}
 
-	subtype[not_dropped] = {
-		## cardinality = 0..1
-		drop_weight = {
-			weight = 0
-		}
+	drop_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
 	subtype[orbital] = {

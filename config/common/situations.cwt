@@ -31,13 +31,11 @@ situation_type = {
 	## cardinality = 0..inf
 	title = {
 		trigger = single_alias_right[trigger_clause]
+		## cardinality = 0..1
 		text = localisation
 	}
 	## cardinality = 0..inf
-	desc = {
-		trigger = single_alias_right[trigger_clause]
-		text = localisation
-	}
+	desc = single_alias_right[triggered_desc_clause]
 	## cardinality = 0..1
 	active_tooltip = localisation
 
@@ -124,7 +122,7 @@ situation_type = {
 		## cardinality = 0..inf
 		resources = {
 			## cardinality = 0..1
-		category = <economic_category>
+			category = <economic_category>
 			alias_name[economic_template] = alias_match_left[economic_template]
 		}
 		## cardinality = 0..1

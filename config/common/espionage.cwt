@@ -101,10 +101,7 @@ espionage_operation = {
 	desc = localisation
 	### Description generator for the operation, with scope this=spy network
 	## cardinality = 1..inf
-	desc = {
-		trigger = single_alias_right[trigger_clause]
-		text = localisation
-	}
+	desc = single_alias_right[triggered_desc_clause]
 	stages = int
 
 	spy_power_cost = int

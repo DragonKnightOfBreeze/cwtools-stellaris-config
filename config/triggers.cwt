@@ -2004,10 +2004,10 @@ alias[trigger:resource_expenses_compare] = {
 ### Checks specific resource revenue value for the country scope:
 ## scopes = { country }
 alias[trigger:resource_revenue_compare] = {
-	resource = <resource>
 	### Optional; if not provided, will use sum for all Categories
 	## cardinality = 0..1
 	category = <economic_category>
+	resource = <resource>
 	value = value_field
 }
 

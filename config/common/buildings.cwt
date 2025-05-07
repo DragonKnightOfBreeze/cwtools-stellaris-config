@@ -53,12 +53,8 @@ enums = {
 ## push_scope = planet
 building = {
 	## cardinality = 0..inf
-	desc = {
-		## cardinality = 0..1
-		## replace_scopes = { this = planet root = planet }
-		trigger = single_alias_right[trigger_clause]
-		text = localisation
-	}
+	## replace_scopes = { this = planet root = planet }
+	desc = single_alias_right[triggered_desc_clause]
 	## cardinality = 0..1
 	owner_type = corporate
 	## cardinality = 0..1

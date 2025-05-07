@@ -62,7 +62,7 @@ economic_category = {
 }
 
 single_alias[economic_category_generate_modifiers] = {
-	## cardinality = 1..4
+	## cardinality = 0..4
 	enum[economic_modifier_category]
 }
 
@@ -165,6 +165,7 @@ alias[economic_template_no_produce:logistics] = {
 
 ## cardinality = 0..1
 alias[resources_template_optional:resources] = {
+	## cardinality = 0..1
 	category = <economic_category>
 	alias_name[economic_template] = alias_match_left[economic_template]
 }
