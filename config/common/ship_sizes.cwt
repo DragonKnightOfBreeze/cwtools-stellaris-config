@@ -325,7 +325,7 @@ ship_size = {
 		## cardinality = 0..1
 		bioship_growth_progress_required = int
 		## cardinality = 0..1
-		upgrades_to = <size>
+		upgrades_to = <ship_size>
 	}
 
 	## cardinality = 0..1
