@@ -8490,11 +8490,11 @@ alias[effect:add_focus_progress] = {
 
 ### Adds the amount of pops to the scope pop group.
 ## scopes = { pop_group }
-alias[effect:add_pop_amount] = int
+alias[effect:add_pop_amount] = int_value_field
 
 ### Removes the amount of pops from the scope pop group.
 ## scopes = { pop_group }
-alias[effect:remove_pop_amount] = int
+alias[effect:remove_pop_amount] = int_value_field
 
 ### Scales the amount of pops in the scope pop group
 ## scopes = { pop_group }
