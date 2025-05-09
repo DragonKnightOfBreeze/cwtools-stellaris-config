@@ -1607,10 +1607,6 @@ alias[trigger:is_terraforming] = bool
 ## scopes = { country }
 alias[trigger:is_tutorial_level] == int_value_field
 
-### Checks if the pop_group is unemployed
-## scopes = { pop_group }
-alias[trigger:is_unemployed] = bool
-
 ### Checks to see if target scope is valid for the country/planet/army
 ## scopes = { planet country army }
 alias[trigger:is_valid] = scope[any]
