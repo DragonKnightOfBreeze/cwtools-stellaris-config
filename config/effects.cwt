@@ -8495,7 +8495,7 @@ alias[effect:add_pop_amount] = int_value_field
 ### Removes the amount of pops from the scope pop group.
 ## scopes = { pop_group }
 alias[effect:remove_pop_amount] = int_value_field
-
+bonus_pop_growth
 ### Scales the amount of pops in the scope pop group
 ## scopes = { pop_group }
 alias[effect:scale_pop_amount] = value_field
