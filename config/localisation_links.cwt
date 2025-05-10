@@ -141,6 +141,12 @@ localisation_links = {
 
 	# links from data
 
+	jobs = {
+		type = scope
+		from_data = yes
+		data_source = <job>
+	}
+
 	parameter = {
 		type = scope
 		from_data = yes
