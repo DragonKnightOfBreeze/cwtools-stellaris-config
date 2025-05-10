@@ -112,6 +112,18 @@ job = {
 	}
 
 	## cardinality = 0..1
+	triggered_tags = {
+		## cardinality = 1..1
+		## push_scope = planet
+		trigger = single_alias_right[trigger_clause]
+		## cardinality = 1..1
+		tags = {
+			## cardinality = 0..inf
+			enum[job_tag]
+		}
+	}
+
+	## cardinality = 0..1
 	localized_tags = {
 		## cardinality = 0..inf
 		localisation
