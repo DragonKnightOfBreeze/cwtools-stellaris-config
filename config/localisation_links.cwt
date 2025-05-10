@@ -141,17 +141,28 @@ localisation_links = {
 
 	# links from data
 
+	event_target_no_prefix = {
+		type = scope
+		from_data = yes
+		# prefix = event_target: # no prefix
+		data_source = value[event_target]
+	}
+	global_event_target_no_prefix = {
+		type = scope
+		from_data = yes
+		# prefix = event_target: # no prefix
+		data_source = value[global_event_target]
+	}
 	job = {
 		type = scope
 		from_data = yes
 		data_source = <job>
+		output_scope = pop_job
 	}
-
 	parameter = {
 		type = scope
 		from_data = yes
 		prefix = parameter:
 		data_source = value[parameter]
 	}
-
 }
