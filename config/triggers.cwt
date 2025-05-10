@@ -3696,7 +3696,7 @@ alias[trigger:count_owned_pop_amount] = {
 	## push_scope = pop_group
 	limit = single_alias_right[trigger_clause]
 	## cardinality = ~1..1
-	count = int
+	count = int_value_field
 }
 
 ### Checks the number of deposits on the planet that meet the specified criteria
