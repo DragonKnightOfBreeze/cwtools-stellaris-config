@@ -40,9 +40,6 @@ types = {
 
 trait = {
 
-
-
-
 	subtype[leader_trait] = {
 		### This trait is available in ruler creation. Default is no.
 		## cardinality = 0..1
@@ -186,6 +183,12 @@ trait = {
 		## cardinality = 0..inf
 		## replace_scopes = { this = country root = country from = country }
 		triggered_councilor_modifier = single_alias_right[triggered_modifier_by_leader_clause]
+		## cardinality = 0..inf
+		## replace_scopes = { this = pop_group root = pop_group }
+		triggered_planet_pop_group_modifier_for_all = single_alias_right[triggered_modifier_by_leader_clause]
+		## cardinality = 0..inf
+		## replace_scopes = { this = pop_group root = pop_group }
+		triggered_planet_pop_group_modifier_for_species = single_alias_right[triggered_modifier_by_pop_group_clause]
 
 		### Show key if trigger/exclusive_trigger is true.
 		## cardinality = 0..inf
@@ -413,9 +416,6 @@ trait = {
 		## replace_scopes = { this = planet root = planet }
 		growing_modifier = single_alias_right[modifier_clause]
 
-		## cardinality = 0..inf
-		## replace_scopes = { this = pop_group root = pop_group }
-		triggered_planet_pop_group_modifier = single_alias_right[triggered_modifier_clause]
 		### won't show in trait tooltips, use custom_tooltip/custom_tooltip_with_modifiers
 		## cardinality = 0..inf
 		## replace_scopes = { this = pop_group root = pop_group }
@@ -426,6 +426,12 @@ trait = {
 		## cardinality = 0..inf
 		## replace_scopes = { this = planet root = planet from = species fromfrom = country }
 		triggered_planet_growth_habitability_modifier = single_alias_right[triggered_modifier_clause]
+		## cardinality = 0..inf
+		## replace_scopes = { this = pop_group root = pop_group }
+		triggered_planet_pop_group_modifier_for_all = single_alias_right[triggered_modifier_clause]
+		## cardinality = 0..inf
+		## replace_scopes = { this = pop_group root = pop_group }
+		triggered_planet_pop_group_modifier_for_species = single_alias_right[triggered_modifier_clause]
 
 		#### Will show in trait tooltips if active. Tooltips will always use the player country as the country scope.
 		## cardinality = 0..inf
@@ -541,6 +547,13 @@ trait = {
 			<species_class> = float
 		}
 	}
+
+	## cardinality = 0..inf
+	## replace_scopes = { this = pop_group root = pop_group }
+	triggered_planet_pop_group_modifier_for_species = single_alias_right[triggered_modifier_by_pop_group_clause]
+	## cardinality = 0..inf
+	## replace_scopes = { this = pop_group root = pop_group }
+	triggered_planet_pop_group_modifier_for_all = single_alias_right[triggered_modifier_clause]
 
 	## cardinality = 0..1
 	ai_weight = int
