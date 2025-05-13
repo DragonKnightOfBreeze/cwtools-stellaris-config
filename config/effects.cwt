@@ -3546,6 +3546,13 @@ alias[effect:add_timeline_event] = {
 
 }
 
+### Proposes the resolution of the given type
+## scopes = { country }
+alias[effect:propose_resolution] = {
+	resolution = <resolution>
+	target = scope_group[target_country]
+}
+
 ### Weighted random on owned popgroups based on the popgroup size. Supports the same scopes as the owned_pop_group script list
 ## scopes = { planet country pop_faction sector }
 ## push_scope = pop_group
@@ -3563,6 +3570,15 @@ alias[effect:weighted_random_owned_pop_group] = {
 alias[effect:set_trade_conversions] = {
 	## cardinality = 0..inf
 	<resource> = value_field
+}
+
+### Sets the specific resource to the stockpile for the country scope:
+## scopes = { country }
+alias[effect:set_resource] = {
+	## cardinality = 1..1
+	resource = <resource>
+	## cardinality = 1..1
+	value = value_field
 }
 
 ### Remove resource deposit on the scoped planet or deposit, does not fire on_cleared if used on a blocker

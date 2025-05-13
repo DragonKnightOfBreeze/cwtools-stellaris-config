@@ -42,11 +42,6 @@ links = {
 		input_scopes = { all }
 		output_scope = country
 	}
-	### Scopes to the last country from which a pop_group fled to escape purge (via on_pop_displaced).
-	last_refugee_country = {
-		input_scopes = { all }
-		output_scope = country
-	}
 	### Scopes from an object to its leader, e.g. country->ruler, fleet->admiral/scientist, sector->governor, army->general, arc site->scientist...
 	leader = {
 		input_scopes = { planet country ship fleet leader army pop_faction federation archaeological_site first_contact spy_network espionage_operation astral_rift }
@@ -133,11 +128,6 @@ links = {
 	### Scopes from a country or planet to its unhappiest pop_group.
 	unhappiest_pop = {
 		input_scopes = { planet country }
-		output_scope = pop_group
-	}
-	### Scopes to the last pop_group that was created anywhere in the game.
-	last_created_pop = {
-		input_scopes = { all }
 		output_scope = pop_group
 	}
 	### Scopes to the last ambient object that was created anywhere in the game.
