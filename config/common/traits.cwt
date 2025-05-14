@@ -413,9 +413,6 @@ trait = {
 		modifier = single_alias_right[modifier_clause]
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
-		assembling_modifier = single_alias_right[modifier_clause]
-		## cardinality = 0..1
-		## replace_scopes = { this = planet root = planet }
 		declining_modifier = single_alias_right[modifier_clause]
 		## cardinality = 0..1
 		## replace_scopes = { this = planet root = planet }
