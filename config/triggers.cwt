@@ -2879,7 +2879,7 @@ alias[trigger:is_espionage_operation_auto_accept_events] == bool
 alias[trigger:num_espionage_assets] == int_value_field
 
 ### Checks if the ship/fleet/design has a specific owner type (country/federation/galactic_community/global_ship_design)
-## scopes = { ship fleet design }
+## scopes = { ship fleet design ship_growth_stage }
 alias[trigger:has_ship_owner_type] = enum[ship_owner_type]
 
 ### Checks if a country has a specific Crisis Level unlocked.

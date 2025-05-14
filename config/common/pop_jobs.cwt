@@ -164,7 +164,10 @@ job = {
 
 	## cardinality = 0..inf
 	## replace_scopes = { this = pop_group root = pop_group }
-	triggered_planet_pop_group_modifier = single_alias_right[triggered_modifier_by_pop_group_clause]
+	triggered_planet_pop_group_modifier_for_species = single_alias_right[triggered_modifier_by_pop_group_clause]
+	## cardinality = 0..inf
+	## replace_scopes = { this = pop_group root = pop_group }
+	triggered_planet_pop_group_modifier_for_all = single_alias_right[triggered_modifier_by_pop_group_clause]
 	## cardinality = 0..inf
 	## replace_scopes = { this = pop_group root = pop_group }
 	triggered_pop_group_modifier = single_alias_right[triggered_modifier_by_pop_group_clause]
