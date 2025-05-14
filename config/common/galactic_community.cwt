@@ -67,7 +67,7 @@ resolution_category = {
 
 resolution_group = {
 	color_index = int[0..inf]
-	text_color_code = <textcolor>
+	text_color_code = <text_color>
 }
 
 ## replace_scopes = { this = country root = country from = country }
