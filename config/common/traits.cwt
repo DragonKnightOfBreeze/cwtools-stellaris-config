@@ -318,6 +318,10 @@ trait = {
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		}
 
+		## cardinality = 0..inf
+		## replace_scopes = { this = species root = species from = pop_group }
+		desc = single_alias_right[triggered_desc_clause]
+
 		## cardinality = 0..1
 		valid_for_all_ethics = bool
 		## cardinality = 0..1
