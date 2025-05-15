@@ -36,6 +36,11 @@ game_rules = {
 	## replace_scopes = { this = species root = planet }
 	species_can_live_on_planet
 
+	### Root = planet
+	### This = species
+	## replace_scopes = { this = species root = planet }
+	species_has_uncapped_habitability_on_planet
+
 	### Note: this is also used in pop_group faction support calculations
 	### Root = country
 	### This = pop_group
