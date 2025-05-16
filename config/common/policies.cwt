@@ -11,16 +11,20 @@ types = {
 
 policy = {
 	## cardinality = 0..1
+	## replace_scopes = { this = country root = country }
 	potential = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
+	## replace_scopes = { this = country root = country }
 	allow = single_alias_right[trigger_clause]
 
 	### Fires when the policy group first becomes available
 	## cardinality = 0..1
+	## replace_scopes = { this = country root = country }
 	on_activate = single_alias_right[effect_clause]
 
 	## cardinality = 1..20
+	## replace_scopes = { this = country root = country }
 	option = {
 		name = localisation
 		## cardinality = 0..1
