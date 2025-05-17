@@ -165,4 +165,10 @@ localisation_links = {
 		prefix = parameter:
 		data_source = value[parameter]
 	}
+
+	variable = {
+		type = value
+		from_data = yes
+		data_source = value[variable]
+	}
 }
