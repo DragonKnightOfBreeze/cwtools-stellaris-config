@@ -2,6 +2,13 @@ types = {
 	type[precursors] = {
 		path = "common/precursor_civilizations"
 		file_extension = .txt
+		localisation = {
+			name = "$"
+			desc = "$_desc"
+		}
+		images = {
+			pictrue = picture
+		}
 	}
 }
 
