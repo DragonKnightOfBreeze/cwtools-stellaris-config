@@ -187,10 +187,6 @@ planet_class = {
 		## severity = warning
 		district_set = enum[district_set]
 
-		### If assigned only buildings with a matching building set will be possible to build
-		## cardinality = 0..1
-		building_set = enum[building_set]
-
 		## cardinality = 0..1
 		starting_district = <district>
 
