@@ -2831,7 +2831,7 @@ alias[effect:create_pop_group] = {
 	category = <pop_category>
 	### (optional, default: POP_BULK_UNIT_SIZE)
 	## cardinality = 0..1
-	size = int
+	size = int_value_field
 	## cardinality = 0..1
 	## push_scope = pop_group
 	effect = single_alias_right[effect_clause]
