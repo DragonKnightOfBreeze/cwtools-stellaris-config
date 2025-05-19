@@ -130,6 +130,15 @@ types = {
 			delayed_tooltip = "$_tooltip_delayed"
 		}
 	}
+	type[integration_types] = {
+		path = "game/common/species_rights/subspecies_integration_types"
+		file_extension = .txt
+		localisation = {
+			name = "$"
+			tooltip = "$_tooltip"
+			delayed_tooltip = "$_tooltip_delayed"
+		}
+	}
 }
 
 #make sure trait points cannot be above max, ideally
@@ -742,6 +751,23 @@ slavery_type = {
 	## cardinality = 0..inf
 	## replace_scopes = { this = pop_group root = pop_group }
 	triggered_pop_group_modifier = single_alias_right[triggered_modifier_clause]
+}
+
+integration_types = {
+	## cardinality = 1..1
+	integration = bool
+
+	## cardinality = 0..1
+	## replace_scopes = { this = species root = species from = country }
+	allow = single_alias_right[trigger_clause]
+
+	## cardinality = 0..1
+	## replace_scopes = { this = species root = species from = country }
+	ai_will_do = {
+		factor = float
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
 }
 
 enums = {
