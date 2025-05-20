@@ -1043,13 +1043,13 @@ on_actions = {
 	### From = planet
 	## replace_scopes = { this = root root = pop_group from = planet }
 	## event_type = pop_group
-	on_pop_added
+	on_pop_group_added
 
 	### We changed a species right
 	### This = pop_group
 	## replace_scopes = { this = pop_group root = pop_group }
 	## event_type = pop_group
-	on_pop_rights_change
+	on_pop_group_rights_change
 
 	### A pop_group has finished growing
 	### This = Planet scope
@@ -1057,7 +1057,7 @@ on_actions = {
 	### FromFrom = Pop
 	## replace_scopes = { this = planet root = planet from = country fromfrom = pop_group }
 	## event_type = planet
-	on_pop_grown
+	on_pop_growth
 
 	### A pop_group has finished assembling
 	### This = Planet scope
@@ -1065,7 +1065,7 @@ on_actions = {
 	### FromFrom = Pop
 	## replace_scopes = { this = planet root = planet from = country fromfrom = pop_group }
 	## event_type = planet
-	on_pop_assembled
+	on_pop_assembly
 
 	### A pop_group has finished purging
 	### This = Planet scope

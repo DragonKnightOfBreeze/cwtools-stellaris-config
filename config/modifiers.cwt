@@ -649,6 +649,7 @@ modifiers = {
 	job_<job.capped>_per_crime = { Planets }
 	job_<job>_max_workforce_add = { Job }
 	job_<job>_max_workforce_mult = { Job }
+	pop_<job>_promotion_time_mult = { Pops }
 	pop_<job>_demotion_time_mult = { Pops }
 	pop_<job>_workforce_add = { Pops }
 	pop_<job>_workforce_mult = { Pops }
