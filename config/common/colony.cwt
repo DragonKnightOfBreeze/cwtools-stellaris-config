@@ -5,6 +5,7 @@ types = {
 		localisation = {
 			name = "$"
 			desc = "$_desc"
+			tooltip = "$_tt"
 		}
 		images = {
 			icon = icon # <sprite>
