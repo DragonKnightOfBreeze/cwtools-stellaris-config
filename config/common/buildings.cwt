@@ -71,7 +71,24 @@ building = {
 	}
 
 	## cardinality = 0..1
-	base_buildtime = int
+	empire_limit = float
+
+	### optional: default is no limit. Don't set base to less than 0, it will ignore it (for performance optimisation reasons) Mult by -1 to remove limit
+	## cardinality = 0..1
+	## replace_scopes = { root = country this = country }
+	empire_limit = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	## cardinality = 0..1
+	planet_limit = int
+
+	### optional: default is no limit Mult by -1 to remove limit (still affected by is_capped_by_modifier = yes)
+	## replace_scopes = { root = planet this = planet }
+	## cardinality = 0..1
+	planet_limit = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
 
 	### whether this building is exempt from being swapped into groups by the AI; default: no
 	## cardinality = 0..1
@@ -112,14 +129,6 @@ building = {
 	## cardinality = 0..1
 	allow = single_alias_right[trigger_clause]
 
-	## cardinality = 0..1
-	## replace_scopes = { root = country this = country }
-	empire_limit = {
-		alias_name[modifier_rule] = alias_match_left[modifier_rule]
-	}
-
-	## cardinality = 0..1
-	empire_limit = float
 
 	### an action when queued
 	## cardinality = 0..1

@@ -803,6 +803,10 @@ alias[effect:set_timed_agreement_flag] = {
 ## scopes = any
 alias[effect:remove_megastructure] = scope[megastructure]
 
+### Sets the purge type for the entire planet
+## scopes = any
+alias[effect:set_planet_purge_type] = <purge_type>
+
 ### Sets a relation flag for the scoped country towards target country
 ## scopes = { country }
 alias[effect:set_relation_flag] = {
@@ -8569,6 +8573,10 @@ alias[effect:kill_assigned_pop_amount] = {
 	## cardinality = 0..1
 	percentage = float[0.0..1.0]
 }
+
+### Triggers the merge of similar sub-species for a country.
+## scopes = { country }
+alias[effect:merge_species] = yes
 
 ### Enables a mission for target country
 ## scopes = any

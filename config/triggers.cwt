@@ -734,9 +734,13 @@ alias[trigger:is_idle] = bool
 ## scopes = { country }
 alias[trigger:is_primitive] = bool
 
-### Checks if the pop_group is sapient
+### Checks if the pop group or species is sapient
 ## scopes = { pop_group species }
 alias[trigger:is_sapient] = bool
+
+### Checks if the pop group or species inherits the base species' rights. Returns false if there is no parent species.
+## scopes = { pop_group species }
+alias[trigger:inherits_parent_rights] = bool
 
 ### Checks if the planet is prevented from generating anomalies
 ## scopes = { planet }
