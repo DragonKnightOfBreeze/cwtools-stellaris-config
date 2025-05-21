@@ -71,6 +71,9 @@ building = {
 	}
 
 	## cardinality = 0..1
+	base_buildtime = int
+
+	## cardinality = 0..1
 	empire_limit = float
 
 	### optional: default is no limit. Don't set base to less than 0, it will ignore it (for performance optimisation reasons) Mult by -1 to remove limit
