@@ -20,7 +20,7 @@ types = {
 		images = {
 			icon = icon # icon[gfx/interface/icons/districts]
 			icon = "gfx/interface/icons/districts/$.dds" # inferred
-			background = GFX_$_bg
+			background = GFX_$_bg|$icon
 		}
 	}
 }
