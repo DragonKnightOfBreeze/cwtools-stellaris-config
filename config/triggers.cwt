@@ -1292,10 +1292,6 @@ alias[trigger:has_casus_belli] = {
 	type = <casus_belli>
 }
 
-### Checks the planet's progress towards completing colonization
-## scopes = { planet }
-alias[trigger:has_colony_progress] == value_field
-
 ### Checks if the colony has a certain designation
 ## scopes = { planet }
 alias[trigger:has_designation] = <colony_type>
@@ -4317,12 +4313,12 @@ alias[trigger:count_owned_megastructure] = {
 }
 
 ### Iterate through each megastructure in system - checks whether the enclosed triggers return true for any of them
-## scopes = any
+## scopes = { galactic_object }
 ## push_scope = megastructure
 alias[trigger:any_system_megastructure] = single_alias_right[trigger_clause]
 
 ### Iterate through each megastructure in system - checks whether the enclosed triggers return true for X/all of them
-## scopes = any
+## scopes = { galactic_object }
 alias[trigger:count_system_megastructure] = {
 	## cardinality = 0..1
 	## push_scope = megastructure
