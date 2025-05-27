@@ -1,0 +1,13 @@
+types = {
+    type[prescripted_flags] = {
+        path = "common/prescripted_flags"
+        file_extension = .txt
+    }
+}
+
+prescripted_flags = {
+    flags = {
+        ## cardinality = 0..inf
+        value_set[country_flag]
+    }
+}

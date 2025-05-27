@@ -88,10 +88,8 @@ prescripted_country = {
 	ethic = <ethic>
 
   	## cardinality = 0..1
-	flags = {
-    	## cardinality = 0..inf
-		value_set[country_flag] #this is a country flag string, can be anything.
- 	}
+	flag = <prescripted_flags>
+
 	planet_name = localisation
 	planet_class = <planet_class.habitable_planet>
 
