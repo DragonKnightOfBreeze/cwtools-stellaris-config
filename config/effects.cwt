@@ -905,6 +905,9 @@ alias[effect:kill_pop_group] = {
 	amount = int_value_field
 	## cardinality = 0..1
 	percentage = float[0.0..1.0]
+	###If set, the amount will be randomized in [max(1, size - random), size + random].
+	## cardinality = 0..1
+	random = int_value_field
 }
 # alias[effect:enslave_pop] = bool	#deprecated
 ### Destroys the colony on the scoped planet
@@ -1107,13 +1110,18 @@ alias[effect:add_monthly_resource_mult] = {
 
 ### Adds a specific trait to the scoped leader
 ## scopes = { leader }
-alias[effect:add_trait] = <trait.leader_trait>
-### Adds a specific trait to the scoped leader
-## scopes = { leader }
-alias[effect:add_trait] = random_common
-### Adds a specific trait to the scoped leader
-## scopes = { leader }
-alias[effect:add_trait] = random_negative
+alias[effect:add_trait] = {
+	## cardinality = 1..1
+	trait = <trait.leader_trait>
+	## cardinality = 1..1
+	trait = random_common
+	## cardinality = 1..1
+	trait = random_negative
+	## cardinality = 0..1
+	consume_selection = bool
+	## cardinality = 0..1
+	show_message = bool
+}
 ### Removes a specific trait from the scoped leader
 ## scopes = { leader }
 alias[effect:remove_trait] = <trait.leader_trait>
@@ -1885,7 +1893,7 @@ alias[effect:create_leader] = {
 	skill = random
 	## cardinality = 0..1
 	set_age = value_field
-	### The traits of the leader, i.e. "1 = leader_trait_bureaucrat".
+	### The traits of the leader, e.g. "1 = leader_trait_bureaucrat". If <level> is a positive int and randomize_traits = yes, the trait is added if the leader's level is at least <level>.
 	## cardinality = 0..1
 	traits = {
 		## cardinality = 0..inf
@@ -1921,7 +1929,7 @@ alias[effect:create_leader] = {
 	### Optional, default = no. Hides the leader from the player's list of leaders, and doesn't count them towards the leader cap.
 	## cardinality = 0..1
 	hide_leader = bool
-	### Optional, default = yes.
+	### Optional, default = yes. Does not randomize for levels that are specified in traits.
 	## cardinality = 0..1
 	randomize_traits = bool
 	### Optional, but requires leader_age_max if used. Used to randomize leader age within the age span between this and leader_age_max.
@@ -1988,7 +1996,7 @@ alias[effect:clone_leader] = {
 	skill = random
 	## cardinality = 0..1
 	set_age = value_field
-	### The traits of the leader, i.e. "1 = leader_trait_bureaucrat".
+	### The traits of the leader, e.g. "1 = leader_trait_bureaucrat". If <level> is a positive int and randomize_traits = yes, the trait is added if the leader's level is at least <level>.
 	## cardinality = 0..1
 	traits = {
 		## cardinality = 0..inf
@@ -2024,7 +2032,7 @@ alias[effect:clone_leader] = {
 	### Optional, default = no. Hides the leader from the player's list of leaders, and doesn't count them towards the leader cap.
 	## cardinality = 0..1
 	hide_leader = bool
-	### Optional, default = yes.
+	### Optional, default = yes. Does not randomize for levels that are specified in traits.
 	## cardinality = 0..1
 	randomize_traits = bool
 	### Optional, but requires leader_age_max if used. Used to randomize leader age within the age span between this and leader_age_max.
@@ -2194,7 +2202,15 @@ alias[effect:establish_contact] = {
 
 ### Changes scoped pop_group to chosen ethic
 ## scopes = { pop_group }
-alias[effect:pop_change_ethic] = <ethic>
+alias[effect:pop_change_ethic] = {
+	ethic = <ethic>
+	## cardinality = 0..1
+	amount = int_value_field
+	## cardinality = 0..1
+	percentage = float[0.0..1.0]
+	## cardinality = 0..1
+	random = int_value_field
+}
 ### Starts a situation log event chain for target country
 ## scopes = any
 alias[effect:begin_event_chain] = {
@@ -2836,6 +2852,9 @@ alias[effect:create_pop_group] = {
 	### (optional, default: POP_BULK_UNIT_SIZE)
 	## cardinality = 0..1
 	size = int_value_field
+	### If set, the amount will be randomized in [size - random, size + random]. The minimum value is 0 if size is 0, and 1 otherwise.
+	## cardinality = 0..1
+	random = int_value_field
 	## cardinality = 0..1
 	## push_scope = pop_group
 	effect = single_alias_right[effect_clause]
@@ -3062,10 +3081,26 @@ alias[effect:order_forced_return] = yes
 alias[effect:play_sound] = <sound_effect>
 ### Adds a specific ethic to the scoped pop_group regardless if pop_group-species allows ethic divergence or not.
 ## scopes = { pop_group }
-alias[effect:pop_force_add_ethic] = <ethic>
+alias[effect:pop_force_add_ethic] = {
+	ethic = <ethic>
+	## cardinality = 0..1
+	amount = int_value_field
+	## cardinality = 0..1
+	percentage = float[0.0..1.0]
+	## cardinality = 0..1
+	random = int_value_field
+}
 ### Removes a specific ethic from the scoped pop_group
 ## scopes = { pop_group }
-alias[effect:pop_remove_ethic] = <ethic>
+alias[effect:pop_remove_ethic] = {
+	ethic = <ethic>
+	## cardinality = 0..1
+	amount = int_value_field
+	## cardinality = 0..1
+	percentage = float[0.0..1.0]
+	## cardinality = 0..1
+	random = int_value_field
+}
 ### Disables or enables anomaly generation for the scoped planet
 ## scopes = { planet }
 alias[effect:prevent_anomaly] = bool
@@ -3508,6 +3543,13 @@ alias[effect:add_resource] = {
 	mult = value_field
 	## cardinality = 0..1
 	multiplier = value_field
+}
+
+###Increments a previously-set variable by a specific amount
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+alias[effect:add_variable] = {
+	which = value_set[variable]
+	value = value_field
 }
 
 ### Adds a new timeline event for the scope country.
@@ -8512,9 +8554,26 @@ alias[effect:add_focus_progress] = {
 ## scopes = { pop_group }
 alias[effect:add_pop_amount] = int_value_field
 
+### Adds the amount of pops to the scope pop group.
+## scopes = { pop_group }
+alias[effect:add_pop_amount] = {
+	## cardinality = 1..1
+	amount = int_value_field
+	## cardinality = 0..1
+	random = int_value_field
+}
+
 ### Removes the amount of pops from the scope pop group.
 ## scopes = { pop_group }
 alias[effect:remove_pop_amount] = int_value_field
+### Removes the amount of pops from the scope pop group.
+## scopes = { pop_group }
+alias[effect:remove_pop_amount] = {
+	## cardinality = 1..1
+	amount = int_value_field
+	## cardinality = 0..1
+	random = int_value_field
+}
 bonus_pop_growth
 ### Scales the amount of pops in the scope pop group
 ## scopes = { pop_group }
@@ -8528,9 +8587,9 @@ alias[effect:transfer_pop_amount] = {
 	## cardinality = 0..1
 	amount = int_value_field
 	## cardinality = 0..1
-	percentage = percentage_field
+	percentage = float[0.0..1.0]
 	## cardinality = 0..1
-	percentage = 1
+	random = int_value_field
 }
 
 ### Set planet preference trait for scoped species (removing the current one, if any).
@@ -8570,6 +8629,8 @@ alias[effect:kill_assigned_pop_amount] = {
 	limit = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	amount = int_value_field
+	## cardinality = 0..1
+	random = int_value_field
 	## cardinality = 0..1
 	percentage = float[0.0..1.0]
 }
