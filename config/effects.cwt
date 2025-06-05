@@ -1054,6 +1054,14 @@ alias[effect:change_variable] = {
 	value = value_field
 }
 
+# since: stellaris v4.0.15 (so how is it different from change_variable?)
+### Increments a previously-set variable by a specific amount
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+alias[effect:add_variable] = {
+	which = value_set[variable]
+	value = value_field
+}
+
 ### Decrements a previously-set variable by a specific amount
 ## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[effect:subtract_variable] = {
