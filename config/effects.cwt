@@ -3553,13 +3553,6 @@ alias[effect:add_resource] = {
 	multiplier = value_field
 }
 
-###Increments a previously-set variable by a specific amount
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
-alias[effect:add_variable] = {
-	which = value_set[variable]
-	value = value_field
-}
-
 ### Adds a new timeline event for the scope country.
 ## scopes = { country }
 alias[effect:add_timeline_event] = {
