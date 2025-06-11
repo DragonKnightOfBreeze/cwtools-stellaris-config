@@ -18,6 +18,18 @@ zone_slots = {
     }
 
     ## cardinality = 0..1
+    included_zone_sets = {
+        ## cardinality = 0..inf
+        value[zone_set]
+    }
+
+    ## cardinality = 0..1
+    excluded_zone_sets = {
+        ## cardinality = 0..inf
+        value[zone_set]
+    }
+
+    ## cardinality = 0..1
     exclude = {
         ## cardinality = 0..inf
         <zone>
