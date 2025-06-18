@@ -3619,6 +3619,10 @@ alias[effect:set_trade_conversions] = {
 	<resource> = value_field
 }
 
+### Refresh ship designs that are aut-generated such as colony ships
+## scopes = { country }
+alias[effect:refresh_auto_generated_ship_designs] = yes
+
 ### Sets the specific resource to the stockpile for the country scope:
 ## scopes = { country }
 alias[effect:set_resource] = {
