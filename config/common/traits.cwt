@@ -44,6 +44,17 @@ trait = {
 		### This trait is available in ruler creation. Default is no.
 		## cardinality = 0..1
 		starting_ruler_trait = bool
+
+		subtype[starting_ruler_trait] = {
+			## cardinality = 0..1
+			cost = int
+			## cardinality = 0..1
+			## replace_scopes = { this = country root = country }
+			cost = {
+				alias_name[modifier_rule] = alias_match_left[modifier_rule]
+			}
+		}
+
 		## cardinality = 0..1
 		ethic_destiny_trait = bool
 		### Is this trait only active if the leader is on the Council? Default is no.
