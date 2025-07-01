@@ -9,7 +9,7 @@ zone_slots = {
     ## cardinality = 0..1
     start = <zone>
 
-    ## cardinality = 1..1
+	## cardinality = 0..1
     include = {
         ## cardinality = 0..1
         all
@@ -42,5 +42,4 @@ zone_slots = {
     ## replace_scopes = { this = planet root = planet }
     ## cardinality = 0..1
     unlock = single_alias_right[trigger_clause]
-
 }
