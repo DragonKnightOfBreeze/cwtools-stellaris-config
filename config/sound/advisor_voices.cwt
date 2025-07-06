@@ -7,7 +7,7 @@ types = {
 
 advisor_voice = {
 	name = scalar
-	## file_extensions = { .dds .png .tga }
+	## file_extensions = { .png .dds .tga }
 	icon = filepath
 
 	## cardinality = 0..1

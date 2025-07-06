@@ -47,7 +47,7 @@ special_project = {
 	## cardinality = 0..1
 	picture =  <sprite>
 	## cardinality = 0..1
-	## file_extensions = { .dds .png .tga }
+	## file_extensions = { .png .dds .tga }
 	icon = filepath
 	### default: no
 	## cardinality = 0..1

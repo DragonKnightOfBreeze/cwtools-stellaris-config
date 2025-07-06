@@ -177,7 +177,7 @@ alias[gui:textboxType] = {
 	name = scalar
 	## cardinality = 0..1
 	textureFile = ""
-	## file_extensions = { .dds .png .tga }
+	## file_extensions = { .png .dds .tga }
 	## cardinality = 0..1
 	textureFile = filepath
 
@@ -190,7 +190,7 @@ alias[gui:instantTextboxType] = {
 	name = scalar
 	## cardinality = 0..1
 	textureFile = ""
-	## file_extensions = { .dds .png .tga }
+	## file_extensions = { .png .dds .tga }
 	## cardinality = 0..1
 	textureFile = filepath
 
@@ -215,7 +215,7 @@ alias[gui:editBoxType] = {
 	name = scalar
 	## cardinality = 0..1
 	textureFile = ""
-	## file_extensions = { .dds .png .tga }
+	## file_extensions = { .png .dds .tga }
 	## cardinality = 0..1
 	textureFile = filepath
 	## cardinality = 0..1

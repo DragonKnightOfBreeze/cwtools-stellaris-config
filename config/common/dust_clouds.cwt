@@ -8,11 +8,11 @@ types = {
 dust_clouds = {
 
     textures = {
-        ## file_extensions = { .dds .png .tga }
+        ## file_extensions = { .png .dds .tga }
         opacity_texture = filepath
-        ## file_extensions = { .dds .png .tga }
+        ## file_extensions = { .png .dds .tga }
         diffuse_texture = filepath
-        ## file_extensions = { .dds .png .tga }
+        ## file_extensions = { .png .dds .tga }
         lightning_texture_atlas = filepath
         lightning_horisontal_tiles = int
         lightning_vertical_tiles = int

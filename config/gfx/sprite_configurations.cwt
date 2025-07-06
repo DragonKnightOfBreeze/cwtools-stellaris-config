@@ -11,7 +11,7 @@ sprite_configuration = {
 	## cardinality = 0..1
 	trigger = single_alias_right[trigger_clause]
 
-	## file_extensions = { .dds .png .tga }
+	## file_extensions = { .png .dds .tga }
 	masking_texture = filepath
 
 	## file_extensions = { .shader }
