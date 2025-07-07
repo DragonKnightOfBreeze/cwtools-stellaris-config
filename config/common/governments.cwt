@@ -108,7 +108,9 @@ types = {
 			negative_effect = negative_description
 		}
 		images = {
+			## optional
 			icon = icon # filepath
+			## optional
 			icon = "gfx/interface/icons/governments/civics/$.dds" # inferred
 		}
 	}
@@ -382,7 +384,7 @@ civic_or_origin = {
 	## cardinality = 0..inf
 	custom_tooltip_with_modifiers = localisation
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	swap_type = {
 		## cardinality = 0..1
 		name = localisation # may not be (from vanilla)
