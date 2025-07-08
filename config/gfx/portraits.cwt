@@ -149,7 +149,7 @@ portrait_group = {
 		}
 	}
 	## cardinality = 0..1
-	pop = {
+	pop_group = {
 		## cardinality = 0..inf
 		add = {
 			## replace_scopes = { this = pop_group root = pop_group }
