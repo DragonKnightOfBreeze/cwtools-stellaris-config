@@ -280,11 +280,11 @@ enums = {
 		starbase
 		spynetwork
 	}
-	# these modifier_categories options are used to get modifier categories of generated modifiers from economic categories
+	# NOTE: modifier_categories options are used to get modifier categories of generated modifiers from economic categories
 	enum[scripted_modifier_category] = {
 		all
 		none
-		## modifier_categories = { "Pops" "AI Economy" }
+		## modifier_categories = { "Pop Group" "AI Economy" }
 		pop_group
 		## modifier_categories = { Job "AI Economy" }
 		pop_job
