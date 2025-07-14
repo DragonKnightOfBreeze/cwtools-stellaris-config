@@ -34,7 +34,6 @@ types = {
 		path = "game/common/component_templates"
 		file_extension = .txt
 		## type_key_filter = utility_component_template
-		## type_key_filter = utility_component_template
 		subtype[utility_component_template] = {
 		}
 		## type_key_filter = weapon_component_template
