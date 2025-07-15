@@ -65,13 +65,13 @@ database_object_types = {
 	leader_trait = {
 		type = trait.leader_trait
 	}
-	trait = {
-		type = trait
-	}
 	cosmic_storm = {
 		type = storm_types
 	}
 	modifier = {
 	    type = static_modifier
+	}
+	job = {
+		type = job
 	}
 }
