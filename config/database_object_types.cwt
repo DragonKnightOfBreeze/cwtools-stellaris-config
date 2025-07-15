@@ -72,6 +72,6 @@ database_object_types = {
 	    type = static_modifier
 	}
 	job = {
-		type = job
+		localisation = job_
 	}
 }
