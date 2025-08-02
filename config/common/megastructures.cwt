@@ -61,6 +61,9 @@ megastructure = {
 	### default: no
 	## cardinality = 0..1
 	hide_name = bool
+	### default = no, means the mega structure should offer a choice of design when becoming a starbase (only applies to megastructure that become starbases )
+	## cardinality = 0..1
+	must_select_ship_design = bool
 	### default: yes
 	## cardinality = 0..1
 	show_in_outliner = bool
