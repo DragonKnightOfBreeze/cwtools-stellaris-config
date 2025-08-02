@@ -682,7 +682,7 @@ rows = {
 			missile_armor = float
 			missile_health = float
 			missile_retarget_range = float
-			end = float
+			end = scalar
 		}
 	}
 }
