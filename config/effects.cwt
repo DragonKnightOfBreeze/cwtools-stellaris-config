@@ -1101,7 +1101,6 @@ alias[effect:round_variable_to_closest] = {
 ## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
 alias[effect:clear_variable] = value[variable]
 
-
 #max should not be less than min...
 ### Adds a lump sum of a resource to the scoped country, defined as a multiple of the country's monthly income of that resource (clamped to max and min allowed values)
 ## scopes = { country }
@@ -1109,9 +1108,9 @@ alias[effect:add_monthly_resource_mult] = {
 	resource = <resource>
 	value = value_field
 	## cardinality = 0..1
-	min = int
+	min = float
 	## cardinality = 0..1
-	max = int
+	max = float
 	## cardinality = 0..1
 	mult = value_field
 }
