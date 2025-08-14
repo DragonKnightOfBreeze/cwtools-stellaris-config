@@ -4665,6 +4665,8 @@ alias[effect:set_agreement_terms] = {
 	<agreement_term.specialist_type> = <agreement_term_value.specialist_type>
 	## cardinality = 0..inf
 	<agreement_term.resource> = value_field[-1.0..1.0]
+	## cardinality = 0..inf
+	<agreement_term_value.resource> = value_field[-1.0..1.0]
 }
 ### Sets the preset of an agreement and applies its terms on the agreement if 'apply_terms' is 'yes'.
 ## scopes = { agreement }
