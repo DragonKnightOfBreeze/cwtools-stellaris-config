@@ -1,6 +1,7 @@
 types = {
 	type[job] = {
 		path = "game/common/pop_jobs"
+		file_extension = .txt
 		subtype[capped] = {
 			## cardinality = 0..1
 			is_capped_by_modifier = yes
@@ -13,17 +14,44 @@ types = {
 			## optional
 			plural = "job_$_plural"
 			## optional
-			desc = "job_$_desc"
-			## optional
 			desc = swappable_data/default/desc
 			## optional
+			desc = "job_$_desc"
+			## optional
 			effect = "job_$_effect_desc"
+			## optional
+			condition_string = swappable_data/default/condition_string
 		}
 		images = {
-			icon = swappable_data/default/icon
+			icon = swappable_data/default/icon # <job> | filepath[gfx/interface/icons/jobs/job_,.dds]
 			icon = "gfx/interface/icons/jobs/job_$.dds"
-			building_icon = swappable_data/default/building_icon
-			 #  <building> | icon[gfx/interface/icons/buildings]
+			building_icon = swappable_data/default/building_icon # <building> | icon[gfx/interface/icons/buildings]
+		}
+	}
+	## type_key_filter = swap_type
+	type[swapped_job] = {
+		base_type = job
+		path = "game/common/pop_jobs"
+		file_extension = .txt
+		skip_root_key = { any swappable_data }
+		name_field = name
+		localisation = {
+			name = "job_$"
+			## optional
+			plural = "job_$_plural"
+			## optional
+			desc = desc
+			## optional
+			desc = "job_$_desc"
+			## optional
+			effect = "job_$_effect_desc"
+			## optional
+			condition_string = condition_string
+		}
+		images = {
+			icon = icon # <job> | filepath[gfx/interface/icons/jobs/job_,.dds]
+			icon = "gfx/interface/icons/jobs/job_$.dds"
+			building_icon = building_icon # <building> | icon[gfx/interface/icons/buildings]
 		}
 	}
 }
@@ -42,31 +70,32 @@ job = {
 	swappable_data = {
 		default = {
 			## cardinality = 0..1
-			condition_string = localisation
+			desc = localisation
+			## cardinality = 0..1
+			icon = <job>
+			## cardinality = 0..1
+			icon = filepath[gfx/interface/icons/jobs/job_,.dds]
 			## cardinality = 0..1
 			building_icon = <building>
 			## cardinality = 0..1
 			building_icon = icon[gfx/interface/icons/buildings]
 			## cardinality = 0..1
-			icon = filepath[gfx/interface/icons/jobs/job_,.dds]
-			## cardinality = 0..1
-			icon = <job>
-			## cardinality = 0..1
-			desc = localisation
+			condition_string = localisation
 		}
 		## cardinality = 0..inf
 		swap_type = {
 			## cardinality = 1..1
 			## replace_scopes = { this = planet root = planet }
 			trigger = single_alias_right[trigger_clause]
+
 			## cardinality = 0..1
 			name = localisation
 			## cardinality = 0..1
 			desc = localisation
 			## cardinality = 0..1
-			icon = filepath[gfx/interface/icons/jobs/job_,.dds]
-			## cardinality = 0..1
 			icon = <job>
+			## cardinality = 0..1
+			icon = filepath[gfx/interface/icons/jobs/job_,.dds]
 			## cardinality = 0..1
 			building_icon = <building>
 			## cardinality = 0..1
