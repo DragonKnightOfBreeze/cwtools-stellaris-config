@@ -85,6 +85,13 @@ zone = {
     }
 
     ## cardinality = 0..1
+    on_queued = single_alias_right[effect_clause]
+    ## cardinality = 0..1
+    on_unqueued = single_alias_right[effect_clause]
+    ## cardinality = 0..1
+    on_built = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
     ## replace_scopes = { this = planet root = planet }
     planet_modifier = single_alias_right[modifier_clause]
 

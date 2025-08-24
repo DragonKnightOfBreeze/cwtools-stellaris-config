@@ -116,7 +116,7 @@ alias[trigger:has_ship_flag] = value[ship_flag]
 ## severity = warning
 alias[trigger:has_global_flag] = value[global_flag]
 ### Checks if the specified variable is set on the current scope. Use to avoid unset variables errors
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 ## severity = warning
 alias[trigger:is_variable_set] = value[variable]
 ### Checks if the leader has a specific flag
@@ -815,7 +815,7 @@ alias[trigger:has_active_tradition] = <tradition>
 alias[trigger:has_active_tradition] = <swapped_tradition>
 
 ### Checks a variable for the country/leader/planet/system/fleet
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 alias[trigger:check_variable] = {
 	which = value[variable]
 	## cardinality = 1..2
@@ -1949,6 +1949,10 @@ alias[trigger:empire_sprawl] == int_value_field
 ## scopes = { planet }
 alias[trigger:last_district_changed] = <district>
 
+### Checks the tier of the planet's capital building
+## scopes = { planet }
+alias[trigger:capital_tier] = int_value_field
+
 ### Checks the planet's available housing
 ## scopes = { planet }
 alias[trigger:free_housing] == int_value_field
@@ -2710,7 +2714,7 @@ alias[trigger:has_stage_modifier] = <static_modifier>
 alias[trigger:galactic_defense_force_exists] = bool
 
 ### Checks a variable for the scope if a certain amount of arithmetic is done to it (note: the variable's value is not changed by this trigger)
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 alias[trigger:check_variable_arithmetic] = {
 	which = value_field
 	## cardinality = 0..inf
@@ -5417,9 +5421,9 @@ alias[trigger:num_zones] = {
 ## scopes = { ship }
 alias[trigger:bioship_can_grow] = bool
 
-### Checks how many pops that has jobs with all given tags in a planet
+### Checks how much workforce that has jobs with all given tags in a planet
 ## scopes = { planet }
-alias[trigger:num_pops_with_job_tag] = {
+alias[trigger:total_workforce_with_job_tag] = {
 	tags = {
 		## cardinality = 0..inf
 		enum[job_tag]
@@ -5427,9 +5431,9 @@ alias[trigger:num_pops_with_job_tag] = {
 	value = int_value_field
 }
 
-### Checks how many pops that has jobs with all given tags in a country
+### Checks how much workforce that has jobs with all given tags in a country
 ## scopes = { country }
-alias[trigger:num_country_pops_with_job_tag] = {
+alias[trigger:total_country_workforce_with_job_tag] = {
 	tags = {
 		## cardinality = 0..inf
 		enum[job_tag]

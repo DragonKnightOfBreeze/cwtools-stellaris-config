@@ -512,6 +512,12 @@ alias[effect:remove_modifier] = <static_modifier>
 ### Sets an arbitrarily-named flag on the scoped country
 ## scopes = { country }
 alias[effect:set_country_flag] = value_set[country_flag]
+### Sets flags as used by code, not defined in script:
+## scopes = { country }
+alias[effect:set_country_code_flags] = {
+	## cardinality = 1..inf
+	value_set[country_flag] = bool
+}
 ### Sets an arbitrarily-named flag on the scoped planet
 ## scopes = { planet }
 alias[effect:set_planet_flag] = value_set[planet_flag]
@@ -905,9 +911,12 @@ alias[effect:kill_pop_group] = {
 	amount = int_value_field
 	## cardinality = 0..1
 	percentage = float[0.0..1.0]
-	###If set, the amount will be randomized in [max(1, size - random), size + random].
+	###If set, the amount will be randomized in [max(0, size - random), size + random]
 	## cardinality = 0..1
 	random = int_value_field
+	###default: 'GROWTH_CAT_OTHER'
+	## cardinality = 0..1
+	growth_category = localisation
 }
 # alias[effect:enslave_pop] = bool	#deprecated
 ### Destroys the colony on the scoped planet
@@ -1030,14 +1039,14 @@ alias[effect:set_location] = {
 # variables
 
 ### Sets or creates an arbitrarily-named variable with a specific value in the current scope
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 alias[effect:set_variable] = {
 	which = value_set[variable]
 	value = value_field
 }
 
 ### Sets a variable to a random value within the specified bounds
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 alias[effect:set_variable_to_random_value] = {
 	which = value_set[variable]
 	min = value_field
@@ -1048,7 +1057,7 @@ alias[effect:set_variable_to_random_value] = {
 
 #presumably need to check the variable exists first for these, somehow
 ### Increments a previously-set variable by a specific amount
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 alias[effect:change_variable] = {
 	which = value_set[variable]
 	value = value_field
@@ -1056,49 +1065,49 @@ alias[effect:change_variable] = {
 
 # since: stellaris v4.0.15 (so how is it different from change_variable?)
 ### Increments a previously-set variable by a specific amount
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 alias[effect:add_variable] = {
 	which = value_set[variable]
 	value = value_field
 }
 
 ### Decrements a previously-set variable by a specific amount
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 alias[effect:subtract_variable] = {
 	which = value[variable]
 	value = value_field
 }
 
 ### Multiplies a previously-set variable by a specific amount
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 alias[effect:multiply_variable] = {
 	which = value[variable]
 	value = value_field
 }
 
 ### Divides a previously-set variable by a specific amount
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 alias[effect:divide_variable] = {
 	which = value[variable]
 	value = value_field
 }
 
 ### Modulos a previously-set variable by a specific amount i.e. X % Y
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 alias[effect:modulo_variable] = {
 	which = value[variable]
 	value = value_field
 }
 
 ### Rounds a previously-set variable to the closest X
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 alias[effect:round_variable_to_closest] = {
 	which = value[variable]
 	value = value_field
 }
 
 ### Clears a previously-set variable from the game.
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 alias[effect:clear_variable] = value[variable]
 
 #max should not be less than min...
@@ -1129,6 +1138,16 @@ alias[effect:add_trait] = {
 	## cardinality = 0..1
 	show_message = bool
 }
+### Adds a specific trait to the scoped leader
+## scopes = { leader }
+alias[effect:add_trait] = <trait.leader_trait>
+### Adds a specific trait to the scoped leader
+## scopes = { leader }
+alias[effect:add_trait] = random_common
+### Adds a specific trait to the scoped leader
+## scopes = { leader }
+alias[effect:add_trait] = random_negative
+
 ### Removes a specific trait from the scoped leader
 ## scopes = { leader }
 alias[effect:remove_trait] = <trait.leader_trait>
@@ -2824,7 +2843,13 @@ alias[effect:create_pop] = {
 	}
 	### (optional, default: POP_BULK_UNIT_SIZE)
 	## cardinality = 0..1
-	size = int
+	size = int_value_field
+	###If set, the amount will be randomized in [max(0, size - random), size + random]
+	## cardinality = 0..1
+	random = int_value_field
+	###default: 'GROWTH_CAT_OTHER'
+	## cardinality = 0..1
+	growth_category = localisation
 	## cardinality = 0..1
 	## push_scope = pop_group
 	effect = single_alias_right[effect_clause]
@@ -2862,6 +2887,9 @@ alias[effect:create_pop_group] = {
 	### If set, the amount will be randomized in [size - random, size + random]. The minimum value is 0 if size is 0, and 1 otherwise.
 	## cardinality = 0..1
 	random = int_value_field
+	###default: 'GROWTH_CAT_OTHER'
+	## cardinality = 0..1
+	growth_category = localisation
 	## cardinality = 0..1
 	## push_scope = pop_group
 	effect = single_alias_right[effect_clause]
@@ -3101,6 +3129,16 @@ alias[effect:pop_force_add_ethic] = {
 ## scopes = { pop_group }
 alias[effect:pop_remove_ethic] = {
 	ethic = <ethic>
+	## cardinality = 0..1
+	amount = int_value_field
+	## cardinality = 0..1
+	percentage = float[0.0..1.0]
+	## cardinality = 0..1
+	random = int_value_field
+}
+### Raises on_pop_displaced on_action
+## scopes = { pop_group }
+alias[effect:displace_pop_amount] = {
 	## cardinality = 0..1
 	amount = int_value_field
 	## cardinality = 0..1
@@ -4395,19 +4433,19 @@ alias[effect:clear_intel_report] = {
 }
 
 ### Rounds a previously-set variable to the closest integer.
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 alias[effect:round_variable] = value[variable]
 
 ### Rounds a previously-set variable down to the previous integer.
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 alias[effect:floor_variable] = value[variable]
 
 ### Rounds a previously-set variable up to the next integer.
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 alias[effect:ceiling_variable] = value[variable]
 
 ### Exports the value of a trigger to a specified variable (so for num_pops, it'll export the number of pops).
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 alias[effect:export_trigger_value_to_variable] = {
 	trigger = alias_keys_field[trigger]
 	## cardinality = 0..1
@@ -4524,7 +4562,7 @@ alias[effect:add_blocker] = {
 }
 
 ### Sets an arbitrarily-named date flag for the scoped object. Acts both as an <scope object>_flag and as a means for saving a date. The flag can then be referred to in localisations [This.<flag>] to produce the date.
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift }
+## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }
 alias[effect:set_saved_date] = {
 	### Refer to this in locs; note: this is actually a <country/whatever>_flag
 	key = value_set[variable] # TODO actually a flag of the current scope type, currently threat as a variable
@@ -8261,7 +8299,7 @@ alias[effect:give_specimen] = {
 	origin = localisation
 }
 
-### Removes specified specimen from the target country.
+###  Removes specified specimen from the target country. This will destroy the specimen
 ## scopes = { country }
 alias[effect:remove_specimen] = <specimen>
 
@@ -8557,6 +8595,9 @@ alias[effect:add_pop_amount] = {
 	amount = int_value_field
 	## cardinality = 0..1
 	random = int_value_field
+	###default: 'GROWTH_CAT_OTHER'
+	## cardinality = 0..1
+	growth_category = localisation
 }
 
 ### Removes the amount of pops from the scope pop group.
@@ -8569,6 +8610,9 @@ alias[effect:remove_pop_amount] = {
 	amount = int_value_field
 	## cardinality = 0..1
 	random = int_value_field
+	###default: 'GROWTH_CAT_OTHER'
+	## cardinality = 0..1
+	growth_category = localisation
 }
 bonus_pop_growth
 ### Scales the amount of pops in the scope pop group
@@ -8586,6 +8630,9 @@ alias[effect:transfer_pop_amount] = {
 	percentage = float[0.0..1.0]
 	## cardinality = 0..1
 	random = int_value_field
+	###default: 'GROWTH_CAT_OTHER'
+	## cardinality = 0..1
+	growth_category = localisation
 }
 
 ### Set planet preference trait for scoped species (removing the current one, if any).
@@ -8629,6 +8676,9 @@ alias[effect:kill_assigned_pop_amount] = {
 	random = int_value_field
 	## cardinality = 0..1
 	percentage = float[0.0..1.0]
+	###default: 'GROWTH_CAT_OTHER'
+	## cardinality = 0..1
+	growth_category = localisation
 }
 
 ### Triggers the merge of similar sub-species for a country.

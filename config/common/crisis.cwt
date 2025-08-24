@@ -73,6 +73,11 @@ menace_perk = {
 	## replace_scopes = { this = country root = country }
 	modifier = single_alias_right[modifier_clause]
 
+	### static modifier that is applied to the player's federation, if they have one (this stacks if multiple members have such perks)
+	## cardinality = 0..1
+	## replace_scopes = { this = country root = country }
+	federation_modifier = single_alias_right[modifier_clause]
+
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	on_unlock = single_alias_right[effect_clause]

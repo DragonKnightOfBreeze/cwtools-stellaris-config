@@ -21,6 +21,9 @@ types = {
 			icon = icon # icon[gfx/interface/icons/districts]
 			icon = "gfx/interface/icons/districts/$.dds" # inferred
 			background = GFX_$_bg|$icon
+			background = GFX_$_bg|$district_backgroundr
+			gridbox = GFX_$_box_icon_rectangle|$icon
+			gridbox = GFX_$_box_icon_rectangle|$gridbox
 		}
 	}
 }
@@ -34,6 +37,35 @@ district = {
 	default_starting_district = bool
 	## cardinality = 0..1
 	base_cap_amount = int
+
+	### Icon to display for the district, required if no district icon matches the district name.
+	## cardinality = 0..1
+	icon = icon[gfx/interface/icons/districts]
+	### A sprite that is displayed in the top right corner of the district icon, expected sprite size is 32×32.
+	## cardinality = 0..1
+	overlay_icon = <sprite>
+
+	### If defined AFTER the icon (or no icon is provided) overrides the gridbox associated with the icon.
+	## cardinality = 0..1
+	gridbox = <district>
+	## cardinality = 0..1
+	gridbox = scalar
+
+	### If defined AFTER the icon (or no icon is provided) overrides the district background associated with the icon.
+	## cardinality = 0..1
+	district_background = <district>
+	## cardinality = 0..1
+	district_background = scalar
+
+	### Default empty. Defines the width of the district in the UI.
+	## cardinality = 0..1
+	custom_gui = scalar
+	### Default 1. Ensures that dummy districts are spawned to ensure district spacing is correct.
+	## cardinality = 0..1
+	district_width = int
+	### Default yes. Determine whether the first zone slot of the district should be displayed like the city_government slot or if all zones should be displayed in the gridbox
+	## cardinality = 0..1
+	has_primary_zone = bool
 
 	subtype[starting_district] = {
 		## cardinality = 1..1
@@ -65,8 +97,7 @@ district = {
 	## cardinality = 0..1
 	max_for_deposits_on_planet = int
 
-	## cardinality = 0..1
-	icon = icon[gfx/interface/icons/districts]
+
 	## cardinality = 0..1
 	is_capped_by_modifier = bool
 	## cardinality = 0..1

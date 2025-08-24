@@ -17,6 +17,9 @@ types = {
 		subtype[holding] = {
 			owner_type = subject_holding
 		}
+		subtype[capital] = {
+			capital = yes
+		}
 		localisation = {
 			name = "$"
 			desc = "$_desc"
@@ -56,6 +59,14 @@ building = {
 	## replace_scopes = { this = planet root = planet }
 	desc = single_alias_right[triggered_desc_clause]
 	## cardinality = 0..1
+	district_limit = float
+	### optional: default is no limit Mult by -1 to remove limit (still affected by is_capped_by_modifier = yes)
+	## replace_scopes = { root = planet this = planet }
+	## cardinality = 0..1
+	district_limit = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+	## cardinality = 0..1
 	owner_type = corporate
 	## cardinality = 0..1
 	owner_type = subject_holding
@@ -84,7 +95,7 @@ building = {
 	}
 
 	## cardinality = 0..1
-	planet_limit = int
+	planet_limit = float
 
 	### optional: default is no limit Mult by -1 to remove limit (still affected by is_capped_by_modifier = yes)
 	## replace_scopes = { root = planet this = planet }
@@ -132,6 +143,9 @@ building = {
 	## cardinality = 0..1
 	allow = single_alias_right[trigger_clause]
 
+	subtype[capital] = {
+		capital_tier = int
+	}
 
 	### an action when queued
 	## cardinality = 0..1

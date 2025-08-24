@@ -133,6 +133,9 @@ country_type = {
 	destroys_starbases = bool
 	## cardinality = 0..1
 	is_space_critter = bool #this might be a subtype
+	###Setting would to true, would enable the country to ignore FTL Inhibitors.
+	## cardinality = 0..1
+	ignore_ftl_inhibitors = bool
 	## cardinality = 0..1
 	blocks_pirate = bool
 	## cardinality = 0..1
