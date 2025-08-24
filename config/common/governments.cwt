@@ -127,6 +127,7 @@ types = {
 		}
 		images = {
 			## optional
+			icon = "gfx/interface/icons/governments/civics/$.dds|$civic"
 			icon = icon # <sprite>
 		}
 	}
