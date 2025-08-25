@@ -127,7 +127,8 @@ district = {
 	on_unqueued = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	on_built = single_alias_right[effect_clause]
-
+	## cardinality = 0..1
+	abort_effect = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	prerequisites = {
 		## cardinality = 0..inf
