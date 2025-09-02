@@ -609,5 +609,6 @@ enums = {
 		advanced_genetic
 		overtuned
 		malleable
+		mutation
 	}
 }
