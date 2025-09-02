@@ -30,6 +30,9 @@ resource = {
 	tradable = bool
 	## cardinality = 0..1
 	category = enum[resource_category]
+	### default: no?
+	## cardinality = 0..1
+	hide_gain = bool
 	subtype[tradable] = {
 		### default -1, if non-positive, resource cannot be traded in the Market
 		## cardinality = 0..1
@@ -61,6 +64,8 @@ resource = {
 	deficit_modifier = <static_modifier>
 	## cardinality = 0..1
 	deficit_situation = <situation_type>
+	## cardinality = 0..1
+	deficit_trade_conversion_mult = float
 
 	## cardinality = 0..1
 	culling_conversion_value = int

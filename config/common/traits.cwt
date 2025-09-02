@@ -608,5 +608,6 @@ enums = {
 		psionic
 		advanced_genetic
 		overtuned
+		malleable
 	}
 }

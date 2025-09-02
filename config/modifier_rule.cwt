@@ -54,6 +54,7 @@ alias[modifier_rule:complex_trigger_modifier] = {
 
 #modifier_rule_with_loc is deliberately more restrictive because of what we can make good tooltips with
 alias[modifier_rule_with_loc:base] = float
+alias[modifier_rule_with_loc:add] = float
 alias[modifier_rule_with_loc:factor] = float
 alias[modifier_rule_with_loc:modifier] = {
 	## cardinality = 0..1

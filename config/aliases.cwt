@@ -276,3 +276,20 @@ single_alias[trigger_clause] = {
 single_alias[effect_clause] = {
 	alias_name[effect] = alias_match_left[effect]
 }
+
+# others
+
+single_alias[leader_traits] = {
+	## cardinality = 0..inf
+	int = <trait.leader_trait>
+	## cardinality = 0..inf
+	int = random_trait
+	## cardinality = 0..inf
+	int = random_common
+	## cardinality = 0..inf
+	trait = <trait.leader_trait>
+	## cardinality = 0..inf
+	trait = random_trait
+	## cardinality = 0..inf
+	trait = random_common
+}

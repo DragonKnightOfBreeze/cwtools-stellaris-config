@@ -117,10 +117,6 @@ technology = {
 		cost = {
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		}
-		## cardinality = 0..1
-		is_rare = bool
-		## cardinality = 0..1
-		is_dangerous = bool
 		weight = float
 		# usually in ""
 		### NOT use in vanilla.Definition of dangerous technology, rare technology, and insightful technology provided to modders for use
@@ -224,6 +220,10 @@ technology = {
 	## cardinality = 0..1
 	ai_update_type = enum[tech_ai_type]
 
+	## cardinality = 0..1
+	is_rare = bool
+	## cardinality = 0..1
+	is_dangerous = bool
 	## cardinality = 0..1
 	is_insight = bool
 

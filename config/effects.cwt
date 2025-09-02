@@ -1498,6 +1498,16 @@ alias[effect:create_species] = {
 	## cardinality = 0..1
 	namelist = random_class
 	## cardinality = 0..1
+	name_list = <name_list>
+	## cardinality = 0..1
+	name_list = scope_group[target_country]
+	## cardinality = 0..1
+	name_list = scope[species]
+	## cardinality = 0..1
+	name_list = random
+	## cardinality = 0..1
+	name_list = random_class
+	## cardinality = 0..1
 	plural = scope[any]
 	## cardinality = 0..1
 	plural = random
@@ -1633,14 +1643,6 @@ alias[effect:create_species] = {
 	allow_negative_traits = bool
 	## cardinality = 0..1
 	extra_trait_points = int
-	## cardinality = 0..1
-	name_list = <name_list>
-	## cardinality = 0..1
-	name_list = random
-	## cardinality = 0..1
-	name_list = scope_group[target_country]
-	## cardinality = 0..1
-	name_list = scope[species]
 	## cardinality = 0..1
 	pop_ethics = no
 	## cardinality = 0..1
@@ -1924,14 +1926,7 @@ alias[effect:create_leader] = {
 	set_age = value_field
 	### The traits of the leader, e.g. "1 = leader_trait_bureaucrat". If <level> is a positive int and randomize_traits = yes, the trait is added if the leader's level is at least <level>.
 	## cardinality = 0..1
-	traits = {
-		## cardinality = 0..inf
-		int = <trait.leader_trait>
-		## cardinality = 0..inf
-		trait = <trait.leader_trait>
-		## cardinality = 0..inf
-		trait = random_trait
-	}
+	traits = single_alias_right[leader_traits]
 
 	### Optional, default = random.
 	## cardinality = 0..1
@@ -2027,14 +2022,7 @@ alias[effect:clone_leader] = {
 	set_age = value_field
 	### The traits of the leader, e.g. "1 = leader_trait_bureaucrat". If <level> is a positive int and randomize_traits = yes, the trait is added if the leader's level is at least <level>.
 	## cardinality = 0..1
-	traits = {
-		## cardinality = 0..inf
-		int = <trait.leader_trait>
-		## cardinality = 0..inf
-		trait = <trait.leader_trait>
-		## cardinality = 0..inf
-		trait = random_trait
-	}
+	traits = single_alias_right[leader_traits]
 
 	### Optional, default = random.
 	## cardinality = 0..1
@@ -2143,8 +2131,12 @@ alias[effect:modify_species] = {
 	## cardinality = 0..1
 	on_random_trait_added = single_alias_right[effect_clause]
 	### <Y/N, determines if species is pre-sapient>
+	### default: yes?
 	## cardinality = 0..1
 	sapient = bool
+	### modify scoped pops/planet/leader/country; default: yes
+	## cardinality = 0..1
+	change_scoped_species = bool
 	## cardinality = 0..1
 	## push_scope = species
 	effect = single_alias_right[effect_clause]
@@ -2938,14 +2930,7 @@ alias[effect:create_saved_leader] = {
 	## cardinality = 0..1
 	skill = int[1..20]
 	## cardinality = 0..1
-	traits = {
-		## cardinality = 0..inf
-		int = <trait.leader_trait>
-		## cardinality = 0..inf
-		trait = <trait.leader_trait>
-		## cardinality = 0..inf
-		trait = random_trait
-	}
+	traits = single_alias_right[leader_traits]
 	## push_scope = leader
 	## cardinality = 0..1
 	effect = single_alias_right[effect_clause]
@@ -3002,6 +2987,9 @@ alias[effect:create_ship] = {
 	## cardinality = 0..1
 	## push_scope = ship
 	effect = single_alias_right[effect_clause]
+	### <integer value between 1 and the amount of growth stages in the design> (optional, use the first growth stage by default)
+	## cardinality = 0..1
+	growth_stage = int
 }
 
 ### Creates a new ship design for use with last_created_design target
@@ -8695,6 +8683,7 @@ alias[effect:merge_species] = yes
 ## scopes = any
 alias[effect:enable_mission] = {
 	name = <missions>
+	location = scope_field
 }
 
 ### Refreshes the scoped country's leader pool.
