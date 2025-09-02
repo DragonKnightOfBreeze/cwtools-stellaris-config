@@ -75,9 +75,9 @@ solar_system_initializer = {
 	change_orbit = { min = int max = int }
 
 	## cardinality = 0..1
-	orbit_distance = float
+	orbit_distance = value_field
 	## cardinality = 0..1
-	orbit_distance = { min = float max = float }
+	orbit_distance = { min = value_field max = value_field }
 	## cardinality = 0..inf
 	orbital_line = {
 		orbit_distance_from_parent = int
@@ -161,9 +161,9 @@ alias[planet_initializer:planet] = {
 	class = ideal_design_class
 
 	## cardinality = 0..1
-	orbit_distance = float
+	orbit_distance = value_field
 	## cardinality = 0..1
-	orbit_distance = { min = float max = float }
+	orbit_distance = { min = value_field max = value_field }
 	## cardinality = 0..inf
 	orbital_line = {
 		orbit_distance_from_parent = int
@@ -261,9 +261,9 @@ alias[moon_initializer:moon] = {
 	class = ideal_design_class
 
 	## cardinality = 0..1
-	orbit_distance = float
+	orbit_distance = value_field
 	## cardinality = 0..1
-	orbit_distance = { min = float max = float }
+	orbit_distance = { min = value_field max = value_field }
 	## cardinality = 0..inf
 	orbital_line = {
 		orbit_distance_from_parent = int
