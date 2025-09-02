@@ -1558,6 +1558,9 @@ alias[effect:create_species] = {
 		trait = random_presapient_trait
 		## cardinality = 0..10
 		add_trait = <trait.species_trait>
+		### default: yes?
+		## cardinality = 0..1
+		add_traits_at_start_of_list = bool
 	}
 	### determines if species is sapient (default: yes)
 	## cardinality = 0..1
@@ -2518,6 +2521,9 @@ alias[effect:change_species_characteristics] = {
 	portrait = random
 	## cardinality = 0..inf
 	add_trait = <trait.species_trait>
+	### default: yes?
+	## cardinality = 0..1
+	add_traits_at_start_of_list = bool
 	## cardinality = 0..inf
 	remove_trait = <trait.species_trait>
 	## cardinality = 0..1

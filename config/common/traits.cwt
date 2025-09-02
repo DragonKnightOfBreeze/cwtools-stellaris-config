@@ -419,6 +419,9 @@ trait = {
 		### Is this trait available during leader generation, level up or yearly negative trait chance. Default is yes.
 		## cardinality = 0..1
 		randomized = bool
+		### Hides the trait in the Template Modification window. Default is no.
+		## cardinality = 0..1
+		hidden = bool
 		### Is this leader immortal? Default is no.
 		## cardinality = 0..1
 		immortal_leaders = bool

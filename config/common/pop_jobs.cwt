@@ -62,6 +62,11 @@ job = {
 	## cardinality = 0..1
 	category = <pop_category>
 
+	### default: no?
+	## cardinality = 0..1
+	first_come_first_served = bool
+	## cardinality = 0..1
+	is_capped_by_modifier = bool
 	### default no
 	## cardinality = 0..1
 	can_be_automated = bool
@@ -115,8 +120,6 @@ job = {
 
 	## cardinality = 0..1
 	exempt_from_ai_amenity_prioritization = bool
-	## cardinality = 0..1
-	is_capped_by_modifier = bool
 	## cardinality = 0..1
 	count_as_available_for_ai =bool
 	## cardinality = 0..1

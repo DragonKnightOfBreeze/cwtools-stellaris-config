@@ -155,6 +155,17 @@ zone = {
     ## cardinality = 0..1
     show_in_tech = <technology>
 
+	## cardinality = 0..1
+	ai_resource_production = {
+		## cardinality = 0..inf
+		<resource> = float
+		## replace_scopes = { this = planet root = planet }
+		trigger = single_alias_right[trigger_clause]
+	}
+	## cardinality = 0..1
+	ai_weight_coefficient = float
+	## cardinality = 0..1
+	ai_priority = int
 }
 
 

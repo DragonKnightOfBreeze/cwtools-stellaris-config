@@ -261,6 +261,7 @@ component_template = {
 		## cardinality = 0..1
 		injected_modifier = {
 			modifier = single_alias_right[modifier_clause]
+			## cardinality = 0..1
 			days = int
 		}
 		## cardinality = 0..1

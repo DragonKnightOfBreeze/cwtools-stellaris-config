@@ -7,7 +7,8 @@ types = {
 
 fallen_empires = {
 	graphical_culture = <graphical_culture>
-	initializer = <solar_system_initializer.fallen_empire_initializer>
+	initializer = <solar_system_initializer> # compatible with `fallen_hive_last_thought`
+	# initializer = <solar_system_initializer.fallen_empire_initializer>
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country }
 	possible = single_alias_right[trigger_clause]

@@ -22,44 +22,25 @@ message_type = {
 	### Frame index to use for gui item "message_frame"
 	## cardinality = 0..1
 	icon_frame = int
-	
+
 	### Localization key to use for title, if empty it will use "MESSAGE_<key>_TITLE instead.
 	## cardinality = 0..1
 	name = localisation
 	### Sound to play on message creation
 	## cardinality = 0..1
 	sound = <sound_effect>
-	
+
 	### Deprecated and does nothing.
 	## cardinality = 0..1
 	sound_is_advisor = bool
-	### Specifies if the message should be auto opened or not, valid: 'none', 'player', 'others' and 'all' (default: 'player'). Some messages as events are ignoring this since thay have their own option.
-	## cardinality = 0..1
-	auto_opens = scalar
 	### Ping map to use for map visualization.
 	## cardinality = 0..1
 	ping = <pingmap>
 
-	### Is notification enabled by default (default: yes).
-	## cardinality = 0..1
-	default_notification = bool
-
-	### default: no
-	## cardinality = 0..1
-	default_toast = bool
-
-	### Is popup enabled by default (default: no).
-	## cardinality = 0..1
-	default_popup = bool
-
-	### Is auto-pause enabled by default (default: no).
-	## cardinality = 0..1
-	default_autopause = bool
-
 	### If yes, the message type is not shown in the message settings UI (default: no).
 	## cardinality = 0..1
 	hidden_in_message_settings = bool
-	### Filter category in message settings, valid: 'diplomacy', 'military', 'economy', 'government', 'science', 'fleets', 'planets', 'leaders', 'other' (default: 'other').
+	### Filter category in message settings, valid: 'diplomacy', 'military', 'economy', 'government', 'science', 'fleets', 'planets', 'leaders', 'cosmic_storm', 'focuses', 'other' (default: 'other').
 	## cardinality = 0..1
 	category = enum[message_type_category]
 	### Localization key to use in message settings, if empty it will use name instead.
@@ -69,13 +50,26 @@ message_type = {
 	## cardinality = 0..1
 	message_setting_key = scalar
 
-	## Is the message disabled by default (default: no).
+	### Is notification enabled by default (default: yes).
 	## cardinality = 0..1
-	default_disabled = bool
+	default_notification = bool
+	### Is toast enabled by default (default: no).
+	## cardinality = 0..1
+	default_toast = bool
+	### Is popup enabled by default (default: no).
+	## cardinality = 0..1
+	default_popup = bool
+	### Is auto-pause enabled by default (default: no).
+	## cardinality = 0..1
+	default_autopause = bool
+
+	### default: yes?
+	## cardinality = 0..1
+	can_disable = bool
 }
 
 enums = {
 	enum[message_type_category] = {
-		diplomacy military economy government science fleets planets leaders other cosmic_storm
+		diplomacy military economy government science fleets planets leaders cosmic_storm focuses other
 	}
 }
