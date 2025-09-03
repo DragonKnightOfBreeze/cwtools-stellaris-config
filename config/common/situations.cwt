@@ -28,6 +28,8 @@ situation_type = {
 	## cardinality = 0..1
 	category = enum[situation_category]
 
+	## cardinality = 0..1
+	title = localisation
 	## cardinality = 0..inf
 	title = {
 		trigger = single_alias_right[trigger_clause]

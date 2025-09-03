@@ -77,11 +77,14 @@ single_alias[triggered_modifier_by_pop_group_clause] = {
 	## cardinality = 0..1
 	key = localisation
 
-	## default: no
+	### default: no
 	## cardinality = 0..1
 	show_if_not_potential = bool
 	## cardinality = 0..1
 	not_potential_override_text_key = localisation
+	### default: yes?
+	## cardinality = 0..1
+	divide_over_pop_groups = bool
 
 	## cardinality = 0..1
 	modifier = single_alias_right[modifier_clause]

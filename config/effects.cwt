@@ -2130,6 +2130,9 @@ alias[effect:modify_species] = {
 	### effect is fired for randomly selected trait, the Scope is the trait, the original scope is in Prev, and From contains Species
 	## cardinality = 0..1
 	on_random_trait_added = single_alias_right[effect_clause]
+	### default: yes?
+	## cardinality = 0..1
+	inherit_parent_rights = bool
 	### <Y/N, determines if species is pre-sapient>
 	### default: yes?
 	## cardinality = 0..1
@@ -6880,6 +6883,7 @@ alias[effect:every_associate] = {
 ## scopes = { galactic_object }
 ## push_scope = planet
 alias[effect:ordered_system_planet] = {
+	## cardinality = 0..1
 	position = int
 	order_by = value_field
 	## cardinality = 0..1

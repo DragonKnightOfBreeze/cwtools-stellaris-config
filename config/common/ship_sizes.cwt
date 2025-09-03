@@ -331,7 +331,9 @@ ship_size = {
 	is_bio_ship = bool
 
 	subtype[bio_ship] = {
+		## cardinality = 0..1
 		ship_family_name = localisation
+		## cardinality = 0..1
 		growth_stage_descriptor  = localisation
 		evaluation_resource = <resource>
 		## cardinality = 0..1

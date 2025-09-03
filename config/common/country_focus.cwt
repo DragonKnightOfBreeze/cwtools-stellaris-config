@@ -49,7 +49,7 @@ country_card_categories = {
     ## cardinality = 0..1
     icon = <sprite>
 	## cardinality = 0..1
-	small_icon = <country_card_categories> # not sure
+	small_icon = <game_concepts_categories> # not sure
     ## cardinality = 0..1
     resources = {
         ## cardinality = 0..1
@@ -83,11 +83,15 @@ country_focus_cards = {
     subtype[!country_focus_cards_base] = {
         base = <country_focus_cards.country_focus_cards_base>
     }
+	## cardinality = 0..1
 	category = <country_card_categories>
-    subtype[country_focus_cards_base] = {
-        background = <sprite>
-        tier = int
-    }
+	# compatible with `exploration_focus_115`
+    # subtype[country_focus_cards_base] = {
+    #     background = <sprite>
+    #     tier = int
+    # }
+	background = <sprite>
+	tier = int
 
     name = localisation
     desc = localisation
