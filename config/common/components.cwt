@@ -34,32 +34,14 @@ types = {
 		path = "game/common/component_templates"
 		file_extension = .txt
 		## type_key_filter = utility_component_template
-		subtype[utility_component_template] = {
-		}
+		subtype[utility_component_template] = {}
 		## type_key_filter = weapon_component_template
-		subtype[weapon_component_template] = {
-		}
+		subtype[weapon_component_template] = {}
 		## type_key_filter = strike_craft_component_template
-		subtype[strike_craft_component_template] = {
-		}
+		subtype[strike_craft_component_template] = {}
 		## type_key_filter = weapon_component_template
 		subtype[planet_killer] = {
 			type = planet_killer
-		}
-		subtype[action_planet] = {
-			scripted_action = {
-				scope = planet
-			}
-		}
-		subtype[action_fleet] = {
-			scripted_action = {
-				scope = fleet
-			}
-		}
-		subtype[action_self] = {
-			scripted_action = {
-				scope = self
-			}
 		}
 		localisation = {
 			name = "$"
@@ -454,106 +436,8 @@ component_template = {
 		## cardinality = 0..1
 		hyperlane_range = int
 
-		## cardinality = 0..1
-		scripted_action = {
-			scope = enum[utility_action_type]
-
-			## cardinality = 0..1
-			finish_anim_state = scalar
-
-			subtype[action_planet] = {
-				### scope: target planet from: triggering fleet. Starts when in orbit of target planet (otherwise moves beforehand)
-				## replace_scopes = { this = planet from = fleet }
-				## cardinality = 0..1
-				possible = single_alias_right[trigger_clause]
-				### scope: target planet from: triggering fleet. Starts when in orbit of target planet (otherwise moves beforehand)
-				## replace_scopes = { this = planet from = fleet }
-				## cardinality = 0..1
-				finished = single_alias_right[trigger_clause]
-				### scope: target planet from: triggering fleet. Starts when in orbit of target planet (otherwise moves beforehand)
-				## replace_scopes = { this = planet from = fleet }
-				## cardinality = 0..1
-				button_clickable = single_alias_right[trigger_clause]
-				### scope: target planet from: triggering fleet. Starts when in orbit of target planet (otherwise moves beforehand)
-				## replace_scopes = { this = planet from = fleet }
-				## cardinality = 0..1
-				button_visible = single_alias_right[trigger_clause]
-			}
-
-			subtype[action_fleet] = {
-				### scope: target fleet (can't be triggering fleet) from: triggering fleet. Starts when in range specified by fleet_action_range (otherwise moves beforehand)
-				## replace_scopes = { this = fleet from = fleet }
-				## cardinality = 0..1
-				possible = single_alias_right[trigger_clause]
-				### scope: target fleet (can't be triggering fleet) from: triggering fleet. Starts when in range specified by fleet_action_range (otherwise moves beforehand)
-				## replace_scopes = { this = fleet from = fleet }
-				## cardinality = 0..1
-				finished = single_alias_right[trigger_clause]
-				### scope: target fleet (can't be triggering fleet) from: triggering fleet. Starts when in range specified by fleet_action_range (otherwise moves beforehand)
-				## replace_scopes = { this = fleet from = fleet }
-				## cardinality = 0..1
-				button_clickable = single_alias_right[trigger_clause]
-				### scope: target fleet (can't be triggering fleet) from: triggering fleet. Starts when in range specified by fleet_action_range (otherwise moves beforehand)
-				## replace_scopes = { this = fleet from = fleet }
-				## cardinality = 0..1
-				button_visible = single_alias_right[trigger_clause]
-			}
-
-			subtype[action_self] = {
-				### scope: target planet from: triggering fleet. Starts immediately
-				## replace_scopes = { this = fleet from = fleet }
-				## cardinality = 0..1
-				possible = single_alias_right[trigger_clause]
-				### scope: target planet from: triggering fleet. Starts immediately
-				## replace_scopes = { this = fleet from = fleet }
-				## cardinality = 0..1
-				finished = single_alias_right[trigger_clause]
-				### scope: target planet from: triggering fleet. Starts immediately
-				## replace_scopes = { this = fleet from = fleet }
-				## cardinality = 0..1
-				button_clickable = single_alias_right[trigger_clause]
-				### scope: target planet from: triggering fleet. Starts immediately
-				## replace_scopes = { this = fleet from = fleet }
-				## cardinality = 0..1
-				button_visible = single_alias_right[trigger_clause]
-			}
-
-			name = <on_action>
-
-			tooltip = localisation
-
-			icon = <sprite>
-
-			## cardinality = 0..1
-			icon_selected = <sprite>
-
-			## cardinality = 0..1
-			on_cancel = <on_action>
-
-			activity_key = localisation
-
-			## cardinality = 0..1
-			context_menu_name = localisation
-
-			## cardinality = 0..1
-			progress_activity_key = localisation
-
-			## cardinality = 0..1
-			required_progress = int
-
-			## cardinality = 0..1
-			on_click_sound = <sound_effect>
-
-			## cardinality = 0..1
-			cooldown = int
-			## cardinality = 0..1
-			cost = {
-				## cardinality = 0..inf
-				<resource> = int
-			}
-			## cardinality = 0..1
-			shortcut = scalar
-		}
+		## cardinality = 0..inf
+		scripted_action = single_alias_right[component_template_scripted_action]
 	}
 
 	## replace_scopes = { this = design from = country }
@@ -565,101 +449,212 @@ component_template = {
 	show_tech_unlock_if = single_alias_right[trigger_clause]
 
 	## cardinality = 0..inf
-	friendly_aura = {
-		name = scalar
-		## cardinality = 0..1
-		## push_scope = ship
-		limit = single_alias_right[trigger_clause]
-		## cardinality = 0..1
-		system_wide = bool
-		## cardinality = 0..1
-		radius = int
-		## cardinality = 0..1
-		system_wide = bool
-		## cardinality = 0..1
-		apply_on = enum[aura_type]
-		stack_info = {
-			id = scalar
-			## cardinality = 0..1
-			priority = int
-		}
-		## cardinality = 0..1
-		## replace_scopes = { this = ship root = ship }
-		modifier = single_alias_right[modifier_clause]
-
-		## cardinality = 0..1
-		graphics = {
-			## cardinality = 0..inf
-			area_effect = {
-				entity = <model_entity>
-				dynamic_scale = bool
-			}
-			## cardinality = 0..inf
-			ship_effect = {
-				entity = <model_entity>
-				dynamic_scale = bool
-			}
-		}
-	}
+	friendly_aura = single_alias_right[component_template_friendly_aura]
 	## cardinality = 0..inf
-	hostile_aura = {
-		name = scalar
-		## cardinality = 0..1
-		## push_scope = ship
-		limit = single_alias_right[trigger_clause]
-		## cardinality = 0..1
-		system_wide = bool
-		## cardinality = 0..1
-		radius = int
-		## cardinality = 0..1
-		system_wide = bool
-		## cardinality = 0..1
-		apply_on = enum[aura_type]
-		stack_info = {
-			id = scalar
-			## cardinality = 0..1
-			priority = int
-		}
-		## cardinality = 0..1
-		## replace_scopes = { this = ship root = ship }
-		modifier = single_alias_right[modifier_clause]
+	hostile_aura = single_alias_right[component_template_hostile_aura]
+}
 
-		## cardinality = 0..1
-		graphics = {
-			## cardinality = 0..inf
-			area_effect = {
-				entity = <model_entity>
-				dynamic_scale = bool
-			}
-			## cardinality = 0..inf
-			ship_effect = {
-				entity = <model_entity>
-				dynamic_scale = bool
-			}
-		}
-		## cardinality = 0..1
-		damage_per_day = {
-			## cardinality = 0..1
-			accuracy = float
+single_alias[component_template_scripted_action] = {
+	scope = enum[utility_action_type]
 
-			## cardinality = 0..1
-			damage = { min = float max = float }
-			## cardinality = 0..1
-			hull_damage = float
-			## cardinality = 0..1
-			armor_damage = float
-			## cardinality = 0..1
-			shield_damage = float
-			## cardinality = 0..1
-			armor_penetration = float
-			## cardinality = 0..1
-			shield_penetration = float
-			## cardinality = 0..1
-			size_damage_factor = float
+	## cardinality = 0..1
+	finish_anim_state = scalar
+
+	### scope: target planet from: triggering fleet. Starts when in orbit of target planet (otherwise moves beforehand)
+	## cardinality = 0..1
+	## predicate = { scope = planet }
+	## replace_scopes = { this = planet from = fleet }
+	possible = single_alias_right[trigger_clause]
+	### scope: target planet from: triggering fleet. Starts when in orbit of target planet (otherwise moves beforehand)
+	## cardinality = 0..1
+	## predicate = { scope = planet }
+	## replace_scopes = { this = planet from = fleet }
+	finished = single_alias_right[trigger_clause]
+	### scope: target planet from: triggering fleet. Starts when in orbit of target planet (otherwise moves beforehand)
+	## cardinality = 0..1
+	## predicate = { scope = planet }
+	## replace_scopes = { this = planet from = fleet }
+	button_clickable = single_alias_right[trigger_clause]
+	### scope: target planet from: triggering fleet. Starts when in orbit of target planet (otherwise moves beforehand)
+	## cardinality = 0..1
+	## predicate = { scope = planet }
+	## replace_scopes = { this = planet from = fleet }
+	button_visible = single_alias_right[trigger_clause]
+
+	### scope: target fleet (can't be triggering fleet) from: triggering fleet. Starts when in range specified by fleet_action_range (otherwise moves beforehand)
+	## cardinality = 0..1
+	## predicate = { scope = fleet }
+	## replace_scopes = { this = fleet from = fleet }
+	possible = single_alias_right[trigger_clause]
+	### scope: target fleet (can't be triggering fleet) from: triggering fleet. Starts when in range specified by fleet_action_range (otherwise moves beforehand)
+	## cardinality = 0..1
+	## predicate = { scope = fleet }
+	## replace_scopes = { this = fleet from = fleet }
+	finished = single_alias_right[trigger_clause]
+	### scope: target fleet (can't be triggering fleet) from: triggering fleet. Starts when in range specified by fleet_action_range (otherwise moves beforehand)
+	## cardinality = 0..1
+	## predicate = { scope = fleet }
+	## replace_scopes = { this = fleet from = fleet }
+	button_clickable = single_alias_right[trigger_clause]
+	### scope: target fleet (can't be triggering fleet) from: triggering fleet. Starts when in range specified by fleet_action_range (otherwise moves beforehand)
+	## cardinality = 0..1
+	## predicate = { scope = fleet }
+	## replace_scopes = { this = fleet from = fleet }
+	button_visible = single_alias_right[trigger_clause]
+
+	## cardinality = 0..1
+	## predicate = { scope = self }
+	## replace_scopes = { this = fleet from = fleet }
+	### scope: target planet from: triggering fleet. Starts immediately
+	possible = single_alias_right[trigger_clause]
+	### scope: target planet from: triggering fleet. Starts immediately
+	## cardinality = 0..1
+	## predicate = { scope = self }
+	## replace_scopes = { this = fleet from = fleet }
+	finished = single_alias_right[trigger_clause]
+	### scope: target planet from: triggering fleet. Starts immediately
+	## cardinality = 0..1
+	## predicate = { scope = self }
+	## replace_scopes = { this = fleet from = fleet }
+	button_clickable = single_alias_right[trigger_clause]
+	### scope: target planet from: triggering fleet. Starts immediately
+	## cardinality = 0..1
+	## predicate = { scope = self }
+	## replace_scopes = { this = fleet from = fleet }
+	button_visible = single_alias_right[trigger_clause]
+
+	name = <on_action>
+
+	tooltip = localisation
+
+	icon = <sprite>
+
+	## cardinality = 0..1
+	icon_selected = <sprite>
+
+	## cardinality = 0..1
+	on_cancel = <on_action>
+
+	activity_key = localisation
+
+	## cardinality = 0..1
+	context_menu_name = localisation
+
+	## cardinality = 0..1
+	progress_activity_key = localisation
+
+	## cardinality = 0..1
+	required_progress = int
+
+	## cardinality = 0..1
+	on_click_sound = <sound_effect>
+
+	## cardinality = 0..1
+	cooldown = int
+	## cardinality = 0..1
+	cost = {
+		## cardinality = 0..inf
+		<resource> = int
+	}
+	## cardinality = 0..1
+	shortcut = scalar
+	## cardinality = 0..1
+	slot = int
+}
+
+single_alias[component_template_friendly_aura] = {
+	name = scalar
+	## cardinality = 0..1
+	## push_scope = ship
+	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
+	system_wide = bool
+	## cardinality = 0..1
+	radius = int
+	## cardinality = 0..1
+	system_wide = bool
+	## cardinality = 0..1
+	apply_on = enum[aura_type]
+	stack_info = {
+		id = scalar
+		## cardinality = 0..1
+		priority = int
+	}
+	## cardinality = 0..1
+	## replace_scopes = { this = ship root = ship }
+	modifier = single_alias_right[modifier_clause]
+
+	## cardinality = 0..1
+	graphics = {
+		## cardinality = 0..inf
+		area_effect = {
+			entity = <model_entity>
+			dynamic_scale = bool
+		}
+		## cardinality = 0..inf
+		ship_effect = {
+			entity = <model_entity>
+			dynamic_scale = bool
 		}
 	}
 }
 
+single_alias[component_template_hostile_aura] = {
+	name = scalar
+	## cardinality = 0..1
+	## push_scope = ship
+	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
+	system_wide = bool
+	## cardinality = 0..1
+	radius = int
+	## cardinality = 0..1
+	system_wide = bool
+	## cardinality = 0..1
+	apply_on = enum[aura_type]
+	stack_info = {
+		id = scalar
+		## cardinality = 0..1
+		priority = int
+	}
+	## cardinality = 0..1
+	## replace_scopes = { this = ship root = ship }
+	modifier = single_alias_right[modifier_clause]
+
+	## cardinality = 0..1
+	graphics = {
+		## cardinality = 0..inf
+		area_effect = {
+			entity = <model_entity>
+			dynamic_scale = bool
+		}
+		## cardinality = 0..inf
+		ship_effect = {
+			entity = <model_entity>
+			dynamic_scale = bool
+		}
+	}
+	## cardinality = 0..1
+	damage_per_day = {
+		## cardinality = 0..1
+		accuracy = float
+
+		## cardinality = 0..1
+		damage = { min = float max = float }
+		## cardinality = 0..1
+		hull_damage = float
+		## cardinality = 0..1
+		armor_damage = float
+		## cardinality = 0..1
+		shield_damage = float
+		## cardinality = 0..1
+		armor_penetration = float
+		## cardinality = 0..1
+		shield_penetration = float
+		## cardinality = 0..1
+		size_damage_factor = float
+	}
+}
 
 rows = {
 	row[component_template] = {
