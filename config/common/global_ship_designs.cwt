@@ -1,8 +1,12 @@
 types = {
+	## type_key_filter = ship_design
 	type[global_ship_design] = {
 		path = "game/common/global_ship_designs"
 		file_extension = .txt
-		name_field = "name"
+		name_field = name
+		localisation = {
+			name = name
+		}
 	}
 }
 
