@@ -425,6 +425,28 @@ links = {
 		output_scope = cosmic_storm_influence_field
 	}
 
+	v4.1
+	### Scopes from an object to its owner if it exists, or to the owner of the space it is in otherwise. Works on all objects visible in star system view that can have an owner
+	owner_or_space_owner = {
+		input_scopes = {
+			megastructure planet country ship fleet galactic_object army starbase archaeological_site spy_network debris
+		}
+		output_scope = country
+	}
+
+	### If scoped war was generated from a proxy war, scopes to the country who started the proxy war.
+	instigator = {
+		input_scopes = { war }
+		output_scope = country
+	}
+
+	### If scoped system contains a Psionic Aura, scopes to the country who generated the aura (can be different from the system owner).
+	aura_owner = {
+		input_scopes = { galactic_object }
+		output_scope = country
+	}
+
+
 	### Scopes to the ship's current growth stage inside the ship's design
 	ship_growth_stage = {
 		input_scopes = { ship }

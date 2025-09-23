@@ -810,8 +810,12 @@ alias[effect:set_timed_agreement_flag] = {
 alias[effect:remove_megastructure] = scope[megastructure]
 
 ### Sets the purge type for the entire planet
-## scopes = any
+## scopes = { planet }
 alias[effect:set_planet_purge_type] = <purge_type>
+
+### Clears the purge type for the entire planet
+## scopes = planet
+alias[effect:clear_planet_purge_type] = yes
 
 ### Sets a relation flag for the scoped country towards target country
 ## scopes = { country }
@@ -3125,6 +3129,11 @@ alias[effect:pop_force_add_ethic] = {
 	## cardinality = 0..1
 	random = int_value_field
 }
+
+### Adds given edict to scoped country's government
+## scopes = { country }
+alias[effect:add_edict] = <edict>
+
 ### Removes a specific ethic from the scoped pop_group
 ## scopes = { pop_group }
 alias[effect:pop_remove_ethic] = {
@@ -3638,7 +3647,7 @@ alias[effect:propose_resolution] = {
 }
 
 ### Weighted random on owned popgroups based on the popgroup size. Supports the same scopes as the owned_pop_group script list
-## scopes = { planet country pop_faction sector }
+## scopes = { planet country galactic_object pop_faction sector }
 ## push_scope = pop_group
 alias[effect:weighted_random_owned_pop_group] = {
 	## cardinality = 0..1
@@ -3922,6 +3931,10 @@ alias[effect:add_to_galactic_council] = yes
 ## scopes = { country }
 alias[effect:remove_from_galactic_council] = yes
 
+### Removes scoped leader from empire council
+## scopes = { leader }
+alias[effect:remove_from_empire_council] = yes
+
 ### Adds experience to the scoped federation
 ## scopes = { federation }
 alias[effect:add_federation_experience] = value_field
@@ -4181,6 +4194,34 @@ alias[effect:set_policy_cooldown] = <policy>
 ### Sets the current ship or fleet to be destroyed and spawn a debris project for the specified country.
 ## scopes = { ship fleet }
 alias[effect:destroy_and_spawn_debris_for] = scope_group[target_country]
+
+### Destroys up to navel_cap worth of ships in the target fleet (with death graphics)
+## scopes = any
+alias[effect:destroy_fleet_naval_cap] = {
+	target = socpe[fleet]
+
+	### default 1
+	## cardinality = 0..1
+	naval_cap = int_value_field
+	### default yes
+	## cardinality = 0..1
+	kill_leader = bool
+
+}
+
+### Deletes up to naval_cap worth of ships in the target fleet (no death graphics)
+## scopes = any
+alias[effect:delete_fleet_naval_cap] = {
+	target = socpe[fleet]
+
+	### default 1
+	## cardinality = 0..1
+	naval_cap = int_value_field
+	### default yes
+	## cardinality = 0..1
+	kill_leader = bool
+
+}
 
 ### Sets the star's star class, affecting system and galactic map graphics and potentially modifiers. Also changes the planet class of the system's primary star.
 ## scopes = { galactic_object }
@@ -4770,6 +4811,30 @@ alias[effect:get_trade_data] = {
 alias[effect:make_special_trade] = {
 	target = scope_group[target_country]
 }
+
+### Moves scoped system to a position relative to the given system/planet/ship.
+### Only works inside certain parts of the script marked as ai_trade_facility.
+## scopes = { country }
+alias[effect:move_system] = {
+
+	target = scope_group[spatial_object]
+	min_jumps = int_value_field
+	max_jumps = int_value_field
+
+	## cardinality = 0..1
+	min_distance = int_value_field[0..100]
+
+	## cardinality = 0..1
+	max_distance = int_value_field[0..100]
+
+	## cardinality = 0..1
+	hyperlane = bool
+
+	## cardinality = 0..1
+	reset_terra_incognita = bool
+
+}
+
 ### Leases fleet out to the new controller country for a numbed of days
 ## scopes = { fleet }
 alias[effect:give_fleet] = {
@@ -5264,7 +5329,7 @@ alias[effect:random_pop] = {
 }
 
 ### Iterate through all owned pops - executes the enclosed effects on all of them for which the limit triggers return true
-## scopes = { planet country pop_faction sector }
+## scopes = { planet country galactic_object pop_faction sector }
 ## push_scope = pop_group
 alias[effect:every_owned_pop_group] = {
 	## cardinality = 0..1
@@ -5409,7 +5474,7 @@ alias[effect:random_owned_leader] = {
 }
 
 ### Iterate through all owned pops - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## scopes = { planet country pop_faction sector }
+## scopes = { planet country galactic_object pop_faction sector }
 ## push_scope = pop_group
 alias[effect:random_owned_pop_group] = {
 	## cardinality = 0..1
@@ -7073,7 +7138,7 @@ alias[effect:ordered_moon] = {
 }
 
 ### Iterate through all owned pops - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## scopes = { planet country pop_faction sector }
+## scopes = { planet country galactic_object pop_faction sector }
 ## push_scope = pop_group
 alias[effect:ordered_owned_pop_group] = {
 	position = int
@@ -7119,8 +7184,44 @@ alias[effect:every_species_pop_group] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
+### Iterate through each pop group that contains this job - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+## scopes = { pop_job }
+## push_scope = pop_group
+alias[effect:random_job_pop_group] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+	### adds weights to affect the chance a specific object is selected
+	## cardinality = 0..1
+	weights = { alias_name[modifier_rule] = alias_match_left[modifier_rule] }
+}
+
+### Iterate through each pop group that contains this job - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
+## scopes = { pop_job }
+## push_scope = pop_group
+alias[effect:ordered_job_pop_group] = {
+	position = int
+	order_by = value_field
+	## cardinality = 0..1
+	inverse = bool
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through each pop group that contains this job - executes the enclosed effects on all of them for which the limit triggers return true.
+## scopes = { pop_job }
+## push_scope = pop_group
+alias[effect:every_job_pop_group] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	alias_name[effect] = alias_match_left[effect]
+}
+
+
 ### Iterate through all owned pop jobs - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## scopes = { planet country sector }
+## scopes = { planet country galactic_object sector }
 ## push_scope = pop_job
 alias[effect:random_owned_pop_job] = {
 	## cardinality = 0..1
@@ -7132,7 +7233,7 @@ alias[effect:random_owned_pop_job] = {
 }
 
 ### Iterate through all owned pop jobs - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## scopes = { planet country sector }
+## scopes = { planet country galactic_object sector }
 ## push_scope = pop_job
 alias[effect:ordered_owned_pop_job] = {
 	position = int
@@ -7145,7 +7246,7 @@ alias[effect:ordered_owned_pop_job] = {
 }
 
 ### Iterate through all owned pop jobs - executes the enclosed effects on all of them for which the limit triggers return true
-## scopes = { planet country sector }
+## scopes = { planet country galactic_object sector }
 ## push_scope = pop_job
 alias[effect:every_owned_pop_job] = {
 	## cardinality = 0..1
@@ -7317,6 +7418,41 @@ alias[effect:every_ship_in_system] = {
 	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
+
+### Iterate through every system with an Aura - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+## scopes = { country }
+## push_scope = system
+alias[effect:random_system_with_aura] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+	### adds weights to affect the chance a specific object is selected
+	## cardinality = 0..1
+	weights = { alias_name[modifier_rule] = alias_match_left[modifier_rule] }
+}
+
+### Iterate through every system with an Aura - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
+## scopes = { country }
+## push_scope = system
+alias[effect:ordered_system_with_aura] = {
+	position = int
+	order_by = value_field
+	## cardinality = 0..1
+	inverse = bool
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### Iterate through every system with an Aura - executes the enclosed effects on all of them for which the limit triggers return true
+## scopes = { country }
+## push_scope = system
+alias[effect:every_system_with_aura] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[effect] = alias_match_left[effect]
+}
+
 
 ### Iterate through each situation a country is experiencing - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
 ## scopes = { country }
@@ -8159,6 +8295,10 @@ alias[effect:refresh_portraits] = enum[refresh_portraits]
 ## scopes = { country }
 alias[effect:advanced_authority_refresh] = bool
 
+### Manually refresh species rights.
+## scopes = { country }
+alias[effect:refresh_species_rights] = bool
+
 ### Enables or disables the date distortion effect
 ## scopes = any
 alias[effect:date_distortion] = bool
@@ -8384,6 +8524,9 @@ alias[effect:give_culling_rewards] = {
 	design = scope[design]
 	## cardinality = 0..1
 	design = last_created_design
+	### (optional, default: 1)
+	## cardinality = 0..1
+	mult = int_value_fild
 }
 
 ### Gives given space fauna DNA with given rarity to the target country.
@@ -8463,6 +8606,33 @@ alias[effect:set_ship_construction_type] = none
 ## scopes = { starbase }
 alias[effect:set_ship_construction_type] = value[construction_type]
 
+### Replace a patron with another one, creating the patron relation if it does not yet exist, and setting the new patron to the replaced patron's position in the shroud plane.
+## scopes = { country }
+alias[effect:replace_patron] = {
+	new_patron = <patron_type>
+	replaced_patron = <patron_type>
+}
+
+### Remove a patron from the shroud plane.
+## scopes = { country }
+alias[effect:remove_patron] = <patron_type>
+
+### Adds attunement towards specified patron(s).This effect can be displayed if necessary, but you'll need to place it at the end of all displayed effects.The displayed text will depend on the contactstate with the patron(s).
+## scopes = { country }
+alias[effect:add_attunement] = {
+	## cardinality = 0..inf
+	<patron_type> = int_value_field
+}
+
+### Sets attunement of the specified patron to a specific amount.
+## scopes = { country }
+alias[effect:set_attunement] = {
+	## cardinality = 1..1
+	value = int_value_field
+	## cardinality = 1..1
+	patron = <patron_type>
+}
+
 ### Link the scoped megastructure bypass to the given target megastructure bypass.
 ## scopes = { megastructure }
 alias[effect:link_to] = from
@@ -8535,6 +8705,18 @@ alias[effect:repair_armor_amount] = int_value_field
 ## scopes = { ship fleet }
 alias[effect:repair_shield_amount] = int_value_field
 
+### Gives the player the reward for the specified deed, if the player has it in its patron deeds selection.
+## scopes = { country }
+alias[effect:complete_deed] = <deed>
+
+### Accepts covenant proposition with Shroud Patron.
+## scopes = { country }
+alias[effect:accept_covenant] = <patron_type>
+
+### Refuses covenant proposition with Shroud Patron.
+## scopes = { country }
+alias[effect:refuse_covenant] = <patron_type>
+
 ### Sets if a country needs a colony (or a colony ship) to be considered alive
 ## scopes = { country }
 alias[effect:set_faction_needs_colony] = bool
@@ -8542,6 +8724,38 @@ alias[effect:set_faction_needs_colony] = bool
 ### Sets if country will be automatically deleted when considered dead
 ## scopes = { country }
 alias[effect:set_faction_auto_delete] = bool
+
+### Increments (or decrements with negative values) a patron objective counter for the scoped country by a specific amount. Can multiply the attunement given by the patron objective (if it's a deed).
+## scopes = { country }
+alias[effect:add_patron_objective_counter] = {
+	counter = enum[calling_counter]
+
+	amount = int_value_field
+	## cardinality = 0..1
+	multiplier = value_field
+
+}
+
+### Creates a relation with Shroud patron
+## scopes = { country }
+alias[effect:create_patron_relation] = patron_type
+
+### Enables a specific special research project for the target country at a specific location (should be the same as the current scope where possible). This special project will be the one used for the Patron First Contact. The relation contact state will be set to In Progress if needed.
+## scopes = { country }
+alias[effect:enable_patron_first_contact_project] = {
+	## cardinality = 1..1
+	name = <special_project>
+
+	## cardinality = 1..1
+	patron = <patron_type>
+
+	## cardinality = 1..1
+	owner = scope[country]
+
+	## cardinality = 0..1
+	location = scope_field
+
+}
 
 ### Copies the traditions of the target country into the scoped country. Traditions are added to the existing traditions, and the potential/possible triggers are respected.the traditions listed in the exceptions list are not copied.
 ## scopes = { country }
@@ -8665,6 +8879,78 @@ alias[effect:remove_zone] = {
 	all = bool
 }
 
+### Spawns a Psionic Aura in scoped system, where country is the aura's owner.
+## scopes = { galactic_object }
+alias[effect:spawn_psionic_aura] = {
+	owner = scope[country]
+	## cardinality = 0..1
+	type = <psionic_aura>
+	## cardinality = 0..1
+	update_type = bool
+}
+
+### Sets given intensity to Psionic Aura in scoped system
+## scopes = { galactic_object }
+alias[effect:set_aura_intensity] = int_value_field
+
+### Adds value to Psionic Aura intensity in scoped system## scopes = { planet }
+## scopes = { galactic_object }
+alias[effect:add_aura_intensity] = int_value_field
+
+### Forces an Empire's Psionic Aura to immediately update its type
+## scopes = { country }
+alias[effect:refresh_psionic_aura_type] = yes
+
+### Instantly finish current researches for scoped country.
+## scopes = { country }
+alias[effect:finish_all_researches] = yes
+
+### Make current researches for scoped country advance by given amount.
+## scopes = { country }
+alias[effect:progress_all_researches] = value_field
+
+### Launches the on_revert effects for all accords of a Shroud Patron.
+## scopes = { country }
+alias[effect:revert_accords] = <patron_type>
+
+### Manually refresh Patrons accords
+## scopes = { country }
+alias[effect:refresh_accords] = yes
+
+### Instantly destroys part of a pop group (prefer to use instead of kill_pop_group when the country intentionally kills it)
+## scopes = any
+alias[effect:sacrifice_pop_group] = {
+	pop_group = scope[pop_group]
+	## cardinality = 0..1
+	amount = int_value_field
+	## cardinality = 0..1
+	percentage = float[0.0..1.0]
+}
+
+### Instantly sacrifices part of the assigned pops to this job
+## scopes = { pop_job }
+alias[effect:sacrifice_assigned_pop_amount] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
+	amount = int_value_field
+	## cardinality = 0..1
+	percentage = float[0.0..1.0]
+}
+
+### Adds a percentage to the total time of the current terraforming process on the planet
+## scopes = { planet }
+alias[effect:add_terraformation_total_time_mult] = value_field
+
+### Finishes the current terraforming process on the planet
+## scopes = { planet }
+alias[effect:finish_terraformation] = yes
+
+### Opens the Shroud tab
+## scopes = { country }
+alias[effect:open_shroud_tab] = yes
+
+
 ### Instantly destroys part of the assigned pops to this job
 ## scopes = { pop_job }
 alias[effect:kill_assigned_pop_amount] = {
@@ -8681,15 +8967,43 @@ alias[effect:kill_assigned_pop_amount] = {
 	growth_category = localisation
 }
 
+### Sets which ship terrified the target ship/fleet (all ships). Clears at the end of combat.
+## scopes = { ship fleet }
+alias[effect:set_terrified_by] = scope[ship]
+
+### Removes terrified state on the target ship/fleet (all ships).
+## scopes = { ship fleet }
+alias[effect:remove_terrified] = yes
+
 ### Triggers the merge of similar sub-species for a country.
 ## scopes = { country }
 alias[effect:merge_species] = yes
+
+### Set the Shroud Patron scoped AI will devote themselves to.
+## scopes = { country }
+alias[effect:set_ai_preferred_patron] = <patron_type>
+
+### Rolls the major Shroud Patron scoped AI will devote themselves to, by selecting the patron with the highest attunement value.
+## scopes = { country }
+alias[effect:roll_ai_preferred_patron] = yes
+
+### Sets the contact state with a Shroud Patron (will create the relation if needed).
+## scopes = { country }
+alias[effect:set_patron_first_contact_state] = {
+	patron = <patron_type>
+	## cardinality = 0..1
+	state = enum[patron_contact_state]
+}
 
 ### Enables a mission for target country
 ## scopes = any
 alias[effect:enable_mission] = {
 	name = <missions>
 }
+
+### Sets the leader's tier.
+## scopes = any
+alias[effect:set_leader_tier] = <leader_tier>
 
 ### Refreshes the scoped country's leader pool.
 ## scopes = { country }

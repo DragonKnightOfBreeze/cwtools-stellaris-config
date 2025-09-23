@@ -165,7 +165,12 @@ localisation_links = {
 		prefix = parameter:
 		data_source = value[parameter]
 	}
-
+	patron = {
+		type = scope
+		from_data = yes
+		prefix = patron:
+		data_source = <patron_type>
+	}
 	variable = {
 		type = value
 		from_data = yes

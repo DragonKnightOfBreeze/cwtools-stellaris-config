@@ -31,6 +31,7 @@ localisation_promotions = {
     EVENT_TARGET_8 = { any }
     EVENT_TARGET_9 = { any }
     <job> = { country planet ship starbase system fleet leader army pop_faction first_contact espionage_operation spy_network megastructure sector agreement situation }
+    <patron_type> = { country }
 }
 localisation_commands = {
     GetYear = { any }
@@ -181,4 +182,5 @@ localisation_commands = {
     GetIcon = { pop_job }
     GetName_lower = { pop_job }
     GetNamePlural_lower = { pop_job }
+    GetPreCommunicationName = { any }
 }

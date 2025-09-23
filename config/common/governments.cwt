@@ -554,6 +554,9 @@ councilor = {
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	modifier = single_alias_right[modifier_clause]
+	## cardinality = 0..inf
+	## replace_scopes = { root = country this = country }
+	triggered_country_modifier = single_alias_right[triggered_modifier_clause]
 	### Custom tooltip text shown instead of the auto-generated modifier tooltip text of the council position.
 	## cardinality = 0..1
 	custom_tooltip = localisation

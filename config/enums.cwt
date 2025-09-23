@@ -485,4 +485,14 @@ enums = {
 		technology
 		traditions
 	}
+	enum[parton_type_category] = {
+		major_patron
+		minor_patron
+		great_patron
+	}
+	enum[patron_contact_state] = {
+		none
+		in_progress
+		completed
+	}
 }
