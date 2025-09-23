@@ -26,12 +26,33 @@ types = {
 }
 
 alert = {
-	category = <alert_icon>
-	category = DISABLED
+	### Filter category in alert settings, valid: 'diplomacy', 'military', 'economy', 'government', 'science', 'fleets', 'planets', 'leaders', 'cosmic_storm', 'focuses', 'other' (default: 'other').
+	## cardinality = 0..1
+	category = enum[alert_category]
+	### Determines the background icon and order of alerts, valid: HIGH, MEDIUM, LOW (default: LOW).
+	### For some alerts, the background (but not the order) is overridden in code.
+	## cardinality = 0..1
+	priority = enum[alert_priority]
+	### Sound played when the alert appears.
 	## cardinality = 0..1
 	sound = <sound_effect>
+	### Icon shown on the alert.
 	## cardinality = 0..1
 	icon = <sprite>
+	### Localization key to use in alert settings, if empty it will use "<key>_title" instead.
+	## cardinality = 0..1
+	alert_setting_key = localisation
+	### Is the alert enabled by default (default: yes).
+	## cardinality = 0..1
+	default_enabled = bool
+	### Is auto-pause enabled by default (default: no).
+	## cardinality = 0..1
+	default_autopause = bool
+}
+
+enums = {
+	enum[alert_category] = { diplomacy military economy government science fleets planets leaders cosmic_storm focuses other }
+	enum[alert_priority] = { LOW MEDIUM HIGH }
 }
 
 alert_icon = <sprite>

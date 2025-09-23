@@ -17,6 +17,10 @@ types = {
 pop_category = {
 	rank = int
 
+	### default: yes?
+	## cardinality = 0..1
+	can_change_category = bool
+
 	## cardinality = 0..1
 	clothes_texture_index = int
 
@@ -84,4 +88,25 @@ pop_category = {
 	display_category = <pop_category>
 	## cardinality = 0..1
 	display_unemployment = bool
+
+	## cardinality = 0..1
+	custom_demotion_loc = localisation
+	### empty to use default loc that doesn't show demotion
+	## cardinality = 0..1
+	custom_demotion_loc = ""
+	## cardinality = 0..1
+	custom_demotion_icon = <sprite> # not sure
+	### empty to show no icon
+	## cardinality = 0..1
+	custom_demotion_icon = ""
+	## cardinality = 0..1
+	custom_promotion_loc = localisation
+	### empty to use default loc that doesn't show demotion
+	## cardinality = 0..1
+	custom_promotion_loc = ""
+	## cardinality = 0..1
+	custom_promotion_icon = <sprite> # not sure
+	### empty to show no icon
+	## cardinality = 0..1
+	custom_promotion_icon = ""
 }

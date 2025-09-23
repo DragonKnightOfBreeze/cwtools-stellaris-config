@@ -20,7 +20,8 @@ types = {
 			is_designable = yes
 		}
 		subtype[bio_ship] = {
-			is_bio_ship = yes
+			# is_bio_ship = yes
+			is_bio_ship = bool # compatible with fallen empire bio ships
 		}
 		subtype[hero_ship] = {
 			is_hero_ship = yes
@@ -76,6 +77,9 @@ ship_size = {
 	components_add_to_cost = bool
 	## cardinality = 0..1
 	is_designable = bool
+	### default: no?
+	## cardinality = 0..1
+	never_mia = bool
 	## cardinality = 0..1
 	### may be deprecated, tell Dayshine and Caligula if yes
 	build_time = int
@@ -192,6 +196,9 @@ ship_size = {
 	uses_name_prefix = bool
 	## cardinality = 0..1
 	is_space_fauna_ship = bool
+	### default: no?
+	## cardinality = 0..1
+	is_reanimated = bool
 
 	subtype[space_fauna] = {
 		## cardinality = ~1..1
@@ -219,7 +226,12 @@ ship_size = {
 			## cardinality = 0..1
 			breeding_cooldown_months = int
 			## cardinality = 0..1
+			merge_with_individuals_amount_to_upgrade = int
+			## cardinality = 0..1
 			reanimated_ship_design = <global_ship_design>
+			### default: no
+			## cardinality = 0..1
+			can_breed_alone = bool
 			## cardinality = 1..1
 			icon_frame = int
 
@@ -319,7 +331,9 @@ ship_size = {
 	is_bio_ship = bool
 
 	subtype[bio_ship] = {
+		## cardinality = 0..1
 		ship_family_name = localisation
+		## cardinality = 0..1
 		growth_stage_descriptor  = localisation
 		evaluation_resource = <resource>
 		## cardinality = 0..1

@@ -1502,6 +1502,16 @@ alias[effect:create_species] = {
 	## cardinality = 0..1
 	namelist = random_class
 	## cardinality = 0..1
+	name_list = <name_list>
+	## cardinality = 0..1
+	name_list = scope_group[target_country]
+	## cardinality = 0..1
+	name_list = scope[species]
+	## cardinality = 0..1
+	name_list = random
+	## cardinality = 0..1
+	name_list = random_class
+	## cardinality = 0..1
 	plural = scope[any]
 	## cardinality = 0..1
 	plural = random
@@ -1562,6 +1572,9 @@ alias[effect:create_species] = {
 		trait = random_presapient_trait
 		## cardinality = 0..10
 		add_trait = <trait.species_trait>
+		### default: yes?
+		## cardinality = 0..1
+		add_traits_at_start_of_list = bool
 	}
 	### determines if species is sapient (default: yes)
 	## cardinality = 0..1
@@ -1634,14 +1647,6 @@ alias[effect:create_species] = {
 	allow_negative_traits = bool
 	## cardinality = 0..1
 	extra_trait_points = int
-	## cardinality = 0..1
-	name_list = <name_list>
-	## cardinality = 0..1
-	name_list = random
-	## cardinality = 0..1
-	name_list = scope_group[target_country]
-	## cardinality = 0..1
-	name_list = scope[species]
 	## cardinality = 0..1
 	pop_ethics = no
 	## cardinality = 0..1
@@ -1925,14 +1930,7 @@ alias[effect:create_leader] = {
 	set_age = value_field
 	### The traits of the leader, e.g. "1 = leader_trait_bureaucrat". If <level> is a positive int and randomize_traits = yes, the trait is added if the leader's level is at least <level>.
 	## cardinality = 0..1
-	traits = {
-		## cardinality = 0..inf
-		int = <trait.leader_trait>
-		## cardinality = 0..inf
-		trait = <trait.leader_trait>
-		## cardinality = 0..inf
-		trait = random_trait
-	}
+	traits = single_alias_right[leader_traits]
 
 	### Optional, default = random.
 	## cardinality = 0..1
@@ -2028,14 +2026,7 @@ alias[effect:clone_leader] = {
 	set_age = value_field
 	### The traits of the leader, e.g. "1 = leader_trait_bureaucrat". If <level> is a positive int and randomize_traits = yes, the trait is added if the leader's level is at least <level>.
 	## cardinality = 0..1
-	traits = {
-		## cardinality = 0..inf
-		int = <trait.leader_trait>
-		## cardinality = 0..inf
-		trait = <trait.leader_trait>
-		## cardinality = 0..inf
-		trait = random_trait
-	}
+	traits = single_alias_right[leader_traits]
 
 	### Optional, default = random.
 	## cardinality = 0..1
@@ -2143,9 +2134,16 @@ alias[effect:modify_species] = {
 	### effect is fired for randomly selected trait, the Scope is the trait, the original scope is in Prev, and From contains Species
 	## cardinality = 0..1
 	on_random_trait_added = single_alias_right[effect_clause]
+	### default: yes?
+	## cardinality = 0..1
+	inherit_parent_rights = bool
 	### <Y/N, determines if species is pre-sapient>
+	### default: yes?
 	## cardinality = 0..1
 	sapient = bool
+	### modify scoped pops/planet/leader/country; default: yes
+	## cardinality = 0..1
+	change_scoped_species = bool
 	## cardinality = 0..1
 	## push_scope = species
 	effect = single_alias_right[effect_clause]
@@ -2288,9 +2286,9 @@ alias[effect:spawn_natural_wormhole] = {
 	in_place_of = scope_group[spatial_object]
 	bypass_type = <bypass>
 	## cardinality = 0..1
-	orbit_distance = float #no variables here atm
+	orbit_distance = value_field
 	## cardinality = 0..1
-	orbit_distance = { min = float max = float }
+	orbit_distance = { min = value_field max = value_field }
 	## cardinality = 0..1
 	orbit_angle = random
 	## cardinality = 0..1
@@ -2522,6 +2520,9 @@ alias[effect:change_species_characteristics] = {
 	portrait = random
 	## cardinality = 0..inf
 	add_trait = <trait.species_trait>
+	### default: yes?
+	## cardinality = 0..1
+	add_traits_at_start_of_list = bool
 	## cardinality = 0..inf
 	remove_trait = <trait.species_trait>
 	## cardinality = 0..1
@@ -2936,14 +2937,7 @@ alias[effect:create_saved_leader] = {
 	## cardinality = 0..1
 	skill = int[1..20]
 	## cardinality = 0..1
-	traits = {
-		## cardinality = 0..inf
-		int = <trait.leader_trait>
-		## cardinality = 0..inf
-		trait = <trait.leader_trait>
-		## cardinality = 0..inf
-		trait = random_trait
-	}
+	traits = single_alias_right[leader_traits]
 	## push_scope = leader
 	## cardinality = 0..1
 	effect = single_alias_right[effect_clause]
@@ -3000,6 +2994,9 @@ alias[effect:create_ship] = {
 	## cardinality = 0..1
 	## push_scope = ship
 	effect = single_alias_right[effect_clause]
+	### <integer value between 1 and the amount of growth stages in the design> (optional, use the first growth stage by default)
+	## cardinality = 0..1
+	growth_stage = int
 }
 
 ### Creates a new ship design for use with last_created_design target
@@ -3431,9 +3428,9 @@ alias[effect:spawn_megastructure] = {
 	## cardinality = 0..1
 	orbit_angle = { min = int[-360..360] max = int[-360..360] }
 	## cardinality = 0..1
-	orbit_distance = float
+	orbit_distance = value_field
 	## cardinality = 0..1
-	orbit_distance = { min = float max = float }
+	orbit_distance = { min = value_field max = value_field }
 	## cardinality = 0..1
 	owner = scope_group[target_country]
 	## cardinality = 0..1
@@ -3467,9 +3464,9 @@ alias[effect:spawn_planet] = {
 	## cardinality = 0..1
 	orbit_location = bool
 	## cardinality = 0..1
-	orbit_distance = float
+	orbit_distance = value_field
 	## cardinality = 0..1
-	orbit_distance = { min = float max = float }
+	orbit_distance = { min = value_field max = value_field }
 	## cardinality = 0..1
 	orbit_distance_offset = value_field
 	## cardinality = 0..1
@@ -5078,9 +5075,9 @@ alias[effect:spawn_astral_rift] = {
 	## cardinality = 0..1
 	random_pos = bool
 	## cardinality = 0..1
-	orbit_distance = float
+	orbit_distance = value_field
 	## cardinality = 0..1
-	orbit_distance = { min = float max = float }
+	orbit_distance = { min = value_field max = value_field }
 	## cardinality = 0..1
 	orbit_angle = int
 	## cardinality = 0..1
@@ -6951,6 +6948,7 @@ alias[effect:every_associate] = {
 ## scopes = { galactic_object }
 ## push_scope = planet
 alias[effect:ordered_system_planet] = {
+	## cardinality = 0..1
 	position = int
 	order_by = value_field
 	## cardinality = 0..1
@@ -8999,6 +8997,7 @@ alias[effect:set_patron_first_contact_state] = {
 ## scopes = any
 alias[effect:enable_mission] = {
 	name = <missions>
+	location = scope_field
 }
 
 ### Sets the leader's tier.

@@ -130,6 +130,8 @@ planet_class = {
 	## cardinality = 0..1
 	ringworld = bool
 	## cardinality = 0..1
+	synaptic_lathe = bool
+	## cardinality = 0..1
 	### (default: no)
 	can_have_no_pop_colony = bool
 	## cardinality = 0..1

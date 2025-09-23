@@ -393,14 +393,14 @@ links = {
 		output_scope = planet
 	}
 
-	v 3.12.1
+	# v 3.12.1
 	### Scopes from a country to its founding species.
 	founder_species = {
 		input_scopes = { country }
 		output_scope = species
 	}
 
-	v 3.13.0
+	# v 3.13.0
 	### Scopes from a cosmic storm to the galactic object that it is heading torwards.
 	target_system = {
 		input_scopes = { cosmic_storm }

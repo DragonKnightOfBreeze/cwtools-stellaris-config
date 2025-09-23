@@ -41,6 +41,12 @@ alias[modifier_rule:complex_trigger_modifier] = {
 	## cardinality = 0..1
 	multiplier = value_field
 	## cardinality = 0..1
+	divide = value_field
+	## cardinality = 0..1
+	min_value = value_field
+	## cardinality = 0..1
+	max_value = value_field
+	## cardinality = 0..1
 	desc = localisation
 	## cardinality = 0..1
 	potential = single_alias_right[trigger_clause]
@@ -48,6 +54,7 @@ alias[modifier_rule:complex_trigger_modifier] = {
 
 #modifier_rule_with_loc is deliberately more restrictive because of what we can make good tooltips with
 alias[modifier_rule_with_loc:base] = float
+alias[modifier_rule_with_loc:add] = float
 alias[modifier_rule_with_loc:factor] = float
 alias[modifier_rule_with_loc:modifier] = {
 	## cardinality = 0..1

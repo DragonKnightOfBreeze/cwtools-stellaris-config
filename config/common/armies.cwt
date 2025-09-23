@@ -17,14 +17,14 @@ types = {
 			has_species = no
 		}
 		localisation = {
+			## required
+			## primary
 			name = "$"
-			## optional
 			plural = "$_plural"
-			## optional
 			desc = "$_desc"
 		}
 		images = {
-			## optional
+			## primary
 			icon = icon # <sprite>
 		}
 	}

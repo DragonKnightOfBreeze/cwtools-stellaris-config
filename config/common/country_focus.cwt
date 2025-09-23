@@ -2,14 +2,28 @@ types = {
     type[country_card_categories] = {
         path = "game/common/country_focus/card_categories"
         file_extension = .txt
+		localisation = {
+			## primary
+			name = name
+			desc = desc
+		}
+		images = {
+			## primary
+			icon = icon
+			small_icon = small_icon
+			background = background
+			background_expanded = background_expanded
+		}
     }
     type[country_focus_cards] = {
         path = "game/common/country_focus/focus_cards"
         file_extension = .txt
         subtype[country_focus_cards_base] = {
-            category = <country_card_categories>
+			## cardinality = 0..0
+			base = <country_focus_cards.country_focus_cards_base>
         }
         subtype[country_focus_cards_not_base] = {
+			## cardinality = 1..1
             base = <country_focus_cards.country_focus_cards_base>
         }
     }
@@ -34,6 +48,8 @@ country_card_categories = {
     background_expanded = <sprite>
     ## cardinality = 0..1
     icon = <sprite>
+	## cardinality = 0..1
+	small_icon = <game_concepts_categories> # not sure
     ## cardinality = 0..1
     resources = {
         ## cardinality = 0..1
@@ -67,13 +83,18 @@ country_focus_cards = {
     subtype[!country_focus_cards_base] = {
         base = <country_focus_cards.country_focus_cards_base>
     }
-    subtype[!country_focus_cards_not_base] = {
-        category = <country_card_categories>
-    }
+	## cardinality = 0..1
+	category = <country_card_categories>
     subtype[country_focus_cards_base] = {
         background = <sprite>
         tier = int
     }
+	subtype[!country_focus_cards_base] = {
+		## cardinality = 0..1
+		background = <sprite>
+		## cardinality = 0..1
+		tier = int
+	}
 
     name = localisation
     desc = localisation
@@ -90,8 +111,6 @@ country_focus_cards = {
     ## cardinality = 0..1
     ## replace_scopes = { root = country this = country }
     on_success = single_alias_right[effect_clause]
-
-
 }
 
 country_focus_rewards = {
@@ -102,5 +121,4 @@ country_focus_rewards = {
     ## cardinality = 0..1
     ## replace_scopes = { root = country this = country }
     on_success = single_alias_right[effect_clause]
-
 }

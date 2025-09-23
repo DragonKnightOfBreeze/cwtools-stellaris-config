@@ -39,20 +39,35 @@ types = {
 }
 
 trait = {
+	## cardinality = 0..1
+	cost = int
+	## cardinality = 0..1
+	## replace_scopes = { this = country root = country }
+	cost = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
 
 	subtype[leader_trait] = {
 		### This trait is available in ruler creation. Default is no.
 		## cardinality = 0..1
 		starting_ruler_trait = bool
-
-		subtype[starting_ruler_trait] = {
-			## cardinality = 0..1
-			cost = int
-			## cardinality = 0..1
-			## replace_scopes = { this = country root = country }
-			cost = {
-				alias_name[modifier_rule] = alias_match_left[modifier_rule]
-			}
+		### OR - This trait is allowed in ruler creation if any of the listed origins is selected. If not specified, any origins are allowed.
+		## cardinality = 0..1
+		allowed_origins = {
+			## cardinality = 0..inf
+			<civic_or_origin.origin>
+		}
+		### OR - This trait is blocked in ruler creation if listed origins are selected.
+		## cardinality = 0..1
+		forbidden_origins = {
+			## cardinality = 0..inf
+			<civic_or_origin.origin>
+		}
+		### OR - This trait is allowed in ruler creation if any of the listed ethics are selected. If not specified, any ethics are allowed.
+		## cardinality = 0..1
+		allowed_ethics = {
+			## cardinality = 0..inf
+			<ethic>
 		}
 
 		## cardinality = 0..1
@@ -60,13 +75,6 @@ trait = {
 		### Is this trait only active if the leader is on the Council? Default is no.
 		## cardinality = 0..1
 		force_councilor_trait = bool
-
-		### OR - This trait is blocked in ruler creation if listed origins are selected.
-		## cardinality = 0..1
-		forbidden_origins = {
-			## cardinality = 0..inf
-			<civic_or_origin.origin>
-		}
 
 		## cardinality = 0..1
 		## file_extensions = { .png .dds .tga }
@@ -317,17 +325,8 @@ trait = {
 	}
 
 	subtype[species_trait] = {
-
 		## cardinality = 0..1
 		host_has_dlc = enum[dlc]
-
-		## cardinality = 0..1
-		cost = int
-		## cardinality = 0..1
-		## replace_scopes = { this = country root = country }
-		cost = {
-			alias_name[modifier_rule] = alias_match_left[modifier_rule]
-		}
 
 		## cardinality = 0..inf
 		## replace_scopes = { this = species root = species from = pop_group }
@@ -338,23 +337,24 @@ trait = {
 		## cardinality = 0..1
 		valid_for_all_origins = bool
 
-		### This only does something if valid_for_all_ethics is set to no
-		## cardinality = 0..1
-		allowed_ethics = {
-			## cardinality = 1..inf
-			<ethic>
-		}
 		### This only does something if valid_for_origins is set to no
 		## cardinality = 0..1
 		allowed_origins = {
 			## cardinality = 1..inf
 			<civic_or_origin.origin>
 		}
+		### This only does something if valid_for_all_ethics is set to no
+		## cardinality = 0..1
+		allowed_ethics = {
+			## cardinality = 1..inf
+			<ethic>
+		}
 		## cardinality = 0..1
 		allowed_archetypes = {
 			## cardinality = 1..inf
 			<species_archetype>
 		}
+
 		## cardinality = 0..1
 		localized_tags = {
 			## cardinality = 0..inf
@@ -419,6 +419,9 @@ trait = {
 		### Is this trait available during leader generation, level up or yearly negative trait chance. Default is yes.
 		## cardinality = 0..1
 		randomized = bool
+		### Hides the trait in the Template Modification window. Default is no.
+		## cardinality = 0..1
+		hidden = bool
 		### Is this leader immortal? Default is no.
 		## cardinality = 0..1
 		immortal_leaders = bool
@@ -442,7 +445,7 @@ trait = {
 		triggered_planet_pop_group_modifier_for_all = single_alias_right[triggered_modifier_clause]
 		## cardinality = 0..inf
 		## replace_scopes = { this = pop_group root = pop_group }
-		triggered_planet_pop_group_modifier_for_species = single_alias_right[triggered_modifier_clause]
+		triggered_planet_pop_group_modifier_for_species = single_alias_right[triggered_modifier_by_pop_group_clause]
 
 		## cardinality = 0..inf
 		## replace_scopes = { this = species root = species from = country }
@@ -605,5 +608,7 @@ enums = {
 		psionic
 		advanced_genetic
 		overtuned
+		malleable
+		mutation
 	}
 }
