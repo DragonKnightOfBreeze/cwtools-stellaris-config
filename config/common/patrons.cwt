@@ -3,12 +3,51 @@ types = {
         path = "game/common/patrons"
         file_extension = .txt
         path_strict = yes
+        subtype[great_patron]= {
+            category = great_patron
+        }
+        subtype[major_patron]= {
+            category = major_patron
+        }
+        subtype[minor_patron]= {
+            category = minor_patron
+        }
         localisation = {
             name = "$"
             desc = "$_desc"
         }
         images = {
-
+            icon = "GFX_$_icon"
+            subtype[!minor_patron] = {
+                ## optional
+                background = "GFX_$_bg"
+                ## optional
+                quadrant_1 = "GFX_$_quadrant_1"
+                ## optional
+                quadrant_2 = "GFX_$_quadrant_2"
+                ## optional
+                quadrant_3 = "GFX_$_quadrant_3"
+                ## optional
+                quadrant_selected_1 ="GFX_$_quadrant_selected_1"
+                ## optional
+                quadrant_selected_2 ="GFX_$_quadrant_selected_2"
+                ## optional
+                quadrant_selected_3 ="GFX_$_quadrant_selected_3"
+                ## optional
+                calling_anim = "GFX_$_calling_anim"
+                ## optional
+                calling_1_bg = "GFX_$_calling_1_bg"
+                ## optional
+                calling_2_bg = "GFX_$_calling_2_bg"
+                ## optional
+                calling_3_bg = "GFX_$_calling_3_bg"
+                ## optional
+                accords_bg = "GFX_$_accords_bg"
+                ## optional
+                active_accords_bg = "GFX_$_active_accords_bg"
+                ## optional
+                covenant_bg = "GFX_$_covenant_bg"
+            }
         }
     }
     type[calling] = {
@@ -17,6 +56,15 @@ types = {
         localisation = {
             name = "$"
             desc = "$_desc"
+            ## optional
+            ###text simplifying the trigger conditions, not needed when the trigger is empty
+            tier1 = "$_tier1_trigger_desc"
+            ## optional
+            ###text simplifying the trigger conditions, not needed when the trigger is empty
+            tier2 = "$_tier2_trigger_desc"
+            ## optional
+            ###text simplifying the trigger conditions, not needed when the trigger is empty
+            tier3 = "$_tier3_trigger_desc"
         }
     }
     type[deed] = {
@@ -77,12 +125,16 @@ patron_type = {
 
     text_color_code = <text_color>
 
+    ## cardinality = 0..1
     first_contact_event = <event.country>
 
+    ## cardinality = 0..1
     covenant_event = <event.country>
 
+    ## cardinality = 0..1
     covenant_confirmation_time = int
 
+    ## cardinality = 0..1
     add_modifier = bool
 
     pre_communications_name_format = {
@@ -90,24 +142,35 @@ patron_type = {
         <pre_communications_name_parts_list>
     }
 
+    ## cardinality = 0..1
+    ## replace_scopes = { root = country this = country }
+    potential = single_alias_right[trigger_clause]
+
     ## cardinality = 1..1
     position = { x = float y = float }
 
+    ## cardinality = 0..1
     callings = {
         ## cardinality = 0..inf
         <calling>
     }
 
+    ## cardinality = 0..1
     deeds = {
         ## cardinality = 0..inf
         <deed>
     }
 
-    ## cardinality = 1..1
+    ## cardinality = 0..1
     covenant = {
         name = localisation
         icon = <sprite>
         desc = localisation
+
+        ## cardinality = 0..1
+        custom_tooltip = localisation
+        ## cardinality = 0..1
+        show_only_custom_tooltip = yes
 
         ## cardinality = 0..inf
         ## replace_scopes = { this = country root = country }
@@ -117,11 +180,28 @@ patron_type = {
     ## cardinality = 0..inf
     passive_accord = {
         name = localisation
-        icon = <sprite>
 
         ## cardinality = 0..1
+        icon = <sprite>
+
+        ## cardinality = 0..inf
+        ## replace_scopes = { root = country this = country }
+        desc = {
+            trigger = single_alias_right[trigger_clause]
+            text = localisation
+        }
+
+        ## cardinality = 0..1
+        hide_desc = yes
+        ## cardinality = 0..inf
         ## replace_scopes = { this = country root = country }
-        on_unlock = single_alias_right[effect_clause]
+        on_unlock = {
+            ## cardinality = 0..1
+            potential = {
+                alias_name[trigger] = alias_match_left[trigger]
+            }
+            alias_name[effect] = alias_match_left[effect]
+        }
 
         ## cardinality = 0..1
         ## replace_scopes = { this = country root = country }
@@ -137,9 +217,12 @@ patron_type = {
         name = localisation
         icon = <sprite>
         sound = <sound_effect>
+
         cooldown = int
+        ## cardinality = 0..1
         first_cooldown = int
 
+        ## cardinality = 0..1
         activation_cost = {
             cost = {
                 ## cardinality = 0..inf
@@ -149,6 +232,10 @@ patron_type = {
 
         ## cardinality = 0..1
         cost_override_key = localisation
+
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country }
+        potential = single_alias_right[trigger_clause]
 
         ## cardinality = 0..1
         ## replace_scopes = { this = country root = country }
@@ -165,8 +252,9 @@ patron_type = {
         ## cardinality = 0..1
         ## replace_scopes = { this = country root = country }
         ai_will_do = {
+            ## cardinality = 0..1
             factor = float
-            alias_name[modifier_rule] = alias_match_left[modifier_rule]
+            alias_name[trigger] = alias_match_left[trigger]
         }
     }
 
@@ -178,6 +266,7 @@ calling = {
     ## replace_scopes = { this = country root = country }
     potential = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
     first_tier = int
 
     ###min and max define in 00_define.txt: "CALLINGS_TIER_MIN" and "CALLINGS_TIER_MAX"
@@ -200,11 +289,20 @@ calling = {
 
     }
 
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country root = country }
+    on_start = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country root = country }
+    on_dismissed = single_alias_right[effect_clause]
+
 }
 
 deed = {
-    ##
-    attunement = int[1...inf]
+    ## cardinality = 1..1
+    ### must be >0
+    attunement = float[0...inf]
 
     ###Does the deed has a description describing a specific case for the given attunement (ex: attunement multiplied by a certain value) (Can be empty and no by default)
     ## cardinality = 0..1
