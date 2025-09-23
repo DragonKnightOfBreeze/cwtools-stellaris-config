@@ -192,7 +192,7 @@ calling = {
         ## cardinality = 0..inf
         counter = {
             ## cardinality = 0..inf
-            loaclisation = {
+            localisation = {
                 ## cardinality = 0..1
                 max = int
             }
@@ -213,7 +213,7 @@ deed = {
     ## cardinality = 0..inf
     counter = {
         ## cardinality = 0..inf
-        loaclisation = {
+        localisation = {
             ## cardinality = 0..1
             max = int
         }
