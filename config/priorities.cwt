@@ -5,6 +5,7 @@ priorities = {
 	"common/global_ship_designs" = fios
 	"common/on_actions" = ordered
 	"common/relics" = fios
+	"common/scripted_loc" = fios
 	"common/scripted_variables" = fios
 	"common/section_templates" = fios
 	"common/ship_behaviors" = fios
