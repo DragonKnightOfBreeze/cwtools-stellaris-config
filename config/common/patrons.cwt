@@ -85,7 +85,7 @@ types = {
         file_extension = .txt
         localisation = {
             name = "$"
-            desc = "$_desc"
+            effect = "$_effect_tt"
         }
     }
 }
@@ -137,10 +137,8 @@ patron_type = {
     ## cardinality = 0..1
     add_modifier = bool
 
-    pre_communications_name_format = {
-        ## cardinality = 0..inf
-        <pre_communications_name_parts_list>
-    }
+    ## cardinality = 0..1
+    pre_communications_name_format = scalar
 
     ## cardinality = 0..1
     ## replace_scopes = { root = country this = country }
@@ -182,7 +180,7 @@ patron_type = {
         name = localisation
 
         ## cardinality = 0..1
-        icon = <sprite>
+        icon = <sprite>|_locked,_unlocked
 
         ## cardinality = 0..inf
         ## replace_scopes = { root = country this = country }
@@ -272,7 +270,7 @@ calling = {
     ###min and max define in 00_define.txt: "CALLINGS_TIER_MIN" and "CALLINGS_TIER_MAX"
     ## cardinality = 0..inf
     tier = {
-        attunement = int
+        attunement = int(0..inf]
 
         ## cardinality = 0..1
         ## replace_scopes = { this = country root = country }
@@ -302,7 +300,7 @@ calling = {
 deed = {
     ## cardinality = 1..1
     ### must be >0
-    attunement = float[0...inf]
+    attunement = float(0..inf]
 
     ###Does the deed has a description describing a specific case for the given attunement (ex: attunement multiplied by a certain value) (Can be empty and no by default)
     ## cardinality = 0..1
@@ -324,32 +322,35 @@ deed = {
 }
 
 psionic_aura = {
-    patron = <parton_type>
+    ## cardinality = 0..1
+    patron = <patron_type>
+    ## cardinality = 0..1
     background = <sprite>
 
+    ## cardinality = 0..inf
     intensity_level = {
-        end = int
-        ## cardinality = 0..1
+        end = int_value_field
+        ## cardinality = 0..inf
         ## replace_scopes = { this = fleet root = fleet }
         owner_fleet_modifier = single_alias_right[triggered_modifier_clause]
 
-        ## cardinality = 0..1
+        ## cardinality = 0..inf
         ## replace_scopes = { this = planet root = planet }
         owner_planet_modifier = single_alias_right[triggered_modifier_clause]
 
-        ## cardinality = 0..1
+        ## cardinality = 0..inf
         ## replace_scopes = { this = fleet root = fleet }
         neutral_fleet_modifier = single_alias_right[triggered_modifier_clause]
 
-        ## cardinality = 0..1
+        ## cardinality = 0..inf
         ## replace_scopes = { this = planet root = planet }
         neutral_planet_modifier = single_alias_right[triggered_modifier_clause]
 
-        ## cardinality = 0..1
+        ## cardinality = 0..inf
         ## replace_scopes = { this = fleet root = fleet }
         rival_fleet_modifier = single_alias_right[triggered_modifier_clause]
 
-        ## cardinality = 0..1
+        ## cardinality = 0..inf
         ## replace_scopes = { this = planet root = planet }
         rival_planet_modifier = single_alias_right[triggered_modifier_clause]
 
@@ -397,10 +398,8 @@ psionic_aura = {
         alias_name[modifier_rule] = alias_match_left[modifier_rule]
     }
 
-    increase_trigger = {
-        ## replace_scopes = { this = galactic_object root = galactic_object }
-        alias_name[modifier_rule] = alias_match_left[modifier_rule]
-    }
+    ## replace_scopes = { this = galactic_object root = galactic_object }
+    increase_trigger = single_alias_right[trigger_clause]
 
     monthly_increase = {
         ## replace_scopes = { this = galactic_object root = galactic_object }
