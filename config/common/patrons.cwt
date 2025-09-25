@@ -9,6 +9,9 @@ types = {
         subtype[major_patron]= {
             category = major_patron
         }
+        subtype[add_modifier]= {
+            add_modifier = yes
+        }
         subtype[minor_patron]= {
             category = minor_patron
         }
@@ -355,6 +358,30 @@ psionic_aura = {
         rival_planet_modifier = single_alias_right[triggered_modifier_clause]
 
     }
+
+    ## cardinality = 0..inf
+    ## replace_scopes = { this = fleet root = fleet }
+    owner_fleet_modifier = single_alias_right[triggered_modifier_clause]
+
+    ## cardinality = 0..inf
+    ## replace_scopes = { this = planet root = planet }
+    owner_planet_modifier = single_alias_right[triggered_modifier_clause]
+
+    ## cardinality = 0..inf
+    ## replace_scopes = { this = fleet root = fleet }
+    neutral_fleet_modifier = single_alias_right[triggered_modifier_clause]
+
+    ## cardinality = 0..inf
+    ## replace_scopes = { this = planet root = planet }
+    neutral_planet_modifier = single_alias_right[triggered_modifier_clause]
+
+    ## cardinality = 0..inf
+    ## replace_scopes = { this = fleet root = fleet }
+    rival_fleet_modifier = single_alias_right[triggered_modifier_clause]
+
+    ## cardinality = 0..inf
+    ## replace_scopes = { this = planet root = planet }
+    rival_planet_modifier = single_alias_right[triggered_modifier_clause]
 
     ## cardinality = 0..1
     ## replace_scopes = { this = galactic_object root = galactic_object }

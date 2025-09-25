@@ -67,6 +67,8 @@ deposit = {
 		## cardinality = 0..1
 		can_be_cleared = single_alias_right[trigger_clause]
 		## cardinality = 0..1
+		can_be_cleared_potential = single_alias_right[trigger_clause]
+		## cardinality = 0..1
 		blocker_swap_types = {
 			## cardinality = 1..inf
 			<deposit>

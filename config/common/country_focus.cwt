@@ -48,6 +48,7 @@ country_card_categories = {
     background_expanded = <sprite>
     ## cardinality = 0..1
     icon = <sprite>
+    #TODO small_icon = <sprite> 应实际匹配为GFX_text_<sprite>，故需类似<sprite>|lock,unlock的后缀写法
 	## cardinality = 0..1
 	small_icon = <game_concepts_categories> # not sure
     ## cardinality = 0..1

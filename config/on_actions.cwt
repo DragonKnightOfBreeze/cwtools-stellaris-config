@@ -2163,6 +2163,45 @@ on_actions = {
 	## event_type = scopeless
 	debug_spawn_storm_random_system
 
+	### Fired when attunement towards a Patron is gained (also fired when losing attunement since it's a gain for the opposite patron)
+	### this = Country
+	## event_type = country
+	## replace_scopes = { this = country root = country }
+	on_attunement_gained
+
+	### this = Country
+	## event_type = country
+	## replace_scopes = { this = country root = country }
+	on_patron_contact_completed
+
+	### this = Country
+	## event_type = country
+	## replace_scopes = { this = country root = country }
+	on_covenant_formed
+
+	### this = Country
+	## event_type = country
+	## replace_scopes = { this = country root = country }
+	on_active_accord_unlocked
+
+	### Fired when a country delves, no matter the result
+	### this = Country
+	## event_type = country
+	## replace_scopes = { this = country root = country }
+	on_shroud_delve
+
+	### Fired when a country delves but finds nothing of interest
+	### this = Country
+	## event_type = country
+	## replace_scopes = { this = country root = country }
+	on_patron_delve_failed
+
+	### Fired when a player selects a new country during the game
+	### this = Country
+	## event_type = country
+	## replace_scopes = { this = country root = country }
+	on_new_country_selected
+
 	# from 01_planet_destruction.txt
 
 	# Scope:

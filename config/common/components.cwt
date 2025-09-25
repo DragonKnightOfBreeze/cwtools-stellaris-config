@@ -244,6 +244,7 @@ component_template = {
 		injected_modifier = {
 			modifier = {
 				modifier = <modifier>
+				modifier = <static_modifier>
 				## cardinality = 0..1
 				days = int
 			}
@@ -548,6 +549,9 @@ single_alias[component_template_scripted_action] = {
 
 	## cardinality = 0..1
 	on_click_sound = <sound_effect>
+
+	## cardinality = 0..1
+	wait = bool
 
 	## cardinality = 0..1
 	cooldown = int

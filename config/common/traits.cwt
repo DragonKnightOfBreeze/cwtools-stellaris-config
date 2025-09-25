@@ -98,6 +98,8 @@ trait = {
 				## replace_scopes = { this = leader root = leader }
 				visible = single_alias_right[trigger_clause]
 			}
+			## cardinality = 0..1
+			icon = <sprite>
 		}
 
 		### Determines when this trait can be gained, valid: 'basic', 'veteran', 'subclass', 'destiny', 'negative'. Default is 'basic'.
