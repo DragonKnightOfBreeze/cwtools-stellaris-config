@@ -54,6 +54,21 @@ casus_belli = {
 	### Caligula's note: Always used in Vanilla (even when yes), so marked as obligatory unless someone knows better
 	show_notification = bool
 
+	###Cost when this CB is selected for a Proxy War. Paid by the war's instigator
+	## cardinality = 0..inf
+	proxy_war_resources = {
+		## cardinality = 0..1
+		category = <economic_category>
+		alias_name[economic_template] = alias_match_left[economic_template]
+	}
+
+	###Effect executed when a Proxy War is validated.
+	### this = country who casus belli
+	###from = proxy war instigator
+	## replace_scopes = { this = country from = country }
+	## cardinality = 0..1
+	on_proxy_war_start = single_alias_right[effect_clause]
+
 	## cardinality = 0..1
 	show_in_diplomacy = bool
 

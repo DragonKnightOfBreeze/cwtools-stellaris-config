@@ -892,6 +892,38 @@ game_rules = {
 	## replace_scopes = { this = leader from = leader }
 	should_leader_gain_trait_every_level
 
+	### this = country
+	## replace_scopes = { this = country from = country }
+	unbidden_additional_conquer_desire
+
+	### this = country
+	## replace_scopes = { this = country from = country }
+	is_mercenary
+
+	### this = country
+	### from = contact country
+	## replace_scopes = { this = country from = country }
+	is_mindwarden_exiled_first_contact
+
+	### this = country
+	## replace_scopes = { this = country from = country }
+	has_shroud_insights
+
+	### this = country
+	## replace_scopes = { this = country from = country }
+	needs_psionic_aura_insights
+
+	### this = country
+	## replace_scopes = { this = country from = country }
+	is_ending_cycle
+
+	### This rule is called if country THIS has custom_diplomacy = yes in its country type
+	### This = Country tested
+	### From = Target country trying to access diplomacy
+	### this = country
+	## replace_scopes = { this = country from = country }
+	has_custom_diplomacy
+
 	# from 01_gui_rules.txt
 
 	### This = country

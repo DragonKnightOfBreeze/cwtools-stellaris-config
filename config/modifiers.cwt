@@ -507,15 +507,15 @@ modifiers = {
 	attunement_mult = { Countries }
 	army_damage_against_psionic_mult = { Armies }
 	psionic_aura_resistance_mult = { Fleets Countries "Star Systems" }
-	damage_vs_psionic_empires_multt = { Ships }
-	evasion_vs_psionic_empires_multt = { Ships }
+	damage_vs_psionic_empires_mult = { Ships }
+	evasion_vs_psionic_empires_mult = { Ships }
 	psionic_aura_effectiveness_mult = { Countries }
 	psionic_aura_intensity_add = { Countries }
 	psionic_aura_intensity_mult = { Countries }
-	ship_psionic_aura_speed_multt = { Ships }
-	ship_psionic_aura_fire_rate_multt = { Ships }
-	ship_damage_against_reckoning_multt = { Ships }
-	diplo_weight_ship_multt = { Ships }
+	ship_psionic_aura_speed_mult = { Ships }
+	ship_psionic_aura_fire_rate_mult = { Ships }
+	ship_damage_against_reckoning_mult = { Ships }
+	diplo_weight_ship_mult = { Ships }
 	ship_monthly_hull_damage = { Fleets }
 
 	# ship_class modifiers
@@ -761,5 +761,9 @@ modifiers = {
     titanic_space_fauna_ship_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
     titanic_space_fauna_build_speed_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
 
+	# patron
+
+	add_attunement_<patron_type.add_modifier> = { Countries }
+	<patron_type.add_modifier>_attunement_mult = { Countries }
 
 }

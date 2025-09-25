@@ -186,6 +186,9 @@ authority = {
 	## cardinality = 0..1
 	localization_postfix = scalar
 
+	## cardinality = 0..1
+	trait_localization_postfix = scalar
+
 	ruler_council_position = <councilor>
 
 	## cardinality = 0..1
@@ -792,6 +795,13 @@ alias[government_trigger:OR] = {
 	always = bool
 }
 alias[government_trigger:AND] = {
+	alias_name[government_trigger] = alias_match_left[government_trigger]
+	## cardinality = 0..1
+	text = localisation
+	## cardinality = 0..1
+	always = bool
+}
+alias[government_trigger:limit] = {
 	alias_name[government_trigger] = alias_match_left[government_trigger]
 	## cardinality = 0..1
 	text = localisation

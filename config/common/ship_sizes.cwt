@@ -155,6 +155,8 @@ ship_size = {
 	ship_roles = {
 		## cardinality = 0..inf
 		enum[component_tag]
+		## cardinality = 0..1
+		citadel
 	}
 	## cardinality = 0..1
 	triggered_ship_roles = {
@@ -348,6 +350,8 @@ ship_size = {
 	subtype[hero_ship] = {
 		## cardinality = 0..1
 		hero_ship_fleet_background = <sprite>
+		## cardinality = 0..1
+		bioship_growth_progress_required = int
 	}
 
 }
