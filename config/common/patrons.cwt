@@ -141,7 +141,7 @@ patron_type = {
     add_modifier = bool
 
     ## cardinality = 0..1
-    pre_communications_name_format = scalar
+    pre_communications_name_format = stellaris_name_format[pre_communications]
 
     ## cardinality = 0..1
     ## replace_scopes = { root = country this = country }
