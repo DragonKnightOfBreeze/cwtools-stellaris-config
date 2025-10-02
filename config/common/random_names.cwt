@@ -9,7 +9,7 @@ types = {
 	type[empire_name_format] = {
 		path = "game/common/random_names"
 		file_extension = .txt
-		# name_field = format
+		name_field = "" # force anonymous
 	}
 	## type_key_filter = federation_name_parts_list
 	type[federation_name_parts_list] = {
@@ -21,7 +21,7 @@ types = {
 	type[federation_name_format] = {
 		path = "game/common/random_names"
 		file_extension = .txt
-		# name_field = format
+		name_field = "" # force anonymous
 	}
 	## type_key_filter = pop_faction_name_parts_list
 	type[pop_faction_name_parts_list] = {
@@ -33,7 +33,7 @@ types = {
 	type[pop_faction_name_format] = {
 		path = "game/common/random_names"
 		file_extension = .txt
-		# name_field = format
+		name_field = "" # force anonymous
 	}
 	## type_key_filter = pre_communications_name_parts_list
 	type[pre_communications_name_parts_list] = {
@@ -45,7 +45,7 @@ types = {
 	type[pre_communications_name_format] = {
 		path = "game/common/random_names"
 		file_extension = .txt
-		# name_field = format
+		name_field = "" # force anonymous
 	}
 	## type_key_filter = war_name_parts_list
 	type[war_name_parts_list] = {
@@ -57,7 +57,7 @@ types = {
 	type[war_name_format] = {
 		path = "game/common/random_names"
 		file_extension = .txt
-		# name_field = format
+		name_field = "" # force anonymous
 	}
 
 	## type_key_filter = species_modification_prefix
