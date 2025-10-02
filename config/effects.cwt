@@ -9001,6 +9001,7 @@ alias[effect:set_patron_first_contact_state] = {
 ## scopes = any
 alias[effect:enable_mission] = {
 	name = <missions>
+	## cardinality = 0..1
 	location = scope_field
 }
 
