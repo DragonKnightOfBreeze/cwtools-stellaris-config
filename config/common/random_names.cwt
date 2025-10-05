@@ -9,7 +9,7 @@ types = {
 	type[empire_name_format] = {
 		path = "game/common/random_names"
 		file_extension = .txt
-		# name_field = format
+		name_field = "" # force anonymous
 	}
 	## type_key_filter = federation_name_parts_list
 	type[federation_name_parts_list] = {
@@ -21,7 +21,7 @@ types = {
 	type[federation_name_format] = {
 		path = "game/common/random_names"
 		file_extension = .txt
-		# name_field = format
+		name_field = "" # force anonymous
 	}
 	## type_key_filter = pop_faction_name_parts_list
 	type[pop_faction_name_parts_list] = {
@@ -33,7 +33,7 @@ types = {
 	type[pop_faction_name_format] = {
 		path = "game/common/random_names"
 		file_extension = .txt
-		# name_field = format
+		name_field = "" # force anonymous
 	}
 	## type_key_filter = pre_communications_name_parts_list
 	type[pre_communications_name_parts_list] = {
@@ -45,7 +45,7 @@ types = {
 	type[pre_communications_name_format] = {
 		path = "game/common/random_names"
 		file_extension = .txt
-		# name_field = format
+		name_field = "" # force anonymous
 	}
 	## type_key_filter = war_name_parts_list
 	type[war_name_parts_list] = {
@@ -57,7 +57,7 @@ types = {
 	type[war_name_format] = {
 		path = "game/common/random_names"
 		file_extension = .txt
-		# name_field = format
+		name_field = "" # force anonymous
 	}
 
 	## type_key_filter = species_modification_prefix
@@ -130,15 +130,15 @@ empire_name_format = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 	### Format string for generating random name (proper noun form)
-	format = stellaris_name_format[empire_name_parts]
+	format = stellaris_name_format[empire]
 	### String used to determine prefix for empire's ship. (Default being ISS). Usually matches name format. Optional for countries that would not ever have ships, e. g. Primitives.
 	## cardinality = 0..1
-	prefix_format = stellaris_name_format[empire_name_parts]
+	prefix_format = stellaris_name_format[empire]
 	## cardinality = 0..1
-	noun = stellaris_name_format[empire_name_parts]
+	noun = stellaris_name_format[empire]
 	### Format string for generating random name (adjective form)
 	## cardinality = 0..1
-	adjective = stellaris_name_format[empire_name_parts]
+	adjective = stellaris_name_format[empire]
 }
 
 ### Define possible parts of federation name here. When generating random name for federation, format can refer to it via <key> and pick random part.
@@ -164,7 +164,7 @@ federation_name_format = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 	### Format string for generating random name (proper noun form)
-	format = stellaris_name_format[federation_name_parts]
+	format = stellaris_name_format[federation]
 }
 
 pop_faction_name_parts_list = {
@@ -188,7 +188,7 @@ pop_faction_name_format = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 	### Format string for generating random name (proper noun form)
-	format = stellaris_name_format[pop_faction_name_parts]
+	format = stellaris_name_format[pop_faction]
 }
 
 pre_communications_name_parts_list = {
@@ -212,7 +212,7 @@ pre_communications_name_format = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 	### Format string for generating random name (proper noun form)
-	format = stellaris_name_format[pre_communications_name_parts]
+	format = stellaris_name_format[pre_communications]
 }
 
 war_name_parts_list = {
@@ -236,7 +236,7 @@ war_name_format = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 	### Format string for generating random name (proper noun form)
-	format = stellaris_name_format[war_name_parts]
+	format = stellaris_name_format[war]
 }
 
 species_modification_prefix = {
