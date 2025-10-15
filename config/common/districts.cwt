@@ -21,7 +21,7 @@ types = {
 			icon = icon # icon[gfx/interface/icons/districts]
 			icon = "gfx/interface/icons/districts/$.dds" # inferred
 			background = GFX_$_bg|$icon
-			background = GFX_$_bg|$district_backgroundr
+			background = GFX_$_bg|$district_background
 			gridbox = GFX_$_box_icon_rectangle|$icon
 			gridbox = GFX_$_box_icon_rectangle|$gridbox
 		}
