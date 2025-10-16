@@ -1,5 +1,10 @@
 game_rules = {
-	# from 00_rules.txt
+	# region from 00_rules.txt
+
+	# Tooltips will be generated from these rules when they fail. Use of custom_tooltip is recommended
+	# There are still multiple hard-coded rules that apply in addition to these.
+	# If rules here evaluate to true, there might still be other rules that make the action unavailable.
+	# If a rule here evaluates to false the action will become unavailable
 
 	### Root = target country
 	### This = country
@@ -29,7 +34,7 @@ game_rules = {
 	### Root = country
 	### This = pop_group
 	## replace_scopes = { this = pop_group root = country }
-	should_abduct_pop
+	should_abduct_pop_group
 
 	### Root = planet
 	### This = species
@@ -41,7 +46,7 @@ game_rules = {
 	## replace_scopes = { this = species root = planet }
 	species_has_uncapped_habitability_on_planet
 
-	### Note: this is also used in pop_group faction support calculations
+	### Note: this is also used in pop faction support calculations
 	### Root = country
 	### This = pop_group
 	## replace_scopes = { this = pop_group root = country }
@@ -51,11 +56,11 @@ game_rules = {
 	## replace_scopes = { this = leader }
 	should_pay_for_leader_upkeep
 
-	### Checks whether any leaders (scientists etc) can be formed from this pop_group
+	### Checks whether any leaders (scientists etc) can be formed from this pop group
 	### Root = country
 	### This = pop_group
 	## replace_scopes = { this = pop_group root = country }
-	can_generate_leader_from_pop
+	can_generate_leader_from_pop_group
 
 	### Checks whether this species is eligible to become rulers through elections
 	### Root = country
@@ -72,7 +77,7 @@ game_rules = {
 	### Root = country
 	### This = pop_group
 	## replace_scopes = { this = pop_group root = country }
-	can_generate_military_leader_from_pop
+	can_generate_military_leader_from_pop_group
 
 	### Root = species
 	### This = planet
@@ -144,50 +149,46 @@ game_rules = {
 	can_colonize_with_species
 
 	### NOTE: species_has_happiness is also checked for this
-	### Root = pop_group
-	### This = pop_group
-	### From = Country
-	## replace_scopes = { this = pop_group root = pop_group from = country }
-	pop_has_random_ethics
-
-	### Root = Species
+	### Root = Pop Group
 	### From = Country
 	### This = Species
-	## replace_scopes = { this = species root = species from = country }
+	## replace_scopes = { this = species root = pop_group from = country }
+	pop_group_has_random_ethics
+
+	### Root = Pop Group
+	### From = Country
+	### This = Species
+	## replace_scopes = { this = pop_group root = species from = country }
 	species_has_happiness
 
-	### This rule is a condition for determining if a country is hostile towards another. not to be confused with can_take_hostile_action
-	### Root = country, us
-	### This = country, them
-	## replace_scopes = { this = country root = country }
-	can_be_hostile_towards
-
-	### Checks if a pop_group can procreate
+	### Checks if a species can procreate
 	### This = Species
 	### Root = Planet
 	## replace_scopes = { this = species root = planet }
 	can_species_procreate
 
-	### Checks if a pop_group can be assembled
+	### Checks if a pop can be assembled
 	### This = Species
 	### Root = Planet
 	## replace_scopes = { this = species root = planet }
 	can_species_be_assembled
 
-	###Root = country
-	###From = species
-	## replace_scopes = { this = country root = country from = species }
-	founder_species_uses_growth_speed
+	### Checks if a species uses bonus_growth modifier
+	### This = Species
+	### Root = Planet
+	## replace_scopes = { this = species root = planet }
+	species_uses_bonus_growth
 
-	###Root = country
-	###From = species
-	## replace_scopes = { this = country root = country from = species }
-	founder_species_uses_organic_assembly
+	### Root = country
+	### From = species
+	## replace_scopes = { this = species root = country }
+	founder_species_uses_logistic_growth_mult
 
-	###Root = country
-	###From = species
 	## replace_scopes = { this = country root = country from = species }
 	founder_species_uses_assembly
+
+	## replace_scopes = { this = country root = country from = species }
+	founder_species_uses_bonus_growth_mult
 
 	### This rule is a condition for bombarding planets
 	### Root = fleet, potential attacker
@@ -245,20 +246,10 @@ game_rules = {
 	## replace_scopes = { this = planet root = country }
 	will_anger_fallen_empire
 
-	### Can the country have robot pop_group
+	### Can the country have robot pop
 	### root: country
 	## replace_scopes = { this = country root = country }
 	can_have_robot_pops
-
-	### Can purge/disassembly be individually stopped by owner
-	### scope: pop_group
-	## replace_scopes = { this = pop_group }
-	can_stop_purge_pop_manually
-
-	### Can the pop_group be purged/disassembled individually by its owner
-	### scope: pop_group
-	## replace_scopes = { this = pop_group }
-	can_purge_pop_manually
 
 	### THIS = Fleet
 	## replace_scopes = { this = fleet }
@@ -273,6 +264,7 @@ game_rules = {
 	can_spawn_debris
 
 	### Determines if AI-controlled empires should restrict (and thus avoid) a system
+	### This game rule takes priority over ai_should_not_restrict_system below
 	### Used by regular empires, fallen empires & crises
 	### this = system
 	### root = country
@@ -330,8 +322,9 @@ game_rules = {
 
 	### This = pop_group
 	## replace_scopes = { this = pop_group }
-	can_resettle_pop
+	can_resettle_pop_group
 
+	### This = Country
 	## replace_scopes = { this = country }
 	can_country_resettle
 
@@ -347,13 +340,13 @@ game_rules = {
 	## replace_scopes = { this = planet }
 	can_get_colony_events
 
-	### # This = Planet
+	### This = Planet
 	## replace_scopes = { this = planet }
 	is_new_colony
 
 	### This = pop_group
 	## replace_scopes = { this = pop_group }
-	pop_generates_crime
+	pop_group_generates_crime
 
 	### This = planet
 	## replace_scopes = { this = planet }
@@ -366,21 +359,6 @@ game_rules = {
 	### This = planet
 	## replace_scopes = { this = planet }
 	can_pops_decline_on_planet
-
-	### This = planet
-	### Root = country
-	## replace_scopes = { this = planet root = country }
-	can_force_grow_on_planet
-
-	### This = planet
-	### Root = country
-	## replace_scopes = { this = planet root = country }
-	can_force_decline_on_planet
-
-	### This = species
-	### Root = country
-	## replace_scopes = { this = species root = country }
-	can_force_decline_species
 
 	### If this returns true, the species will be set to decline even if it is not being purged
 	### Note: success text tooltips are shown in alert_pops_declining alert.
@@ -416,6 +394,7 @@ game_rules = {
 	## replace_scopes = { this = species root = species }
 	can_crossbreed_species
 
+	### No scope
 	## replace_scopes = { this = no_scope }
 	can_win_timed_victory
 
@@ -424,7 +403,7 @@ game_rules = {
 	can_use_galactic_market
 
 	### ROOT = country
-	### THIS = pop_group
+	### This = pop_group
 	## replace_scopes = { this = pop_group root = country }
 	can_be_sold_on_slave_market
 
@@ -462,7 +441,7 @@ game_rules = {
 	### This = pop_group
 	### Purge, Sapience, Migration Controls policy (ignored by Gestalts and Synths), and target habitability are checked in code.
 	## replace_scopes = { this = pop_group root = planet }
-	can_pop_auto_migrate
+	can_pop_group_auto_migrate
 
 	### Checked before can_pop_auto_migrate to save performance
 	### This = planet
@@ -492,9 +471,13 @@ game_rules = {
 	## replace_scopes = { this = country root = country }
 	can_modify_organic_portraits
 
-	### Final check for whether there should be a first contact site spawned. Main check is via country type contact_rule, in code.
-	### This = country contacting
-	### From = target country
+	### This = Country establishing contact | From = Target country
+	### Should the contact logic happen?
+	## replace_scopes = { this = country from = country }
+	can_have_contact
+
+	### This = country establishing contact | From = target country
+	### Final check for whether there should be a first contact site spawned. Main check is via country type 'contact_rule', in code. See also: error-logging/fixing event 'action.240', which duplicates this trigger.
 	## replace_scopes = { this = country from = country }
 	can_have_first_contact
 
@@ -508,30 +491,40 @@ game_rules = {
 	## replace_scopes = { this = country root = country }
 	can_use_envoys_to_lower_imperial_authority
 
+	### this/root = pop
 	### checked if job's possible_precalc = can_fill_drone_job
-	### this/root = pop_group
 	## replace_scopes = { this = pop_group root = pop_group }
 	can_fill_drone_job
 
+	### this/root = pop
+	### checked if job's possible_precalc = can_fill_worker_job
+	## replace_scopes = { this = pop_group root = pop_group }
+	can_fill_worker_job
+
+	### this/root = pop
 	### checked if job's possible_precalc = can_fill_specialist_job
-	### this/root = pop_group
 	## replace_scopes = { this = pop_group root = pop_group }
 	can_fill_specialist_job
 
-	### checked if job's possible_precalc = can_fill_precursor_job
-	### this/root = pop_group
+	### this/root = pop
+	### checked if job's possible_precalc = can_fill_ruler_job
 	## replace_scopes = { this = pop_group root = pop_group }
 	can_fill_ruler_job
 
-	### checked if job's possible_precalc = can_fill_ruler_job
-	### this/root = pop_group
+	### this/root = pop
+	### checked if job's possible_precalc = can_fill_precursor_job
 	## replace_scopes = { this = pop_group root = pop_group }
 	can_fill_precursor_job
 
-	### checked if job's possible_precalc = can_fill_worker_job
-	### this/root = pop_group
-	## replace_scopes = { this = pop_group root = pop_group }
-	can_fill_worker_job
+	### Some parts in code still need to know some more specifics from script
+	### this/root = pop job
+	## replace_scopes = { this = pop_job root = pop_group }
+	is_unemployment_job
+
+	### Some parts in code still need to know some more specifics from script
+	## replace_scopes = { this = pop_job root = pop_group }
+	### this/root = pop job
+	is_civilian_job
 
 	### Checks whether the game should try and build a building or district on a planet via scripts in common/colony_automation
 	### Does not apply to "emergency building" (colony_automation_exceptions)
@@ -548,9 +541,9 @@ game_rules = {
 	## replace_scopes = { this = leader }
 	can_dismiss_leader
 
-	# this = country
+	### this = country
 	## replace_scopes = { this = country }
-	can_country_change_councilors =  {}
+	can_country_change_councilors
 
 	### this = leader
 	## replace_scopes = { this = leader }
@@ -565,9 +558,15 @@ game_rules = {
 	## replace_scopes = { this = planet }
 	should_ai_build_stronghold_on_vulnerable_planet
 
+	### Used to call on the Retirement Toast when a leader dies
 	### This = leader
 	## replace_scopes = { this = leader }
 	will_leader_retire
+
+	### Used to call the Second Chance toast when a leader dies, still need to clone it and actually have the leader survive
+	### This = leader
+	## replace_scopes = { this = leader }
+	will_leader_survive
 
 	### This = country, Country that wants to get an external leader
 	### From = country, country that we are trying to get from
@@ -579,6 +578,30 @@ game_rules = {
 	### From = country, country that would receive the leader
 	## replace_scopes = { this = leader root = country from = country }
 	can_trade_leader
+
+	### This = fleet, fleet we'd like to trade
+	### Root = country, country that owns the fleet currently
+	### From = country, country that would receive the fleet
+	## replace_scopes = { this = fleet root = country from = country }
+	can_trade_fleet
+
+	### this = leader
+	### from = country scope
+	## replace_scopes = { this = leader from = country }
+	can_leader_be_ruler
+
+	### this = leader
+	### from = country scope
+	## replace_scopes = { this = fleet from = country }
+	can_leader_be_councilor
+
+	### this = country
+	## replace_scopes = { this = country }
+	is_country_psionic
+
+	### this = species
+	## replace_scopes = { this = species }
+	is_psionic_species
 
 	## replace_scopes = { this = country }
 	chance_for_external_leader_pool = {
@@ -609,6 +632,14 @@ game_rules = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
+	shroud_delve_cooldown_days = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	count_shroud_worlds_to_display = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
 	### this = leader scope
 	### from = country scope
 	## replace_scopes = { this = leader from = country }
@@ -635,102 +666,86 @@ game_rules = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
-	### This = fleet, fleet we'd like to trade
-	### Root = country, country that owns the fleet currently
-	### From = country, country that would receive the fleet
-	## replace_scopes = { this = fleet root = country from = country }
-	can_trade_fleet
-
-	### this = leader
-	### from = country scope
-	## replace_scopes = { this = leader from = country }
-	can_leader_be_ruler
-
-	### this = leader
-	### from = country scope
-	## replace_scopes = { this = leader from = country }
-	can_leader_be_councilor
-
 	### Determines if pre-ftl country is unaware of alien life
 	### this: pre-ftl country
 	## replace_scopes = { this = country }
 	are_pre_ftls_unaware
 
-	### Checked if planet is a terraforming candidate
 	### This = planet
+	### Checked if planet is a terraforming candidate
 	## replace_scopes = { this = planet }
 	is_terraforming_candidate
 
-	### Checked if the planet is special terraforming candidate and the country has the required matching ascension perk to do it
 	### Root = country
 	### This = planet
+	### Checked if the planet is special terraforming candidate and the country has the required matching ascension perk to do it
 	## replace_scopes = { this = planet root = country }
 	has_ascension_for_terraforming_candidate
 
-	### Checks if the planet (from) can be renamed by the country (this) that contains it in its borders, even if it has a different owner (Root)
-	### Renaming is never possible if the planet is not in your borders; and it is always possible if it is in your borders but the owner is yourself/no-one
 	### This = country that tries to rename
 	### Root = country owning the planet
 	### From = planet
+	### Checks if the planet (from) can be renamed by the country (this) that contains it in its borders, even if it has a different owner (Root)
+	### Renaming is never possible if the planet is not in your borders; and it is always possible if it is in your borders but the owner is yourself/no-one
 	## replace_scopes = { this = country root = country from = planet }
 	can_be_renamed_by
 
-	### Checks if the country is allowed to build any orbital station around this planet/star
 	### Root/this = country
-	### From = planet
-	## replace_scopes = { this = country root = country from = planet }
+	### From = planet OR astral_rift
+	### Checks if the country is allowed to build any orbital station around this planet/star/astral_rift
+	## replace_scopes = { this = country root = country from = any }
 	can_build_station_around
 
-	### Checks if the country is allowed to build a mining station around this planet/star
 	### Root/this = country
-	### From = planet
-	## replace_scopes = { this = country root = country from = planet }
+	### From = planet OR astral_rift
+	### Checks if the country is allowed to build a mining station around this planet/star/astral_rift
+	## replace_scopes = { this = country root = country from = any }
 	can_build_mining_station_around
 
-	### Checks if the country is allowed to build a research station around this planet/star
 	### Root/this = country
-	### From = planet
-	## replace_scopes = { this = country root = country from = planet }
+	### From = planet OR astral_rift
+	### Checks if the country is allowed to build a research station around this planet/star/astral_rift
+	## replace_scopes = { this = country root = country from = any }
 	can_build_research_station_around
 
-	### Checks if the country is allowed to build a military station around this planet/star
 	### Root/this = country
-	### From = planet
-	## replace_scopes = { this = country root = country from = planet }
+	### From = planet OR astral_rift
+	### Checks if the country is allowed to build a military station around this planet/star/astral_rift
+	## replace_scopes = { this = country root = country from = any }
 	can_build_military_station_around
 
-	### Checks if the country is allowed to build an observation station around this planet/star
 	### Root/this = country
-	### From = planet
-	## replace_scopes = { this = country root = country from = planet }
+	### From = planet OR astral_rift
+	### Checks if the country is allowed to build an observation station around this planet/star/astral_rift
+	## replace_scopes = { this = country root = country from = any }
 	can_build_observation_station_around
 
-	### Checks if the country is allowed to build a starbase around this planet/star
 	### Root/this = country
-	### From = planet
-	## replace_scopes = { this = country root = country from = planet }
+	### From = planet OR astral_rift
+	### Checks if the country is allowed to build a starbase around this planet/star/astral_rift
+	## replace_scopes = { this = country root = country from = any }
 	can_build_starbase_around
 
-	### Checks if the country's capital has any kind of relevancy (aka is the capital in the galaxy really theirs)
 	### Root/this = country
+	### Checks if the country's capital has any kind of relevancy (aka is the capital in the galaxy really theirs)
 	## replace_scopes = { this = country root = country }
 	has_inworld_capital
 
-	### Checks if target country has economy power relative to begin with
 	### Root/this = trading country
 	### From = country traded with
+	### Checks if target country has economy power relative to begin with
 	## replace_scopes = { this = country root = country from = country }
 	has_relative_economy_power
 
-	### Checks if the country can trade sensor
 	### Root/this = trading country
 	### From = country traded with
+	### Checks if the country can trade sensor
 	## replace_scopes = { this = country root = country from = country }
 	can_trade_sensor
 
-	### Checks if the country can trade favor
 	### Root/this = trading country
 	### From = country traded with
+	### Checks if the country can trade favor
 	## replace_scopes = { this = country root = country from = country }
 	can_trade_favor
 
@@ -744,9 +759,9 @@ game_rules = {
 	## replace_scopes = { this = country from = astral_rift }
 	can_explore_astral_rift
 
-	### Checks if the selected leader can explore the rift
 	### THIS = leader
 	### FROM = Astral Rift checked
+	### Checks if the selected leader can explore the rift
 	## replace_scopes = { this = leader from = astral_rift }
 	can_leader_explore_astral_rift
 
@@ -794,12 +809,12 @@ game_rules = {
 	## replace_scopes = { this = country root = country from = cosmic_storm }
 	has_breached_shroud_storm
 
-    ### this = fleet
+	### THIS = Fleet
 	## replace_scopes = { this = fleet }
     is_science_fleet_gravity_snare_on_cooldown
 
-    ### this = fleet
-    ### from = country / Snare sender
+	### THIS = Fleet
+	### FROM = Country / Snare sender
     can_fleet_be_captured_by_snares
 
     ### THIS = country
@@ -851,6 +866,10 @@ game_rules = {
     ## replace_scopes = { this = design from = country }
     force_create_default_ship_design
 
+	### this = leader
+	## replace_scopes = { this = leader }
+	is_organic_leader
+
     ### from = owner (country)
     ### This = fleet
     ## replace_scopes = { this = fleet from = country }
@@ -860,10 +879,18 @@ game_rules = {
 	## replace_scopes = { this = pop_group from = pop_group }
 	is_organic_pop_group
 
+	### this = country with whom to communicate
+	## replace_scopes = { this = country }
+	empire_diplomacy_leads_to_shroud
+
 	### this = destroyed ship
 	### from = attacker (ship)
 	## replace_scopes = { this = ship from = ship }
 	can_capture_ship
+
+	### this = country
+	## replace_scopes = { this = country }
+	is_planetary_ascension_free
 
 	### this = country
 	### all countries which pass this rule only add 1 to num_fallen_empires
@@ -879,6 +906,47 @@ game_rules = {
 	## replace_scopes = { this = country from = planet }
 	should_colonize_use_terraform
 
+	### this = country
+	## replace_scopes = { this = country }
+	are_all_leaders_forced_immortal
+
+	### this = country using proxy war
+	### from = country to be sent to war
+	### root = victim country
+	## replace_scopes = { this = country root = country from = country }
+	can_be_sent_to_war
+
+	### This = Country
+	## replace_scopes = { this = country }
+	can_open_shroud_tab
+
+	### This = Country
+	## replace_scopes = { this = country }
+	can_unlock_accords
+
+	### This = Country
+	## replace_scopes = { this = country }
+	can_delve
+
+	### Will set the Delve blocked plane icon instead of the disabled one
+	### This = Country
+	## replace_scopes = { this = country }
+	is_delve_blocked
+
+	### from = psionic aura (system)
+	### This = Country
+	## replace_scopes = { this = country from = system }
+	can_see_aura_intensity
+
+	### from = psionic aura owner
+	### This = country
+	## replace_scopes = { this = country from = country }
+	is_hostile_to_aura_owner
+
+	### this = country
+	## replace_scopes = { this = country }
+	should_reduce_aura_hostile_effect
+
 	### this = pop_group
 	### from = country
 	## replace_scopes = { this = pop_group from = country }
@@ -892,11 +960,11 @@ game_rules = {
 	## replace_scopes = { this = leader from = leader }
 	should_leader_gain_trait_every_level
 
-	### this = country
+	### this = country scope
 	## replace_scopes = { this = country from = country }
 	unbidden_additional_conquer_desire
 
-	### this = country
+	### This = Country
 	## replace_scopes = { this = country from = country }
 	is_mercenary
 
@@ -913,7 +981,7 @@ game_rules = {
 	## replace_scopes = { this = country from = country }
 	needs_psionic_aura_insights
 
-	### this = country
+	### This = Country
 	## replace_scopes = { this = country from = country }
 	is_ending_cycle
 
@@ -924,27 +992,31 @@ game_rules = {
 	## replace_scopes = { this = country from = country }
 	has_custom_diplomacy
 
-	# from 01_gui_rules.txt
+	# endregion
+
+	# region from 01_gui_rules.txt
 
 	### This = country
-	## replace_scopes = { thsi = country }
+	## replace_scopes = { this = country }
 	doom_clock_is_shown
 
 	### This = country
-	## replace_scopes = { thsi = country }
+	## replace_scopes = { this = country }
 	crisis_name_is_shown
 
 	### This = country
-	## replace_scopes = { thsi = country }
+	## replace_scopes = { this = country }
 	crisis_flag_is_shown
 
 	### This = country
-	## replace_scopes = { thsi = country }
+	## replace_scopes = { this = country }
 	crisis_opinion_is_shown
 
 	### Check if planets resources should be hidden
 	### this: planet
 	### root: country
-	## replace_scopes = { thsi = planet root = country }
+	## replace_scopes = { this = planet root = country }
 	should_hide_resources_for_planet
+
+	# endregion
 }

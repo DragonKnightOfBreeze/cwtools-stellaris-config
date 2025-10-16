@@ -2398,7 +2398,7 @@ alias[effect:add_random_research_option] = {
 	## cardinality = 0..1
 	ignore_insight = bool
 	### default yes
- 	## cardinality = 0..1
+	## cardinality = 0..1
 	ignore_rare = bool
 }
 
@@ -5220,34 +5220,59 @@ alias[effect:set_next_astral_rift_event] = {
 ## scopes = { country }
 alias[effect:unlock_exhibit] = <specimen_types>
 
-# missing effects in effects.log
+# 4.0
 
-## scopes = { country }
-alias[effect:ai_trade_facility] = {
-	### default: no
+### Fires a storm event for the scoped storm
+## scopes = { cosmic_storm }
+alias[effect:cosmic_storm_event] = {
+	id = <event.scopeless>
+	id = <event.cosmic_storm>
 	## cardinality = 0..1
-	offer_hire_mercenary_fleet = bool
-	### default: no
+	days = int_value_field
 	## cardinality = 0..1
-	offer_prolong_fleet_contract = bool
+	months = int_value_field
 	## cardinality = 0..1
-	info_gathering = {
-		alias_name[effect] = alias_match_left[effect]
+	years = int_value_field
+	## cardinality = 0..1
+	random = int_value_field
+	## cardinality = 0..1
+	scopes = {
+		## cardinality = 0..1
+		from = scope[any]
+		## cardinality = 0..1
+		fromfrom = scope[any]
+		## cardinality = 0..1
+		fromfromfrom = scope[any]
+		## cardinality = 0..1
+		fromfromfromfrom = scope[any]
 	}
-	## cardinality = 0..1
-	option_selection = {
-		alias_name[effect] = alias_match_left[effect]
-	}
-	## cardinality = 0..1
-	allow = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-	alias_name[effect] = alias_match_left[effect]
 }
 
-### without this immediate is not invoked when event runs in a special mode that allows AI to collect trade data
-## scopes = { country }
-alias[effect:run_in_ai_mode] = bool
+### Fires a storm event for the scoped storm influence field
+## scopes = { cosmic_storm_influence_field }
+alias[effect:cosmic_storm_influence_field_event] = {
+	id = <event.scopeless>
+	id = <event.cosmic_storm_influence_field>
+	## cardinality = 0..1
+	days = int_value_field
+	## cardinality = 0..1
+	months = int_value_field
+	## cardinality = 0..1
+	years = int_value_field
+	## cardinality = 0..1
+	random = int_value_field
+	## cardinality = 0..1
+	scopes = {
+		## cardinality = 0..1
+		from = scope[any]
+		## cardinality = 0..1
+		fromfrom = scope[any]
+		## cardinality = 0..1
+		fromfromfrom = scope[any]
+		## cardinality = 0..1
+		fromfromfromfrom = scope[any]
+	}
+}
 
 # fleet actions
 
@@ -5318,15 +5343,6 @@ alias[effect:random_country] = {
 	### adds weights to affect the chance a specific object is selected
 	## cardinality = 0..1
 	weights = { alias_name[modifier_rule] = alias_match_left[modifier_rule] }
-}
-
-### Executes enclosed effects on a random pop_group that meets the limit criteria. Warning: deprecated, use random_owned_pop
-## scopes = { planet }
-## push_scope = pop_group
-alias[effect:random_pop] = {
-	## cardinality = 0..1
-	limit = single_alias_right[trigger_clause]
-	alias_name[effect] = alias_match_left[effect]
 }
 
 ### Iterate through all owned pops - executes the enclosed effects on all of them for which the limit triggers return true
@@ -8952,7 +8968,6 @@ alias[effect:finish_terraformation] = yes
 ## scopes = { country }
 alias[effect:open_shroud_tab] = yes
 
-
 ### Instantly destroys part of the assigned pops to this job
 ## scopes = { pop_job }
 alias[effect:kill_assigned_pop_amount] = {
@@ -9025,9 +9040,9 @@ alias[effect:add_resource_from_debris] = {
 	mult = value_field
 }
 
-### Adds a percentage to the total time of the current terraforminog process on the planet
+### Adds a percentage to the total time of the current terraformation process on the planet
 ## scopes = { planet }
-alias[effect:terraformation_total_time_mult] = value_field
+alias[effect:add_terraformation_total_time_mult] = value_field
 
 ### Iterate through all cosmic storms in the galaxy - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
 ## scopes = any
@@ -9060,7 +9075,6 @@ alias[effect:ordered_cosmic_storm] = {
 	### <variable>/trigger:<trigger>
 	## cardinality = 1..1
 	order_by = value_field
-
 
 	### default: no - if yes, then 0 is lowest rather than highest	## cardinality = 0..1
 	inverse = bool
@@ -9398,3 +9412,44 @@ alias[effect:every_system_in_cosmic_storm_influence_field] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
+# missing effects in effects.log
+
+## api_status = kept
+## scopes = { country }
+alias[effect:ai_trade_facility] = {
+	### default: no
+	## cardinality = 0..1
+	offer_hire_mercenary_fleet = bool
+	### default: no
+	## cardinality = 0..1
+	offer_prolong_fleet_contract = bool
+	## cardinality = 0..1
+	info_gathering = {
+		alias_name[effect] = alias_match_left[effect]
+	}
+	## cardinality = 0..1
+	option_selection = {
+		alias_name[effect] = alias_match_left[effect]
+	}
+	## cardinality = 0..1
+	allow = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	alias_name[effect] = alias_match_left[effect]
+}
+
+### without this immediate is not invoked when event runs in a special mode that allows AI to collect trade data
+## api_status = kept
+## scopes = { country }
+alias[effect:run_in_ai_mode] = bool
+
+# removed effects in effects.log
+
+## api_status = removed
+alias[effect:set_pop_flag] = $any
+## api_status = removed
+alias[effect:remove_pop_flag] = $any
+## api_status = removed
+alias[effect:set_timed_pop_flag] = $any
+## api_status = removed
+alias[effect:pop_event] = $any

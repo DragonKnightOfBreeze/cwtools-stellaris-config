@@ -249,7 +249,6 @@ modifiers = {
 	country_naval_coverage_mult = { Countries }
 	country_edict_fund_add = { Countries }
 	country_edict_fund_mult = { Countries }
-	terraforming_cost_mult = { Planets "AI Economy" }
 	federation_naval_cap_contribution_mult = { Countries }
 	command_limit_add = { Fleets Countries }
 	command_limit_mult = { Fleets Countries }
@@ -279,13 +278,10 @@ modifiers = {
 	leader_trait_selection_options_add = { Countries Leaders }
 	country_occupation_armies_add = { Countries }
 	starbase_shipyard_capacity_add = { Megastructures Starbases }
-	starbase_shipyard_build_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	starbase_shipyard_build_time_mult = { Megastructures Starbases }
 	starbase_shipyard_build_speed_mult = { Megastructures Starbases }
-	starbase_shipyard_artificial_build_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	starbase_shipyard_artificial_build_time_mult = { Megastructures Starbases }
 	starbase_shipyard_artificial_build_speed_mult = { Megastructures Starbases }
-	starbase_shipyard_space_fauna_build_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	starbase_shipyard_space_fauna_build_time_mult = { Megastructures Starbases }
 	starbase_shipyard_space_fauna_build_speed_mult = { Megastructures Starbases }
 	starbase_upgrade_cost_mult = { Starbases }
@@ -394,7 +390,6 @@ modifiers = {
 	veto_cooldown_mult = { Countries }
 	emergency_measures_cooldown_mult = { Countries }
 	country_community_gdf_naval_capacity = { Countries }
-	gdf_ship_alloys_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "AI Economy" }
 	first_contact_speed_mult = { Countries }
 	first_contact_clues_add = { Countries }
 	first_contact_defense_add = { Countries }
@@ -560,7 +555,6 @@ modifiers = {
 	# will generate if use_for_ai_budget = yes (inherited from parents for _mult modifiers):
 	# <economic_category>_enum[economic_modifier_category]_enum[economic_modifier_type] = { "AI Economy" }
 
-
 	# ship_size modifiers
 	shipsize_<ship_size>_hull_add = { Ships }
 	shipsize_<ship_size>_hull_mult = { Ships }
@@ -680,7 +674,6 @@ modifiers = {
 	<bypass>_megastructure_bypass_windup_mult = { Megastructures }
 
 	# building modifiers
-	<building.capped>_max = { Planets }
 	planet_<building>_build_speed_mult = { Planets }
 	# zone modifier
 	planet_<zone>_build_speed_mult = { Planets }
@@ -731,8 +724,7 @@ modifiers = {
 	# councilor modifiers
 	<councilor>_exp_gain = { Leaders }
 
-	# space fauna ship
-
+	# space_fauna_ship modifiers
 	space_fauna_ship_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
     space_fauna_ship_hull_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
     space_fauna_ship_hull_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
@@ -761,9 +753,96 @@ modifiers = {
     titanic_space_fauna_ship_cost_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
     titanic_space_fauna_build_speed_mult = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }
 
-	# patron
-
+	# patron_type modifiers
 	add_attunement_<patron_type.add_modifier> = { Countries }
 	<patron_type.add_modifier>_attunement_mult = { Countries }
 
+	# 4.0
+    arc_furnace_limit_add = Countries
+    biomorphosis_progress_mult = Planets
+    branch_office_holding_crime_mult = Countries
+    capital_storm_diplo_weight_mult = Countries
+    citizen_pop_different_species_class_happiness = Pops
+    citizen_pop_political_power = Pops
+    citizen_pop_same_species_class_happiness = Pops
+    clone_soldiers_sustained = Planets
+    colony_start_urban_districts_add = Countries
+    composer_of_strands_monthly_attunement_add = Countries
+    council_agenda_early_activation_cost_mult = Countries
+    cradle_of_souls_monthly_attunement_add = Countries
+    cyborg_pop_bonus_workforce_mult = Planets
+    cycle_negative_effects_bonus_mult = Countries
+    cycle_positive_effects_bonus_mult = Countries
+    damage_random_nearby_enemy_on_death = Ships
+    deep_space_citadel_limit_add = Countries
+    deposit_increase_on_survey_chance_mult = Countries
+    district_jobs_mult = Countries
+    divided_patrongage_max_subjects = Countries
+    dyson_swarm_limit_add = Countries
+    eater_of_worlds_monthly_attunement_add = Countries
+    enemy_ship_destroyed_energy_add = Countries
+    experimental_testing_test_subjects_death = Countries
+    fake_pop_growth_mod = Planets
+    find_arc_site_on_survey_chance_mult = Countries
+    gravity_snare_cooldown_mult = Fleets
+    habitat_district_jobs_mult = Countries
+    habitat_districts_housing_add = Countries
+    habitat_districts_minor_add = Countries
+    habitat_max_districts_add = Countries
+    habitat_max_districts_mult = Countries
+    habitat_stability_add = Planets
+    heal_random_fleet_creature_on_death = Ships
+    instrument_of_desire_monthly_attunement_add = Countries
+    job_healthcare_organic_pop_assembly_mult = Planets
+    job_healthcare_organics_upkeep_mult = Planets
+    job_healthcare_pop_environment_tolerance = Planets
+    job_roboticist_branch_office_value_mult = Planets
+    knight_quest_progress_add = Planets
+    leader_recruitment_age = Countries
+    living_standard_trade_value_criminals_add = Pops
+    living_standard_trade_value_rulers_add = Pops
+    living_standard_trade_value_slaves_add = Pops
+    living_standard_trade_value_specialists_add = Pops
+    living_standard_trade_value_workers_add = Pops
+    megastructure_dismantle_refund_mult = Countries
+    mining_district_buildings_add = Planets
+    mining_district_housing_add = Planets
+    negative_leader_traits_species = None
+    negative_traits_country = Countries
+    negative_traits_leader = Leaders
+    organic_pop_bonus_workforce_mult = Planets
+    planet_bureaucrats_stability_produces_add = Planets
+    pop_cyborg_happiness = Pops
+    pop_cyborg_specialist_happiness = Pops
+    pop_cyborg_worker_happiness = Pops
+    pop_job_amenities_mult = Planets
+    pop_lifestyle_trade_value_add = Pops
+    pop_lifestyle_trade_value_mult = Pops
+    pop_non_cyborg_happiness = Pops
+    pop_non_noxious_happiness = Planets
+    pop_non_psionic_happiness = Pops
+    pop_psionic_happiness = Pops
+    psionic_aura_hyperlane_range_add = Countries
+    psionic_pop_bonus_workforce_mult = Pops
+    psionic_specialist_pop_bonus_workforce_mult = Pops
+    restored_cognitive_node_bonus_skill = Countries
+    restored_growth_node_bonus_skill = Countries
+    restored_legion_node_bonus_skill = Countries
+    restored_node_bonus_skill = Countries
+    restored_regulatory_node_bonus_skill = Countries
+    robotic_pop_bonus_workforce_mult = Planets
+    salvage_chance_add = Countries
+    shipsize_<ship_size>_anomaly_generation_chance_uninhabitable = "Science Ships"
+    shipsize_<ship_size>_science_survey_speed_uninhabitable = "Science Ships"
+    shroud_delve_cooldown = Countries
+    shroud_delve_cost = Countries
+    shroud_forged_consumer_goods_upkeep = Countries
+    shroud_storm_repelling = Countries
+    split_into_smaller_size_on_death = Ships
+    trade_from_trait_mult = Countries
+    treasure_trove_reward_mult = Countries
+    voidworm_nymph_chance_on_bombardment = Ships
+    voidworms_planet_orbital_bombardment_damage = Countries
+    whisperers_in_the_void_monthly_attunement_add = Countries
+    zone_building_slots_add = Planets
 }

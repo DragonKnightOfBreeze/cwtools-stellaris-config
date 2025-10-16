@@ -112,6 +112,16 @@ types = {
 		## push_scope = agreement
 		## display_name = Agreement Event
 		subtype[agreement] = {}
+		## group = event_type
+		## type_key_filter = cosmic_storm_event
+		## push_scope = cosmic_storm
+		## display_name = Cosmic Storm Event
+		subtype[cosmic_storm] = {}
+		## group = event_type
+		## type_key_filter = cosmic_storm_influence_field_event
+		## push_scope = cosmic_storm_influence_field
+		## display_name = Cosmic Storm Influence Field Event
+		subtype[cosmic_storm_influence_field] = {}
 
 		localisation = {
 			subtype[!hidden] = {
