@@ -796,7 +796,6 @@ game_rules = {
 	## replace_scopes = { this = country from = country }
 	can_country_initiate_storm
 
-	# TODO 不一致：需确认实际语义（在“行星上发起风暴”还是“恒星上”）。若确为“行星”，应改文档注释；若确为“恒星”，应改 replace_scopes。
 	### root/this = star
 	## replace_scopes = { this = planet root = planet }
 	can_initiate_storm_on_planet

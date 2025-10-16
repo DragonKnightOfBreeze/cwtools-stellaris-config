@@ -1297,11 +1297,10 @@ on_actions = {
 	## event_type = country
 	on_federation_leader_challenge
 
-	# TODO
 	### A federation reached a new level for the first time
 	### This = Federation Leader
-	## replace_scopes = { this = leader from = leader }
-	## event_type = leader
+	## replace_scopes = { this = country from = country }
+	## event_type = country
 	on_federation_new_level_unlocked
 
 	### A country is created via create_country or create_rebels
