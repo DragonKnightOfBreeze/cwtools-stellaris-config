@@ -147,10 +147,6 @@ on_actions = {
 	## event_type = country
 	on_late_game_pulse_country
 
-	## replace_scopes = { this = country root = country }
-	## event_type = country
-	on_late_game_pulse_country
-
 	### setup advanced colony. So far it has a pop on the capital and a colony shelter building matching the is_colony trigger
 	### scope: planet
 	### from: country
@@ -296,7 +292,7 @@ on_actions = {
 	### Root = Planet
 	### From = Country
 	### FromFrom = Fleet of the science ship that surveyed it, if any
-	## replace_scopes = { this = planet root = planet from = country formfrom = fleet }
+	## replace_scopes = { this = planet root = planet from = country fromfrom = fleet }
 	## event_type = planet
 	on_planet_surveyed
 
@@ -304,7 +300,7 @@ on_actions = {
 	### Root = Astral Rift
 	### From = Country
 	### FromFrom = Fleet of the science ship that surveyed it, if any
-	## replace_scopes = { this = astral_rift root = astral_rift from = country formfrom = fleet }
+	## replace_scopes = { this = astral_rift root = astral_rift from = country fromfrom = fleet }
 	## event_type = astral_rift
 	on_astral_rift_surveyed
 
@@ -1055,7 +1051,7 @@ on_actions = {
 	### A building has been wrecked by a enemy and is now ruined.
 	### This = Planet
 	### From = Enemy country
-	## replace_scopes = { this = planet root = planet }
+	## replace_scopes = { this = planet root = planet from = country }
 	## event_type = planet
 	on_building_ruined
 
@@ -1301,6 +1297,7 @@ on_actions = {
 	## event_type = country
 	on_federation_leader_challenge
 
+	# TODO
 	### A federation reached a new level for the first time
 	### This = Federation Leader
 	## replace_scopes = { this = leader from = leader }
@@ -1331,7 +1328,7 @@ on_actions = {
 	### From = Megastructure
 	### FromFrom = System
 	### FromFromFrom = Fleet
-	## replace_scopes = { this = country root = country from = megastructure fromfrom = system }
+	## replace_scopes = { this = country root = country from = megastructure fromfrom = system fromfromfrom = fleet }
 	## event_type = country
 	on_megastructure_built
 
@@ -1798,7 +1795,7 @@ on_actions = {
 	### THIS = System: system being returned from occupation
 	### FROM = Country: Previous owner of the system
 	### FROMFROM = Country: Occupier of the system
-	## replace_scopes = { this = system  root = country from = country fromfrom = country }
+	## replace_scopes = { this = system  root = system from = country fromfrom = country }
 	## event_type = system
 	on_system_returned
 
@@ -1940,7 +1937,7 @@ on_actions = {
 	### Fired when a ship finishes researching an anomaly.
 	### this = ship
 	### from = planet
-	## replace_scopes = { this = ship root = ship fromfromfrom = planet }
+	## replace_scopes = { this = ship root = ship from = planet }
 	## event_type = ship
 	anomaly_success
 
@@ -1971,7 +1968,7 @@ on_actions = {
 	### Executed when a two capitals get connected through relay network
 	### THIS = Country: Owner
 	### FROM = Country: Other
-	## replace_scopes = { this = country root = country }
+	## replace_scopes = { this = country root = country from = country }
 	## event_type = country
 	on_capitals_connected
 
@@ -2079,7 +2076,7 @@ on_actions = {
 	### Fired when a country attacks another country
 	### This = attacked country
 	### From = attacker country
-	## replace_scopes = { this = country root = country }
+	## replace_scopes = { this = country root = country from = country }
 	## event_type = country
 	on_country_attacked
 
@@ -2302,7 +2299,7 @@ on_actions = {
 	### from = perpetrator country
 	### fromfrom = victim country
 	### fromfromfrom = system where it happened
-	## replace_scopes = { this = leader root = leader from = country from = country fromfromfrom = system }
+	## replace_scopes = { this = leader root = leader from = country fromfrom = country fromfromfrom = system }
 	## event_type = leader
 	on_leader_captured
 
@@ -2451,7 +2448,7 @@ on_actions = {
 
 	### Executed when a country activates an agenda
 	### THIS = country
-	## replace_scopes = { this = planet root = planet from = fleet }
+	## replace_scopes = { this = planet root = planet }
 	## event_type = planet
 	on_azaryn_action_cancel
 

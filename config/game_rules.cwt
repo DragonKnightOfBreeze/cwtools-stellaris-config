@@ -158,7 +158,7 @@ game_rules = {
 	### Root = Pop Group
 	### From = Country
 	### This = Species
-	## replace_scopes = { this = pop_group root = species from = country }
+	## replace_scopes = { this = species root = pop_group from = country }
 	species_has_happiness
 
 	### Checks if a species can procreate
@@ -181,7 +181,7 @@ game_rules = {
 
 	### Root = country
 	### From = species
-	## replace_scopes = { this = species root = country }
+	## replace_scopes = { this = country root = country from = species }
 	founder_species_uses_logistic_growth_mult
 
 	## replace_scopes = { this = country root = country from = species }
@@ -491,22 +491,22 @@ game_rules = {
 	## replace_scopes = { this = country root = country }
 	can_use_envoys_to_lower_imperial_authority
 
-	### this/root = pop
+	### this/root = pop group
 	### checked if job's possible_precalc = can_fill_drone_job
 	## replace_scopes = { this = pop_group root = pop_group }
 	can_fill_drone_job
 
-	### this/root = pop
+	### this/root = pop group
 	### checked if job's possible_precalc = can_fill_worker_job
 	## replace_scopes = { this = pop_group root = pop_group }
 	can_fill_worker_job
 
-	### this/root = pop
+	### this/root = pop group
 	### checked if job's possible_precalc = can_fill_specialist_job
 	## replace_scopes = { this = pop_group root = pop_group }
 	can_fill_specialist_job
 
-	### this/root = pop
+	### this/root = pop group
 	### checked if job's possible_precalc = can_fill_ruler_job
 	## replace_scopes = { this = pop_group root = pop_group }
 	can_fill_ruler_job
@@ -518,11 +518,11 @@ game_rules = {
 
 	### Some parts in code still need to know some more specifics from script
 	### this/root = pop job
-	## replace_scopes = { this = pop_job root = pop_group }
+	## replace_scopes = { this = pop_job root = pop_job }
 	is_unemployment_job
 
 	### Some parts in code still need to know some more specifics from script
-	## replace_scopes = { this = pop_job root = pop_group }
+	## replace_scopes = { this = pop_job root = pop_job }
 	### this/root = pop job
 	is_civilian_job
 
@@ -592,7 +592,7 @@ game_rules = {
 
 	### this = leader
 	### from = country scope
-	## replace_scopes = { this = fleet from = country }
+	## replace_scopes = { this = leader from = country }
 	can_leader_be_councilor
 
 	### this = country
@@ -796,6 +796,7 @@ game_rules = {
 	## replace_scopes = { this = country from = country }
 	can_country_initiate_storm
 
+	# TODO 不一致：需确认实际语义（在“行星上发起风暴”还是“恒星上”）。若确为“行星”，应改文档注释；若确为“恒星”，应改 replace_scopes。
 	### root/this = star
 	## replace_scopes = { this = planet root = planet }
 	can_initiate_storm_on_planet
@@ -815,6 +816,7 @@ game_rules = {
 
 	### THIS = Fleet
 	### FROM = Country / Snare sender
+	## replace_scopes = { this = fleet from = country }
     can_fleet_be_captured_by_snares
 
     ### THIS = country
