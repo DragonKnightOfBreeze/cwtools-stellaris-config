@@ -1,10 +1,13 @@
-# value_field/int_value_field: use == if the left hand side works in trigger:<trigger>, otherwise use =
+# `value_field` `int_value_field`: use `==` if the left hand side works in `trigger:<trigger>`, otherwise `=`
 
 # scripted triggers
 
 alias[trigger:<scripted_trigger>] = bool
 
-alias[trigger:<scripted_trigger>] == int
+# if a scripted trigger call a `count_*` trigger without `count` property in its declaration,
+# then it can be invoked with a value represents some number, as the missing value of `count` property,
+# which is normally matching `int_value_field`
+alias[trigger:<scripted_trigger>] == int_value_field
 
 # triggers
 
