@@ -4200,7 +4200,7 @@ alias[effect:destroy_and_spawn_debris_for] = scope_group[target_country]
 ### Destroys up to navel_cap worth of ships in the target fleet (with death graphics)
 ## scopes = any
 alias[effect:destroy_fleet_naval_cap] = {
-	target = socpe[fleet]
+	target = scope[fleet]
 
 	### default 1
 	## cardinality = 0..1
@@ -4214,7 +4214,7 @@ alias[effect:destroy_fleet_naval_cap] = {
 ### Deletes up to naval_cap worth of ships in the target fleet (no death graphics)
 ## scopes = any
 alias[effect:delete_fleet_naval_cap] = {
-	target = socpe[fleet]
+	target = scope[fleet]
 
 	### default 1
 	## cardinality = 0..1
