@@ -4114,6 +4114,7 @@ alias[effect:complete_special_project] = {
 ## scopes = { country }
 alias[effect:set_truce] = {
 	target = scope_group[target_country]
+	target = scope[war]
 	type = enum[truce_type]
 }
 
