@@ -3,6 +3,7 @@ priorities = {
 	"common/component_templates" = fios
 	"common/event_chains" = fios
 	"common/global_ship_designs" = fios
+	"common/governments/authorities" = fios
 	"common/on_actions" = ordered
 	"common/relics" = fios
 	"common/scripted_loc" = fios
@@ -15,5 +16,6 @@ priorities = {
 	"common/start_screen_messages" = fios
 	"common/static_modifiers" = fios
 	"common/strategic_resources" = fios
+	"common/name_lists" = dupl
 	"events" = fios
 }
