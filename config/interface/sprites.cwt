@@ -31,6 +31,8 @@ types = {
 				texture = textureFile # filepath
 				## primary
 				texture = sprite_sheet_sprite_type # <sprite>
+				## primary
+				texture = parent # <sprite>
 				## optional
 				masking_texture = masking_texture # filepath
 			}
@@ -49,6 +51,12 @@ types = {
 sprite = {
 	subtype[!progressbar&!piechart] = {
 		name = scalar
+		## cardinality = 0..1
+		parent = <sprite>
+		## cardinality = 0..1
+		upper_left = { x = int y = int }
+		## cardinality = 0..1
+		lower_right = { x = int y = int }
 		## file_extensions = { .png .dds .tga }
 		## cardinality = 0..1
 		textureFile = filepath
