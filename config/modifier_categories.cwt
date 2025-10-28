@@ -1,4 +1,7 @@
 modifier_categories = {
+	None = {
+		supported_scopes = {}
+	}
 	Pops = {
 		supported_scopes = { species pop_group planet sector galacticobject country }
 	}
@@ -32,6 +35,9 @@ modifier_categories = {
 	"Transport Ships" = {
 		supported_scopes = { ship starbase fleet galacticobject country sector }
 	}
+	"Owned Ships" = {
+		supported_scopes = { ship starbase fleet galacticobject country sector }
+	}
 	Ships = {
 		supported_scopes = { ship starbase fleet planet sector galacticobject country leader }
 	}
@@ -56,9 +62,6 @@ modifier_categories = {
 	"Star Systems" = {
 		supported_scopes = { galacticobject }
 	}
-	Trade = {
-		supported_scopes = { country starbase }
-	}
 	Federations = {
 		supported_scopes = { federation }
 	}
@@ -80,4 +83,5 @@ modifier_categories = {
 	"Astral Rift" = {
 		supported_scopes = { astral_rift }
 	}
+
 }
