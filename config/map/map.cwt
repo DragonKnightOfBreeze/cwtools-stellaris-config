@@ -235,10 +235,10 @@ enums = {
 }
 
 enums = {
-	## search_scope_type = definition
 	complex_enum[map_setup_scenario_system_id] = {
 		path = "game/map/setup_scenarios"
 		file_extension = .txt
+		per_definition = yes
 		name = {
 			system = {
 				id = enum_name
