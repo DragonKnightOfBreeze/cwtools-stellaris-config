@@ -2193,7 +2193,7 @@ on_actions = {
 	on_breach_the_shroud_situation_random_chaotic_events_list
 
 	## replace_scopes = { this = any root = any }
-	## event_type = any
+	## event_type = scopeless
 	on_galaxy_map_during_tutorial
 
 	### A Gravity Snare was sent by a science fleet
