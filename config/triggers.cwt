@@ -946,7 +946,7 @@ alias[trigger:custom_tooltip] = {
 ## scopes = { country }
 alias[trigger:years_of_peace] = {
 	## cardinality = 0..1
-	delay = int #no variables here atm
+	delay = int # no variables here atm
 	value = int_value_field
 }
 ### Checks the fleet's fleet size
@@ -1000,7 +1000,7 @@ alias[trigger:has_resource] = bool
 ## scopes = { planet country deposit astral_rift }
 alias[trigger:has_resource] = {
 	type = <resource>
-	amount = int #no variables here for some reason atm
+	amount = int_value_field
 }
 
 ### Checks if the planet has any strategic resource
@@ -2943,10 +2943,10 @@ alias[trigger:compare_distance] = {
 ### Checks market price of a specific resource for the current country:
 ## scopes = { country }
 alias[trigger:market_resource_price] = {
-	resource = <resource_name>
+	resource = <resource>
 	## cardinality = 0..1
 	### Default = 1; basically a mult factor
-	amount = int #no variables here
+	amount = int_value_field
 	## cardinality = 0..1
 	### market_buy/market_sell/not_set (i.e. price without market fees)
 	trade_type = enum[trade_type]
@@ -5336,7 +5336,6 @@ alias[trigger:num_vivarium_slots] == int_value_field
 ### Checks if the scoped country has the specified specimen
 ## scopes = { country }
 alias[trigger:has_specimen] = <specimen>
-
 ### Checks if the scoped country has the specified specimen
 ## scopes = { country }
 alias[trigger:has_specimen] = scope[exhibit]
@@ -5427,6 +5426,9 @@ alias[trigger:num_proxy_war] == value_field
 
 ### Check if the scoped system is affected by any, or a specific type, Psionic Aura.
 ## scopes = { galactic_object }
+alias[trigger:has_psionic_aura] = bool
+### Check if the scoped system is affected by any, or a specific type, Psionic Aura.
+## scopes = { galactic_object }
 alias[trigger:has_psionic_aura] = <psionic_aura>
 
 ### Check if the scoped country has a psionic aura from given patron.
@@ -5448,8 +5450,10 @@ alias[trigger:is_aura_intensity_level] = int_value_field
 
 ### Checks if a planet's happiness is past a given threshold. Can be used in a scoped system, then it returns the sum of every planets' happiness past the given threshold.
 ## scopes = { planet galactic_object }
-alias[trigger:planet_happiness_above_threshold] = { threshold = 0.5 value > 0}
-
+alias[trigger:planet_happiness_above_threshold] = {
+	threshold = value_field
+	value = int_value_field
+}
 
 ### Checks if valid colony governors in the scoped has a specific base experience level
 ## scopes = { galactic_object }
@@ -5458,8 +5462,13 @@ alias[trigger:governors_skill_in_system] == int_value_field
 ### Checks the number of neighbor systems within a specific distance
 ## scopes = any
 alias[trigger:num_neighbor_systems] = {
-	max_distance = 1
-	limit = <triggers>
+	## cardinality = 0..1
+	## push_scope = system
+	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
+	min_distance = int_value_field
+	## cardinality = 0..1
+	max_distance = int_value_field
 }
 
 ### Checks if the last acquired specimen was acquired through a trade deal
@@ -5530,7 +5539,7 @@ alias[trigger:is_last_building_changed_capital] = bool
 
 ### Checks if the last picked tradition has the given tradition category. If there is no last picked tradition set, returns false.
 ## scopes = { country }
-alias[trigger:category_last_picked_tradition] = <tradition>
+alias[trigger:category_last_picked_tradition] = <tradition_category>
 
 ### Checks the amount of pops in the planet that have the exact species.
 ## scopes = { planet }
@@ -5611,7 +5620,10 @@ alias[trigger:pop_group_crime] == int_value_field
 
 ### Checks if the scoped country can increment towards given counter
 ## scopes = { country }
-alias[trigger:has_patron_counter] = eunm[calling_counter]
+alias[trigger:has_patron_counter] = enum[calling_counter]
+### Checks if the scoped country can increment towards given counter
+## scopes = { country }
+alias[trigger:has_patron_counter] = enum[deed_counter]
 
 ### Checks the sum of the ship_size's size_multiplier of every ship present in the scoped system.Checks whether the enclosed triggers return true for X/all of them
 ## scopes = { galactic_object }

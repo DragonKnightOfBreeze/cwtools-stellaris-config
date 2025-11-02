@@ -5,6 +5,10 @@ types = {
 		path = "game/events"
 		file_extension = .txt
 
+		subtype[inherited] = {
+			base = <event>
+		}
+
 		## group = event_attribute
 		subtype[triggered] = {
 			is_triggered_only = yes
@@ -23,9 +27,6 @@ types = {
 		## group = event_attribute
 		subtype[diplomatic] = {
 			diplomatic = yes
-		}
-		subtype[inherited] = {
-			base = <event>
 		}
 
 		## group = event_type
@@ -403,7 +404,6 @@ event = {
 	## cardinality = 0..1
 	is_advisor_event = bool
 
-
 	## cardinality = 0..1
 	auto_select = bool
 
@@ -441,7 +441,6 @@ event = {
 		## cardinality = 0..1
 		custom_gui_option = scalar #same as previous, needs to be gui_type
 	}
-
 	subtype[planet] = {
 		### Like trigger, but only uses certain simple triggers
 		## cardinality = 0..1
@@ -449,17 +448,14 @@ event = {
 			alias_name[planet_pre_trigger] = alias_match_left[planet_pre_trigger]
 		}
 	}
-
 	subtype[fleet] = {
 		## cardinality = 0..1
 		archaeology = bool
 	}
-
 	subtype[first_contact] = {
 		## cardinality = 0..1
 		first_contact = bool
 	}
-
 	subtype[espionage_operation] = {
 		## cardinality = 0..1
 		espionage_operation = bool
@@ -485,6 +481,7 @@ enums = {
 	enum[event_window_type] = {
 		leader_recruit
 		leader_story
+		leader_conversation
 		crisis_leader_conversation
 	}
 }
