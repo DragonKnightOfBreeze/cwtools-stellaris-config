@@ -1027,7 +1027,7 @@ alias[effect:set_location] = scope_group[spatial_object]
 alias[effect:set_location] = {
 	target = scope_group[spatial_object]
 	## cardinality = 0..1
-	distance = float #No variables here atm
+	distance = float # no variables here atm
 	## cardinality = 0..1
 	distance = { min = float max = float }
 	## cardinality = 0..1
@@ -2352,7 +2352,7 @@ alias[effect:add_anomaly] = {
 ### Example:
 ## scopes = { galactic_object }
 alias[effect:add_asteroid_belt] = {
-	radius = int #no variables here atm
+	radius = int # no variables here atm
 	type = <asteroid_belt_type>
 }
 
@@ -2657,7 +2657,7 @@ alias[effect:create_bypass] = {
 ## scopes = any
 alias[effect:create_cluster] = {
 	id = value_set[cluster_id]
-	radius = float #no variables here atm
+	radius = float # no variables here atm
 	center = scope[system]
 }
 
@@ -2742,7 +2742,7 @@ alias[effect:create_message] = {
 	type = <message_type>
 	## cardinality = 0..1
 	localization = localisation
-	days = int #no variables here atm
+	days = int # no variables here atm
 	## cardinality = 0..1
 	custom_toast_content_text = localisation
 	## cardinality = 0..1
@@ -3046,7 +3046,7 @@ alias[effect:get_galaxy_setup_value] = {
 	which = value_set[variable]
 	setting = enum[galaxy_setup_value]
 	## cardinality = 0..1
-	scale_by = float #no variables here atm
+	scale_by = float # no variables here atm
 }
 
 ### Makes a country guarantee another country
@@ -3244,7 +3244,7 @@ enums = {
 ## scopes = { galactic_object }
 alias[effect:set_asteroid_belt] = {
 	## cardinality = 0..1
-	radius = float #no variables here atm
+	radius = float # no variables here atm
 	## cardinality = 0..1
 	type = <asteroid_belt_type>
 }
@@ -3399,14 +3399,14 @@ alias[effect:set_species_identity] = scope_group[target_species]
 ### Sets a building in a slot on a starbase
 ## scopes = { starbase }
 alias[effect:set_starbase_building] = {
-	slot = int #no variables here atm
+	slot = int # no variables here atm
 	building = <starbase_building>
 }
 
 ### Sets a module in a slot on a starbase
 ## scopes = { starbase }
 alias[effect:set_starbase_module] = {
-	slot = int #no variables here atm
+	slot = int # no variables here atm
 	module = <starbase_module>
 }
 
@@ -4130,7 +4130,7 @@ alias[effect:end_truce] = scope_group[target_country]
 alias[effect:remove_starbase_module] = {
 	## cardinality = 0..1
 	### Optional, default = all
-	slot = int #no variables here atm
+	slot = int # no variables here atm
 	## cardinality = 0..1
 	module = <starbase_module>
 }
@@ -4140,7 +4140,7 @@ alias[effect:remove_starbase_module] = {
 alias[effect:remove_starbase_building] = {
 	## cardinality = 0..1
 	### Optional, default = all
-	slot = int #no variables here atm
+	slot = int # no variables here atm
 	## cardinality = 0..1
 	slot = all
 	## cardinality = 0..1
@@ -4355,7 +4355,7 @@ alias[effect:remove_random_starbase_building] = {
 	## cardinality = 0..1
 	type = <starbase_building>
 	## cardinality = 0..1
-	count = int #no variables here atm
+	count = int # no variables here atm
 }
 
 ### Remove a number of random module(s) matching/not matching a type from the starbase
@@ -4364,7 +4364,7 @@ alias[effect:remove_random_starbase_module] = {
 	## cardinality = 0..1
 	type = <starbase_module>
 	## cardinality = 0..1
-	count = int #no variables here atm
+	count = int # no variables here atm
 }
 
 ### Destroys a espionage operation site in right hand site event target
@@ -4443,7 +4443,7 @@ alias[effect:add_stage_modifier] = {
 	## cardinality = 0..1
 	enum[days_months_year] = int
 	## cardinality = 0..1
-	multiplier = float #no variables here atm
+	multiplier = float # no variables here atm
 }
 
 ### Removes a specific modifier from the espionage operation current stage
@@ -5219,7 +5219,7 @@ alias[effect:set_next_astral_rift_event] = {
 
 ### Unlocks an exhibit for given category from the target country.
 ## scopes = { country }
-alias[effect:unlock_exhibit] = <specimen_types>
+alias[effect:unlock_exhibit] = enum[specimen_types]
 
 # 4.0
 
@@ -8461,6 +8461,9 @@ alias[effect:give_specimen] = {
 ###  Removes specified specimen from the target country. This will destroy the specimen
 ## scopes = { country }
 alias[effect:remove_specimen] = <specimen>
+###  Removes specified specimen from the target country. This will destroy the specimen
+## scopes = { country }
+alias[effect:remove_specimen] = scope[exhibit]
 
 ### Sets whether the emergency fund should be active or not.
 ## scopes = any
@@ -8735,6 +8738,13 @@ alias[effect:accept_covenant] = <patron_type>
 ### Refuses covenant proposition with Shroud Patron.
 ## scopes = { country }
 alias[effect:refuse_covenant] = <patron_type>
+### Refuses covenant proposition with Shroud Patron.
+## scopes = { country }
+alias[effect:refuse_covenant] = {
+	patron = <patron_type>
+	## cardinality = 0..1
+	reset_attunement = bool
+}
 
 ### Sets if a country needs a colony (or a colony ship) to be considered alive
 ## scopes = { country }

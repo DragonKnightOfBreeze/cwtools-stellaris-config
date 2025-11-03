@@ -1,19 +1,37 @@
+# see: https://main--pdxdoc-next.netlify.app/guides/other/overwrite/
+
 priorities = {
+	"common/buildings" = lios # relax dupl
 	"common/component_sets" = fios
 	"common/component_templates" = fios
+	"common/diplomatic_actions" = dupl
+	"common/districts" = lios # relax dupl
+	"common/ethics" = lios # relax dupl
 	"common/event_chains" = fios
 	"common/global_ship_designs" = fios
+	"common/governments/authorities" = dupl
+	"common/name_lists" = dupl
+	"common/observation_station_missions" = dupl # from IMM, unsure
 	"common/on_actions" = ordered
-	"common/relics" = fios
+	"common/planet_classes" = lios # relax dupl
+	"common/pop_jobs" = dupl
+	"common/relics" = fios # cannot override?
 	"common/scripted_loc" = fios
 	"common/scripted_variables" = fios
-	"common/section_templates" = fios
+	"common/section_templates" = fios # fios-dupl?
 	"common/ship_behaviors" = fios
+	"common/ship_sizes" = dupl
 	"common/solar_system_initializers" = fios
 	"common/special_projects" = fios
+	"common/species_archetypes" = lios # relax dupl
 	"common/star_classes" = fios
+	"common/starbase_modules" = dupl
 	"common/start_screen_messages" = fios
 	"common/static_modifiers" = fios
-	"common/strategic_resources" = fios
+	"common/strategic_resources" = fios # dupl in IMM
+	"common/technology" = dupl
+	"common/technology/category" = lios
+	"common/technology/tier" = lios
+	"common/traits" = dupl
 	"events" = fios
 }

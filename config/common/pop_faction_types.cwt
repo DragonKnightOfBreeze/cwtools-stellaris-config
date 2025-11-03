@@ -15,9 +15,9 @@ types = {
 
 # parameters
 enums = {
-	## search_scope_type = definition
 	complex_enum[pop_faction_parameter] = {
 		path = "game/common/pop_faction_types"
+		per_definition = yes
 		name = {
 			parameters = {
 				enum_name = {}
