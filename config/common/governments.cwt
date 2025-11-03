@@ -484,6 +484,14 @@ civic_or_origin = {
 			## cardinality = 0..inf
 			trait = <trait.species_trait>
 		}
+
+		### ORIGIN EXCLUSIVE; default: empty; same as above, except these can be removed without making the government invalid.
+		## cardinality = 0..1
+		soft_traits = {
+			## cardinality = 0..inf
+			trait = <trait.species_trait>
+		}
+
 		### Such a descriptive tag, this.
 		## cardinality = 0..1
 		non_colonizable_planet_class_neighbor = yes
@@ -508,6 +516,8 @@ civic_or_origin = {
 		## cardinality = 0..1
 		blocks_random_machine_empire_generation = bool
 	}
+
+
 
 	## cardinality = 0..1
 	room = icon[gfx/portraits/city_sets]
