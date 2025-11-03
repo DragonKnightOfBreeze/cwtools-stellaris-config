@@ -98,20 +98,18 @@ enums = {
         path = "game/common/patrons/deeds"
         name = {
             counter = {
-                enum_name = {
-
-                }
+                enum_name = {}
             }
         }
     }
     complex_enum[calling_counter] = {
         path = "game/common/patrons/callings"
         name = {
-            counter = {
-                enum_name = {
-
-                }
-            }
+			tier = {
+				counter = {
+					enum_name = {}
+				}
+			}
         }
     }
 }
