@@ -6,11 +6,11 @@ types = {
 			progress_direction = bidirectional
 		}
 		localisation = {
+			## required
 			name = "$"
 			type_name = "$_type"
-			## optional
-			desc = "$_desc"
-			## optional
+			title = title
+			desc = desc
 			active_tooltip = active_tooltip
 		}
 	}
@@ -36,6 +36,8 @@ situation_type = {
 		## cardinality = 0..1
 		text = localisation
 	}
+	## cardinality = 0..1
+	desc = localisation
 	## cardinality = 0..inf
 	desc = single_alias_right[triggered_desc_clause]
 	## cardinality = 0..1

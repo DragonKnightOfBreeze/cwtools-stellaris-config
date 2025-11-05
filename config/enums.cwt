@@ -498,4 +498,10 @@ enums = {
 		in_progress
 		completed
 	}
+	enum[system_direction] = {
+		left
+		right
+		corewards
+		rimwards
+	}
 }

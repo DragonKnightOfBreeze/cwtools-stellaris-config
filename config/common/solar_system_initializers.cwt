@@ -133,6 +133,8 @@ solar_system_initializer = {
 alias[planet_initializer:planet] = {
 	## cardinality = 0..1
 	name = localisation
+	## cardinality = 0..1
+	namelist = value[custom_planet_names]
 	### count is optional, default to 1 if isn't specified or written at all
 	## cardinality = 0..1
 	count = int

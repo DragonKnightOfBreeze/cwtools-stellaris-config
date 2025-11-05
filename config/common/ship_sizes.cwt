@@ -332,6 +332,7 @@ ship_size = {
 	## cardinality = 0..1
 	is_bio_ship = bool
 
+	# note that subtype limitation here may be unnecessary according to vanilla
 	subtype[bio_ship] = {
 		## cardinality = 0..1
 		ship_family_name = localisation

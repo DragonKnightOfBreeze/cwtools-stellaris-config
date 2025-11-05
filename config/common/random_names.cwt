@@ -105,6 +105,11 @@ types = {
 		path = "game/common/random_names/base"
 		file_extension = .txt
 	}
+	## type_key_filter = custom_planet_names
+	type[custom_planet_names] = {
+		path = "game/common/random_names/base"
+		file_extension = .txt
+	}
 }
 
 ### Define possible parts of empire name here, such as "Glorious Empire of". When generating random name for empire, format can refer to it via <key> and pick random part.
@@ -289,3 +294,10 @@ custom_star_names = {
 	}
 }
 
+custom_planet_names = {
+	## cardinality = 0..inf
+	value_set[custom_planet_names] = {
+		## cardinality = 0..inf
+		localisation
+	}
+}

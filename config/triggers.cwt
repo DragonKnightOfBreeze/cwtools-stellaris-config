@@ -5444,7 +5444,9 @@ alias[trigger:has_patron_relation] = {
 	patron = <patron_type>
 	patron = any
 	### default:completed
+	## cardinality = 0..1
 	contact = enum[patron_contact_state]
+	## cardinality = 0..1
 	contact = any
 }
 
