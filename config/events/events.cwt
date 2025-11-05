@@ -153,6 +153,8 @@ event = {
 		picture_clear = yes
 		## cardinality = 0..1
 		show_sound_clear = yes
+		## cardinality = 0..1
+		trigger_clear = yes
 	}
 
 	subtype[hidden] = {
@@ -197,12 +199,14 @@ event = {
 		picture = <sprite>
 		## cardinality = 0..inf
 		picture = {
-			picture = <sprite>
 			## cardinality = 0..1
 			trigger = single_alias_right[trigger_clause]
+			picture = <sprite>
 		}
-		## cardinality = 0..1
+		## cardinality = 0..inf
 		picture_event_data = {
+			## cardinality = 0..1
+			trigger = single_alias_right[trigger_clause]
 			#only one of each of these!
 			## cardinality = 0..1
 			room = <asset_selector.room>
@@ -246,6 +250,9 @@ event = {
 			city_level = scope[species]
 			## cardinality = 0..1
 			city_level = scope[planet]
+			### default: yes
+			## cardinality = 0..1
+			tooltip = bool
 		}
 		## cardinality = 0..1
 		event_window_type = enum[event_window_type]

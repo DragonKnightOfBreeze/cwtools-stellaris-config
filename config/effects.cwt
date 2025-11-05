@@ -885,6 +885,9 @@ alias[effect:kill_leader] = {
 	ability = scalar # TODO PLS 1.2.4+
 	## cardinality = 0..1
 	show_notification = bool
+	### default: no?
+	## cardinality = 0..1
+	executed = bool
 	## cardinality = 0..1
 	ruler = bool
 	### if added to type = ruler, will kill heir instead
@@ -892,7 +895,7 @@ alias[effect:kill_leader] = {
 	heir = bool
 	## cardinality = 0..1
 	### default: no; if yes, fires on_leader_fired instead of on_leader_death
-	fire = yes
+	fire = bool
 }
 
 ### Shifts an empire towards a specific ethic, adjusting afterwards to keep number of ethics points consistent
@@ -914,7 +917,7 @@ alias[effect:kill_pop_group] = {
 	## cardinality = 0..1
 	amount = int_value_field
 	## cardinality = 0..1
-	percentage = float[0.0..1.0]
+	percentage = value_field[0.0..1.0]
 	###If set, the amount will be randomized in [max(0, size - random), size + random]
 	## cardinality = 0..1
 	random = int_value_field
@@ -2239,7 +2242,7 @@ alias[effect:pop_change_ethic] = {
 	## cardinality = 0..1
 	amount = int_value_field
 	## cardinality = 0..1
-	percentage = float[0.0..1.0]
+	percentage = value_field[0.0..1.0]
 	## cardinality = 0..1
 	random = int_value_field
 }
@@ -2633,7 +2636,11 @@ alias[effect:create_army_transport] = {
 	## cardinality = 0..1
 	ship_name = localisation
 	## cardinality = 0..1
+	ship_name = random
+	## cardinality = 0..1
 	army_name = localisation
+	## cardinality = 0..1
+	ship_name = random
 	## cardinality = 0..1
 	species = scope_group[target_species]
 	## cardinality = 0..1
@@ -3119,6 +3126,12 @@ alias[effect:order_forced_return] = yes
 ### Play the defined sound effect
 ## scopes = any
 alias[effect:play_sound] = <sound_effect>
+### Play the defined sound effect
+## scopes = any
+alias[effect:play_sound] = {
+	sound = <sound_effect>
+	location = scope_field
+}
 ### Adds a specific ethic to the scoped pop_group regardless if pop_group-species allows ethic divergence or not.
 ## scopes = { pop_group }
 alias[effect:pop_force_add_ethic] = {
@@ -3126,7 +3139,7 @@ alias[effect:pop_force_add_ethic] = {
 	## cardinality = 0..1
 	amount = int_value_field
 	## cardinality = 0..1
-	percentage = float[0.0..1.0]
+	percentage = value_field[0.0..1.0]
 	## cardinality = 0..1
 	random = int_value_field
 }
@@ -3142,7 +3155,7 @@ alias[effect:pop_remove_ethic] = {
 	## cardinality = 0..1
 	amount = int_value_field
 	## cardinality = 0..1
-	percentage = float[0.0..1.0]
+	percentage = value_field[0.0..1.0]
 	## cardinality = 0..1
 	random = int_value_field
 }
@@ -3152,7 +3165,7 @@ alias[effect:displace_pop_amount] = {
 	## cardinality = 0..1
 	amount = int_value_field
 	## cardinality = 0..1
-	percentage = float[0.0..1.0]
+	percentage = value_field[0.0..1.0]
 	## cardinality = 0..1
 	random = int_value_field
 }
@@ -3264,6 +3277,9 @@ alias[effect:set_crisis_sound] = <sound_effect>
 ### Sets a custom spatial object as custom country capital location.
 ## scopes = { country }
 alias[effect:set_custom_capital_location] = scope_group[spatial_object]
+### Sets the scoped ship to become disabled at a certain hull point percentage
+## scopes = { ship fleet }
+alias[effect:set_disable_at_health] = bool
 ### Sets the scoped ship to become disabled at a certain hull point percentage
 ## scopes = { ship fleet }
 alias[effect:set_disable_at_health] = value_field[0.0..1.0]
@@ -3511,15 +3527,21 @@ alias[effect:spawn_planet] = {
 ### Spawns a new system at a position relative to the scoped system/planet/ship.
 ## scopes = { megastructure planet ship fleet galactic_object starbase no_scope }
 ## push_scope = galactic_object
-alias[effect:spawn_system] = {
+valias[effect:spawn_system] = {
 	## cardinality = 0..1
-	min_distance = float
+	min_distance = int_value_field
 	## cardinality = 0..1
-	max_distance = float
+	max_distance = int_value_field
 	## cardinality = 0..1
-	min_jumps = int[0..1000]
+	direction = corewards
 	## cardinality = 0..1
-	max_jumps = int[0..1000]
+	direction = rimwards
+	## cardinality = 0..1
+	## cardinality = 0..1
+	min_jumps = int_value_field
+	## cardinality = 0..1
+	max_jumps = int_value_field
+
 	initializer = <solar_system_initializer>
 	initializer = random
 	## cardinality = 0..1
@@ -3530,10 +3552,6 @@ alias[effect:spawn_system] = {
 	min_orientation_angle = float
 	## cardinality = 0..1
 	max_orientation_angle = float
-	## cardinality = 0..1
-	direction = corewards
-	## cardinality = 0..1
-	direction = rimwards
 	## cardinality = 0..1
 	effect = single_alias_right[effect_clause]
 
@@ -4133,6 +4151,8 @@ alias[effect:remove_starbase_module] = {
 	slot = int # no variables here atm
 	## cardinality = 0..1
 	module = <starbase_module>
+	## cardinality = 0..1
+	module = all
 }
 
 ### Remove a building from a certain slot or all slots on a starbase
@@ -4818,23 +4838,30 @@ alias[effect:make_special_trade] = {
 ### Only works inside certain parts of the script marked as ai_trade_facility.
 ## scopes = { country }
 alias[effect:move_system] = {
-
 	target = scope_group[spatial_object]
+
+	## cardinality = 0..1
+	min_distance = int_value_field
+	## cardinality = 0..1
+	max_distance = int_value_field
+	## cardinality = 0..1
+	direction = corewards
+	## cardinality = 0..1
+	direction = rimwards
+	## cardinality = 0..1
 	min_jumps = int_value_field
+	## cardinality = 0..1
 	max_jumps = int_value_field
-
 	## cardinality = 0..1
-	min_distance = int_value_field[0..100]
-
+	min_jumps = int_value_field
 	## cardinality = 0..1
-	max_distance = int_value_field[0..100]
+	max_jumps = int_value_field
 
 	## cardinality = 0..1
 	hyperlane = bool
 
 	## cardinality = 0..1
 	reset_terra_incognita = bool
-
 }
 
 ### Leases fleet out to the new controller country for a numbed of days
@@ -8548,7 +8575,7 @@ alias[effect:give_culling_rewards] = {
 	design = last_created_design
 	### (optional, default: 1)
 	## cardinality = 0..1
-	mult = int_value_fild
+	mult = int_value_field
 }
 
 ### Gives given space fauna DNA with given rarity to the target country.
@@ -8597,6 +8624,8 @@ alias[effect:spawn_custom_debris] = {
 	### (default no) used to specify and override country behaviour towards this debris.
 	## cardinality = 0..1
 	must_research = bool
+	## cardinality = 0..1
+	must_reanimate = bool
 	### (default no) used to force the fleet to reset its killed ships designs.
 	## cardinality = 0..1
 	reset_killed_ship_designs = bool
@@ -8662,11 +8691,13 @@ alias[effect:link_to] = from
 ### Steals random specimens from given country.
 ## scopes = { country }
 alias[effect:steal_specimens] = {
-	who = <country>
-	category = <category_key>/all/any
+	who = scope[country]
+	category = <ship_categories>
+	category = all
+	category = any
 	count = int_value_field
 	## cardinality = 0..1
-	show_nofication = bool
+	show_notification = bool
 }
 
 
@@ -8870,7 +8901,7 @@ alias[effect:transfer_pop_amount] = {
 	## cardinality = 0..1
 	amount = int_value_field
 	## cardinality = 0..1
-	percentage = float[0.0..1.0]
+	percentage = value_field[0.0..1.0]
 	## cardinality = 0..1
 	random = int_value_field
 	###default: 'GROWTH_CAT_OTHER'
@@ -8953,7 +8984,7 @@ alias[effect:sacrifice_pop_group] = {
 	## cardinality = 0..1
 	amount = int_value_field
 	## cardinality = 0..1
-	percentage = float[0.0..1.0]
+	percentage = value_field[0.0..1.0]
 }
 
 ### Instantly sacrifices part of the assigned pops to this job
@@ -8964,7 +8995,7 @@ alias[effect:sacrifice_assigned_pop_amount] = {
 	## cardinality = 0..1
 	amount = int_value_field
 	## cardinality = 0..1
-	percentage = float[0.0..1.0]
+	percentage = value_field[0.0..1.0]
 }
 
 ### Adds a percentage to the total time of the current terraforming process on the planet
@@ -8989,7 +9020,7 @@ alias[effect:kill_assigned_pop_amount] = {
 	## cardinality = 0..1
 	random = int_value_field
 	## cardinality = 0..1
-	percentage = float[0.0..1.0]
+	percentage = value_field[0.0..1.0]
 	###default: 'GROWTH_CAT_OTHER'
 	## cardinality = 0..1
 	growth_category = localisation

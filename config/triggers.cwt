@@ -2620,6 +2620,9 @@ alias[trigger:num_assigned_jobs] = {
 	job = <job>
 	job = unemployed
 	value = int_value_field
+	### default: no
+	## cardinality = 0..1
+	automated_workforce = bool
 }
 
 ### Checks if the ambient object is a specific type.
@@ -5439,6 +5442,7 @@ alias[trigger:has_patron_aura] = <patron_type>
 ## scopes = { country }
 alias[trigger:has_patron_relation] = {
 	patron = <patron_type>
+	patron = any
 	### default:completed
 	contact = enum[patron_contact_state]
 	contact = any

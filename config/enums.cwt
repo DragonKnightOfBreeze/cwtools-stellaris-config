@@ -92,6 +92,7 @@ enums = {
 		exhibit
 		ship_growth_stage
 		trait
+		storms
 	}
 	enum[intel_level] = {
 		none
@@ -423,6 +424,7 @@ enums = {
 		rare
 		epic
 		exceptional
+		highest
 	}
 	enum[specimens_rarity] = {
 		common
