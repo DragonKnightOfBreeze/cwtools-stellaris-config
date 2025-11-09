@@ -3482,6 +3482,8 @@ alias[effect:spawn_planet] = {
 	## cardinality = 0..1
 	location = scope_group[celestial_coordinate]
 	## cardinality = 0..1
+	location = none
+	## cardinality = 0..1
 	orbit_location = bool
 	## cardinality = 0..1
 	orbit_distance = value_field
@@ -3511,6 +3513,9 @@ alias[effect:spawn_planet] = {
 	### default: no
 	## cardinality = 0..1
 	spawn_beyond_gravity_well = bool
+	### default: no?
+	## cardinality = 0..1
+	check_overlap = bool
 	## cardinality = 0..1
 	orbit_angle = random
 	## cardinality = 0..1
