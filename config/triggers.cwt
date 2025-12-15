@@ -1594,6 +1594,10 @@ alias[trigger:is_terraformed] = bool
 ## scopes = { planet }
 alias[trigger:is_terraforming] = bool
 
+### Checks if the planet is currently being terraformed manually by script
+## scopes = { planet }
+alias[trigger:is_scripted_terraforming] = bool
+
 ### Checks the country's tutorial level (0 off, 1 limited, 2 full)
 ## scopes = { country }
 alias[trigger:is_tutorial_level] == int_value_field
@@ -5269,6 +5273,10 @@ alias[trigger:is_growth_complete] = bool
 ### Checks if the current country in the the domain of the given patron.
 ## scopes = { country }
 alias[trigger:is_in_domain] = <patron_type>
+
+### Checks if a system has the can_be_crisis_terraformed flag or not.
+## scopes = { galactic_object }
+alias[trigger:can_be_crisis_terraformed] = bool
 
 ### Checks if a ship is orbiting a star
 ## scopes = { ship fleet }

@@ -3198,7 +3198,7 @@ alias[effect:remove_notification_modifier] = <notification_modifier>
 # ### Removes the orbital deposit slot from the scoped planet
 #alias[effect:remove_orbital_deposit] = yes
 ### Removes a specific point of interest from the scoped country's situation log
-## scopes = { country }
+## scopes = { planet country }
 alias[effect:remove_point_of_interest] = value[point_of_interest]
 ### Removes a saved leader for the scoped country with a lookup key
 ## scopes = { country }
@@ -4678,9 +4678,12 @@ alias[effect:start_situation] = {
 ### Destroys a situation in right hand side event target, use once situation is complete (on_fail/on_complete/on_abort is not called)
 ## scopes = any
 alias[effect:destroy_situation] = scope[situation]
-### Adds a sum of progress scoped situation
+### Adds progress to scoped situation
 ## scopes = { situation }
 alias[effect:add_situation_progress] = value_field
+### Sets the progress of scoped situation
+## scopes = { situation }
+alias[effect:set_situation_progress] = value_field
 ### Sets the approach to the Situation. Respects allow and potential triggers.
 ## scopes = { situation }
 alias[effect:set_situation_approach] = enum[situation_approach]
@@ -8358,10 +8361,6 @@ alias[effect:activate_fog_machine] = <dust_clouds>
 ## scopes = country
 alias[effect:deactivate_fog_machine] = yes
 
-### Switches on/off galactic object ownership auto tracking for country fog machine
-## scopes = country
-alias[effect:fog_machine_auto_tracking] = bool
-
 ### Sets the scope faction as extorted and removes extortion from any other ones
 ## scopes = pop_faction
 alias[effect:set_faction_extorted] = bool
@@ -8950,6 +8949,10 @@ alias[effect:spawn_psionic_aura] = {
 	update_type = bool
 }
 
+### Destroy Psionic Aura in scoped system.
+## scopes = { galactic_object }
+alias[effect:destroy_psionic_aura] = bool
+
 ### Sets given intensity to Psionic Aura in scoped system
 ## scopes = { galactic_object }
 alias[effect:set_aura_intensity] = int_value_field
@@ -9046,6 +9049,33 @@ alias[effect:set_ai_preferred_patron] = <patron_type>
 ### Rolls the major Shroud Patron scoped AI will devote themselves to, by selecting the patron with the highest attunement value.
 ## scopes = { country }
 alias[effect:roll_ai_preferred_patron] = yes
+
+### Starts terraforming progress of scoped planet
+## scopes = { planet }
+alias[effect:start_terraform_progress] = <planet_class>
+
+### Starts terraforming progress of scoped planet
+## scopes = { planet }
+alias[effect:start_terraform_progress] = <planet_class_random_list>
+
+### Starts terraforming progress of scoped planet
+## scopes = { planet }
+alias[effect:start_terraform_progress] = {
+	class = <planet_class>
+	class = <planet_class_random_list>
+	## cardinality = 0..1
+	inherit_entity = bool
+	## cardinality = 0..1
+	required_progress = value_field
+}
+
+### Adds terraforming progress to scoped planet, finishes the terraformation, if enough progress is reached
+## scopes = { planet }
+alias[effect:add_terraform_progress] = value_field
+
+### Sets terraforming progress to scoped planet, finishes the terraformation, if enough progress is reached
+## scopes = { planet }
+alias[effect:set_terraform_progress] = value_field
 
 ### Sets the contact state with a Shroud Patron (will create the relation if needed).
 ## scopes = { country }

@@ -147,6 +147,7 @@ modifiers = {
 	planet_amenities_no_happiness_mult = { Planets }
 	planet_stability_add = { Planets }
 	planet_stability_mult = { Planets }
+	planet_stability_add_with_limit = { Planets }
 	planet_crime_add = { Planets }
 	planet_crime_mult = { Planets }
 	planet_crime_floor_add = { Planets }
@@ -168,8 +169,9 @@ modifiers = {
 	planet_resettlement_unemployed_mult = { Planets }
 	planet_army_build_speed_mult = { Planets }
 	planet_army_build_time_mult = { Planets }
-	district_automated_workforce = { Planets Job }
+	district_automated_workforce = { Planets }
 	bonus_automated_workforce_mult = { Planets }
+	daily_terraform_progress_add = { Planets }
 	country_pop_enslaved_mult = { Countries }
 	country_border_friction_mult = { Countries }
 	defensive_war_influence_gain_add = { Countries }
@@ -657,6 +659,7 @@ modifiers = {
 	# planet_class modifiers
 	<planet_class>_habitability = { Habitability }
 	<planet_class>_max_buildings_add = { Planets }
+	<planet_class>_max_districts_add = { Planets }
 
 	# technology_category modifiers
 	category_<technology_category>_research_speed_mult = { Countries }
@@ -687,7 +690,7 @@ modifiers = {
 	job_<job.capped>_per_crime = { Planets }
 	job_<job>_max_workforce_add = { Job }
 	job_<job>_max_workforce_mult = { Job }
-	job_<job>_automated_workforce_mult = { Planets Job }
+	job_<job>_automated_workforce_mult = { Planets }
 	pop_<job>_promotion_time_mult = { Pops }
 	pop_<job>_demotion_time_mult = { Pops }
 	pop_<job>_workforce_mult = { Pops }

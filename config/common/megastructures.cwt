@@ -22,6 +22,20 @@ types = {
 			portrait = portrait # <sprite>
 		}
 	}
+
+	type[megastructure_overclock_type] = {
+		path = "game/common/megastructure_overclock_types"
+		file_extension = .txt
+		localisation = {
+			name = "$"
+			desc = "$_DESC"
+		}
+		images = {
+			## optional
+			icon = icon # <sprite>
+		}
+	}
+
 }
 
 megastructure = {
@@ -185,6 +199,23 @@ megastructure = {
 	}
 
 	## cardinality = 0..1
+	overclock_types = {
+		## cardinality = 0..inf
+		<megastructure_overclock_type>
+	}
+	## cardinality = 0..1
+	cycle_length_in_days = value_field
+	## cardinality = 0..1
+	cycle_title = localisation
+	## cardinality = 0..1
+	cycle_desc = localisation
+	## cardinality = 0..1
+	cycle_icon = <sprite>
+	## cardinality = 0..1
+	## replace_scopes = { this = system root = system from = country fromfrom = megastructure }
+	on_cycle_complete = single_alias_right[effect_clause]
+
+	## cardinality = 0..1
 	sensor_range = int
 	## cardinality = 0..1
 	hyperlane_range = int
@@ -225,5 +256,23 @@ megastructure = {
 	## cardinality = 0..1
 	## replace_scopes = { this = megastructure root = megastructure from = country }
 	should_ai_dismantle = single_alias_right[trigger_clause]
+
+}
+
+megastructure_overclock_type = {
+	icon = <sprite>
+	## replace_scopes = { this = country root = country }
+	## cardinality = 0..1
+	potential = single_alias_right[trigger_clause]
+
+	## cardinality = 0..inf
+	resources = {
+		## cardinality = 0..1
+		category = <economic_category>
+		alias_name[economic_template] = alias_match_left[economic_template]
+	}
+
+	## replace_scopes = { this = country root = country }
+	modifier = single_alias_right[modifier_clause]
 
 }

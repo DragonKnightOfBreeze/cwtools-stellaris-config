@@ -40,6 +40,9 @@ star_class = {
 	<planet_class.planet> = { spawn_odds = float }
 	## cardinality = 0..1
 	is_environmental_hazard = bool
+	### Used to block a star class from being changed by the crisis terraforming
+	## cardinality = 0..1
+	can_be_crisis_terraformed = bool
 	## cardinality = 0..1
 	## replace_scopes = { this = ship root = ship }
 	modifier = {
