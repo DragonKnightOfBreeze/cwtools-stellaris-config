@@ -10,6 +10,7 @@ types = {
 	}
 	## type_key_filter = bitmapfont_override
 	type[bitmapfont_override] = {
+		name_field = name
 		skip_root_key = bitmapfonts
 		path = "game/interface" #see game/interface/fonts.gfx
 		path_extension = .gfx
