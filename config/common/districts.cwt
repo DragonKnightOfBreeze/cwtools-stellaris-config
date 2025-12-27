@@ -97,9 +97,9 @@ district = {
 	## cardinality = 0..1
 	max_for_deposits_on_planet = int
 
-
 	## cardinality = 0..1
-	is_capped_by_modifier = bool
+	## replace_scopes = { root = planet this = planet }
+	is_uncapped = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	### whether this district is exempt from being swapped into groups by the AI; default: no
 	exempt_from_ai_planet_specialization = bool
@@ -142,6 +142,8 @@ district = {
 		## cardinality = 0..inf
 		<district>
 	}
+	## cardinality = 0..1
+	expansion_planner_type = <district>
 
 	## cardinality = 0..inf
 	resources = {
