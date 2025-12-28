@@ -4842,7 +4842,7 @@ alias[effect:make_special_trade] = {
 
 ### Moves scoped system to a position relative to the given system/planet/ship.
 ### Only works inside certain parts of the script marked as ai_trade_facility.
-## scopes = { country }
+## scopes = { galactic_object }
 alias[effect:move_system] = {
 	target = scope_group[spatial_object]
 
