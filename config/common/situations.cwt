@@ -9,8 +9,11 @@ types = {
 			## required
 			name = "$"
 			type_name = "$_type"
+			title ="$"
 			title = title
+			desc = "$_desc"
 			desc = desc
+			## optional
 			active_tooltip = active_tooltip
 		}
 	}
