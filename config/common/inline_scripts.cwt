@@ -1,9 +1,9 @@
 ### Use an inline script.
-inline[inline_script] = filepath[common/inline_scripts/,.txt]
+directive[inline_script] = filepath[common/inline_scripts/,.txt]
 
 ### Use an inline script with parameters.
 ### Inline script parameters accept strings so it's possible to swap in a full statement or even several statements by enclosing it in "".
-inline[inline_script] = {
+directive[inline_script] = {
 	## cardinality = 1..1
 	script = filepath[common/inline_scripts/,.txt]
 	## cardinality = 0..inf
