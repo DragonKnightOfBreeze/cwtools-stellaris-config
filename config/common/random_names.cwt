@@ -2,113 +2,113 @@ types = {
 	## type_key_filter = empire_name_parts_list
 	type[empire_name_parts_list] = {
 		path = "game/common/random_names"
-		file_extension = .txt
+		path_extension = .txt
 		name_field = key
 	}
 	## type_key_filter = empire_name_format
 	type[empire_name_format] = {
 		path = "game/common/random_names"
-		file_extension = .txt
+		path_extension = .txt
 		name_field = "" # force anonymous
 	}
 	## type_key_filter = federation_name_parts_list
 	type[federation_name_parts_list] = {
 		path = "game/common/random_names"
-		file_extension = .txt
+		path_extension = .txt
 		name_field = key
 	}
 	## type_key_filter = federation_name_format
 	type[federation_name_format] = {
 		path = "game/common/random_names"
-		file_extension = .txt
+		path_extension = .txt
 		name_field = "" # force anonymous
 	}
 	## type_key_filter = pop_faction_name_parts_list
 	type[pop_faction_name_parts_list] = {
 		path = "game/common/random_names"
-		file_extension = .txt
+		path_extension = .txt
 		name_field = key
 	}
 	## type_key_filter = pop_faction_name_format
 	type[pop_faction_name_format] = {
 		path = "game/common/random_names"
-		file_extension = .txt
+		path_extension = .txt
 		name_field = "" # force anonymous
 	}
 	## type_key_filter = pre_communications_name_parts_list
 	type[pre_communications_name_parts_list] = {
 		path = "game/common/random_names"
-		file_extension = .txt
+		path_extension = .txt
 		name_field = key
 	}
 	## type_key_filter = pre_communications_name_format
 	type[pre_communications_name_format] = {
 		path = "game/common/random_names"
-		file_extension = .txt
+		path_extension = .txt
 		name_field = "" # force anonymous
 	}
 	## type_key_filter = war_name_parts_list
 	type[war_name_parts_list] = {
 		path = "game/common/random_names"
-		file_extension = .txt
+		path_extension = .txt
 		name_field = key
 	}
 	## type_key_filter = war_name_format
 	type[war_name_format] = {
 		path = "game/common/random_names"
-		file_extension = .txt
+		path_extension = .txt
 		name_field = "" # force anonymous
 	}
 
 	## type_key_filter = species_modification_prefix
 	type[species_modification_prefix] = {
 		path = "game/common/random_names/base"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	## type_key_filter = species_modification_postfix
 	type[species_modification_postfix] = {
 		path = "game/common/random_names/base"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	## type_key_filter = black_hole_names
 	type[black_hole_names] = {
 		path = "game/common/random_names/base"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	## type_key_filter = asteroid_prefix
 	type[asteroid_prefix] = {
 		path = "game/common/random_names/base"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	## type_key_filter = asteroid_postfix
 	type[asteroid_postfix] = {
 		path = "game/common/random_names/base"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	## type_key_filter = star_names
 	type[star_names] = {
 		path = "game/common/random_names/base"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	## type_key_filter = nebula_names
 	type[nebula_names] = {
 		path = "game/common/random_names/base"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	## type_key_filter = cosmic_storm_name_prefixes
 	type[cosmic_storm_name_prefixes] = {
 		path = "game/common/random_names/base"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	## type_key_filter = custom_star_names
 	type[custom_star_names] = {
 		path = "game/common/random_names/base"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	## type_key_filter = custom_planet_names
 	type[custom_planet_names] = {
 		path = "game/common/random_names/base"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

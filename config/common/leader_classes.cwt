@@ -1,7 +1,7 @@
 types = {
 	type[leader_class] = {
 		path = "game/common/leader_classes"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[capped] = {
 			leader_capacity = int[1..inf]
 		}

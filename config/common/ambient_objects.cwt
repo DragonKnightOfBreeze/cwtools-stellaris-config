@@ -2,7 +2,7 @@ types = {
 	type[ambient_object] = {
 		name_field = "name"
 		path = "game/common/ambient_objects"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[show_name] = {
 			show_name = yes
 		}

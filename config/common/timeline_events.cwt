@@ -1,7 +1,7 @@
 types = {
     type[timeline_events] = {
         path = "game/common/timeline_events"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

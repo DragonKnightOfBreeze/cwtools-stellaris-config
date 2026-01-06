@@ -1,7 +1,7 @@
 types = {
     type[zone] = {
         path = "game/common/zones"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = $
             desc = $_desc

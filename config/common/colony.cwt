@@ -1,7 +1,7 @@
 types = {
 	type[colony_type] = {
 		path = "game/common/colony_types"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			desc = "$_desc"
@@ -13,16 +13,16 @@ types = {
 	}
 	type[colony_automation] = {
 		path = "game/common/colony_automation"
-		file_extension = .txt
+		path_extension = .txt
 		path_strict = yes
 	}
 	type[colony_automation_category] = {
 		path = "game/common/colony_automation_categories"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	type[colony_automation_exception] = {
 		path = "game/common/colony_automation_exceptions"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

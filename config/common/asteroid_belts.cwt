@@ -1,7 +1,7 @@
 types = {
 	type[asteroid_belt_type] = { #reason for this rename is the way vanilla names stuff, creating ambiguity.
 		path = "game/common/asteroid_belts"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

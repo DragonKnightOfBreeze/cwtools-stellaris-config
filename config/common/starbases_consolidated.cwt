@@ -1,7 +1,7 @@
 types = {
 	type[starbase_building] = {
 		path = "game/common/starbase_buildings"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "sm_$"
 			desc = "sm_$_desc"
@@ -12,11 +12,11 @@ types = {
 	}
 	type[starbase_level] = {
 		path = "game/common/starbase_levels"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	type[starbase_module] = {
 		path = "game/common/starbase_modules"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "sm_$"
 			desc = "sm_$_desc"
@@ -28,7 +28,7 @@ types = {
 	}
 	type[starbase_type] = {
 		path = "game/common/starbase_types"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 		}

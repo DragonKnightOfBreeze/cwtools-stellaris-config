@@ -2,7 +2,7 @@ types = {
 	type[section_template] = {
 		name_field = "key"
 		path = "game/common/section_templates"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[needs_locs] = {
 			ship_size = <ship_size.designable>
 		}

@@ -2,7 +2,7 @@ types = {
 	### These modifiers are applied to ships in a fleet while the fleet is cloaked
 	type[cloaking_strength_level] = {
 		path = "game/common/cloaking_strength_levels"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

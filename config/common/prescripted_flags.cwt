@@ -1,7 +1,7 @@
 types = {
     type[prescripted_flags] = {
         path = "common/prescripted_flags"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

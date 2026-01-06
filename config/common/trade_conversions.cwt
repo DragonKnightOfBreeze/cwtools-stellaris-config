@@ -1,7 +1,7 @@
 types = {
 	type[trade_conversion] = {
 		path = "game/common/trade_conversions"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

@@ -1,7 +1,7 @@
 types = {
     type[patron_type] = {
         path = "game/common/patrons"
-        file_extension = .txt
+        path_extension = .txt
         path_strict = yes
         subtype[great_patron]= {
             category = great_patron
@@ -55,7 +55,7 @@ types = {
     }
     type[calling] = {
         path = "game/common/patrons/callings"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$"
             desc = "$_desc"
@@ -72,7 +72,7 @@ types = {
     }
     type[deed] = {
         path = "game/common/patrons/deeds"
-        file_extension = .txt
+        path_extension = .txt
         subtype[has_desc] = {
             has_desc = yes
         }
@@ -85,7 +85,7 @@ types = {
     }
     type[psionic_aura] = {
         path = "game/common/patrons/psionic_auras"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$"
             effect = "$_effect_tt"

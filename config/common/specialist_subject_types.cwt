@@ -1,7 +1,7 @@
 types = {
 	type[specialist_subject_type] = {
 		path = "game/common/specialist_subject_types"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			## optional

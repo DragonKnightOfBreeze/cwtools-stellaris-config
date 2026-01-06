@@ -1,7 +1,7 @@
 types = {
     type[resource_group] = {
         path = "game/interface/resource_groups"
-        file_extension = .txt
+        path_extension = .txt
         subtype[category] = {
             ## cardinality = 1..inf
             category = {}

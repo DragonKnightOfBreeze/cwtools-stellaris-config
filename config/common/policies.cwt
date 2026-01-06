@@ -1,7 +1,7 @@
 types = {
 	type[policy] = {
 		path = "game/common/policies"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "policy_$"
 			desc = "policy_$_desc"

@@ -1,7 +1,7 @@
 types = {
     type[target_type] = {
         path = "game/common/target_types"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$"
         }

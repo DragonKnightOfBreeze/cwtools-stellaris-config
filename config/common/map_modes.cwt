@@ -1,7 +1,7 @@
 types = {
 	type[map_mode] = {
 		path = "game/common/map_modes"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			desc = "$_desc"

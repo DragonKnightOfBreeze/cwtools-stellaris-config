@@ -1,11 +1,11 @@
 types = {
 	type[espionage_operation_policy] = {
 		path = "game/common/ai_espionage/operations"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	type[espionage_spynetwork] = {
 		path = "game/common/ai_espionage/spynetworks"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

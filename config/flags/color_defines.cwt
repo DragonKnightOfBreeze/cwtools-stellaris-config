@@ -1,13 +1,13 @@
 types = {
 	type[color_define] = {
 		path = "game/flags" #this is stored under flags but it does more than that
-		file_extension = .txt
+		path_extension = .txt
 		skip_root_key = colors
 	}
 	## type_key_filter = randomizable_combo
 	type[randomizable_combo] = {
 		path = "game/flags" #this is stored under flags but it does more than that
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

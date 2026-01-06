@@ -1,7 +1,7 @@
 types = {
 	type[fallen_empires] = {
 		path = "game/common/fallen_empires"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

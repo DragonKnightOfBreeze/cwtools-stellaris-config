@@ -1,7 +1,7 @@
 types = {
     type[crisis_path] = {
         path = "game/common/crisis_paths"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

@@ -1,7 +1,7 @@
 types = {
 	type[greeting_overlay_sound] = {
 		path = "game/common/greeting_overlay_sounds"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

@@ -2,7 +2,7 @@ types = {
     ## type_key_filter = categories
     type[gamesetup_setting_categories] = {
         path = "game/common/gamesetup_settings"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

@@ -1,7 +1,7 @@
 types = {
 	type[mutations] = {
 		path = "game/common/mutations"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			desc = "$_desc"

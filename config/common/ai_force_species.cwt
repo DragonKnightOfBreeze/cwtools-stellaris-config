@@ -2,7 +2,7 @@ types = {
 	## replace_scopes = { this = species root = species from = planet }
 	type[ai_force_species] = {
 		path = "game/common/ai_force_species"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

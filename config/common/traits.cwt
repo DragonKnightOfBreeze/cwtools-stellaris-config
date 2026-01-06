@@ -3,7 +3,7 @@
 types = {
 	type[trait] = {
 		path = "game/common/traits"
-		file_extension = .txt
+		path_extension = .txt
 
 		subtype[leader_trait] = {
 			leader_class = $any

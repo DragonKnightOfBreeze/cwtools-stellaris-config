@@ -1,7 +1,7 @@
 types = {
 	type[agreement_term] = {
 		path = "game/common/agreement_terms"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[hidden] = {
 			hidden = yes
 		}
@@ -28,7 +28,7 @@ types = {
 	}
 	type[agreement_term_value] = {
 		path = "game/common/agreement_term_values"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[discrete] = {
 			term = <agreement_term.discrete>
 		}
@@ -52,7 +52,7 @@ types = {
 	}
 	type[agreement_preset] = {
 		path = "game/common/agreement_presets"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[specialist_type] = {
 			specialist_type = <agreement_term_value.specialist_type>
 		}
@@ -73,7 +73,7 @@ types = {
 	}
 	type[agreement_resource] = {
 		path = "game/common/agreement_resources"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 		}

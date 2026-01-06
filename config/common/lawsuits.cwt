@@ -1,7 +1,7 @@
 types = {
 	type[lawsuit] = {
 		path = "game/common/lawsuit_type"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

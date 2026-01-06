@@ -1,7 +1,7 @@
 types = {
 	type[district] = {
 		path = "game/common/districts"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[capped] = {
 			## cardinality = 0..1
 			is_capped_by_modifier = yes

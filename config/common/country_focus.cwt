@@ -1,7 +1,7 @@
 types = {
     type[country_card_categories] = {
         path = "game/common/country_focus/card_categories"
-        file_extension = .txt
+        path_extension = .txt
 		localisation = {
 			## primary
 			name = name
@@ -17,7 +17,7 @@ types = {
     }
     type[country_focus_cards] = {
         path = "game/common/country_focus/focus_cards"
-        file_extension = .txt
+        path_extension = .txt
         subtype[country_focus_cards_base] = {
 			## cardinality = 0..0
 			base = <country_focus_cards.country_focus_cards_base>
@@ -29,7 +29,7 @@ types = {
     }
     type[country_focus_rewards] = {
         path = "game/common/country_focus/focus_rewards"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$.name"
             desc = "$.desc"

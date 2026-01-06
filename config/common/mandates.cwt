@@ -1,7 +1,7 @@
 types = {
 	type[mandate] = {
 		path = "game/common/mandates"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "MANDATE_$"
 			desc = "MANDATE_$_DESC"

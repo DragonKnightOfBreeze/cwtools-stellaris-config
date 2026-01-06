@@ -1,11 +1,11 @@
 types = {
 	type[country_ownership_limit] = {
 		path = "game/common/country_limits/ownership_limits"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	type[country_ship_of_size_limit] = {
 		path = "game/common/country_limits/ship_of_size_limits"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

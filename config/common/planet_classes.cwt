@@ -2,7 +2,7 @@ types = {
 	## type_key_filter <> random_list
 	type[planet_class] = {
 		path = "game/common/planet_classes"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[star] = {
 			star = yes
 		}

@@ -1,7 +1,7 @@
 types = {
     type[storm_types] = {
         path = "game/common/storm_types"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$"
             desc = "$_desc"

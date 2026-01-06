@@ -1,7 +1,7 @@
 types = {
 	type[deposit] = {
 		path = "game/common/deposits"
-		file_extension = .txt
+		path_extension = .txt
 		path_strict = yes
 		subtype[colonisable] = {
 			is_for_colonizable = yes
@@ -33,7 +33,7 @@ types = {
 	}
 	type[deposit_category] = {
 		path = "game/common/deposit_categories"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[blocker] = {
 			blocker = yes
 		}

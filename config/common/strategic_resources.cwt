@@ -1,7 +1,7 @@
 types = {
 	type[resource] = {
 		path = "game/common/strategic_resources"
-		file_extension = .txt
+		path_extension = .txt
 
 		subtype[tradable] = {
 			tradable = yes

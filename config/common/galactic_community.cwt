@@ -1,7 +1,7 @@
 types = {
 	type[galactic_focus] = {
 		path = "game/common/galactic_focuses"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			desc = "$_desc"
@@ -9,7 +9,7 @@ types = {
 	}
 	type[resolution_category] = {
 		path = "game/common/resolution_categories"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 		}
@@ -19,11 +19,11 @@ types = {
 	}
 	type[resolution_group] = {
 		path = "game/common/resolution_groups"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	type[resolution] = {
 		path = "game/common/resolutions"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			desc = "$_desc"

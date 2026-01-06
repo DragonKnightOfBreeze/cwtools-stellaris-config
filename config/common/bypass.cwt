@@ -1,7 +1,7 @@
 types = {
 	type[bypass] = {
 		path = "game/common/bypass"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[scripted] = {
 			connection_type = scripted_connection
 		}

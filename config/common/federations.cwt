@@ -1,7 +1,7 @@
 types = {
 	type[federation_law_category] = {
 		path = "game/common/federation_law_categories"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			desc = "$_desc"
@@ -9,7 +9,7 @@ types = {
 	}
 	type[federation_law] = {
 		path = "game/common/federation_laws"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			desec = "$_desc"
@@ -17,7 +17,7 @@ types = {
 	}
 	type[federation_perk] = {
 		path = "game/common/federation_perks"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			desc = "$_desc"
@@ -30,7 +30,7 @@ types = {
 	}
 	type[federation_type] = {
 		path = "game/common/federation_types"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			desc = "$_desc"

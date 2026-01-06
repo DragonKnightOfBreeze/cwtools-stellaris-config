@@ -1,7 +1,7 @@
 types = {
     type[tradable_action] = {
         path = "game/common/tradable_actions"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

@@ -1,7 +1,7 @@
 types = {
 	type[pop_faction] = {
 		path = "game/common/pop_faction_types"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "pft_$"
 			desc = "pft_$_desc"

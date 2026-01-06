@@ -2,7 +2,7 @@
 types = {
 	type[espionage_category] = {
 		path = "game/common/espionage_operation_categories"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			## optional
@@ -11,7 +11,7 @@ types = {
 	}
 	type[espionage_asset] = {
 		path = "game/common/espionage_assets"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			## optional
@@ -20,7 +20,7 @@ types = {
 	}
 	type[espionage_operation] = {
 		path = "game/common/espionage_operation_types"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[no_target] = {
 			## cardinality = 0..1
 			target = none

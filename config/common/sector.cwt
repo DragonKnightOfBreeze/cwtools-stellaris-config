@@ -1,14 +1,14 @@
 types = {
 	type[sector_type] = {
 		path = "game/common/sector_types"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 		}
 	}
 	type[sector_focus] = {
 		path = "game/common/sector_focuses"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[hidden] = {
 			hidden = yes
 		}

@@ -1,7 +1,7 @@
 types = {
 	type[country_color] = {
 		path = "game/common/colors"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

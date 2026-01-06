@@ -1,7 +1,7 @@
 types = {
 	type[system_tooltip] = {
 		path = "game/common/system_tooltips"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

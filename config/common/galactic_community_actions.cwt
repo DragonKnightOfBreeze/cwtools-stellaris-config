@@ -1,7 +1,7 @@
 types = {
 	type[galactic_community_action] = {
 		path = "game/common/galactic_community_actions"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

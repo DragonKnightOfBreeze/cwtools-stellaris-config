@@ -1,7 +1,7 @@
 types = {
 	type[specialist_subject_perk] = {
 		path = "game/common/specialist_subject_perks"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[main] = {
 			main_perk = yes
 		}

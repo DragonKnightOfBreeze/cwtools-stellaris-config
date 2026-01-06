@@ -3,42 +3,42 @@ types = {
 	type[sound_category] = {
 		name_field = name
 		path = "game/sound"
-		file_extension = .asset
+		path_extension = .asset
 	}
 	## type_key_filter = soundgroup
 	type[sound_group] = {
 		name_field = name
 		path = "game/sound"
-		file_extension = .asset
+		path_extension = .asset
 	}
 	## type_key_filter = master_compressor
 	type[sound_master_compressor] = {
 		path = "game/sound"
-		file_extension = .asset
+		path_extension = .asset
 	}
 	## type_key_filter = music_compressor
 	type[sound_music_compressor] = {
 		path = "game/sound"
-		file_extension = .asset
+		path_extension = .asset
 	}
 	## type_key_filter = falloff
 	type[sound_falloff] = {
 		name_field = name
 		path = "game/sound"
-		file_extension = .asset
+		path_extension = .asset
 	}
 	## type_key_filter = soundeffect
 	type[sound_effect] = {
 		name_field = name
 		path = "game/sound"
-		file_extension = .asset
+		path_extension = .asset
 	}
 	## type_key_filter = sound
 	type[sound] = {
 		#these are links between a key and a *.wav file, they are used in other parts
 		name_field = name
 		path = "game/sound"
-		file_extension = .asset
+		path_extension = .asset
 	}
 }
 

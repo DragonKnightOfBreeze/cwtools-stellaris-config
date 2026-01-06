@@ -1,7 +1,7 @@
 types = {
     type[zone_slots] = {
         path = "game/common/zone_slots"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 
