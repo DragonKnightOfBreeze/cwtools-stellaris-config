@@ -235,6 +235,7 @@ enums = {
 }
 
 enums = {
+	## per_definition
 	complex_enum[map_setup_scenario_system_id] = {
 		path = "game/map/setup_scenarios"
 		path_extension = .txt

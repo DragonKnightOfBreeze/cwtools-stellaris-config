@@ -399,11 +399,11 @@ enums = {
 		}
 	}
 
+	## per_definition
 	complex_enum[model_state] = {
 		path = "game/gfx"
 		path_extension = .asset
 		start_from_root = yes
-		per_definition = yes
 		name = {
 			entity = {
 				state = {
@@ -413,11 +413,11 @@ enums = {
 		}
 	}
 
+	## per_definition
 	complex_enum[model_locator] = {
 		path = "game/gfx"
 		path_extension = .asset
 		start_from_root = yes
-		per_definition = yes
 		name = {
 			entity = {
 				locator = {
@@ -432,11 +432,11 @@ enums = {
 		}
 	}
 
+	## per_definition
 	complex_enum[model_attachment] = {
 		path = "game/gfx"
 		path_extension = .asset
 		start_from_root = yes
-		per_definition = yes
 		name = {
 			entity = {
 				attach = {
