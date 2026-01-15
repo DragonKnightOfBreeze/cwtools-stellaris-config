@@ -3,7 +3,7 @@ types = {
 	type[event] = {
 		name_field = id
 		path = "game/events"
-		file_extension = .txt
+		path_extension = .txt
 
 		subtype[inherited] = {
 			base = <event>

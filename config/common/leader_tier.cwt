@@ -1,7 +1,7 @@
 types = {
     type[leader_tier] = {
         path = "game/common/leader_tiers"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

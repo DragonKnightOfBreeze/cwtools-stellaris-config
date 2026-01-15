@@ -1,7 +1,7 @@
 types = {
 	type[ship_set] = {
 		path = "game/common/ship_sets"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 		}

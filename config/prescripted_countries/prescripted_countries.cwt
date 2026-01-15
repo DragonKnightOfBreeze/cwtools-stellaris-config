@@ -1,7 +1,7 @@
 types = {
 	type[prescripted_country] = {
 		path = "game/prescripted_countries"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = name
 			desc = "EMPIRE_DESIGN_$_desc"

@@ -1,7 +1,7 @@
 types = {
 	type[casus_belli] = {
 		path = "game/common/casus_belli"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "casus_belli_$"
 			## optional

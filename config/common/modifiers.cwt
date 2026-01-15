@@ -1,7 +1,7 @@
 types = {
 	type[opinion_modifier] = {
 		path = "game/common/opinion_modifiers"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[triggered_opinion_modifier] = {
 			trigger = { }
 		}
@@ -14,7 +14,7 @@ types = {
 	}
 	type[static_modifier] = {
 		path = "game/common/static_modifiers"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[planet] = {
 			icon_frame = int
 		}
@@ -30,7 +30,7 @@ types = {
 	}
 	type[planet_modifier] = {
 		path = "game/common/planet_modifiers"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[null] = {
 			is_null = yes
 		}
@@ -41,7 +41,7 @@ types = {
 	}
 	type[notification_modifier] = {
 		path = "game/common/notification_modifiers"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			## optional

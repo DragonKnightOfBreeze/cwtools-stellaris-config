@@ -2,7 +2,7 @@ types = {
 	## graph_related_types = {}
 	type[technology] = {
 		path = "game/common/technology"
-		file_extension = .txt
+		path_extension = .txt
 		path_strict = yes
 
 		## group = technology_attribute
@@ -36,14 +36,14 @@ types = {
 	}
 	type[technology_tier] = {
 		path = "game/common/technology/tier"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	# a tech category causes the game to autogenerate a unique modifier:
 	# category_tech_category_key_research_speed_mult
 	# each of these modifiers requires localisation and a GFX (gfx/interface/icons/modifiers - same name as the tech_category key)
 	type[technology_category] = {
 		path = "game/common/technology/category"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			desc = "$_desc"
@@ -57,7 +57,7 @@ types = {
 	type[swapped_technology] = {
 		base_type = technology
 		path = "game/common/technology"
-		file_extension = .txt
+		path_extension = .txt
 		skip_root_key = any
 		name_field = name
 		subtype[not_inheriting_name] = {

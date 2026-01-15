@@ -1,7 +1,7 @@
 types = {
 	type[bombardment_stance] = {
 		path = "game/common/bombardment_stances"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "bombardment_$"
 			desc = "bombardment_$_desc"

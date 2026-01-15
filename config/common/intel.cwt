@@ -1,11 +1,11 @@
 types = {
 	type[intel_category] = {
 		path = "game/common/intel_categories"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	type[intel_level] = {
 		path = "game/common/intel_levels"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

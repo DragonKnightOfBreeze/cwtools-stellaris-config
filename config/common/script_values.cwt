@@ -1,7 +1,7 @@
 types = {
 	type[script_value] = {
 		path = "game/common/script_values"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

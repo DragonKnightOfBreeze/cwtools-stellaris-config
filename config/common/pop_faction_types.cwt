@@ -1,7 +1,7 @@
 types = {
 	type[pop_faction] = {
 		path = "game/common/pop_faction_types"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "pft_$"
 			desc = "pft_$_desc"
@@ -15,9 +15,9 @@ types = {
 
 # parameters
 enums = {
+	## per_definition
 	complex_enum[pop_faction_parameter] = {
 		path = "game/common/pop_faction_types"
-		per_definition = yes
 		name = {
 			parameters = {
 				enum_name = {}

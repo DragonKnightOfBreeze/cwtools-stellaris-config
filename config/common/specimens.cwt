@@ -1,7 +1,7 @@
 types = {
 	type[specimen] = {
 		path = "game/common/specimens"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			desc_short = "$_desc_short"

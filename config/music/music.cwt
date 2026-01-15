@@ -3,13 +3,13 @@ types = {
 	type[song] = {
 		name_field = name
 		path = "game/music"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	## type_key_filter = music
 	type[music] = {
 		name_field = name
 		path = "game/music"
-		file_extension = .asset
+		path_extension = .asset
 		localisation = {
 			name = "$"
 		}

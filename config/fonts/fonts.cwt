@@ -4,7 +4,7 @@ types = {
 	type[font] = {
 		name_field = name
 		path = "game/fonts"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

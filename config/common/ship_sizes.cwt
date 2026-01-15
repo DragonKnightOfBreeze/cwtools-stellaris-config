@@ -1,7 +1,7 @@
 types = {
 	type[ship_size] = {
 		path = "game/common/ship_sizes"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[station] = {
 			is_space_station = yes
 		}

@@ -386,7 +386,7 @@ enums = {
 enums = {
 	complex_enum[model_animation] = {
 		path = "game/gfx/models"
-		file_extension = .gfx
+		path_extension = .gfx
 		start_from_root = yes
 		name = {
 			objectTypes = {
@@ -399,11 +399,11 @@ enums = {
 		}
 	}
 
+	## per_definition
 	complex_enum[model_state] = {
 		path = "game/gfx"
-		file_extension = .asset
+		path_extension = .asset
 		start_from_root = yes
-		per_definition = yes
 		name = {
 			entity = {
 				state = {
@@ -413,11 +413,11 @@ enums = {
 		}
 	}
 
+	## per_definition
 	complex_enum[model_locator] = {
 		path = "game/gfx"
-		file_extension = .asset
+		path_extension = .asset
 		start_from_root = yes
-		per_definition = yes
 		name = {
 			entity = {
 				locator = {
@@ -432,11 +432,11 @@ enums = {
 		}
 	}
 
+	## per_definition
 	complex_enum[model_attachment] = {
 		path = "game/gfx"
-		file_extension = .asset
+		path_extension = .asset
 		start_from_root = yes
-		per_definition = yes
 		name = {
 			entity = {
 				attach = {

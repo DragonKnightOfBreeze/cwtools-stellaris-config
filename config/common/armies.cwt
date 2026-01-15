@@ -2,7 +2,7 @@
 types = {
 	type[army] = {
 		path = "game/common/armies"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[buildable] = {
 			potential = {
 				## cardinality = 0..0

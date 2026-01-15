@@ -2,7 +2,7 @@ types = {
 	## type_key_filter <> random_list
 	type[star_class] = {
 		path = "game/common/star_classes"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			## optional
@@ -12,7 +12,7 @@ types = {
 	## type_key_filter = random_list
 	type[star_class_random_list] = {
 		path = "game/common/star_classes"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

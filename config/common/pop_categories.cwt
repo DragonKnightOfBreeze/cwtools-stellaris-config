@@ -1,7 +1,7 @@
 types = {
 	type[pop_category] = {
 		path = "game/common/pop_categories"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "pop_cat_$"
 			plural = "pop_cat_$_plural"

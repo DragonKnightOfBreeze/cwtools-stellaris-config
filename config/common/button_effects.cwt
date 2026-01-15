@@ -1,7 +1,7 @@
 types = {
 	type[button_effect] = {
 		path = "game/common/button_effects"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

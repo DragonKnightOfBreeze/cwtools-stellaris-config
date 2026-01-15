@@ -2,12 +2,12 @@ types = {
 	## type_key_filter = greetings
 	type[diplo_phrase_greetings] = {
 		path = "game/common/diplo_phrases"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	## type_key_filter <> greetings
 	type[diplo_phrase] = {
 		path = "game/common/diplo_phrases"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

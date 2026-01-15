@@ -1,7 +1,7 @@
 types = {
 	type[agenda] = {
 		path = "game/common/council_agendas"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "council_agenda_$_name"
 			desc = "council_agenda_$_desc"

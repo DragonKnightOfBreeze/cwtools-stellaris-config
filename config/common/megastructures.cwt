@@ -1,7 +1,7 @@
 types = {
 	type[megastructure] = {
 		path = "game/common/megastructures"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[base_level] = {
 			placement_rules = {}
 		}
@@ -25,7 +25,7 @@ types = {
 
 	type[megastructure_overclock_type] = {
 		path = "game/common/megastructure_overclock_types"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			desc = "$_DESC"

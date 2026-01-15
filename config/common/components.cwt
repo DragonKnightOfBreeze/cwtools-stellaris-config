@@ -4,7 +4,7 @@ types = {
 	type[component_set] = {
 		name_field = "key"
     	path = "game/common/component_sets"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[required_component] = {
 			required_component_set = yes
 		}
@@ -27,12 +27,12 @@ types = {
 	}
 	type[component_slot_template] = {
 		path = "game/common/component_slot_templates"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	type[component_template] = {
 		name_field = "key"
 		path = "game/common/component_templates"
-		file_extension = .txt
+		path_extension = .txt
 		## type_key_filter = utility_component_template
 		subtype[utility_component_template] = {}
 		## type_key_filter = weapon_component_template
@@ -663,7 +663,7 @@ single_alias[component_template_hostile_aura] = {
 rows = {
 	row[component_template] = {
 		path = "game/common/component_templates"
-		file_extension = .csv
+		path_extension = .csv
 		columns = {
 			key = <component_template>
 			cost = float
@@ -700,6 +700,7 @@ rows = {
 enums = {
 	complex_enum[component_tag] = {
 		path = "game/common/component_tags"
+		path_extension = .txt
 		start_from_root = yes
 		name = {
 			enum_name

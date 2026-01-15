@@ -1,7 +1,7 @@
 types = {
 	type[crisis_level] = {
 		path = "game/common/crisis_levels"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			desc = "$_desc"
@@ -9,7 +9,7 @@ types = {
 	}
 	type[crisis_objective] = {
 		path = "game/common/crisis_objectives"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$_name"
 			desc = "$_desc"
@@ -17,7 +17,7 @@ types = {
 	}
 	type[menace_perk] = {
 		path = "game/common/menace_perks"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			desc = "$_desc"

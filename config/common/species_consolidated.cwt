@@ -1,7 +1,7 @@
 types = {
 	type[species_class] = {
 		path = "game/common/species_classes"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[playable] = {
 			## cardinality = 0..1
 			playable = {
@@ -44,7 +44,7 @@ types = {
 	}
 	type[species_archetype] = {
 		path = "game/common/species_archetypes"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[not_robotic] = {
 			## cardinality = 0..1
 			robotic = no
@@ -60,7 +60,7 @@ types = {
 	}
 	type[citizenship_type] = {
 		path = "game/common/species_rights/citizenship_types"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			tooltip = "$_tooltip"
@@ -69,7 +69,7 @@ types = {
 	}
 	type[colonization_control] = {
 		path = "game/common/species_rights/colonization_controls"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			tooltip = "$_tooltip"
@@ -78,7 +78,7 @@ types = {
 	}
 	type[living_standard] = {
 		path = "game/common/species_rights/living_standards"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			tooltip = "$_tooltip"
@@ -87,7 +87,7 @@ types = {
 	}
 	type[migration_control] = {
 		path = "game/common/species_rights/migration_controls"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			tooltip = "$_tooltip"
@@ -96,7 +96,7 @@ types = {
 	}
 	type[military_service_type] = {
 		path = "game/common/species_rights/military_service_types"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			tooltip = "$_tooltip"
@@ -105,7 +105,7 @@ types = {
 	}
 	type[population_control] = {
 		path = "game/common/species_rights/population_controls"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			tooltip = "$_tooltip"
@@ -114,7 +114,7 @@ types = {
 	}
 	type[purge_type] = {
 		path = "game/common/species_rights/purge_types"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			tooltip = "$_tooltip"
@@ -123,7 +123,7 @@ types = {
 	}
 	type[slavery_type] = {
 		path = "game/common/species_rights/slavery_types"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			tooltip = "$_tooltip"
@@ -132,7 +132,7 @@ types = {
 	}
 	type[integration_types] = {
 		path = "game/common/species_rights/subspecies_integration_types"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			tooltip = "$_tooltip"

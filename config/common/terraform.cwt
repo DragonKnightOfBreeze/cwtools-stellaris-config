@@ -1,7 +1,7 @@
 types = {
 	type[terraform_link] = {
 		path = "game/common/terraform"
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 

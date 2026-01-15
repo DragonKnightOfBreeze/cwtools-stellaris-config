@@ -1,7 +1,7 @@
 types = {
 	type[edict] = {
 		path = "game/common/edicts"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[wartime] = {
 			is_wartime_edict = yes
 		}

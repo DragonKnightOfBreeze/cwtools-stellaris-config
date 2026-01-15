@@ -1,12 +1,12 @@
 types = {
 	type[galaxy_shape] = {
 		path = "game/map/galaxy"
-		file_extension = .txt
+		path_extension = .txt
 	}
 	type[map_setup_scenario] = {
 		path = "game/map/setup_scenarios"
 		name_field = name
-		file_extension = .txt
+		path_extension = .txt
 	}
 }
 
@@ -235,9 +235,10 @@ enums = {
 }
 
 enums = {
+	## per_definition
 	complex_enum[map_setup_scenario_system_id] = {
 		path = "game/map/setup_scenarios"
-		file_extension = .txt
+		path_extension = .txt
 		per_definition = yes
 		name = {
 			system = {

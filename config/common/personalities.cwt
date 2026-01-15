@@ -1,7 +1,7 @@
 types = {
 	type[ai_personality] = {
 		path = "game/common/personalities"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "personality_$"
 			desc = "personality_$_desc"

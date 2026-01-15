@@ -1,7 +1,7 @@
 types = {
 	type[archaeological_site_type] = {
 		path = "game/common/archaeological_site_types"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			desc = desc
@@ -14,7 +14,7 @@ types = {
 	}
 	type[relic] = {
 		path = "game/common/relics"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			desc = "$_desc"
@@ -26,7 +26,7 @@ types = {
 	}
 	type[artifact_action] = {
 		path = "game/common/artifact_actions"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "$"
 			desc = "$_desc"

@@ -2964,6 +2964,8 @@ alias[effect:create_ship] = {
 	## cardinality = 0..1
 	name = scope[ship]
 	## cardinality = 0..1
+	design = localisation
+	## cardinality = 0..1
 	design = <global_ship_design>
 	## cardinality = 0..1
 	design = scope[design]
@@ -4168,6 +4170,8 @@ alias[effect:remove_starbase_building] = {
 	slot = all
 	## cardinality = 0..1
 	building = <starbase_building>
+	## cardinality = 0..1
+	building = all
 }
 
 ### Changes the colony foundation date (affecting on_colony_X_years pulses) by a specific number of days. Use with care, you can probably break things with this!

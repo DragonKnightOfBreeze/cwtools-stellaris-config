@@ -1,7 +1,7 @@
 types = {
 	type[situation_type] = {
 		path = "game/common/situations"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[bidirectional] = {
 			progress_direction = bidirectional
 		}

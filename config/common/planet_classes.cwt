@@ -2,7 +2,7 @@ types = {
 	## type_key_filter <> random_list
 	type[planet_class] = {
 		path = "game/common/planet_classes"
-		file_extension = .txt
+		path_extension = .txt
 		subtype[star] = {
 			star = yes
 		}
@@ -140,18 +140,18 @@ planet_class = {
 	can_be_invaded = bool
 	## cardinality = 0..1
 	orbit_lines = bool
-	## cardinality = 0..1
 	### applies when within own borders only
+	## cardinality = 0..1
 	has_colonization_influence_cost = bool
 	## cardinality = 0..1
 	survey_time_factor = float
 	## cardinality = 0..1
 	colonization_tech = { <technology> }
-	## cardinality = 0..1
 	### this is only required if using a picture defined for another planet
-	picture = scalar
 	## cardinality = 0..1
+	picture = scalar
 	### this is only required if using a tile-set defined for another planet
+	## cardinality = 0..1
 	tile_set = <planet_class>
 	## cardinality = 0..1
 	## replace_scopes = { this = planet root = planet }
@@ -164,11 +164,15 @@ planet_class = {
 		## cardinality = 0..100
 		<species_archetype>
 	}
-	## cardinality = 0..1
 	### (default: no)
+	## cardinality = 0..1
 	uses_alternative_skies_for_moons = bool
 	## cardinality = 0..1
 	uses_alternative_skies_if_has_orbital_ring = bool
+
+	### Trigger for the planet class to spawn, no scope check
+	## replace_scope = { this = no_scope root = no_scope }
+	potential = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	auto_trait_prio = {

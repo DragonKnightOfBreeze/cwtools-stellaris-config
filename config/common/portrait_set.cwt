@@ -1,7 +1,7 @@
 types = {
     type[portrait_sets] = {
         path = "game/common/portrait_sets"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

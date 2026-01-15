@@ -1,7 +1,7 @@
 types = {
 	type[observation_station_mission] = {
 		path = "game/common/observation_station_missions"
-		file_extension = .txt
+		path_extension = .txt
 		localisation = {
 			name = "mission_$"
 			desc = "mission_$_desc"

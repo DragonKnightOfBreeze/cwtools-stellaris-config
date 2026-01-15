@@ -1,7 +1,7 @@
 types = {
     type[astral_rift] = {
         path = "game/common/astral_rifts"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## primary
             name = name
