@@ -8824,6 +8824,7 @@ alias[effect:enable_patron_first_contact_project] = {
 ## scopes = { country }
 alias[effect:copy_traditions_from] = {
 	target = scope[country]
+	## cardinality = 0..1
 	exceptions = {
 		<tradition>
 	}
@@ -8833,6 +8834,7 @@ alias[effect:copy_traditions_from] = {
 ## scopes = { country }
 alias[effect:copy_ascension_perks_from] = {
 	target = scope[country]
+	## cardinality = 0..1
 	exceptions = {
 		<ascension_perk>
 	}
