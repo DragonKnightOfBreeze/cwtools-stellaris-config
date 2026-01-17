@@ -135,6 +135,9 @@ types = {
 				## primary
 				## optional
 				picture = picture # <sprite>, can be triggered or/and multiple
+				## primary
+				## optional
+				picture = picture_event_data
 			}
 		}
 	}
@@ -195,14 +198,28 @@ event = {
 			show_sound = <sound_effect>
 		}
 
-		## cardinality = 1..inf
-		picture = <sprite>
-		## cardinality = 0..inf
-		picture = {
-			## cardinality = 0..1
-			trigger = single_alias_right[trigger_clause]
+		subtype[!diplomatic] = {
+			## cardinality = 1..inf
 			picture = <sprite>
+			## cardinality = 0..inf
+			picture = {
+				## cardinality = 0..1
+				trigger = single_alias_right[trigger_clause]
+				picture = <sprite>
+			}
 		}
+
+		subtype[diplomatic] = {
+			## cardinality = 0..inf
+			picture = <sprite>
+			## cardinality = 0..inf
+			picture = {
+				## cardinality = 0..1
+				trigger = single_alias_right[trigger_clause]
+				picture = <sprite>
+			}
+		}
+
 		## cardinality = 0..inf
 		picture_event_data = {
 			## cardinality = 0..1
