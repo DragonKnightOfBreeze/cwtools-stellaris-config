@@ -2314,6 +2314,9 @@ alias[effect:spawn_natural_wormhole] = {
 ### Link the wormhole from the scoped system to the wormhole in the target system, or from the scope wormhole to the target wormhole.
 ## scopes = { galactic_object bypass }
 alias[effect:link_wormholes] = scope[galactic_object]
+### Link the wormhole from the scoped system to the wormhole in the target system, or from the scope wormhole to the target wormhole.
+## scopes = { galactic_object bypass }
+alias[effect:link_wormholes] = scope[bypass]
 ### Executes an effect on systems with planets owned by the scoped country, starting at an origin, and until a certain percentage of owned planets matching the planet_limit has been covered.
 ## scopes = { country }
 alias[effect:effect_on_blob] = {

@@ -69,8 +69,8 @@ bypass = {
 	## cardinality = 0..1
 	## replace_scopes = { root = country this = country from = country }
 	country_can_use = single_alias_right[trigger_clause]
-	#unsure about scope here
 	## cardinality = 0..1
+	## replace_scopes = { root = country this = country from = country }
 	potential = single_alias_right[trigger_clause]
 	### The name of the on-action event that will be fired upon entering FTL (if set)
 	### THIS = Fleet
