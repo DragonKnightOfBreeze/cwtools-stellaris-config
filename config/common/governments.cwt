@@ -379,6 +379,13 @@ civic_or_origin = {
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	modifier = single_alias_right[modifier_clause]
+	### default: no
+	## cardinality = 0..1
+	hide_modifiers = bool
+
+	## cardinality = 0..1
+	## replace_scopes = { this = country root = country }
+	multiply_by_habitability_effect_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..1
 	starting_colony = <planet_class>
@@ -404,6 +411,9 @@ civic_or_origin = {
 		### modifier that is applied to the country when triggers are evaluated as true
 		## cardinality = 0..1
 		modifier = single_alias_right[modifier_clause]
+		### default: no
+		## cardinality = 0..1
+		hide_modifiers = bool
 	}
 
 	subtype[civic] = {
@@ -591,6 +601,31 @@ councilor = {
 	ai_hiring_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
+
+	### Removes the listed UI labels from the home world empire creation screen UI
+	## cardinality = 0..1
+	removed_climate_labels = {
+		## cardinality = 0..inf
+		value[climate_label] # scalar
+	}
+	### Adds the listed UI labels from the home world empire creation screen UI (UI elements need to be declared first)
+	## cardinality = 0..1
+	added_climate_labels = {
+		## cardinality = 0..inf
+		value[climate_label] # scalar
+	}
+	### Removes the listed planet types from the home world empire creation screen UI
+	## cardinality = 0..1
+	removed_planet_types = {
+		## cardinality = 0..inf
+		<planet_class> # scalar
+	}
+	### Adds the listed UI planet types from the home world empire creation screen UI (UI elements need to be declared first)
+	## cardinality = 0..1
+	added_planet_types = {
+		## cardinality = 0..inf
+		<planet_class> # scalar
+	}
 }
 
 enums = {
@@ -743,6 +778,33 @@ alias[government_trigger:origin] = {
 		value = <civic_or_origin.origin>
 	}
 }
+alias[government_trigger:trait] = {
+	## cardinality = 0..1
+	value = <trait.species_trait>
+
+	## cardinality = 0..inf
+	OR = {
+		## cardinality = 0..1
+		text = localisation
+		## severity = info
+		## cardinality = 1..99
+		value = <trait.species_trait>
+	}
+	## cardinality = 0..inf
+	NOT = {
+		## cardinality = 0..1
+		text = localisation
+		value = <trait.species_trait>
+	}
+	## cardinality = 0..inf
+	NOR = {
+		## cardinality = 0..1
+		text = localisation
+		## severity = info
+		## cardinality = 1..99
+		value = <trait.species_trait>
+	}
+}
 alias[government_trigger:species_class] = {
 	## cardinality = 0..1
 	value = <species_class>
@@ -795,6 +857,33 @@ alias[government_trigger:species_archetype] = {
 		## severity = info
 		## cardinality = 1..99
 		value = <species_archetype>
+	}
+}
+alias[government_trigger:preferred_planet_class] = {
+	## cardinality = 0..1
+	value = <planet_class>
+
+	## cardinality = 0..inf
+	OR = {
+		## cardinality = 0..1
+		text = localisation
+		## severity = info
+		## cardinality = 1..99
+		value = <planet_class>
+	}
+	## cardinality = 0..inf
+	NOT = {
+		## cardinality = 0..1
+		text = localisation
+		value = <planet_class>
+	}
+	## cardinality = 0..inf
+	NOR = {
+		## cardinality = 0..1
+		text = localisation
+		## severity = info
+		## cardinality = 1..99
+		value = <planet_class>
 	}
 }
 alias[government_trigger:OR] = {
