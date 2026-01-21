@@ -265,7 +265,7 @@ starbase_module = {
 	### ship modifiers, apply in orbit of the starbase
 	## cardinality = 0..inf
 	## replace_scopes = { this = ship root = ship }
-	triggered_ship_modifier = single_alias_right[triggered_modifier_by_starbase_clause
+	triggered_ship_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 	### ship modifiers, apply in orbit of the starbase
 	## cardinality = 0..inf
 	## replace_scopes = { this = ship root = ship }
