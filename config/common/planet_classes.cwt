@@ -171,6 +171,7 @@ planet_class = {
 	uses_alternative_skies_if_has_orbital_ring = bool
 
 	### Trigger for the planet class to spawn, no scope check
+	## cardinality = 0..1
 	## replace_scope = { this = no_scope root = no_scope }
 	potential = single_alias_right[trigger_clause]
 
