@@ -480,6 +480,8 @@ civic_or_origin = {
 			## cardinality = 1..inf
 			<solar_system_initializer>
 		}
+		## cardinality = 0..1
+		portrait = <portrait>
 		## default: no
 		## cardinality = 0..1
 		max_once_global = bool
