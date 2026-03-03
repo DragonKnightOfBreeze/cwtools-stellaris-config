@@ -355,6 +355,8 @@ psionic_aura = {
         ## replace_scopes = { this = planet root = planet }
         rival_planet_modifier = single_alias_right[triggered_modifier_clause]
 
+		## cardinality = 0..1
+		ai_weight_coefficient = float
     }
 
     ## cardinality = 0..inf

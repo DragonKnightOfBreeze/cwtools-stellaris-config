@@ -46,12 +46,21 @@ dust_clouds = {
     }
 
     ### Effect firing when a new galactic object is covered with fog
+	### This = galactic object
+	### From = Country owning the galactic object
     ## replace_scope = { this = galactic_object from = country }
+	## cardinality = 0..1
     on_system_added = single_alias_right[effect_clause]
 
     ### Effect firing when a galactic object is uncovered from fog
+	### This = galactic object
+	### From = Country owning the galactic object
     ## replace_scope = { this = galactic_object from = country }
+	## cardinality = 0..1
     on_system_removed = single_alias_right[effect_clause]
 
+	## replace_scope = { this = galactic_object from = country } # inferred
+	## cardinality = 0..1
+	condition = single_alias_right[trigger_clause]
 }
 
