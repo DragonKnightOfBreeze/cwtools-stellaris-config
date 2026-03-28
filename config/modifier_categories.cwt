@@ -1,6 +1,6 @@
 modifier_categories = {
-	None = {
-		supported_scopes = {}
+	All = {
+		supported_scopes = { any }
 	}
 	Pops = {
 		supported_scopes = { species pop_group planet sector galacticobject country }
