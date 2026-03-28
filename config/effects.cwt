@@ -974,6 +974,8 @@ alias[effect:create_fleet_from_naval_cap] = {
 	ship_owner_type = country
 	ship_owner_type = federation
 	ship_owner_type = galactic_community
+	## cardinality = 0..inf
+	can_overflow = bool
 }
 
 ### Reduces the hull points of the scoped ship by a specific amount
@@ -3482,6 +3484,8 @@ alias[effect:spawn_planet] = {
 	class = random_colonizable
 	## cardinality = 0..1
 	generate_random_name = bool
+	## cardinality = 0..1
+	check_overlap = bool
 	## cardinality = 0..1
 	name = localisation
 	## cardinality = 0..1
@@ -9141,7 +9145,6 @@ alias[effect:random_cosmic_storm] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
-
 ### Iterate through all cosmic storms in the galaxy - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
 ## scopes = any
 ## push_scope = cosmic_storm
@@ -9493,7 +9496,27 @@ alias[effect:every_system_in_cosmic_storm_influence_field] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
-# missing effects in effects.log
+### Creates a new random fleet
+alias[effect:create_random_fleet] = {
+	alias_name[name] = alias_match_left[name]
+	## cardinality = 0..1
+	name = random
+	## cardinality = 0..1
+	name = scope[fleet]
+	## cardinality = 0..1
+	size = int_value_field
+	## cardinality = 0..1
+	can_overflow = bool
+	## cardinality = 0..1
+	ship_designs = {
+		## cardinality = 0..inf
+		localisation
+	}
+	## cardinality = 0..1
+	effect = single_alias_right[trigger_clause]
+}
+
+# region missing effects in effects.log
 
 ## api_status = kept
 ## scopes = { country }
@@ -9505,13 +9528,9 @@ alias[effect:ai_trade_facility] = {
 	## cardinality = 0..1
 	offer_prolong_fleet_contract = bool
 	## cardinality = 0..1
-	info_gathering = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	info_gathering = single_alias_right[trigger_clause]
 	## cardinality = 0..1
-	option_selection = {
-		alias_name[effect] = alias_match_left[effect]
-	}
+	option_selection = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	allow = {
 		alias_name[trigger] = alias_match_left[trigger]
@@ -9524,7 +9543,9 @@ alias[effect:ai_trade_facility] = {
 ## scopes = { country }
 alias[effect:run_in_ai_mode] = bool
 
-# removed effects in effects.log
+# endregion
+
+# region removed effects in effects.log
 
 ## api_status = removed
 alias[effect:set_pop_flag] = $any
@@ -9534,3 +9555,5 @@ alias[effect:remove_pop_flag] = $any
 alias[effect:set_timed_pop_flag] = $any
 ## api_status = removed
 alias[effect:pop_event] = $any
+
+# endregion

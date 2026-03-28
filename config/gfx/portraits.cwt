@@ -43,6 +43,11 @@ portrait = {
 		character_textures = {
 			## cardinality = 0..inf
 			filepath
+			## cardinality = 0..inf
+			tied_texture = {
+				texture = filepath
+				evolution_variants = { int }
+			}
 		}
 		## cardinality = 0..1
 		custom_close_up_position_offset = { x = int y = int }

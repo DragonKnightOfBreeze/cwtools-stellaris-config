@@ -89,13 +89,13 @@ zone = {
         <building>
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..~1
     included_building_sets = {
         ## cardinality = 0..inf
         value[building_set]
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..~1
     excluded_building_sets = {
         ## cardinality = 0..inf
         value[building_set]

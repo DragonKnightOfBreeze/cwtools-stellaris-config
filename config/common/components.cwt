@@ -317,7 +317,7 @@ component_template = {
 		point_defence_targets = { enum[point_defence_target] }
 		### apply effects to target on hit. Scope = ship (target), from = ship (shooter)
 		## replace_scopes = { this = ship from = ship }
-		## cardinality = 0..1
+		## cardinality = 0..inf
 		on_hit = single_alias_right[effect_clause]
 	}
 

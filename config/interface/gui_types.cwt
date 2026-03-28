@@ -34,12 +34,12 @@ enums = {
 	enum[direction] = {
 		#can be lower case as well! Vanilla has a mix of the two for no reason.
 		UPPER_CENTER
-	    UPPER_LEFT
-	    UPPER_RIGHT
+		UPPER_LEFT
+		UPPER_RIGHT
 		CENTER
 		CENTER_CENTER
 		CENTER_UP
-	    CENTER_DOWN
+		CENTER_DOWN
 		CENTERUP
 		CENTERED_LEFT
 		CENTERED_RIGHT
@@ -47,20 +47,20 @@ enums = {
 		CENTERED_DOWN
 		CENTER_LEFT
 		CENTER_RIGHT
-	    LOWER_LEFT
-	    LOWER_RIGHT
+		LOWER_LEFT
+		LOWER_RIGHT
 		TOP
 		TOP_LEFT
 		TOP_RIGHT
 		BOTTOM
 		BOTTOM_LEFT
 		BOTTOM_RIGHT
-	    LEFT
+		LEFT
 		LEFT_UP
 		LEFT_DOWN
-	    RIGHT
-	    RIGHT_UP
-	    RIGHT_DOWN
+		RIGHT
+		RIGHT_UP
+		RIGHT_DOWN
 	}
 	enum[standard_format] = {
 		center
@@ -76,9 +76,9 @@ enums = {
 	}
 	# Available actions
 	enum[actionshortcut] = {
-	    accept
-	    cancel
-	    delete
+		accept
+		cancel
+		delete
 		focus_camera
 		start
 		reset
@@ -86,7 +86,7 @@ enums = {
 		toggle_cloud_save
 	}
 	enum[gui_fade_type] = {
-        smoothstep
+		smoothstep
 		accelerated
 		decelerated
 		smoothstep
@@ -415,11 +415,11 @@ alias[gui_button:buttonType] = {
 
 	## cardinality = 0..1
 	hitbox_margin = {
-	  x = int
-	  y = int
+		x = int
+		y = int
 	}
 
-    ## cardinality = 0..1
+	## cardinality = 0..1
 	centerPosition = bool
 	## cardinality = 0..inf
 	if_resolution = {
@@ -927,10 +927,12 @@ alias[gui_background:background] = background
 alias[gui_background:background] = <sprite>
 alias[gui_background:background] = {
 	name = scalar
+
 	alias_name[gui_sprite] = alias_match_left[gui_sprite]
 	alias_name[gui_sound] = alias_match_left[gui_sound]
 	alias_name[gui_localisation] = alias_match_left[gui_localisation]
 	alias_name[gui_standard_element] = alias_match_left[gui_standard_element]
+
 	## cardinality = 0..inf
 	if_scaled_resolution = {
 		alias_name[gui_size] = alias_match_left[gui_size]
@@ -940,6 +942,13 @@ alias[gui_background:background] = {
 		alias_name[gui_button] = alias_match_left[gui_button]
 		alias_name[gui_sound] = alias_match_left[gui_sound]
 	}
+
+	## cardinality = 0..1
+	frame = int
+	## cardinality = 0..1
+	alpha = float
+	## cardinality = 0..1
+	centerPosition = bool
 }
 
 alias[gui_size:min_height] = int

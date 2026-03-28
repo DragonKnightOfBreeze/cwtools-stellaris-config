@@ -70,6 +70,8 @@ job = {
 	### default no
 	## cardinality = 0..1
 	can_be_automated = bool
+	## cardinality = 0..inf
+	auto_generate_description = bool
 
 	## cardinality = 0..1
 	swappable_data = {

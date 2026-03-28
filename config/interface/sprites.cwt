@@ -200,6 +200,16 @@ sprite = {
 	subtype[piechart] = {
 		name = scalar
 		size = int
+		## cardinality = 0..1
+		is_hover = bool
+		## cardinality = 0..1
+		colors = {
+			## cardinality = 0..inf
+			rgb = {
+				## cardinality = 3..3
+				int
+			}
+		}
 	}
 }
 

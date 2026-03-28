@@ -32,6 +32,12 @@ pop_category = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
+	## cardinality = 0..inf
+	automation_resources = {
+		category = <economic_category>
+		alias_name[economic_template] = alias_match_left[economic_template]
+	}
+
 	## cardinality = 0..1
 	## replace_scopes = { this = pop_group root = pop_group }
 	pop_group_modifier = single_alias_right[modifier_clause]
