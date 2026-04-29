@@ -30,7 +30,7 @@ types = {
 		}
 		images = {
 			# Since 3.8, leader trait can be dynamic - layer based, optional color filled, and with a visible trigger
-			# It's not very necessary for PLS to render such a complex icon (while it's dynamic in real)
+			# It's not very necessary to render such a complex icon (while it's dynamic in real)
 
 			icon = icon # filepath | dynamic
 			icon = "gfx/interface/icons/traits/$.dds" # inferred
