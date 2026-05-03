@@ -1749,10 +1749,10 @@ alias[effect:create_country] = {
 	## cardinality = 0..1
 	ethos = {
 		## cardinality = 1..3
-		## cardinality_max_define = "NGameplay/ETHOS_MAX_POINTS"
+		## cardinality_max_define = "NGameplay.ETHOS_MAX_POINTS"
 		ethic = <ethic>
 		## cardinality = 1..3
-		## cardinality_max_define = "NGameplay/ETHOS_MAX_POINTS"
+		## cardinality_max_define = "NGameplay.ETHOS_MAX_POINTS"
 		ethic = random
 	}
 	## cardinality = 0..1
@@ -1846,7 +1846,7 @@ alias[effect:create_rebels] = {
 	## cardinality = 0..1
 	ethos = {
 		## cardinality = 1..3
-		## cardinality_max_define = "NGameplay/ETHOS_MAX_POINTS"
+		## cardinality_max_define = "NGameplay.ETHOS_MAX_POINTS"
 		ethic = <ethic>
 	}
 	## cardinality = 0..1
@@ -2691,7 +2691,7 @@ alias[effect:create_colony] = {
 	## cardinality = 0..1
 	ethos = {
 		## cardinality = 1..3
-		## cardinality_max_define = "NGameplay/ETHOS_MAX_POINTS"
+		## cardinality_max_define = "NGameplay.ETHOS_MAX_POINTS"
 		ethic = <ethic>
 	}
 }
