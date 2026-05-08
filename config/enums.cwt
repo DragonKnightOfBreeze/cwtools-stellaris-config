@@ -438,12 +438,12 @@ enums = {
 		excessive
 		none
 	}
-	enum[specimen_types] = {
+	enum[specimen_type] = {
 		aesthetic_wonder
 		historical_item
 		xeno_geology
 	}
-	enum[mutations_types] = {
+	enum[mutations_type] = {
 		offensive
 		defensive
 		aux

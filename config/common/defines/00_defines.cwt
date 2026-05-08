@@ -248,9 +248,9 @@ defines = {
         MAPNAME_NEBULA_SCALE = float
         MAPNAME_SECTOR_SCALE = int
 
-        NULL_ENTITY = scalar # TODO restrict
-        NULL_INSTANT_PROJECTILE = scalar # TODO restrict
-        NULL_MISSILE_PROJECTILE = scalar # TODO restrict
+        NULL_ENTITY = <model_entity>
+        NULL_INSTANT_PROJECTILE = <projectile>
+        NULL_MISSILE_PROJECTILE = <projectile>
 
         SCIENCE_SHIP_SURVEY_ENTITY = scalar
         SCIENCE_SHIP_SURVEY_ENTITY_LOCATOR = scalar
@@ -261,8 +261,8 @@ defines = {
         ENTROPY_CONDUIT_SHIP_TERRAFORM_ENTITY_LOCATOR = scalar
         ENTROPY_CONDUIT_SHIP_TERRAFORM_ENTITY_MAX_SCALE_FACTOR = float
 
-        CONSTRUCTION_SHIP_TERRAFORMING_BEAM_ENTITY = scalar # TODO restrict
-        CONSTRUCTION_SHIP_TERRAFORMING_PLANET_ENTITY = scalar # TODO restrict
+        CONSTRUCTION_SHIP_TERRAFORMING_BEAM_ENTITY = <model_entity>
+        CONSTRUCTION_SHIP_TERRAFORMING_PLANET_ENTITY = <model_entity>
         ### Scale xy in local coords between ship and planet.
         CONSTRUCTION_SHIP_TERRAFORMING_BEAM_ENTITY_SCALE_XY = float
         ### Scale beam tip z in local coords so beam hits planet surface.
@@ -271,19 +271,19 @@ defines = {
         CONSTRUCTION_SHIP_TERRAFORMING_PLANET_ENTITY_SCALE_R = float
 
         ### NAVIGATION_ARROW_X values might require a game restart to push changes
-        NAVIGATION_ARROW_ENTITY = scalar # TODO restrict
+        NAVIGATION_ARROW_ENTITY = <model_entity>
         ### offsets the arrow towards the edge
         NAVIGATION_ARROW_OFFSET = float
-        NAVIGATION_ARROW_FONT = scalar # TODO restrict
+        NAVIGATION_ARROW_FONT = scalar # TODO restrict (from fonts/fonts.asset)
         NAVIGATION_ARROW_FONT_SPECIAL = single_alias_right[scalar_array]
         NAVIGATION_ARROW_TEXT_OFFSET = float
         NAVIGATION_ARROW_TEXT_SCALE = float
         NAVIGATION_ARROW_FONT_SIZE = int
         NAVIGATION_ARROW_TEXT_KERNING = int
 
-        SHIP_TURRET_PROJECTILE_SPAWN_LOCATOR = scalar # TODO restrict
-        STRIKE_CRAFT_PROJECTILE_SPAWN_LOCATOR = scalar # TODO restrict
-        SHIP_TARGET_LOCATOR = scalar # TODO restrict
+        SHIP_TURRET_PROJECTILE_SPAWN_LOCATOR = scalar # TODO restrict (model entity locator name)
+        STRIKE_CRAFT_PROJECTILE_SPAWN_LOCATOR = scalar # TODO restrict (model entity locator name)
+        SHIP_TARGET_LOCATOR = scalar # TODO restrict (model entity locator name)
 
         ### how high up missiles will fly
         MISSILE_HEIGHT_OFFSET = float
@@ -309,11 +309,11 @@ defines = {
 
         SHIELD_EFFECT_ENTITIES = {
             ## cardinality = 0..inf
-            scalar # TODO restrict
+            <model_entity>
         }
         SHIELD_EFFECT_LOOPING_ENTITIES = {
             ## cardinality = 0..inf
-            scalar # TODO restrict
+            <model_entity>
         }
 
         ### how long missed beams will be
@@ -337,25 +337,25 @@ defines = {
         ### When plotting the movement arrows how far apart should the control points be?
         MOVE_ARROW_GALAXY_CONTROL_POINT_SPACING = float
         ### Entity that is used at the end of the arrow
-        MOVE_ARROW_SYSTEM_TARGET_ENTITY = scalar # TODO restrict
+        MOVE_ARROW_SYSTEM_TARGET_ENTITY = <model_entity>
         ### Entity that is used at the end of the arrow
-        MOVE_ARROW_GALAXY_TARGET_ENTITY = scalar # TODO restrict
+        MOVE_ARROW_GALAXY_TARGET_ENTITY = <model_entity>
         ### Entity that is used at the end of the arrow
-        ATTACK_ARROW_SYSTEM_TARGET_ENTITY = scalar # TODO restrict
+        ATTACK_ARROW_SYSTEM_TARGET_ENTITY = <model_entity>
         ### Entity that is used at the end of the arrow
-        ATTACK_ARROW_GALAXY_TARGET_ENTITY = scalar # TODO restrict
+        ATTACK_ARROW_GALAXY_TARGET_ENTITY = <model_entity>
         ### Entity that is used at the end of the arrow
-        TASK_ARROW_SYSTEM_TARGET_ENTITY = scalar # TODO restrict
+        TASK_ARROW_SYSTEM_TARGET_ENTITY = <model_entity>
         ### Entity that is used at the end of the arrow
-        TASK_ARROW_GALAXY_TARGET_ENTITY = scalar # TODO restrict
+        TASK_ARROW_GALAXY_TARGET_ENTITY = <model_entity>
         ### Entity used for special FTL jumps - for now use the default move target
-        BYPASS_ARROW_GALAXY_TARGET_ENTITY = scalar # TODO restrict
+        BYPASS_ARROW_GALAXY_TARGET_ENTITY = <model_entity>
         ### Entity used for slingshot reticule - for now use the default move target
-        CATAPULT_TARGET_ENTITY = scalar # TODO restrict
+        CATAPULT_TARGET_ENTITY = <model_entity>
         ### Entity used for slingshot destination - for now use the default move target
-        CATAPULT_DESTINATION_ENTITY = scalar # TODO restrict
+        CATAPULT_DESTINATION_ENTITY = <model_entity>
         ### Entity used for slingshot destination - for now use the default move target
-        CATAPULT_POTENTIAL_TARGET_INDICATOR_ENTITY = scalar # TODO restrict
+        CATAPULT_POTENTIAL_TARGET_INDICATOR_ENTITY = <model_entity>
 
         ### direction of the ring for planets in gui icons
         GUI_PLANET_RING_DIR = single_alias_right[coordinate_3d]
@@ -368,7 +368,7 @@ defines = {
         ### - index 3: when idling
         FLEET_EFFECT_ENTITIES = {
             ## cardinality = 4..4
-            scalar # TODO restrict
+            scalar # TODO `<model_entity>` or empty string
         }
         ### - index 0: when repairing
         ### - index 1: when upgrading
@@ -388,11 +388,11 @@ defines = {
         }
 
         ### for hyperlane windup
-        FTL_WINDUP_ENTITY_HYPERLANE = scalar # TODO restrict
+        FTL_WINDUP_ENTITY_HYPERLANE = <model_entity>
         ### for jump drive windup
-        FTL_WINDUP_ENTITY_JUMP = scalar # TODO restrict
+        FTL_WINDUP_ENTITY_JUMP = <model_entity>
         ### for astral jump windup
-        FTL_WINDUP_ENTITY_ASTRAL_JUMP = scalar # TODO restrict
+        FTL_WINDUP_ENTITY_ASTRAL_JUMP = <model_entity>
 
         ALIENFX_DEFAULT_COLOR = single_alias_right[color_type_hsv] # TODO rgb or hsv?
 
@@ -450,7 +450,7 @@ defines = {
         STORM_FORECAST_MESH_EFFECT_NAME = scalar
 
         ### Entity that is used at the end of the arrow
-        STORM_SPAWN_PREDICTION_INDICATOR_ENTITY = scalar # TODO restrict
+        STORM_SPAWN_PREDICTION_INDICATOR_ENTITY = <model_entity>
 
         ### Storm Spawn Indicator scale for each tech tier
         STORM_FORECAST_SPAWN_INDICATOR_TIER_1_SCALE = int
@@ -469,8 +469,8 @@ defines = {
         ### Storm Spawn Indicator Size for tooltip
         STORM_FORECAST_SPAWN_INDICATOR_TOOLTIP_BASE_SIZE = float
 
-        STORM_AREA_PLACER_INDICATOR_ENTITY = scalar # TODO restrict
-        STORM_AREA_PLACER_RANGE_ENTITY = scalar # TODO restrict
+        STORM_AREA_PLACER_INDICATOR_ENTITY = <model_entity>
+        STORM_AREA_PLACER_RANGE_ENTITY = <model_entity>
 
         STORM_AREA_PLACER_INDICATOR_VALID_PLACEMENT_COLOR = single_alias_right[color_type_hsva] # TODO rgb or hsv?
         STORM_AREA_PLACER_INDICATOR_INVALID_PLACEMENT_COLOR = single_alias_right[color_type_hsva] # TODO rgb or hsv?
@@ -495,10 +495,10 @@ defines = {
         GRAVITY_SNARE_CAPTURE_ANIMATION_TRAJECTORY_CHANGE_DURATION = int
 
         ### Vivarium
-        CRITTER_SELECTOR_LIGHT = scalar # TODO restrict
+        CRITTER_SELECTOR_LIGHT = <light>
 
-        DEBRIS_ENTITY = scalar # TODO restrict
-        FAUNA_DEBRIS_ENTITY = scalar # TODO restrict
+        DEBRIS_ENTITY = <model_entity>
+        FAUNA_DEBRIS_ENTITY = <model_entity>
 
         ### Interpolation factor of the passive accord icon position between the plane center and the Cardinal Patron
         CARDINAL_PATRON_PASSIVE_ACCORD_DISTANCES_VIEW = single_alias_right[coordinate_2d]
@@ -932,8 +932,8 @@ defines = {
         ### The higher this is, the more likely a design of the same name is to be picked when upgrading to latest design
         SHIP_DESIGN_SAME_NAME_FACTOR = int
 
-        GALACTIC_DEFENSE_FORCE_NAMELIST = scalar # TODO restrict
-        IMPERIAL_ARMADA_NAMELIST = scalar # TODO restrict
+        GALACTIC_DEFENSE_FORCE_NAMELIST = <name_list>
+        IMPERIAL_ARMADA_NAMELIST = <name_list>
 
         ### Days between uses of Jump Drive
         JUMP_DRIVE_COOLDOWN = int
@@ -967,7 +967,7 @@ defines = {
         ### Remove edges if having 4 or more edges
         HYPERLANE_GEN_REMOVE_TOO_MANY_EDGES = int
 
-        GALAXY_GENERATION_DEFAULT_SHAPE = scalar # TODO restrict
+        GALAXY_GENERATION_DEFAULT_SHAPE = <galaxy_shape>
         ### Higher values means that systems will be more evenly spaced. Too high values will break spiral galaxies
         GALAXY_GENERATION_RELAX_ITERATIONS = int
         ### number of dummy points that occupy empty space when relaxing the system positions
@@ -1671,14 +1671,14 @@ defines = {
         ### Maximum value of allowed number of enclaves country can spawn
         COUNTRY_ENCLAVE_CAPACITY_MAX = int
         ### Country flag that determines whether or not the country uses biomass and triggers the monthly on_action
-        COUNTRY_USES_BIOMASS_FLAG = scalar # TODO restrict
+        COUNTRY_USES_BIOMASS_FLAG = value[country_flag]
 
         ### The base starbase level
         STARBASE_BASE_LEVEL = <starbase_level>
         ### The first starbase level you upgrade to
         UPGRADED_STARBASE_BASE_LEVEL = <starbase_level>
 
-        GRAVITY_SNARE_SHIP_SIZE = scalar # TODO restrict
+        GRAVITY_SNARE_SHIP_SIZE = <ship_size>
 
         ### Number of ascension perk slots
         ASCENSION_PERKS_SLOTS = int
@@ -1708,7 +1708,7 @@ defines = {
         }
         DEFAULT_CLIMATE_LABELS = {
             ## cardinality = 0..inf
-            scalar # TODO restrict
+            scalar # TODO restrict (name of `instantTextBoxType`?)
         }
 
         ### When evading hostiles ships will cancel orders that would take more than X days to reach.
@@ -1926,14 +1926,14 @@ defines = {
         ### Matches number of portraits in gfx\interface\intel\firstcontact\unknown_species; picks which one to use by doing ( "GFX_unknown_species_portrait_" + ( <First Contact ID> % <this define> ) )
         FIRST_CONTACT_UNKNOWN_SPECIES_PORTRAITS_AMOUNT = int
 
-        SPACE_FAUNA_GROWTH_POLICY_FLAG_CONTROLLED = scalar # TODO restrict
-        SPACE_FAUNA_GROWTH_POLICY_FLAG_EXCESSIVE = scalar # TODO restrict
+        SPACE_FAUNA_GROWTH_POLICY_FLAG_CONTROLLED = enum[policy_flag]
+        SPACE_FAUNA_GROWTH_POLICY_FLAG_EXCESSIVE = enum[policy_flag]
 
-        ORBITAL_SURRENDER_POLICY = scalar # TODO restrict
-        ORBITAL_SURRENDER_POLICY_FLAG_ALLOWED = scalar # TODO restrict
-        ORBITAL_SURRENDER_POLICY_FORBIDDEN = scalar # TODO restrict
+        ORBITAL_SURRENDER_POLICY = <policy>
+        ORBITAL_SURRENDER_POLICY_FLAG_ALLOWED = enum[policy_flag]
+        ORBITAL_SURRENDER_POLICY_FORBIDDEN = enum[policy_flag]
 
-        PRE_SAPIENTS_POLICY = scalar # TODO restrict
+        PRE_SAPIENTS_POLICY = <policy>
 
         ### What is the base maximum spy network level? (spy_network_levels_add and relative encryption can increase this value)
         SPY_NETWORK_LEVELS = int
@@ -2033,13 +2033,13 @@ defines = {
         AGREEMENT_EXPANSION_TITHE_FACTOR = float
 
         ### Preset that will be applied when releasing a sector as a vassal
-        AGREEMENT_PRESET_RELEASE_AS_SECTOR = scalar # TODO restrict
+        AGREEMENT_PRESET_RELEASE_AS_SECTOR = <agreement_preset>
         ### The standard Vassal preset
-        AGREEMENT_PRESET_VASSAL = scalar # TODO restrict
+        AGREEMENT_PRESET_VASSAL = <agreement_preset>
         ### The agreement term for integration
-        AGREEMENT_INTEGRATION_TERM = scalar # TODO restrict
+        AGREEMENT_INTEGRATION_TERM = <agreement_term>
         ### The agreement term value for allowing integration
-        AGREEMENT_CAN_INTEGRATE_TERM_VALUE = scalar # TODO restrict
+        AGREEMENT_CAN_INTEGRATE_TERM_VALUE = <agreement_term_value>
 
         ### days
         CLOAKING_ACTIVATION_COOLDOWN = int
@@ -2063,7 +2063,7 @@ defines = {
         AWARENESS_HIGH_LIMIT = int
 
         ### Flag to allow to instantly build a megastructure, in this case hyper relay
-        FLEET_FLASH_FORGING_HYPER_RELAY_FLAG = scalar # TODO restrict
+        FLEET_FLASH_FORGING_HYPER_RELAY_FLAG = value[fleet_flag]
 
         ASTRAL_RIFT_DEFAULT_DISPLAY_SIZE = float
         ASTRAL_RIFT_DICE_ROLL_MIN = int
@@ -2076,15 +2076,15 @@ defines = {
         ### Cost in Astral Thread to perform a Phase Fleet
         PHASE_FLEET_THREADS_COST = int
 
-        UNLOCK_ASTRAL_JUMP_FLAG = scalar # TODO restrict
-        UNLOCK_PHASE_FLEET_FLAG = scalar # TODO restrict
+        UNLOCK_ASTRAL_JUMP_FLAG = value[country_flag]
+        UNLOCK_PHASE_FLEET_FLAG = value[country_flag]
         ### Grand Archive collection
         GRAND_ARCHIVE_EXHIBITIONS_COUNT = int
         GRAND_ARCHIVE_EXHIBITS_COUNT = int
         COLLECTION_STORAGE_SLOTS_COUNT = int
         SPECIMEN_TYPES = {
             ## cardinality = 0..inf
-            scalar # TODO restrict
+            enum[specimen_type]
         }
         SPECIMEN_PRODUCTION_MODIFIER = <modifier>
         SELL_SPECIMEN_ENERGY_VALUES = {
@@ -2096,7 +2096,7 @@ defines = {
             int
         }
 
-        GRAND_ARCHIVE_DESTROYED = scalar # TODO restrict
+        GRAND_ARCHIVE_DESTROYED = value[country_flag]
         ### Specimen Trade Value (in Energy) = Sell Value * TRADE_VALUE_SPECIMEN_MULT
         TRADE_VALUE_SPECIMEN_MULT = float
         TRADE_VALUE_SPECIMEN_COMPLETE_CATEGORY_MULT = float
@@ -2137,8 +2137,8 @@ defines = {
         STORM_INFLUENCE_TIER_HIGH = float
 
         EMERGENCY_FUND_RELIEF_PER_AFFECTED_SYSTEM = int
-        FAILED_EMERGENCY_FUND_CONTRIBUTION_FLAG = scalar # TODO restrict
-        VIRTUAL_JOBS_FLAG = scalar # TODO restrict
+        FAILED_EMERGENCY_FUND_CONTRIBUTION_FLAG = value[country_flag]
+        VIRTUAL_JOBS_FLAG = value[country_flag]
 
         THE_TEMPEST_INVOCATOR_RELIC_MAX_SACRIFICE_LEADER_COUNT = int
 
@@ -2183,10 +2183,10 @@ defines = {
 
         COSMIC_STORM_ALLOWED_NAME_LISTS = {
             ## cardinality = 0..inf
-            scalar # TODO restrict
+            <name_list>
         }
 
-        INITIATE_COSMIC_STORM_SITUATION_KEY = scalar # TODO restrict
+        INITIATE_COSMIC_STORM_SITUATION_KEY = <situation_type>
 
         ### Probability to find a critter of the given rarity when captured ( Common, Rare, Epic, Exceptional )
         WILD_CRITTERS_RARITY_TABLE = single_alias_right[int_array]
@@ -2196,14 +2196,14 @@ defines = {
         ### Hard cap for vivarium capacity. Should match @max_vivarium_capacity
         MAX_VIVARIUM_CAPACITY = int
 
-        GRAVITY_SNARE_COOLDOWN = scalar # TODO restrict
-        GRAVITY_SNARE_IS_FROM_AUTO_EXPLORE = scalar # TODO restrict
+        GRAVITY_SNARE_COOLDOWN = value[fleet_flag] # NOTE not sure
+        GRAVITY_SNARE_IS_FROM_AUTO_EXPLORE = value[fleet_flag] # NOTE not sure
         GRAVITY_SNARE_CAPTURE_CHANCE_PER_SCIENTIST_LEVEL = float
         RARITY_UPGRADE_COST_MULT = float
 
-        CAN_HAVE_SCRIPTED_BOMBARDMENT = scalar # TODO restrict
+        CAN_HAVE_SCRIPTED_BOMBARDMENT = value[planet_flag]
 
-        MUTATION_SECTION_NAME = scalar # TODO restrict
+        MUTATION_SECTION_NAME = <section_template>
 
         VOIDWORMS_SCALING_DEFAULT = float
         VOIDWORMS_SCALING_MIN = float
@@ -2259,20 +2259,20 @@ defines = {
         ### Events launching cycles corresponding with CYCLE_KEYS by index
         ROLL_CYCLE_EVENT_KEYS = {
             ## cardinality = 0..inf
-            <event> # TODO restrict
+            <event.country>
         }
         ### Should be the same size as ROLL_CYCLE_EVENT_KEYS
         CYCLE_KEYS = {
             ## cardinality = 0..inf
-            scalar # TODO restrict
+            scalar
         }
-        CYCLE_OF_FORTUNE_FLAG_STR = scalar # TODO restrict
-        CYCLE_OF_OMENS_FLAG_STR = scalar # TODO restrict
-        CYCLE_OF_GROWTH_FLAG_STR = scalar # TODO restrict
-        CYCLE_OF_PROSPERITY_FLAG_STR = scalar # TODO restrict
-        CYCLE_OF_CONFLICT_FLAG_STR = scalar # TODO restrict
-        CYCLE_OF_HARMONY_FLAG_STR = scalar # TODO restrict
-        CYCLE_OF_KNOWLEDGE_FLAG_STR = scalar # TODO restrict
+        CYCLE_OF_FORTUNE_FLAG_STR = scalar
+        CYCLE_OF_OMENS_FLAG_STR = scalar
+        CYCLE_OF_GROWTH_FLAG_STR = scalar
+        CYCLE_OF_PROSPERITY_FLAG_STR = scalar
+        CYCLE_OF_CONFLICT_FLAG_STR = scalar
+        CYCLE_OF_HARMONY_FLAG_STR = scalar
+        CYCLE_OF_KNOWLEDGE_FLAG_STR = scalar
         ### Attunement range around a Minor Patron to automatically encounter it
         MINOR_PATRON_ENCOUNTER_DISTANCE = int
         ### Chance to encounter a Minor Patron when delving (requires major patrons of that section to be discovered)
@@ -2280,15 +2280,15 @@ defines = {
         ### Number of active accords that forging your own path can give you per patron
         FORGE_OUR_OWN_PATH_NB_ACTIVE_ACCORDS = int
 
-        DISABLE_JUMP_DRIVE_COOLDOWN_MALUS_FLAG_STR = scalar # TODO restrict
+        DISABLE_JUMP_DRIVE_COOLDOWN_MALUS_FLAG_STR = value[country_flag]
 
-        CYCLE_END_SITUATION_FLAG_STR = scalar # TODO restrict
-        CYCLE_END_RECKONING_FLAG_STR = scalar # TODO restrict
+        CYCLE_END_SITUATION_FLAG_STR = value[situation_flag]
+        CYCLE_END_RECKONING_FLAG_STR = value[country_flag]
 
         SHIPS_MONTHLY_DAMAGE_HEALTH_THRESHOLD = float
 
-        NEWLY_SPAWNED_PSIONIC_AURA_FLAG = scalar # TODO restrict
-        AURA_CLASHING_FLAG = scalar # TODO restrict
+        NEWLY_SPAWNED_PSIONIC_AURA_FLAG = value[star_flag]
+        AURA_CLASHING_FLAG = value[star_flag]
         ### Should be same value as @aura_clashing_loser_decrease
         AURA_CLASH_LOSING_INTENSITY = int
 
@@ -2481,7 +2481,7 @@ defines = {
         BIOSHIP_MONTHLY_PROGRESS = int
 
         ### what role to use as the "custom" role in the ship designer
-        SHIP_ROLE_NONE = scalar # TODO restrict
+        SHIP_ROLE_NONE = scalar # TODO restrict (?)
     }
     NCombat = {
         ### When ships are attacking they will try to stay at max range and orbit their target.
@@ -2871,7 +2871,7 @@ defines = {
         SECTOR_AUTOMATION_FREE_JOBS_BUILD_CAP = int
         SECTOR_AUTOMATION_FREE_HOUSING_BUILD_CAP = int
         ### Items in this sector focus list are appended to all other ones
-        SECTOR_AUTOMATION_BASE_FOCUS = scalar # TODO restrict
+        SECTOR_AUTOMATION_BASE_FOCUS = scalar # TODO restrict (?)
 
         SPACE_FAUNA_PREFERRED_PLANET_ORBIT_UPKEEP_MULT = float
 
@@ -3624,8 +3624,8 @@ defines = {
         ### How much will AI prioritize bordering systems when making claims
         CLAIM_BORDERING_FACTOR = int
 
-        NO_WARS_FLAG = scalar # TODO restrict
-        NO_LEAVE_FED_FLAG = scalar # TODO restrict
+        NO_WARS_FLAG = value[country_flag]
+        NO_LEAVE_FED_FLAG = value[country_flag]
 
         ### Display "ready to surrender" in war summary badge
         SURRENDER_ACCEPTANCE_HIGHEST = int
@@ -3921,7 +3921,7 @@ defines = {
         ### If subject is/will be a Specialist, Loyalty is multiplied by this and added to (overlord's) acceptance
         NEGOTIATE_AGREEMENT_ACCEPTANCE_LOYALTY_SPECIALIST = int
 
-        SPECIMEN_TRADE = scalar # TODO restrict
+        SPECIMEN_TRADE = value[country_flag]
         SPECIMEN_TRADE_FLAG_DAYS = int
 
         ### Multiplied with the disloyalty of a subject. If this is higher, the AI subject is more likely to pledge Secret Fealty
@@ -3959,9 +3959,9 @@ defines = {
         DIMENSIONAL_LOCK_AI_WEIGHT_NO_OWNER = int
 
         ### Flags that indicate what cosmic storm an AI country in affected by
-        AFFECTED_BY_SHROUD_STORM_FLAG = scalar # TODO restrict
-        AFFECTED_BY_GRAVITY_STORM_FLAG = scalar # TODO restrict
-        AFFECTED_BY_SOLAR_STORM_FLAG = scalar # TODO restrict
+        AFFECTED_BY_SHROUD_STORM_FLAG = value[country_flag]
+        AFFECTED_BY_GRAVITY_STORM_FLAG = value[country_flag]
+        AFFECTED_BY_SOLAR_STORM_FLAG = value[country_flag]
 
         ### the multiplier is applied to number of pops
         LOCATION_WEIGHT_PLANET_MULTIPLIER = float
@@ -3974,19 +3974,19 @@ defines = {
         LOCATION_WEIGHT_GALACTIC_COMMUNITY = float
 
         ### Shipsize of ships created from bombardments
-        VOIDWORMS_NEWBORNS_SHIP_SIZE = scalar # TODO restrict
+        VOIDWORMS_NEWBORNS_SHIP_SIZE = <ship_size>
         ### Shipsize of the ships exploring the galaxy
-        VOIDWORMS_EXPLORER_SHIP_SIZE = scalar # TODO restrict
+        VOIDWORMS_EXPLORER_SHIP_SIZE = <ship_size>
         ### Shipsize of the ships waiting to be merged into aggressive fleets
-        VOIDWORMS_ADULTS_SHIP_SIZE = scalar # TODO restrict
+        VOIDWORMS_ADULTS_SHIP_SIZE = <ship_size>
         ### Shipsize of the ships attacking and bombarding players
-        VOIDWORMS_AGRESSIVE_SHIP_SIZE = scalar # TODO restrict
+        VOIDWORMS_AGRESSIVE_SHIP_SIZE = <ship_size>
         ### Voidworms home system flag (can be multiple systems)
-        VOIDWORMS_HOME_SYSTEM_FLAG = scalar # TODO restrict
+        VOIDWORMS_HOME_SYSTEM_FLAG = value[star_flag]
         ### Voidworms starbase flag
-        VOIDWORMS_STARBASE = scalar # TODO restrict
+        VOIDWORMS_STARBASE = value[ship_flag]
         ### Voidworms fleet new when they split
-        VOIDWORMS_NEW_FLEET_NAME = scalar # TODO restrict
+        VOIDWORMS_NEW_FLEET_NAME = localisation
         ### Minimum pops on a planet to be targeted for bombardments
         VOIDWORMS_MINIMUM_POPS_TO_TARGET = int
         ### Maximum of pops a voidworm fleet may kill in a single attack
@@ -3996,11 +3996,11 @@ defines = {
         ### Limit of used naval capacity allowed per voidworm fleet
         VOIDWORMS_NAVAL_CAP_PER_FLEET = single_alias_right[int_array]
         ### Variables holding a voidworm fleet kill count in the current attack
-        VOIDWORM_KILLED_POPULATION_COUNT = scalar # TODO restrict
+        VOIDWORM_KILLED_POPULATION_COUNT = value[variable]
         ### How long a country cannot be targeted by a voidworm attack after having being targeted
         VOIDWORM_ATTACK_AGAINST_PLAYER_COOLDOWN_DAYS = int
         ### Flag used to prevent voidworms attack
-        VOIDWORM_RECENTLY_TARGETED_FLAG = scalar # TODO restrict
+        VOIDWORM_RECENTLY_TARGETED_FLAG = value[country_flag]
         ### Threshold (%) to go explore the galaxy from the home system
         VOIDWORM_EXPLORING_FACTOR = int
         ### Threshold (%) to wander among the different planets of the hom system
@@ -4008,15 +4008,15 @@ defines = {
         ### Maximum jumps from home system to picked system to explore
         VOIDWORM_EXPLORATION_MAX_JUMPS = int
         ### Flag to communicate to the ai to use the crisis behaviour
-        VOIDWORM_CRISIS_ACTIVE = scalar # TODO restrict
+        VOIDWORM_CRISIS_ACTIVE = value[country_flag]
         ### How many ships maximum is there in a single aggressive fleet
         VOIDWORM_AGGRESSIVE_FLEETS_MAX_SHIPS = int
         ### How many ships maximum is there in a single aggressive fleet during the crisis
         VOIDWORM_CRISIS_AGGRESSIVE_FLEETS_MAX_SHIPS = int
         ### Country flag to make countries immune to voidworm attacks
-        VOIDWORM_BOMBARDMENT_IMMUNITY_FLAG = scalar # TODO restrict
+        VOIDWORM_BOMBARDMENT_IMMUNITY_FLAG = value[country_flag]
         ### Country flag to check if Voidworm fleet is actively bombarding a planet
-        VOIDWORM_ACTIVELY_BOMBARDING_FLAG = scalar # TODO restrict
+        VOIDWORM_ACTIVELY_BOMBARDING_FLAG = value[fleet_flag]
 
         ### How many mutations of each type the AI attempts to apply ( Offensive, Defensive, Auxiliary )
         CREATURE_DESIGNER_MUTATION_TYPE_PREFERENCES = single_alias_right[int_array]

@@ -15,7 +15,7 @@ types = {
 mutations = {
 	### Sets the mutation type (offensive/defensive/aux)
 	## cardinality = 1..1
-	type = enum[mutations_types]
+	type = enum[mutations_type]
 
 	### The icon for the mutation
 	## cardinality = 1..1

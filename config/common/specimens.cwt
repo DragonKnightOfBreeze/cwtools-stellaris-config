@@ -16,7 +16,7 @@ types = {
 specimen = {
 
 	icon = <sprite>
-	type = enum[specimen_types]
+	type = enum[specimen_type]
 	rarity = enum[specimens_rarity]
 
 

@@ -5260,7 +5260,7 @@ alias[effect:set_next_astral_rift_event] = {
 
 ### Unlocks an exhibit for given category from the target country.
 ## scopes = { country }
-alias[effect:unlock_exhibit] = enum[specimen_types]
+alias[effect:unlock_exhibit] = enum[specimen_type]
 
 # 4.0
 

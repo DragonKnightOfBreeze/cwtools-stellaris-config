@@ -5371,7 +5371,7 @@ alias[trigger:is_specimen_rarity] = enum[specimens_rarity]
 
 ### Checks if the specified specimen contained by the scoped exhibit is of indicated collection category
 ## scopes = { exhibit }
-alias[trigger:is_specimen_category] = enum[specimen_types]
+alias[trigger:is_specimen_category] = enum[specimen_type]
 
 ### Checks used naval cap by the scoped country or fleet's controlled ships which fulfill the specified criteria.
 ## scopes = { country ship fleet }
