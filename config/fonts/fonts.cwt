@@ -14,7 +14,7 @@ font = {
 	fontstyle = {
 		style = enum[font_style]
 		### supports *.ttf and *.otf files!
-		## file_extensions = { .ttf .otf }
+		## file_extensions = { ttf otf }
 		file = filepath
 	}
 }

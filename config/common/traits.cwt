@@ -77,7 +77,7 @@ trait = {
 		force_councilor_trait = bool
 
 		## cardinality = 0..1
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		icon = filepath
 
 		### Layered icon format introduced in Galactic Paragons.
@@ -88,7 +88,7 @@ trait = {
 			layer = {
 				### Texture name defined in "interface" folder. Default trait icons are in "interface\icons\traits" folder.
 				icon = <sprite>
-				## file_extensions = { .png .dds .tga }
+				## file_extensions = { png dds tga }
 				icon = filepath
 				### Layer color tint. Color name defined in "common\named_colors" folder.
 				## cardinality = 0..1
@@ -410,7 +410,7 @@ trait = {
 		}
 
 		## cardinality = 0..1
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		icon = filepath
 		## cardinality = 0..1
 		sorting_priority = int

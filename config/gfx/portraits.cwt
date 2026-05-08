@@ -26,7 +26,7 @@ types = {
 
 portrait = {
 	subtype[static] = {
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		textureFile = filepath
 	}
 	subtype[!static] = {
@@ -66,9 +66,9 @@ portrait = {
 					value = {
 						## cardinality = 1..inf
 						{
-							## file_extensions = { .png .dds .tga }
+							## file_extensions = { png dds tga }
 							decal = filepath
-							## file_extensions = { .png .dds .tga }
+							## file_extensions = { png dds tga }
 							mask = filepath
 						}
 					}
@@ -203,9 +203,9 @@ portrait_group = {
 
 portrait_evolution = {
 	default_mask_pair = {
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		mask = filepath
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		decal = filepath
 	}
 

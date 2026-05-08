@@ -57,17 +57,17 @@ sprite = {
 		upper_left = { x = int y = int }
 		## cardinality = 0..1
 		lower_right = { x = int y = int }
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		## cardinality = 0..1
 		textureFile = filepath
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		## cardinality = 0..1
 		masking_texture = filepath
 		## cardinality = 0..1
 		sprite_sheet_sprite_type = <sprite>
 		## cardinality = 0..1
 		default_frame = int
-		## file_extensions = { .shader }
+		## file_extensions = { shader }
 		## cardinality = 0..1
 		effectFile = filepath
 		## cardinality = 0..1
@@ -102,10 +102,10 @@ sprite = {
 		legacy_lazy_load = bool
 		## cardinality = 0..inf
 		animation = {
-			## file_extensions = { .png .dds .tga }
+			## file_extensions = { png dds tga }
 			## cardinality = 0..1
 			animationmaskfile = filepath
-			## file_extensions = { .png .dds .tga }
+			## file_extensions = { png dds tga }
 			## cardinality = 0..1
 			animationtextureFile = filepath
 			## cardinality = 0..1
@@ -168,16 +168,16 @@ sprite = {
 
 		# either textureFile, or both textureFile1 and 2 - need to be worked out.
 
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		## cardinality = 0..1
 		textureFile = filepath
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		## cardinality = 0..1
 		textureFile1 = filepath
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		## cardinality = 0..1
 		textureFile2 = filepath
-		## file_extensions = { .shader }
+		## file_extensions = { shader }
 		effectFile = filepath
 
 		## color_type = hsv

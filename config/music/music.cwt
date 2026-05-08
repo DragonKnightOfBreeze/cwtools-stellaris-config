@@ -21,7 +21,7 @@ song = {
 }
 music = {
 	name = <song>
-	## file_extensions = { .ogg }
+	## file_extensions = { ogg }
 	file = filepath[./]
 	## cardinality = 0..1
 	volume = float

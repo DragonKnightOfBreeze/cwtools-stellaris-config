@@ -433,9 +433,9 @@ psionic_aura = {
         alias_name[modifier_rule] = alias_match_left[modifier_rule]
     }
 
-    ## file_extensions = { .dds }
+    ## file_extensions = { png dds tga }
     aura_galaxy_texture = filepath
-    ## file_extensions = { .dds }
+    ## file_extensions = { png dds tga }
     aura_hyperlane_texture = filepath
 
 }

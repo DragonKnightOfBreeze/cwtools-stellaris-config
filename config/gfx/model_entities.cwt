@@ -300,16 +300,16 @@ model_entity = {
 		name = scalar #examples: "planet_geosphereShape" "polesShape" "clouds_geosphereShape"
 		## cardinality = 0..1
 		index = int
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		## cardinality = 0..1
 		texture_diffuse = filename[gfx/models]
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		## cardinality = 0..1
 		texture_normal = filename[gfx/models]
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		## cardinality = 0..1
 		texture_specular = filename[gfx/models]
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		## cardinality = 0..1
 		texture_wpo = filename[gfx/models]
 		## cardinality = 0..1
@@ -319,7 +319,7 @@ model_entity = {
 
 model_mesh = { #the container for all meshes is defined as objectTypes = { at the top of the file, please check, with each entry being defined under pdxmesh = {
 	name = scalar
-	## file_extensions = .mesh
+	## file_extensions = { mesh }
 	file = filepath #there is a full path string here - the path should be parsed. Example: file = "gfx/models/planets/shielded_planet.mesh"
 	## cardinality = 0..1
 	scale = float
@@ -331,16 +331,16 @@ model_mesh = { #the container for all meshes is defined as objectTypes = { at th
 		index = int
 		## cardinality = 0..1
 		shader = scalar #Shader
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		## cardinality = 0..1
 		texture_diffuse = filename[gfx/models]
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		## cardinality = 0..1
 		texture_normal = filename[gfx/models]
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		## cardinality = 0..1
 		texture_specular = filename[gfx/models]
-		## file_extensions = { .png .dds .tga }
+		## file_extensions = { png dds tga }
 		## cardinality = 0..1
 		texture_wpo = filename[gfx/models]
 	}
@@ -356,7 +356,7 @@ model_mesh = { #the container for all meshes is defined as objectTypes = { at th
 
 model_animation = { #the container here is called animation = { for each animation
 	name = scalar # example: "neutron_star_idle_animation"
-	## file_extensions = .anim
+	## file_extensions = { anim }
 	file = filename
 }
 
