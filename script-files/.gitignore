@@ -1,0 +1,14 @@
+# exclude script files
+*.txt
+*.gfx
+*.gui
+*.lines
+*.asset
+*.dlc
+*.ettings
+
+# exclude localisation files
+*.yml
+
+# exclude csv files
+*.csv
