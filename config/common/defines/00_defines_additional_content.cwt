@@ -1,0 +1,66 @@
+# source: common/defines/00_defines.txt
+# updated: 2026.05.08
+# updated game version: v4.3.5
+# updated plugin version: v2.1.8
+
+defines = {
+    NAdditionalContent = {
+        # Defines the sprites for the ACB window tabs
+
+        #### Sprite name for the first tab when active (selected)
+        ADDITIONAL_CONTENT_TAB_FIRST_SPRITE_ACTIVE = <sprite>
+        #### Sprite name for the first tab when inactive (not selected)
+        ADDITIONAL_CONTENT_TAB_FIRST_SPRITE_INACTIVE = <sprite>
+        #### Sprite name for all other tabs when active (selected)
+        ADDITIONAL_CONTENT_TAB_REST_SPRITE_ACTIVE = <sprite>
+        #### Sprite name for all other tabs when inactive (not selected)
+        ADDITIONAL_CONTENT_TAB_REST_SPRITE_INACTIVE = <sprite>
+
+        #### Sprite name for the first tab when active (selected)
+        ADDITIONAL_CONTENT_MODE_FIRST_SPRITE_ACTIVE = <sprite>
+        #### Sprite name for the first tab when inactive (not selected)
+        ADDITIONAL_CONTENT_MODE_FIRST_SPRITE_INACTIVE = <sprite>
+        #### Sprite name for all other tabs when active (selected)
+        ADDITIONAL_CONTENT_MODE_REST_SPRITE_ACTIVE = <sprite>
+        #### Sprite name for all other tabs when inactive (not selected)
+        ADDITIONAL_CONTENT_MODE_REST_SPRITE_INACTIVE = <sprite>
+
+        #### Sprite name for new item label background
+        ADDITIONAL_CONTENT_ITEM_LABEL_NEW = <sprite>
+        #### Sprite name for recommended item label background
+        ADDITIONAL_CONTENT_ITEM_LABEL_RECOMMENDED = <sprite>
+        #### Sprite name for discounted item label background
+        ADDITIONAL_CONTENT_ITEM_LABEL_DISCOUNT = <sprite>
+        #### Sprite name for owned item label background
+        ADDITIONAL_CONTENT_ITEM_LABEL_OWNED = <sprite>
+
+        ADDITIONAL_CONTENT_ITEM_LABEL_OWNED_TEXT_COLOR = single_alias_right[color_type_rgba] # NOTE rgba
+        ADDITIONAL_CONTENT_ITEM_LABEL_DEFAULT_TEXT_COLOR = single_alias_right[color_type_rgba] # NOTE rgba
+
+        # Defines the item frame backgrounds
+
+        #### Sprite name for the default frame background
+        ADDITIONAL_CONTENT_ITEM_FRAME = <sprite>
+        #### Sprite name for new item frame background
+        ADDITIONAL_CONTENT_ITEM_FRAME_NEW = <sprite>
+        #### Sprite name for recommended item frame background
+        ADDITIONAL_CONTENT_ITEM_FRAME_RECOMMENDED = <sprite>
+        #### Sprite name for discounted item frame background
+        ADDITIONAL_CONTENT_ITEM_FRAME_DISCOUNT = <sprite>
+        #### Sprite name for owned item frame background
+        ADDITIONAL_CONTENT_ITEM_FRAME_OWNED = <sprite>
+
+        # Defines for the small UI on lower resolutions
+        ADDITIONAL_CONTENT_PORTRAIT_PREVIEW_SCALE_SMALL = float
+
+        # Other
+
+        ADDITIONAL_CONTENT_LOADING_SHOW_SPINNER_DELAY = float
+        ADDITIONAL_CONTENT_LOADING_MINIMUM_SPINNER_TIME = float
+
+        #### Timelines UI - Defines number of configured zoom levels
+        TIMELINE_NAVIGATION_AMOUNT_OF_ZOOM_LEVELS = int
+        #### Timelines UI - Defines max number of page squares
+        TIMELINE_MAX_PAGE_SQUARES = int
+    }
+}
