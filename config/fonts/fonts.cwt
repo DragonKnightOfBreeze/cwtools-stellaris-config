@@ -1,10 +1,11 @@
-#defined fonts are used in /interface/*.gui files. They can be added to the game!
+# defined fonts are used in /interface/*.gui files. They can be added to the game!
+
 types = {
 	## type_key_filter = font
 	type[font] = {
+        path = "game/fonts"
+        path_extension = .asset
 		name_field = name
-		path = "game/fonts"
-		path_extension = .txt
 	}
 }
 

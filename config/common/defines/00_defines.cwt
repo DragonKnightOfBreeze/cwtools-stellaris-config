@@ -1,5 +1,5 @@
 # source: common/defines/00_defines.txt
-# updated: 2026.05.08
+# updated: 2026.05.09
 # updated game version: v4.3.5
 # updated plugin version: v2.1.8
 
@@ -274,7 +274,7 @@ defines = {
         NAVIGATION_ARROW_ENTITY = <model_entity>
         ### offsets the arrow towards the edge
         NAVIGATION_ARROW_OFFSET = float
-        NAVIGATION_ARROW_FONT = scalar # TODO restrict (from fonts/fonts.asset)
+        NAVIGATION_ARROW_FONT = <font>
         NAVIGATION_ARROW_FONT_SPECIAL = single_alias_right[scalar_array]
         NAVIGATION_ARROW_TEXT_OFFSET = float
         NAVIGATION_ARROW_TEXT_SCALE = float
