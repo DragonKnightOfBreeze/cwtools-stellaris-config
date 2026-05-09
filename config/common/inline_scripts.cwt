@@ -1,10 +1,10 @@
 #### Use an inline script.
-directive[inline_script] = filepath[common/inline_scripts/,.txt]
+macro[inline_script] = filepath[common/inline_scripts/,.txt]
 
 #### Use an inline script with parameters.
 ####
 #### Inline script parameters accept strings so it's possible to swap in a full statement or even several statements by enclosing it in "".
-directive[inline_script] = {
+macro[inline_script] = {
 	## cardinality = 1..1
 	script = filepath[common/inline_scripts/,.txt]
 	## cardinality = 0..inf
