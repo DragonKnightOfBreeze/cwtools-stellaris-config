@@ -371,9 +371,9 @@ defines = {
         ### - index 2: when orbiting
         ### - index 3: when idling
         FLEET_EFFECT_ENTITIES = {
-            ## cardinality = 4..4
+            ## cardinality = 0..inf # lenient (since union types are not supported yet)
             <model_entity>
-            ## cardinality = 4..4
+            ## cardinality = 0..inf # lenient (since union types are not supported yet)
             scalar # empty string (or something else?)
         }
         ### - index 0: when repairing
@@ -381,7 +381,7 @@ defines = {
         ### - index 2: when orbiting
         ### - index 3: when idling
         FLEET_EFFECT_ENTITIES_BILLBOARD = {
-            ## cardinality = 4..4
+            ## cardinality = 0..inf # lenient (since union types are not supported yet)
             int
         }
         ### - index 0: when repairing
@@ -389,7 +389,7 @@ defines = {
         ### - index 2: when orbiting
         ### - index 3: when idling
         FLEET_EFFECT_ENTITIES_SCALE = {
-            ## cardinality = 4..4
+            ## cardinality = 0..inf # lenient (since union types are not supported yet)
             int
         }
 
