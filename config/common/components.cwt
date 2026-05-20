@@ -229,10 +229,13 @@ component_template = {
 		}
 		## cardinality = 0..1
 		ai_tag_weight = int
-		## cardinality = 0..1
-		entity = scalar # TODO entity suffixes
-		## cardinality = 0..1
-		can_destroy_stars = bool
+        ## cardinality = 0..1
+        can_destroy_stars = bool
+
+        ## cardinality = 0..1
+        entity = <model_entity>
+        ## cardinality = 0..1
+        entity = scalar # TODO entity suffixes
 
 		## cardinality = 0..1
 		use_ship_main_target = bool
@@ -334,8 +337,10 @@ component_template = {
 		## replace_scopes = { this = ship root = ship }
 		ship_modifier = single_alias_right[modifier_clause]
 
+        entity = <model_entity>
+        entity = scalar # TODO entity suffixes
+
 		size = enum[weapon_slot_size]
-		entity = scalar # TODO entity suffixes
 		weapon_type = enum[weapon_type2]
 		## cardinality = 0..1
 		ship_behavior = <ship_behavior>

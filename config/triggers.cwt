@@ -801,9 +801,6 @@ alias[trigger:has_technology] = <technology>
 ### Checks if a country has the given tradition or tradition swap. Tradition specified must be the one giving effects, i.e. tradition swaps with 'inherit_effects = yes' are ignored and the base tradition should be specified in those cases.
 ## scopes = { country }
 alias[trigger:has_active_tradition] = <tradition>
-### Checks if a country has the given tradition or tradition swap. Tradition specified must be the one giving effects, i.e. tradition swaps with 'inherit_effects = yes' are ignored and the base tradition should be specified in those cases.
-## scopes = { country }
-alias[trigger:has_active_tradition] = <swapped_tradition>
 
 ### Checks a variable for the country/leader/planet/system/fleet
 ## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage }

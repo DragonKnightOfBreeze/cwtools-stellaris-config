@@ -122,7 +122,7 @@ ship_size = {
 			## cardinality = 1..inf
 			locator = enum[model_locator] # this is connected to the ship asset files.
 			## cardinality = 1..inf
-			locator = scalar # TODO: Some locators are in .mesh files, so are missed by the enum
+			locator = $mesh_locator # locators in .mesh files (since plugin version 2.1.9)
 		}
 	}
 	## cardinality = 0..1

@@ -96,9 +96,9 @@ model_entity = {
 		## cardinality = 0..1
 		animation = <model_animation> #animations are defined in a different file in the same folder, also a *.asset file
 		## cardinality = 0..1
-		animation = enum[model_animation_type]
+		animation = enum[model_animation]
 		## cardinality = 0..1
-		animation = scalar #TODO
+		animation = scalar # TODO
 		## cardinality = 0..1
 		animation_speed = float
 		## cardinality = 0..1
@@ -144,7 +144,7 @@ model_entity = {
 			## cardinality = 0..1
 			node = enum[model_locator] # "bombardment_location_2" for example, this seem to point to a *.mesh file
 			## cardinality = 0..1
-			node = scalar # TODO: Some locators are in .mesh files, so are missed by the enum
+			node = $mesh_locator # locators in .mesh files (since plugin version 2.1.9)
 			## cardinality = 0..1
 			light = <light>
 			## cardinality = 0..1
@@ -179,7 +179,7 @@ model_entity = {
 			## cardinality = 0..1
 			node = enum[model_locator] # "bombardment_location_2" for example, this seem to point to a *.mesh file
 			## cardinality = 0..1
-			node = scalar # TODO: Some locators are in .mesh files, so are missed by the enum
+			node = $mesh_locator # locators in .mesh files (since plugin version 2.1.9)
 			## cardinality = 0..1
 			light = <light>
 			## cardinality = 0..1
@@ -201,7 +201,7 @@ model_entity = {
 		## cardinality = 0..inf
 		enum[model_locator] = <model_entity> # see locator in this file.
 		## cardinality = 0..inf
-		scalar = <model_entity> # TODO: Some locators are in .mesh files, so are missed by the enum
+		$mesh_locator = <model_entity> # locators in .mesh files (since plugin version 2.1.9)
 		## cardinality = 0..1
 		name = scalar
 		## cardinality = 0..1
@@ -255,7 +255,7 @@ model_entity = {
 		## cardinality = 0..1
 		bloom_factor = float
 		## cardinality = 0..1
-		shader_type = scalar
+		shader_type = enum[model_shader_type]
 		## cardinality = 0..1
 		raytrace_projectiles = bool
 		## cardinality = 0..1
@@ -272,15 +272,17 @@ model_entity = {
 		## cardinality = 0..1
 		flowmap_intensity = float
 	}
-	#locator here is linked to both attach = { in the same files and ship_sizes under common!
+	# locator here is linked to both attach = { in the same files and ship_sizes under common!
 	## cardinality = 0..inf
 	locator = {
-		name = scalar #this is an override for locators defined in the models. This key is used in the ship_sizes file as well as when attach = { is used in an asset file.
+        # this is an override for locators defined in the models. This key is used in the ship_sizes file as well as when attach = { is used in an asset file.
+		name = $mesh_locator # locators in .mesh files (since plugin version 2.1.9)
+        # XYZ axis coordinates and degrees: 0 0 -14.5
 		## cardinality = 0..1
 		position = {
 			## cardinality = 3..3
 			float
-		} #XYZ axis coordinates and degrees: 0 0 -14.5
+		}
 		## cardinality = 0..1
 		rotation = {
 			## cardinality = 3..3
@@ -288,10 +290,9 @@ model_entity = {
 		}
 		## cardinality = 0..1
 		scale = float
+        ## cardinality = 0..1
+        parent_joint = $mesh_locator # locators in .mesh files (since plugin version 2.1.9)
 	}
-
-	## cardinality = 0..1
-	parent_joint = scalar # TODO
 
 	#these need to be updated and linked to other files
 	## cardinality = 0..inf
@@ -313,7 +314,7 @@ model_entity = {
 		## file_extensions = { png dds tga }
 		texture_wpo = filename[gfx/models]
 		## cardinality = 0..1
-		shader = scalar #this seems to point to a shader mesh, dunno where its stored. example: "PdxMeshPlanetEmissive". I believe this is stored in a *.mesh file
+		shader = $shader_effect # effects in .shader files (since plugin version v2.1.9)
 	}
 }
 
@@ -330,7 +331,7 @@ model_mesh = { #the container for all meshes is defined as objectTypes = { at th
 		## cardinality = 0..1
 		index = int
 		## cardinality = 0..1
-		shader = scalar #Shader
+		shader = $shader_effect # effects in .shader files (since plugin version v2.1.9)
         ## cardinality = 0..1
 		## file_extensions = { png dds tga }
 		texture_diffuse = filename[gfx/models]
@@ -346,7 +347,7 @@ model_mesh = { #the container for all meshes is defined as objectTypes = { at th
 	}
 	## cardinality = 0..inf
 	animation = {
-		id = enum[model_animation_type] #example = "idle"
+		id = enum[model_animation] #example = "idle"
 		id = scalar #example = "idle"
 		type = <model_animation> #this connects to an animation defined in an *.asset file!
 	}
@@ -381,6 +382,10 @@ enums = {
 		fly
 		working
 	}
+    enum[model_shader_type] = {
+        VFX
+        ship
+    }
 }
 
 enums = {

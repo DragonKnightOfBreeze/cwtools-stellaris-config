@@ -146,7 +146,7 @@ alias[planet_initializer:planet] = {
 		max = int
 	}
 	## cardinality = 0..1
-	entity = scalar
+	entity = <model_entity>
 
 	### the class in planet init represents planet_class, not star_class. class = star means the planet class of this star is star.
 	## cardinality = 0..1
@@ -246,7 +246,7 @@ alias[moon_initializer:moon] = {
 	## cardinality = 0..1
 	count = { min = int max = int }
 	## cardinality = 0..1
-	entity = scalar
+	entity = <model_entity>
 
 	### the class in planet init represents planet_class, not star_class. class = star means the planet class of this star is star.
 	## cardinality = 0..1

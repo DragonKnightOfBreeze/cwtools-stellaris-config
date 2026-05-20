@@ -39,7 +39,13 @@ types = {
 }
 
 megastructure = {
-	entity = scalar # TODO entity suffixes
+    entity = <model_entity>
+    entity = scalar # TODO entity suffixes
+
+    ## cardinality = 0..1
+    entity = <model_entity>
+    ## cardinality = 0..1
+    construction_entity = scalar # TODO entity suffixes
 
 	## cardinality = 0..1
 	rotate_to_center = bool
@@ -47,9 +53,7 @@ megastructure = {
 	scale_offset = bool
 	## cardinality = 0..1
 	is_grand_archive = bool
-	## cardinality = 0..1
-	construction_entity = scalar # TODO entity suffixes
-	### to avoid z-fighting of consrucion entity with the base entity
+	### to avoid z-fighting of construction entity with the base entity
 	## cardinality = 0..1
 	construction_scale = float
 	## cardinality = 0..1

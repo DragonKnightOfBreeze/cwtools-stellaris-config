@@ -252,13 +252,13 @@ defines = {
         NULL_INSTANT_PROJECTILE = <projectile>
         NULL_MISSILE_PROJECTILE = <projectile>
 
-        SCIENCE_SHIP_SURVEY_ENTITY = scalar
-        SCIENCE_SHIP_SURVEY_ENTITY_LOCATOR = scalar
+        SCIENCE_SHIP_SURVEY_ENTITY = <model_entity>
+        SCIENCE_SHIP_SURVEY_ENTITY_LOCATOR = $mesh_locator # locators in .mesh files (since plugin version 2.1.9)
         ### Scale in xy can max be scale z * SCIENCE_SHIP_SURVEY_ENTITY_MAX_SCALE_FACTOR. Scale z will be equal to the distance between surveyed object and ship
         SCIENCE_SHIP_SURVEY_ENTITY_MAX_SCALE_FACTOR = float
 
-        ENTROPY_CONDUIT_SHIP_TERRAFORM_ENTITY = scalar
-        ENTROPY_CONDUIT_SHIP_TERRAFORM_ENTITY_LOCATOR = scalar
+        ENTROPY_CONDUIT_SHIP_TERRAFORM_ENTITY = <model_entity>
+        ENTROPY_CONDUIT_SHIP_TERRAFORM_ENTITY_LOCATOR = $mesh_locator # locators in .mesh files (since plugin version 2.1.9)
         ENTROPY_CONDUIT_SHIP_TERRAFORM_ENTITY_MAX_SCALE_FACTOR = float
 
         CONSTRUCTION_SHIP_TERRAFORMING_BEAM_ENTITY = <model_entity>
@@ -281,9 +281,9 @@ defines = {
         NAVIGATION_ARROW_FONT_SIZE = int
         NAVIGATION_ARROW_TEXT_KERNING = int
 
-        SHIP_TURRET_PROJECTILE_SPAWN_LOCATOR = scalar # TODO restrict (model entity locator name)
-        STRIKE_CRAFT_PROJECTILE_SPAWN_LOCATOR = scalar # TODO restrict (model entity locator name)
-        SHIP_TARGET_LOCATOR = scalar # TODO restrict (model entity locator name)
+        SHIP_TURRET_PROJECTILE_SPAWN_LOCATOR = $mesh_locator # locators in .mesh files (since plugin version 2.1.9)
+        STRIKE_CRAFT_PROJECTILE_SPAWN_LOCATOR = $mesh_locator # locators in .mesh files (since plugin version 2.1.9)
+        SHIP_TARGET_LOCATOR = $mesh_locator # locators in .mesh files (since plugin version 2.1.9)
 
         ### how high up missiles will fly
         MISSILE_HEIGHT_OFFSET = float
@@ -310,10 +310,14 @@ defines = {
         SHIELD_EFFECT_ENTITIES = {
             ## cardinality = 0..inf
             <model_entity>
+            ## cardinality = 0..inf
+            scalar # empty string (or something else?)
         }
         SHIELD_EFFECT_LOOPING_ENTITIES = {
             ## cardinality = 0..inf
             <model_entity>
+            ## cardinality = 0..inf
+            scalar # empty string (or something else?)
         }
 
         ### how long missed beams will be
@@ -368,7 +372,9 @@ defines = {
         ### - index 3: when idling
         FLEET_EFFECT_ENTITIES = {
             ## cardinality = 4..4
-            scalar # TODO `<model_entity>` or empty string
+            <model_entity>
+            ## cardinality = 4..4
+            scalar # empty string (or something else?)
         }
         ### - index 0: when repairing
         ### - index 1: when upgrading
@@ -447,7 +453,7 @@ defines = {
 
         ## file_extensions = { shader }
         STORM_FORECAST_MESH_EFFECT_FILENAME = filepath
-        STORM_FORECAST_MESH_EFFECT_NAME = scalar
+        STORM_FORECAST_MESH_EFFECT_NAME = $shader_effect # effects in .shader files (since plugin version v2.1.9)
 
         ### Entity that is used at the end of the arrow
         STORM_SPAWN_PREDICTION_INDICATOR_ENTITY = <model_entity>
