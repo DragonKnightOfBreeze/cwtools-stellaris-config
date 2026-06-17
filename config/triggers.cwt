@@ -38,7 +38,11 @@ alias[trigger:else_if] = {
 ### if = { limit = { <display_triggers> } <triggers> }
 ### else = { <triggers> }
 ## scopes = any
-alias[trigger:else] = single_alias_right[trigger_clause]
+alias[trigger:else] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+	alias_name[trigger] = alias_match_left[trigger]
+}
 
 
 ### Checks if the country has any instance of target faction type
@@ -5493,8 +5497,9 @@ alias[trigger:is_specimen_category] = enum[specimen_type]
 
 ### Checks used naval cap by the scoped country or fleet's controlled ships which fulfill the specified criteria.
 ## scopes = { country ship fleet }
-## push_scope = fleet
 alias[trigger:count_used_naval_cap] = {
+	## cardinality = 0..1
+	## push_scope = fleet
 	limit = single_alias_right[trigger_clause]
 	count = all
 	count == int_value_field
@@ -5585,6 +5590,9 @@ alias[trigger:is_aura_intensity_level] == int_value_field
 ### Checks if a planet's happiness is past a given threshold. Can be used in a scoped system, then it returns the sum of every planets' happiness past the given threshold.
 ## scopes = { planet galactic_object }
 alias[trigger:planet_happiness_above_threshold] = {
+	## cardinality = 0..1
+	## push_scope = planet
+	limit = single_alias_right[trigger_clause]
 	threshold == value_field
 	value == int_value_field
 }
@@ -5650,6 +5658,9 @@ alias[trigger:total_workforce_with_job_tag] = {
 ### Checks how much workforce that has jobs with all given tags in a system
 ## scopes = { galactic_object }
 alias[trigger:total_system_workforce_with_job_tag] = {
+	## cardinality = 0..1
+	## push_scope = pop_job
+	limit = single_alias_right[trigger_clause]
 	tags = {
 		## cardinality = 0..inf
 		enum[job_tag]
@@ -5954,8 +5965,8 @@ alias[trigger:count_visible_contracts] == int
 alias[trigger:galaxy_radius] == int
 
 ### Checks if the colony carrier has a specific flag
-## scopes = { planet ship colony }
-alias[trigger:has_carrier_flag] = <flag> (note: one can use e.g. my_flag@from to track relationships between objects)
+## scopes = { colony }
+alias[trigger:has_carrier_flag] = value[carrier_flag]
 
 ### Checks if the job or the group has the one of the civilian categories
 ## scopes = { pop_group }
@@ -5992,7 +6003,7 @@ alias[trigger:hostile_military_power] = {
 ## scopes = { planet ship astral_rift }
 executing a survey order targeting this planet/deposit holder.
 alias[trigger:is_being_surveyed] = {
-	who = sopce[fleet]
+	who = scope[fleet]
 }
 
 ### Returns true if the scoped mission is of type <type>

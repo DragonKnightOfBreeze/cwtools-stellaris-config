@@ -19,6 +19,10 @@ types = {
 decision = {
 	## cardinality = 0..1
 	owned_planets_only = bool
+	#### default: no. Shown on top of the list and highlighted
+	####
+	## cardinality = 0..1
+	important = bool
 	## cardinality = 0..1
 	enactment_time = int
 	## cardinality = 0..1

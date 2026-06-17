@@ -20,7 +20,7 @@ solar_system_initializer = {
 	namelist = value[custom_star_names]
 	#the class below here represents star class, which is the icon of the system in galactic view.
 	class = <star_class> #this also includes random lists of stars, as defined in the star_classes files
-	class = enum[star_class_random_list]
+	class = <star_class_random_list>
 	## cardinality = 0..1
 	flags = { #star_flag
 		## cardinality = 0..inf
@@ -344,6 +344,7 @@ enums = {
 		custom_empire
 		fallen_empire_init
 		origin
+		nomad_init
 	}
 	enum[satellite_naming_policy] = {
 		upper_case_roman_numerals

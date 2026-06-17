@@ -144,6 +144,14 @@ special_project = {
 		}
 	}
 
+	## cardinality = 0..1
+	triggered_requirement = {
+		text = localisation
+		count = int
+		## replace_scopes = { this = fleet root = fleet }
+		trigger = single_alias_right[trigger_clause]
+	}
+
 	## push_scope = country
 	## cardinality = 0..1
 	### this = country (project owner); from = event scope (planet or ship, MIGHT NOT EXIST); fromfrom = project creation scope (usually equals location)
@@ -187,5 +195,6 @@ enums = {
 		ship_event
 		planet_event
 		country_event
+		carrier_event
 	}
 }

@@ -293,6 +293,11 @@ component_template = {
 		size_damage_factor = float
 
 		## cardinality = 0..1
+		collateral_damage = float
+		## cardinality = 0..1
+		collateral_range = float
+
+		## cardinality = 0..1
 		windup = { min = float max = float }
 		## cardinality = 0..1
 		total_fire_time = float
@@ -442,8 +447,11 @@ component_template = {
 		## cardinality = 0..1
 		hyperlane_range = int
 
-		## cardinality = 0..inf
-		scripted_action = <scripted_action>
+		## cardinality = 0..1
+		scripted_action = {
+			## cardinality = 0..inf
+			<scripted_action>
+		}
 	}
 
 	## replace_scopes = { this = design from = country }

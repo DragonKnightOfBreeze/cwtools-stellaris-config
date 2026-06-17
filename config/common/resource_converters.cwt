@@ -2,12 +2,6 @@ types = {
     type[resource_converter] = {
         path = "game/common/resource_converters"
         path_extension = .txt
-        localisation = {
-            name = localization
-        }
-        images = {
-            icon = icon
-        }
     }
 }
 
@@ -88,7 +82,7 @@ resource_converter = {
                 ####
                 ####
                 ## cardinality = 0..inf
-                <resource> = int
+                <resource> = float
             }
 
         }

@@ -1,5 +1,4 @@
 types = {
-	## type_key_filter <> random_list
 	type[star_class] = {
 		path = "game/common/star_classes"
 		path_extension = .txt
@@ -9,9 +8,8 @@ types = {
 			desc = "$_desc"
 		}
 	}
-	## type_key_filter = random_list
 	type[star_class_random_list] = {
-		path = "game/common/star_classes"
+		path = "game/common/star_classes/randomizers"
 		path_extension = .txt
 	}
 }
@@ -49,21 +47,18 @@ star_class = {
 		## cardinality = 0..inf
 		alias_name[modifier] = alias_match_left[modifier]
 	}
+
+	#### Image from gfx/portraits/arkships/ships used in portrait background for arkships
+	####
+	## cardinality = 1..1
+	## file_extensions = { dds }
+	arkship_picture = filepath[gfx/portraits/arkships/ships]
+
 }
 
 star_class_random_list = {
-	name = scalar
 	stars = {
 		## cardinality = 0..inf
 		<star_class>
-	}
-}
-
-enums = {
-	complex_enum[star_class_random_list] = {
-		path = "game/common/star_classes"
-		name = {
-			name = enum_name
-		}
 	}
 }

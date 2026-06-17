@@ -49,6 +49,23 @@ ship_behavior = {
 	combat_target_anchor = enum[combat_anchor]
 	## cardinality = 0..1
 	ignore_combat_movement = bool
+
+	## cardinality = 0..1
+	combat_movement = enum[combat_movement]
+
+	#### If our fleet stance is Evasive and the combined fleet power of our enemies is greater than FLEET_DANGEROUS_SYSTEM_POWER_MULT compared to our allies, flee the system.
+	####
+	#### If our fleet stance is Passive or Aggressive and our HP is less than the define FLEET_DANGEROUS_HULL_THRESHOLD, flee the system.
+	## cardinality = 0..1
+	flee_when_overpowered = bool
+
+	## cardinality = 0..1
+	allow_emergency_ftl = bool
+
+	## cardinality = 0..1
+	allow_disengage = bool
+
+
 }
 enums = {
 	enum[move_pattern] = {
@@ -69,5 +86,9 @@ enums = {
 		min
 		max
 		median
+	}
+	enum[combat_movement] = {
+		ignore
+		player_override
 	}
 }

@@ -278,6 +278,7 @@ modifiers = {
 	empire_size_penalty_mult = { Countries }
 	empire_size_branch_office_mult = { Countries }
 	tradition_cost_empire_size_mult = { Countries }
+	tradition_cost_mult = { Countries }
 	tech_cost_empire_size_mult = { Countries }
 	leader_cost_empire_size_mult = { "Economic Units" }
 	leader_upkeep_empire_size_mult = { "Economic Units" }
@@ -305,10 +306,10 @@ modifiers = {
 	starbase_module_build_speed_mult = { Starbases }
 	starbase_defense_platform_capacity_add = { Starbases }
 	starbase_defense_platform_capacity_mult = { Starbases }
-	floatstarbase_stockpile_capacity_add = { Waystations }
-	floatstarbase_stockpile_capacity_mult = { Waystations }
-	floatstarbase_collected_system_resources_mult = { Starbases Waystations }
-	floatship_starbase_stockpile_collection_rate_add = { Ships }
+	starbase_stockpile_capacity_add = { Waystations }
+	starbase_stockpile_capacity_mult = { Waystations }
+	starbase_collected_system_resources_mult = { Starbases Waystations }
+	ship_starbase_stockpile_collection_rate_add = { Ships }
 	ship_starbase_stockpile_collection_rate_mult = { Ships }
 	ship_stockpile_capacity_add = { Ships }
 	ship_stockpile_capacity_mult = { Ships }
@@ -564,6 +565,7 @@ modifiers = {
 	starbase_collected_system_<resource>_mult = { Starbases Waystations }
 	ship_starbase_stockpile_<resource>_collection_rate_add = { Ships }
 	ship_starbase_stockpile_<resource>_collection_rate_mult = { Ships }
+	shipsize_<ship_size>
 
 	# espionage_category modifiers
 	<espionage_category>_speed_mult = { Espionage }
@@ -675,8 +677,11 @@ modifiers = {
 	shipsize_<ship_size>_damage_against_space_fauna_mult = { Ships }
 	shipsize_<ship_size>_steal_defeated_ship_chance = { "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" }
 	shipsize_<ship_size>_build_speed_mult = { "Planets" "Megastructures" "Starbases" }
-	shipsize_<ship_size>_anomaly_generation_chance_uninhabitable = "Science Ships"
-	shipsize_<ship_size>_science_survey_speed_uninhabitable = "Science Ships"
+	shipsize_<ship_size>_anomaly_generation_chance_uninhabitable = { "Science Ships" }
+	shipsize_<ship_size>_starbase_stockpile_collection_rate_mult = { Ships }
+	shipsize_<ship_size>_stockpile_capacity_add = { Ships }
+	shipsize_<ship_size>_stockpile_capacity_mult = { Ships }
+	shipsize_<ship_size>_federation_territory_fire_rate_mult = { Ships }
 
 	# damage_vs_country_type modifiers
 	damage_vs_country_type_<country_type>_mult = { Ships }

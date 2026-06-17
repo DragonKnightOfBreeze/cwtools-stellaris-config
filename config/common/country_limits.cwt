@@ -31,13 +31,13 @@ country_ship_of_size_limit = {
 	# capacity = min( max, base + naval_cap_fraction * current_naval_cap )
 	# where current_naval_cap is current naval capacity of the country
 	### Base (minimal) shared capacity of ships
-	base = int
+	base = int_value_field
 	### Maximal shared capacity of ships
 	## cardinality = 0..1
-	max = int
+	max = int_value_field
 	### Fraction of current naval capacity of the country
 	## cardinality = 0..1
-	naval_cap_fraction = float
+	naval_cap_fraction = value_field
 	### Trigger that defines if tooltip for naval capacity icon on the top bar should be shown
 	show = single_alias_right[trigger_clause]
 }

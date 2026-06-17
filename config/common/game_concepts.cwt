@@ -45,6 +45,8 @@ game_concept = {
 		category = <game_concepts_categories>
 		icon = <sprite>
 		picture = <sprite>
+		## cardinality = 0..1
+		postfix = localisation
 	}
 
 	### Stellaris Wiki search string override. By default it is generated from the key. Probably not useful for modders currently as only the official wiki is supported.

@@ -3,7 +3,7 @@ types = {
         path = "game/common/situation_log/categories"
         path_extension = .txt
         localisation = {
-            name = localization
+            name = localisation
         }
         images = {
             icon = icon
@@ -22,7 +22,7 @@ situation_log_category = {
     priority = int
 
     ## cardinality = 1..1
-    localization = localization
+    localization = localisation
 
     ### whether the entry can be collapsed, default is yes
     ## cardinality = 1..1

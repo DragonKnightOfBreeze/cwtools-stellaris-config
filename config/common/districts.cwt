@@ -30,6 +30,11 @@ types = {
 
 ## push_scope = planet
 district = {
+	#### The district type that is used for the max add & mult capacity modifier.
+	####
+	#### Building any district type on the planet that uses this shared pool reduce the maximum available amount for the other districts in the pool that share it
+	## cardinality = 0..1
+	shared_capacity_modifier = <district>
 	### default: no
 	## cardinality = 0..1
 	expansion_planner = bool

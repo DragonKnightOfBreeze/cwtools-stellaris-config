@@ -55,7 +55,33 @@ starbase_building = {
 	show_in_tech = <technology>
 
 	## cardinality = 0..1
-	starbase_type = orbital_ring
+	## replace_scopes = { root = country this = country }
+	show_tech_unlock_if = single_alias_right[trigger_clause]
+
+	## cardinality = 0..1
+	starbase_type = enum[starbase_type]
+
+	#### optional: default is no limit
+	####
+	#### don't set base to less than 0, it will ignore it (for performance optimisation reasons)
+	## replace_scopes = { root = country this = country }
+	## cardinality = 0..1
+	empire_limit = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	#### optional: max capacity per starbase
+	####
+	#### default for starbase buildings: 1
+	####
+	#### default for starbase modules: no limit
+	####
+	#### don't set base to less than 0, it will ignore it (for performance optimisation reasons)
+	## replace_scopes = { root = starbase this = starbase }
+	## cardinality = 0..1
+	starbase_limit = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
 
 	## cardinality = 0..1
 	potential = single_alias_right[trigger_clause]
@@ -194,7 +220,7 @@ starbase_module = {
 	show_in_tech = <technology>
 
 	## cardinality = 0..1
-	starbase_type = orbital_ring
+	starbase_type = enum[starbase_type]
 
 	## cardinality = 0..inf
 	resources = {
@@ -361,6 +387,11 @@ starbase_type = {
 	weight_modifier = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
+
+	#### Use the Wayline UI for the outliner instead of the Starbase UI.
+	## cardinality = 0..1
+	is_waystation = bool
+
 	## cardinality = 0..1
 	### Set it so that the AI will build defense platforms (note: it will always build them in the capital system). Default: no
 	ai_use_defense_platforms = bool

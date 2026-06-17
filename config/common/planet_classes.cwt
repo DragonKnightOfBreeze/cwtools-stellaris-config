@@ -53,6 +53,10 @@ planet_class = {
 	atmosphere_intensity = float
 	## cardinality = 0..1
 	atmosphere_width = float
+
+	## cardinality = 0..1
+	climate = localisation
+
 	entity = <model_entity>
 	entity = scalar # TODO: entity somehow
     ## cardinality = 0..1
@@ -73,6 +77,18 @@ planet_class = {
 	icon = <sprite>
 	## cardinality = 1..1
 	icon_large = <sprite>
+
+	## cardinality = 0..inf
+	conditional_icon = {
+		## replace_scopes = { this = colony root = colony }
+		## cardinality = 0..1
+		trigger = single_alias_right[trigger_clause]
+		## cardinality = 0..1
+		icon = <sprite>
+		## cardinality = 1..1
+		icon_large = <sprite>
+	}
+
 	subtype[planet] = {
 		icon = <sprite>
 		## cardinality = 0..1
@@ -239,6 +255,15 @@ planet_class = {
 	### default = yes; Can be used to block all other additions of max building and district modifiers except the planet class specific ones.
 	## cardinality = 0..1
 	inherit_country_building_modifiers = bool
+
+	#### Default: no. If yes, merges all build queues from the colony and carrier into a single one
+	####
+	#### If the carrier is also a starbase, this includes build queues in the starbase as well
+	####
+	#### Build queues for external buildings like holdings ignore this parameter and are kept separate
+	## cardinality = 0..1
+	single_build_queue = bool
+
 }
 
 planet_class_random_list = {

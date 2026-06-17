@@ -104,6 +104,41 @@ megastructure = {
 	custom_tooltip_requirements = localisation
 	## cardinality = 0..1
 	build_system_tooltip = <system_tooltip>
+
+	#### MTTH-style block, scope: galactic object, from: country. Higher score = higher rank. Mutually exclusive with
+	## cardinality = 0..1
+	## replace_scopes = { this = system root = system }
+	tooltip_system_score = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	#### optional: systems scoring at or below this value are shown in red
+	## cardinality = 0..1
+	tooltip_system_score_low_threshold = int
+
+	#### optional: systems scoring at or above this value are shown in green; between thresholds is yellow
+	## cardinality = 0..1
+	tooltip_system_score_high_threshold = int
+
+	#### alternative to tooltip_system_score: ranks systems by the star's deposit resource output
+	####
+	#### (weighted by culling conversion values) and displays resource icons instead of a numeric score.
+	## cardinality = 0..1
+	tooltip_show_star_resources = bool
+
+	#### loc key for the header shown above the list (e.g. "§ESystems with highest potential:§!")
+	## cardinality = 0..1
+	tooltip_best_systems_header = localisation
+
+	#### trigger block, scope: galactic object, from: country. Systems that fail this trigger are excluded from the list entirely.
+	####
+	#### Use this to filter out systems that are fundamentally ineligible (e.g. already have this megastructure).
+	####
+	#### Prefer this over repeating the full possible = {} block, which includes infrastructure checks unsuitable for ranking.
+	## cardinality = 0..1
+	## replace_scopes = { this = system root = system from = country }
+	tooltip_system_filter = single_alias_right[trigger_clause]
+
 	## cardinality = 0..1
 	prerequisites = {
 		## cardinality = 0..inf
@@ -121,6 +156,16 @@ megastructure = {
 	## cardinality = 0..1
 	## replace_scopes = { this = system root = system from = country }
 	possible = single_alias_right[trigger_clause]
+
+	#### If true, fleets that can potentially build the megastructure will show a separate option for it in the system right-click context menu.
+	####
+	#### If this is not specified, the option is never shown.
+	####
+	#### Not currently supported for megastructures with build_type = around_planet or must_select_ship_design = yes.
+	## cardinality = 0..1
+	## replace_scopes = { this = system root = system from = country }
+	context_menu_potential = single_alias_right[trigger_clause]
+
 	## cardinality = 0..1
 	build_time = int
 	## cardinality = 0..1

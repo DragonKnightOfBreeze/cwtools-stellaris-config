@@ -53,6 +53,8 @@ alias[effect:else_if] = {
 ### if = { limit = { <triggers> } <effects> }
 ## scopes = any
 alias[effect:else] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -570,7 +572,7 @@ alias[effect:set_faction_properties] = {
 alias[effect:set_planet_flag] = value_set[planet_flag]
 
 ### Sets an arbitrarily-named flag on the scoped colony carrier (Note: Colony doesn't store flags. Using any of the carrier_flag effects/triggers in colony scope will access flags in the colony carrier instead.)
-## scopes = { planet ship colony }
+## scopes = { colony }
 alias[effect:set_carrier_flag] = value_set[carrier_flag]
 
 ### Sets an arbitrarily-named flag on the scoped pop_group's faction/pop_group faction
@@ -1600,7 +1602,9 @@ alias[effect:add_zone] = {
 	## cardinality = 0..1
 	replace = bool
 }
-
+### Begins construction of a specific building on the scoped planet
+## scopes = { planet ship colony }
+alias[effect:add_building] = <building>
 ### Begins construction of a specific building on the scoped planet
 ## scopes = { planet ship colony }
 alias[effect:add_building] = {
@@ -9902,7 +9906,7 @@ Has options for whether the contract cost should be refunded to the issuer, and 
 ## scopes = { planet ship colony }
 alias[effect:carrier_event] = {
 	id = <event.scopeless>
-	id = <event.situation>
+	id = <event.carrier>
 	## cardinality = 0..1
 	days = int_value_field
 	## cardinality = 0..1

@@ -16,9 +16,14 @@ types = {
 specimen = {
 
 	icon = <sprite>
+
 	type = enum[specimen_type]
+
 	rarity = enum[specimens_rarity]
 
+	is_tradable = bool
+
+	is_sellable = bool
 
 	## cardinality = 0..inf
 	resources = {

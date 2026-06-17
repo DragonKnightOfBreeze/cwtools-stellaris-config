@@ -47,6 +47,10 @@ trait = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
+	allowed_civics = {
+		<civic_or_origin.civic>
+	}
+
 	subtype[leader_trait] = {
 		### This trait is available in ruler creation. Default is no.
 		## cardinality = 0..1
@@ -532,7 +536,7 @@ trait = {
 
 		## cardinality = 0..1
 		slave_cost = {
-			energy = int
+			trade = int
 		}
 
 		### if it returns true, then the trait is valid, even if it's for a species with a different species class. if empty or returning false, then the species_class limitations are respected normally.

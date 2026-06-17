@@ -58,7 +58,7 @@ resolution_category = {
 	group = localisation
 	icon = <sprite>
 	## cardinality = 0..1
-	multiple_active_resolutions = yes
+	multiple_active_resolutions = bool
 	resolution_types = {
 		## cardinality = 1..inf
 		<resolution>

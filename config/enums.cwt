@@ -510,4 +510,10 @@ enums = {
 		corewards
 		rimwards
 	}
+	enum[starbase_type] = {
+		starbase
+		orbital_ring
+		waystation
+		all
+	}
 }
