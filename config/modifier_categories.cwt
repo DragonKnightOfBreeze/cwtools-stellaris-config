@@ -3,10 +3,10 @@ modifier_categories = {
 		supported_scopes = { any }
 	}
 	Pops = {
-		supported_scopes = { species pop_group planet sector galacticobject country }
+		supported_scopes = { species pop_group planet sector galacticobject country colony }
 	}
 	Job = {
-		supported_scopes = { species pop_group planet sector galacticobject country }
+		supported_scopes = { species pop_group planet sector galacticobject country colony }
 	}
 	Countries = {
 		supported_scopes = { country federation }
@@ -15,31 +15,31 @@ modifier_categories = {
 		supported_scopes = { planet ship colony sector galacticobject country }
 	}
 	Armies = {
-		supported_scopes = { army planet sector galacticobject country }
+		supported_scopes = { army planet sector galacticobject country colony }
 	}
 	Leaders = {
 		supported_scopes = { leader country }
 	}
 	Planets = {
-		supported_scopes = { planet sector galacticobject country }
+		supported_scopes = { planet sector galacticobject country colony }
 	}
 	"Pop Factions" = {
 		supported_scopes = { pop_faction country }
 	}
 	"Military Ships" = {
-		supported_scopes = { ship starbase fleet galacticobject country sector }
+		supported_scopes = { ship starbase fleet galacticobject country sector colony }
 	}
 	"Civilian Ships" = {
-		supported_scopes = { ship starbase fleet galacticobject country sector }
+		supported_scopes = { ship starbase fleet galacticobject country sector colony }
 	}
 	"Science Ships" = {
-		supported_scopes = { ship starbase fleet galacticobject country sector }
+		supported_scopes = { ship starbase fleet galacticobject country sector colony }
 	}
 	"Transport Ships" = {
-		supported_scopes = { ship starbase fleet galacticobject country sector }
+		supported_scopes = { ship starbase fleet galacticobject country sector colony }
 	}
 	"Owned Ships" = {
-		supported_scopes = { ship starbase fleet galacticobject country sector }
+		supported_scopes = { ship starbase fleet galacticobject country sector colony }
 	}
 	Ships = {
 		supported_scopes = { ship starbase fleet planet sector galacticobject country leader }

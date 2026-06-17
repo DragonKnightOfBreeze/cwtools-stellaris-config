@@ -26,7 +26,7 @@ types = {
 	}
 }
 
-## push_scope = planet
+## push_scope = colony
 colony_type = {
 	icon = <sprite>
 
@@ -35,7 +35,7 @@ colony_type = {
 	ai_resource_conversion = {
 		## cardinality = 0..inf
 		<resource> = float
-		## replace_scopes = { this = planet root = planet }
+		## replace_scopes = { this = colony root = colony }
 		trigger = single_alias_right[trigger_clause]
 	}
 
@@ -44,7 +44,7 @@ colony_type = {
 	ai_resource_current_conversion = {
 		## cardinality = 0..inf
 		<resource> = float
-		## replace_scopes = { this = planet root = planet }
+		## replace_scopes = { this = colony root = colony }
 		trigger = single_alias_right[trigger_clause]
 	}
 
@@ -54,17 +54,17 @@ colony_type = {
 	custom_tooltip = localisation
 
 	## cardinality = 0..1
-	## replace_scopes = { this = planet root = planet }
+	## replace_scopes = { this = colony root = colony }
 	planet_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..inf
-	## replace_scopes = { this = planet root = planet }
+	## replace_scopes = { this = colony root = colony }
 	triggered_planet_modifier = single_alias_right[triggered_modifier_clause]
 
 	## cardinality = 0..1
 	ai_building_set_affinity = {
 		## cardinality = 0..inf
-		<resource> = float
+		value[building_set] = float
 	}
 
 	weight_modifier = {
@@ -72,7 +72,7 @@ colony_type = {
 	}
 }
 
-## push_scope = planet
+## push_scope = colony
 colony_automation = {
 	category = <colony_automation_category>
 
@@ -102,13 +102,13 @@ colony_automation = {
 	}
 }
 
-## push_scope = planet
+## push_scope = colony
 colony_automation_category = {
 	## cardinality = 0..1
 	available = single_alias_right[trigger_clause]
 }
 
-## push_scope = planet
+## push_scope = colony
 colony_automation_exception = {
 	category = <colony_automation_category>
 	### default: no

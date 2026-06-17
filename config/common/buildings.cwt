@@ -53,15 +53,15 @@ enums = {
 }
 
 
-## push_scope = planet
+## push_scope = colony
 building = {
 	## cardinality = 0..inf
-	## replace_scopes = { this = planet root = planet }
+	## replace_scopes = { this = colony root = colony }
 	desc = single_alias_right[triggered_desc_clause]
 	## cardinality = 0..1
 	district_limit = float
 	### optional: default is no limit Mult by -1 to remove limit (still affected by is_capped_by_modifier = yes)
-	## replace_scopes = { root = planet this = planet }
+	## replace_scopes = { root = colony this = colony }
 	## cardinality = 0..1
 	district_limit = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -205,7 +205,7 @@ building = {
 	show_tech_unlock_if = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
-	## replace_scopes = { this = planet root = planet }
+	## replace_scopes = { this = colony root = colony }
 	planet_modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
@@ -223,7 +223,7 @@ building = {
 	## replace_scopes = { this = pop_group root = pop_group }
 	triggered_planet_pop_group_modifier_for_all = single_alias_right[triggered_modifier_by_planet_clause]
 	## cardinality = 0..inf
-	## replace_scopes = { this = planet root = planet }
+	## replace_scopes = { this = colony root = colony }
 	triggered_planet_modifier = single_alias_right[triggered_modifier_clause]
 	## cardinality = 0..inf
 	## replace_scopes = { this = country root = country }

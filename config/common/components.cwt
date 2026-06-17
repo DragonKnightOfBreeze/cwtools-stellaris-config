@@ -447,7 +447,7 @@ component_template = {
 		## cardinality = 0..1
 		hyperlane_range = int
 
-		## cardinality = 0..1
+		## cardinality = 0..inf
 		scripted_action = {
 			## cardinality = 0..inf
 			<scripted_action>

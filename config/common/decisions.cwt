@@ -12,10 +12,13 @@ types = {
 			## optional
 			icon = "gfx/interface/icons/decisions/$.dds" # inferred
 		}
+		subtype[colony_decision] = {
+			owned_planets_only = yes
+		}
 	}
 }
 
-## replace_scopes = { this = planet root = planet from = country }
+## replace_scopes = { this = any root = any from = country } #todo 这里decision会根据游戏里不同的情况有不同的域，在游牧的船殖民地上是ship，在球上是planet，不固定
 decision = {
 	## cardinality = 0..1
 	owned_planets_only = bool
@@ -25,6 +28,21 @@ decision = {
 	important = bool
 	## cardinality = 0..1
 	enactment_time = int
+
+	custom_tooltip = {
+		## cardinality = 0..1
+		text = ""
+		## cardinality = 0..1
+		text = localisation
+		## cardinality = 0..1
+		fail_text = default
+		## cardinality = 0..1
+		fail_text = localisation
+		## cardinality = 0..1
+		success_text = localisation
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
 	## cardinality = 0..1
 	sound = <sound>
 	## cardinality = 0..1
