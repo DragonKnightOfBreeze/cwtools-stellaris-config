@@ -32,6 +32,9 @@ situation_type = {
 	category = enum[situation_category]
 
 	## cardinality = 0..1
+	situation_log_category = <situation_log_category>
+
+	## cardinality = 0..1
 	title = localisation
 	## cardinality = 0..inf
 	title = {

@@ -1,0 +1,39 @@
+types = {
+    type[situation_log_category] = {
+        path = "game/common/situation_log/categories"
+        path_extension = .txt
+        localisation = {
+            name = localization
+        }
+        images = {
+            icon = icon
+        }
+    }
+}
+
+situation_log_category = {
+
+    ### whether the entry can be collapsed, default is yes
+    ## cardinality = 0..1
+    collapsible = bool
+
+    ### whether the entry can be collapsed, default is yes
+    ## cardinality = 0..1
+    priority = int
+
+    ## cardinality = 1..1
+    localization = localization
+
+    ### whether the entry can be collapsed, default is yes
+    ## cardinality = 1..1
+    icon = <sprite>
+
+    ### default = no
+    ## cardinality = 0..1
+    default = yes
+
+    ### Displayed in the column of anomalies?
+    ## cardinality = 0..1
+    target_tab = anomalies
+
+}

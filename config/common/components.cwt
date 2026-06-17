@@ -443,7 +443,7 @@ component_template = {
 		hyperlane_range = int
 
 		## cardinality = 0..inf
-		scripted_action = single_alias_right[component_template_scripted_action]
+		scripted_action = <scripted_action>
 	}
 
 	## replace_scopes = { this = design from = country }
@@ -458,117 +458,6 @@ component_template = {
 	friendly_aura = single_alias_right[component_template_friendly_aura]
 	## cardinality = 0..inf
 	hostile_aura = single_alias_right[component_template_hostile_aura]
-}
-
-single_alias[component_template_scripted_action] = {
-	scope = enum[utility_action_type]
-
-	## cardinality = 0..1
-	finish_anim_state = scalar
-
-	### scope: target planet from: triggering fleet. Starts when in orbit of target planet (otherwise moves beforehand)
-	## cardinality = 0..1
-	## predicate = { scope = planet }
-	## replace_scopes = { this = planet from = fleet }
-	possible = single_alias_right[trigger_clause]
-	### scope: target planet from: triggering fleet. Starts when in orbit of target planet (otherwise moves beforehand)
-	## cardinality = 0..1
-	## predicate = { scope = planet }
-	## replace_scopes = { this = planet from = fleet }
-	finished = single_alias_right[trigger_clause]
-	### scope: target planet from: triggering fleet. Starts when in orbit of target planet (otherwise moves beforehand)
-	## cardinality = 0..1
-	## predicate = { scope = planet }
-	## replace_scopes = { this = planet from = fleet }
-	button_clickable = single_alias_right[trigger_clause]
-	### scope: target planet from: triggering fleet. Starts when in orbit of target planet (otherwise moves beforehand)
-	## cardinality = 0..1
-	## predicate = { scope = planet }
-	## replace_scopes = { this = planet from = fleet }
-	button_visible = single_alias_right[trigger_clause]
-
-	### scope: target fleet (can't be triggering fleet) from: triggering fleet. Starts when in range specified by fleet_action_range (otherwise moves beforehand)
-	## cardinality = 0..1
-	## predicate = { scope = fleet }
-	## replace_scopes = { this = fleet from = fleet }
-	possible = single_alias_right[trigger_clause]
-	### scope: target fleet (can't be triggering fleet) from: triggering fleet. Starts when in range specified by fleet_action_range (otherwise moves beforehand)
-	## cardinality = 0..1
-	## predicate = { scope = fleet }
-	## replace_scopes = { this = fleet from = fleet }
-	finished = single_alias_right[trigger_clause]
-	### scope: target fleet (can't be triggering fleet) from: triggering fleet. Starts when in range specified by fleet_action_range (otherwise moves beforehand)
-	## cardinality = 0..1
-	## predicate = { scope = fleet }
-	## replace_scopes = { this = fleet from = fleet }
-	button_clickable = single_alias_right[trigger_clause]
-	### scope: target fleet (can't be triggering fleet) from: triggering fleet. Starts when in range specified by fleet_action_range (otherwise moves beforehand)
-	## cardinality = 0..1
-	## predicate = { scope = fleet }
-	## replace_scopes = { this = fleet from = fleet }
-	button_visible = single_alias_right[trigger_clause]
-
-	## cardinality = 0..1
-	## predicate = { scope = self }
-	## replace_scopes = { this = fleet from = fleet }
-	### scope: target planet from: triggering fleet. Starts immediately
-	possible = single_alias_right[trigger_clause]
-	### scope: target planet from: triggering fleet. Starts immediately
-	## cardinality = 0..1
-	## predicate = { scope = self }
-	## replace_scopes = { this = fleet from = fleet }
-	finished = single_alias_right[trigger_clause]
-	### scope: target planet from: triggering fleet. Starts immediately
-	## cardinality = 0..1
-	## predicate = { scope = self }
-	## replace_scopes = { this = fleet from = fleet }
-	button_clickable = single_alias_right[trigger_clause]
-	### scope: target planet from: triggering fleet. Starts immediately
-	## cardinality = 0..1
-	## predicate = { scope = self }
-	## replace_scopes = { this = fleet from = fleet }
-	button_visible = single_alias_right[trigger_clause]
-
-	name = <on_action>
-
-	tooltip = localisation
-
-	icon = <sprite>
-
-	## cardinality = 0..1
-	icon_selected = <sprite>
-
-	## cardinality = 0..1
-	on_cancel = <on_action>
-
-	activity_key = localisation
-
-	## cardinality = 0..1
-	context_menu_name = localisation
-
-	## cardinality = 0..1
-	progress_activity_key = localisation
-
-	## cardinality = 0..1
-	required_progress = int
-
-	## cardinality = 0..1
-	on_click_sound = <sound_effect>
-
-	## cardinality = 0..1
-	wait = bool
-
-	## cardinality = 0..1
-	cooldown = int
-	## cardinality = 0..1
-	cost = {
-		## cardinality = 0..inf
-		<resource> = int
-	}
-	## cardinality = 0..1
-	shortcut = scalar
-	## cardinality = 0..1
-	slot = int
 }
 
 single_alias[component_template_friendly_aura] = {
@@ -761,10 +650,24 @@ enums = {
 		ships
 		fleets
 	}
-	enum[utility_action_type] = {
+	enum[ship_action_type] = {
+		galactic_object
 		planet
 		fleet
 		self
+	}
+	enum[ship_user_action_type] = {
+		fleet
+		megastructure
+	}
+	enum[ship_action_ai_minister] = {
+		none
+		interior
+		military
+	}
+	enum[ship_action_vfx_type] = {
+		survey_effect
+		harvest_effect
 	}
 	enum[target_focus] = {
 		single

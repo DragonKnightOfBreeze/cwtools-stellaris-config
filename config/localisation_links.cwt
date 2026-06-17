@@ -1,7 +1,11 @@
 localisation_links = {
 	Planet = {
-		input_scopes = { archaeological_site army pop_group megastructure deposit }
+		input_scopes = { archaeological_site megastructure deposit colony }
 		output_scope = planet
+	}
+	Colony = {
+		input_scopes = { army pop_group }
+		output_scope = colony
 	}
 	Capital = {
 		input_scopes = { country }
@@ -20,7 +24,7 @@ localisation_links = {
 		output_scope = fleet
 	}
 	Ship = {
-		input_scopes = { archaeological_site }
+		input_scopes = { archaeological_site colony }
 		output_scope = ship
 	}
 	GalacticObject = {
@@ -28,11 +32,11 @@ localisation_links = {
 		output_scope = system
 	}
 	System = {
-		input_scopes = { fleet planet first_contact megastructure }
+		input_scopes = { fleet planet first_contact megastructure colony }
 		output_scope = system
 	}
 	Owner = {
-		input_scopes = { army planet system leader pop_faction fleet ship starbase first_contact sector megastructure spy_network espionage_operation }
+		input_scopes = { army planet system leader pop_faction fleet ship starbase first_contact sector megastructure spy_network espionage_operation colony }
 		output_scope = country
 	}
 	ContactCountry = {
@@ -64,7 +68,7 @@ localisation_links = {
 		output_scope = pop_faction
 	}
 	Sector = {
-		input_scopes = { planet system sector }
+		input_scopes = { planet system sector colony }
 		output_scope = sector
 	}
 	MainDefender = {

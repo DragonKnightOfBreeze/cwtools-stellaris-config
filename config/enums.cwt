@@ -93,6 +93,9 @@ enums = {
 		ship_growth_stage
 		trait
 		storms
+		carrier
+		mission
+		colony
 	}
 	enum[intel_level] = {
 		none
@@ -187,6 +190,7 @@ enums = {
 		primitive_worlds_scale
 		crisis_strength_scale
 		tech_costs_scale
+		fallen_empire_strength_scale
 	}
 	enum[federation_succession_type] = {
 		strongest
@@ -324,7 +328,8 @@ enums = {
 		federation
 		## modifier_categories = { Espionage "AI Economy" }
 		espionage
-		species
+		## modifier_categories = { Colony "AI Economy" }
+		colony
 	}
 	enum[job_trigger] = {
 		can_fill_ruler_job

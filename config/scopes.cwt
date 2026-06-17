@@ -12,8 +12,14 @@ scopes = {
     Planet = {
         aliases = { planet }
     }
+    Colony = {
+        aliases = { colony }
+    }
     Ship = {
         aliases = { ship }
+    }
+    Carrier = {
+        aliases = { ship planet }
     }
     Fleet = {
         aliases = { fleet }
@@ -114,6 +120,9 @@ scopes = {
     "Ship Growth Stage" = {
         aliases = { ship_growth_stage }
     }
+    Mission = {
+        aliases = { mission }
+    }
 }
 
 scope_groups = {
@@ -123,7 +132,7 @@ scope_groups = {
     }
     spatial_object = {
         planet ship fleet system ambient_object megastructure starbase archaeological_site debris situation
-		astral_rift bypass
+		astral_rift bypass colony
     }
     target_species = {
         country pop_group leader planet ship fleet army species first_contact
@@ -140,5 +149,8 @@ scope_groups = {
     }
     target_graphical_culture = {
         country ship megastructure species
+    }
+    carrier = {
+        ship planet
     }
 }

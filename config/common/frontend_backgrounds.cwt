@@ -1,0 +1,13 @@
+types = {
+    type[rontend_background] = {
+        path = "game/common/frontend_backgrounds"
+        path_extension = .txt
+        localisation = {
+            name = "$_FRONTEND_NAME"
+        }
+    }
+}
+
+rontend_background = {
+    entity = <model_entity>
+}

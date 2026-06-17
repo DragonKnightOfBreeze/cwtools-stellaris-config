@@ -1,15 +1,35 @@
 types = {
-    type[missions] = {
-        path = "game/common/missions"
+    type[mission] = {
+        path = "game/common/missions/missions"
         path_extension = .txt
         localisation = {
             name = "$"
+            desc = "$_desc"
             desc = desc
         }
         images = {
             ## optional
             icon = icon
             picture = picture
+        }
+        subtype[contract] = {
+            category = <mission_category.contract>
+        }
+    }
+    type[mission_category] = {
+        path = "game/common/missions/mission_categories"
+        path_extension = .txt
+        localisation = {
+            name = "$"
+            short = "$_short"
+        }
+        images = {
+            map_icon = map_icon
+            log_icon = log_icon
+            banner = "GFX_$_banner"
+        }
+        subtype[contract] = {
+            is_contract = yes
         }
     }
 }
@@ -28,8 +48,20 @@ enums = {
 }
 
 missions = {
-    ## cardinality = 1..1
+    ## cardinality = 0..1
+    category = <mission_category>
+
+    ## cardinality = 0..1
     desc = localisation
+    ## cardinality = 0..inf
+    desc = {
+        ## replace_scopes = { this = country root = country from = country }
+        ## cardinality = 0..1
+        trigger = single_alias_right[trigger_clause]
+        ## cardinality = 0..inf
+        text = localisation
+    }
+
     ## cardinality = 0..1
     event_chain = <event_chain>
     ## cardinality = 0..1
@@ -39,33 +71,214 @@ missions = {
     ## cardinality = 0..1
     location = bool
 
-    ## cardinality = 0..1
-    ## replace_scopes = { this = country root = country }
-    abort_trigger = single_alias_right[trigger_clause]
+    subtype[!contract] = {
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country }
+        abort_trigger = single_alias_right[trigger_clause]
 
-    ## cardinality = 0..1
-    ## replace_scopes = { this = country root = country }
-    on_daily = single_alias_right[effect_clause]
-    ## cardinality = 0..1
-    ## replace_scopes = { this = country root = country }
-    on_monthly = single_alias_right[effect_clause]
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country }
+        on_daily = single_alias_right[effect_clause]
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country }
+        on_monthly = single_alias_right[effect_clause]
 
-    ## cardinality = 0..inf
-    counter = {
         ## cardinality = 0..inf
-        localisation = {
-            ## cardinality = 0..1
-            max = int
+        counter = {
+            ## cardinality = 0..inf
+            localisation = {
+                ## cardinality = 0..1
+                max = int
+            }
         }
+
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country }
+        on_success = single_alias_right[effect_clause]
+
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country }
+        on_stop = single_alias_right[effect_clause]
     }
 
-    ## cardinality = 0..1
-    ## replace_scopes = { this = country root = country }
-    on_success = single_alias_right[effect_clause]
+    ### OPTIONAL, defaults to yes. Doesn't actually do anything.
+    sound = bool
+
+    subtype[contract] = {
+        ## cardinality = 0..1
+        desc_operator = localisation
+        ## cardinality = 0..inf
+        desc_operator = {
+            ## replace_scopes = { this = country root = country from = country }
+            ## cardinality = 0..1
+            trigger = single_alias_right[trigger_clause]
+            ## cardinality = 0..inf
+            text = localisation
+        }
+
+        ## cardinality = 0..1
+        desc_issuer = localisation
+        ## cardinality = 0..inf
+        desc_issuer = {
+            ## replace_scopes = { this = country root = country from = country }
+            ## cardinality = 0..1
+            trigger = single_alias_right[trigger_clause]
+            ## cardinality = 0..inf
+            text = localisation
+        }
+        ## cardinality = 0..1
+        lore_issued = localisation
+
+        ## cardinality = 0..1
+        lore_completed = localisation
+
+        ## cardinality = 0..1
+        lore_failed = localisation
+
+        ## cardinality = 1..1
+        lore_completed = localisation
+
+        ## cardinality = 1..1
+        small_picture = <sprite>
+
+        ## cardinality = 1..1
+        time_to_accept = int
+
+        ## cardinality = 0..1
+        time_to_complete = int
+
+        ## cardinality = 0..1
+        ai_behaviour = attack
+        ## cardinality = 0..1
+        ai_behaviour = raid
+
+        ### OPTIONAL. Trigger that determines whether the contract can be seen as an option by a potential issuer.
+        ### this: issuer country
+        ### from: system to issue in
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country from = system }
+        potential_issuer = single_alias_right[trigger_clause]
+
+        ### OPTIONAL. Trigger that determines whether the contract can be issued by a potential issuer.
+        ### this: issuer country
+        ### from: system to issue in
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country from = system }
+        possible_issuer = single_alias_right[trigger_clause]
+
+        ### OPTIONAL. Trigger that determines whether the contract can be accepted by a potential operator.
+        ### this: operator country
+        ### from: contract location
+        ### fromfrom: issuer country
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country from = scope_group[spatial_object] fromfrom = country }
+        potential_operator = single_alias_right[trigger_clause]
+
+        ### OPTIONAL. Trigger that determines whether the contract can be seen by a potential operator.
+        ### this: operator country
+        ### from: contract location
+        ### fromfrom: issuer country
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country from = scope_group[spatial_object] }
+        possible_operator = single_alias_right[trigger_clause]
+
+        ### OPTIONAL, Contracts only, Effect to be run when a country issues up the contract
+        ### this: issuer
+        ### from: the scope from the mission
+        ### fromfrom: contract location, if applicable
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country from = country fromfrom = scope_group[spatial_object] }
+        on_issue = single_alias_right[effect_clause]
+
+        ### OPTIONAL, Contracts only, Effect to be run when a country picks up the contract
+        ### this: operator (the country doing the mission/contract)
+        ### prev: issuer if applicable (the country that issued the contract)
+        ### from: the scope from the mission
+        ### fromfrom: contract location, if applicable
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country prev = country from = country fromfrom = scope_group[spatial_object] }
+        on_accept = single_alias_right[effect_clause]
+
+        ### OPTIONAL. Trigger to abort the mission.
+        ### this: operator (the country doing the mission/contract)
+        ### prev: issuer if applicable (the country that issued the contract)
+        ### from: the scope from the mission
+        ### fromfrom: contract location, if applicable
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country prev = country from = country fromfrom = scope_group[spatial_object] }
+        abort_trigger = single_alias_right[trigger_clause]
+
+        ### OPTIONAL. Effect to be run when the mission is ended early (cancelled/failed/timed out).
+        ### this: operator (the country doing the mission/contract)
+        ### prev: issuer if applicable (the country that issued the contract)
+        ### from: the scope from the mission
+        ### fromfrom: contract location, if applicable
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country prev = country from = country fromfrom = scope_group[spatial_object] }
+        on_cancel = single_alias_right[effect_clause]
+
+        ### OPTIONAL. Effect to be run when the mission is started.
+        ### this: operator (the country doing the mission/contract)
+        ### prev: issuer if applicable (the country that issued the contract)
+        ### from: the scope from the mission
+        ### fromfrom: contract location, if applicable
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country prev = country from = country fromfrom = scope_group[spatial_object] }
+        on_start = single_alias_right[effect_clause]
+
+        ### OPTIONAL. Effect to be run when the mission is completed.
+        ### this: operator (the country doing the mission/contract)
+        ### prev: issuer if applicable (the country that issued the contract)
+        ### from: the scope from the mission
+        ### fromfrom: contract location, if applicable
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country prev = country from = country fromfrom = scope_group[spatial_object] }
+        on_success = single_alias_right[effect_clause]
+
+        ### OPTIONAL. Effect to be run after the mission ends, in any way (success/abort/time out).
+        ### this: operator (the country doing the mission/contract)
+        ### prev: issuer if applicable (the country that issued the contract)
+        ### from: the scope from the mission
+        ### fromfrom: contract location, if applicable
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country prev = country from = country fromfrom = scope_group[spatial_object] }
+        on_stop = single_alias_right[effect_clause]
+
+        ### OPTIONAL. Trigger to abort the mission, from the issuer side.
+        ### this: issuer
+        ### from: the scope from the mission
+        ### fromfrom: contract location, if applicable
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country from = country fromfrom = scope_group[spatial_object] }
+        issued_abort_trigger = single_alias_right[trigger_clause]
+
+        ### OPTIONAL. Only used for contracts. Weight used to determine what contracts will be picked up by an AI operator.
+        ### If the weight is equivalent between contracts, the closest contract will be selected.
+        ### he AI will heavily prefer picking up player-issued contracts adding the PLAYER_ISSUED_CONTRACT_PREFERENCE define to the weight.
+        ### this: operator country from: contract location fromfrom: issuer country
+        ## cardinality = 0..1
+        ## replace_scopes = { this = country root = country from = scope_group[spatial_object] fromform = country }
+        ai_weight = {
+            alias_name[modifier_rule] = alias_match_left[modifier_rule]
+        }
+
+    }
+
+}
+
+mission_category = {
+
+    ## cardinality = 1..1
+    is_contract = bool
+
+    ## cardinality = 1..1
+    map_icon = <sprite>
+
+    ## cardinality = 1..1
+    log_icon = filepath
 
     ## cardinality = 0..1
-    ## replace_scopes = { this = country root = country }
-    on_stop = single_alias_right[effect_clause]
+    show_in_issue_list = bool
 
 }
 

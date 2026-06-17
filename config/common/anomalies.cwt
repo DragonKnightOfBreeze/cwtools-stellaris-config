@@ -21,6 +21,9 @@ anomaly_category = {
 	## cardinality = 0..1
 	should_ai_use = bool
 
+	## cardinality = 0..1
+	situation_log_category = <situation_log_category>
+
 	### If yes, both AI and human empires can use this anomaly (overrides should_ai_use)
 	## cardinality = 0..1
 	should_ai_and_humans_use = bool

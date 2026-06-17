@@ -123,6 +123,16 @@ types = {
 		## push_scope = cosmic_storm_influence_field
 		## display_name = Cosmic Storm Influence Field Event
 		subtype[cosmic_storm_influence_field] = {}
+		## group = event_type
+		## type_key_filter = carrier_event
+		## push_scope = carrier
+		## display_name = Carrier Event
+		subtype[carrier] = {}
+		## group = event_type
+		## type_key_filter = colony_event
+		## push_scope = colony
+		## display_name = Colony Event
+		subtype[colony] = {}
 
 		localisation = {
 			subtype[!hidden] = {

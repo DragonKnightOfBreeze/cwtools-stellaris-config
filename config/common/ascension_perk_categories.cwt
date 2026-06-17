@@ -1,0 +1,17 @@
+types = {
+    type[ascension_perk_category] = {
+        path = "game/common/ascension_perk_categories"
+        path_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+    }
+}
+
+ascension_perk_category = {
+    ascension_perks = {
+        ## cardinality = 0..inf
+        <ascension_perk>
+    }
+}

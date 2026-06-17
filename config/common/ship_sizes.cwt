@@ -24,7 +24,10 @@ types = {
 			is_bio_ship = bool # compatible with fallen empire bio ships
 		}
 		subtype[hero_ship] = {
-			is_hero_ship = yes
+			hero_ship = { }
+		}
+		subtype[arkship] = {
+			carries_colony = <planet_class>
 		}
 		localisation = {
 			name = "$"
@@ -347,14 +350,129 @@ ship_size = {
 		upgrades_to = <ship_size>
 	}
 
+	#### Default yes, if yes show attack neutral fleet button on military fleet UI
+	####
 	## cardinality = 0..1
-	is_hero_ship = bool
+	display_attack_neutral_fleet_button = bool
 
-	subtype[hero_ship] = {
+	#### distance multiplier for construction ships, will multiply the default construction distance between construction ship and construction site to adapt it to the size of the ship.
+	####
+	## cardinality = 0..1
+	construction_offset_mult = float
+
+	#### default: empty. If filled, ship is able to carry a colony of that class and a colony is created by default when the ship is created
+	####
+	#### (see create_ship effect for special case). Ships that are not carrying a colony when supposed to are killed on a daily basis.
+	####
+	#### The ship size must also have "class = shipclass_starbase".
+	## cardinality = 0..1
+	carries_colony = <planet_class>
+
+	#### Note: These variables only apply to ships collecting from other ships'/starbases' stockpiles, not to waystations collecting from the system (waystations ignore these variables).
+	####
+	#### To transfer resources to this ship, if it is not a waystation, collects_stockpile_from must be non-empty and collects_stockpile_to_country must be false.
+	####
+	#### List of ship classes that this ship can collect stockpiles from
+	## cardinality = 0..1
+	collects_stockpile_from = {
+		## cardinality = 0..inf
+		enum[ship_class]
+	}
+
+	#### If yes, resources collected from a stockpile go directly to the country; otherwise to this ship's own stockpile (default: no)
+	####
+	## cardinality = 0..1
+	collects_stockpile_to_country = bool
+
+	#### Maximum total resources in this ship's stockpile
+	####
+	## cardinality = 0..1
+	ship_stockpile_capacity = float
+
+	#### If class is shipclass_constructor, determines which construction orders are available and if the AI economic minister should use this ship size for the construction order.
+	####
+	## cardinality = 0..1
+	construction_capabilities = {
+		## cardinality = 0..1
+		starbase
+		## cardinality = 0..1
+		mining_station
+		## cardinality = 0..1
+		research_station
+		## cardinality = 0..1
+		observation_station
+		## cardinality = 0..1
+		automated_construction
+		## cardinality = 0..1
+		automated_collection
+		## cardinality = 0..1
+		megastructure
+	}
+
+	#### list of scripted actions enabled by this ship size
+	## cardinality = 0..1
+	scripted_action = {
+		## cardinality = 0..inf
+		<scripted_action>
+	}
+
+	#### GFX sprite key for the automation button icon. The selected state uses <key>_selected automatically.
+	####
+	#### default: GFX_fleet_order_automate / GFX_fleet_order_automate_selected
+	## cardinality = 0..1
+	automation_icon = <sprite>
+
+	subtype[arkship] = {
+		#### will set a base ship size for a ship size; it is used for ark ships so higher tier ark ships can be downgraded to the base version in empire creation
+		####
+		## cardinality = 0..1
+		base_ship_size = <ship_size>
+
+		## cardinality = 0..1
+		accepts_all_modifiers = bool
+
+		#### default: 100.0. Base required progress for arkship encampment/going mobile transition.
+		####
+		## cardinality = 0..1
+		encampment_required_progress = float
+
+		#### Image from gfx/portraits/arkships/ships used in portrait background for arkships
+		####
+		## cardinality = 1..1
+		## file_extensions = { dds }
+		arkship_picture = filepath[gfx/portraits/arkships/ships]
+	}
+
+	## cardinality = 0..1
+	hero_ship = {
+		#### Name of sprite to use as a background for Fleet UI for single-ship hero-ship fleets.
+		#### default: empty (uses default background)
 		## cardinality = 0..1
 		hero_ship_fleet_background = <sprite>
+
+		#### If class is shipclass_constructor, determines which construction orders are available and if the AI economic minister should use this ship size for the construction order.
+		####
+		#### ai_ship_data should be set appropriately to ensure the AI has sufficient ships for their construction orders.
 		## cardinality = 0..1
-		bioship_growth_progress_required = int
+		capabilities = {
+			## cardinality = 0..1
+			can_repair
+			## cardinality = 0..1
+			can_upgrade
+			## cardinality = 0..1
+			can_turn_into_mercenary_enclave
+			## cardinality = 0..1
+			can_transfer
+			## cardinality = 0..1
+			can_split
+			## cardinality = 0..1
+			can_reinforce
+		}
+
+		#### Accepts a text color code for displaying the color of the ship class.
+		####
+		## cardinality = 0..1
+		custom_class_text_color = <text_color>
 	}
 
 }

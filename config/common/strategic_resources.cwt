@@ -109,5 +109,6 @@ enums = {
 		strategic
 		rare
 		other
+		material
 	}
 }
