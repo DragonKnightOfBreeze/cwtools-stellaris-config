@@ -1,0 +1,44 @@
+types = {
+    type[dlc_descriptor] = {
+        path_extension = .dlc
+        type_per_file = yes
+        name_field = name
+        localisation = {
+            ## required
+            name = localizable_name
+        }
+        images = {
+            ## primary
+            thumbnail = thumbnail
+        }
+    }
+}
+
+mod_descriptor = {
+    name = scalar
+    localizable_name = localisation
+
+    ## cardinality = 0..1
+    archive = scalar # TODO plugin version 2.1.10+ - file path relative to super entry
+    ## cardinality = 0..1
+    steam_id = scalar # int-like
+    ## cardinality = 0..1
+    msgr_id = scalar
+    ## cardinality = 0..1
+    rail_id = scalar # int-like
+    ## cardinality = 0..1
+    pops_id = scalar
+    ## cardinality = 0..1
+    affects_checksum = bool
+    ## cardinality = 0..1
+    affects_compatability = bool
+    ## cardinality = 0..1
+    zip_checksum = scalar
+    ## cardinality = 0..1
+    third_party_content = bool
+    ## cardinality = 0..1
+    category = scalar # some enum
+    ## cardinality = 0..1
+    ## file_extensions = { png dds }
+    thumbnail = filepath
+}

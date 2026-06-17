@@ -1,0 +1,44 @@
+types = {
+    type[mod_descriptor] = {
+        path_file = descriptor.mod
+        type_per_file = yes
+        name_field = name
+        images = {
+            ## primary
+            picture = picture
+        }
+    }
+}
+
+mod_descriptor = {
+    #### Mod name.
+    name = scalar
+    #### Mod version.
+    version = scalar
+    #### Mod thumbnail picture.
+    ## cardinality = 0..1
+    ## file_extensions = { png dds }
+    picture = filepath
+    #### Mod tags.
+    ## cardinality = 0..1
+    tags = {
+        ## cardinality = 0..inf
+        scalar
+    }
+    ## cardinality = 0..1
+    dependencies = {
+        <mod_descriptor>
+    }
+    #### Supported game version, support `*` wildcard.
+    supported_version = scalar
+    #### Steam workshop item id.
+    ####
+    #### Use one of `remote_file_id` and `path`.
+    ## cardinality = 0..1
+    remote_file_id = scalar
+    ### Absolute directory path or absolute zip file path.
+    ###
+    ### Use one of `remote_file_id` and `path`.
+    ## cardinality = 0..1
+    path = abs_filepath
+}
