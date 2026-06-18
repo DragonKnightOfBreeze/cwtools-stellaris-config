@@ -16,4 +16,9 @@ alias[trigger:AND] = { alias_name[trigger] = alias_match_left[trigger] }
 alias[trigger:OR] = { alias_name[trigger] = alias_match_left[trigger] }
 
 ### Hides the enclosed triggers from any generated tooltips
+## scopes = any
 alias[trigger:hidden_trigger] = { alias_name[trigger] = alias_match_left[trigger] }
+
+### Prevents enclosed effects from being displayed in tooltip
+## scopes = any
+alias[effect:hidden_effect] = single_alias_right[effect_clause]

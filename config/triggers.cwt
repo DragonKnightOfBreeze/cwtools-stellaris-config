@@ -44,7 +44,6 @@ alias[trigger:else] = {
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
-
 ### Checks if the country has any instance of target faction type
 ## scopes = { country }
 alias[trigger:has_faction] = <pop_faction>

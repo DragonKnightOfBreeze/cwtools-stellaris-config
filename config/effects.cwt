@@ -10,28 +10,6 @@ alias[effect:<scripted_effect>] = {
 	$parameter = $parameter_value
 }
 
-### Creates a starbase in orbit of the star of the scoped galactic object
-## scopes = { planet galactic_object }
-alias[effect:create_starbase] = {
-	## cardinality = 0..1
-	owner = scope_group[target_country]
-	## cardinality = 1..1
-	size = <ship_size.starbase>
-	## cardinality = 0..1
-	design= <global_ship_design>
-	## cardinality = 0..100
-	module = <starbase_module>
-	## cardinality = 0..100
-	building = <starbase_building>
-	## cardinality = 0..1
-	## push_scope = starbase
-	effect = single_alias_right[effect_clause]
-}
-
-### Prevents enclosed effects from being displayed in tooltip
-## scopes = any
-alias[effect:hidden_effect] = single_alias_right[effect_clause]
-
 ### Executes enclosed effects if limit criteria are met
 ## scopes = any
 alias[effect:if] = {
@@ -64,6 +42,24 @@ alias[effect:save_event_target_as] = value_set[event_target]
 ### Saves the current scope as an arbitrarily-named target to be referenced later, accessible globally until cleared
 ## scopes = { megastructure planet country ship pop pop_group fleet galactic_object leader army ambient_object species bypass design pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation debris astral_rift galactic_community exhibit pop job colony mission }
 alias[effect:save_global_event_target_as] = value_set[global_event_target]
+
+### Creates a starbase in orbit of the star of the scoped galactic object
+## scopes = { planet galactic_object }
+alias[effect:create_starbase] = {
+    ## cardinality = 0..1
+    owner = scope_group[target_country]
+    ## cardinality = 1..1
+    size = <ship_size.starbase>
+    ## cardinality = 0..1
+    design= <global_ship_design>
+    ## cardinality = 0..100
+    module = <starbase_module>
+    ## cardinality = 0..100
+    building = <starbase_building>
+    ## cardinality = 0..1
+    ## push_scope = starbase
+    effect = single_alias_right[effect_clause]
+}
 
 ### Fires a ship event for the scoped ship, with optional DAYS and RANDOM delay
 ## scopes = { ship }
