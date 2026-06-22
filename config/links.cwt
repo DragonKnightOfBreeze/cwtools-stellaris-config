@@ -510,7 +510,7 @@ links = {
 		from_data = yes
 		type = value
 		prefix = value:
-		data_source = <script_value>
+		data_source = $script_value_reference
     }
 	modifier = {
 		type = value
