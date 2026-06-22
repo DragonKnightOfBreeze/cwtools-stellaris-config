@@ -435,7 +435,8 @@ links = {
 		output_scope = cosmic_storm_influence_field
 	}
 
-	v4.1
+	# v4.1
+
 	### Scopes from an object to its owner if it exists, or to the owner of the space it is in otherwise. Works on all objects visible in star system view that can have an owner
 	owner_or_space_owner = {
 		input_scopes = {
@@ -496,7 +497,7 @@ links = {
 	### Scopes from a colony to its carrier.
 	carrier = {
 		input_scopes = { colony }
-		output_scope = any
+		output_scope = any # TODO union type: ship | planet
 	}
 
 	# links from data
