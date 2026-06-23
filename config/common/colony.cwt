@@ -138,6 +138,8 @@ colony_automation_exception = {
 			available = single_alias_right[trigger_clause]
 			## cardinality = 0..1
 			upgrade_trigger = single_alias_right[trigger_clause]
+			## cardinality = 0..1
+			planet_limit = int
 		}
 	}
 

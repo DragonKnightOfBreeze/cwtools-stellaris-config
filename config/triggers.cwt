@@ -983,6 +983,10 @@ alias[trigger:has_trait] = <trait>
 ## scopes = { pop_group }
 alias[trigger:pop_group_has_trait] = <trait.species_trait>
 
+### Checks if the job or pop group has the one of the unemployment pop categories
+## scopes = { pop pop_group pop job }
+alias[trigger:is_unemployed] = bool
+
 ### Checks if a leader has a certain ruler trait, even if they are not currently ruler
 ## scopes = { leader }
 alias[trigger:has_ruler_trait] = <trait.leader_trait>
@@ -2216,6 +2220,8 @@ alias[trigger:num_buildings] = {
 	type = any
 	type = <building>
 	value == int_value_field
+	## cardinality = 0..1
+	category = enum[building_category]
 	## cardinality = 0..1
 	disabled = any
 	## cardinality = 0..1

@@ -328,8 +328,8 @@ on_actions = {
 
 	### A planet has been colonized.
 	### Scope = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony }
+	## event_type = colony
 	on_colonized
 
 	### A colony has been destroyed. Called just before owner and controller is cleared
@@ -604,8 +604,8 @@ on_actions = {
 
 	### Planet has changed planet class in whatever way. Note that this is also called during galaxy creation in some places.
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony }
+	## event_type = colony
 	on_planet_class_changed
 
 	### Planet has taken damage from orbital bombardment - Damage is applied daily
@@ -990,93 +990,93 @@ on_actions = {
 
 	### A building construction has been completed.
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony }
+	## event_type = colony
 	on_building_complete
 
 	### A building construction has been queued.
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony }
+	## event_type = colony
 	on_building_queued
 
 	### A building construction has been unqueued.
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony }
+	## event_type = colony
 	on_building_unqueued
 
 	### A building construction has been completed, which is an upgrade of previous building.
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony }
+	## event_type = colony
 	on_building_upgraded
 
 	### A building construction has demolished.
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony }
+	## event_type = colony
 	on_building_demolished
 
 	### A building repair has finished
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony }
+	## event_type = colony
 	on_building_repaired
 
 	### A district construction has been completed.
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony }
+	## event_type = colony
 	on_district_complete
 
 	### A zone construction has been completed.
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony }
+	## event_type = colony
 	on_zone_complete
 
 	### A building construction has finished, replacing another building.
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony }
+	## event_type = colony
 	on_building_replaced
 
 	### A building construction has been downgraded and replaced.
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony }
+	## event_type = colony
 	on_building_downgraded
 
 	### A building has been wrecked by a enemy and is now ruined.
 	### This = Planet
 	### From = Enemy country
-	## replace_scopes = { this = planet root = planet from = country }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony from = country }
+	## event_type = colony
 	on_building_ruined
 
 	### A district construction has been queued.
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony }
+	## event_type = colony
 	on_district_queued
 
 	### A district construction has been unqueued.
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony }
+	## event_type = colony
 	on_district_unqueued
 
 	### A district construction has demolished.
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony }
+	## event_type = colony
 	on_district_demolished
 
 	### Auto-designation has changed the planet's designation.
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony }
+	## event_type = colony
 	on_auto_colony_type_changed
 
 	### Tutorial level for a country has changed
@@ -1151,8 +1151,8 @@ on_actions = {
 	### From = Country
 	### FromFrom = Pop group
 	### local_pop_amount = variable of how much was grown
-	## replace_scopes = { this = planet root = planet from = country fromfrom = pop_group }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony from = country fromfrom = pop_group }
+	## event_type = colony
 	on_pop_growth
 
 	### A pop amount has been assembled
@@ -1160,8 +1160,8 @@ on_actions = {
 	### From = Country
 	### FromFrom = Pop group
 	### local_pop_amount = variable of how much was assembled
-	## replace_scopes = { this = planet root = planet from = country fromfrom = pop_group }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony from = country fromfrom = pop_group }
+	## event_type = colony
 	on_pop_assembly
 
 	### A pop has finished purging
@@ -1169,8 +1169,8 @@ on_actions = {
 	### From = Country
 	### FromFrom = Pop group
 	### local_pop_amount = variable of how many pops were purged
-	## replace_scopes = { this = planet root = planet from = country fromfrom = pop_group }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony from = country fromfrom = pop_group }
+	## event_type = colony
 	on_pop_purged
 
 	### A pop has been displaced
@@ -1178,8 +1178,8 @@ on_actions = {
 	### From = Country
 	### FromFrom = Pop group
 	### local_pop_amount = variable of how many pops were displaced
-	## replace_scopes = { this = planet root = planet from = country fromfrom = pop_group }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony from = country fromfrom = pop_group }
+	## event_type = colony
 	on_pop_displaced
 
 	### Initial rebels manage to take control of the planet, happens before the new owner is set, after the war is created.
@@ -1209,8 +1209,8 @@ on_actions = {
 	### This = Planet scope
 	### From = Country scope (new owner)
 	### FromFrom = Country scope (previous owner, if any)
-	## replace_scopes = { this = planet root = planet from = country fromfrom = country }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony from = country fromfrom = country }
+	## event_type = colony
 	on_planet_transfer
 
 	### Fired whenever a new owner is set for a planet, and the planet was aggressively conquered
@@ -1218,15 +1218,15 @@ on_actions = {
 	### This = Planet scope
 	### From = Country scope (new owner)
 	### FromFrom = Former Owner
-	## replace_scopes = { this = planet root = planet from = country fromfrom = country }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony from = country fromfrom = country }
+	## event_type = colony
 	on_planet_conquer
 
 	### You have changed the location of your capital. Also called when a country's capital is first set e.g. during galaxy creation (but then FROM is not set)
 	### this/root = new capital
 	### from = old capital
-	## replace_scopes = { this = planet root = planet from = planet }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony from = colony }
+	## event_type = colony
 	on_capital_changed
 
 	### From = Planet/Starbase/Megastructure/Astral Rift scope
