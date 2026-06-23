@@ -1590,6 +1590,7 @@ alias[effect:remove_building] = <building>
 ## scopes = { planet ship colony }
 alias[effect:add_zone] = {
 	district = <district>
+	district = int
 	zone = <zone>
 	## cardinality = 0..1
 	zone_slot = <zone_slots>
