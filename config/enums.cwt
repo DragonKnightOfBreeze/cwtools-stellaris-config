@@ -93,7 +93,6 @@ enums = {
 		ship_growth_stage
 		trait
 		storms
-		carrier
 		mission
 		colony
 	}
