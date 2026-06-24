@@ -19,7 +19,7 @@ scopes = {
         aliases = { ship }
     }
     Carrier = {
-        aliases = { ship planet }
+        aliases = { carrier }
     }
     Fleet = {
         aliases = { fleet }
@@ -127,22 +127,22 @@ scopes = {
 
 scope_groups = {
     celestial_coordinate = {
-        planet ship fleet system ambient_object megastructure starbase archaeological_site first_contact
+        planet ship carrier colony fleet system ambient_object megastructure starbase archaeological_site first_contact
         deposit pop_group army country leader debris
     }
     spatial_object = {
-        planet ship fleet system ambient_object megastructure starbase archaeological_site debris situation
-		astral_rift bypass colony
+        planet ship carrier fleet system ambient_object megastructure starbase archaeological_site debris situation
+		astral_rift bypass colony carrier
     }
     target_species = {
-        country pop_group leader planet ship fleet army species first_contact
+        country pop_group leader planet ship carrier fleet army species first_contact carrier
     }
     target_planet = {
-        pop_group planet deposit archaeological_site megastructure ship fleet army
+        pop_group planet ship carrier deposit archaeological_site megastructure fleet army carrier
     }
     target_country = {
-        planet fleet system ship pop_group army leader pop_faction country megastructure starbase deposit
-        sector archaeological_site first_contact spy_network agreement debris situation
+        planet ship carrier fleet system pop_group army leader pop_faction country megastructure starbase deposit
+        sector archaeological_site first_contact spy_network agreement debris situation carrier
     }
     target_leader = {
         country fleet ship pop_faction army leader sector archaeological_site first_contact
@@ -151,6 +151,6 @@ scope_groups = {
         country ship megastructure species
     }
     carrier = {
-        ship planet
+        planet ship carrier colony
     }
 }

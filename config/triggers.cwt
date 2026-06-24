@@ -67,7 +67,7 @@ alias[trigger:relative_power] = {
 alias[trigger:has_election_type] = enum[election_type]
 
 ### Checks if the scope object has a certain modifier
-## scopes = { megastructure planet country ship pop_group fleet galactic_object pop_faction federation starbase spy_network espionage_operation astral_rift colony }
+## scopes = { megastructure country pop_group fleet galactic_object pop_faction federation starbase spy_network espionage_operation astral_rift colony planet ship carrier }
 alias[trigger:has_modifier] = <static_modifier>
 
 ### Checks if the country has a specific opinion modifier towards target country or anyone
@@ -131,7 +131,7 @@ alias[trigger:has_ship_flag] = value[ship_flag]
 alias[trigger:has_global_flag] = value[global_flag]
 
 ### Checks if the specified variable is set on the current scope. Use to avoid unset variables errors
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage colony }
+## scopes = { megastructure country pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage colony planet ship carrier }
 ## severity = warning
 alias[trigger:is_variable_set] = value[variable]
 
@@ -249,7 +249,7 @@ alias[trigger:is_same_value] = scope[any]
 #should check for <> too
 
 ### Checks the percentage of pops in the scope that fulfill the specified criteria
-## scopes = { planet country ship pop_faction sector colony }
+## scopes = { country pop_faction sector colony planet ship carrier }
 ## push_scope = pop_group
 alias[trigger:pop_amount_percentage] = {
 	limit = single_alias_right[trigger_clause]
@@ -412,7 +412,7 @@ alias[trigger:has_truce] = scope_group[target_country]
 alias[trigger:is_at_war_with] = scope_group[target_country]
 
 ### Checks if the planet/system/fleet/ship is within the borders of the target country
-## scopes = { planet ship fleet galactic_object }
+## scopes = { fleet galactic_object planet ship carrier }
 alias[trigger:is_within_borders_of] = scope_group[target_country]
 
 ### Check if the country has a non-aggression pact with target country
@@ -420,19 +420,19 @@ alias[trigger:is_within_borders_of] = scope_group[target_country]
 alias[trigger:has_non_aggression_pact] = scope_group[target_country]
 
 ### Checks if the planet/ship/fleet/astral rift/starbase is controlled by the target country
-## scopes = { planet ship fleet starbase astral_rift colony }
+## scopes = { fleet starbase astral_rift colony planet ship carrier }
 alias[trigger:is_controlled_by] = scope_group[target_country]
 
 ### Checks if the country/planet is neighbors with target country
-## scopes = { planet country ship fleet galactic_object colony }
+## scopes = { country fleet galactic_object colony planet ship carrier }
 alias[trigger:is_neighbor_of] = scope_group[target_country]
 
 ### Checks if the target country is the planet's original owner
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:is_original_owner] = scope_group[target_country]
 
 ### Checks if the planet/system/army/ship is owned by the target country
-## scopes = { megastructure planet ship pop_group fleet galactic_object leader army pop_faction starbase deposit sector archaeological_site first_contact spy_network espionage_operation agreement situation colony }
+## scopes = { megastructure pop_group fleet galactic_object leader army pop_faction starbase deposit sector archaeological_site first_contact spy_network espionage_operation agreement situation colony planet ship carrier }
 alias[trigger:is_owned_by] = scope_group[target_country]
 
 ### Checks if the country is the same as another, target country
@@ -496,7 +496,7 @@ alias[trigger:is_country] = scope_group[target_country]
 #should also check < >
 
 ### Checks the planet's habitability (0 to 1) for target pop_group/species
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:habitability] = {
 	who = scope_group[target_species]
 	value == value_field[0.0..1.0]
@@ -543,15 +543,15 @@ alias[trigger:is_at_war] = bool
 alias[trigger:is_ai] = bool
 
 ### Checks whether a planet is under bombardment
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_orbital_bombardment] = bool
 
 ### Checks if the planet is colonized (in planet scope) or the system has an owner (in system scope)
-## scopes = { planet ship galactic_object colony }
+## scopes = { galactic_object colony planet ship carrier }
 alias[trigger:has_owner] = bool
 
 ### Checks if ground combat is taking place on the planet
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_ground_combat] = bool
 
 ### Sets trigger to be either always true or false
@@ -563,7 +563,7 @@ alias[trigger:always] = bool
 alias[trigger:is_subject] = bool
 
 ### Checks if the planet is being colonized
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:is_under_colonization] = bool
 
 ### Checks if the country recently lost a war ('recently' meaning recent enough to have a truce)
@@ -571,7 +571,7 @@ alias[trigger:is_under_colonization] = bool
 alias[trigger:recently_lost_war] = bool
 
 ### Checks if the planet is colonized
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:is_colony] = bool
 
 ### Checks if the ship/fleet is engaged in combat
@@ -579,15 +579,15 @@ alias[trigger:is_colony] = bool
 alias[trigger:is_in_combat] = bool
 
 ### Checks if the planet is a star
-## scopes = { planet ship }
+## scopes = { planet ship carrier }
 alias[trigger:is_star] = bool
 
 ### Checks if the planet is an asteroid
-## scopes = { planet ship }
+## scopes = { planet ship carrier }
 alias[trigger:is_asteroid] = bool
 
 ### Checks if the planet has any strategic resource
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_any_strategic_resource] = bool
 
 ### Checks if the country leads in a war
@@ -595,49 +595,49 @@ alias[trigger:has_any_strategic_resource] = bool
 alias[trigger:is_war_leader] = bool
 
 ### Checks if the planet is under military occupation
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:is_occupied_flag] = bool
 
 ### Checks if the planet is of a certain class
-## scopes = { planet ship dlc_recommendation colony }
+## scopes = { dlc_recommendation colony planet ship carrier }
 alias[trigger:is_planet_class] = <planet_class>
 ### Checks if the planet is of a certain class
-## scopes = { planet ship dlc_recommendation colony }
+## scopes = { dlc_recommendation colony planet ship carrier }
 alias[trigger:is_planet_class] = scope_group[target_planet]
 
 ### Checks if the system/planet(star) is of a certain class
-## scopes = { planet ship galactic_object }
+## scopes = { galactic_object planet ship carrier }
 alias[trigger:is_star_class] = <star_class>
 ### Checks if the system/planet(star) is of a certain class
-## scopes = { planet ship galactic_object }
+## scopes = { galactic_object planet ship carrier }
 alias[trigger:is_star_class] = scope[system]
 
 ### Checks if the planet is a ringworld
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:is_ringworld] = bool
 
 ### Checks if the planet is its owner's homeworld
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:is_homeworld] = bool
 
 ### checks if the planet/ship/fleet/system is inside a nebula
-## scopes = { planet ship fleet galactic_object }
+## scopes = { fleet galactic_object planet ship carrier }
 alias[trigger:is_inside_nebula] = bool
 
 ### Checks if the planet has a moon
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_moon] = bool
 
 ### Checks the planet's number of moons
-## scopes = { planet ship }
+## scopes = { planet ship carrier }
 alias[trigger:num_moons] == int_value_field
 
 ### Checks if the planet can theoretically be colonized
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:is_colonizable] = bool
 
 ### Checks if the planet is of the ideal class for target country, species or
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:is_ideal_planet_class] = {
 	who = scope_group[target_species]
 	status = bool
@@ -759,11 +759,11 @@ alias[trigger:is_upgrading] = bool
 alias[trigger:can_be_upgraded] = bool
 
 ### Checks if the planet has a planetary ring
-## scopes = { planet ship }
+## scopes = { planet ship carrier }
 alias[trigger:has_ring] = bool
 
 ### Checks if the planet is the moon of another planet
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:is_moon] = bool
 #alias[trigger:pops_have_happiness] = bool				#deprecated
 
@@ -796,11 +796,11 @@ alias[trigger:years_passed] == int_value_field
 alias[trigger:num_owned_planets] == int_value_field
 
 ### Compares the stability present on the planet with the given value
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:planet_stability] == value_field[0.0..100.0]
 
 ### Checks the planet's size
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:planet_size] == int_value_field
 
 ### Checks the number of fallen empires in the galaxy
@@ -808,11 +808,11 @@ alias[trigger:planet_size] == int_value_field
 alias[trigger:num_fallen_empires] == int_value_field
 
 ### Checks the planet's (colony's) age in months
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:colony_age] == int_value_field
 
 ### Checks the planet's (colony's) age in years
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:colony_age_years] == int_value_field
 
 ### Checks the country/pop_group's number of ethics
@@ -835,7 +835,7 @@ alias[trigger:count_tech_options] = {
 }
 
 ### Checks the average ethics divergence on the planet, i.e. num of pops not of the country's ethics / total num of pops
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:ethos] == value_field[0.0..1.0]
 
 ### Checks the leader's gender
@@ -863,11 +863,11 @@ alias[trigger:is_sapient] = bool
 alias[trigger:inherits_parent_rights] = bool
 
 ### Checks if the planet is prevented from generating anomalies
-## scopes = { planet ship }
+## scopes = { planet ship carrier }
 alias[trigger:is_preventing_anomaly] = bool
 
 ### Checks if the planet has an observation post
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_observation_outpost] = bool
 
 ### Checks if the system is the starting system for any country
@@ -882,7 +882,7 @@ alias[trigger:graphical_culture] = <graphical_culture>
 alias[trigger:graphical_culture] = scope_group[target_graphical_culture]
 
 ### Checks if the planet is still owned by its first colonizer
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:original_owner] = bool
 
 ### Checks if the pop_group is a robot
@@ -898,14 +898,14 @@ alias[trigger:is_robot_pop_group] = bool
 alias[trigger:is_alliance_fleet] = bool
 
 ### Checks if the planet is its owner's capital
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:is_capital] = bool
 
 #alias[trigger:has_blocker] = bool #deprecated, I think
 #alias[trigger:has_blocker] = <deposit.blocker> #deprecated, I think
 
 ### Checks if the planet can be colonized by target country
-## scopes = { planet ship }
+## scopes = { planet ship carrier }
 alias[trigger:can_colonize] = {
 	who = scope_group[target_country]
 	status = bool
@@ -931,7 +931,7 @@ alias[trigger:has_technology] = <technology>
 alias[trigger:has_active_tradition] = <tradition>
 
 ### Checks a variable for the country/leader/planet/system/fleet
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage colony }
+## scopes = { megastructure country pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage colony planet ship carrier }
 alias[trigger:check_variable] = {
 	which = value[variable]
 	## cardinality = 1..2
@@ -940,7 +940,7 @@ alias[trigger:check_variable] = {
 
 
 ### Checks the ship/fleet/planet/leader/pop_group/system's galaxy map distance to target in absolute units
-## scopes = { megastructure planet ship pop_group fleet galactic_object leader ambient_object starbase deposit archaeological_site first_contact colony }
+## scopes = { megastructure pop_group fleet galactic_object leader ambient_object starbase deposit archaeological_site first_contact colony planet ship carrier }
 alias[trigger:distance] = {
 	## cardinality = 0..1
 	source = no_scope
@@ -1094,21 +1094,21 @@ alias[trigger:fleet_size] == int_value_field
 alias[trigger:is_difficulty] == int_value_field[0..6]
 
 ### Checks if the planet has any, or a specific, building
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_building] = bool
 ### Checks if the planet has any, or a specific, building
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_building] = <building>
 
 ### Checks if the planet has a specific building, and that that building is not disabled or ruined.
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_active_building] = <building>
 
 ### Checks if the planet has any, or a specific, ongoing building construction
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_building_construction] = bool
 ### Checks if the planet has any, or a specific, ongoing building construction
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_building_construction] = <building>
 
 ### Checks if an AI empire has a certain personality type
@@ -1130,20 +1130,20 @@ alias[trigger:has_country_resource] = {
 }
 
 ### Checks if the planet has a specific amount of a specific resource
-## scopes = { planet country ship deposit astral_rift }
+## scopes = { country deposit astral_rift planet ship carrier }
 alias[trigger:has_resource] = <resource>
 ### Checks if the planet has a specific amount of a specific resource
-## scopes = { planet country ship deposit astral_rift }
+## scopes = { country deposit astral_rift planet ship carrier }
 alias[trigger:has_resource] = bool
 ### Checks if the planet has a specific amount of a specific resource
-## scopes = { planet country ship deposit astral_rift }
+## scopes = { country deposit astral_rift planet ship carrier }
 alias[trigger:has_resource] = {
 	type = <resource>
 	amount == int_value_field
 }
 
 ### Checks if the planet has any strategic resource
-## scopes = { planet ship astral_rift }
+## scopes = { astral_rift planet ship carrier }
 alias[trigger:has_strategic_resource] = bool
 
 ### Checks the country's monthly income of a specific resource
@@ -1155,14 +1155,14 @@ alias[trigger:has_monthly_income] = {
 }
 
 ### Checks if the planet has any, or a specific, deposit
-## scopes = { planet ship deposit colony }
+## scopes = { deposit colony planet ship carrier }
 alias[trigger:has_deposit] = bool
 ### Checks if the planet has any, or a specific, deposit
-## scopes = { planet ship deposit colony }
+## scopes = { deposit colony planet ship carrier }
 alias[trigger:has_deposit] = <deposit>
 
 ### Checks if the planet has a deposit for a specific ship class
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_deposit_for] = enum[ship_class]
 
 ### Checks if the country has claims on the given country or system.
@@ -1317,7 +1317,7 @@ alias[trigger:debug_break] = scalar
 alias[trigger:distance_to_core_percent] == value_field
 
 ### Checks the ship/fleet/planet/system's galaxy map distance to target empire
-## scopes = { planet ship fleet galactic_object colony }
+## scopes = { fleet galactic_object colony planet ship carrier }
 alias[trigger:distance_to_empire] = {
 	who = scope_group[target_country]
 	distance == int_value_field
@@ -1389,7 +1389,7 @@ alias[trigger:former_slavery_type] = <slavery_type>
 alias[trigger:galaxy_percentage] == value_field[0.0..1.0]
 
 ### Checks the average happiness on the planet
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:happiness_planet] == value_field[0.0..1.0]
 
 ### Checks if the target country is allowed to enter the system
@@ -1397,7 +1397,7 @@ alias[trigger:happiness_planet] == value_field[0.0..1.0]
 alias[trigger:has_access_fleet] = scope_group[target_country]
 
 ### Checks if the planet has an anomaly
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_anomaly] = bool
 
 ### Checks if the scope has a megastructure
@@ -1405,7 +1405,7 @@ alias[trigger:has_anomaly] = bool
 alias[trigger:has_any_megastructure] = bool
 
 ### Checks if the planet has an army
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_army] = bool
 
 ### Check if the country has federation association status with target country
@@ -1425,10 +1425,10 @@ alias[trigger:has_casus_belli] = {
 }
 
 ### Checks if the colony has a certain designation
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_designation] = <colony_type>
 ### Checks if the colony has a certain designation
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_designation] = scope_group[target_planet]
 
 ### Checks if a ship has a certain component
@@ -1468,7 +1468,7 @@ alias[trigger:has_hyperlane_to] = scope_group[target_country]
 alias[trigger:has_megastructure] = <megastructure>
 
 ### Checks if the planet has an orbital mining station
-## scopes = { planet ship }
+## scopes = { planet ship carrier }
 alias[trigger:has_mining_station] = bool
 
 ### Checks if a country has a certain notification modifier
@@ -1476,11 +1476,11 @@ alias[trigger:has_mining_station] = bool
 alias[trigger:has_notification_modifier] = <notification_modifier>
 
 ### Checks to what degree the planet is being bombarded
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_orbital_bombardment_stance] = <bombardment_stance>
 
 ### Checks if the planet has any kind of orbital station
-## scopes = { planet ship }
+## scopes = { planet ship carrier }
 alias[trigger:has_orbital_station] = bool
 
 ### Checks if the system has planet of specific class
@@ -1496,7 +1496,7 @@ alias[trigger:has_planet_class] = scope_group[target_planet]
 alias[trigger:has_planet_modifier] = <planet_modifier>
 
 ### Checks if the scoped country has a specific point of interest in its situation log
-## scopes = { planet country ship fleet galactic_object ambient_object }
+## scopes = { country fleet galactic_object ambient_object planet ship carrier }
 alias[trigger:has_point_of_interest] = {
 	poi = value[point_of_interest]
 }
@@ -1506,7 +1506,7 @@ alias[trigger:has_point_of_interest] = {
 alias[trigger:has_presence] = bool
 
 ### Checks if the planet has an orbital research station
-## scopes = { planet ship }
+## scopes = { planet ship carrier }
 alias[trigger:has_research_station] = bool
 
 ### Checks if a country has the same ethos (complete set of ethics) as a country or pop_group
@@ -1633,7 +1633,7 @@ alias[trigger:is_constructing] = value[construction_type]
 alias[trigger:is_crises_allowed] = bool
 
 ### Checks if the spatial object is its owner's custom capital location
-## scopes = { planet ship fleet galactic_object }
+## scopes = { fleet galactic_object planet ship carrier }
 alias[trigger:is_custom_capital_location] = bool
 
 ### Checks if the ship is damaged
@@ -1661,7 +1661,7 @@ alias[trigger:is_fleet_idle] = bool
 alias[trigger:is_in_cluster] = value[cluster_id]
 
 ### Checks if the planet/ship/fleet/system is inside the borders of the target country
-## scopes = { planet ship fleet galactic_object }
+## scopes = { fleet galactic_object planet ship carrier }
 alias[trigger:is_inside_border] = scope_group[target_country]
 
 ### Check if current game is running in ironman mode
@@ -1669,7 +1669,7 @@ alias[trigger:is_inside_border] = scope_group[target_country]
 alias[trigger:is_ironman] = bool
 
 ### Checks if the specified species is the majority species on the current planet.
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:is_majority_species] = scope_group[target_species]
 
 ### Checks if the country is the overlord of any subject countries
@@ -1681,7 +1681,7 @@ alias[trigger:is_overlord] = bool
 alias[trigger:is_overlord_to] = scope_group[target_country]
 
 ### Checks if the planet/country/ship/system/ambient object has a specific point of interest for a specific event chain for a specific country
-## scopes = { planet country ship galactic_object ambient_object }
+## scopes = { country galactic_object ambient_object planet ship carrier }
 alias[trigger:is_point_of_interest] = {
 	id = value[point_of_interest]
 	event_chain = <event_chain>
@@ -1693,7 +1693,7 @@ alias[trigger:is_point_of_interest] = {
 alias[trigger:is_preferred_weapons] = enum[component_tag]
 
 ### Checks if the planet is the system's primary star
-## scopes = { planet ship }
+## scopes = { planet ship carrier }
 alias[trigger:is_primary_star] = bool
 
 ### Checks if the country is currently researching a specific technology
@@ -1709,7 +1709,7 @@ alias[trigger:is_rim_system] = bool
 alias[trigger:is_same_species_class] = scope_group[target_species]
 
 ### Checks if the scope is set for appropriate target
-## scopes = { planet country ship pop_group fleet }
+## scopes = { country pop_group fleet planet ship carrier }
 alias[trigger:is_scope_set] = scope[any]
 
 ### Checks if the current scope is valid
@@ -1721,22 +1721,22 @@ alias[trigger:is_scope_valid] = bool
 alias[trigger:is_species] = scalar #TODO species
 
 ### Checks if the planet/system has been survey by target country
-## scopes = { planet ship galactic_object astral_rift colony }
+## scopes = { galactic_object astral_rift colony planet ship carrier }
 alias[trigger:is_surveyed] = {
 	who = scope_group[target_country]
 	status = bool
 }
 
 ### Checks if the planet has ever been terraformed
-## scopes = { planet ship }
+## scopes = { planet ship carrier }
 alias[trigger:is_terraformed] = bool
 
 ### Checks if the planet is currently being terraformed
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:is_terraforming] = bool
 
 ### Checks if the planet is currently being terraformed manually by script
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:is_scripted_terraforming] = bool
 
 ### Checks the country's tutorial level (0 off, 1 limited, 2 full)
@@ -1787,15 +1787,15 @@ alias[trigger:max_starbase_capacity] == int_value_field
 alias[trigger:mission_progress] == value_field[0.0..1.0]
 
 ### Checks the country's or planet's number of armies
-## scopes = { planet country ship colony }
+## scopes = { country colony planet ship carrier }
 alias[trigger:num_armies] == int_value_field
 
 ### Checks the planet's total amount of energy
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:num_energy] == int_value_field
 
 ### Checks the planet's total amount of engineering research
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:num_engineering] == int_value_field
 
 ### Checks the country's number of fleets
@@ -1814,15 +1814,15 @@ alias[trigger:num_killed_ships] = {
 alias[trigger:num_marauder_empires_to_spawn] == int_value_field
 
 ### Checks the planet's total amount of minerals
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:num_minerals] == value_field
 
 ### Checks the planet's number of modifiers
-## scopes = { planet ship }
+## scopes = { planet ship carrier }
 alias[trigger:num_modifiers] == int_value_field
 
 ### Checks the planet's total amount of physics research
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:num_physics] == int_value_field
 
 ### Checks the country's number of researched rare technologies
@@ -1876,11 +1876,11 @@ alias[trigger:can_research_tier] = {
 alias[trigger:num_ships] == int_value_field
 
 ### Checks the planet's total amount of society research
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:num_society] == int_value_field
 
 ### Checks if the number of species on a planet, in an empire or in a pop_group faction is according to the argument. Does not count genetically modified species as unique.
-## scopes = { planet country ship pop_faction colony }
+## scopes = { country pop_faction colony planet ship carrier }
 alias[trigger:num_species] == int_value_field
 
 ### Counts the number of starbases owned by the scoped country
@@ -1899,7 +1899,7 @@ alias[trigger:num_taken_planets] = {
 alias[trigger:num_traits] == int_value_field
 
 ### Checks if the number of species on a planet, in an empire or in a pop_group faction is according to the argument. Counts genetically modified species as unique.
-## scopes = { planet country ship pop_faction colony }
+## scopes = { country pop_faction colony planet ship carrier }
 alias[trigger:num_unique_species] == int_value_field
 
 ### Checks how far removed the country/pop_group's ethos is from target's
@@ -1970,7 +1970,7 @@ alias[trigger:switch] = {
 }
 
 ### Checks if planet is terraformed by country.
-## scopes = { planet ship }
+## scopes = { planet ship carrier }
 alias[trigger:terraformed_by] = scope_group[target_country]
 
 ### For 'desc={trigger={' use. Shows custom text
@@ -2035,7 +2035,7 @@ alias[trigger:is_researching_special_project] = <special_project>
 
 ### Checks the number of starbase modules that are of the specified type or not
 ## scopes = { country galactic_object starbase }
-alias[trigger:count_starbase_modules] =  {
+alias[trigger:count_starbase_modules] = {
 	count == int_value_field
 	## cardinality = 0..1
 	type = <starbase_module>
@@ -2045,7 +2045,7 @@ alias[trigger:count_starbase_modules] =  {
 
 ### Checks the number of starbase buildings that are of the specified type or not
 ## scopes = { country galactic_object starbase }
-alias[trigger:count_starbase_buildings] =  {
+alias[trigger:count_starbase_buildings] = {
 	count == int_value_field
 	## cardinality = 0..1
 	type = <starbase_building>
@@ -2055,7 +2055,7 @@ alias[trigger:count_starbase_buildings] =  {
 
 ### Checks if the scoped country has a specified quantity of a starbase size
 ## scopes = { country }
-alias[trigger:count_starbase_sizes] =  {
+alias[trigger:count_starbase_sizes] = {
 	count == int_value_field
 	starbase_size = <ship_size.starbase>
 }
@@ -2067,7 +2067,7 @@ alias[trigger:count_starbase_sizes] =  {
 alias[trigger:faction_approval] == value_field[0.0..1.0]
 
 ### Checks if the last building queued/unqueued/built/demolished/upgraded was the specified building
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:last_building_changed] = <building>
 
 ### Checks the empire's size. Identical to empire_sprawl trigger.
@@ -2079,15 +2079,15 @@ alias[trigger:empire_size] == int_value_field
 alias[trigger:empire_sprawl] == int_value_field
 
 ### Checks if the last district queued/unqueued/built/demolished/upgraded was the specified district
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:last_district_changed] = <district>
 
 ### Checks the tier of the planet's capital building
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:capital_tier] == int_value_field
 
 ### Checks the planet's available housing
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:free_housing] == int_value_field
 
 ### Checks the number of in-game days passed since the 2200.1.1 start
@@ -2095,11 +2095,11 @@ alias[trigger:free_housing] == int_value_field
 alias[trigger:days_passed] == int_value_field
 
 ### Checks the planet's available amenities
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:free_amenities] == int_value_field
 
 ### Checks if the country has a deficit of the defined resource
-## scopes = { planet country ship colony }
+## scopes = { country colony planet ship carrier }
 alias[trigger:has_deficit] = <resource>
 
 ### Check if the country has a commercial pact with target country
@@ -2153,10 +2153,10 @@ alias[trigger:is_being_assimilated] = bool
 alias[trigger:num_guaranteed_colonies] == int_value_field
 
 ### Check if the planet has a branch office owned by target country/any country/no country
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_branch_office] = scope_group[target_country]
 ### Check if the planet has a branch office owned by target country/any country/no country
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_branch_office] = bool
 
 ### Checks if the country is a criminal syndicate
@@ -2168,22 +2168,22 @@ alias[trigger:is_criminal_syndicate] = bool
 alias[trigger:is_blocker] = bool
 
 ### Checks the planet's number of branch office slots available for new constructions
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:free_branch_office_building_slots] == int_value_field
 
 ### Checks the planet's branch officevalue
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:branch_office_value] = {
 	who = scope_group[target_country]
 	value == value_field
 }
 
 ### Checks the number of unassigned jobs on the planet
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:free_jobs] == int_value_field
 
 ### Checks the planet's devastation
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:planet_devastation] == value_field[0.0..100.0]
 
 ### Checks if the pop_group has the chosen pop_group category
@@ -2199,7 +2199,7 @@ alias[trigger:won_the_game] = bool
 alias[trigger:perc_communications_with_playable] == value_field[0.0..1.0]
 
 ### Compares the crime present on the planet with the given value
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:planet_crime] == value_field[0.0..100.0]
 
 ### Checks if the job has a specific type set.
@@ -2215,7 +2215,7 @@ alias[trigger:is_deposit_type] = <deposit>
 alias[trigger:has_built_species] = bool
 
 ### Checks the number the planet has of any, or a specific, building
-## scopes = { planet country ship galactic_object colony }
+## scopes = { country galactic_object colony planet ship carrier }
 alias[trigger:num_buildings] = {
 	type = any
 	type = <building>
@@ -2239,7 +2239,7 @@ alias[trigger:num_buildings] = {
 }
 
 ### Checks the number the planet has of any, or a specific, district
-## scopes = { planet country ship colony }
+## scopes = { country colony planet ship carrier }
 alias[trigger:num_districts] = {
 	type = any
 	type = <district>
@@ -2248,7 +2248,7 @@ alias[trigger:num_districts] = {
 
 ### Checks the number of available slots the planet has of any, or a specific, district
 ### Only works for uncapped districts as of 2.2.4
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:num_free_districts] = {
 	type = any
 	type = <district>
@@ -2311,7 +2311,7 @@ alias[trigger:has_subject] = scope_group[target_country]
 alias[trigger:num_sectors] == int_value_field
 
 ### Checks the planet's number of slots available for new constructions
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:free_district_slots] == int_value_field
 
 ### Checks if the country AI has any plans to expand
@@ -2319,10 +2319,10 @@ alias[trigger:free_district_slots] == int_value_field
 alias[trigger:has_ai_expansion_plan] = bool
 
 ### Checks if the planet has any, or a specific, district
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_district] = <district>
 ### Checks if the planet has any, or a specific, district
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_district] = bool
 
 ### Checks if country has active events:
@@ -2333,7 +2333,7 @@ alias[trigger:has_active_event] = {
 }
 
 ### Checks the planet's number of slots available for new constructions
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:free_building_slots] == int_value_field
 
 ### Checks if species has specified archetype:
@@ -2416,7 +2416,7 @@ alias[trigger:is_site_current_stage_score] = higher_insight_score
 alias[trigger:is_site_current_stage_score_no_die] == int_value_field
 
 ### Checks the planet's total amount of uncleared blockers
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:num_uncleared_blockers] == int_value_field
 
 ### Checks if the country has unlocked all traditions
@@ -2434,10 +2434,10 @@ alias[trigger:is_scope_type] = enum[scope_type_token]
 alias[trigger:caravaneers_enabled] = bool
 
 ### Checks if the colony is of a certain type
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:colony_type] = <colony_type>
 ### Checks if the colony is of a certain type
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:colony_type] = scope_group[target_planet]
 
 ### Checks if a deposit has specified category
@@ -2453,7 +2453,7 @@ alias[trigger:has_sector_type] = <sector_type>
 alias[trigger:is_current_excavator_fleet] = scope[fleet]
 
 ### Checks if the planet/ship/fleet/system is in frontier space
-## scopes = { planet ship fleet galactic_object colony }
+## scopes = { fleet galactic_object colony planet ship carrier }
 alias[trigger:is_in_frontier_space] = bool
 
 ### Checks whether the relic passed in parameter is the last relic lost by the country int the current scope.
@@ -2689,7 +2689,7 @@ alias[trigger:has_completed_special_project_in_log] = <special_project>
 alias[trigger:has_failed_special_project_in_log] = <special_project>
 
 ### Checks the planet's total housing
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:num_housing] == int_value_field
 
 ### Checks the solar system's total number of planets
@@ -2697,11 +2697,11 @@ alias[trigger:num_housing] == int_value_field
 alias[trigger:num_planets_in_system] == int_value_field
 
 ### Checks if the planet is its sector's capital
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:is_sector_capital] = bool
 
 ### Checks if the planet has the specified tag for district usage:
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 ## severity = warning
 alias[trigger:uses_district_set] = enum[district_set]
 
@@ -2711,7 +2711,7 @@ alias[trigger:uses_district_set] = enum[district_set]
 alias[trigger:uses_district_set] = scalar
 
 ### Checks specific resource value for scoped planet. Warning: performance-intensive trigger!
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:planet_resource_compare] = {
 	## cardinality = 0..1
 	### Default: Balance
@@ -2725,11 +2725,11 @@ alias[trigger:planet_resource_compare] = {
 alias[trigger:has_any_federation_law_in_category] = <federation_law_category>
 
 ### Check that you have available job of a specific type
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_available_jobs] = <job>
 
 ### Check that you have forbidden job of a specific type
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_forbidden_jobs] = <job>
 
 ### Checks if the country has been set to be friendly towards target country via set_faction_hostility
@@ -2753,7 +2753,7 @@ alias[trigger:pop_group_has_happiness] = bool
 alias[trigger:pop_group_size] == int_value_field
 
 ### Checks if any pops are being purged on the current planet.
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_current_purge] = bool
 
 ### Checks if the current species has happiness or not when owned by a specified country.
@@ -2763,7 +2763,7 @@ alias[trigger:species_has_happiness_with_owner] = scope_group[target_country]
 # 2.8
 
 ### Checks the number of pops the planet or country has that work a specific job.
-## scopes = { planet country ship galactic_object colony }
+## scopes = { country galactic_object colony planet ship carrier }
 alias[trigger:num_assigned_jobs] = {
 	job = <job>
 	job = unemployed
@@ -2788,11 +2788,11 @@ alias[trigger:name_list_category] = enum[name_list_category]
 # 3.0
 
 ### Checks how many organic pops the planet expects to gain in a year on average (through growth and assembly) at the current rate.
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:organic_pops_last_month_growth] == value_field
 
 ### Checks how many artificial pops the planet expects to assemble in a year on average at the current rate.
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:artificial_pops_last_month_growth] == value_field
 
 ### Checks if the country is allowed to set its policy to a specific one using set_policy effect
@@ -2847,7 +2847,7 @@ alias[trigger:has_active_first_contact_with] = scope_group[target_country]
 alias[trigger:can_have_first_contact_site_with] = scope_group[target_country]
 
 ### Checks if the planet is artificial (as set in planet_classes)
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:is_artificial] = bool
 
 ### Checks if the solar system has its owner's capital
@@ -2863,7 +2863,7 @@ alias[trigger:has_stage_modifier] = <static_modifier>
 alias[trigger:galactic_defense_force_exists] = bool
 
 ### Checks a variable for the scope if a certain amount of arithmetic is done to it (note: the variable's value is not changed by this trigger)
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage colony }
+## scopes = { megastructure country pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage colony planet ship carrier }
 alias[trigger:check_variable_arithmetic] = {
 	which == value_field
 	## cardinality = 0..inf
@@ -2873,7 +2873,7 @@ alias[trigger:check_variable_arithmetic] = {
 }
 
 ### Checks the value of a specified modifier in the current scope against a value.
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army species design pop_faction spy_network espionage_operation colony }
+## scopes = { megastructure country pop_group fleet galactic_object leader army species design pop_faction spy_network espionage_operation colony planet ship carrier }
 alias[trigger:check_modifier_value] = {
 	modifier = alias_keys_field[modifier]
 	value == value_field
@@ -3072,11 +3072,11 @@ alias[trigger:has_galactic_emperor] = bool
 alias[trigger:imperial_authority] == value_field
 
 ### Checks the number of unemployed pops on the planet
-## scopes = { planet country ship colony }
+## scopes = { country colony planet ship carrier }
 alias[trigger:num_unemployed] == int_value_field
 
 ### Checks whether the current scope is closer to a specified object than it is to a second specified object within the same solar system.
-## scopes = { megastructure planet ship pop_group fleet galactic_object leader ambient_object starbase deposit archaeological_site first_contact colony }
+## scopes = { megastructure pop_group fleet galactic_object leader ambient_object starbase deposit archaeological_site first_contact colony planet ship carrier }
 alias[trigger:compare_distance] = {
 	closer_object = scope_group[celestial_coordinate]
 	further_object = scope_group[celestial_coordinate]
@@ -3143,7 +3143,7 @@ alias[trigger:starbase_buildable_is_in_queue_before] = {
 }
 
 ### Checks if the planet's climate is set to a specified string in planet_classes:
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_climate] = localisation
 
 ### Check if the country has an embassy with the target country
@@ -3153,7 +3153,7 @@ alias[trigger:has_embassy] = scope_group[target_country]
 # 3.2
 
 ### Checks if the planet is ideal (as set in planet_classes)
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:is_ideal] = bool
 
 ### Checks if the specified ship, fleet, planet or system can be seen by the scoped country.
@@ -3170,7 +3170,7 @@ alias[trigger:is_in_sensor_range] = scope[planet]
 alias[trigger:is_in_sensor_range] = scope[galactic_object]
 
 ### Checks if the scoped ship, fleet, planet or system can be seen by the specified country.
-## scopes = { planet ship fleet galactic_object }
+## scopes = { fleet galactic_object planet ship carrier }
 alias[trigger:is_in_sensor_range_of_country] = scope_group[target_country]
 
 ### Checks if the scoped ship, fleet, planet or system can be seen by the specified country.
@@ -3218,7 +3218,7 @@ alias[trigger:num_owned_leaders] == int_value_field
 alias[trigger:is_starbase_type] = <starbase_type>
 
 ### Checks if the planet's ascension tier is as specified:
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_planetary_ascension_tier] == int_value_field
 
 ### Checks number of star systems in the galaxy
@@ -3228,7 +3228,7 @@ alias[trigger:num_galaxy_systems] == int_value_field
 # 3.4
 
 ### Checks the planet's army strength (as calculated by all armies including offensive or defensive owned by its current controller). Warning: moderately intensive trigger:
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:planet_garrison_strength] == value_field
 
 ### Checks ratio between the country's income and expenditures for a specific resource. E.g. if it makes 80 energy and spends 100, its ratio is 0.8.
@@ -3243,7 +3243,7 @@ alias[trigger:resource_income_to_expenditure_balance_ratio] = {
 }
 
 ### Checks the value of economic production modifiers a pop_group has for producing a certain resource via a certain job. Can specify checking all modifiers or just those from traits. WARNING: expensive trigger
-## scopes = { planet ship pop_group colony }
+## scopes = { pop_group colony planet ship carrier }
 alias[trigger:check_economic_production_modifier_for_job] = {
 	job = <job>
 	resource = <resource>
@@ -3257,7 +3257,7 @@ alias[trigger:check_economic_production_modifier_for_job] = {
 }
 
 ### Checks if the planet has any, or a specific, holding
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_holding] = {
 	holding = any
 	holding = none
@@ -3370,7 +3370,7 @@ alias[trigger:lgate_enabled] = bool
 alias[trigger:is_immortal] = bool
 
 ### Checks the planet's total number of deposits
-## scopes = { planet ship }
+## scopes = { planet ship carrier }
 alias[trigger:num_deposits] == int_value_field
 
 ### Checks the country's free enclave number capacity in absolute numbers
@@ -3621,11 +3621,11 @@ alias[trigger:num_positive_traits] == int
 alias[trigger:num_negative_traits] == int
 
 ### Checks if the current player is currently viewing the galaxy map.
-## scopes = { planet country ship pop_group fleet }
+## scopes = { country pop_group fleet planet ship carrier }
 alias[trigger:is_on_galaxy_map] = bool
 
 ### Checks if the current player is currently paused.
-## scopes = { planet country ship pop_group fleet }
+## scopes = { country pop_group fleet planet ship carrier }
 alias[trigger:is_paused] = bool
 
 # 3.10.0
@@ -3643,7 +3643,7 @@ alias[trigger:last_lost_relic] = <relic>
 alias[trigger:last_received_relic] = <relic>
 
 ### Checks if the planet is an astral scar
-## scopes = { planet ship }
+## scopes = { planet ship carrier }
 alias[trigger:is_astral_scar] = bool
 
 ### Returns true if the Bypass Lock can be renewed
@@ -3663,7 +3663,7 @@ alias[trigger:has_astral_rift_flag] = value[astral_rift_flag]
 alias[trigger:has_completed_event_chain] = <event_chain>
 
 ### Checks the distance of a controlled system to its owner's capital
-## scopes = { planet ship galactic_object colony }
+## scopes = { galactic_object colony planet ship carrier }
 alias[trigger:distance_to_capital] == int_value_field
 
 ### Returns true if the astral rift starting event pool is empty
@@ -3756,7 +3756,7 @@ alias[trigger:any_planet_within_border] = single_alias_right[trigger_clause]
 alias[trigger:any_owned_ship] = single_alias_right[trigger_clause]
 
 ### Iterate through each moon of the planet - checks whether the enclosed triggers return true for any of them
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 ## push_scope = planet
 alias[trigger:any_moon] = single_alias_right[trigger_clause]
 
@@ -3781,7 +3781,7 @@ alias[trigger:any_attacker] = single_alias_right[trigger_clause]
 alias[trigger:any_system_planet] = single_alias_right[trigger_clause]
 
 ### Iterate through each fleet orbiting the current planet/starbase/megastructure - checks whether the enclosed triggers return true for any of them
-## scopes = { megastructure planet ship starbase }
+## scopes = { megastructure starbase planet ship carrier }
 ## push_scope = fleet
 alias[trigger:any_fleet_in_orbit] = single_alias_right[trigger_clause]
 
@@ -3791,7 +3791,7 @@ alias[trigger:any_fleet_in_orbit] = single_alias_right[trigger_clause]
 alias[trigger:any_country] = single_alias_right[trigger_clause]
 
 ### Iterate through each deposit on the planet - checks whether the enclosed triggers return true for any of them
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 ## push_scope = deposit
 alias[trigger:any_deposit] = single_alias_right[trigger_clause]
 
@@ -3811,12 +3811,12 @@ alias[trigger:any_ship_in_system] = single_alias_right[trigger_clause]
 alias[trigger:any_owned_leader] = single_alias_right[trigger_clause]
 
 ### Iterate through all owned pops - checks whether the enclosed triggers return true for any of them
-## scopes = { planet country ship galactic_object pop_faction sector colony }
+## scopes = { country galactic_object pop_faction sector colony planet ship carrier }
 ## push_scope = pop_group
 alias[trigger:any_owned_pop_group] = single_alias_right[trigger_clause]
 
 ### Iterate through all owned groups - checks whether the enclosed triggers return true for X/all of them
-## scopes = { planet country ship galactic_object pop_faction sector colony }
+## scopes = { country galactic_object pop_faction sector colony planet ship carrier }
 alias[trigger:count_owned_pop_group] = {
 	## cardinality = 0..1
 	## push_scope = pop_group
@@ -3826,7 +3826,7 @@ alias[trigger:count_owned_pop_group] = {
 }
 
 ### Sums all amounts - checks whether the enclosed triggers return true for X/all of them
-## scopes = { planet country ship galactic_object pop_faction sector colony }
+## scopes = { country galactic_object pop_faction sector colony planet ship carrier }
 alias[trigger:count_owned_pop_amount] = {
 	## cardinality = 0..1
 	## push_scope = pop_group
@@ -3836,8 +3836,8 @@ alias[trigger:count_owned_pop_amount] = {
 }
 
 ### Checks the number of deposits on the planet that meet the specified criteria
-## scopes = { planet ship colony }
-alias[trigger:count_deposits] =  {
+## scopes = { colony planet ship carrier }
+alias[trigger:count_deposits] = {
 	## cardinality = 0..1
 	type = <deposit>
 	## cardinality = 0..1
@@ -3900,7 +3900,7 @@ alias[trigger:any_subject] = single_alias_right[trigger_clause]
 alias[trigger:any_relation] = single_alias_right[trigger_clause]
 
 ### Counts the number of species in the scope that fulfill the specified criteria, not counting sub-species as unique.
-## scopes = { planet country ship colony }
+## scopes = { country colony planet ship carrier }
 alias[trigger:count_species] = {
 	## cardinality = 0..1
 	## push_scope = species
@@ -3910,7 +3910,7 @@ alias[trigger:count_species] = {
 }
 
 ### Counts the number of species in the scope that fulfill the specified criteria, counting sub-species as unique.
-## scopes = { planet country ship colony }
+## scopes = { country colony planet ship carrier }
 alias[trigger:count_exact_species] = {
 	## cardinality = 0..1
 	## push_scope = species
@@ -3920,12 +3920,12 @@ alias[trigger:count_exact_species] = {
 }
 
 ### Check if any of the species <on the planet/in the country> meet the specified criteria - checks whether the enclosed triggers return true for any of them
-## scopes = { planet country ship colony }
+## scopes = { country colony planet ship carrier }
 ## push_scope = species
 alias[trigger:any_owned_species] = single_alias_right[trigger_clause]
 
 ### Check if any of the species with enslaved pops <on the planet/in the country> meet the specified criteria - checks whether the enclosed triggers return true for any of them
-## scopes = { planet country ship colony }
+## scopes = { country colony planet ship carrier }
 ## push_scope = species
 alias[trigger:any_enslaved_species] = single_alias_right[trigger_clause]
 
@@ -3995,12 +3995,12 @@ alias[trigger:count_owned_army] = {
 }
 
 ### Iterate through each army on the planet (not in ground combat), regardless of owner. - checks whether the enclosed triggers return true for any of them
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 ## push_scope = army
 alias[trigger:any_planet_army] = single_alias_right[trigger_clause]
 
 ### Iterate through each army on the planet (not in ground combat), regardless of owner. - checks whether the enclosed triggers return true for X/all of them
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:count_planet_army] = {
 	## cardinality = 0..1
 	## push_scope = army
@@ -4010,12 +4010,12 @@ alias[trigger:count_planet_army] = {
 }
 
 ### Iterate through each army currently defending the planet in ground combat - checks whether the enclosed triggers return true for any of them
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 ## push_scope = army
 alias[trigger:any_ground_combat_defender] = single_alias_right[trigger_clause]
 
 ### Iterate through each army currently defending the planet in ground combat - checks whether the enclosed triggers return true for X/all of them
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:count_ground_combat_defender] = {
 	## cardinality = 0..1
 	## push_scope = army
@@ -4025,12 +4025,12 @@ alias[trigger:count_ground_combat_defender] = {
 }
 
 ### Iterate through each army currently attacking the planet in ground combat - checks whether the enclosed triggers return true for any of them
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 ## push_scope = army
 alias[trigger:any_ground_combat_attacker] = single_alias_right[trigger_clause]
 
 ### Iterate through each army currently attacking the planet in ground combat - checks whether the enclosed triggers return true for X/all of them
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:count_ground_combat_attacker] = {
 	## cardinality = 0..1
 	## push_scope = army
@@ -4330,7 +4330,7 @@ alias[trigger:count_controlled_fleet] = {
 }
 
 ### Iterate through each fleet orbiting the current planet/starbase/megastructure - checks whether the enclosed triggers return true for X/all of them
-## scopes = { megastructure planet ship starbase }
+## scopes = { megastructure starbase planet ship carrier }
 alias[trigger:count_fleet_in_orbit] = {
 	## cardinality = 0..1
 	## push_scope = fleet
@@ -4555,7 +4555,7 @@ alias[trigger:count_galaxy_planet] = {
 }
 
 ### Iterate through each deposit on the planet - checks whether the enclosed triggers return true for X/all of them
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:count_deposit] = {
 	## cardinality = 0..1
 	## push_scope = deposit
@@ -4565,7 +4565,7 @@ alias[trigger:count_deposit] = {
 }
 
 ### Iterate through each moon of the planet - checks whether the enclosed triggers return true for X/all of them
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:count_moon] = {
 	## cardinality = 0..1
 	## push_scope = planet
@@ -4606,12 +4606,12 @@ alias[trigger:count_job_pop_group] = {
 
 
 ### Iterate through all owned jobs - checks whether the enclosed triggers return true for any of them
-## scopes = { planet country ship galactic_object sector colony }
+## scopes = { country galactic_object sector colony planet ship carrier }
 ## push_scope = pop_job
 alias[trigger:any_owned_pop_job] = single_alias_right[trigger_clause]
 
 ### Iterate through all owned jobs - checks whether the enclosed triggers return true for X/all of them
-## scopes = { planet country ship galactic_object sector colony }
+## scopes = { country galactic_object sector colony planet ship carrier }
 alias[trigger:count_owned_pop_job] = {
 	## cardinality = 0..1
 	## push_scope = pop_job
@@ -4621,7 +4621,7 @@ alias[trigger:count_owned_pop_job] = {
 }
 
 ### Sums all workforce - checks whether the enclosed triggers return true for X/all of them
-## scopes = { planet country ship galactic_object sector colony }
+## scopes = { country galactic_object sector colony planet ship carrier }
 alias[trigger:count_owned_workforce] = {
 	## cardinality = 0..1
 	## push_scope = pop_job
@@ -4741,12 +4741,12 @@ alias[trigger:count_situation] = {
 }
 
 ### Iterate through each situation that is targeting the current planet - checks whether the enclosed triggers return true for any of them
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 ## push_scope = situation
 alias[trigger:any_targeting_situation] = single_alias_right[trigger_clause]
 
 ### Iterate through each situation that is targeting the current planet - checks whether the enclosed triggers return true for X/all of them
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:count_targeting_situation] = {
 	## cardinality = 0..1
 	## push_scope = situation
@@ -4786,7 +4786,7 @@ alias[trigger:count_galaxy_species] = {
 }
 
 ### Check if any of the species <on the planet/in the country> meet the specified criteria - checks whether the enclosed triggers return true for X/all of them
-## scopes = { planet country ship colony }
+## scopes = { country colony planet ship carrier }
 alias[trigger:count_owned_species] = {
 	## cardinality = 0..1
 	## push_scope = species
@@ -4796,7 +4796,7 @@ alias[trigger:count_owned_species] = {
 }
 
 ### Check if any of the species with enslaved pops <on the planet/in the country> meet the specified criteria - checks whether the enclosed triggers return true for X/all of them
-## scopes = { planet country ship colony }
+## scopes = { country colony planet ship carrier }
 alias[trigger:count_enslaved_species] = {
 	## cardinality = 0..1
 	## push_scope = species
@@ -5081,7 +5081,7 @@ alias[trigger:count_bypass_in_system] = {
 
 
 ### Check how many free jobs there are of a specific jobtype or pop_group category on a planet
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:free_jobs_of_type] = {
 	## cardinality = 0..1
 	job = <job>
@@ -5192,7 +5192,7 @@ alias[trigger:num_cosmic_storms_encountered] == int_value_field
 alias[trigger:num_unique_cosmic_storms_encountered] == int_value_field
 
 ### Checks the number of cosmic storm exploitation buildings with positive effects on a country
-## scopes = { planet country ship colony }
+## scopes = { country colony planet ship carrier }
 alias[trigger:num_storm_exploitation_buildings] == int_value_field
 
 ### Checks if there is currently a storm active within the storm sector that this system belongs to. The galaxy is split up in multiple storm sectors, which we use to avoid spawning storms too close to each other.
@@ -5416,7 +5416,7 @@ alias[trigger:has_max_hp] == value_field
 alias[trigger:has_max_armor_hp] == value_field
 
 ### Checks the scoped object for the remaining days left of the specified timed flag (note: one can use e.g. my_flag@from to track relationships between objects)
-## scopes = { megastructure planet country ship pop_group fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector no_scope archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift colony }
+## scopes = { megastructure country pop_group fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector no_scope archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift colony planet ship carrier }
 alias[trigger:timed_flag_days_left] = {
 
 	flag = value[megastructure_flag]
@@ -5635,7 +5635,7 @@ alias[trigger:has_active_focus] = <country_focus_cards>
 alias[trigger:has_completed_focus] = <country_focus_cards>
 
 ### Checks the number the planet has of any, or a specific, zone
-## scopes = { planet country ship colony }
+## scopes = { country colony planet ship carrier }
 alias[trigger:num_zones] = {
 	type = any
 	type = <zone>
@@ -5647,7 +5647,7 @@ alias[trigger:num_zones] = {
 alias[trigger:bioship_can_grow] = bool
 
 ### Checks how much workforce that has jobs with all given tags in a planet
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:total_workforce_with_job_tag] = {
 	tags = {
 		## cardinality = 0..inf
@@ -5680,7 +5680,7 @@ alias[trigger:total_country_workforce_with_job_tag] = {
 }
 
 ### Checks if the last building queued/dequeued/built/demolished/upgraded is a capital building. If there is no last building set, returns false.
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:is_last_building_changed_capital] = bool
 
 ### Checks if the last picked tradition has the given tradition category. If there is no last picked tradition set, returns false.
@@ -5688,7 +5688,7 @@ alias[trigger:is_last_building_changed_capital] = bool
 alias[trigger:category_last_picked_tradition] = <tradition_category>
 
 ### Checks the amount of pops in the planet that have the exact species.
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:nb_pop_exact_species] = {
 	species = scope_group[target_species]
 	value == int_value_field
@@ -5854,7 +5854,7 @@ alias[trigger:any_system_planet_colony] = single_alias_right[trigger_clause]
 alias[trigger:any_system_ship_colony] = single_alias_right[trigger_clause]
 
 ### Checks if the carrier is of a specific type
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:carrier_is_type] = enum[carrier_type]
 
 ### Count all currently available contracts to the scoped country
@@ -5963,7 +5963,7 @@ alias[trigger:count_visible_contracts] == int
 alias[trigger:galaxy_radius] == int
 
 ### Checks if the colony carrier has a specific flag
-## scopes = { planet ship colony }
+## scopes = { colony planet ship carrier }
 alias[trigger:has_carrier_flag] = value[carrier_flag]
 
 ### Checks if the job or the group has the one of the civilian categories
@@ -5999,7 +5999,7 @@ alias[trigger:hostile_military_power] = {
 
 ### Checks if any fleet of the given fleet's controller (other than the given fleet itself) is currently
 ### executing a survey order targeting this planet/deposit holder.
-## scopes = { planet ship astral_rift }
+## scopes = { planet ship astral_rift carrier }
 alias[trigger:is_being_surveyed] = {
 	who = scope[fleet]
 }
@@ -6017,7 +6017,7 @@ alias[trigger:is_nomadic] = bool
 alias[trigger:fallen_empire_strength_scale] == value_field
 
 ### Checks if the scoped fleet/carrier is locked in its current system.
-## scopes = { planet ship fleet colony }
+## scopes = { fleet colony planet ship carrier }
 alias[trigger:is_system_locked] = bool
 
 ### Counts the number of claims the scoped empire has on the target system
