@@ -566,6 +566,7 @@ rows = {
 	row[component_template] = {
 		path = "game/common/component_templates"
 		path_extension = .csv
+        skip_last_column = yes
 		columns = {
 			key = <component_template>
 			cost = float
@@ -592,7 +593,6 @@ rows = {
 			missile_health = float
 			missile_retarget_range = float
 		}
-		end_column = end
 	}
 }
 
