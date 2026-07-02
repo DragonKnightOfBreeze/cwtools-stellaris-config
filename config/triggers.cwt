@@ -5858,11 +5858,8 @@ alias[trigger:any_system_planet_colony] = single_alias_right[trigger_clause]
 alias[trigger:any_system_ship_colony] = single_alias_right[trigger_clause]
 
 ### Checks if the carrier is of a specific type
-## scopes = { colony }
-alias[trigger:carrier_is_type] = planet
-### Checks if the carrier is of a specific type
-## scopes = { colony }
-alias[trigger:carrier_is_type] = ship
+## scopes = { planet ship colony }
+alias[trigger:carrier_is_type] = enum[carrier_type]
 
 ### Count all currently available contracts to the scoped country
 ## scopes = { country }
@@ -5970,7 +5967,7 @@ alias[trigger:count_visible_contracts] == int
 alias[trigger:galaxy_radius] == int
 
 ### Checks if the colony carrier has a specific flag
-## scopes = { colony }
+## scopes = { planet ship colony }
 alias[trigger:has_carrier_flag] = value[carrier_flag]
 
 ### Checks if the job or the group has the one of the civilian categories
@@ -6005,8 +6002,8 @@ alias[trigger:hostile_military_power] = {
 }
 
 ### Checks if any fleet of the given fleet's controller (other than the given fleet itself) is currently
+### executing a survey order targeting this planet/deposit holder.
 ## scopes = { planet ship astral_rift }
-executing a survey order targeting this planet/deposit holder.
 alias[trigger:is_being_surveyed] = {
 	who = scope[fleet]
 }
@@ -6058,8 +6055,8 @@ alias[trigger:starbase_network_size] == int_value_field
 alias[trigger:used_starbase_capacity] == int_value_field
 
 ### Checks the used percentage (0.00-1.00) of the ship's or starbase's local stockpile capacity. If over capacity, returns 1.
+### For waystations, which have a separate capacity for each resource, only checks the resource with the highest percentage.
 ## scopes = { ship starbase }
-For waystations, which have a separate capacity for each resource, only checks the resource with the highest percentage.
 alias[trigger:used_stockpile_capacity_percentage] == value_field
 
 ### Checks if the waystation has remote stockpile collection capability

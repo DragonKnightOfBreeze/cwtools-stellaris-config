@@ -286,7 +286,7 @@ enums = {
 		starbase
 		spynetwork
 	}
-	# NOTE: modifier_categories options are used to get modifier categories of generated modifiers from economic categories
+	# NOTE: `modifier_categories` options are used to get modifier categories of generated modifiers from economic categories
 	enum[scripted_modifier_category] = {
 		all
 		none
@@ -515,4 +515,8 @@ enums = {
 		waystation
 		all
 	}
+    enum[carrier_type] = {
+        planet
+        ship
+    }
 }
