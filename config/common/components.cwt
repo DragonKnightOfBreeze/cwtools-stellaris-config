@@ -568,6 +568,7 @@ rows = {
 		path_extension = .csv
         skip_last_column = yes
 		columns = {
+            # TODO [chronicle 3.0.0+] use `<component_template>|$,BIO_$` here when location-aware data types are supported
 			key = <component_template>
 			cost = float
 			power = float

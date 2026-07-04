@@ -1000,7 +1000,7 @@ alias[effect:kill_leader] = {
 	class = random_ruler
 	### see leader class for list of abilities, will kill leader that has this ability, can be used multiple times
 	## cardinality = 0..1
-	ability = scalar # TODO plugin version 1.2.4+
+	ability = scalar # TODO [chronicle 1.2.4+]
 	## cardinality = 0..1
 	show_notification = bool
 	### default: no?
@@ -3519,7 +3519,7 @@ alias[effect:set_disabled] = bool
 
 ### Sets the flag of the current Empire.
 ## scopes = { country }
-alias[effect:set_empire_flag] = scalar #TODO plugin version 1.2.4+
+alias[effect:set_empire_flag] = scalar #TODO [chronicle 1.2.4+]
 
 ### Sets the name of the current Empire.
 ## scopes = { country }
