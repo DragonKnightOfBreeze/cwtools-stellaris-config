@@ -291,7 +291,7 @@ alias[trigger:used_defense_platform_capacity_percent] == value_field
 
 ### Checks the country's used starbase capacity in absolute numbers
 ## scopes = { country }
-alias[trigger:used_starbase_capacity_integer] == int_value_field
+alias[trigger:used_starbase_capacity] == int_value_field
 
 #country only
 
@@ -984,7 +984,7 @@ alias[trigger:has_trait] = <trait>
 alias[trigger:pop_group_has_trait] = <trait.species_trait>
 
 ### Checks if the job or pop group has the one of the unemployment pop categories
-## scopes = { pop pop_group pop job }
+## scopes = { pop_group job }
 alias[trigger:is_unemployed] = bool
 
 ### Checks if a leader has a certain ruler trait, even if they are not currently ruler
@@ -2705,6 +2705,11 @@ alias[trigger:is_sector_capital] = bool
 ## severity = warning
 alias[trigger:uses_district_set] = enum[district_set]
 
+### Checks if the planet has the specified tag for district usage:
+## scopes = { colony planet ship carrier }
+## severity = warning
+alias[trigger:uses_district_set] = scalar
+
 ### Checks specific resource value for scoped planet. Warning: performance-intensive trigger!
 ## scopes = { planet ship colony }
 alias[trigger:planet_resource_compare] = {
@@ -3178,6 +3183,10 @@ alias[trigger:has_sensor_link_from] = scope[country]
 ## scopes = { situation }
 alias[trigger:situation_progress] == value_field
 
+### Checks the scoped situation's progress as a percentage (0-100) of its completion value, so it stays correct when the progress bar is rescaled.
+## scopes = { situation }
+alias[trigger:situation_progress_percent] == int_value_field
+
 ### Checks if the scoped situation's monthly progress is a certain value. Returns the cached value from the last monthly tick.
 ## scopes = { situation }
 alias[trigger:situation_monthly_progress] == value_field
@@ -3372,7 +3381,7 @@ alias[trigger:enclave_capacity_left] == int_value_field[0..inf]
 
 ### Checks the degree to which multiply_crisis_strength effect is increasing the strength of endgame crises
 ## scopes = any
-alias[trigger:additional_crisis_strength] == int_value_field[0..inf]
+alias[trigger:additional_crisis_strength] == value_field
 
 ### Checks the country's number of civics
 ## scopes = { country }
@@ -4490,21 +4499,6 @@ alias[trigger:count_system_planet] = {
 	count = all
 }
 
-### Iterate through each colony in the current system - checks whether the enclosed triggers return true for any of them
-## scopes = { galactic_object }
-## push_scope = planet
-alias[trigger:any_system_colony] = single_alias_right[trigger_clause]
-
-### Iterate through each colony in the current system - checks whether the enclosed triggers return true for X/all of them
-## scopes = { galactic_object }
-alias[trigger:count_system_colony] = {
-	## cardinality = 0..1
-	## push_scope = planet
-	limit = single_alias_right[trigger_clause]
-	count == int_value_field
-	count = all
-}
-
 ### Iterate through each planet within the current empire's borders - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 alias[trigger:count_planet_within_border] = {
@@ -5207,15 +5201,15 @@ alias[trigger:is_storm_active_in_storm_sector] = bool
 
 ### Checks the spawn storm chance scale in early game for cosmic storms
 ## scopes = any
-alias[trigger:num_cosmic_storm_early_game_spawn_chance_scale_setting] == int_value_field
+alias[trigger:num_cosmic_storm_early_game_spawn_chance_scale_setting] == value_field
 
 ### Checks the spawn storm chance scale in mid game for cosmic storms
 ## scopes = any
-alias[trigger:num_cosmic_storm_mid_game_spawn_chance_scale_setting] == int_value_field
+alias[trigger:num_cosmic_storm_mid_game_spawn_chance_scale_setting] == value_field
 
 ### Checks the spawn storm chance scale in late game for cosmic storms
 ## scopes = any
-alias[trigger:num_cosmic_storm_late_game_spawn_chance_scale_setting] == int_value_field
+alias[trigger:num_cosmic_storm_late_game_spawn_chance_scale_setting] == value_field
 
 ### Checks the spawn storm max cap in early game for cosmic storms
 ## scopes = any
@@ -5231,7 +5225,7 @@ alias[trigger:num_cosmic_storm_late_game_spawn_max_cap_setting] == int_value_fie
 
 ### Checks the spawn storm cooldown scale for cosmic storms
 ## scopes = any
-alias[trigger:num_cosmic_storm_spawn_cooldown_scale_setting] == int_value_field
+alias[trigger:num_cosmic_storm_spawn_cooldown_scale_setting] == value_field
 
 ### Checks if the scoped Cosmic Storm's type is equal to <type>
 ## scopes = { cosmic_storm }
@@ -5327,23 +5321,25 @@ alias[trigger:count_system_removed_from_storm] = {
 
 ### Iterate through all influence fields owned by a country - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
+## push_scope = cosmic_storm_influence_field
 alias[trigger:any_owned_storm_influence_field] = single_alias_right[trigger_clause]
 
 ### Iterate through all influence fields owned by a country - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 alias[trigger:count_owned_storm_influence_field] = {
 	## cardinality = 0..1
-	## push_scope = cosmic_storm
+	## push_scope = cosmic_storm_influence_field
 	limit = single_alias_right[trigger_clause]
 	count == int_value_field
 	count = all
 }
 
-### Iterate through all influence fields owned by a country - checks whether the enclosed triggers return true for any of them
+### Iterate through all systems in a cosmic storm influence field - checks whether the enclosed triggers return true for any of them
 ## scopes = { cosmic_storm_influence_field }
+## push_scope = system
 alias[trigger:any_system_in_cosmic_storm_influence_field] = single_alias_right[trigger_clause]
 
-### Iterate through all influence fields owned by a country - checks whether the enclosed triggers return true for X/all of them
+### Iterate through all systems in a cosmic storm influence field - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { cosmic_storm_influence_field }
 alias[trigger:count_system_in_cosmic_storm_influence_field] = {
 	## cardinality = 0..1
@@ -5994,7 +5990,7 @@ alias[trigger:has_waystation_pact] = scope[country]
 ## scopes = { galactic_object }
 alias[trigger:hostile_military_power] = {
 	## cardinality = 1..1
-	who = sopce[country]
+	who = scope[country]
 	## cardinality = 0..1
 	safety_buffer = bool
 	## cardinality = 1..1
@@ -6016,13 +6012,13 @@ alias[trigger:is_mission_type] = <mission>
 ## scopes = { country }
 alias[trigger:is_nomadic] = bool
 
+### Checks Fallen / Awakened Empire strength scaling in game setup
+## scopes = { any }
+alias[trigger:fallen_empire_strength_scale] == value_field
+
 ### Checks if the scoped fleet/carrier is locked in its current system.
 ## scopes = { planet ship fleet colony }
 alias[trigger:is_system_locked] = bool
-
-### Checks if the job or group has the one of the unemployment categories
-## scopes = { pop_group job }
-alias[trigger:has_unemployment_job_category] = bool
 
 ### Counts the number of claims the scoped empire has on the target system
 ## scopes = { country }
@@ -6070,3 +6066,7 @@ alias[trigger:waystation_network_has_remote_collection] = bool
 ### Checks max stockpile usage across all waystations in the network (0.0 to 1.0)
 ## scopes = { starbase }
 alias[trigger:waystation_network_stockpile_used] == value_field
+
+### Checks whether scoped fleet has specified automation setting enabled
+## scopes = { fleet }
+alias[trigger:has_automation_setting] = value[fleet_automation_setting]

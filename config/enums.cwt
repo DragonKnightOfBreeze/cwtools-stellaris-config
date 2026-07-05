@@ -190,6 +190,12 @@ enums = {
 		crisis_strength_scale
 		tech_costs_scale
 		fallen_empire_strength_scale
+		# undocumented
+        logistic_ceiling_v2
+        growth_scale
+        logistics_fleet_upkeep_costs
+        logistics_planet_deficit_costs
+        num_nomad_empires
 	}
 	enum[federation_succession_type] = {
 		strongest
@@ -263,6 +269,8 @@ enums = {
 		contingency
 		synth_queen
 		all
+        # undocumented
+        any
 	}
 	enum[ship_owner_type] = {
 		country
@@ -513,6 +521,7 @@ enums = {
 		starbase
 		orbital_ring
 		waystation
+        arkship
 		all
 	}
     enum[carrier_type] = {
