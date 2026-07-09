@@ -580,18 +580,18 @@ modifiers = {
 	<espionage_category>_skill_mult = { Espionage }
 
 	# economic_category modifiers
-    #
-    # see: icu.windea.pls.ep.resolve.modifier.ParadoxEconomicCategoryModifierSupport
 	#
-    # general rules:
+	# see: icu.windea.pls.ep.resolve.modifier.ParadoxEconomicCategoryModifierSupport
+	#
+	# general rules:
 	# - actual generated modifiers are based on detailed declaration
 	# - actual modifier categories are from property `modifier_category` + `"AI Economy"`, see `enum[scripted_modifier_category]`
-    #
-    # will generate:
-    # - `<economic_category>_<resource>_enum[economic_modifier_category]_enum[economic_modifier_type] = { "AI Economy" }`
-    #
-    # will generate if `use_for_ai_budget = yes` (inherited from parents for `_mult` modifiers):
-    # - `<economic_category>_enum[economic_modifier_category]_enum[economic_modifier_type] = { "AI Economy" }`
+	#
+	# will generate:
+	# - `<economic_category>_<resource>_enum[economic_modifier_category]_enum[economic_modifier_type] = { "AI Economy" }`
+	#
+	# will generate for `_mult` modifiers:
+	# - `<economic_category>_enum[economic_modifier_category]_enum[economic_modifier_type] = { "AI Economy" }`
 	#
 	# actual allowed values for `enum[economic_modifier_category]_enum[economic_modifier_type]` are:
 	# - from property `generate_mult_modifiers`, `generate_add_modifiers`
