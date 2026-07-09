@@ -6,6 +6,10 @@ types = {
 			name = "$"
 			desc = "$_desc"
 		}
+		images = {
+			## primary
+			icon = GFX_$_btn
+		}
 	}
 	type[crisis_objective] = {
 		path = "game/common/crisis_objectives"

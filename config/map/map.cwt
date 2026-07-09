@@ -2,11 +2,21 @@ types = {
 	type[galaxy_shape] = {
 		path = "game/map/galaxy"
 		path_extension = .txt
+		localisation = {
+			name = $
+		}
+		images = {
+			## primary
+			icon = button_icon
+		}
 	}
 	type[map_setup_scenario] = {
 		path = "game/map/setup_scenarios"
 		name_field = name
 		path_extension = .txt
+		localisation = {
+			name = $
+		}
 	}
 }
 
@@ -59,6 +69,15 @@ galaxy_shape = {
 		### Separation (in degrees) between each arm
 		seperation = float
 	}
+
+	## cardinality = 1..1
+	preview_icon = <sprite>
+
+	## cardinality = 1..1
+	button_icon = <sprite>
+
+	## cardinality = 0..1
+	desc = localisation
 }
 
 map_setup_scenario = {
@@ -79,6 +98,8 @@ map_setup_scenario = {
 	fallen_empire_max = int
 	marauder_empire_default = int
 	marauder_empire_max = int
+	nomad_empire_default = int
+	nomad_empire_max = int
 	advanced_empire_default = int
 	colonizable_planet_odds = float
 	primitive_odds = float

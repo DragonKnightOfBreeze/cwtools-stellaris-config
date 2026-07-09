@@ -10,4 +10,6 @@ types = {
 
 rontend_background = {
     entity = <model_entity>
+    ## cardinality = 0..1
+    default = bool
 }

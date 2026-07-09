@@ -40,6 +40,8 @@ section_template = {
 	ai_tags = {
 		## cardinality = 0..inf
 		enum[component_tag]
+		## cardinality = 0..1
+		citadel
 	}
 	## cardinality = 0..1
 	should_draw_components = bool

@@ -473,11 +473,25 @@ event = {
 		## cardinality = 0..1
 		custom_gui_option = scalar #same as previous, needs to be gui_type
 	}
-	subtype[planet] = {
+	subtype[colony] = {
 		### Like trigger, but only uses certain simple triggers
 		## cardinality = 0..1
 		pre_triggers = {
-			alias_name[planet_pre_trigger] = alias_match_left[planet_pre_trigger]
+			alias_name[colony_pre_trigger] = alias_match_left[colony_pre_trigger]
+		}
+	}
+	subtype[carrier] = {
+		### Like trigger, but only uses certain simple triggers
+		## cardinality = 0..1
+		pre_triggers = {
+			alias_name[colony_pre_trigger] = alias_match_left[colony_pre_trigger]
+		}
+	}
+	subtype[country] = {
+		### Like trigger, but only uses certain simple triggers
+		## cardinality = 0..1
+		pre_triggers = {
+			alias_name[country_pre_trigger] = alias_match_left[country_pre_trigger]
 		}
 	}
 	subtype[fleet] = {

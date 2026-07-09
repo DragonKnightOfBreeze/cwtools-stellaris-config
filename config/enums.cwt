@@ -103,13 +103,6 @@ enums = {
 		high
 		full
 	}
-	enum[construction_type] = {
-		starbase
-		mining_station
-		research_station
-		observation_post
-		spaceport
-	}
 	enum[tutorial_level] = {
 		0
 		1
@@ -242,6 +235,7 @@ enums = {
 		first_contact
 		strengthen_imperial_authority
 		undermine_imperial_authority
+        patron_attunement
 		none
 	}
 	enum[planet_resource_compare_type] = {
@@ -408,6 +402,7 @@ enums = {
 	enum[mia_type] = {
 		mia_return_home
 		mia_emergency_ftl
+		mia_fleet_eaten
 	}
 	enum[range_components] = {
 		weapon

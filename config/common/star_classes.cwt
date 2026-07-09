@@ -2,10 +2,15 @@ types = {
 	type[star_class] = {
 		path = "game/common/star_classes"
 		path_extension = .txt
+		path_strict = yes
 		localisation = {
 			name = "$"
 			## optional
 			desc = "$_desc"
+		}
+		images = {
+			## primary
+			icon = icon
 		}
 	}
 	type[star_class_random_list] = {
@@ -17,9 +22,9 @@ types = {
 #TODO Confirm
 
 star_class = {
-    class = scalar
+    class = value_set[star_class_id]
 	## cardinality = 0..1
-    icon = scalar
+    icon = icon[gfx/map/star_classes]
 	## cardinality = 0..1
 	icon_scale = float
     ## cardinality = 0..inf
@@ -27,7 +32,7 @@ star_class = {
 		#TODO check star subtype
         key = <planet_class> #this can receive any planet, doesn't require only is_star = yes!
 		## cardinality = 0..1
-		class = scalar
+		class = value[star_class_id]
     }
 	## cardinality = 0..1
     spawn_odds = float
@@ -41,6 +46,11 @@ star_class = {
 	### Used to block a star class from being changed by the crisis terraforming
 	## cardinality = 0..1
 	can_be_crisis_terraformed = bool
+	
+	### Override for the crisis terraforming - sets custom star class instead of the default
+	## cardinality = 0..1
+	crisis_star_class = <star_class>
+	
 	## cardinality = 0..1
 	## replace_scopes = { this = ship root = ship }
 	modifier = {
@@ -51,8 +61,7 @@ star_class = {
 	#### Image from gfx/portraits/arkships/ships used in portrait background for arkships
 	####
 	## cardinality = 1..1
-	## file_extensions = { dds }
-	arkship_picture = filepath[gfx/portraits/arkships/ships]
+	arkship_picture = icon[gfx/portraits/arkships/stars]
 
 }
 
