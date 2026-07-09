@@ -523,4 +523,11 @@ enums = {
         planet
         ship
     }
+    # from interface/customize_species_editors.gui:2416
+    enum[customize_species_editor_header] = {
+        TYPE_HEADER_01
+        TYPE_HEADER_02
+        TYPE_HEADER_03
+        TYPE_HEADER_04
+    }
 }
