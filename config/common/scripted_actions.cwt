@@ -8,731 +8,913 @@ types = {
         images = {
             icon = icon
         }
+        subtype[from_fleet-to_galactic_object] = {
+            user_scope = fleet
+            scope = galactic_object
+        }
+        subtype[from_fleet-to_planet] = {
+            user_scope = fleet
+            scope = planet
+        }
+        subtype[from_fleet-to_fleet] = {
+            user_scope = fleet
+            scope = fleet
+        }
+        subtype[from_fleet-to_self] = {
+            user_scope = fleet
+            scope = self
+        }
+        subtype[from_megastructure-to_galactic_object] = {
+            user_scope = megastructure
+            scope = galactic_object
+        }
+        subtype[from_megastructure-to_planet] = {
+            user_scope = megastructure
+            scope = planet
+        }
+        subtype[from_megastructure-to_fleet] = {
+            user_scope = megastructure
+            scope = fleet
+        }
+        subtype[from_megastructure-to_self] = {
+            user_scope = megastructure
+            scope = self
+        }
     }
 }
 
 scripted_action = {
-
+    #### Defines the type of the action user (therefore the scope of the button_visible/clickable triggers,
+    #### as well as the from scope of the performed action or on_cancel action)
+    ####
+    #### MUST BE the first param
+    ## cardinality = 1..1
     user_scope = enum[ship_user_action_type]
 
+    #### defines the target of the action (therefore the scope of the possible and finished triggers,
+    #### as well as the scope of the performed action or on_cancel action)
+    ####
+    #### MUST be the second param
+    ## cardinality = 1..1
     scope = enum[ship_action_type]
 
+    #### Trigger specific NON-LOOPING animation state on the user performing the order at the moment the order is finished/executed.
+    #### This overrides own weapon projectile induced animations, as well as regular animation states.
+    ####
+    #### NOTE: Using too many scritpted actions with custom animations may cause performance issues.
     ## cardinality = 0..1
     finish_anim_state = enum[model_animation]
 
+    #### Trigger specific NON-LOOPING animation state on the user performing the order at the moment the order is started.
+    #### This overrides regular animation states.
+    ####
+    #### Atm this is only used for megastructure users.
     ## cardinality = 0..1
     begin_anim_state = enum[model_animation]
 
+    #### Trigger specific animation state on the user performing the order while the order is in progress.
+    #### This overrides own weapon projectile induced animations, as well as regular animation states.
+    ####
+    #### This is ignored if scope=self because the order is instant in that case (no progress).
     ## cardinality = 0..1
     progress_anim_state = enum[model_animation]
 
-    #### scope: target planet from: triggering fleet.
-    ####
-    #### evaluates if action is possible
-    ####
-    #### if not specified, action is always considered possible
+    ### Button tooltip
     ## cardinality = 0..1
-    ## predicate = { scope = planet user_scope = fleet }
-    ## replace_scopes = { this = planet from = fleet }
-    possible = single_alias_right[trigger_clause]
-    #### scope: target planet from: triggering fleet.
-    ####
-    #### evaluates if action is finished
-    ####
-    #### if not specified, action is always considered finished as soon as it is started
-    ## cardinality = 0..1
-    ## predicate = { scope = planet user_scope = fleet }
-    ## replace_scopes = { this = planet from = fleet }
-    finished = single_alias_right[trigger_clause]
-    #### scope: target planet from: triggering fleet.
-    ####
-    #### evaluates if scripted action button is clickable
-    ## cardinality = 0..1
-    ## predicate = { scope = planet user_scope = fleet }
-    ## replace_scopes = { this = planet from = fleet }
-    button_clickable = single_alias_right[trigger_clause]
-    #### scope: target planet from: triggering fleet.
-    ####
-    #### evaluates if scripted action button is visible
-    ####
-    #### (also used for context menu options if hide_from_context_menu is not used)
-    ## cardinality = 0..1
-    ## predicate = { scope = planet user_scope = fleet }
-    ## replace_scopes = { this = planet from = fleet }
-    button_visible = single_alias_right[trigger_clause]
-    #### scope: target planet from: triggering fleet
-    ####
-    #### trigger. evaluates if action should be shown in the right-click context menu orders
-    ####
-    #### if not specified, action will always be shown if button is visible
-    ####
-    ## cardinality = 0..1
-    ## predicate = { scope = planet user_scope = fleet }
-    ## replace_scopes = { this = planet from = fleet }
-    hide_from_context_menu = single_alias_right[trigger_clause]
-
-    #### scope: target planet from: triggering megastructure.
-    ####
-    #### evaluates if action is possible
-    ####
-    #### if not specified, action is always considered possible
-    ## cardinality = 0..1
-    ## predicate = { scope = planet user_scope = megastructure }
-    ## replace_scopes = { this = planet from = megastructure }
-    possible = single_alias_right[trigger_clause]
-    #### scope: target planet from: triggering megastructure.
-    ####
-    #### evaluates if action is finished
-    ####
-    #### if not specified, action is always considered finished as soon as it is started
-    ## cardinality = 0..1
-    ## predicate = { scope = planet user_scope = megastructure }
-    ## replace_scopes = { this = planet from = megastructure }
-    finished = single_alias_right[trigger_clause]
-    #### scope: target planet from: triggering megastructure.
-    ####
-    #### evaluates if scripted action button is clickable
-    ## cardinality = 0..1
-    ## predicate = { scope = planet user_scope = megastructure }
-    ## replace_scopes = { this = planet from = megastructure }
-    button_clickable = single_alias_right[trigger_clause]
-    #### scope: target planet from: triggering megastructure.
-    ####
-    #### evaluates if scripted action button is visible
-    ####
-    #### (also used for context menu options if hide_from_context_menu is not used)
-    ## cardinality = 0..1
-    ## predicate = { scope = planet user_scope = megastructure }
-    ## replace_scopes = { this = planet from = megastructure }
-    button_visible = single_alias_right[trigger_clause]
-    #### scope: target planet from: triggering megastructure
-    ####
-    #### trigger. evaluates if action should be shown in the right-click context menu orders
-    ####
-    #### if not specified, action will always be shown if button is visible
-    ####
-    ## cardinality = 0..1
-    ## predicate = { scope = planet user_scope = megastructure }
-    ## replace_scopes = { this = planet from = megastructure }
-    hide_from_context_menu = single_alias_right[trigger_clause]
-
-    #### scope: target fleet (can't be triggering fleet) from: triggering fleet.
-    ####
-    #### evaluates if action is possible
-    ####
-    #### if not specified, action is always considered possible
-    ## cardinality = 0..1
-    ## predicate = { scope = fleet user_scope = fleet }
-    ## replace_scopes = { this = fleet from = fleet }
-    possible = single_alias_right[trigger_clause]
-    #### scope: target fleet (can't be triggering fleet) from: triggering fleet.
-    ####
-    #### evaluates if action is finished
-    ####
-    #### if not specified, action is always considered finished as soon as it is started
-    ## cardinality = 0..1
-    ## predicate = { scope = fleet user_scope = fleet }
-    ## replace_scopes = { this = fleet from = fleet }
-    finished = single_alias_right[trigger_clause]
-    #### scope: target fleet (can't be triggering fleet) from: triggering fleet.
-    ####
-    #### evaluates if scripted action button is clickable
-    ## cardinality = 0..1
-    ## predicate = { scope = fleet user_scope = fleet }
-    ## replace_scopes = { this = fleet from = fleet }
-    button_clickable = single_alias_right[trigger_clause]
-    #### scope: target fleet (can't be triggering fleet) from: triggering fleet.
-    ####
-    #### evaluates if scripted action button is visible
-    ####
-    #### (also used for context menu options if hide_from_context_menu is not used)
-    ## cardinality = 0..1
-    ## predicate = { scope = fleet user_scope = fleet }
-    ## replace_scopes = { this = fleet from = fleet }
-    button_visible = single_alias_right[trigger_clause]
-    #### scope: target fleet (can't be triggering fleet) from: triggering fleet.
-    ####
-    #### trigger. evaluates if action should be shown in the right-click context menu orders
-    ####
-    #### if not specified, action will always be shown if button is visible
-    ####
-    ## cardinality = 0..1
-    ## predicate = { scope = fleet user_scope = fleet }
-    ## replace_scopes = { this = fleet from = fleet }
-    hide_from_context_menu = single_alias_right[trigger_clause]
-
-    #### scope: target fleet (can't be triggering megastructure) from: triggering megastructure.
-    ####
-    #### evaluates if action is possible
-    ####
-    #### if not specified, action is always considered possible
-    ## cardinality = 0..1
-    ## predicate = { scope = fleet user_scope = megastructure }
-    ## replace_scopes = { this = fleet from = megastructure }
-    possible = single_alias_right[trigger_clause]
-    #### scope: target fleet (can't be triggering megastructure) from: triggering megastructure.
-    ####
-    #### evaluates if action is finished
-    ####
-    #### if not specified, action is always considered finished as soon as it is started
-    ## cardinality = 0..1
-    ## predicate = { scope = fleet user_scope = megastructure }
-    ## replace_scopes = { this = fleet from = megastructure }
-    finished = single_alias_right[trigger_clause]
-    #### scope: target fleet (can't be triggering megastructure) from: triggering megastructure.
-    ####
-    #### evaluates if scripted action button is clickable
-    ## cardinality = 0..1
-    ## predicate = { scope = fleet user_scope = megastructure }
-    ## replace_scopes = { this = fleet from = megastructure }
-    button_clickable = single_alias_right[trigger_clause]
-    #### scope: target fleet (can't be triggering megastructure) from: triggering megastructure.
-    ####
-    #### evaluates if scripted action button is visible
-    ####
-    #### (also used for context menu options if hide_from_context_menu is not used)
-    ## cardinality = 0..1
-    ## predicate = { scope = fleet user_scope = megastructure }
-    ## replace_scopes = { this = fleet from = megastructure }
-    button_visible = single_alias_right[trigger_clause]
-    #### scope: target fleet (can't be triggering megastructure) from: triggering megastructure
-    ####
-    #### trigger. evaluates if action should be shown in the right-click context menu orders
-    ####
-    #### if not specified, action will always be shown if button is visible
-    ####
-    ## cardinality = 0..1
-    ## predicate = { scope = fleet user_scope = megastructure }
-    ## replace_scopes = { this = fleet from = megastructure }
-    hide_from_context_menu = single_alias_right[trigger_clause]
-
-    #### scope: triggering fleet from: triggering fleet.
-    ####
-    #### evaluates if action is possible
-    ####
-    #### if not specified, action is always considered possible
-    ## cardinality = 0..1
-    ## predicate = { scope = self user_scope = fleet }
-    ## replace_scopes = { this = fleet from = fleet }
-    possible = single_alias_right[trigger_clause]
-    #### scope: triggering fleet from: triggering fleet.
-    ####
-    #### evaluates if action is finished
-    ####
-    #### if not specified, action is always considered finished as soon as it is started
-    ## cardinality = 0..1
-    ## predicate = { scope = self user_scope = fleet }
-    ## replace_scopes = { this = fleet from = fleet }
-    finished = single_alias_right[trigger_clause]
-    #### scope: triggering fleet from: triggering fleet.
-    ####
-    #### evaluates if scripted action button is clickable
-    ## cardinality = 0..1
-    ## predicate = { scope = self user_scope = fleet }
-    ## replace_scopes = { this = fleet from = fleet }
-    button_clickable = single_alias_right[trigger_clause]
-    #### scope: triggering fleet from: triggering fleet.
-    ####
-    #### evaluates if scripted action button is visible
-    ####
-    #### (also used for context menu options if hide_from_context_menu is not used)
-    ## cardinality = 0..1
-    ## predicate = { scope = self user_scope = fleet }
-    ## replace_scopes = { this = fleet from = fleet }
-    button_visible = single_alias_right[trigger_clause]
-    #### scope: triggering fleet from: triggering fleet.
-    ####
-    #### trigger. evaluates if action should be shown in the right-click context menu orders
-    ####
-    #### if not specified, action will always be shown if button is visible
-    ####
-    ## cardinality = 0..1
-    ## predicate = { scope = self user_scope = fleet }
-    ## replace_scopes = { this = fleet from = fleet }
-    hide_from_context_menu = single_alias_right[trigger_clause]
-
-    #### scope: triggering megastructure from: triggering megastructure.
-    ####
-    #### evaluates if action is possible
-    ####
-    #### if not specified, action is always considered possible
-    ## cardinality = 0..1
-    ## predicate = { scope = self user_scope = megastructure }
-    ## replace_scopes = { this = megastructure from = megastructure }
-    possible = single_alias_right[trigger_clause]
-    #### scope: triggering megastructure from: triggering megastructure.
-    ####
-    #### evaluates if action is finished
-    ####
-    #### if not specified, action is always considered finished as soon as it is started
-    ## cardinality = 0..1
-    ## predicate = { scope = self user_scope = megastructure }
-    ## replace_scopes = { this = megastructure from = megastructure }
-    finished = single_alias_right[trigger_clause]
-    #### scope: triggering megastructure from: triggering megastructure.
-    ####
-    #### evaluates if scripted action button is clickable
-    ## cardinality = 0..1
-    ## predicate = { scope = self user_scope = megastructure }
-    ## replace_scopes = { this = megastructure from = megastructure }
-    button_clickable = single_alias_right[trigger_clause]
-    #### scope: triggering megastructure from: triggering megastructure.
-    ####
-    #### evaluates if scripted action button is visible
-    ####
-    #### (also used for context menu options if hide_from_context_menu is not used)
-    ## cardinality = 0..1
-    ## predicate = { scope = self user_scope = megastructure }
-    ## replace_scopes = { this = megastructure from = megastructure }
-    button_visible = single_alias_right[trigger_clause]
-    ### scope: triggering megastructure from: triggering megastructure
-    ####
-    #### trigger. evaluates if action should be shown in the right-click context menu orders
-    ####
-    #### if not specified, action will always be shown if button is visible
-    ####
-    ## cardinality = 0..1
-    ## predicate = { scope = self user_scope = megastructure }
-    ## replace_scopes = { this = megastructure from = megastructure }
-    hide_from_context_menu = single_alias_right[trigger_clause]
-
-    #### scope: target planet from: triggering fleet.
-    ####
-    #### evaluates if action is possible
-    ####
-    #### if not specified, action is always considered possible
-    ## cardinality = 0..1
-    ## predicate = { scope = galactic_object user_scope = fleet }
-    ## replace_scopes = { this = system from = fleet }
-    possible = single_alias_right[trigger_clause]
-    #### scope: target planet from: triggering fleet.
-    ####
-    #### evaluates if action is finished
-    ####
-    #### if not specified, action is always considered finished as soon as it is started
-    ## cardinality = 0..1
-    ## predicate = { scope = galactic_object user_scope = fleet }
-    ## replace_scopes = { this = system from = fleet }
-    finished = single_alias_right[trigger_clause]
-    #### scope: target planet from: triggering fleet.
-    ####
-    #### evaluates if scripted action button is clickable
-    ## cardinality = 0..1
-    ## predicate = { scope = galactic_object user_scope = fleet }
-    ## replace_scopes = { this = system from = fleet }
-    button_clickable = single_alias_right[trigger_clause]
-    #### scope: target planet from: triggering fleet.
-    ####
-    #### evaluates if scripted action button is visible
-    ####
-    #### (also used for context menu options if hide_from_context_menu is not used)
-    ## cardinality = 0..1
-    ## predicate = { scope = galactic_object user_scope = fleet }
-    ## replace_scopes = { this = system from = fleet }
-    button_visible = single_alias_right[trigger_clause]
-    #### scope: target system from: triggering fleet
-    ####
-    #### trigger. evaluates if action should be shown in the right-click context menu orders
-    ####
-    #### if not specified, action will always be shown if button is visible
-    ####
-    ## cardinality = 0..1
-    ## predicate = { scope = galactic_object user_scope = fleet }
-    ## replace_scopes = { this = system from = fleet }
-    hide_from_context_menu = single_alias_right[trigger_clause]
-
-    #### scope: target system from: triggering megastructure.
-    ####
-    #### evaluates if action is possible
-    ####
-    #### if not specified, action is always considered possible
-    ## cardinality = 0..1
-    ## predicate = { scope = galactic_object user_scope = megastructure }
-    ## replace_scopes = { this = system from = megastructure }
-    possible = single_alias_right[trigger_clause]
-    #### scope: target system from: triggering megastructure.
-    ####
-    #### evaluates if action is finished
-    ####
-    #### if not specified, action is always considered finished as soon as it is started
-    ## cardinality = 0..1
-    ## predicate = { scope = galactic_object user_scope = megastructure }
-    ## replace_scopes = { this = system from = megastructure }
-    finished = single_alias_right[trigger_clause]
-    #### scope: target system from: triggering megastructure.
-    ####
-    #### evaluates if scripted action button is clickable
-    ## cardinality = 0..1
-    ## predicate = { scope = galactic_object user_scope = megastructure }
-    ## replace_scopes = { this = system from = megastructure }
-    button_clickable = single_alias_right[trigger_clause]
-    #### scope: target system from: triggering megastructure.
-    ####
-    #### evaluates if scripted action button is visible
-    ####
-    #### (also used for context menu options if hide_from_context_menu is not used)
-    ## cardinality = 0..1
-    ## predicate = { scope = galactic_object user_scope = megastructure }
-    ## replace_scopes = { this = system from = megastructure }
-    button_visible = single_alias_right[trigger_clause]
-    #### scope: target system from: triggering megastructure
-    ####
-    #### trigger. evaluates if action should be shown in the right-click context menu orders
-    ####
-    #### if not specified, action will always be shown if button is visible
-    ####
-    ## cardinality = 0..1
-    ## predicate = { scope = galactic_object user_scope = megastructure }
-    ## replace_scopes = { this = system from = megastructure }
-    hide_from_context_menu = single_alias_right[trigger_clause]
-
-    #### button tooltip
-    ####
     tooltip = localisation
 
-    #### button icon
-    ####
+    ### Button icon
+    ## cardinality = 0..1
     icon = <sprite>
 
     ## cardinality = 0..1
     icon_selected = <sprite>
 
-    #### name of the on_action to perform when scripted action completes its progress
-    ####
+    ## cardinality = 0..1
+    click_to_act_key = localisation
+
+    ### Name of the on_action to perform when scripted action completes its progress
     ## cardinality = 0..1
     on_completed = <on_action>
 
-    #### name of the on_action to perform when scripted action is queued.
-    ####
-    #### not supported by megastructure users
+    ### Name of the on_action to perform when scripted action is queued.
+    ###
+    ### Not supported by megastructure users
     ## cardinality = 0..1
     on_queued = <on_action>
 
-    #### name of the on_action to perform when scripted action starts
-    ####
-    #### this action will take place even if the user still needs to travel to the target
+    ### Name of the on_action to perform when scripted action starts
+    ###
+    ### This action will take place even if the user still needs to travel to the target
     ## cardinality = 0..1
     on_started = <on_action>
 
-    #### name of the on_action to perform when scripted action starts its progress
-    ####
-    #### not supported by megastructure users
+    ### Name of the on_action to perform when scripted action starts its progress
+    ###
+    ### Not supported by megastructure users
     ## cardinality = 0..1
     on_progress_start = <on_action>
 
-    #### name of the on_action to perform when scripted action is cancelled
-    ####
+    ### Name of the on_action to perform when scripted action is cancelled
     ## cardinality = 0..1
     on_cancelled = <on_action>
 
-    #### optional. when this action's automation is enabled, the listed actions are also included in the automation order even if they are not checked separately.
-    ####
-    #### useful for support actions (e.g. drop-off) that multiple automations depend on.
-    ## cardinality = 0..1
-    also_automate = {
-        ## cardinality = 0..inf
-        <scripted_action>
-    }
-
-    #### if set, the action will show up in the automation order settings (lower = higher priority) only affects UI ordering; actual target selection uses ai weights
-    ####
-    ## cardinality = 0..1
-    automation_priority = int
-
-    #### whether the automation checkbox is checked by default. default = no
-    ####
-    ## cardinality = 0..1
-    automation_default_on = bool
-
-    #### loc key for the activity string to show on fleet UI. "NAME" loc parameter gives target localized name
-    ####
+    ### loc key for the activity string to show on fleet UI. "NAME" loc parameter gives target localized name
     activity_key = localisation
 
-    #### loc key for option label in drop down menu
-    ####
-    ## cardinality = 0..1
-    context_menu_name = localisation
-
-    #### loc key for the progress string to show on fleet UI. "PROGRESS" loc parameter gives current progress percentage
-    ####
+    ### loc key for the progress string to show on fleet UI. "PROGRESS" loc parameter gives current progress percentage
     ## cardinality = 0..1
     progress_activity_key = localisation
 
-    #### required progress (number of ticks) to start performing scripted action. default = 0.0
-    ####
-    #### progress starts counting at 1.0, so the minimum value for required_progress to make the action not instant is 2.0
-    ####
-    #### accepts variable values, with scope this : target object and from : user object
+    ### loc key for option label in drop down menu
+    ## cardinality = 0..1
+    context_menu_name = localisation
+
+    # no | operator, resorting to & of !
+    subtype[!from_fleet-to_galactic_object&!from_fleet-to_fleet&!from_fleet-to_self&!from_megastructure-to_galactic_object&!from_megastructure-to_fleet&!from_megastructure-to_self] = {
+        #### Only used for scope = planet. Controls the order targets are queued when the
+        #### action is issued on a whole solar system from the right-click context menu
+        #### (which targets every valid planet in the system).
+        ####
+        #### - distance (default): nearest-neighbor travel order, minimizing fleet movement.
+        #### every valid planet (per the possible trigger) is queued.
+        #### - weight: descending ai = { weight = { ... } } evaluated per planet, ties broken by
+        #### proximity to the fleet. Lets the same priorities the AI uses drive the manual order.
+        ####
+        #### Note: like the AI, this only queues planets whose weight evaluates above 0.
+        #### A valid planet whose weight is 0 or lower is skipped entirely, not just ordered last.
+        ## cardinality = 0..1
+        context_menu_ordering = distance
+
+        #### Only used for scope = planet. Controls the order targets are queued when the
+        #### action is issued on a whole solar system from the right-click context menu
+        #### (which targets every valid planet in the system).
+        ####
+        #### - distance (default): nearest-neighbor travel order, minimizing fleet movement.
+        #### every valid planet (per the possible trigger) is queued.
+        #### - weight: descending ai = { weight = { ... } } evaluated per planet, ties broken by
+        #### proximity to the fleet. Lets the same priorities the AI uses drive the manual order.
+        ####
+        #### Note: like the AI, this only queues planets whose weight evaluates above 0.
+        #### A valid planet whose weight is 0 or lower is skipped entirely, not just ordered last.
+        ## cardinality = 0..1
+        context_menu_ordering = weight
+    }
+
+    ### required progress (number of ticks) to start performing scripted action. default = 0.0
+    ###
+    ### progress starts counting at 1.0, so the minimum value for required_progress to make the action not instant is 2.0
+    ###
+    ### accepts variable values, with scope this : target object and from : user object
     ## cardinality = 0..1
     required_progress = value_field
 
-    #### Optional: Loc key for the required progress.
+    ### Optional: Loc key for the required progress.
     ## cardinality = 0..1
     required_progress_key = localisation
 
-    #### sound clip to play when the button is clicked (or the target, if required)
-    ####
+    ### sound clip to play when the button is clicked (or the target, if required)
+    ###
     ## cardinality = 0..1
     on_click_sound = <sound_effect>
 
-    #### sound clip to play when the on_action specified by field "name" is executed
-    ####
+    ### sound clip to play when the on_action specified by field "name" is executed
+    ###
     ## cardinality = 0..1
     on_execution_sound = <sound_effect>
 
-    #### only used when scope = fleet. max range from the target fleet tolerated to perform the action
-    ####
-    #### if too far, the fleet will chase the target fleet until it's inside the desired range
-    ####
-    #### default = 1.0
+    ### only used when scope = fleet. max range from the target fleet tolerated to perform the action
+    ###
+    ### if too far, the fleet will chase the target fleet until it's inside the desired range
+    ###
+    ### default = 1.0
     ## cardinality = 0..1
     fleet_action_range = float
 
-    #### If yes, waits for the ships in the fleet to be still before starting the scripted action
-    ####
-    #### default = yes
-    ####
-    #### For AI: always no
+    ### If yes, waits for the ships in the fleet to be still before starting the scripted action
+    ###
+    ### default = yes
+    ###
+    ### For AI: always no
     ## cardinality = 0..1
     wait = bool
 
-    #### number of days of cooldown before the action can be triggered again. default = 0
-    #### accepts variable values, with scope this : target object and from : user object
+    ### number of days of cooldown before the action can be triggered again. default = 0
+    ### accepts variable values, with scope this : target object and from : user object
     ## cardinality = 0..1
     cooldown = int
 
-    #### resources needed to enable the action. will be deducted from controller country on action finish. default = no cost
-    #### accepts triggered costs, with scope this : target object and from : user object
+    ### resources needed to enable the action. will be deducted from controller country on action finish. default = no cost
+    ### accepts triggered costs, with scope this : target object and from : user object
     ## cardinality = 0..1
     cost = {
         ## cardinality = 0..inf
         <resource> = int
     }
 
+    #### Keyboard shortcut for the scripted action button
+    #### Usual combinations like "CTRL+R" are also accepted
+    #### if the same shortcut is used for more than one simultaneously possible action on the same fleet,
+    #### the shortcut will only work for one of them
+    #### Same if the same shortcut is already used for any other already present button
     ## cardinality = 0..1
     shortcut = scalar
 
+    #### For hero ships (determined by ship size) UI
+    ####
+    #### If 0, the scripted action button will be located on the regular permanent orders bar
+    ####
+    #### If > 0, the scripted action button will be located on the custom orders bar, sorted by slot number
+    ####
+    #### Default: 0
     ## cardinality = 0..1
     slot = int
 
-    ai = {
-        #### Info concerning AI using this particular scripted order.
+    subtype[from_fleet-to_galactic_object] = {
+        #### scope: target galactic_object
         ####
-        #### if weight is 0 or lower AI will not perform the action, otherwise AI will prioritize actions with higher weight
+        #### from: triggering fleet
         ####
-        #### Weight modifier triggers support these scopes
+        #### evaluates if action is possible
         ####
-        #### This - Target - Target Type depends on the action.
-        ####
-        #### From - Acting user (fleet or megastructure).
-        ####
+        #### if not specified, action is always considered possible
         ## cardinality = 0..1
-        ## predicate = { scope = planet user_scope = fleet }
-        ## replace_scopes = { this = planet from = fleet }
-        weight = {
-            alias_name[modifier_rule] = alias_match_left[modifier_rule]
-        }
-        ## cardinality = 0..1
-        ## predicate = { scope = fleet user_scope = fleet }
-        ## replace_scopes = { this = fleet from = fleet }
-        weight = {
-            alias_name[modifier_rule] = alias_match_left[modifier_rule]
-        }
-        ## cardinality = 0..1
-        ## predicate = { scope = self user_scope = fleet }
-        ## replace_scopes = { this = fleet from = fleet }
-        weight = {
-            alias_name[modifier_rule] = alias_match_left[modifier_rule]
-        }
-        ## cardinality = 0..1
-        ## predicate = { scope = galactic_object user_scope = fleet }
         ## replace_scopes = { this = galactic_object from = fleet }
-        weight = {
-            alias_name[modifier_rule] = alias_match_left[modifier_rule]
-        }
+        possible = single_alias_right[trigger_clause]
 
+        #### scope: target galactic_object
+        ####
+        #### from: triggering fleet
+        ####
+        #### evaluates if action is finished
+        ####
+        #### if not specified, action is always considered finished as soon as it is started
         ## cardinality = 0..1
-        ## predicate = { scope = planet user_scope = megastructure }
-        ## replace_scopes = { this = planet from = megastructure }
-        weight = {
-            alias_name[modifier_rule] = alias_match_left[modifier_rule]
-        }
+        ## replace_scopes = { this = galactic_object from = fleet }
+        finished = single_alias_right[trigger_clause]
+
+        #### scope: target galactic_object
+        ####
+        #### from: triggering fleet
+        ####
+        #### trigger. evaluates if action should be shown in the right-click context menu orders
+        ####
+        #### if not specified, action will always be shown if button is visible
+        ####
         ## cardinality = 0..1
-        ## predicate = { scope = fleet user_scope = megastructure }
-        ## replace_scopes = { this = fleet from = megastructure }
-        weight = {
-            alias_name[modifier_rule] = alias_match_left[modifier_rule]
-        }
+        ## replace_scopes = { this = galactic_object from = fleet }
+        hide_from_context_menu = single_alias_right[trigger_clause]
+    }
+
+    subtype[from_fleet-to_planet] = {
+        #### scope: target planet
+        ####
+        #### from: triggering fleet
+        ####
+        #### evaluates if action is possible
+        ####
+        #### if not specified, action is always considered possible
         ## cardinality = 0..1
-        ## predicate = { scope = self user_scope = megastructure }
-        ## replace_scopes = { this = megastructure from = megastructure }
-        weight = {
-            alias_name[modifier_rule] = alias_match_left[modifier_rule]
-        }
+        ## replace_scopes = { this = planet from = fleet }
+        possible = single_alias_right[trigger_clause]
+
+        #### scope: target planet
+        ####
+        #### from: triggering fleet
+        ####
+        #### evaluates if action is finished
+        ####
+        #### if not specified, action is always considered finished as soon as it is started
         ## cardinality = 0..1
-        ## predicate = { scope = galactic_object user_scope = megastructure }
+        ## replace_scopes = { this = planet from = fleet }
+        finished = single_alias_right[trigger_clause]
+
+        #### scope: target planet
+        ####
+        #### from: triggering fleet
+        ####
+        #### trigger. evaluates if action should be shown in the right-click context menu orders
+        ####
+        #### if not specified, action will always be shown if button is visible
+        ####
+        ## cardinality = 0..1
+        ## replace_scopes = { this = planet from = fleet }
+        hide_from_context_menu = single_alias_right[trigger_clause]
+    }
+
+    subtype[from_fleet-to_fleet] = {
+        #### scope: target fleet
+        ####
+        #### from: triggering fleet
+        ####
+        #### evaluates if action is possible
+        ####
+        #### if not specified, action is always considered possible
+        ## cardinality = 0..1
+        ## replace_scopes = { this = fleet from = fleet }
+        possible = single_alias_right[trigger_clause]
+
+        #### scope: target fleet
+        ####
+        #### from: triggering fleet
+        ####
+        #### evaluates if action is finished
+        ####
+        #### if not specified, action is always considered finished as soon as it is started
+        ## cardinality = 0..1
+        ## replace_scopes = { this = fleet from = fleet }
+        finished = single_alias_right[trigger_clause]
+
+        #### scope: target fleet
+        ####
+        #### from: triggering fleet
+        ####
+        #### trigger. evaluates if action should be shown in the right-click context menu orders
+        ####
+        #### if not specified, action will always be shown if button is visible
+        ####
+        ## cardinality = 0..1
+        ## replace_scopes = { this = fleet from = fleet }
+        hide_from_context_menu = single_alias_right[trigger_clause]
+    }
+
+    subtype[from_fleet-to_self] = {
+        #### scope: target self
+        ####
+        #### from: triggering fleet
+        ####
+        #### evaluates if action is possible
+        ####
+        #### if not specified, action is always considered possible
+        ## cardinality = 0..1
+        ## replace_scopes = { this = self from = fleet }
+        possible = single_alias_right[trigger_clause]
+
+        #### scope: target self
+        ####
+        #### from: triggering fleet
+        ####
+        #### evaluates if action is finished
+        ####
+        #### if not specified, action is always considered finished as soon as it is started
+        ## cardinality = 0..1
+        ## replace_scopes = { this = self from = fleet }
+        finished = single_alias_right[trigger_clause]
+
+        #### scope: target self
+        ####
+        #### from: triggering fleet
+        ####
+        #### trigger. evaluates if action should be shown in the right-click context menu orders
+        ####
+        #### if not specified, action will always be shown if button is visible
+        ####
+        ## cardinality = 0..1
+        ## replace_scopes = { this = self from = fleet }
+        hide_from_context_menu = single_alias_right[trigger_clause]
+    }
+
+    subtype[from_megastructure-to_galactic_object] = {
+        #### scope: target galactic_object
+        ####
+        #### from: triggering megastructure
+        ####
+        #### evaluates if action is possible
+        ####
+        #### if not specified, action is always considered possible
+        ## cardinality = 0..1
         ## replace_scopes = { this = galactic_object from = megastructure }
-        weight = {
-            alias_name[modifier_rule] = alias_match_left[modifier_rule]
+        possible = single_alias_right[trigger_clause]
+
+        #### scope: target galactic_object
+        ####
+        #### from: triggering megastructure
+        ####
+        #### evaluates if action is finished
+        ####
+        #### if not specified, action is always considered finished as soon as it is started
+        ## cardinality = 0..1
+        ## replace_scopes = { this = galactic_object from = megastructure }
+        finished = single_alias_right[trigger_clause]
+
+        #### scope: target galactic_object
+        ####
+        #### from: triggering megastructure
+        ####
+        #### trigger. evaluates if action should be shown in the right-click context menu orders
+        ####
+        #### if not specified, action will always be shown if button is visible
+        ####
+        ## cardinality = 0..1
+        ## replace_scopes = { this = galactic_object from = megastructure }
+        hide_from_context_menu = single_alias_right[trigger_clause]
+    }
+
+    subtype[from_megastructure-to_planet] = {
+        #### scope: target planet
+        ####
+        #### from: triggering megastructure
+        ####
+        #### evaluates if action is possible
+        ####
+        #### if not specified, action is always considered possible
+        ## cardinality = 0..1
+        ## replace_scopes = { this = planet from = megastructure }
+        possible = single_alias_right[trigger_clause]
+
+        #### scope: target planet
+        ####
+        #### from: triggering megastructure
+        ####
+        #### evaluates if action is finished
+        ####
+        #### if not specified, action is always considered finished as soon as it is started
+        ## cardinality = 0..1
+        ## replace_scopes = { this = planet from = megastructure }
+        finished = single_alias_right[trigger_clause]
+
+        #### scope: target planet
+        ####
+        #### from: triggering megastructure
+        ####
+        #### trigger. evaluates if action should be shown in the right-click context menu orders
+        ####
+        #### if not specified, action will always be shown if button is visible
+        ####
+        ## cardinality = 0..1
+        ## replace_scopes = { this = planet from = megastructure }
+        hide_from_context_menu = single_alias_right[trigger_clause]
+    }
+
+    subtype[from_megastructure-to_fleet] = {
+        #### scope: target fleet
+        ####
+        #### from: triggering megastructure
+        ####
+        #### evaluates if action is possible
+        ####
+        #### if not specified, action is always considered possible
+        ## cardinality = 0..1
+        ## replace_scopes = { this = fleet from = megastructure }
+        possible = single_alias_right[trigger_clause]
+
+        #### scope: target fleet
+        ####
+        #### from: triggering megastructure
+        ####
+        #### evaluates if action is finished
+        ####
+        #### if not specified, action is always considered finished as soon as it is started
+        ## cardinality = 0..1
+        ## replace_scopes = { this = fleet from = megastructure }
+        finished = single_alias_right[trigger_clause]
+
+        #### scope: target fleet
+        ####
+        #### from: triggering megastructure
+        ####
+        #### trigger. evaluates if action should be shown in the right-click context menu orders
+        ####
+        #### if not specified, action will always be shown if button is visible
+        ####
+        ## cardinality = 0..1
+        ## replace_scopes = { this = fleet from = megastructure }
+        hide_from_context_menu = single_alias_right[trigger_clause]
+    }
+
+    subtype[from_megastructure-to_self] = {
+        #### scope: target self
+        ####
+        #### from: triggering megastructure
+        ####
+        #### evaluates if action is possible
+        ####
+        #### if not specified, action is always considered possible
+        ## cardinality = 0..1
+        ## replace_scopes = { this = self from = megastructure }
+        possible = single_alias_right[trigger_clause]
+
+        #### scope: target self
+        ####
+        #### from: triggering megastructure
+        ####
+        #### evaluates if action is finished
+        ####
+        #### if not specified, action is always considered finished as soon as it is started
+        ## cardinality = 0..1
+        ## replace_scopes = { this = self from = megastructure }
+        finished = single_alias_right[trigger_clause]
+
+        #### scope: target self
+        ####
+        #### from: triggering megastructure
+        ####
+        #### trigger. evaluates if action should be shown in the right-click context menu orders
+        ####
+        #### if not specified, action will always be shown if button is visible
+        ####
+        ## cardinality = 0..1
+        ## replace_scopes = { this = self from = megastructure }
+        hide_from_context_menu = single_alias_right[trigger_clause]
+    }
+
+    subtype[!from_megastructure-to_galactic_object&!from_megastructure-to_planet&!from_megastructure-to_fleet&!from_megastructure-to_self] = {
+        #### scope: triggering megastructure
+        ####
+        #### evaluates if scripted action button is clickable
+        ## cardinality = 0..1
+        ## replace_scopes = { this = fleet }
+        button_clickable = single_alias_right[trigger_clause]
+
+        #### scope: triggering megastructure
+        ####
+        #### evaluates if scripted action button is visible
+        ####
+        #### (also used for context menu options if hide_from_context_menu is not used)
+        ## cardinality = 0..1
+        ## replace_scopes = { this = fleet }
+        button_visible = single_alias_right[trigger_clause]
+    }
+
+    subtype[!from_fleet-to_galactic_object&!from_fleet-to_planet&!from_fleet-to_fleet&!from_fleet-to_self] = {
+        #### scope: triggering megastructure
+        ####
+        #### evaluates if scripted action button is clickable
+        ## cardinality = 0..1
+        ## replace_scopes = { this = megastructure }
+        button_clickable = single_alias_right[trigger_clause]
+
+        #### scope: triggering megastructure
+        ####
+        #### evaluates if scripted action button is visible
+        ####
+        #### (also used for context menu options if hide_from_context_menu is not used)
+        ## cardinality = 0..1
+        ## replace_scopes = { this = megastructure }
+        button_visible = single_alias_right[trigger_clause]
+    }
+
+    subtype[from_fleet-to_galactic_object] = {
+        #### Adds a special handling to that action, using code support
+        #### If any effect of the on_action raised by on_completed = on_action_name somehow deletes the fleet order,
+        #### any execution effect of the specific behavior may be lost
+        ####
+        #### This changes the behavior of the action to act like a quantum catapult
+        #### This requires the on_ship_<action_key> and on_fleet_<action_key> on_actions
+        #### The usual on_action raised by on_completed = on_action_name will happen but the target will be the original one,
+        #### not the actual destination after spread
+        ## cardinality = 0..1
+        specific_behavior = scripted_catapult_order
+    }
+
+    subtype[from_fleet-to_planet] = {
+        #### Adds a special handling to that action, using code support
+        #### If any effect of the on_action raised by on_completed = on_action_name somehow deletes the fleet order,
+        #### any execution effect of the specific behavior may be lost
+        ####
+        #### This is an override of the survey order to allow more custom handling of the button's visibility and clickability
+        #### Only the button is custom, then the rest of the behavior is the normal survey one
+        #### ie no custom on_action will be raised
+        ## cardinality = 0..1
+        specific_behavior = scripted_survey_order
+    }
+
+    subtype[from_fleet-to_self] = {
+        #### Adds a special handling to that action, using code support
+        #### If any effect of the on_action raised by on_completed = on_action_name somehow deletes the fleet order,
+        #### any execution effect of the specific behavior may be lost
+        ####
+        #### This is an override of the build megastructure order to allow more custom handling of the button's visibility and clickability
+        #### Only the button is custom, then the rest of the behavior is the normal build one
+        #### ie no custom on_action will be raised
+        #### Note: the button is always clickable even if the country has no known megastructures.
+        #### This could be improved with a new trigger to check that, but atm it doesn't exist
+        ## cardinality = 0..1
+        specific_behavior = scripted_build_megastructure_order
+    }
+
+    #### Info concerning AI using this particular scripted order.
+    #### Depending on the scripted action scope, the target candidates will be:
+    #### - scope = self # triggering fleet as usual
+    #### - scope = planet # planets in the fleet's current system when AI is deciding on the fleet's next mission
+    #### - scope = fleet AND enemy = yes hostile fleets
+    #### - scope = fleet AND enemy = no fleets own by the AI country
+    ####
+    #### In order for AI to decide on using a scripted action, all regular conditions apply: possible trigger, cost, cooldown
+    ####
+    #### Military AI minister will prioritize using scripted actions over regular orders when possible
+    ####
+    #### Interior AI minister will deprioritize uing scripted actions and only consider them when other actions are not available.
+    ## cardinality = 0..1
+    ai = {
+        subtype[from_fleet-to_galactic_object] = {
+            #### If weight is 0 or lower AI will not perform the action, otherwise AI will prioritize actions with higher weight
+            ####
+            #### scope: target galactic_object
+            ####
+            #### from: triggering fleet
+            ## cardinality = 0..1
+            ## replace_scopes = { this = galactic_object from = fleet }
+            weight = {
+                alias_name[modifier_rule] = alias_match_left[modifier_rule]
+            }
         }
 
-        #### none/interior/military, default none.
-        ####
-        #### Determines whether it is the interior or military ai minister that is responsible for this action.
-        ####
-        #### Affects order prioritization during and outside of war.
-        ####
-        #### if set to none - AI ignores it.
+        subtype[from_fleet-to_planet] = {
+            #### If weight is 0 or lower AI will not perform the action, otherwise AI will prioritize actions with higher weight
+            ####
+            #### scope: target planet
+            ####
+            #### from: triggering fleet
+            ## cardinality = 0..1
+            ## replace_scopes = { this = planet from = fleet }
+            weight = {
+                alias_name[modifier_rule] = alias_match_left[modifier_rule]
+            }
+        }
+
+        subtype[from_fleet-to_fleet] = {
+            #### If weight is 0 or lower AI will not perform the action, otherwise AI will prioritize actions with higher weight
+            ####
+            #### scope: target fleet
+            ####
+            #### from: triggering fleet
+            ## cardinality = 0..1
+            ## replace_scopes = { this = fleet from = fleet }
+            weight = {
+                alias_name[modifier_rule] = alias_match_left[modifier_rule]
+            }
+        }
+
+        subtype[from_fleet-to_self] = {
+            #### If weight is 0 or lower AI will not perform the action, otherwise AI will prioritize actions with higher weight
+            ####
+            #### scope: target self
+            ####
+            #### from: triggering fleet
+            ## cardinality = 0..1
+            ## replace_scopes = { this = self from = fleet }
+            weight = {
+                alias_name[modifier_rule] = alias_match_left[modifier_rule]
+            }
+        }
+
+        subtype[from_megastructure-to_galactic_object] = {
+            #### If weight is 0 or lower AI will not perform the action, otherwise AI will prioritize actions with higher weight
+            ####
+            #### scope: target galactic_object
+            ####
+            #### from: triggering megastructure
+            ## cardinality = 0..1
+            ## replace_scopes = { this = galactic_object from = megastructure }
+            weight = {
+                alias_name[modifier_rule] = alias_match_left[modifier_rule]
+            }
+        }
+
+        subtype[from_megastructure-to_planet] = {
+            #### If weight is 0 or lower AI will not perform the action, otherwise AI will prioritize actions with higher weight
+            ####
+            #### scope: target planet
+            ####
+            #### from: triggering megastructure
+            ## cardinality = 0..1
+            ## replace_scopes = { this = planet from = megastructure }
+            weight = {
+                alias_name[modifier_rule] = alias_match_left[modifier_rule]
+            }
+        }
+
+        subtype[from_megastructure-to_fleet] = {
+            #### If weight is 0 or lower AI will not perform the action, otherwise AI will prioritize actions with higher weight
+            ####
+            #### scope: target fleet
+            ####
+            #### from: triggering megastructure
+            ## cardinality = 0..1
+            ## replace_scopes = { this = fleet from = megastructure }
+            weight = {
+                alias_name[modifier_rule] = alias_match_left[modifier_rule]
+            }
+        }
+
+        subtype[from_megastructure-to_self] = {
+            #### If weight is 0 or lower AI will not perform the action, otherwise AI will prioritize actions with higher weight
+            ####
+            #### scope: target self
+            ####
+            #### from: triggering megastructure
+            ## cardinality = 0..1
+            ## replace_scopes = { this = self from = megastructure }
+            weight = {
+                alias_name[modifier_rule] = alias_match_left[modifier_rule]
+            }
+        }
+
+        ### none/interior/military, default none.
+        ###
+        ### Determines whether it is the interior or military ai minister that is responsible for this action.
+        ###
+        ### Affects order prioritization during and outside of war.
+        ###
+        ### if set to none - AI ignores it.
         ## cardinality = 0..1
         ai_minister = enum[ship_action_ai_minister]
 
-        #### Only checked by military minister. If yes, AI will be able to use during war.
-        ####
-        #### default = yes.
+        ### Only checked by military minister. If yes, AI will be able to use during war.
+        ###
+        ### default = yes.
         ## cardinality = 0..1
         war = bool
 
-        #### Only checked by military minister. Only applicable when scope = fleet. If yes, the targeted fleet will be pulled from hostile fleets (see below)
-        ####
-        #### default: yes
+        ### Only checked by military minister. Only applicable when scope = fleet. If yes, the targeted fleet will be pulled from hostile fleets (see below)
+        ###
+        ### default: yes
         ## cardinality = 0..1
         enemy = bool
 
-        #### Checked by interior minister and player automation for scope = planet/galactic_object.
-        ####
-        #### Limits how far (in hyperlane jumps) the AI/automation will search for targets from the fleet's current system.
-        ####
-        #### Note: the interior minister always evaluates systems containing active points of interest regardless of max_jumps.
-        ####
-        #### Player automation does not consider points of interest automatically and applies max_jumps to all systems.
-        ####
-        #### default: -1 (unlimited - checks every system in the galaxy, which can be expensive!)
-        ## cardinality = 0..1
-        max_jumps = int
+        subtype[!from_fleet-to_fleet&!from_fleet-to_self&!from_megastructure-to_fleet&!from_megastructure-to_self] = {
+            ### Checked by interior minister and player automation for scope = planet/galactic_object.
+            ###
+            ### Limits how far (in hyperlane jumps) the AI/automation will search for targets from the fleet's current system.
+            ###
+            ### Note: the interior minister always evaluates systems containing active points of interest regardless of max_jumps.
+            ###
+            ### Player automation does not consider points of interest automatically and applies max_jumps to all systems.
+            ###
+            ### default: -1 (unlimited - checks every system in the galaxy, which can be expensive!)
+            ## cardinality = 0..1
+            max_jumps = int
 
-        #### If yes, only considers systems where the fleet's controller has a starbase.
-        ####
-        #### Replaces max_jumps filtering - no jump-distance computation needed. default: no
+            ### Checked by interior minister and player automation for scope = planet/galactic_object.
+            ###
+            ### If a target's weight reaches this threshold, the AI stops searching and picks it immediately.
+            ###
+            ### When set, targets are evaluated from closest to farthest (by hyperlane jumps from the fleet),
+            ### so the AI naturally prefers nearby targets that meet the threshold.
+            ###
+            ### Useful for avoiding unnecessary iteration when a sufficiently good target has already been found.
+            ### default: -1 (disabled - always evaluates all candidates within max_jumps range)
+            ## cardinality = 0..1
+            good_enough_weight = int
+        }
+
+        ### If yes, only considers systems where the fleet's controller has a starbase.
+        ###
+        ### Replaces max_jumps filtering - no jump-distance computation needed. default: no
         ## cardinality = 0..1
         target_owned_starbases = bool
-
-        #### Checked by interior minister and player automation for scope = planet/galactic_object.
-        ####
-        #### If a target's weight reaches this threshold, the AI stops searching and picks it immediately.
-        ####
-        #### When set, targets are evaluated from closest to farthest (by hyperlane jumps from the fleet),
-        #### so the AI naturally prefers nearby targets that meet the threshold.
-        ####
-        #### Useful for avoiding unnecessary iteration when a sufficiently good target has already been found.
-        #### default: -1 (disabled - always evaluates all candidates within max_jumps range)
-        ####
-        #### Depending on the scripted action scope, the target candidates will be:
-        ####
-        #### scope = self # triggering fleet as usual
-        ####
-        #### scope = planet # planets in the fleet's current system when AI is deciding on the fleet's next mission
-        ####
-        #### scope = fleet AND enemy = yes hostile fleets
-        ####
-        #### scope = fleet AND enemy = no fleets own by the AI country
-        ####
-        #### In order for AI to decide on using a scripted action, all regular conditions apply: possible trigger, cost, cooldown
-        ####
-        #### Military AI minister will prioritize using scripted actions over regular orders when possible
-        ####
-        #### Interior AI minister will deprioritize uing scripted actions and only consider them when other actions are not available.
-        ## cardinality = 0..1
-        good_enough_weight = int
-
     }
 
-
-    #### user_scope = fleet, scope = galactic_object
-    #### This changes the behavior of the action to act like a quantum catapult
-    #### This requires the on_ship_<action_key> and on_fleet_<action_key> on_actions
-    #### The usual on_action raised by on_completed = on_action_name will happen but the target will be the original one,
-    #### not the actual destination after spread
-    ## cardinality = 0..1
-    ## predicate = { scope = galactic_object user_scope = fleet }
-    specific_behavior = scripted_catapult_order
-
-    #### user_scope = fleet, scope = planet
-    #### This is an override of the survey order to allow more custom handling of the button's visibility and clickability
-    #### Only the button is custom, then the rest of the behavior is the normal survey one
-    #### ie no custom on_action will be raised
-    ## cardinality = 0..1
-    ## predicate = { scope = planet user_scope = fleet }
-    specific_behavior = scripted_survey_order
-
-    #### user_scope = fleet, scope = self
-    #### This is an override of the build megastructure order to allow more custom handling of the button's visibility and clickability
-    #### Only the button is custom, then the rest of the behavior is the normal build one
-    #### ie no custom on_action will be raised
-    #### Note: the button is always clickable even if the country has no known megastructures.
-    #### This could be improved with a new trigger to check that, but atm it doesn't exist
-    ## cardinality = 0..1
-    ## predicate = { scope = self user_scope = fleet }
-    specific_behavior = scripted_build_megastructure_order
-
-    #### Arbitrary identifier grouping actions for category_limit purposes.
-    #### If omitted, the action has no category and is never counted against any limit.
+    ### Arbitrary identifier grouping actions for category_limit purposes.
+    ### If omitted, the action has no category and is never counted against any limit.
     ## cardinality = 0..1
     category = value_set[ship_action_category]
 
-    #### Maximum number of concurrent actions of the same category that one country's
-    #### fleets may perform on the same target simultaneously. Default: uncapped (omit field).
-    #### Only counts fleets belonging to the same country — cross-country actions are unaffected.
-    #### Both active (in-progress) and queued orders on other fleets are counted.
-    #### Example: category = harvest_resources and category_limit = 1 on all harvest-type
-    #### actions ensures at most one such action per target per country at a time.
+    ### Maximum number of concurrent actions of the same category that one country's
+    ### fleets may perform on the same target simultaneously. Default: uncapped (omit field).
+    ### Only counts fleets belonging to the same country — cross-country actions are unaffected.
+    ### Both active (in-progress) and queued orders on other fleets are counted.
+    ### Example: category = harvest_resources and category_limit = 1 on all harvest-type
+    ### actions ensures at most one such action per target per country at a time.
     ## cardinality = 0..1
     category_limit = int
 
-    #### Default no. If yes, UI will prevent accidental cancelation of this action
+    #### Optional loc key for the category_limit tooltip. Falls back to `SCRIPTED_ACTION_CATEGORY_LIMIT_REACHED` if omitted.
     ####
+    #### Scopes: This = target, From = acting user.
+    ## cardinality = 0..1
+    category_limit_fail_text = localisation
+
+    ### Default no. If yes, UI will prevent accidental cancelation of this action
     ## cardinality = 0..1
     important = bool
 
-    #### Default no. If yes, then when targeting planets with this action
-    #### UI displays the add_resource and add_resource_to_local_stockpile effect results instead of default deposit amounts.
-    #### Useful to display the expected resources gained from the scripted action.
-    #### When combined with completion_message_type, resource details are appended to the completion message automatically.
-    #### Only immediate effect from events are checked. No support for "option" effects, or "after" effects.
-    #### Does not support any effects that depend on random values (random_events, random_list).
+    ### Default no. If yes, then when targeting planets with this action
+    ### UI displays the add_resource and add_resource_to_local_stockpile effect results instead of default deposit amounts.
+    ### Useful to display the expected resources gained from the scripted action.
+    ### When combined with completion_message_type, resource details are appended to the completion message automatically.
+    ### Only immediate effect from events are checked. No support for "option" effects, or "after" effects.
+    ### Does not support any effects that depend on random values (random_events, random_list).
     ## cardinality = 0..1
     overrides_gained_resources = bool
 
-    #### If set, a message is sent to the acting unit's controller when the action completes (human players only).
-    #### The following variables are set automatically:
-    ####
-    #### user_scope = fleet:			FLEET			= acting fleet name
-    ####
-    #### user_scope = megastructure:	MEGASTRUCTURE	= acting megastructure name
-    ####
-    #### scope = planet:				TARGET_PLANET	= target planet name
-    ####
-    #### scope = galactic_object:	TARGET_SYSTEM	= target system name
-    ####
-    #### scope = fleet (not self):	TARGET_FLEET	= target fleet name
-    ####
-    #### If overrides_gained_resources = yes, gained resource details are also appended to the message.
-    ####
-    #### Note: resource details are only supported for user_scope = fleet with scope = planet. Other combinations produce the message without resource details.
+    ### If set, a message is sent to the acting unit's controller when the action completes (human players only).
+    ### The following variables are set automatically:
+    ###
+    ### user_scope = fleet:			FLEET			= acting fleet name
+    ###
+    ### user_scope = megastructure:	MEGASTRUCTURE	= acting megastructure name
+    ###
+    ### scope = planet:				TARGET_PLANET	= target planet name
+    ###
+    ### scope = galactic_object:	TARGET_SYSTEM	= target system name
+    ###
+    ### scope = fleet (not self):	TARGET_FLEET	= target fleet name
+    ###
+    ### If overrides_gained_resources = yes, gained resource details are also appended to the message.
+    ###
+    ### Note: resource details are only supported for user_scope = fleet with scope = planet. Other combinations produce the message without resource details.
     ## cardinality = 0..1
     completion_message_type = <message_type>
 
-    #### Localization key for the completion message body (required if completion_message_type is set).
-    ####
+    ### Localization key for the completion message body (required if completion_message_type is set).
     ## cardinality = 0..1
     completion_message_localization = localisation
 
-    #### How many days the notification message stays visible. Default: NOTIFICATION_MESSAGE_DURATION_STANDARD.
-    #### Note: this has no effect when completion_message_type is a toast. Toasts always use MINIMUM_TOAST_DURATION.
+    ### How many days the notification message stays visible. Default: NOTIFICATION_MESSAGE_DURATION_STANDARD.
+    ### Note: this has no effect when completion_message_type is a toast. Toasts always use MINIMUM_TOAST_DURATION.
     ## cardinality = 0..1
     completion_message_days = int
 
-    #### If specified, uses the specified vfx while performing the scripted action
+    ### If specified, uses the specified vfx while performing the scripted action
     ## cardinality = 0..1
     uses_vfx_type = enum[ship_action_vfx_type]
 
+    #### Groups all of this action's automation settings.
+    ####
+    #### The automation menu is a scrolling list, so any number of actions and options can be declared.
+    #### Option settings are scoped per action. The same `automation_setting` may be declared by several actions
+    #### (for example via a shared `inline_script`), but each action is evaluated against only its own checked
+    #### options, so enabling a setting on one action does not affect another. Players configure, and the AI
+    #### weights, each action's options independently.
+    ####
+    #### `has_automation_setting` is only meaningful during automated target selection (an action's `ai.weight` or
+    #### `possible` block). The active-setting set is transient and empty everywhere else, so the trigger returns
+    #### false in events and other contexts. It cannot be used to query how a fleet's automation is configured.
+    ####
+    #### Note: the automation button icon can be customized per ship size via the automation_icon field
+    #### in the ship_sizes definition. If set, the automation button will use the specified GFX sprite
+    #### and its `_selected` variant (e.g. `GFX_my_icon` and `GFX_my_icon_selected`).
+    #### If not set, defaults to `GFX_fleet_order_automate` / `GFX_fleet_order_automate_selected`.
+    ####
+    #### Example (in ship_sizes):
+    ####
+    #### `automation_icon = GFX_fleet_order_auto_construct`
+    ## cardinality = 0..1
+    automation = {
+        #### If set, the action shows up in the automation order settings (lower = higher priority)
+        #### only affects UI ordering; actual target selection uses ai weights.
+        #### RESERVED SLOT: the built-in Special Projects toggle is inserted at a fixed priority
+        #### set by the `SPECIAL_PROJECTS_AUTOMATION_PRIORITY` define in `unchecked_defines/00_interface.txt`.
+        #### It appears after the last action with priority <= that value.
+        ## cardinality = 0..1
+        priority = int
+
+        #### Whether the automation checkbox is checked by default.
+        ####
+        #### Default: no
+        ## cardinality = 0..1
+        default_on = bool
+
+        #### Tooltip shown on this action's row in the automation menu
+        ## cardinality = 0..1
+        tooltip = localisation
+
+        #### Nests this action's row indented under the named action in the menu.
+        #### the child greys out and is skipped from the automation order unless the parent
+        #### action is checked (e.g. `arkship_survey` nests under `arkship_explore`).
+        #### a parented action must NOT declare its own `options`; if it does, the parent is
+        #### ignored and it renders as a normal top-level row instead.
+        ## cardinality = 0..1
+        parent = <scripted_action>
+
+        #### When this action's automation is enabled, the listed actions are also
+        #### included in the automation order even if they are not checked separately.
+        #### useful for support actions (e.g. drop-off) that multiple automations depend on.
+        ## cardinality = 0..1
+        also_automate = {
+            <scripted_action>
+        }
+
+        #### Player-toggleable sub-settings shown indented under the action in the menu (the menu list scrolls).
+        ## cardinality = 0..1
+        options = {
+            ## cardinality = 0..inf
+            option = {
+                #### Author each option's effect in this action's `ai.weight` / `possible` via the fleet-scoped trigger: `FROM = { has_automation_setting = <automation_setting> }`
+                ## cardinality = 0..1
+                automation_setting = value_set[fleet_automation_setting]
+
+                #### Player checkbox default
+                ## cardinality = 1..1
+                default = bool
+
+                #### Label shown in the menu
+                ## cardinality = 1..1
+                name = localisation
+
+                #### Tooltip shown on the option row
+                ## cardinality = 0..1
+                tooltip = localisation
+
+                #### Evaluated in fleet scope (This = acting fleet); the AI enables the setting if > 0
+                ## cardinality = 0..1
+                ## replace_scopes = { this = fleet root = fleet }
+                ai_weight = {
+                    alias_name[modifier_rule] = alias_match_left[modifier_rule]
+                }
+            }
+        }
+    }
 }

@@ -1,25 +1,25 @@
 #planets:
 
 #### whether the  planet has an owner
-alias[planet_pre_trigger:has_owner] = bool
+alias[colony_pre_trigger:has_owner] = bool
 
 #### whether the planet is its owner's homeworld
-alias[planet_pre_trigger:is_homeworld] = bool
+alias[colony_pre_trigger:is_homeworld] = bool
 
 #### whether the planet still belong to its original owner
-alias[planet_pre_trigger:original_owner] = bool
+alias[colony_pre_trigger:original_owner] = bool
 
 #### whether the planet owner is controlled by the computer (vs controlled by a human)
-alias[planet_pre_trigger:is_ai] = bool
+alias[colony_pre_trigger:is_ai] = bool
 
 #### whether ground combat is going on the planet
-alias[planet_pre_trigger:has_ground_combat] = bool
+alias[colony_pre_trigger:has_ground_combat] = bool
 
 #### whether the planet is the capital world of the empire it belongs too
-alias[planet_pre_trigger:is_capital] = bool
+alias[colony_pre_trigger:is_capital] = bool
 
 #### whether the planet is occupied
-alias[planet_pre_trigger:is_occupied_flag] = bool
+alias[colony_pre_trigger:is_occupied_flag] = bool
 
 
 #pops:
@@ -44,3 +44,9 @@ alias[pop_pre_trigger:is_sapient] = bool
 
 #### whether the pop_group is robotic
 alias[pop_pre_trigger:is_robotic] = bool
+
+
+#country:
+
+#### whether the planet owner is controlled by the computer (vs controlled by a human)
+alias[country_pre_trigger:is_ai] = bool

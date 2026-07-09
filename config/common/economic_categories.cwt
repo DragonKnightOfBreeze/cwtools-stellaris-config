@@ -53,6 +53,8 @@ economic_category = {
 	triggered_cost_modifier = single_alias_right[economic_category_triggered_modifier]
 	## cardinality = 0..inf
 	triggered_upkeep_modifier = single_alias_right[economic_category_triggered_modifier]
+	## cardinality = 0..inf
+	triggered_logistics_modifier = single_alias_right[economic_category_triggered_modifier]
 
 	## cardinality = 0..1
 	ai_use_parent_for_resources_upkeep = {

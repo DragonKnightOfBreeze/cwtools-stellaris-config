@@ -235,6 +235,9 @@ building = {
 	## cardinality = 0..inf
 	triggered_desc = single_alias_right[triggered_desc_clause]
 
+	## cardinality = 0..1
+	auto_generate_description = bool
+
 	## cardinality = 0..inf
 	resources = {
 		## cardinality = 0..1

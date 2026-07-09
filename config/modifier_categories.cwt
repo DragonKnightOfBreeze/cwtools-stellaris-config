@@ -5,14 +5,11 @@ modifier_categories = {
 	Pops = {
 		supported_scopes = { species pop_group planet sector galacticobject country colony }
 	}
-	Job = {
-		supported_scopes = { species pop_group planet sector galacticobject country colony }
-	}
 	Countries = {
-		supported_scopes = { country federation }
+		supported_scopes = { country federation colony }
 	}
 	Colony = {
-		supported_scopes = { planet ship colony sector galacticobject country }
+		supported_scopes = { planet ship starbase colony sector galacticobject country }
 	}
 	Armies = {
 		supported_scopes = { army planet sector galacticobject country colony }
@@ -51,10 +48,10 @@ modifier_categories = {
 		supported_scopes = { megastructure country }
 	}
 	Habitability = {
-		supported_scopes = { species planet sector galacticobject country }
+		supported_scopes = { species planet sector galacticobject country colony }
 	}
 	Starbases = {
-		supported_scopes = { starbase planet sector galacticobject country }
+		supported_scopes = { starbase sector galacticobject country }
 	}
 	"Economic Units" = {
 		supported_scopes = { any }
@@ -78,7 +75,7 @@ modifier_categories = {
 		supported_scopes = { ship starbase fleet galacticobject country sector }
 	}
 	Deposits = {
-		supported_scopes = { deposit planet sector galacticobject country }
+		supported_scopes = { deposit ship planet sector galacticobject country colony }
 	}
 	"Ship Design Stats" = {
 		supported_scopes = { design }
@@ -88,5 +85,8 @@ modifier_categories = {
 	}
 	"Waystations" = {
 		supported_scopes = { ship starbase fleet galacticobject country sector }
+	}
+	"Galactic Community" = {
+		supported_scopes = { country }
 	}
 }

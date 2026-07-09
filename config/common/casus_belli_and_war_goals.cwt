@@ -78,6 +78,19 @@ casus_belli = {
 
 war_goal = {
 	casus_belli = <casus_belli>
+	
+	#### This decides whether this war goal should be only listed for Proxy Wars
+	#### 
+	#### Default: no
+	## cardinality = 0..1
+	proxy_wars_only = bool
+	
+	#### Hide this wargoal if country doesn't have the requisite CB,
+	#### 'always' option allows to hide it if a players is not supposed to select this through the war declaration screen
+	#### 
+	#### Default: never
+	## cardinality = 0..1
+	hide = enum[war_goal_hide]
 
 	### Cede claims on peace? Yes by default (I think - Caligula)
 	## cardinality = 0..1
@@ -180,4 +193,12 @@ war_goal = {
 
 	## cardinality = 0..1
 	should_ignore_federations = bool
+}
+
+enums = {
+	enum[war_goal_hide] = {
+		never
+		always
+		no_cb
+	}
 }

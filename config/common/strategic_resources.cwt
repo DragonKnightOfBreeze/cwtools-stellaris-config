@@ -110,5 +110,6 @@ enums = {
 		rare
 		other
 		material
+        all
 	}
 }

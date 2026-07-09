@@ -1,12 +1,13 @@
 types = {
     ## type_key_filter = categories
-    type[gamesetup_setting_categories] = {
+    type[gamesetup_setting_category] = {
         path = "game/common/gamesetup_settings"
         path_extension = .txt
+        skip_root_key = { any }
     }
 }
 
-gamesetup_setting_categories = {
+gamesetup_setting_category = {
     ## cardinality = 0..inf
     {
         ## cardinality = 1..1
@@ -15,7 +16,7 @@ gamesetup_setting_categories = {
         settings = {
             {
                 ## cardinality = 1..1
-                setting = value[token]
+                setting = scalar
                 ## cardinality = 0..1
                 game_mode = enum[settings_game_mode]
                 ## cardinality = 0..1
@@ -23,5 +24,12 @@ gamesetup_setting_categories = {
                 visible = single_alias_right[trigger_clause]
             }
         }
+    }
+}
+
+enums = {
+    enum[settings_game_mode] = {
+        multiplayer
+        single_player
     }
 }

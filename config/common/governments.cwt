@@ -458,18 +458,12 @@ civic_or_origin = {
 			## cardinality = 0..1
 			traits = {
 				## cardinality = 1..5
-				trait = <trait>
+				trait = <trait.species_trait>
 			}
 		}
 
 		## cardinality = 0..1
 		alternate_civic_version = <civic_or_origin.civic>
-
-		## cardinality = 0..1
-		## replace_scopes = { this = country root = country }
-		ai_weight = {
-			alias_name[modifier_rule] = alias_match_left[modifier_rule]
-		}
 	}
 	subtype[origin] = {
 		is_origin = yes
@@ -548,6 +542,40 @@ civic_or_origin = {
 	## replace_scopes = { this = country root = country }
 	random_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	## cardinality = 0..1
+	## replace_scopes = { this = country root = country }
+	ai_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	## cardinality = 0..1
+	added_climate_labels = {
+        ## cardinality = 0..inf
+		enum[customize_species_editor_header]
+        ## cardinality = 0..inf
+        scalar
+	}
+
+	## cardinality = 0..1
+	removed_climate_labels = {
+		## cardinality = 0..inf
+		enum[customize_species_editor_header]
+        ## cardinality = 0..inf
+        scalar
+	}
+
+	## cardinality = 0..1
+	added_planet_types = {
+		## cardinality = 0..inf
+		<planet_class>
+	}
+
+	## cardinality = 0..1
+	removed_planet_types = {
+		## cardinality = 0..inf
+		<planet_class>
 	}
 }
 
@@ -780,7 +808,7 @@ alias[government_trigger:origin] = {
 		value = <civic_or_origin.origin>
 	}
 }
-alias[government_trigger:trait] = {
+alias[government_trigger:traits] = {
 	## cardinality = 0..1
 	value = <trait.species_trait>
 
@@ -937,3 +965,4 @@ alias[government_trigger:graphical_culture] = {
 		value = <graphical_culture>
 	}
 }
+alias[government_trigger:is_nomadic] = bool

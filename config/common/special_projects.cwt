@@ -49,6 +49,8 @@ special_project = {
 	## cardinality = 0..1
 	## file_extensions = { png dds tga }
 	icon = filepath
+	## cardinality = 0..1
+	situation_log_category = <situation_log_category>
 	### default: no
 	## cardinality = 0..1
 	location = bool
@@ -142,6 +144,9 @@ special_project = {
 			## cardinality = 1..1
 			count = int
 		}
+		
+		## cardinality = 0..1
+		carries_colony = int
 	}
 
 	## cardinality = 0..1

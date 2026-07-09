@@ -47,32 +47,47 @@ trait = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
-	allowed_civics = {
-		<civic_or_origin.civic>
-	}
+    ### OR - This trait is allowed in ruler creation if any of the listed origins is selected. If not specified, any origins are allowed.
+    ## cardinality = 0..1
+    allowed_origins = {
+        ## cardinality = 0..inf
+        <civic_or_origin.origin>
+    }
+    ### OR - This trait is blocked in ruler creation if listed origins are selected.
+    ## cardinality = 0..1
+    forbidden_origins = {
+        ## cardinality = 0..inf
+        <civic_or_origin.origin>
+    }
+    ### OR - This trait is allowed in ruler creation if any of the listed ethics are selected. If not specified, any ethics are allowed.
+    ## cardinality = 0..1
+    allowed_ethics = {
+        ## cardinality = 0..inf
+        <ethic>
+    }
+    ### OR - This trait is blocked in ruler creation if listed ethics are selected.
+    ## cardinality = 0..1
+    forbidden_ethics = {
+        ## cardinality = 0..inf
+        <ethic>
+    }
+    ### OR - This trait is allowed in ruler creation if any of the listed civics is selected. If not specified, any civics are allowed.
+    ## cardinality = 0..1
+    allowed_civics = {
+        ## cardinality = 0..inf
+        <civic_or_origin.civic>
+    }
+    ### OR - This trait is blocked in ruler creation if listed civics are selected.
+    ## cardinality = 0..1
+    forbidden_civics = {
+        ## cardinality = 0..inf
+        <civic_or_origin.civic>
+    }
 
 	subtype[leader_trait] = {
 		### This trait is available in ruler creation. Default is no.
 		## cardinality = 0..1
 		starting_ruler_trait = bool
-		### OR - This trait is allowed in ruler creation if any of the listed origins is selected. If not specified, any origins are allowed.
-		## cardinality = 0..1
-		allowed_origins = {
-			## cardinality = 0..inf
-			<civic_or_origin.origin>
-		}
-		### OR - This trait is blocked in ruler creation if listed origins are selected.
-		## cardinality = 0..1
-		forbidden_origins = {
-			## cardinality = 0..inf
-			<civic_or_origin.origin>
-		}
-		### OR - This trait is allowed in ruler creation if any of the listed ethics are selected. If not specified, any ethics are allowed.
-		## cardinality = 0..1
-		allowed_ethics = {
-			## cardinality = 0..inf
-			<ethic>
-		}
 
 		## cardinality = 0..1
 		ethic_destiny_trait = bool
@@ -334,28 +349,7 @@ trait = {
 		## cardinality = 0..1
 		host_has_dlc = enum[dlc]
 
-		## cardinality = 0..inf
-		## replace_scopes = { this = species root = species from = pop_group }
-		desc = single_alias_right[triggered_desc_clause]
-
-		## cardinality = 0..1
-		valid_for_all_ethics = bool
-		## cardinality = 0..1
-		valid_for_all_origins = bool
-
-		### This only does something if valid_for_origins is set to no
-		## cardinality = 0..1
-		allowed_origins = {
-			## cardinality = 1..inf
-			<civic_or_origin.origin>
-		}
-		### This only does something if valid_for_all_ethics is set to no
-		## cardinality = 0..1
-		allowed_ethics = {
-			## cardinality = 1..inf
-			<ethic>
-		}
-		## cardinality = 0..1
+        ## cardinality = 0..1
 		allowed_archetypes = {
 			## cardinality = 1..inf
 			<species_archetype>
@@ -458,7 +452,7 @@ trait = {
 		triggered_planet_pop_group_modifier_for_species = single_alias_right[triggered_modifier_by_pop_group_clause]
 
 		## cardinality = 0..inf
-		## replace_scopes = { this = species root = species from = country }
+		## replace_scopes = { this = trait root = trait from = pop_group }
 		triggered_desc = single_alias_right[triggered_desc_clause]
 
 		## cardinality = 0..inf
@@ -576,6 +570,23 @@ trait = {
 		random_weight = {
 			## cardinality = 1..inf
 			<species_class> = float
+		}
+
+		## cardinality = 0..1
+		forbidden_origins = {
+			<civic_or_origin.origin>
+		}
+
+		## cardinality = 0..1
+		forced_integration = {
+			### Fraction of pops converted to the parent species per month. Applied as (integration_rate * total_pops), with the fractional remainder resolved probabilistically each month.
+			## cardinality = 1..1
+			integration_rate = float
+
+			### The colony must be at least this many months old before integration begins. 0 means no restriction.
+			### Default: 0
+			## cardinality = 0..1
+			minimum_colony_age = int
 		}
 	}
 

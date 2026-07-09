@@ -148,6 +148,11 @@ country_type = {
 	default_ships = bool
 	## cardinality = 0..1
 	is_enclave = bool
+	#### If this is set then genocidal empires do not automatically attack the country before communications are established
+	#### 
+	#### Default: no 
+	## cardinality = 0..1
+	prevent_automatic_genocidal_hostilities = bool
 	## cardinality = 0..1
 	counts_for_victory = bool
 	## cardinality = 0..1
@@ -264,6 +269,8 @@ country_type = {
 		limited_construction = bool
 		## cardinality = 0..1
 		can_use_market = bool
+		## cardinality = 0..1
+		diplomacy = bool
 		### should AI use espionage? default yes
 		## cardinality = 0..1
 		espionage = bool
