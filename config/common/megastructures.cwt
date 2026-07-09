@@ -58,6 +58,13 @@ megastructure = {
 	construction_scale = float
 	## cardinality = 0..1
 	portrait = <sprite>
+	
+	### If specified, fleets that can potentially build the megastructure will have a separate order button with this icon.
+	### The icon should also have a version with the "_selected" suffix.
+	### Only shown for ships that can build megastructures via construction_capabilities, not scripted actions.
+	### Not currently supported for megastructures with must_select_ship_design = yes.
+	## cardinality = 0..1
+	order_icon = <sprite>
 	## cardinality = 0..1
 	is_shroud_seal = bool
 	### default: yes
@@ -165,6 +172,11 @@ megastructure = {
 	## cardinality = 0..1
 	## replace_scopes = { this = system root = system from = country }
 	context_menu_potential = single_alias_right[trigger_clause]
+	
+	### Use for megastructures that have their own dedicated context_menu_potential shortcut and order_icon, so the general picker is redundant.
+	## cardinality = 0..1
+	## replace_scopes = { this = fleet root = fleet from = country }
+	build_menu_potential = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	build_time = int
@@ -306,6 +318,10 @@ megastructure = {
 	## replace_scopes = { this = megastructure root = megastructure from = country }
 	should_ai_dismantle = single_alias_right[trigger_clause]
 
+	## cardinality = 0..1
+	scripted_action = {
+		<scripted_action>
+	}
 }
 
 megastructure_overclock_type = {

@@ -74,4 +74,7 @@ database_object_types = {
 	job = {
 		localisation = job_
 	}
+    scripted_action = {
+        type = scripted_action
+    }
 }
