@@ -288,7 +288,8 @@ enums = {
 		starbase
 		spynetwork
 	}
-	# NOTE: `modifier_categories` options are used to get modifier categories of generated modifiers from economic categories
+	# NOTE: option `## modifier_categories` are used to get modifier categories of generated modifiers from economic categories
+    # see: icu.windea.pls.lang.util.ParadoxModifierManager.resolveModifierCategory
 	enum[scripted_modifier_category] = {
 		all
 		none

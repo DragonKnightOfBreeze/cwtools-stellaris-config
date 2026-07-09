@@ -580,18 +580,22 @@ modifiers = {
 	<espionage_category>_skill_mult = { Espionage }
 
 	# economic_category modifiers
+    #
+    # see: icu.windea.pls.ep.resolve.modifier.ParadoxEconomicCategoryModifierSupport
 	#
-	# actual generated modifiers are based on detailed declaration
-	# actual modifier categories are from modifier_category property + "AI Economy", see enum[scripted_modifier_category]
+    # general rules:
+	# - actual generated modifiers are based on detailed declaration
+	# - actual modifier categories are from property `modifier_category` + `"AI Economy"`, see `enum[scripted_modifier_category]`
+    #
+    # will generate:
+    # - `<economic_category>_<resource>_enum[economic_modifier_category]_enum[economic_modifier_type] = { "AI Economy" }`
+    #
+    # will generate if `use_for_ai_budget = yes` (inherited from parents for `_mult` modifiers):
+    # - `<economic_category>_enum[economic_modifier_category]_enum[economic_modifier_type] = { "AI Economy" }`
 	#
-	# enum[economic_modifier_category]_enum[economic_modifier_type] - actual allowed values are:
-	# from generate_mult_modifiers = {...}, generate_add_modifiers = {...}
-	# from triggered_produces_modifier = {...}, triggered_cost_modifier = {...}, triggered_upkeep_modifier = {...}
-	#
-	# will generate:
-	# <economic_category>_<resource>_enum[economic_modifier_category]_enum[economic_modifier_type] = { "AI Economy" }
-	# will generate if use_for_ai_budget = yes (inherited from parents for _mult modifiers):
-	# <economic_category>_enum[economic_modifier_category]_enum[economic_modifier_type] = { "AI Economy" }
+	# actual allowed values for `enum[economic_modifier_category]_enum[economic_modifier_type]` are:
+	# - from property `generate_mult_modifiers`, `generate_add_modifiers`
+	# - from property `triggered_produces_modifier`, `triggered_cost_modifier`, `triggered_upkeep_modifier`, `triggered_logistics_modifier`
 
 	planet_automated_jobs_upkeep_mult = { Planets "AI Economy" }
 	relics_cost_mult = { "Economic Units" "AI Economy" }
