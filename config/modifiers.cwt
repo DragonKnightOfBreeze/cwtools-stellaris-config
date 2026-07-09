@@ -594,8 +594,8 @@ modifiers = {
 	# - `<economic_category>_enum[economic_modifier_category]_enum[economic_modifier_type] = { "AI Economy" }`
 	#
 	# actual allowed values for `enum[economic_modifier_category]_enum[economic_modifier_type]` are:
-	# - from property `generate_mult_modifiers`, `generate_add_modifiers`
-	# - from property `triggered_produces_modifier`, `triggered_cost_modifier`, `triggered_upkeep_modifier`, `triggered_logistics_modifier`
+	# - from property `generate_add_modifiers`, `generate_mult_modifiers` (order: from declaration of `enum[economic_modifier_category]`)
+	# - from property `triggered_cost_modifier`, `triggered_produces_modifier`, `triggered_upkeep_modifier`, `triggered_logistics_modifier` (order: from declaration of these properties)
 
 	# ship_size modifiers
 	shipsize_<ship_size>_hull_add = { "Orbital Stations" "Space Stations" "Military Ships" "Civilian Ships" "Science Ships" "Transport Ships" "Ship Design Stats" }

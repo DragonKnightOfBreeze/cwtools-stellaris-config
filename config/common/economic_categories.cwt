@@ -17,9 +17,16 @@ types = {
 economic_category = {
 	## cardinality = 0..1
 	parent = <economic_category>
+
 	## default: no
 	## cardinality = 0..1
 	use_for_ai_budget = bool
+    ## cardinality = 0..1
+    ai_use_parent_for_resources_upkeep = {
+        ## cardinality = 1..inf
+        <resource>
+    }
+
 	subtype[!hidden] = {
 		## cardinality = 0..1
 		icon = icon[gfx/interface/icons/jobs]
@@ -42,25 +49,23 @@ economic_category = {
 	## cardinality = 0..1
 	hidden = bool
 
+    # keep same order with generated modifiers in modifiers.log
+
+    ## cardinality = 0..1
+    generate_add_modifiers = single_alias_right[economic_category_generate_modifiers]
 	## cardinality = 0..1
 	generate_mult_modifiers = single_alias_right[economic_category_generate_modifiers]
-	## cardinality = 0..1
-	generate_add_modifiers = single_alias_right[economic_category_generate_modifiers]
+
+    # keep same order with generated modifiers in modifiers.log
 
 	## cardinality = 0..inf
-	triggered_produces_modifier = single_alias_right[economic_category_triggered_modifier]
-	## cardinality = 0..inf
 	triggered_cost_modifier = single_alias_right[economic_category_triggered_modifier]
+    ## cardinality = 0..inf
+    triggered_produces_modifier = single_alias_right[economic_category_triggered_modifier]
 	## cardinality = 0..inf
 	triggered_upkeep_modifier = single_alias_right[economic_category_triggered_modifier]
 	## cardinality = 0..inf
 	triggered_logistics_modifier = single_alias_right[economic_category_triggered_modifier]
-
-	## cardinality = 0..1
-	ai_use_parent_for_resources_upkeep = {
-		## cardinality = 1..inf
-		<resource>
-	}
 }
 
 single_alias[economic_category_generate_modifiers] = {
@@ -174,8 +179,8 @@ alias[resources_template_optional:resources] = {
 
 enums = {
 	enum[economic_modifier_category] = {
-		produces
 		cost
+        produces
 		upkeep
 		logistics
 	}
