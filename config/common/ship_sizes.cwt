@@ -49,6 +49,11 @@ ship_size = {
 	## cardinality = 0..1
 	is_space_object = bool
 	## cardinality = 0..1
+	is_reckoning_ship = bool
+	### Indicates that this ship is a type of entropy conduit ship used in the galactic hyperthermia crisis
+	## cardinality = 0..1
+	is_entropy_conduit = bool
+	## cardinality = 0..1
 	scales_with_planet = bool
 	## cardinality = 0..1
 	can_be_inspected = bool
@@ -95,12 +100,14 @@ ship_size = {
 	build_block_radius = int
 	## cardinality = 0..1
 	can_disable = bool
+	### Ship stays disabled until explicitly re-enabled from script
+	## cardinality = 0..1
+	stay_disabled = bool
+
 	subtype[starbase] = {
 		## cardinality = 0..1
 		## replace_scopes = { this = starbase root = starbase }
 		modifier = single_alias_right[modifier_clause]
-		## cardinality = 0..1
-		icon_frame = int
 	}
 	subtype[!starbase] = {
 		## cardinality = 0..1
@@ -121,7 +128,8 @@ ship_size = {
 	## cardinality = 0..1
 	section_slots = {
 		## cardinality = 1..inf
-		scalar = { #this is connected to the section templates and global ship designs files!
+		scalar = {
+			#this is connected to the section templates and global ship designs files!
 			## cardinality = 1..inf
 			locator = enum[model_locator] # this is connected to the ship asset files.
 			## cardinality = 1..inf
@@ -140,8 +148,11 @@ ship_size = {
 	combat_size_multiplier = int
 	## cardinality = 0..1
 	num_target_locators = int
-	## cardinality = 0..1
-	is_space_station = bool
+
+	subtype[!arkship] = {
+		## cardinality = 0..1
+		is_space_station = bool
+	}
 
 	#### Identifies this ship size as an orbital ring for UI tooltip selection
 	####
@@ -203,8 +214,19 @@ ship_size = {
 	valid_target_aggressive_stance = bool
 	## cardinality = 0..1
 	auto_upgrade = bool
+
 	## cardinality = 0..1
 	ship_class_icon_frame = int
+	### If yes, the ship_class_icon_frame icon is shown on the galactic map even when the fleet is mobile.
+	### Default: no
+	## cardinality = 0..1
+	force_show_ship_class_icon_frame = bool
+
+	### Strategic resource to evaluate the cost of a ship design associated with this size. This is used to determine if a ship design is more advanced than another: the one that costs more is considered an upgrade compared to the cheaper one
+	### Default is energy
+	## cardinality = 0..1
+	evaluation_resource = <resource>
+
 	## cardinality = 0..1
 	uses_name_prefix = bool
 	## cardinality = 0..1
@@ -335,6 +357,8 @@ ship_size = {
 		mixed = <sprite>
 		## cardinality = 0..1
 		cloaked = <sprite>
+		## cardinality = 0..1
+		encamped = <sprite>
 	}
 
 	## cardinality = 0..1
@@ -348,7 +372,7 @@ ship_size = {
 		## cardinality = 0..1
 		ship_family_name = localisation
 		## cardinality = 0..1
-		growth_stage_descriptor  = localisation
+		growth_stage_descriptor = localisation
 		evaluation_resource = <resource>
 		## cardinality = 0..1
 		bioship_growth_progress_required = int
@@ -428,7 +452,15 @@ ship_size = {
 	## cardinality = 0..1
 	automation_icon = <sprite>
 
+	### If yes, transitioning between movement loop states (idle, moving and their combat variants) keeps the current animation progress instead of restarting the loop. Prevents large hulls such as arkships and behemoths from visibly snapping their move/idle animation on state changes (including script-driven ones).
+	### Default: no.
+	## cardinality = 0..1
+	preserve_movement_animation_progress = bool
+
 	subtype[arkship] = {
+		## cardinality = 0..1
+		is_starting_arkship = bool
+
 		#### will set a base ship size for a ship size; it is used for ark ships so higher tier ark ships can be downgraded to the base version in empire creation
 		####
 		## cardinality = 0..1
@@ -445,8 +477,13 @@ ship_size = {
 		#### Image from gfx/portraits/arkships/ships used in portrait background for arkships
 		####
 		## cardinality = 1..1
-		## file_extensions = { dds }
-		arkship_picture = filepath[gfx/portraits/arkships/ships]
+		arkship_picture = filepath[gfx/portraits/arkships/ships/,.dds]
+
+		## cardinality = 0..1
+		planet_view_header = <sprite>
+
+		## cardinality = 1..1
+		is_space_station = no
 	}
 
 	## cardinality = 0..1
@@ -480,31 +517,7 @@ ship_size = {
 		## cardinality = 0..1
 		custom_class_text_color = <text_color>
 	}
-
 }
-
-#enums = { #you can change, mod, remove and add new shipclasses. This is not an enum!
-#	enum[ship_class] = {
-#		shipclass_military
-#		shipclass_military_station
-#		shipclass_military_special
-#		shipclass_mining_station
-#		shipclass_research_station
-#		shipclass_terraform_station
-#		shipclass_observation_station
-#		shipclass_outpost_station
-#		shipclass_orbital_station
-#		shipclass_transport
-#		shipclass_starbase
-#		shipclass_constructor
-#		shipclass_colonizer
-#		shipclass_science_ship
-#	}
-#}
-
-#ship_class = {
-#	name = key #i dunno how to do this, but a shipclass entry is a must.
-#}
 
 enums = {
 	complex_enum[ship_class] = {

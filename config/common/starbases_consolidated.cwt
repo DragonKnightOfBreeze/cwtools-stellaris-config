@@ -51,7 +51,7 @@ starbase_building = {
 	ai_build_at_chokepoint = bool
 	## cardinality = 0..1
 	ai_build_outside_chokepoint = bool
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	show_in_tech = <technology>
 
 	## cardinality = 0..1
@@ -61,22 +61,37 @@ starbase_building = {
 	## cardinality = 0..1
 	starbase_type = enum[starbase_type]
 
-	#### optional: default is no limit
-	####
-	#### don't set base to less than 0, it will ignore it (for performance optimisation reasons)
+	## cardinality = 0..1
+	category = localisation
+
+	### Default is no limit
+	###
+	### Don't set base to less than 0, it will ignore it (for performance optimisation reasons)
+	## cardinality = 0..1
+	empire_limit = int
+
+	### Default is no limit
+	###
+	### Don't set base to less than 0, it will ignore it (for performance optimisation reasons)
 	## replace_scopes = { root = country this = country }
 	## cardinality = 0..1
 	empire_limit = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
-	#### optional: max capacity per starbase
-	####
-	#### default for starbase buildings: 1
-	####
-	#### default for starbase modules: no limit
-	####
-	#### don't set base to less than 0, it will ignore it (for performance optimisation reasons)
+	### Max capacity per starbase
+	###
+	### Default: 1
+	###
+	### Don't set base to less than 0, it will ignore it (for performance optimisation reasons)
+	## cardinality = 0..1
+	starbase_limit = int
+
+	### Max capacity per starbase
+	###
+	### Default: 1
+	###
+	### Don't set base to less than 0, it will ignore it (for performance optimisation reasons)
 	## replace_scopes = { root = starbase this = starbase }
 	## cardinality = 0..1
 	starbase_limit = {
@@ -97,8 +112,11 @@ starbase_building = {
 	## cardinality = 0..1
 	abort_construction_trigger = single_alias_right[trigger_clause]
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	equipped_component = <component_template>
+
+	## cardinality = 0..1
+	show_component_tooltips = bool
 
 	## cardinality = 0..inf
 	custom_tooltip = localisation
@@ -211,6 +229,8 @@ starbase_module = {
 	## cardinality = 0..1
 	construction_days = int
 	## cardinality = 0..1
+	category = value[starbase_module_category]
+	## cardinality = 0..1
 	initial = bool
 	## cardinality = 0..1
 	ai_build_at_chokepoint = bool
@@ -218,9 +238,59 @@ starbase_module = {
 	ai_build_outside_chokepoint = bool
 	## cardinality = 0..1
 	show_in_tech = <technology>
+	## cardinality = 0..1
+	## replace_scopes = { this = country root = country }
+	show_tech_unlock_if = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
 	starbase_type = enum[starbase_type]
+
+	### Whitelist of slots from starbase_level this can fit into. Optional: if empty, can fit into any slot except for the ones excluded by cannot_fit_on_slots
+	## cardinality = 0..1
+	fits_on_slots = {
+		## cardinality = 0..inf
+		enum[section_slot]
+	}
+	### Blacklist of slots from starbase_level this can NOT fit into.
+	## cardinality = 0..1
+	cannot_fit_on_slots = {
+		## cardinality = 0..inf
+		enum[section_slot]
+	}
+
+	### Default: no limit
+	###
+	### Don't set base to less than 0, it will ignore it (for performance optimisation reasons)
+	## cardinality = 0..1
+	empire_limit = int
+
+	### Default: no limit
+	###
+	### Don't set base to less than 0, it will ignore it (for performance optimisation reasons)
+	## replace_scopes = { root = country this = country }
+	## cardinality = 0..1
+	empire_limit = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	### Max capacity per starbase
+	###
+	### Default: no limit
+	###
+	### Don't set base to less than 0, it will ignore it (for performance optimisation reasons)
+	## cardinality = 0..1
+	starbase_limit = int
+
+	### Max capacity per starbase
+	###
+	### Default: no limit
+	###
+	### Don't set base to less than 0, it will ignore it (for performance optimisation reasons)
+	## replace_scopes = { root = starbase this = starbase }
+	## cardinality = 0..1
+	starbase_limit = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
 
 	## cardinality = 0..inf
 	resources = {
@@ -228,6 +298,74 @@ starbase_module = {
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
+
+	### (modules only, waystation only)
+	### Resources collected from celestial body deposits in the system into the starbase's stockpile. Stockpiled resources can be collected by ships that have collects_starbase_stockpile = yes.
+	###
+	### Each entry key is a resource key or resource category (basic, advanced, strategic, rare, other, material, research, all). The value block is a trigger evaluated in starbase scope (this = starbase, prev = system) that gates whether the resource can be collected.
+	###
+	### The amount collected each month is determined by the deposits in the system and by the starbase_collected_system_<resource>_add and starbase_collected_system_resources_mult modifiers. A resource is collected at most once per month regardless of how many entries match it.
+	## cardinality = 0..1
+	collected_system_resources = {
+		## cardinality = 0..inf
+		## replace_scopes = { this = starbase prev = system }
+		<resource> = single_alias_right[trigger_clause]
+
+		## cardinality = 0..inf
+		## replace_scopes = { this = starbase prev = system }
+		enum[resource_category] = single_alias_right[trigger_clause]
+	}
+
+	#### (modules only, waystation only)
+    ####
+	#### Resources collected from nearby colonies into the starbase's stockpile. Each monthly tick, for each matching colony the collection rate is multiplied against the colony's output and added to the stockpile. Stockpiled resources are collected and transported by logistic ships.
+	####
+	#### collection_type = steal|clone
+	#### - steal: resources are removed from the colony owner and added to the stockpile (default)
+	#### - clone: resources are added to the stockpile without removing them from the colony owner
+	####
+	#### Each entry key is a resource key or resource category. The entry block is a trigger evaluated in (this = starbase, from = colony) scope that gates which colonies qualify for collection.
+	####
+	#### Collection rate per resource = starbase_collected_colony_resources_add + starbase_collected_colony_<resource>_add
+	#### Add starbase_collected_colony_resources_add to station_modifier / triggered_station_modifier so the "Monthly Colony Tribute" modifier name and value appear in the module tooltip.
+	####
+	#### All starbase_collected_colony_resources_add values across all modules on the station are summed into a single rate. A resource is then collected once per colony per month regardless of how many collector entries match it, so the combined rate is applied exactly once.
+	## cardinality = 0..1
+	collected_colony_resources = {
+		## cardinality = 0..1
+		collection_type = enum[colony_resource_collection_type]
+
+		## cardinality = 0..inf
+		## replace_scopes = { this = starbase from = colony }
+		<resource> = single_alias_right[trigger_clause]
+
+		## cardinality = 0..inf
+		## replace_scopes = { this = starbase prev = system }
+		enum[resource_category] = single_alias_right[trigger_clause]
+	}
+
+	## cardinality = 0..1
+	remote_network_resource_collection = bool
+
+	### Modifier applies to planets and starbases in the systems connected to this waystation network
+	## cardinality = 0..1
+	## replace_scopes = { this = system }
+	waystation_network_system_modifier = single_alias_right[modifier_clause]
+
+	### Modifier applies to planets and starbases in the systems connected to this waystation network
+	## cardinality = 0..inf
+	## replace_scopes = { this = system root = starbase }
+	triggered_waystation_network_system_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
+
+	### Modifier applies to every country that is connected to this waystation network
+	## cardinality = 0..1
+	## replace_scopes = { this = country }
+	waystation_network_country_modifier = single_alias_right[modifier_clause]
+
+	### Modifier applies to every country that is connected to this waystation network
+	## cardinality = 0..inf
+	## replace_scopes = { this = country root = starbase }
+	triggered_waystation_network_country_modifier = single_alias_right[triggered_modifier_by_starbase_clause]
 
 	## cardinality = 0..1
 	potential = single_alias_right[trigger_clause]
@@ -239,6 +377,12 @@ starbase_module = {
 	abort_construction_trigger = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	equipped_component = <component_template>
+
+	## cardinality = 0..1
+	component_set = <component_set>
+
+	## cardinality = 0..1
+	show_component_tooltips = bool
 
 	## cardinality = 0..inf
 	custom_tooltip = localisation
@@ -322,12 +466,23 @@ starbase_module = {
 	## cardinality = 0..1
 	## replace_scopes = { this = starbase root = starbase }
 	on_destroyed = single_alias_right[effect_clause]
+
+	## cardinality = 0..1
+	scripted_effect_cooldown = int
+	## cardinality = 0..1
+	scripted_effect_cooldown_flag = value_set[starbase_flag]
+	## cardinality = 0..1
+	## replace_scopes = { this = starbase root = starbase }
+    scripted_effect_cooldown_flag_desc = single_alias_right[triggered_desc_clause]
 }
 
 starbase_level = {
 	ship_size = <ship_size>
 	## cardinality = 0..1
 	next_level = <starbase_level>
+	## cardinality = 0..1
+	#### Loc key shown in the upgrade button, downgrade button, and Arkship Type tooltips
+	level_tooltip = localisation
 	## cardinality = 0..1
 	### Default yes, if yes starbase will be shown in outliner
 	show_in_outliner = bool
@@ -337,6 +492,9 @@ starbase_level = {
 	## cardinality = 0..1
 	### Default yes, if yes starbase map icon will be shown even if there's no colony
 	display_map_icon = bool
+	## cardinality = 0..1
+	#### Default yes, if yes show shipyard button on mobile starbases fleet UI
+	display_shipyard_button = bool
 	## cardinality = 0..1
 	### Default 0, used for claim cost and required module/building level
 	level_weight = int
@@ -377,6 +535,31 @@ starbase_level = {
 	### Default no, if yes you can dismantle this starbase even if there are colonies
 	## cardinality = 0..1
 	can_always_dismantle = bool
+
+	## cardinality = 0..1
+	starbase_capacity_used = int
+
+	## cardinality = 0..1
+	module_slots = {
+		## cardinality = 0..inf
+		int
+		## cardinality = 0..1
+		spinal_mount_1
+	}
+
+	## cardinality = 0..1
+	building_slots = {
+		## cardinality = 0..inf
+		int
+		## cardinality = 0..1
+		lower_1
+		## cardinality = 0..1
+		lower_2
+		## cardinality = 0..1
+		lower_3
+		## cardinality = 0..1
+		lower_4
+	}
 }
 
 starbase_type = {
@@ -419,5 +602,19 @@ starbase_type = {
 				alias_name[modifier_rule] = alias_match_left[modifier_rule]
 			}
 		}
+	}
+}
+
+enums = {
+	complex_enum[starbase_module_category] = {
+		path = "game/common/starbase_modules"
+		name = {
+			category = enum_name
+		}
+	}
+
+	enum[colony_resource_collection_type] = {
+		clone
+		steal
 	}
 }
