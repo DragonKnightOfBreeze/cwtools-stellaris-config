@@ -20,7 +20,9 @@ pop_category = {
 	### default: yes?
 	## cardinality = 0..1
 	can_change_category = bool
-
+	## cardinality = 0..1
+	can_change_category = single_alias_right[trigger_clause]
+	
 	## cardinality = 0..1
 	clothes_texture_index = int
 
@@ -83,11 +85,15 @@ pop_category = {
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
+	
+	## cardinality = 0..1
+	is_civilian_job = bool
+	
+	## cardinality = 0..1
+	is_unemployment_job = bool
 
 	## cardinality = 0..1
 	keep_from_former_job = bool
-	## cardinality = 0..1
-	demotion_time = int
 	## cardinality = 0..1
 	change_job_threshold = float
 	## cardinality = 0..1
@@ -96,25 +102,4 @@ pop_category = {
 	display_category = <pop_category>
 	## cardinality = 0..1
 	display_unemployment = bool
-
-	## cardinality = 0..1
-	custom_demotion_loc = localisation
-	### empty to use default loc that doesn't show demotion
-	## cardinality = 0..1
-	custom_demotion_loc = ""
-	## cardinality = 0..1
-	custom_demotion_icon = <sprite> # not sure
-	### empty to show no icon
-	## cardinality = 0..1
-	custom_demotion_icon = ""
-	## cardinality = 0..1
-	custom_promotion_loc = localisation
-	### empty to use default loc that doesn't show demotion
-	## cardinality = 0..1
-	custom_promotion_loc = ""
-	## cardinality = 0..1
-	custom_promotion_icon = <sprite> # not sure
-	### empty to show no icon
-	## cardinality = 0..1
-	custom_promotion_icon = ""
 }

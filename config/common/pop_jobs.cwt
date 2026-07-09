@@ -98,6 +98,8 @@ job = {
 			## cardinality = 0..1
 			name = localisation
 			## cardinality = 0..1
+			name = <job>
+			## cardinality = 0..1
 			desc = localisation
 			## cardinality = 0..1
 			icon = <job>
@@ -115,10 +117,6 @@ job = {
 			}
 		}
 	}
-
-	### Makes job count as unemployment for now
-	## cardinality = 0..1
-	demotion_target = <pop_category>
 
 	## cardinality = 0..1
 	exempt_from_ai_amenity_prioritization = bool
