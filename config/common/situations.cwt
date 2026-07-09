@@ -5,6 +5,9 @@ types = {
 		subtype[bidirectional] = {
 			progress_direction = bidirectional
 		}
+        subtype[dynamic_progress] = {
+            total_progress = {}
+        }
 		localisation = {
 			## required
 			name = "$"
@@ -48,6 +51,22 @@ situation_type = {
 	desc = single_alias_right[triggered_desc_clause]
 	## cardinality = 0..1
 	active_tooltip = localisation
+
+    ## cardinality = 0..1
+    override_active_title = localisation
+    ## cardinality = 0..1
+    override_active_desc = localisation
+    ## cardinality = 0..1
+    override_finisher_title = localisation
+    ## cardinality = 0..1
+	override_finisher_desc = localisation
+    ## cardinality = 0..1
+	override_progress_current_desc = localisation
+
+    ## cardinality = 0..1
+    custom_tooltip = localisation
+    ## cardinality = 0..1
+    custom_tooltip_with_modifiers = localisation
 
 	## replace_scopes = { this = country root = country }
 	## cardinality = 0..1
@@ -132,6 +151,9 @@ situation_type = {
 		triggered_target_modifier = single_alias_right[triggered_modifier_by_situation_clause]
 
 		## cardinality = 0..1
+		custom_tooltip_with_modifiers = localisation
+
+		## cardinality = 0..1
 		active_tooltip = localisation
 		## cardinality = 0..inf
 		resources = {
@@ -155,7 +177,21 @@ situation_type = {
 	### The value the situation progress is going to have when starting. Important for bidirectional situations. if it is lower than start_value, it will be changed to start_value
 	## cardinality = 0..1
 	initial_progress = int
-	### monodirectional/bidirectional (defaults to monodirectional)
+
+	#### Scriptable value (scope: situation). Total length of the bar from start_value to completion.
+	#### Setting this switches the Situation into SECTION WEIGHTS mode: every stage must then use
+	#### `section_weight` and none may use `end` (the game logs an error if you mix the two).
+	## cardinality = 0..1
+	total_progress = value_int_field
+	#### Scriptable value (scope: situation). Total length of the bar from start_value to completion.
+	#### Setting this switches the Situation into SECTION WEIGHTS mode: every stage must then use
+	#### `section_weight` and none may use `end` (the game logs an error if you mix the two).
+	## cardinality = 0..1
+	total_progress = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+    }
+
+    ### monodirectional/bidirectional (defaults to monodirectional)
 	## cardinality = 0..1
 	progress_direction = monodirectional
 	### monodirectional/bidirectional (defaults to monodirectional)
@@ -170,6 +206,14 @@ situation_type = {
 		fail_category = enum[situation_category]
 	}
 
+	### If yes, the situation does not end automatically when it reaches either extreme. It needs to be finished manually if needed.
+	### Default: no
+	## cardinality = 0..1
+	permanent = bool
+
+	## cardinality = 0..1
+	show_in_outliner = bool
+
 	## cardinality = 0..1
 	complete_icon = <sprite>
 	## cardinality = 0..1
@@ -183,32 +227,56 @@ situation_type = {
 	stages = {
 		## cardinality = 1..inf
 	 	scalar = {
-	 		end = int_value_field
-			end = {
-				## replace_scopes = { this = situation root = situation }
-				alias_name[modifier_rule] = alias_match_left[modifier_rule]
-			}
+            subtype[!dynamic_progress] = {
+                ## cardinality = 0..1
+                end = int_value_field
+                ## cardinality = 0..1
+                end = {
+                    ## replace_scopes = { this = situation root = situation }
+                    alias_name[modifier_rule] = alias_match_left[modifier_rule]
+                }
+            }
+            subtype[dynamic_progress] = {
+                ## cardinality = 0..1
+                section_weight = int_value_field
+                ## cardinality = 0..1
+                section_weight = {
+                    alias_name[modifier_rule] = alias_match_left[modifier_rule]
+                }
+            }
 			icon = <sprite>
 			icon_background = <sprite>
+			### Color for UI elements associated with this stage. Can be:
+			### - A key from the named colors database (e.g. "red")
+			### - A numeric RGBA vector (e.g. { 255 100 0 255 } or { 1.0 0.3 0.0 1.0 })
+			### Defaults to SITUATION_STAGE_DEFAULT_COLOR
+			## cardinality = 0..1
+			color = single_alias_right[color_type_rgba]
+			## cardinality = 0..1
+			color = <named_color>
 			## cardinality = 0..1
 			custom_tooltip = localisation
 			## cardinality = 0..1
 			on_first_enter = single_alias_right[effect_clause]
+			## cardinality = 0..1
+			on_enter = single_alias_right[effect_clause]
 			## cardinality = 0..1
 			potential = single_alias_right[trigger_clause]
 
 			## cardinality = 0..1
 			## push_scope = country
 			modifier = single_alias_right[modifier_clause]
-			## cardinality = 0..1
-			## push_scope = planet
-			target_modifier = single_alias_right[modifier_clause]
-
 			## cardinality = 0..inf
 			## push_scope = country
 			triggered_modifier = single_alias_right[triggered_modifier_by_situation_clause]
+			
+			### Target is typically a single colony carrier, your whole empire, or no target
+			## cardinality = 0..1
+			## push_scope = any
+			target_modifier = single_alias_right[modifier_clause]
+			### Target is typically a single colony carrier, your whole empire, or no target
 			## cardinality = 0..inf
-			## push_scope = planet
+			## push_scope = any
 			triggered_target_modifier = single_alias_right[triggered_modifier_by_situation_clause]
 	    }
 	}
