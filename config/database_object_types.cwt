@@ -77,4 +77,13 @@ database_object_types = {
     scripted_action = {
         type = scripted_action
     }
+
+    # NOTE this database object type is undocumented but actually used in vanilla files
+    policy = {
+        # `policy:$POLICY$:$OPTION$` - where:
+        # - `$POLICY$` is a definition with type `policy`
+        # - `$OPTION$` is optional and may be a localisation which refer to a policy option
+        # - but *type* + *localisation* form is not supported atm
+        type = policy
+    }
 }
