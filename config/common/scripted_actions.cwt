@@ -8,35 +8,35 @@ types = {
         images = {
             icon = icon
         }
-        subtype[from_fleet-to_galactic_object] = {
+        subtype[from_fleet_to_galactic_object] = {
             user_scope = fleet
             scope = galactic_object
         }
-        subtype[from_fleet-to_planet] = {
+        subtype[from_fleet_to_planet] = {
             user_scope = fleet
             scope = planet
         }
-        subtype[from_fleet-to_fleet] = {
+        subtype[from_fleet_to_fleet] = {
             user_scope = fleet
             scope = fleet
         }
-        subtype[from_fleet-to_self] = {
+        subtype[from_fleet_to_self] = {
             user_scope = fleet
             scope = self
         }
-        subtype[from_megastructure-to_galactic_object] = {
+        subtype[from_megastructure_to_galactic_object] = {
             user_scope = megastructure
             scope = galactic_object
         }
-        subtype[from_megastructure-to_planet] = {
+        subtype[from_megastructure_to_planet] = {
             user_scope = megastructure
             scope = planet
         }
-        subtype[from_megastructure-to_fleet] = {
+        subtype[from_megastructure_to_fleet] = {
             user_scope = megastructure
             scope = fleet
         }
-        subtype[from_megastructure-to_self] = {
+        subtype[from_megastructure_to_self] = {
             user_scope = megastructure
             scope = self
         }
@@ -131,7 +131,7 @@ scripted_action = {
     context_menu_name = localisation
 
     # no | operator, resorting to & of !
-    subtype[!from_fleet-to_galactic_object&!from_fleet-to_fleet&!from_fleet-to_self&!from_megastructure-to_galactic_object&!from_megastructure-to_fleet&!from_megastructure-to_self] = {
+    subtype[!from_fleet_to_galactic_object&!from_fleet_to_fleet&!from_fleet_to_self&!from_megastructure_to_galactic_object&!from_megastructure_to_fleet&!from_megastructure_to_self] = {
         #### Only used for scope = planet. Controls the order targets are queued when the
         #### action is issued on a whole solar system from the right-click context menu
         #### (which targets every valid planet in the system).
@@ -230,7 +230,7 @@ scripted_action = {
     ## cardinality = 0..1
     slot = int
 
-    subtype[from_fleet-to_galactic_object] = {
+    subtype[from_fleet_to_galactic_object] = {
         #### scope: target galactic_object
         ####
         #### from: triggering fleet
@@ -266,7 +266,7 @@ scripted_action = {
         hide_from_context_menu = single_alias_right[trigger_clause]
     }
 
-    subtype[from_fleet-to_planet] = {
+    subtype[from_fleet_to_planet] = {
         #### scope: target planet
         ####
         #### from: triggering fleet
@@ -302,7 +302,7 @@ scripted_action = {
         hide_from_context_menu = single_alias_right[trigger_clause]
     }
 
-    subtype[from_fleet-to_fleet] = {
+    subtype[from_fleet_to_fleet] = {
         #### scope: target fleet
         ####
         #### from: triggering fleet
@@ -338,7 +338,7 @@ scripted_action = {
         hide_from_context_menu = single_alias_right[trigger_clause]
     }
 
-    subtype[from_fleet-to_self] = {
+    subtype[from_fleet_to_self] = {
         #### scope: target self
         ####
         #### from: triggering fleet
@@ -374,7 +374,7 @@ scripted_action = {
         hide_from_context_menu = single_alias_right[trigger_clause]
     }
 
-    subtype[from_megastructure-to_galactic_object] = {
+    subtype[from_megastructure_to_galactic_object] = {
         #### scope: target galactic_object
         ####
         #### from: triggering megastructure
@@ -410,7 +410,7 @@ scripted_action = {
         hide_from_context_menu = single_alias_right[trigger_clause]
     }
 
-    subtype[from_megastructure-to_planet] = {
+    subtype[from_megastructure_to_planet] = {
         #### scope: target planet
         ####
         #### from: triggering megastructure
@@ -446,7 +446,7 @@ scripted_action = {
         hide_from_context_menu = single_alias_right[trigger_clause]
     }
 
-    subtype[from_megastructure-to_fleet] = {
+    subtype[from_megastructure_to_fleet] = {
         #### scope: target fleet
         ####
         #### from: triggering megastructure
@@ -482,7 +482,7 @@ scripted_action = {
         hide_from_context_menu = single_alias_right[trigger_clause]
     }
 
-    subtype[from_megastructure-to_self] = {
+    subtype[from_megastructure_to_self] = {
         #### scope: target self
         ####
         #### from: triggering megastructure
@@ -518,7 +518,7 @@ scripted_action = {
         hide_from_context_menu = single_alias_right[trigger_clause]
     }
 
-    subtype[!from_megastructure-to_galactic_object&!from_megastructure-to_planet&!from_megastructure-to_fleet&!from_megastructure-to_self] = {
+    subtype[!from_megastructure_to_galactic_object&!from_megastructure_to_planet&!from_megastructure_to_fleet&!from_megastructure_to_self] = {
         #### scope: triggering megastructure
         ####
         #### evaluates if scripted action button is clickable
@@ -536,7 +536,7 @@ scripted_action = {
         button_visible = single_alias_right[trigger_clause]
     }
 
-    subtype[!from_fleet-to_galactic_object&!from_fleet-to_planet&!from_fleet-to_fleet&!from_fleet-to_self] = {
+    subtype[!from_fleet_to_galactic_object&!from_fleet_to_planet&!from_fleet_to_fleet&!from_fleet_to_self] = {
         #### scope: triggering megastructure
         ####
         #### evaluates if scripted action button is clickable
@@ -554,7 +554,7 @@ scripted_action = {
         button_visible = single_alias_right[trigger_clause]
     }
 
-    subtype[from_fleet-to_galactic_object] = {
+    subtype[from_fleet_to_galactic_object] = {
         #### Adds a special handling to that action, using code support
         #### If any effect of the on_action raised by on_completed = on_action_name somehow deletes the fleet order,
         #### any execution effect of the specific behavior may be lost
@@ -567,7 +567,7 @@ scripted_action = {
         specific_behavior = scripted_catapult_order
     }
 
-    subtype[from_fleet-to_planet] = {
+    subtype[from_fleet_to_planet] = {
         #### Adds a special handling to that action, using code support
         #### If any effect of the on_action raised by on_completed = on_action_name somehow deletes the fleet order,
         #### any execution effect of the specific behavior may be lost
@@ -579,7 +579,7 @@ scripted_action = {
         specific_behavior = scripted_survey_order
     }
 
-    subtype[from_fleet-to_self] = {
+    subtype[from_fleet_to_self] = {
         #### Adds a special handling to that action, using code support
         #### If any effect of the on_action raised by on_completed = on_action_name somehow deletes the fleet order,
         #### any execution effect of the specific behavior may be lost
@@ -607,7 +607,7 @@ scripted_action = {
     #### Interior AI minister will deprioritize uing scripted actions and only consider them when other actions are not available.
     ## cardinality = 0..1
     ai = {
-        subtype[from_fleet-to_galactic_object] = {
+        subtype[from_fleet_to_galactic_object] = {
             #### If weight is 0 or lower AI will not perform the action, otherwise AI will prioritize actions with higher weight
             ####
             #### scope: target galactic_object
@@ -620,7 +620,7 @@ scripted_action = {
             }
         }
 
-        subtype[from_fleet-to_planet] = {
+        subtype[from_fleet_to_planet] = {
             #### If weight is 0 or lower AI will not perform the action, otherwise AI will prioritize actions with higher weight
             ####
             #### scope: target planet
@@ -633,7 +633,7 @@ scripted_action = {
             }
         }
 
-        subtype[from_fleet-to_fleet] = {
+        subtype[from_fleet_to_fleet] = {
             #### If weight is 0 or lower AI will not perform the action, otherwise AI will prioritize actions with higher weight
             ####
             #### scope: target fleet
@@ -646,7 +646,7 @@ scripted_action = {
             }
         }
 
-        subtype[from_fleet-to_self] = {
+        subtype[from_fleet_to_self] = {
             #### If weight is 0 or lower AI will not perform the action, otherwise AI will prioritize actions with higher weight
             ####
             #### scope: target self
@@ -659,7 +659,7 @@ scripted_action = {
             }
         }
 
-        subtype[from_megastructure-to_galactic_object] = {
+        subtype[from_megastructure_to_galactic_object] = {
             #### If weight is 0 or lower AI will not perform the action, otherwise AI will prioritize actions with higher weight
             ####
             #### scope: target galactic_object
@@ -672,7 +672,7 @@ scripted_action = {
             }
         }
 
-        subtype[from_megastructure-to_planet] = {
+        subtype[from_megastructure_to_planet] = {
             #### If weight is 0 or lower AI will not perform the action, otherwise AI will prioritize actions with higher weight
             ####
             #### scope: target planet
@@ -685,7 +685,7 @@ scripted_action = {
             }
         }
 
-        subtype[from_megastructure-to_fleet] = {
+        subtype[from_megastructure_to_fleet] = {
             #### If weight is 0 or lower AI will not perform the action, otherwise AI will prioritize actions with higher weight
             ####
             #### scope: target fleet
@@ -698,7 +698,7 @@ scripted_action = {
             }
         }
 
-        subtype[from_megastructure-to_self] = {
+        subtype[from_megastructure_to_self] = {
             #### If weight is 0 or lower AI will not perform the action, otherwise AI will prioritize actions with higher weight
             ####
             #### scope: target self
@@ -733,7 +733,7 @@ scripted_action = {
         ## cardinality = 0..1
         enemy = bool
 
-        subtype[!from_fleet-to_fleet&!from_fleet-to_self&!from_megastructure-to_fleet&!from_megastructure-to_self] = {
+        subtype[!from_fleet_to_fleet&!from_fleet_to_self&!from_megastructure_to_fleet&!from_megastructure_to_self] = {
             ### Checked by interior minister and player automation for scope = planet/galactic_object.
             ###
             ### Limits how far (in hyperlane jumps) the AI/automation will search for targets from the fleet's current system.
