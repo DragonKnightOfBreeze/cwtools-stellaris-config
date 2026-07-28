@@ -153,8 +153,6 @@ situation_type = {
 		## cardinality = 0..1
 		custom_tooltip_with_modifiers = localisation
 
-		## cardinality = 0..1
-		active_tooltip = localisation
 		## cardinality = 0..inf
 		resources = {
 			## cardinality = 0..1
