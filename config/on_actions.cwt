@@ -148,10 +148,10 @@ on_actions = {
 	on_late_game_pulse_country
 
 	### setup advanced colony. So far it has a pop on the capital and a colony shelter building matching the is_colony trigger
-	### scope: planet
+	### scope: colony
 	### from: country
-	## replace_scopes = { this = planet root = planet from = country }
-	## event_type = planet
+	## replace_scopes = { this = colony root = colony from = country }
+	## event_type = colony
 	on_initialize_advanced_colony
 
 	## replace_scopes = { this = country root = country }
@@ -199,8 +199,8 @@ on_actions = {
 	### Triggers when ground combat starts
 	### This = planet
 	### From = country attacking
-	## replace_scopes = { this = planet root = planet from = country }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrier from = country }
+	## event_type = carrier
 	on_ground_combat_started
 
 	### Triggers country_event for the attacker upon victory (before controller is switched)
@@ -292,8 +292,8 @@ on_actions = {
 	### Root = Planet
 	### From = Country
 	### FromFrom = Fleet of the science ship that surveyed it, if any
-	## replace_scopes = { this = planet root = planet from = country fromfrom = fleet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrier from = country fromfrom = fleet }
+	## event_type = carrier
 	on_planet_surveyed
 
 	### A country has gained a surveyed status on an astral rift. Happens after "on_survey_astral_rift" if a science ship surveyed an astral rift. (Can also happen without a ship through changes in intel levels)
@@ -322,27 +322,27 @@ on_actions = {
 
 	### A planet has begun the colonization process.
 	### Scope = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = planet }
+	## event_type = carrier
 	on_colonization_started
 
 	### A planet has been colonized.
 	### Scope = Planet
-	## replace_scopes = { this = colony root = colony }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier }
+	## event_type = carrier
 	on_colonized
 
 	### A colony has been destroyed. Called just before owner and controller is cleared
 	### Scope = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrier }
+	## event_type = carrier
 	on_colony_destroyed
 
 	### A colony has been destroyed by bombardment. Called after the planet's colony status has been cleared
 	### This = Planet
 	### From = Bombarder
-	## replace_scopes = { this = planet root = planet from = country }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrier from = country }
+	## event_type = carrier
 	on_colony_destroyed_by_bombardment
 
 	### This = owner of fleet 1
@@ -577,71 +577,71 @@ on_actions = {
 	### Scope = planet_event
 	### This = planet scope
 	### From = uplifted species (pre-modification)
-	## replace_scopes = { this = planet root = planet from = species }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie from = species }
+	## event_type = carrier
 	on_uplift_completion
 
 	### Planets starts being terraformed
 	### This = Planet
 	### From = Terraforming country
-	## replace_scopes = { this = planet root = planet from = country }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrier from = country }
+	## event_type = carrier
 	on_terraforming_begun
 
 	### Planets terraforming is 25% completed
 	### This = Planet
 	### From = Terraforming country
-	## replace_scopes = { this = planet root = planet from = country }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrier from = country }
+	## event_type = carrier
 	on_terraforming_progress_25
 
 	### Planet has been terraformed
 	### This = Planet
 	### From = Terraforming country
-	## replace_scopes = { this = planet root = planet from = country }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrier from = country }
+	## event_type = carrier
 	on_terraforming_complete
 
 	### Planet has changed planet class in whatever way. Note that this is also called during galaxy creation in some places.
 	### This = Planet
-	## replace_scopes = { this = colony root = colony }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier }
+	## event_type = carrier
 	on_planet_class_changed
 
 	### Planet has taken damage from orbital bombardment - Damage is applied daily
 	### This = Planet
 	### From = Bombarder (country)
 	### local_devastation = variable of daily devastation
-	## replace_scopes = { this = planet root = planet from = country }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrier from = country }
+	## event_type = carrier
 	on_planet_bombarded
 
 	### Planet has reached 0 pops from orbital bombardment
 	### This = Planet
 	### From = Bombarder
-	## replace_scopes = { this = planet root = planet from = country }
-	## event_type = planet
-	on_planet_zero_pops
+	## replace_scopes = { this = carrier root = carrie from = country }
+	## event_type = carrier
+	on_colony_zero_pops
 
 	### Planet has taken damage from ground combat - Damage is applied daily
 	### This = Planet
 	### From = damaging country
 	### local_devastation = variable of daily devastation
-	## replace_scopes = { this = planet root = planet from = country }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie from = country }
+	## event_type = carrier
 	on_ground_combat_devastation
 
 	### Planet has reached 0 pops from collateral damage
 	### This = Planet
 	### From = Army owner
-	## replace_scopes = { this = planet root = planet from = country }
-	## event_type = planet
-	on_planet_zero_pops_ground_combat
+	## replace_scopes = { this = carrier root = carrie from = country }
+	## event_type = carrier
+	on_colony_zero_pops_ground_combat
 
 	### Planet has reached a new ascension tier.
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_planet_ascension_tier_increased
 
 	### Pop Group is abducted by raiding stance
@@ -691,15 +691,15 @@ on_actions = {
 	### From = Country which is raining down fire and brimstone
 	### FromFrom = Biggest fleet bombarding the planet (the one we used the bombardment stance from)
 	### local_kill_pop_amount = amount of pop killed
-	## replace_scopes = { this = planet root = planet from = country fromfrom = fleet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie from = country fromfrom = fleet }
+	## event_type = carrier
 	on_pop_bombed_to_death
 
 	### Executed whenever a pop is killed by its planet devastation, caused by another country (not by bombarbment)
 	### This = Planet where the pop died
 	### From = Attacker country
-	## replace_scopes = { this = planet root = planet from = country }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie from = country }
+	## event_type = carrier
 	on_pop_collateral_casualty
 
 	### Executed whenever a pop is sacrificed
@@ -795,8 +795,8 @@ on_actions = {
 	on_ruler_removed
 
 	### This = Planet
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_blocker_cleared
 
 	### A ship has started a new order
@@ -932,23 +932,23 @@ on_actions = {
 	### Root = Planet
 	### From = Planet Owner
 	### FromFrom = Planet Controller (the one occupying)
-	## replace_scopes = { this = planet root = planet from = country fromfrom = country }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie from = country fromfrom = country }
+	## event_type = carrier
 	on_planet_occupied
 
 	### A planets controller becomes the owner of the planet.
 	### Root = Planet
 	### From = Planet Owner
 	### FromFrom = Previous Planet Controller (the one who was occupying)
-	## replace_scopes = { this = planet root = planet from = country fromfrom = country }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie from = country fromfrom = country }
+	## event_type = carrier
 	on_planet_returned
 
 	### A planet decision is enacted.
 	### Root = Planet
 	### From = Planet Owner
-	## replace_scopes = { this = planet root = planet from = country }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie from = country }
+	## event_type = carrier
 	on_decision_enacted
 
 	### An edict is enacted.
@@ -968,8 +968,8 @@ on_actions = {
 	### An army construction has been completed.
 	### This = Planet
 	### From = Army
-	## replace_scopes = { this = planet root = country from = army }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = country from = army }
+	## event_type = carrier
 	on_army_recruited
 
 	### An army has been killed in ground combat
@@ -990,93 +990,93 @@ on_actions = {
 
 	### A building construction has been completed.
 	### This = Planet
-	## replace_scopes = { this = colony root = colony }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier }
+	## event_type = carrier
 	on_building_complete
 
 	### A building construction has been queued.
 	### This = Planet
-	## replace_scopes = { this = colony root = colony }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier }
+	## event_type = carrier
 	on_building_queued
 
 	### A building construction has been unqueued.
 	### This = Planet
-	## replace_scopes = { this = colony root = colony }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier }
+	## event_type = carrier
 	on_building_unqueued
 
 	### A building construction has been completed, which is an upgrade of previous building.
 	### This = Planet
-	## replace_scopes = { this = colony root = colony }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = colony }
+	## event_type = carrier
 	on_building_upgraded
 
 	### A building construction has demolished.
 	### This = Planet
-	## replace_scopes = { this = colony root = colony }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier }
+	## event_type = carrier
 	on_building_demolished
 
 	### A building repair has finished
 	### This = Planet
-	## replace_scopes = { this = colony root = colony }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier }
+	## event_type = carrier
 	on_building_repaired
 
 	### A district construction has been completed.
 	### This = Planet
-	## replace_scopes = { this = colony root = colony }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier }
+	## event_type = carrier
 	on_district_complete
 
 	### A zone construction has been completed.
 	### This = Planet
-	## replace_scopes = { this = colony root = colony }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier }
+	## event_type = carrier
 	on_zone_complete
 
 	### A building construction has finished, replacing another building.
 	### This = Planet
-	## replace_scopes = { this = colony root = colony }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier }
+	## event_type = carrier
 	on_building_replaced
 
 	### A building construction has been downgraded and replaced.
 	### This = Planet
-	## replace_scopes = { this = colony root = colony }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier }
+	## event_type = carrier
 	on_building_downgraded
 
 	### A building has been wrecked by a enemy and is now ruined.
 	### This = Planet
 	### From = Enemy country
-	## replace_scopes = { this = colony root = colony from = country }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier from = country }
+	## event_type = carrier
 	on_building_ruined
 
 	### A district construction has been queued.
 	### This = Planet
-	## replace_scopes = { this = colony root = colony }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier }
+	## event_type = carrier
 	on_district_queued
 
 	### A district construction has been unqueued.
 	### This = Planet
-	## replace_scopes = { this = colony root = colony }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier }
+	## event_type = carrier
 	on_district_unqueued
 
 	### A district construction has demolished.
 	### This = Planet
-	## replace_scopes = { this = colony root = colony }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier }
+	## event_type = carrier
 	on_district_demolished
 
 	### Auto-designation has changed the planet's designation.
 	### This = Planet
-	## replace_scopes = { this = colony root = colony }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier }
+	## event_type = carrier
 	on_auto_colony_type_changed
 
 	### Tutorial level for a country has changed
@@ -1151,8 +1151,8 @@ on_actions = {
 	### From = Country
 	### FromFrom = Pop group
 	### local_pop_amount = variable of how much was grown
-	## replace_scopes = { this = colony root = colony from = country fromfrom = pop_group }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier from = country fromfrom = pop_group }
+	## event_type = carrier
 	on_pop_growth
 
 	### A pop amount has been assembled
@@ -1160,8 +1160,8 @@ on_actions = {
 	### From = Country
 	### FromFrom = Pop group
 	### local_pop_amount = variable of how much was assembled
-	## replace_scopes = { this = colony root = colony from = country fromfrom = pop_group }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier from = country fromfrom = pop_group }
+	## event_type = carrier
 	on_pop_assembly
 
 	### A pop has finished purging
@@ -1169,8 +1169,8 @@ on_actions = {
 	### From = Country
 	### FromFrom = Pop group
 	### local_pop_amount = variable of how many pops were purged
-	## replace_scopes = { this = colony root = colony from = country fromfrom = pop_group }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier from = country fromfrom = pop_group }
+	## event_type = carrier
 	on_pop_purged
 
 	### A pop has been displaced
@@ -1178,8 +1178,8 @@ on_actions = {
 	### From = Country
 	### FromFrom = Pop group
 	### local_pop_amount = variable of how many pops were displaced
-	## replace_scopes = { this = colony root = colony from = country fromfrom = pop_group }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier from = country fromfrom = pop_group }
+	## event_type = carrier
 	on_pop_displaced
 
 	### Initial rebels manage to take control of the planet, happens before the new owner is set, after the war is created.
@@ -1201,16 +1201,16 @@ on_actions = {
 	### FromFrom = Former Owner
 	### From = Country scope (new owner, so invalid)
 	### This = Planet scope
-	## replace_scopes = { this = planet root = planet from = country fromfrom = country }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie from = country fromfrom = country }
+	## event_type = carrier
 	on_planet_ownerless
 
 	### Fired whenever a new owner is set for a planet, following a war or through trade
 	### This = Planet scope
 	### From = Country scope (new owner)
 	### FromFrom = Country scope (previous owner, if any)
-	## replace_scopes = { this = colony root = colony from = country fromfrom = country }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier from = country fromfrom = country }
+	## event_type = carrier
 	on_planet_transfer
 
 	### Fired whenever a new owner is set for a planet, and the planet was aggressively conquered
@@ -1218,15 +1218,15 @@ on_actions = {
 	### This = Planet scope
 	### From = Country scope (new owner)
 	### FromFrom = Former Owner
-	## replace_scopes = { this = colony root = colony from = country fromfrom = country }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier from = country fromfrom = country }
+	## event_type = carrier
 	on_planet_conquer
 
 	### You have changed the location of your capital. Also called when a country's capital is first set e.g. during galaxy creation (but then FROM is not set)
 	### this/root = new capital
 	### from = old capital
-	## replace_scopes = { this = colony root = colony from = colony }
-	## event_type = colony
+	## replace_scopes = { this = carrier root = carrier from = colony }
+	## event_type = carrier
 	on_capital_changed
 
 	### From = Planet/Starbase/Megastructure/Astral Rift scope
@@ -1350,78 +1350,78 @@ on_actions = {
 	# X years has passed since a planet was colonized (won't trigger on empire homeworld)
 
 	### 1 years has passed since a planet was colonized (won't trigger on empire homeworld)
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_colony_1_year_old
 
 	### 2 years has passed since a planet was colonized (won't trigger on empire homeworld)
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_colony_2_years_old
 
 	### 3 years has passed since a planet was colonized (won't trigger on empire homeworld)
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_colony_3_years_old
 
 	### 4 years has passed since a planet was colonized (won't trigger on empire homeworld)
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_colony_4_years_old
 
 	### 5 years has passed since a planet was colonized (won't trigger on empire homeworld)
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_colony_5_years_old
 
 	### 6 years has passed since a planet was colonized (won't trigger on empire homeworld)
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_colony_6_years_old
 
 	### 7 years has passed since a planet was colonized (won't trigger on empire homeworld)
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_colony_7_years_old
 
 	### 8 years has passed since a planet was colonized (won't trigger on empire homeworld)
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_colony_8_years_old
 
 	### 9 years has passed since a planet was colonized (won't trigger on empire homeworld)
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_colony_9_years_old
 
 	### 10 years has passed since a planet was colonized (won't trigger on empire homeworld)
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_colony_10_years_old
 
 	### 25 years has passed since a planet was colonized (won't trigger on empire homeworld)
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_colony_25_years_old
 
 	### Fires for each planet every month (counting up from colonisation date, includes home planet)
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_colony_monthly_pulse
 
 	### Fires for each planet every year (counting up from colonisation date, includes home planet)
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_colony_yearly_pulse
 
 	### Fires for each planet every 5 years (counting up from colonisation date, includes home planet)
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_colony_5_year_pulse
 
 	### Fires for each planet every 10 years (counting up from colonisation date, includes home planet)
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_colony_10_year_pulse
 
 	### this = pop, fired via action.2021
@@ -1447,14 +1447,13 @@ on_actions = {
 	## event_type = country
 	empire_init_add_technologies
 
-	### Called during empire initialization when starting a new game if has_secondary_species game rule is true.
-	### Called before empire_init_create_capital_pops.
-	### scope: planet
+	### Called during empire initialization when starting a new game.
+	### scope: colony
 	### from: founder species
 	### fromfrom: secondary species (if exists)
-	## replace_scopes = { this = planet root = planet from = species fromfrom = species }
-	## event_type = planet
-	empire_init_capital_planet
+	## replace_scopes = { this = colony root = colony from = species fromfrom = species }
+	## event_type = colony
+	empire_init_capital_colony
 
 	### called during empire initialization when starting a new game
 	### scope: country
@@ -1767,14 +1766,14 @@ on_actions = {
 
 	### THIS = Planet: Branch office planet
 	### FROM = Country: Branch office owner
-	## replace_scopes = { this = planet root = planet from = country }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrier from = country }
+	## event_type = carrier
 	on_branch_office_established
 
 	### THIS = Planet: Branch office planet
 	### FROM = Country: Branch office owner
-	## replace_scopes = { this = planet root = planet from = country }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrier from = country }
+	## event_type = carrier
 	on_branch_office_closed
 
 	### THIS = System: system being occupied
@@ -2420,16 +2419,16 @@ on_actions = {
 	# Similarly, the _unqueued on_actions fire even if you cancel the order while the weapon is on the wind-up to fire
 	# They use the same scopes as the standard events
 
-	## replace_scopes = { this = planet root = planet from = fleet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie from = fleet }
+	## event_type = carrier
 	on_destroy_planet_with_<component_template.planet_killer>
 
-	## replace_scopes = { this = planet root = planet from = fleet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie from = fleet }
+	## event_type = carrier
 	on_destroy_planet_with_<component_template.planet_killer>_queued
 
-	## replace_scopes = { this = planet root = planet from = fleet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie from = fleet }
+	## event_type = carrier
 	on_destroy_planet_with_<component_template.planet_killer>_unqueued
 
 	# endregion
@@ -2437,34 +2436,34 @@ on_actions = {
 	# region from 02_component_on_actions.txt
 
 	### Beholder Leader's Planetfall action
-	## replace_scopes = { this = planet root = planet from = fleet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie from = fleet }
+	## event_type = carrier
 	on_beholder_target_planet_reached
 
-	## replace_scopes = { this = planet root = planet from = fleet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie from = fleet }
+	## event_type = carrier
 	on_azaryn_target_planet_reached
 
 	### Executed when a country activates an agenda
 	### THIS = country
-	## replace_scopes = { this = planet root = planet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie }
+	## event_type = carrier
 	on_azaryn_action_cancel
 
-	## replace_scopes = { this = planet root = planet from = fleet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie from = fleet }
+	## event_type = carrier
 	on_cosmogenesis_exodus_planet_reached
 
-	## replace_scopes = { this = planet root = planet from = fleet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie from = fleet }
+	## event_type = carrier
 	on_behemoth_fast_egg_planet_reached
 
-	## replace_scopes = { this = planet root = planet from = fleet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie from = fleet }
+	## event_type = carrier
 	on_behemoth_slow_egg_planet_reached
 
-	## replace_scopes = { this = planet root = planet from = fleet }
-	## event_type = planet
+	## replace_scopes = { this = carrier root = carrie from = fleet }
+	## event_type = carrier
 	on_behemoth_strong_egg_planet_reached
 
 	## replace_scopes = { this = fleet root = fleet from = fleet }
