@@ -476,10 +476,10 @@ civic_or_origin = {
 		}
 		## cardinality = 0..1
 		portrait = <portrait>
-		## default: no
+		### default: no
 		## cardinality = 0..1
 		max_once_global = bool
-		## default: no
+		### default: no
 		## cardinality = 0..1
 		hide_modifiers = bool
 		## cardinality = 0..1
