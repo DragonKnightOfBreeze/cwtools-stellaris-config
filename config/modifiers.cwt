@@ -538,8 +538,8 @@ modifiers = {
 	encampment_progress_mult = { Colony }
 	encampment_required_progress_add = { Colony }
 	encampment_required_progress_mult = { Colony }
-    situation_nomad_economy_max_progress_add = { Country }
-    situation_nomad_economy_max_progress_mult = { Country }
+    situation_nomad_economy_max_progress_add = { Countries }
+    situation_nomad_economy_max_progress_mult = { Countries }
 
 	# ship_class modifiers
 	enum[ship_class]_build_cost_mult = { Colony Megastructures Starbases }
