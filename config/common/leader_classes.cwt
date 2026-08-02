@@ -10,7 +10,7 @@ types = {
 			## optional
 			name_plural = name_plural
 			## optional
-			desc = description"
+			desc = description
 		}
 		images = {
 			icon = GFX_text_$ # <sprite>
