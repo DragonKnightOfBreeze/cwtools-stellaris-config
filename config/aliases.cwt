@@ -40,7 +40,7 @@ single_alias[triggered_modifier_clause] = {
 	## cardinality = 0..1
 	key = localisation
 
-	## default: no
+	### default: no
 	## cardinality = 0..1
 	show_if_not_potential = bool
 	## cardinality = 0..1
@@ -117,7 +117,7 @@ single_alias[triggered_modifier_by_planet_clause] = {
 	## cardinality = 0..1
 	key = localisation
 
-	## default: no
+	### default: no
 	## cardinality = 0..1
 	show_if_not_potential = bool
 	## cardinality = 0..1
@@ -154,7 +154,7 @@ single_alias[triggered_modifier_by_starbase_clause] = {
 	## cardinality = 0..1
 	key = localisation
 
-	## default: no
+	### default: no
 	## cardinality = 0..1
 	show_if_not_potential = bool
 	## cardinality = 0..1
@@ -191,7 +191,7 @@ single_alias[triggered_modifier_by_situation_clause] = {
 	## cardinality = 0..1
 	key = localisation
 
-	## default: no
+	### default: no
 	## cardinality = 0..1
 	show_if_not_potential = bool
 	## cardinality = 0..1
@@ -228,7 +228,7 @@ single_alias[triggered_modifier_by_leader_clause] = {
 	## cardinality = 0..1
 	key = localisation
 
-	## default: no
+	### default: no
 	## cardinality = 0..1
 	show_if_not_potential = bool
 	## cardinality = 0..1
