@@ -848,7 +848,7 @@ alias[gui_standard_element:maxHeight] = int
 alias[gui_standard_element:defaultSelection] = bool
 alias[gui_standard_element:scale] = float
 alias[gui_standard_element:alwaysTransparent] = bool
-## default: yes
+### default: yes
 alias[gui_standard_element:moveable] = bool
 alias[gui_standard_element:moveable] = 0
 alias[gui_standard_element:hide] = bool
