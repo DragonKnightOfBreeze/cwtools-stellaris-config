@@ -40,7 +40,7 @@ alias[effect:else] = {
 ## scopes = any
 alias[effect:save_event_target_as] = value_set[event_target]
 ### Saves the current scope as an arbitrarily-named target to be referenced later, accessible globally until cleared
-## scopes = { megastructure country pop_group fleet galactic_object leader army ambient_object species bypass design pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation debris astral_rift exhibit job colony mission planet ship carrier }
+## scopes = { megastructure country pop_group fleet galactic_object leader army ambient_object species bypass design pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation debris astral_rift galactic_community exhibit job colony mission planet ship carrier }
 alias[effect:save_global_event_target_as] = value_set[global_event_target]
 
 ### Creates a starbase in orbit of the star of the scoped galactic object
@@ -3756,7 +3756,6 @@ alias[effect:spawn_system] = {
 	## cardinality = 0..1
 	direction = enum[system_direction]
 	## cardinality = 0..1
-	## cardinality = 0..1
 	min_jumps = int_value_field
 	## cardinality = 0..1
 	max_jumps = int_value_field
@@ -4776,7 +4775,6 @@ alias[effect:ceiling_variable] = value[variable]
 ## scopes = { megastructure country pop_group fleet galactic_object leader army ambient_object species bypass pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift ship_growth_stage colony planet ship carrier }
 alias[effect:export_trigger_value_to_variable] = {
 	trigger = alias_keys_field[trigger]
-	## cardinality = 0..1
 	## cardinality = 0..1
 	parameters = $any
 	variable = value_set[variable]
