@@ -20,9 +20,11 @@ types = {
 			potential = { always = no }
 		}
 		localisation = {
-			name = "$"
-			## optional
-			desc = "$_desc"
+			subtype[!null] = {
+				name = "$"
+				## optional
+				desc = "$_desc"
+			}
 		}
 		images = {
 			## optional

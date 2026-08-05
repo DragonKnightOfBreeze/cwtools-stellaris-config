@@ -32,6 +32,7 @@ decision = {
 	## cardinality = 0..1
 	enactment_time = int
 
+	## cardinality = 0..1
 	custom_tooltip = {
 		## cardinality = 0..1
 		text = ""
@@ -80,11 +81,13 @@ decision = {
 	abort_effect = single_alias_right[effect_clause]
 
 	## cardinality = 0..1
+	
 	on_queued = single_alias_right[effect_clause]
 
 	## cardinality = 0..1
 	on_unqueued = single_alias_right[effect_clause]
 
+	## cardinality = 0..1
 	effect = single_alias_right[effect_clause]
 
 	## cardinality = 0..1

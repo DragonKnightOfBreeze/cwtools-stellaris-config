@@ -9,7 +9,7 @@ types = {
 			council_agenda_desc = "council_agenda_$_desc"
 		}
 		images = {
-			icon = "gfx/interface/icons/agenda_icons/$.dds"  # inferred
+			icon = GFX_council_agenda_icon_$
 		}
 	}
 }

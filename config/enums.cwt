@@ -494,6 +494,9 @@ enums = {
 		discoveries
 		technology
 		traditions
+		situation
+		claims
+		crisis
 	}
 	enum[parton_type_category] = {
 		major_patron

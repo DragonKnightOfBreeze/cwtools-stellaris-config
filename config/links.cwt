@@ -88,6 +88,11 @@ links = {
 		input_scopes = { country pop_group leader species }
 		output_scope = planet
 	}
+	### Scopes to a species' home colony.
+	home_colony = {
+		input_scopes = { country pop_group leader species }
+		output_scope = colony
+	}
 	### Scopes from a starbase to its station ship or from a colony to its carrier ship.
 	ship = {
 		input_scopes = { starbase colony planet ship carrier }
