@@ -3452,7 +3452,7 @@ alias[trigger:has_pre_ftl_trade] = scope[country]
 
 ### Checks ship design has a certain role
 ## scopes = { design ship_growth_stage }
-alias[trigger:has_role] = enum[component_tag]
+alias[trigger:has_role] = value[ship_role]
 
 ### Checks if a fleet or ship is cloaked.
 ## scopes = { ship fleet }

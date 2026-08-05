@@ -176,15 +176,13 @@ ship_size = {
 	## cardinality = 0..1
 	ship_roles = {
 		## cardinality = 0..inf
-		enum[component_tag]
-		## cardinality = 0..1
-		citadel
+		value_set[ship_role]
 	}
 	## cardinality = 0..1
 	triggered_ship_roles = {
 		## cardinality = 0..inf
 		{
-			name = enum[component_tag]
+			name = value_set[ship_role]
 			trigger = single_alias_right[trigger_clause]
 		}
 	}
