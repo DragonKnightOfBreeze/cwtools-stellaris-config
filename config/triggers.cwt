@@ -4806,12 +4806,12 @@ alias[trigger:count_enslaved_species] = {
 }
 
 ### Iterate through all existing species traits in the game - checks whether the enclosed triggers return true for any of them
-## scopes = any
+## scopes = no_scope
 ## push_scope = country
 alias[trigger:any_existing_species_traits] = single_alias_right[trigger_clause]
 
 ### Iterate through all existing species traits in the game - checks whether the enclosed triggers return true for X/all of them
-## scopes = any
+## scopes = no_scope
 alias[trigger:count_existing_species_traits] = {
 	## cardinality = 0..1
 	## push_scope = trait

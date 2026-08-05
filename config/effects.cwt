@@ -7940,7 +7940,7 @@ alias[effect:every_enslaved_species] = {
 }
 
 ### Iterate through all existing species traits in the game - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## scopes = any
+## scopes = no_scope
 ## push_scope = trait
 alias[effect:random_existing_species_traits] = {
 	## cardinality = 0..1
@@ -7951,7 +7951,7 @@ alias[effect:random_existing_species_traits] = {
 }
 
 ### Iterate through all existing species traits in the game - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## scopes = any
+## scopes = no_scope
 ## push_scope = trait
 alias[effect:ordered_existing_species_traits] = {
 	## cardinality = 0..1
@@ -7965,7 +7965,7 @@ alias[effect:ordered_existing_species_traits] = {
 }
 
 ### Iterate through all existing species traits in the game - executes the enclosed effects on all of them for which the limit triggers return true
-## scopes = any
+## scopes = no_scope
 ## push_scope = trait
 alias[effect:every_existing_species_traits] = {
 	## cardinality = 0..1
