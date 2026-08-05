@@ -40,7 +40,7 @@ alias[effect:else] = {
 ## scopes = any
 alias[effect:save_event_target_as] = value_set[event_target]
 ### Saves the current scope as an arbitrarily-named target to be referenced later, accessible globally until cleared
-## scopes = { megastructure country pop_group fleet galactic_object leader army ambient_object species bypass design pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation debris astral_rift galactic_community exhibit job colony mission planet ship carrier }
+## scopes = { megastructure country pop_group fleet galactic_object leader army ambient_object species bypass design pop_faction war federation starbase deposit sector archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation debris astral_rift exhibit job colony mission planet ship carrier }
 alias[effect:save_global_event_target_as] = value_set[global_event_target]
 
 ### Creates a starbase in orbit of the star of the scoped galactic object
@@ -6644,38 +6644,6 @@ alias[effect:every_espionage_asset] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
-### Iterate through every exhibit - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## copes = { country }
-alias[effect:random_exhibit] = {
-	## cardinality = 0..1
-	limit = single_alias_right[trigger_clause]
-	alias_name[effect] = alias_match_left[effect]
-	### optional - adds weights to affect the chance a specific object is selected
-	## cardinality = 0..1
-	weights = { alias_name[modifier_rule] = alias_match_left[modifier_rule] }
-}
-
-### Iterate through every exhibit - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## copes = { country }
-alias[effect:ordered_exhibit] = {
-	position = int
-	order_by = value_field
-	## cardinality = 0..1
-	limit = single_alias_right[trigger_clause]
-	### (default: no - if yes, then 0 is lowest rather than highest)
-	## cardinality = 0..1
-	inverse = bool
-	alias_name[effect] = alias_match_left[effect]
-}
-
-### Iterate through every exhibit - executes the enclosed effects on all of them for which the limit triggers return true
-## copes = { country }
-alias[effect:every_exhibit] = {
-	## cardinality = 0..1
-	limit = single_alias_right[trigger_clause]
-	alias_name[effect] = alias_match_left[effect]
-}
-
 ### Iterate through each federation - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
 ## scopes = any
 ## push_scope = federation
@@ -10237,6 +10205,22 @@ alias[effect:random_controlled_colony] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
+
+### Iterate through every exhibit - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+## scopes = { country }
+## push_scope = exhibit
+alias[effect:random_exhibit] = {
+	## cardinality = 0..1
+	limit = single_alias_right[trigger_clause]
+
+	### optional - adds weights to affect the chance a specific object is selected
+	## cardinality = 0..1
+	weights = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	alias_name[effect] = alias_match_left[effect]
+}
 
 ### Iterate through each mission that the current country has issued - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
 ## scopes = { country }
