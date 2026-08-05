@@ -42,7 +42,7 @@ astral_action = {
 
     ## cardinality = 0..1
     cooldown = int
-    ## default: false
+    ### default: false
     ## cardinality = 0..1
     uses_custom_cooldown = bool
     picture = <sprite>
