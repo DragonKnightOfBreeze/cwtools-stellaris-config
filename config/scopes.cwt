@@ -11,12 +11,15 @@ scopes = {
     }
     Planet = {
         aliases = { planet }
+        is_subscope_of = carrier
     }
     Colony = {
         aliases = { colony }
+        # is_subscope_of = carrier # only for `planet` and `ship` atm
     }
     Ship = {
         aliases = { ship }
+        is_subscope_of = carrier
     }
     Carrier = {
         aliases = { carrier }
