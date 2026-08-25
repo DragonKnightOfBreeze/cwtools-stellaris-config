@@ -18,7 +18,10 @@ types = {
 	}
 }
 
-## replace_scopes = { this = any root = any from = country } #todo 这里decision会根据游戏里不同的情况有不同的域，在游牧的船殖民地上是ship，在球上是planet，不固定
+# Here, `decision` will have different domains depending on the situation in the game.
+# On a nomadic ship colony, it is `ship`; on a planet, it is `planet`.
+# It is not fixed, and we use `carrier` here (at the common parent scope) atm.
+## replace_scopes = { this = carrier root = carrier from = country }
 decision = {
 	## cardinality = 0..1
 	owned_planets_only = bool
