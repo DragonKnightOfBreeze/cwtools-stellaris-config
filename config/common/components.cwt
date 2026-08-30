@@ -446,12 +446,12 @@ component_template = {
 		sensor_range = int
 		## cardinality = 0..1
 		hyperlane_range = int
+	}
 
+	## cardinality = 0..inf
+	scripted_action = {
 		## cardinality = 0..inf
-		scripted_action = {
-			## cardinality = 0..inf
-			<scripted_action>
-		}
+		<scripted_action>
 	}
 
 	## replace_scopes = { this = design from = country }
