@@ -74,6 +74,13 @@ resource = {
 	prerequisites = {
 		## cardinality = 0..inf
 		<technology>
+
+        # fast hack
+        ## cardinality = 0..inf
+        OR = {
+            ## cardinality = 0..inf
+            <technology>
+        }
 	}
 
 	## cardinality = 0..1
