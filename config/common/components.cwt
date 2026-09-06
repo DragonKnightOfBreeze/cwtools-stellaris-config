@@ -105,11 +105,8 @@ component_template = {
 	## cardinality = 0..1
 	icon_frame = int
 	## cardinality = 0..1
-	prerequisites = {
-		## cardinality = 0..inf
-		<technology>
-	}
-	## cardinality = 0..1
+	prerequisites = single_alias_right[technology_prerequisites]
+    ## cardinality = 0..1
 	component_set = <component_set>
 	## cardinality = 0..1
 	hidden = bool

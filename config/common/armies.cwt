@@ -71,10 +71,7 @@ army = {
 	occupation = bool
 
 	## cardinality = 0..1
-	prerequisites = {
-		## cardinality = 0..inf
-		<technology>
-	}
+	prerequisites = single_alias_right[technology_prerequisites]
 
 	## cardinality = 0..inf
 	## replace_scopes = { this = country root = country }

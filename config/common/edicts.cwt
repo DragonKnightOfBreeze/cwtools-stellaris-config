@@ -67,10 +67,7 @@ edict = {
 
 	### tech requirements for this trigger.
 	## cardinality = 0..1
-	prerequisites = {
-		## cardinality = 0..inf
-		<technology>
-	}
+	prerequisites = single_alias_right[technology_prerequisites]
 
 	## cardinality = 0..1
 	show_tech_unlock_if = single_alias_right[trigger_clause]

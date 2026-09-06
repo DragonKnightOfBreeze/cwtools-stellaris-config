@@ -133,15 +133,7 @@ technology = {
 	}
 
 	## cardinality = 0..1
-	prerequisites = {
-		## cardinality = 0..inf
-		<technology>
-		## cardinality = 0..1
-		OR = {
-			## cardinality = 0..inf
-			<technology>
-		}
-	}
+	prerequisites = single_alias_right[technology_prerequisites]
 
 	## cardinality = 0..inf
 	technology_swap = {

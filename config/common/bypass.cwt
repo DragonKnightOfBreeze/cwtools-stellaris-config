@@ -58,10 +58,7 @@ bypass = {
 	### number of days to wait for the jump animation to be played
 	animation_time = int
 	## cardinality = 0..1
-	prerequisites = {
-		## cardinality = 0..inf
-		<technology>
-	}
+	prerequisites = single_alias_right[technology_prerequisites]
 	### an effect that is called just before the jump of a right click "explore" action of a fleet
 	## cardinality = 0..1
 	on_pre_explore = single_alias_right[effect_clause]

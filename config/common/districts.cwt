@@ -135,10 +135,7 @@ district = {
 	## cardinality = 0..1
 	abort_effect = single_alias_right[effect_clause]
 	## cardinality = 0..1
-	prerequisites = {
-		## cardinality = 0..inf
-		<technology>
-	}
+	prerequisites = single_alias_right[technology_prerequisites]
 
 	## cardinality = 0..1
 	conversion_ratio = float

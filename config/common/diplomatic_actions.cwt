@@ -45,10 +45,7 @@ diplomatic_action = {
 
 	## cardinality = 0..1
 	### the technologies required to enable the player to send this diplomatic action.
-	prerequisites = {
-		## cardinality = 0..inf
-		<technology>
-	}
+	prerequisites = single_alias_right[technology_prerequisites]
 
 	## cardinality = 0..1
 	### will require the actor to be at peace for this action to pass the possible check.

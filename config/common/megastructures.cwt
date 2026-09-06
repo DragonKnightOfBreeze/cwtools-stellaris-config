@@ -58,7 +58,7 @@ megastructure = {
 	construction_scale = float
 	## cardinality = 0..1
 	portrait = <sprite>
-	
+
 	### If specified, fleets that can potentially build the megastructure will have a separate order button with this icon.
 	### The icon should also have a version with the "_selected" suffix.
 	### Only shown for ships that can build megastructures via construction_capabilities, not scripted actions.
@@ -147,10 +147,7 @@ megastructure = {
 	tooltip_system_filter = single_alias_right[trigger_clause]
 
 	## cardinality = 0..1
-	prerequisites = {
-		## cardinality = 0..inf
-		<technology>
-	}
+	prerequisites = single_alias_right[technology_prerequisites]
 	subtype[has_prereqs] = {
 		## cardinality = 0..1
 		show_prereqs = bool
@@ -172,7 +169,7 @@ megastructure = {
 	## cardinality = 0..1
 	## replace_scopes = { this = system root = system from = country }
 	context_menu_potential = single_alias_right[trigger_clause]
-	
+
 	### Use for megastructures that have their own dedicated context_menu_potential shortcut and order_icon, so the general picker is redundant.
 	## cardinality = 0..1
 	## replace_scopes = { this = fleet root = fleet from = country }

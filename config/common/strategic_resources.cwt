@@ -71,17 +71,7 @@ resource = {
 	culling_conversion_value = int
 
 	## cardinality = 0..1
-	prerequisites = {
-		## cardinality = 0..inf
-		<technology>
-
-        # fast hack
-        ## cardinality = 0..inf
-        OR = {
-            ## cardinality = 0..inf
-            <technology>
-        }
-	}
+	prerequisites = single_alias_right[technology_prerequisites]
 
 	## cardinality = 0..1
 	visibility_prerequisite = single_alias_right[trigger_clause]

@@ -296,3 +296,14 @@ single_alias[leader_traits] = {
 	## cardinality = 0..inf
 	trait = random_common
 }
+
+# no `AND = {...}` usages in vanilla files atm (game version 4.5), so following should be enough
+single_alias[technology_prerequisites] = {
+    ## cardinality = 0..inf
+    <technology>
+    ## cardinality = 0..inf
+    OR = {
+        ## cardinality = 0..inf
+        <technology>
+    }
+}

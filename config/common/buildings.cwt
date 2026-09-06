@@ -253,11 +253,7 @@ building = {
 	}
 
 	## cardinality = 0..1
-	prerequisites = {
-		## cardinality = 0..inf
-		## incomingReferenceLabel = prereq
-		<technology>
-	}
+	prerequisites = single_alias_right[technology_prerequisites]
 
 	### not used anymore unless you overwrite economic_plans to not be used.
 	## cardinality = 0..1

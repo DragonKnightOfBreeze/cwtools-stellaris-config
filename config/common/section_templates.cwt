@@ -53,10 +53,7 @@ section_template = {
 	}
 
 	## cardinality = 0..1
-	prerequisites = {
-		## cardinality = 0..inf
-		<technology>
-	}
+	prerequisites = single_alias_right[technology_prerequisites]
 	## cardinality = 0..inf
 	component_slot = {
 		name = scalar

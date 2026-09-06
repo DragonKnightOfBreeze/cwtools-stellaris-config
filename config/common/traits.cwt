@@ -291,10 +291,7 @@ trait = {
 		}
 		### AND - Trait only available if the technology specified has been researched by the Empire.
 		## cardinality = 0..1
-		prerequisites = {
-			## cardinality = 0..inf
-			<technology>
-		}
+		prerequisites = single_alias_right[technology_prerequisites]
 		### OR - Trait only available if none of the listed traits are currently on leader.
 		## cardinality = 0..1
 		opposites = {
@@ -508,10 +505,7 @@ trait = {
 		species_possible_merge_remove = single_alias_right[trigger_clause]
 
 		## cardinality = 0..1
-		prerequisites = {
-			## cardinality = 0..inf
-			<technology>
-		}
+		prerequisites = single_alias_right[technology_prerequisites]
 
 		## cardinality = 0..1
 		opposites = {

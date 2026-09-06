@@ -67,10 +67,7 @@ policy = {
 		modifier = single_alias_right[modifier_clause]
 
 		## cardinality = 0..1
-		prerequisites = {
-			## cardinality = 0..inf
-			<technology>
-		}
+		prerequisites = single_alias_right[technology_prerequisites]
 
 		## cardinality = 0..1
 		AI_weight = {

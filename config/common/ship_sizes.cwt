@@ -189,10 +189,7 @@ ship_size = {
 		}
 	}
 	## cardinality = 0..1
-	prerequisites = {
-		## cardinality = 0..inf
-		<technology>
-	}
+	prerequisites = single_alias_right[technology_prerequisites]
 	#this is where ship classes are defined! this is important for other files, and it also causes the game to auto generate modifiers for each shipclass!
 	class = enum[ship_class]
 	## cardinality = 0..1
