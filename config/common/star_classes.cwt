@@ -19,20 +19,17 @@ types = {
 	}
 }
 
-#TODO Confirm
-
 star_class = {
-    class = value_set[star_class_id]
+    class = <worldgfx>
 	## cardinality = 0..1
     icon = icon[gfx/map/star_classes]
 	## cardinality = 0..1
 	icon_scale = float
     ## cardinality = 0..inf
 	planet = {
-		#TODO check star subtype
-        key = <planet_class> #this can receive any planet, doesn't require only is_star = yes!
+        key = <planet_class>
 		## cardinality = 0..1
-		class = value[star_class_id]
+		class = <worldgfx>
     }
 	## cardinality = 0..1
     spawn_odds = float

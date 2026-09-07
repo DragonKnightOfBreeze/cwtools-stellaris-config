@@ -26,6 +26,7 @@ single_alias[modifier_clause] = {
 		## cardinality = 0..inf
 		$localisation_parameter = scalar
 	}
+	#### Default: yes
 	## cardinality = 0..1
 	show_only_custom_tooltip = bool
 	## cardinality = 0..1
@@ -34,228 +35,90 @@ single_alias[modifier_clause] = {
 
 # triggered modifier
 
+triggered_modifier_clause_base = {
+    ## cardinality = 0..1
+	key = localisation
+
+	### default: no
+	## cardinality = 0..1
+	show_if_not_potential = bool
+	## cardinality = 0..1
+	not_potential_override_text_key = localisation
+
+	## cardinality = 0..1
+	modifier = single_alias_right[modifier_clause]
+	## cardinality = 0..inf
+	alias_name[modifier] = alias_match_left[modifier]
+
+	## cardinality = 0..1
+	description = localisation
+	## cardinality = 0..1
+	description_parameters = {
+		### Any value can go here to be used in localisation
+		## cardinality = 0..inf
+		$localisation_parameter = scalar
+	}
+	## cardinality = 0..1
+	show_only_custom_tooltip = bool
+	## cardinality = 0..1
+	custom_tooltip = localisation
+
+	## cardinality = 0..inf
+	mult = value_field
+	## cardinality = 0..inf
+	multiplier = value_field
+}
+
+## inject = aliases.cwt@triggered_modifier_clause_base/*
 single_alias[triggered_modifier_clause] = {
 	## cardinality = 0..1
 	potential = single_alias_right[trigger_clause]
-	## cardinality = 0..1
-	key = localisation
-
-	### default: no
-	## cardinality = 0..1
-	show_if_not_potential = bool
-	## cardinality = 0..1
-	not_potential_override_text_key = localisation
-
-	## cardinality = 0..1
-	modifier = single_alias_right[modifier_clause]
-	## cardinality = 0..inf
-	alias_name[modifier] = alias_match_left[modifier]
-
-	## cardinality = 0..1
-	description = localisation
-	## cardinality = 0..1
-	description_parameters = {
-		### Any value can go here to be used in localisation
-		## cardinality = 0..inf
-		$localisation_parameter = scalar
-	}
-	## cardinality = 0..1
-	show_only_custom_tooltip = bool
-	## cardinality = 0..1
-	custom_tooltip = localisation
-
-	## cardinality = 0..inf
-	mult = value_field
-	## cardinality = 0..inf
-	multiplier = value_field
 }
 
+## inject = aliases.cwt@triggered_modifier_clause_base/*
 single_alias[triggered_modifier_by_pop_group_clause] = {
 	## cardinality = 0..1
-	## push_scope = pop_group
+	## replace_scopes = { this = pop_group root = pop_group }
 	potential = single_alias_right[trigger_clause]
-	## cardinality = 0..1
-	key = localisation
 
-	### default: no
-	## cardinality = 0..1
-	show_if_not_potential = bool
-	## cardinality = 0..1
-	not_potential_override_text_key = localisation
-	### default: yes?
+    ### default: yes?
 	## cardinality = 0..1
 	divide_over_pop_groups = bool
-
-	## cardinality = 0..1
-	modifier = single_alias_right[modifier_clause]
-	## cardinality = 0..inf
-	alias_name[modifier] = alias_match_left[modifier]
-
-	## cardinality = 0..1
-	description = localisation
-	## cardinality = 0..1
-	description_parameters = {
-		### Any value can go here to be used in localisation
-		## cardinality = 0..inf
-		$localisation_parameter = scalar
-	}
-	## cardinality = 0..1
-	show_only_custom_tooltip = bool
-	## cardinality = 0..1
-	custom_tooltip = localisation
-
-	## cardinality = 0..inf
-	mult = value_field
-	## cardinality = 0..inf
-	multiplier = value_field
 }
 
+## inject = aliases.cwt@triggered_modifier_clause_base/*
 single_alias[triggered_modifier_by_planet_clause] = {
 	## cardinality = 0..1
-	## push_scope = planet
+	## replace_scopes = { this = planet root = planet }
 	potential = single_alias_right[trigger_clause]
-	## cardinality = 0..1
-	key = localisation
-
-	### default: no
-	## cardinality = 0..1
-	show_if_not_potential = bool
-	## cardinality = 0..1
-	not_potential_override_text_key = localisation
-
-	## cardinality = 0..1
-	modifier = single_alias_right[modifier_clause]
-	## cardinality = 0..inf
-	alias_name[modifier] = alias_match_left[modifier]
-
-	## cardinality = 0..1
-	description = localisation
-	## cardinality = 0..1
-	description_parameters = {
-		### Any value can go here to be used in localisation
-		## cardinality = 0..inf
-		$localisation_parameter = scalar
-	}
-	## cardinality = 0..1
-	show_only_custom_tooltip = bool
-	## cardinality = 0..1
-	custom_tooltip = localisation
-
-	## cardinality = 0..inf
-	mult = value_field
-	## cardinality = 0..inf
-	multiplier = value_field
 }
 
+## inject = aliases.cwt@triggered_modifier_clause_base/*
+single_alias[triggered_modifier_by_colony_clause] = {
+	## cardinality = 0..1
+	## replace_scopes = { this = colony root = colony }
+	potential = single_alias_right[trigger_clause]
+}
+
+## inject = aliases.cwt@triggered_modifier_clause_base/*
 single_alias[triggered_modifier_by_starbase_clause] = {
 	## cardinality = 0..1
-	## push_scope = starbase
+	## replace_scopes = { this = starbase root = starbase }
 	potential = single_alias_right[trigger_clause]
-	## cardinality = 0..1
-	key = localisation
-
-	### default: no
-	## cardinality = 0..1
-	show_if_not_potential = bool
-	## cardinality = 0..1
-	not_potential_override_text_key = localisation
-
-	## cardinality = 0..1
-	modifier = single_alias_right[modifier_clause]
-	## cardinality = 0..inf
-	alias_name[modifier] = alias_match_left[modifier]
-
-	## cardinality = 0..1
-	description = localisation
-	## cardinality = 0..1
-	description_parameters = {
-		### Any value can go here to be used in localisation
-		## cardinality = 0..inf
-		$localisation_parameter = scalar
-	}
-	## cardinality = 0..1
-	show_only_custom_tooltip = bool
-	## cardinality = 0..1
-	custom_tooltip = localisation
-
-	## cardinality = 0..inf
-	mult = value_field
-	## cardinality = 0..inf
-	multiplier = value_field
 }
 
+## inject = aliases.cwt@triggered_modifier_clause_base/*
 single_alias[triggered_modifier_by_situation_clause] = {
 	## cardinality = 0..1
-	## push_scope = situation
+	## replace_scopes = { this = situation root = situation }
 	potential = single_alias_right[trigger_clause]
-	## cardinality = 0..1
-	key = localisation
-
-	### default: no
-	## cardinality = 0..1
-	show_if_not_potential = bool
-	## cardinality = 0..1
-	not_potential_override_text_key = localisation
-
-	## cardinality = 0..1
-	modifier = single_alias_right[modifier_clause]
-	## cardinality = 0..inf
-	alias_name[modifier] = alias_match_left[modifier]
-
-	## cardinality = 0..1
-	description = localisation
-	## cardinality = 0..1
-	description_parameters = {
-		### Any value can go here to be used in localisation
-		## cardinality = 0..inf
-		$localisation_parameter = scalar
-	}
-	## cardinality = 0..1
-	show_only_custom_tooltip = bool
-	## cardinality = 0..1
-	custom_tooltip = localisation
-
-	## cardinality = 0..inf
-	mult = value_field
-	## cardinality = 0..inf
-	multiplier = value_field
 }
 
+## inject = aliases.cwt@triggered_modifier_clause_base/*
 single_alias[triggered_modifier_by_leader_clause] = {
 	## cardinality = 0..1
-	## push_scope = leader
+	## replace_scopes = { this = leader root = leader }
 	potential = single_alias_right[trigger_clause]
-	## cardinality = 0..1
-	key = localisation
-
-	### default: no
-	## cardinality = 0..1
-	show_if_not_potential = bool
-	## cardinality = 0..1
-	not_potential_override_text_key = localisation
-
-	## cardinality = 0..1
-	modifier = single_alias_right[modifier_clause]
-	## cardinality = 0..inf
-	alias_name[modifier] = alias_match_left[modifier]
-
-	## cardinality = 0..1
-	description = localisation
-	## cardinality = 0..1
-	description_parameters = {
-		### Any value can go here to be used in localisation
-		## cardinality = 0..inf
-		$localisation_parameter = scalar
-	}
-	## cardinality = 0..1
-	show_only_custom_tooltip = bool
-	## cardinality = 0..1
-	custom_tooltip = localisation
-
-	## cardinality = 0..inf
-	mult = value_field
-	## cardinality = 0..inf
-	multiplier = value_field
 }
 
 # triggered desc

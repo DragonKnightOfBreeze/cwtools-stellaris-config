@@ -1053,11 +1053,11 @@ alias[effect:kill_pop_group] = {
 ## scopes = { colony planet ship carrier }
 alias[effect:destroy_colony] = yes
 
-### Picks one random set of effects from a list, influenced by relative weight
+### Picks one random set of effects from a list, influenced by relative weight. Float values are allowed, but will be rounded down.
 ## scopes = any
 alias[effect:random_list] = {
 	## cardinality = 1..inf
-	int = {
+	float = {
 		## cardinality = 0..inf
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		## cardinality = 0..inf
@@ -1143,11 +1143,15 @@ alias[effect:add_experience] = int_value_field
 alias[effect:recruitable] = bool
 
 ### Assigns target leader to the scoped country/fleet/army/pop_group faction/sector
-## scopes = { country fleet army colony planet ship carrier }
+## scopes = { country fleet army colony }
 alias[effect:assign_leader] = scope_group[target_leader]
 
 ### Unassigns scoped leader from their post or unassigns leader from the scoped planet/ship/fleet/army
-## scopes = { ship fleet leader army }
+## scopes = { fleet leader army }
+alias[effect:unassign_leader] = bool
+
+### Unassigns scoped leader from their post or unassigns leader from the scoped planet/ship/fleet/army
+## scopes = { fleet leader army }
 alias[effect:unassign_leader] = scope_group[target_leader]
 
 ### Adds claims on target system
@@ -1671,9 +1675,13 @@ alias[effect:create_species] = {
 	## cardinality = 0..1
 	plural = random
 	## cardinality = 0..1
+	plural = localisation
+	## cardinality = 0..1
 	plural = scalar
 	## cardinality = 0..1
 	species_bio = scalar
+	## cardinality = 0..1
+	adjective = localisation
 	## cardinality = 0..1
 	adjective = scalar
 	class = <species_class>
@@ -1689,8 +1697,6 @@ alias[effect:create_species] = {
 	portrait = <portrait_group>
 	## cardinality = 0..1
 	portrait = random
-	## cardinality = 0..1
-	portrait = this
 	## cardinality = 0..1
 	### Limits species to this gender
 	gender = enum[genders_not_set]
@@ -1712,8 +1718,6 @@ alias[effect:create_species] = {
 	## cardinality = 0..2
 	traits = random
 	## cardinality = 0..2
-	traits = this
-	## cardinality = 0..2
 	traits = {
 		## cardinality = 0..1
 		ideal_planet_class = scope[planet]
@@ -1721,13 +1725,13 @@ alias[effect:create_species] = {
 		ideal_planet_class = scope_group[target_species]
 		## cardinality = 0..1
 		ideal_planet_class = <planet_class.habitable_planet>
-		## cardinality = 0..10
+		## cardinality = 0..inf
 		trait = <trait.species_trait>
-		## cardinality = 0..10
+		## cardinality = 0..inf
 		trait = random_traits
-		## cardinality = 0..10
+		## cardinality = 0..inf
 		trait = random_presapient_trait
-		## cardinality = 0..10
+		## cardinality = 0..inf
 		add_trait = <trait.species_trait>
 		### default: yes?
 		## cardinality = 0..1
@@ -1926,25 +1930,7 @@ alias[effect:create_country] = {
 	## cardinality = 0..1
 	flag = random
 	## cardinality = 0..1
-	flag = {
-		#TODO - this is connected to game/flags.
-		#I already created an entry for flag colors etc, you should work on connecting these.
-		## cardinality = 0..1
-		icon = {
-			category = scalar            #should be some sort of key
-			file = scalar            #should be "filename.dds" in the correct folder
-		}
-		background = {
-			category = scalar            #should be some sort of key
-			file = scalar            #should be "filename.dds" in the correct folder
-		}
-		colors = {
-			## cardinality = 0..4
-			<color_define>
-			## cardinality = 0..4
-			"null"
-		}
-	}
+	flag = single_alias_right[empire_flag]
 	## cardinality = 0..1
 	### Establishing contact on_action (on_first_contact) will not fire for any countries (ever) if this is set to no
 	day_zero_contact = bool
@@ -2016,25 +2002,7 @@ alias[effect:create_rebels] = {
 	## cardinality = 0..1
 	flag = random
 	## cardinality = 0..1
-	flag = {
-		#TODO - this is connected to game/flags.
-		#I already created an entry for flag colors etc, you should work on connecting these.
-		## cardinality = 0..1
-		icon = {
-			category = scalar            #should be some sort of key
-			file = scalar            #should be "filename.dds" in the correct folder
-		}
-		background = {
-			category = scalar            #should be some sort of key
-			file = scalar            #should be "filename.dds" in the correct folder
-		}
-		colors = {
-			## cardinality = 0..4
-			<color_define>
-			## cardinality = 0..4
-			"null"
-		}
-	}
+	flag = single_alias_right[empire_flag]
 	## cardinality = 0..1
 	name_list = <name_list>
 	## cardinality = 0..1
@@ -2277,7 +2245,7 @@ alias[effect:modify_species] = {
 	## cardinality = 0..1
 	base = none
 	## cardinality = 0..inf
-	add_trait = <trait>
+	add_trait = <trait.species_trait>
 	### optional, pushes out other traits if needed
 	## cardinality = 0..1
 	add_traits_at_start_of_list = bool
@@ -2829,6 +2797,8 @@ alias[effect:create_ambient_object] = {
 alias[effect:create_army_transport] = {
 	## cardinality = 0..1
 	graphical_culture = <graphical_culture>
+	## cardinality = 0..1
+	graphical_culture = scope_group[target_species]
 	army_type = <army>
 	## cardinality = 0..1
 	ship_name = localisation
@@ -3486,7 +3456,7 @@ alias[effect:set_disabled] = bool
 
 ### Sets the flag of the current Empire.
 ## scopes = { country }
-alias[effect:set_empire_flag] = scalar #TODO [chronicle 1.2.4+]
+alias[effect:set_empire_flag] = single_alias_right[empire_flag]
 
 ### Sets the name of the current Empire.
 ## scopes = { country }
@@ -5155,6 +5125,9 @@ alias[effect:move_system] = {
 
 	## cardinality = 0..1
 	reset_terra_incognita = bool
+
+	## cardinality = 0..1
+	effect = single_alias_right[effect_clause]
 }
 
 ### Leases fleet out to the new controller country for a numbed of days
@@ -5261,11 +5234,6 @@ alias[effect:copy_flags_and_variables_from] = scope_field
 ## scopes = { leader }
 alias[effect:change_leader_class] = <leader_class>
 
-### Sets the scoped leader immortal. The 'no' case will not override immortality granted by species characteristics (but will disable immortality granted by this effect).
-### set_immortal = yes
-## scopes = { leader }
-alias[effect:set_immortal] = bool
-
 ### Adds random non-blocker resource deposit to the scoped planet of a certain category
 ## scopes = { planet }
 alias[effect:add_deposit_category_effect] = <deposit_category>
@@ -5301,8 +5269,7 @@ alias[effect:add_age] = value_field
 ## scopes = { leader }
 alias[effect:add_skill_without_trait_selection] = value_field
 
-### Sets the scoped leader immortal. The 'no' case will not override immortality granted by species characteristics (but will disable immortality granted by this effect).
-### set_immortal = yes
+### Sets the scoped leader to a council position if it is present in the government of the leader's owner country.
 ## scopes = { leader }
 alias[effect:set_council_position] = <councilor>
 
@@ -5831,7 +5798,8 @@ alias[effect:random_owned_pop_group] = {
 	weights = { alias_name[modifier_rule] = alias_match_left[modifier_rule] }
 }
 
-### Executes enclosed effects on a system -within a specific number of jumps span- that meets the limit criteria. This completely ignores bypasses (wormholes and gateways)
+### Executes enclosed effects on a system -within a specific number of jumps span- that meets the limit criteria.
+### valid = { } sets a pathfinding filter, and is checked before limit, default is valid = { always = yes }
 ## scopes = any
 ## push_scope = system
 alias[effect:closest_system] = {
@@ -5843,6 +5811,8 @@ alias[effect:closest_system] = {
 	use_bypasses = bool
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
+    ## cardinality = 0..1
+	valid = single_alias_right[trigger_clause]
 	alias_name[effect] = alias_match_left[effect]
 }
 
@@ -7940,7 +7910,7 @@ alias[effect:every_enslaved_species] = {
 }
 
 ### Iterate through all existing species traits in the game - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## scopes = any
+## scopes = no_scope
 ## push_scope = trait
 alias[effect:random_existing_species_traits] = {
 	## cardinality = 0..1
@@ -7951,7 +7921,7 @@ alias[effect:random_existing_species_traits] = {
 }
 
 ### Iterate through all existing species traits in the game - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## scopes = any
+## scopes = no_scope
 ## push_scope = trait
 alias[effect:ordered_existing_species_traits] = {
 	## cardinality = 0..1
@@ -7965,7 +7935,7 @@ alias[effect:ordered_existing_species_traits] = {
 }
 
 ### Iterate through all existing species traits in the game - executes the enclosed effects on all of them for which the limit triggers return true
-## scopes = any
+## scopes = no_scope
 ## push_scope = trait
 alias[effect:every_existing_species_traits] = {
 	## cardinality = 0..1

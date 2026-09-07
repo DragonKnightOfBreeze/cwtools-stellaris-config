@@ -28,7 +28,7 @@ types = {
 	}
 }
 
-## push_scope = planet
+## push_scope = carrier
 district = {
 	#### The district type that is used for the max add & mult capacity modifier.
 	####
@@ -132,6 +132,8 @@ district = {
 	on_unqueued = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	on_built = single_alias_right[effect_clause]
+	## cardinality = 0..1
+	on_destroy = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	abort_effect = single_alias_right[effect_clause]
 	## cardinality = 0..1

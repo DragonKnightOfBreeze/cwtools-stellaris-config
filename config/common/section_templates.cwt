@@ -36,12 +36,11 @@ section_template = {
 	icon = scalar
 	## cardinality = 0..1
 	icon_frame = int
+	#### Links to ship_roles and triggered_ship_roles properties of ship_size definition - this section will be used when selecting corresponding ship role in ship designer
 	## cardinality = 0..1
 	ai_tags = {
 		## cardinality = 0..inf
-		enum[component_tag]
-		## cardinality = 0..1
-		citadel
+		value[ship_role]
 	}
 	## cardinality = 0..1
 	should_draw_components = bool

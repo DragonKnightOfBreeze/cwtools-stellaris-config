@@ -29,6 +29,9 @@ types = {
 		subtype[arkship] = {
 			carries_colony = <planet_class>
 		}
+		subtype[accepts_all_modifiers] = {
+			accepts_all_modifiers = yes
+		}
 		localisation = {
 			name = "$"
 			plural = "$_plural"
@@ -104,12 +107,17 @@ ship_size = {
 	## cardinality = 0..1
 	stay_disabled = bool
 
-	subtype[starbase] = {
+	subtype[accepts_all_modifiers] = {
+		## cardinality = 0..1
+		## replace_scopes = { this = any root = any }
+		modifier = single_alias_right[modifier_clause]
+	}
+	subtype[starbase&!accepts_all_modifiers] = {
 		## cardinality = 0..1
 		## replace_scopes = { this = starbase root = starbase }
 		modifier = single_alias_right[modifier_clause]
 	}
-	subtype[!starbase] = {
+	subtype[!starbase&!accepts_all_modifiers] = {
 		## cardinality = 0..1
 		## replace_scopes = { this = ship root = ship }
 		modifier = single_alias_right[modifier_clause]
@@ -167,6 +175,7 @@ ship_size = {
 	can_have_federation_design = bool
 	## cardinality = 0..1
 	enable_default_design = bool
+	### If yes, ship design will have a 3d view in the shipset browser during empire customization
 	## cardinality = 0..1
 	enable_3dview_in_ship_browser = bool
 	## cardinality = 0..1
@@ -176,21 +185,19 @@ ship_size = {
 	## cardinality = 0..1
 	ship_roles = {
 		## cardinality = 0..inf
-		enum[component_tag]
-		## cardinality = 0..1
-		citadel
+		value_set[ship_role]
 	}
 	## cardinality = 0..1
 	triggered_ship_roles = {
 		## cardinality = 0..inf
 		{
-			name = enum[component_tag]
+			name = value_set[ship_role]
 			trigger = single_alias_right[trigger_clause]
 		}
 	}
 	## cardinality = 0..1
 	prerequisites = single_alias_right[technology_prerequisites]
-	#this is where ship classes are defined! this is important for other files, and it also causes the game to auto generate modifiers for each shipclass!
+    ## cardinality = 1..1
 	class = enum[ship_class]
 	## cardinality = 0..1
 	construction_type = value_set[construction_type]
@@ -513,16 +520,34 @@ ship_size = {
 		####
 		## cardinality = 0..1
 		custom_class_text_color = <text_color>
+		
+		## cardinality = 0..1
+		custom_state_loc_prefix = localisation
+	}
+	
+	subtype[hero_ship] = {
+		## cardinality = 0..1
+		bioship_growth_progress_required = int
 	}
 }
 
 enums = {
-	complex_enum[ship_class] = {
-		path = "game/common/ship_sizes"
-		name = {
-			class = enum_name
-		}
-	}
+    enum[ship_class] = {
+        shipclass_military
+        shipclass_constructor
+        shipclass_colonizer
+        shipclass_science_ship
+        shipclass_transport
+        shipclass_mining_station
+        shipclass_research_station
+        shipclass_military_station
+        shipclass_habitat_station
+        shipclass_observation_station
+        shipclass_starbase
+        shipclass_military_special
+        shipclass_gravity_snare
+        shipclass_entropy_conduit
+    }
 	complex_enum[section_slot] = {
 		path = "game/common/ship_sizes"
 		name = {

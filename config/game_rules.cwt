@@ -9,259 +9,410 @@ game_rules = {
 	### Root = target country
 	### This = country
 	## replace_scopes = { this = country root = country }
-	is_valid_rival
+	is_valid_rival = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	## Root = claimer
 	## This = system
 	## replace_scopes = { this = system root = country }
-	can_add_claim
+	can_add_claim = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = taker country
 	### This = giver country
 	## replace_scopes = { this = country root = country }
-	can_get_claim_from_lost_system
+	can_get_claim_from_lost_system = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = Bombarding country
 	### This = Receiving country
 	## replace_scopes = { this = country root = country }
-	should_surrender_planets_to
+	should_surrender_planets_to = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = country
 	### This = species
 	## replace_scopes = { this = species root = country }
-	species_has_citizenship
+	species_has_citizenship = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = country
 	### This = pop_group
 	## replace_scopes = { this = pop_group root = country }
-	should_abduct_pop_group
+	should_abduct_pop_group = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = planet
 	### This = species
 	## replace_scopes = { this = species root = planet }
-	species_can_live_on_planet
+	species_can_live_on_planet = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### Root = ship
+	### This = species
+	## replace_scopes = { this = species root = ship }
+	species_can_live_on_ship = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = planet
 	### This = species
 	## replace_scopes = { this = species root = planet }
-	species_has_uncapped_habitability_on_planet
+	species_has_uncapped_habitability_on_planet = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### Root = country
+	### This = pop_group
+	## replace_scopes = { this = pop_group root = country }
+	pop_group_can_join_factions = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### Root = ship
+	### This = species
+	## replace_scopes = { this = species root = ship }
+	species_has_uncapped_habitability_on_ship = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Note: this is also used in pop faction support calculations
 	### Root = country
 	### This = pop_group
 	## replace_scopes = { this = pop_group root = country }
-	can_vote_in_democratic_election
+	can_vote_in_democratic_election = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = leader
 	## replace_scopes = { this = leader }
-	should_pay_for_leader_upkeep
+	should_pay_for_leader_upkeep = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Checks whether any leaders (scientists etc) can be formed from this pop group
 	### Root = country
 	### This = pop_group
 	## replace_scopes = { this = pop_group root = country }
-	can_generate_leader_from_pop_group
+	can_generate_leader_from_pop_group = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Checks whether this species is eligible to become rulers through elections
 	### Root = country
 	### This = species
 	## replace_scopes = { this = species root = country }
-	can_generate_leader_from_species
+	can_generate_leader_from_species = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Checks whether this species can become espionage assets (note that some checks are also done in code)
 	### Root = country
 	### This = species
 	## replace_scopes = { this = species root = country }
-	can_create_espionage_asset_from_species
+	can_create_espionage_asset_from_species = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = country
 	### This = pop_group
 	## replace_scopes = { this = pop_group root = country }
-	can_generate_military_leader_from_pop_group
-
+	can_generate_military_leader_from_pop_group = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
 	### Root = species
-	### This = planet
-	## replace_scopes = { this = planet root = species }
-	can_generate_army_from_planet
+	### This = colony
+	## replace_scopes = { this = colony root = species }
+	can_generate_army_from_colony = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = planet
 	### This = country
 	## replace_scopes = { this = country root = planet }
-	can_release_vassal
+	can_release_vassal = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = species
 	### This = country
 	## replace_scopes = { this = country root = species }
-	can_release_vassal_from_species
+	can_release_vassal_from_species = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = species
 	### This = country
 	## replace_scopes = { this = country root = species }
-	can_generate_army_from_species
+	can_generate_army_from_species = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = country
 	### This = species
 	## replace_scopes = { this = species root = country }
-	can_modify_species
+	can_modify_species = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = country
 	### This = species
 	## replace_scopes = { this = species root = country }
-	can_uplift_species
+	can_uplift_species = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This rule is a condition for when subjects that normally cannot colonize outside their borders are allowed to
 	### This = country, suject
 	### Root = country, overlord
 	### From = target solar system
 	## replace_scopes = { this = country root = country from = system }
-	subject_can_expand
+	subject_can_expand = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This rule is a condition for taking hostile actions towards neutral targets. Such as landing troops or attacking their fleets
 	### Root = country, attacker
 	### This = country, target
 	## replace_scopes = { this = country root = country }
-	can_take_hostile_actions
+	can_take_hostile_actions = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This rule is a condition for declaring war
 	### Root = country, attacker
 	### This = country, target
 	## replace_scopes = { this = country root = country }
-	can_declare_war
+	can_declare_war = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = country
 	### This = planet
 	## replace_scopes = { this = planet root = country }
-	can_colonize_planet
+	can_colonize_planet = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = country
 	### This = planet
 	## replace_scopes = { this = planet root = country }
-	can_colonize_outside_borders
+	can_colonize_outside_borders = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### This = planet
+	## replace_scopes = { this = country }
+	has_borders = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### Root = country
+	### This = planet
+	## replace_scopes = { this = planet root = country }
+	can_nomad_settle = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = country
 	### This = planet
 	## replace_scopes = { this = planet root = country }
-	can_terraform_planet
+	can_terraform_planet = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = country
 	### This = species
 	## replace_scopes = { this = species root = country }
-	can_colonize_with_species
+	can_colonize_with_species = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### NOTE: species_has_happiness is also checked for this
 	### Root = Pop Group
 	### From = Country
 	### This = Species
 	## replace_scopes = { this = species root = pop_group from = country }
-	pop_group_has_random_ethics
+	pop_group_has_random_ethics = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = Pop Group
 	### From = Country
 	### This = Species
 	## replace_scopes = { this = species root = pop_group from = country }
-	species_has_happiness
-
+	species_has_happiness = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
 	### Checks if a species can procreate
 	### This = Species
-	### Root = Planet
-	## replace_scopes = { this = species root = planet }
-	can_species_procreate
-
+	### Root = colony
+	## replace_scopes = { this = species root = colony }
+	can_species_procreate = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
 	### Checks if a pop can be assembled
 	### This = Species
-	### Root = Planet
-	## replace_scopes = { this = species root = planet }
-	can_species_be_assembled
-
+	### Root = colony
+	## replace_scopes = { this = species root = colony }
+	can_species_be_assembled = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
 	### Checks if a species uses bonus_growth modifier
 	### This = Species
-	### Root = Planet
-	## replace_scopes = { this = species root = planet }
-	species_uses_bonus_growth
+	### Root = colony
+	## replace_scopes = { this = species root = colony }
+	species_uses_bonus_growth = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = country
 	### From = species
 	## replace_scopes = { this = country root = country from = species }
-	founder_species_uses_logistic_growth_mult
+	founder_species_uses_logistic_growth_mult = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	## replace_scopes = { this = country root = country from = species }
-	founder_species_uses_assembly
+	founder_species_uses_assembly = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	## replace_scopes = { this = country root = country from = species }
-	founder_species_uses_bonus_growth_mult
+	founder_species_uses_bonus_growth_mult = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This rule is a condition for bombarding planets
 	### Root = fleet, potential attacker
 	### From = planet, potential target
 	## replace_scopes = { this = fleet root = fleet from = planet }
-	can_orbital_bombard
+	can_orbital_bombard = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Check if it is possible to build orbital stations on this planet
 	### this: planet
 	### root: country
 	## replace_scopes = { this = planet root = country }
-	can_planet_support_orbital_station
+	can_planet_support_orbital_station = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Check if full sensor range in entire galaxy
 	### root: country
 	## replace_scopes = { this = country root = country }
-	has_full_sensor_range
-
+	has_full_sensor_range = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
 	### Determines if notification messages should be sent after a ground combat
-	### this: planet
+	### this: colony
 	### from: winner
 	### root: loser
-	## replace_scopes = { this = planet root = country from = country }
-	show_notification_for_ground_combat
+	## replace_scopes = { this = colony root = country from = country }
+	show_notification_for_ground_combat = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = country
+	## replace_scopes = { this = country }
+	has_planet_specific_war_attack_priority = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = planet
+	## replace_scopes = { this = planet }
+	calc_planet_specific_war_attack_priority = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+	
+	### Root = country
+	### This = system
+	## replace_scopes = { this = system root = country }
+	calc_system_specific_war_attack_priority = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
 
 	### Determines if the "per_neighbor_rival" static modifier should be applied to an empire
 	### this: country
 	## replace_scopes = { this = country }
-	should_apply_neighbor_rival_modifier
+	should_apply_neighbor_rival_modifier = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root: Rebelling against country
 	### This: Rebel country
 	## replace_scopes = { this = country root = country }
-	are_rebels_hostile
+	are_rebels_hostile = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root: planet
 	## replace_scopes = { this = planet root = planet }
-	should_colony_be_destroyed_on_pc_change
+	should_colony_be_destroyed_on_pc_change = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Is the given fleet the portal for given extradimensional country
 	### root: country (ED)
 	### this: fleet
 	## replace_scopes = { this = fleet root = country }
-	is_extradimensional_portal
+	is_extradimensional_portal = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Is the given fleet an anchor for given extradimensional country
 	### root: country (ED)
 	### this: fleet
 	## replace_scopes = { this = fleet root = country }
-	is_extradimensional_anchor
+	is_extradimensional_anchor = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Will colonizing this planet tick off a fallen empire?
 	### Root = fallen empire
 	### This = planet
 	## replace_scopes = { this = planet root = country }
-	will_anger_fallen_empire
+	will_anger_fallen_empire = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Can the country have robot pop
 	### root: country
 	## replace_scopes = { this = country root = country }
-	can_have_robot_pops
+	can_have_robot_pops = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### THIS = Fleet
 	## replace_scopes = { this = fleet }
-	fleet_uses_templates
+	fleet_uses_templates = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = starbase, megastructure or planet
-	can_orbitable_repair_ships
+	can_orbitable_repair_ships = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = ship
 	### root = country that kills ship
 	## replace_scopes = { this = ship root = country }
-	can_spawn_debris
+	can_spawn_debris = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Determines if AI-controlled empires should restrict (and thus avoid) a system
 	### This game rule takes priority over ai_should_not_restrict_system below
@@ -269,268 +420,370 @@ game_rules = {
 	### this = system
 	### root = country
 	## replace_scopes = { this = system root = country }
-	ai_should_restrict_system
+	ai_should_restrict_system = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = system
 	### root = country
 	### Determines if AI-controlled empires should never restrict (and thus avoid) a system
 	### Used by regular empires, fallen empires & crises
 	## replace_scopes = { this = system root = country }
-	ai_should_not_restrict_system
+	ai_should_not_restrict_system = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = country
 	## replace_scopes = { this = country }
-	can_subjugate_empires
+	can_subjugate_empires = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = leader
 	## replace_scopes = { this = leader }
-	can_leader_get_council_trait
+	can_leader_get_council_trait = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = leader
 	## replace_scopes = { this = leader }
-	can_leader_get_normal_trait
+	can_leader_get_normal_trait = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = leader
 	## replace_scopes = { this = leader }
-	can_leader_get_subclass_trait
+	can_leader_get_subclass_trait = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = leader
 	## replace_scopes = { this = leader }
-	can_leader_get_destiny_trait
+	can_leader_get_destiny_trait = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = country
 	## replace_scopes = { this = country }
-	has_extra_council_position
+	has_extra_council_position = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### THIS = Fleet
 	## replace_scopes = { this = fleet }
-	can_jump_drive
+	can_jump_drive = alias_match_left[trigger_clause]
 
 	### this = country
 	## replace_scopes = { this = country }
-	can_spawn_occupation_armies
+	can_spawn_occupation_armies = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = system
 	### root = country
 	## replace_scopes = { this = system root = country }
-	system_blocks_sensors
+	system_blocks_sensors = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = country attempting to target system for movement
 	### This = system being targeted
 	## replace_scopes = { this = system root = country }
-	can_enter_system_by_jump
+	can_enter_system_by_jump = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = pop_group
 	## replace_scopes = { this = pop_group }
-	can_resettle_pop_group
+	can_resettle_pop_group = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = Country
 	## replace_scopes = { this = country }
-	can_country_resettle
-
-	### This = Planet
-	## replace_scopes = { this = planet }
-	can_resettle_planet
-
-	### This = Planet
-	## replace_scopes = { this = planet }
-	should_spawn_deposits
-
-	### This = Planet
-	## replace_scopes = { this = planet }
-	can_get_colony_events
-
-	### This = Planet
-	## replace_scopes = { this = planet }
-	is_new_colony
+	can_country_resettle = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = colony
+	## replace_scopes = { this = colony }
+	can_resettle_colony = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = colony
+	## replace_scopes = { this = colony }
+	should_spawn_deposits = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = colony
+	## replace_scopes = { this = colony }
+	can_get_colony_events = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = colony
+	## replace_scopes = { this = colony }
+	is_new_colony = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = pop_group
 	## replace_scopes = { this = pop_group }
-	pop_group_generates_crime
-
-	### This = planet
-	## replace_scopes = { this = planet }
-	can_pops_grow_on_planet
-
-	### This = planet
-	## replace_scopes = { this = planet }
-	can_pops_assemble_on_planet
-
-	### This = planet
-	## replace_scopes = { this = planet }
-	can_pops_decline_on_planet
+	pop_group_generates_crime = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = colony
+	## replace_scopes = { this = colony }
+	can_pops_grow_on_colony = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = colony
+	## replace_scopes = { this = colony }
+	can_pops_assemble_on_colony = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = colony
+	## replace_scopes = { this = colony }
+	can_pops_decline_on_colony = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### If this returns true, the species will be set to decline even if it is not being purged
 	### Note: success text tooltips are shown in alert_pops_declining alert.
 	### This = species
-	### From = planet
-	## replace_scopes = { this = species root = species from = planet }
-	should_force_decline_species
+	### From = colony
+	## replace_scopes = { this = species root = species from = colony }
+	should_force_decline_species = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = country
 	## replace_scopes = { this = country }
-	can_build_branch_offices
+	can_build_branch_offices = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = country
 	## replace_scopes = { this = country }
-	can_support_branch_offices
+	can_support_branch_offices = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
-	### This = planet
+	### This = colony
 	### Root = country
-	## replace_scopes = { this = planet root = country }
-	can_build_branch_office_on_planet
+	## replace_scopes = { this = colony root = country }
+	can_build_branch_office_on_colony = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Checked by is_criminal_syndicate trigger
 	### This = country
 	## replace_scopes = { this = country }
-	is_criminal_syndicate_rule
+	is_criminal_syndicate_rule = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
-	### This = planet
-	## replace_scopes = { this = planet }
-	can_crossbreed_species_on_planet
+	### This = colony
+	## replace_scopes = { this = colony }
+	can_crossbreed_species_on_colony = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = species one
 	### Root = species two
 	## replace_scopes = { this = species root = species }
-	can_crossbreed_species
+	can_crossbreed_species = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### No scope
 	## replace_scopes = { this = no_scope }
-	can_win_timed_victory
+	can_win_timed_victory = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = country
 	## replace_scopes = { this = country }
-	can_use_galactic_market
+	can_use_galactic_market = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### ROOT = country
 	### This = pop_group
 	## replace_scopes = { this = pop_group root = country }
-	can_be_sold_on_slave_market
+	can_be_sold_on_slave_market = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = country
 	## replace_scopes = { this = country }
-	can_be_part_of_galactic_community
+	can_be_part_of_galactic_community = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = country
 	## replace_scopes = { this = country }
-	can_be_part_of_galactic_empire
+	can_be_part_of_galactic_empire = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = country
 	## replace_scopes = { this = country }
-	can_see_galactic_community
+	can_see_galactic_community = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = country
 	## replace_scopes = { this = country }
-	can_be_part_of_galactic_council
+	can_be_part_of_galactic_council = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### If, 'yes', forces an empire to be advanced at game start (overrides game settings)
 	### This = country
 	## replace_scopes = { this = country }
-	must_be_advanced_empire
+	must_be_advanced_empire = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### If 'no', blocks an empire from being advanced at game start (overrides 'must_be_advanced_empire' above)
 	### This = country
 	## replace_scopes = { this = country }
-	is_allowed_to_be_advanced_empire
-
-	### This = planet
-	## replace_scopes = { this = planet }
-	has_enough_pops_for_necrophage_on_planet
-
-	### Root = current planet
+	is_allowed_to_be_advanced_empire = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = colony
+	## replace_scopes = { this = colony }
+	has_enough_pops_for_necrophage_on_colony = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### Root = current colony
 	### This = pop_group
 	### Purge, Sapience, Migration Controls policy (ignored by Gestalts and Synths), and target habitability are checked in code.
-	## replace_scopes = { this = pop_group root = planet }
-	can_pop_group_auto_migrate
-
+	## replace_scopes = { this = pop_group root = colony }
+	can_pop_group_auto_migrate = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
 	### Checked before can_pop_auto_migrate to save performance
-	### This = planet
-	## replace_scopes = { this = planet }
-	can_planet_auto_migrate
+	### This = colony
+	## replace_scopes = { this = colony }
+	can_colony_auto_migrate = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
-	## replace_scopes = { this = planet }
-	can_planet_receive_auto_migration
-
-	### This, root = country
-	## replace_scopes = { this = country root = country }
-	can_gene_mod_habitability
-
-	### This, root = country
-	## replace_scopes = { this = country root = country }
-	can_add_advanced_traits
+	## replace_scopes = { this = colony }
+	can_colony_receive_auto_migration = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This, root = country
 	## replace_scopes = { this = country root = country }
-	can_add_negative_traits_organic
+	can_gene_mod_habitability = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This, root = country
 	## replace_scopes = { this = country root = country }
-	can_remove_positive_traits_organic
+	can_add_advanced_traits = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This, root = country
 	## replace_scopes = { this = country root = country }
-	can_modify_organic_portraits
+	can_add_negative_traits_organic = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### This, root = country
+	## replace_scopes = { this = country root = country }
+	can_remove_positive_traits_organic = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### This, root = country
+	## replace_scopes = { this = country root = country }
+	can_modify_organic_portraits = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = Country establishing contact | From = Target country
 	### Should the contact logic happen?
 	## replace_scopes = { this = country from = country }
-	can_have_contact
+	can_have_contact = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = country establishing contact | From = target country
 	### Final check for whether there should be a first contact site spawned. Main check is via country type 'contact_rule', in code. See also: error-logging/fixing event 'action.240', which duplicates this trigger.
 	## replace_scopes = { this = country from = country }
-	can_have_first_contact
+	can_have_first_contact = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = Country with envoys to send
 	### This = Imperium leader country
 	## replace_scopes = { this = country root = country }
-	can_use_envoys_to_raise_imperial_authority
+	can_use_envoys_to_raise_imperial_authority = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = Country with envoys to send
 	### This = Imperium leader country
 	## replace_scopes = { this = country root = country }
-	can_use_envoys_to_lower_imperial_authority
+	can_use_envoys_to_lower_imperial_authority = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this/root = pop group
 	### checked if job's possible_precalc = can_fill_drone_job
 	## replace_scopes = { this = pop_group root = pop_group }
-	can_fill_drone_job
+	can_fill_drone_job = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this/root = pop group
 	### checked if job's possible_precalc = can_fill_worker_job
 	## replace_scopes = { this = pop_group root = pop_group }
-	can_fill_worker_job
+	can_fill_worker_job = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this/root = pop group
 	### checked if job's possible_precalc = can_fill_specialist_job
 	## replace_scopes = { this = pop_group root = pop_group }
-	can_fill_specialist_job
+	can_fill_specialist_job = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this/root = pop group
 	### checked if job's possible_precalc = can_fill_ruler_job
 	## replace_scopes = { this = pop_group root = pop_group }
-	can_fill_ruler_job
+	can_fill_ruler_job = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this/root = pop
 	### checked if job's possible_precalc = can_fill_precursor_job
 	## replace_scopes = { this = pop_group root = pop_group }
-	can_fill_precursor_job
-
-	### Some parts in code still need to know some more specifics from script
-	### this/root = pop job
-	## replace_scopes = { this = pop_job root = pop_job }
-	is_unemployment_job
-
-	### Some parts in code still need to know some more specifics from script
-	## replace_scopes = { this = pop_job root = pop_job }
-	### this/root = pop job
-	is_civilian_job
+	can_fill_precursor_job = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Checks whether the game should try and build a building or district on a planet via scripts in common/colony_automation
 	### Does not apply to "emergency building" (colony_automation_exceptions)
 	### this = planet
-	## replace_scopes = { this = planet }
-	should_planetary_automate
+	## replace_scopes = { this = colony }
+	should_colony_automate = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	## replace_scopes = { this = country }
 	dismiss_leader_cost = {
@@ -539,69 +792,97 @@ game_rules = {
 
 	### this = leader
 	## replace_scopes = { this = leader }
-	can_dismiss_leader
+	can_dismiss_leader = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = country
 	## replace_scopes = { this = country }
-	can_country_change_councilors
+	can_country_change_councilors = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = leader
 	## replace_scopes = { this = leader }
-	should_count_towards_leader_cap
+	should_count_towards_leader_cap = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### From = country, country that tries to connect using relay network
 	### ROOT/This = country, target country to connect to using relay network
 	## replace_scopes = { this = country root = country }
-	can_country_connect_to_relay_network
+	can_country_connect_to_relay_network = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = planet
-	## replace_scopes = { this = planet }
-	should_ai_build_stronghold_on_vulnerable_planet
+	## replace_scopes = { this = colony }
+	should_ai_build_stronghold_on_vulnerable_colony = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Used to call on the Retirement Toast when a leader dies
 	### This = leader
 	## replace_scopes = { this = leader }
-	will_leader_retire
+	will_leader_retire = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Used to call the Second Chance toast when a leader dies, still need to clone it and actually have the leader survive
 	### This = leader
 	## replace_scopes = { this = leader }
-	will_leader_survive
+	will_leader_survive = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = country, Country that wants to get an external leader
 	### From = country, country that we are trying to get from
 	## replace_scopes = { this = country root = country }
-	can_get_external_leader_pool_candidate
+	can_get_external_leader_pool_candidate = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = leader, leader we'd like to trade
 	### Root = country, country that owns the leader currently
 	### From = country, country that would receive the leader
 	## replace_scopes = { this = leader root = country from = country }
-	can_trade_leader
+	can_trade_leader = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = fleet, fleet we'd like to trade
 	### Root = country, country that owns the fleet currently
 	### From = country, country that would receive the fleet
 	## replace_scopes = { this = fleet root = country from = country }
-	can_trade_fleet
+	can_trade_fleet = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = leader
 	### from = country scope
 	## replace_scopes = { this = leader from = country }
-	can_leader_be_ruler
+	can_leader_be_ruler = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = leader
 	### from = country scope
 	## replace_scopes = { this = leader from = country }
-	can_leader_be_councilor
+	can_leader_be_councilor = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = country
 	## replace_scopes = { this = country }
-	is_country_psionic
+	is_country_psionic = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = species
 	## replace_scopes = { this = species }
-	is_psionic_species
+	is_psionic_species = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	## replace_scopes = { this = country }
 	chance_for_external_leader_pool = {
@@ -618,7 +899,7 @@ game_rules = {
 	### pops (excluding civilians) doesn't exceed the number of vacant workspaces by this threshold,
 	### and the number of civilians is less than building_automation_civilians_threshold.
 	### this = planet scope
-	## replace_scopes = { this = planet }
+	## replace_scopes = { this = colony }
 	building_automation_unemployment_threshold = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
@@ -627,15 +908,17 @@ game_rules = {
 	### doesn't exceed the number of vacant workspaces by building_automation_unemployment_threshold, and the number of civilians
 	### is less than this threshold.
 	### this = planet scope
-	## replace_scopes = { this = planet }
+	## replace_scopes = { this = colony }
 	building_automation_civilians_threshold = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
+	## replace_scopes = { this = country }
 	shroud_delve_cooldown_days = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
 
+	## replace_scopes = { this = galactic_object from = country }
 	count_shroud_worlds_to_display = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
@@ -669,18 +952,24 @@ game_rules = {
 	### Determines if pre-ftl country is unaware of alien life
 	### this: pre-ftl country
 	## replace_scopes = { this = country }
-	are_pre_ftls_unaware
+	are_pre_ftls_unaware = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = planet
 	### Checked if planet is a terraforming candidate
 	## replace_scopes = { this = planet }
-	is_terraforming_candidate
+	is_terraforming_candidate = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root = country
 	### This = planet
 	### Checked if the planet is special terraforming candidate and the country has the required matching ascension perk to do it
 	## replace_scopes = { this = planet root = country }
-	has_ascension_for_terraforming_candidate
+	has_ascension_for_terraforming_candidate = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = country that tries to rename
 	### Root = country owning the planet
@@ -688,88 +977,118 @@ game_rules = {
 	### Checks if the planet (from) can be renamed by the country (this) that contains it in its borders, even if it has a different owner (Root)
 	### Renaming is never possible if the planet is not in your borders; and it is always possible if it is in your borders but the owner is yourself/no-one
 	## replace_scopes = { this = country root = country from = planet }
-	can_be_renamed_by
+	can_be_renamed_by = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root/this = country
 	### From = planet OR astral_rift
 	### Checks if the country is allowed to build any orbital station around this planet/star/astral_rift
 	## replace_scopes = { this = country root = country from = any }
-	can_build_station_around
+	can_build_station_around = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root/this = country
 	### From = planet OR astral_rift
 	### Checks if the country is allowed to build a mining station around this planet/star/astral_rift
 	## replace_scopes = { this = country root = country from = any }
-	can_build_mining_station_around
+	can_build_mining_station_around = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root/this = country
 	### From = planet OR astral_rift
 	### Checks if the country is allowed to build a research station around this planet/star/astral_rift
 	## replace_scopes = { this = country root = country from = any }
-	can_build_research_station_around
+	can_build_research_station_around = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root/this = country
 	### From = planet OR astral_rift
 	### Checks if the country is allowed to build a military station around this planet/star/astral_rift
 	## replace_scopes = { this = country root = country from = any }
-	can_build_military_station_around
+	can_build_military_station_around = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root/this = country
 	### From = planet OR astral_rift
 	### Checks if the country is allowed to build an observation station around this planet/star/astral_rift
 	## replace_scopes = { this = country root = country from = any }
-	can_build_observation_station_around
+	can_build_observation_station_around = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root/this = country
 	### From = planet OR astral_rift
 	### Checks if the country is allowed to build a starbase around this planet/star/astral_rift
 	## replace_scopes = { this = country root = country from = any }
-	can_build_starbase_around
+	can_build_starbase_around = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root/this = country
 	### Checks if the country's capital has any kind of relevancy (aka is the capital in the galaxy really theirs)
 	## replace_scopes = { this = country root = country }
-	has_inworld_capital
+	has_inworld_capital = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root/this = trading country
 	### From = country traded with
 	### Checks if target country has economy power relative to begin with
 	## replace_scopes = { this = country root = country from = country }
-	has_relative_economy_power
+	has_relative_economy_power = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root/this = trading country
 	### From = country traded with
 	### Checks if the country can trade sensor
 	## replace_scopes = { this = country root = country from = country }
-	can_trade_sensor
+	can_trade_sensor = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Root/this = trading country
 	### From = country traded with
 	### Checks if the country can trade favor
 	## replace_scopes = { this = country root = country from = country }
-	can_trade_favor
+	can_trade_favor = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### THIS = country
 	### FROM = Astral Rift checked
 	## replace_scopes = { this = country from = astral_rift }
-	can_interact_with_astral_rift
+	can_interact_with_astral_rift = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### THIS = country
 	### FROM = Astral Rift checked
 	## replace_scopes = { this = country from = astral_rift }
-	can_explore_astral_rift
+	can_explore_astral_rift = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### THIS = leader
 	### FROM = Astral Rift checked
 	### Checks if the selected leader can explore the rift
 	## replace_scopes = { this = leader from = astral_rift }
-	can_leader_explore_astral_rift
+	can_leader_explore_astral_rift = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### FROM = country of the ai (in case it's relevant)
 	### THIS = planet
 	### this determines if the planet is allowed to receive a governor at all, and isn't called for a specific candidate
 	## replace_scopes = { this = planet from = country }
-	can_ai_assign_governor
+	can_ai_assign_governor = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### if the galactic community exists, is a galactic empire, and the country is part of it
 	### the ai will call this to see if it should set its delegate to strengthn it
@@ -778,7 +1097,9 @@ game_rules = {
 	### THIS = Country
 	### FROM = Galactic Emperor (Country)
 	## replace_scopes = { this = country from = country }
-	should_ai_support_galactic_empire
+	should_ai_support_galactic_empire = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### if the galactic community exists, is a galactic empire, and the country is part of it
 	### and if it didn't decided to strengthen the empire,
@@ -790,113 +1111,177 @@ game_rules = {
 	### THIS = Country
 	### FROM = Galactic Emperor (Country)
 	## replace_scopes = { this = country from = country }
-	should_ai_undermine_galactic_empire
+	should_ai_undermine_galactic_empire = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### root/this = country
 	## replace_scopes = { this = country from = country }
-	can_country_initiate_storm
+	can_country_initiate_storm = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### root/this = star
 	## replace_scopes = { this = planet root = planet }
-	can_initiate_storm_on_planet
+	can_initiate_storm_on_planet = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### root/this = system
 	## replace_scopes = { this = system root = system }
-	can_force_see_fleets_in_system
+	can_force_see_fleets_in_system = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### root/this = country
 	### from = cosmic storm
 	## replace_scopes = { this = country root = country from = cosmic_storm }
-	has_breached_shroud_storm
+	has_breached_shroud_storm = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### THIS = Fleet
 	## replace_scopes = { this = fleet }
-    is_science_fleet_gravity_snare_on_cooldown
+    is_science_fleet_gravity_snare_on_cooldown = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### THIS = Fleet
 	### FROM = Country / Snare sender
 	## replace_scopes = { this = fleet from = country }
-    can_fleet_be_captured_by_snares
+    can_fleet_be_captured_by_snares = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
     ### THIS = country
     ## replace_scopes = { this = country }
-    can_fauna_grow
+    can_fauna_grow = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
     ### THIS = country
     ## replace_scopes = { this = country }
-    can_use_exhibits
+    can_use_exhibits = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
     ### THIS = country
     ## replace_scopes = { this = country }
-    can_access_vivarium
+    can_access_vivarium = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
     ### this = debris
     ### root = country who can explore debris
     ## replace_scopes = { this = debris root = country }
-    can_scavenge_and_research_debris
+    can_scavenge_and_research_debris = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
     ### this = debris
     ### root = country who can explore debris
     ## replace_scopes = { this = debris root = country }
-    can_scavenge_debris
+    can_scavenge_debris = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### this = country
+	### from = location (galactic_object)
+	## replace_scopes = { this = country from = galactic_object }
+	can_explore_rifts_outside_borders = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### this = country (fleet controller)
+	### from = solar_system
+	## replace_scopes = { this = country from = system }
+	can_lock_bypass = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
     ### this = country
     ### from = location (galactic_object)
     ## replace_scopes = { this = country from = galactic_object }
-    can_excavate_outside_borders
+    can_excavate_outside_borders = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
     ### this = country
     ## replace_scopes = { this = country }
-    can_voidworms_bombard_country
+    can_voidworms_bombard_country = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
     ### this = country
     ## replace_scopes = { this = country }
-    can_use_mutations
+    can_use_mutations = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
     ### this = country
     ## replace_scopes = { this = country }
-    can_use_artificial_breeding
+    can_use_artificial_breeding = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
     ### this = actor (country)
     ### from = recipient (country)
     ## replace_scopes = { this = country from = country }
-    can_trade_specimens
+    can_trade_specimens = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
     ### this = ship design
     ### from = owner (country)
     ## replace_scopes = { this = design from = country }
-    force_create_default_ship_design
+    force_create_default_ship_design = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = leader
 	## replace_scopes = { this = leader }
-	is_organic_leader
+	is_organic_leader = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
     ### from = owner (country)
     ### This = fleet
     ## replace_scopes = { this = fleet from = country }
-    is_seeded
+    is_seeded = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = popgroup
-	## replace_scopes = { this = pop_group from = pop_group }
-	is_organic_pop_group
+	## replace_scopes = { this = pop_group }
+	is_organic_pop_group = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = country with whom to communicate
 	## replace_scopes = { this = country }
-	empire_diplomacy_leads_to_shroud
+	empire_diplomacy_leads_to_shroud = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = destroyed ship
 	### from = attacker (ship)
 	## replace_scopes = { this = ship from = ship }
-	can_capture_ship
+	can_capture_ship = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = country
-	## replace_scopes = { this = country }
-	is_planetary_ascension_free
+	## replace_scopes = { this = country root = country }
+	is_planetary_ascension_free = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = country
 	### all countries which pass this rule only add 1 to num_fallen_empires
-	## replace_scopes = { this = country from = country }
-	count_as_split_fallen_empire
+	## replace_scopes = { this = countryfrom = country }
+	count_as_split_fallen_empire = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = country
 	### from = planet
@@ -905,93 +1290,217 @@ game_rules = {
 	### The rest will be stored as ai_terraform_plans instead.
 	### See energy_expenditure_terraforming_to_colonize in common/ai_budget/00_energy_budget.txt for the AI budget implementation.
 	## replace_scopes = { this = country from = planet }
-	should_colonize_use_terraform
+	should_colonize_use_terraform = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = country
-	## replace_scopes = { this = country }
-	are_all_leaders_forced_immortal
+	## replace_scopes = { this = country}
+	are_all_leaders_forced_immortal = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = country using proxy war
 	### from = country to be sent to war
 	### root = victim country
-	## replace_scopes = { this = country root = country from = country }
-	can_be_sent_to_war
+	## replace_scopes = { this = country from = country }
+	can_be_sent_to_war = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = Country
 	## replace_scopes = { this = country }
-	can_open_shroud_tab
+	can_open_shroud_tab = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = Country
 	## replace_scopes = { this = country }
-	can_unlock_accords
+	can_unlock_accords = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = Country
 	## replace_scopes = { this = country }
-	can_delve
+	can_delve = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Will set the Delve blocked plane icon instead of the disabled one
 	### This = Country
 	## replace_scopes = { this = country }
-	is_delve_blocked
+	is_delve_blocked = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### from = psionic aura (system)
 	### This = Country
 	## replace_scopes = { this = country from = system }
-	can_see_aura_intensity
+	can_see_aura_intensity = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### from = psionic aura owner
 	### This = country
 	## replace_scopes = { this = country from = country }
-	is_hostile_to_aura_owner
+	is_hostile_to_aura_owner = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = country
 	## replace_scopes = { this = country }
-	should_reduce_aura_hostile_effect
+	should_reduce_aura_hostile_effect = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = pop_group
 	### from = country
 	## replace_scopes = { this = pop_group from = country }
-	should_hide_pop_group_size
+	should_hide_pop_group_size = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = country
 	## replace_scopes = { this = country from = country }
-	should_hide_planet_sector_pop_amount
+	should_hide_planet_sector_pop_amount = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = leader
 	## replace_scopes = { this = leader from = leader }
-	should_leader_gain_trait_every_level
+	should_leader_gain_trait_every_level = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = country scope
 	## replace_scopes = { this = country from = country }
-	unbidden_additional_conquer_desire
+	unbidden_additional_conquer_desire = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
 
 	### This = Country
 	## replace_scopes = { this = country from = country }
-	is_mercenary
+	is_mercenary = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = country
 	### from = contact country
 	## replace_scopes = { this = country from = country }
-	is_mindwarden_exiled_first_contact
+	is_mindwarden_exiled_first_contact = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = country
 	## replace_scopes = { this = country from = country }
-	has_shroud_insights
+	has_shroud_insights = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### this = country
 	## replace_scopes = { this = country from = country }
-	needs_psionic_aura_insights
+	needs_psionic_aura_insights = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = Country
 	## replace_scopes = { this = country from = country }
-	is_ending_cycle
+	is_ending_cycle = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This rule is called if country THIS has custom_diplomacy = yes in its country type
 	### This = Country tested
 	### From = Target country trying to access diplomacy
-	### this = country
 	## replace_scopes = { this = country from = country }
-	has_custom_diplomacy
+	has_custom_diplomacy = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = Country
+	## replace_scopes = { this = country }
+	can_issue_contracts = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = Country
+	## replace_scopes = { this = country }
+	can_accept_contracts = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = Country
+	### From = Network Owner Country
+	## replace_scopes = { this = country from = country }
+	benefits_from_waystation_network = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = Carrier
+	## replace_scopes = { this = carrier }
+	can_toggle_encampment = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = Country
+	## replace_scopes = { this = country }
+	is_star_seeker_empire = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = Carrier
+	### From = Viewing Country
+	## replace_scopes = { this = carrier from = country }
+	can_access_decisions = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = Country
+	## replace_scopes = { this = country }
+	ai_will_join_wars = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = Country
+	## replace_scopes = { this = country }
+	ai_will_leave_wars = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = Country
+	## replace_scopes = { this = country }
+	ai_will_join_offensive_wars = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = Country
+	### From = Allied Country
+	## replace_scopes = { this = country from = country }
+	ai_will_accept_ally = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = Country
+	### From = Enemy Country
+	## replace_scopes = { this = country from = country }
+	ai_will_accept_enemy = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = country, the potential trespasser
+	### From = country, the border owner
+	### Only evaluated when This has a truce with From. Enforces closed borders even if a country would ignore borders otherwise.
+	## replace_scopes = { this = country from = country }
+	is_expelled_from = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+	
+	### This = country
+	### If true, the country can reform government without paying unity and ignoring cooldown.
+	## replace_scopes = { this = country }
+	can_reform_government_for_free = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	# endregion
 
@@ -999,25 +1508,35 @@ game_rules = {
 
 	### This = country
 	## replace_scopes = { this = country }
-	doom_clock_is_shown
+	doom_clock_is_shown = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = country
 	## replace_scopes = { this = country }
-	crisis_name_is_shown
+	crisis_name_is_shown = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = country
 	## replace_scopes = { this = country }
-	crisis_flag_is_shown
+	crisis_flag_is_shown = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### This = country
 	## replace_scopes = { this = country }
-	crisis_opinion_is_shown
+	crisis_opinion_is_shown = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	### Check if planets resources should be hidden
 	### this: planet
 	### root: country
 	## replace_scopes = { this = planet root = country }
-	should_hide_resources_for_planet
+	should_hide_resources_for_planet = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
 
 	# endregion
 }

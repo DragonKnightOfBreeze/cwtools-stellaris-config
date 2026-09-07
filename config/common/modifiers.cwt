@@ -34,10 +34,6 @@ types = {
 		subtype[null] = {
 			is_null = yes
 		}
-		images = {
-			## optional
-			icon = "gfx/interface/icons/planet_modifiers/$.dds" # inferred
-		}
 	}
 	type[notification_modifier] = {
 		path = "game/common/notification_modifiers"

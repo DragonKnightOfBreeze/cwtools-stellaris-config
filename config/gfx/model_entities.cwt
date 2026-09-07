@@ -385,6 +385,7 @@ enums = {
     enum[model_shader_type] = {
         VFX
         ship
+		aura
     }
 }
 

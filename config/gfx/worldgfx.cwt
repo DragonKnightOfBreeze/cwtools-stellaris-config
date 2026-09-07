@@ -1,0 +1,159 @@
+types = {
+    type[worldgfx] = {
+        path = "game/gfx/worldgfx"
+        path_extension = .txt
+        name_field = world
+    }
+}
+
+worldgfx = {
+    ## cardinality = 1..1
+    world = scalar
+
+    ## cardinality = 0..1
+    center_entity = <model_entity>
+
+    ## cardinality = 0..1
+    bloom_effect = $shader_effect
+    ## cardinality = 0..1
+	downsample_effect = $shader_effect
+    ## cardinality = 0..1
+	restore_effect = $shader_effect
+    ## cardinality = 0..1
+	restore_bloom_effect = $shader_effect
+
+    ## cardinality = 0..1
+    color_lut = filepath
+
+    ## cardinality = 0..1
+    environment_map = filepath
+
+    ## cardinality = 0..inf
+    galaxy_background = {
+        ## cardinality = 1..1
+        texture = filepath
+
+        ## cardinality = 0..1
+        ## replace_scopes = { this = system root = system }
+        trigger = single_alias_right[trigger_clause]
+
+        ## cardinality = 0..1
+        ycocg = bool
+    }
+
+    ## color_type = hsv
+    galaxy_background_hsv_shift = {
+    	## cardinality = 3..3
+		float
+	}
+
+    ## cardinality = 0..1
+    galaxy_background_lut = filepath
+
+    ## cardinality = 0..1
+    cubemap_intensity = float
+
+    ## cardinality = 0..1
+    system_back_light_diffuse = colour[hsv]
+
+    #### Does not affect non-metallic objects
+    ## cardinality = 0..1
+    ambient = colour[hsv]
+    #### Fill light from left up
+    ## cardinality = 0..1
+	cam_light_1_diffuse = colour[hsv]
+	#### Rim light from lower right
+    ## cardinality = 0..1
+	cam_light_2_diffuse = colour[hsv]
+	#### Light coming from top, going over model when moving around
+	## cardinality = 0..1
+	cam_light_3_diffuse = colour[hsv]
+	#### Rim light shader
+    ## cardinality = 0..1
+	rim_light_diffuse = colour[hsv]
+
+    ## cardinality = 0..1
+	light_hdr_range = float
+
+    #### Used by both bloom and lens flare
+    ## cardinality = 0..1
+	bright_threshold = float
+
+	## cardinality = 0..1
+	bloom_width = float
+    ## cardinality = 0..1
+	bloom_scale = float
+    #### Bloom steps
+    ## cardinality = 0..1
+	bloom_iterations = int
+    ## cardinality = 0..1
+	emissive_bloom_strength = float
+
+    #### Blurriness
+	## cardinality = 0..1
+	lens_flare_bloom_width = float
+    #### Intensity
+    ## cardinality = 0..1
+	lens_flare_bloom_scale = float
+	#### Intensity
+    ## cardinality = 0..1
+    lens_flare_scale = float
+    #### Threshold
+	## cardinality = 0..1
+    lens_flare_bias = float
+    #### Scattering
+	## cardinality = 0..1
+    lens_flare_ghost_dispersal = float
+    #### Halo ring size
+	## cardinality = 0..1
+    lens_flare_halo_width = float
+	## cardinality = 0..1
+    lens_flare_halo_pow = float
+    #### Chromatic aberrations
+	## cardinality = 0..1
+    lens_flare_distortion_factor = float
+    #### Halo Chromatic aberrations
+	## cardinality = 0..1
+    lens_flare_distortion_factor_halo = float
+
+    #### How strongly to adjust to dark areas. Lower means more dark vision.
+    ## cardinality = 0..1
+	hdr_min_adjustment = float
+    #### A high value means that you see well in bright places.
+	## cardinality = 0..1
+    hdr_max_adjustment = float
+    #### Having this value relatively low with a max star brightness will result in the entire screen becoming overly bright.
+	## cardinality = 0..1
+	hdr_adjustment_speed = int
+
+    ## cardinality = 0..1
+    tonemap_middlegrey = float
+	## cardinality = 0..1
+    tonemap_whiteluminance = float
+
+    ## cardinality = 0..1
+	lava_bright_color = color[hsv]
+	## cardinality = 0..1
+    lava_bright_intensity = float
+	## cardinality = 0..1
+    lava_hot_stone_color = color[hsv]
+	## cardinality = 0..1
+    lava_hot_stone_intensity = float
+	## cardinality = 0..1
+    lava_cold_stone_color = color[hsv]
+	## cardinality = 0..1
+    lava_cold_stone_intensity = float
+
+    #### The noise texture which generates the lava pattern
+    ## cardinality = 0..1
+	tex_lava_noise = filepath
+    #### Multiplies with bright/lava areas
+	## cardinality = 0..1
+    tex_lava_diffuse = filepath
+    #### Multiplies with stone areas
+	## cardinality = 0..1
+    tex_stone_diffuse = filepath
+
+	## cardinality = 0..1
+    system_light = <light>
+}

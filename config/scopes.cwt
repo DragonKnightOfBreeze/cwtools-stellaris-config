@@ -1,5 +1,8 @@
 
 scopes = {
+    "No Scope" = {
+        aliases = { no_scope }
+    }
     Country = {
         aliases = { country }
     }

@@ -24,6 +24,13 @@ resource_group = {
         ## cardinality = 0..1
         additional_element_height = int
     }
+    
+    ## cardinality = 0..1
+    situation = <situation_type>
+    
+    ## cardinality = 0..1
+	default_visible = bool
+    
     ## cardinality = 0..inf
     subtype[!category] = {
         ## cardinality = 1..1

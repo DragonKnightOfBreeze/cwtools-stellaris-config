@@ -1759,11 +1759,18 @@ alias[trigger:last_changed_policy] = <policy>
 ## scopes = { pop_group leader }
 alias[trigger:last_changed_species_rights_type] = enum[species_rights_type]
 
-
 ### Checks if the country's last researched technology was a specific tech
 ## scopes = { country }
 alias[trigger:last_increased_tech] = <technology>
 
+### Checks if the country's last researched technology was a specific tech of a specific level
+## scopes = { country }
+alias[trigger:last_increased_tech] = {
+	## cardinality = 1..1
+	tech = <technology>
+	## cardinality = 0..1
+	level == int
+}
 
 ### Prints a message to game.log for debugging purposes
 ## scopes = any
@@ -3452,7 +3459,7 @@ alias[trigger:has_pre_ftl_trade] = scope[country]
 
 ### Checks ship design has a certain role
 ## scopes = { design ship_growth_stage }
-alias[trigger:has_role] = enum[component_tag]
+alias[trigger:has_role] = value[ship_role]
 
 ### Checks if a fleet or ship is cloaked.
 ## scopes = { ship fleet }
@@ -3721,17 +3728,20 @@ alias[trigger:any_playable_country] = single_alias_right[trigger_clause]
 
 ### Finds the closest system within the given hyperlane steps and limit = { <triggers> }. If this system does not exist, it returns false. If it does exist, it is checked against the triggers outside of the limit = {}.
 ### Conditions outside of the limit = { } will check whether these conditions are true for *the closest* system for which the trigger conditions and min_steps conditions.
+### valid = { } sets a pathfinding filter, and is checked before limit, default is valid = { always = yes }
 ## scopes = any
 ## push_scope = system
 alias[trigger:closest_system] = {
 	## cardinality = 0..1
-	min_steps == int
+	min_steps == int_value_field
 	## cardinality = 0..1
-	max_steps == int
+	max_steps == int_value_field
 	## cardinality = 0..1
 	use_bypasses = bool
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
+	valid = single_alias_right[trigger_clause]
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
@@ -4806,12 +4816,12 @@ alias[trigger:count_enslaved_species] = {
 }
 
 ### Iterate through all existing species traits in the game - checks whether the enclosed triggers return true for any of them
-## scopes = any
+## scopes = no_scope
 ## push_scope = country
 alias[trigger:any_existing_species_traits] = single_alias_right[trigger_clause]
 
 ### Iterate through all existing species traits in the game - checks whether the enclosed triggers return true for X/all of them
-## scopes = any
+## scopes = no_scope
 alias[trigger:count_existing_species_traits] = {
 	## cardinality = 0..1
 	## push_scope = trait
@@ -4837,6 +4847,7 @@ alias[trigger:count_trait_of_species] = {
 
 ### Iterate through all species traits and check if scope species doesn't have this trait. checks whether the enclosed triggers return true for any of them
 ## scopes = { pop_group leader species }
+## push_scope = trait
 alias[trigger:any_trait_available_for_species] = single_alias_right[trigger_clause]
 
 ### Iterate through all species traits and check if scope species doesn't have this trait. checks whether the enclosed triggers return true for X/all of them

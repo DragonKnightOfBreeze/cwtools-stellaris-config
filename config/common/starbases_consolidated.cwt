@@ -542,9 +542,7 @@ starbase_level = {
 	## cardinality = 0..1
 	module_slots = {
 		## cardinality = 0..inf
-		int
-		## cardinality = 0..1
-		spinal_mount_1
+		enum[section_slot]
 	}
 
 	## cardinality = 0..1
