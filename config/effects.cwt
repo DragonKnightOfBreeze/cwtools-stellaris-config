@@ -1926,25 +1926,7 @@ alias[effect:create_country] = {
 	## cardinality = 0..1
 	flag = random
 	## cardinality = 0..1
-	flag = {
-		#TODO - this is connected to game/flags.
-		#I already created an entry for flag colors etc, you should work on connecting these.
-		## cardinality = 0..1
-		icon = {
-			category = scalar            #should be some sort of key
-			file = scalar            #should be "filename.dds" in the correct folder
-		}
-		background = {
-			category = scalar            #should be some sort of key
-			file = scalar            #should be "filename.dds" in the correct folder
-		}
-		colors = {
-			## cardinality = 0..4
-			<color_define>
-			## cardinality = 0..4
-			"null"
-		}
-	}
+	flag = single_alias_right[empire_flag]
 	## cardinality = 0..1
 	### Establishing contact on_action (on_first_contact) will not fire for any countries (ever) if this is set to no
 	day_zero_contact = bool
@@ -2016,25 +1998,7 @@ alias[effect:create_rebels] = {
 	## cardinality = 0..1
 	flag = random
 	## cardinality = 0..1
-	flag = {
-		#TODO - this is connected to game/flags.
-		#I already created an entry for flag colors etc, you should work on connecting these.
-		## cardinality = 0..1
-		icon = {
-			category = scalar            #should be some sort of key
-			file = scalar            #should be "filename.dds" in the correct folder
-		}
-		background = {
-			category = scalar            #should be some sort of key
-			file = scalar            #should be "filename.dds" in the correct folder
-		}
-		colors = {
-			## cardinality = 0..4
-			<color_define>
-			## cardinality = 0..4
-			"null"
-		}
-	}
+	flag = single_alias_right[empire_flag]
 	## cardinality = 0..1
 	name_list = <name_list>
 	## cardinality = 0..1
@@ -3486,7 +3450,7 @@ alias[effect:set_disabled] = bool
 
 ### Sets the flag of the current Empire.
 ## scopes = { country }
-alias[effect:set_empire_flag] = scalar #TODO [chronicle 1.2.4+]
+alias[effect:set_empire_flag] = single_alias_right[empire_flag]
 
 ### Sets the name of the current Empire.
 ## scopes = { country }
