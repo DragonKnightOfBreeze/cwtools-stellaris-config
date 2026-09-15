@@ -141,7 +141,7 @@ ship_size = {
 			## cardinality = 1..inf
 			locator = enum[model_locator] # this is connected to the ship asset files.
 			## cardinality = 1..inf
-			locator = $mesh_locator # locators in .mesh files (since plugin version 2.1.9)
+			locator = $mesh_locator # locators in .mesh files (since chronicle 2.1.9)
 		}
 	}
 	## cardinality = 0..1
@@ -520,11 +520,11 @@ ship_size = {
 		####
 		## cardinality = 0..1
 		custom_class_text_color = <text_color>
-		
+
 		## cardinality = 0..1
 		custom_state_loc_prefix = localisation
 	}
-	
+
 	subtype[hero_ship] = {
 		## cardinality = 0..1
 		bioship_growth_progress_required = int
