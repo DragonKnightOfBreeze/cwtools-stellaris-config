@@ -8668,14 +8668,10 @@ alias[effect:start_storm_area_placing] = {
 	}
 
 	## cardinality = 0..1
-	on_confirm = {
-		single_alias_right[effect_clause]
-	}
+	on_confirm = single_alias_right[effect_clause]
 
 	## cardinality = 0..1
-	on_cancel = {
-		single_alias_right[effect_clause]
-	}
+	on_cancel = single_alias_right[effect_clause]
 }
 
 ### Gives a given specimen to the target country.
@@ -8718,10 +8714,7 @@ alias[effect:storm_apply_aftermath_modifier] = {
 		}
 
 		## cardinality = 0..1
-		effect = {
-			single_alias_right[effect_clause]
-		}
-
+		effect = single_alias_right[effect_clause]
 	}
 }
 
