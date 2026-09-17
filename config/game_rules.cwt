@@ -68,14 +68,14 @@ game_rules = {
 	species_has_uncapped_habitability_on_planet = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### Root = country
 	### This = pop_group
 	## replace_scopes = { this = pop_group root = country }
 	pop_group_can_join_factions = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### Root = ship
 	### This = species
 	## replace_scopes = { this = species root = ship }
@@ -127,7 +127,7 @@ game_rules = {
 	can_generate_military_leader_from_pop_group = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### Root = species
 	### This = colony
 	## replace_scopes = { this = colony root = species }
@@ -214,7 +214,7 @@ game_rules = {
 	has_borders = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### Root = country
 	### This = planet
 	## replace_scopes = { this = planet root = country }
@@ -252,7 +252,7 @@ game_rules = {
 	species_has_happiness = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### Checks if a species can procreate
 	### This = Species
 	### Root = colony
@@ -260,7 +260,7 @@ game_rules = {
 	can_species_procreate = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### Checks if a pop can be assembled
 	### This = Species
 	### Root = colony
@@ -268,7 +268,7 @@ game_rules = {
 	can_species_be_assembled = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### Checks if a species uses bonus_growth modifier
 	### This = Species
 	### Root = colony
@@ -316,7 +316,7 @@ game_rules = {
 	has_full_sensor_range = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### Determines if notification messages should be sent after a ground combat
 	### this: colony
 	### from: winner
@@ -325,19 +325,19 @@ game_rules = {
 	show_notification_for_ground_combat = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = country
 	## replace_scopes = { this = country }
 	has_planet_specific_war_attack_priority = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = planet
 	## replace_scopes = { this = planet }
 	calc_planet_specific_war_attack_priority = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
-	
+
 	### Root = country
 	### This = system
 	## replace_scopes = { this = system root = country }
@@ -504,25 +504,25 @@ game_rules = {
 	can_country_resettle = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = colony
 	## replace_scopes = { this = colony }
 	can_resettle_colony = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = colony
 	## replace_scopes = { this = colony }
 	should_spawn_deposits = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = colony
 	## replace_scopes = { this = colony }
 	can_get_colony_events = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = colony
 	## replace_scopes = { this = colony }
 	is_new_colony = {
@@ -534,19 +534,19 @@ game_rules = {
 	pop_group_generates_crime = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = colony
 	## replace_scopes = { this = colony }
 	can_pops_grow_on_colony = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = colony
 	## replace_scopes = { this = colony }
 	can_pops_assemble_on_colony = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = colony
 	## replace_scopes = { this = colony }
 	can_pops_decline_on_colony = {
@@ -657,13 +657,13 @@ game_rules = {
 	is_allowed_to_be_advanced_empire = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = colony
 	## replace_scopes = { this = colony }
 	has_enough_pops_for_necrophage_on_colony = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### Root = current colony
 	### This = pop_group
 	### Purge, Sapience, Migration Controls policy (ignored by Gestalts and Synths), and target habitability are checked in code.
@@ -671,7 +671,7 @@ game_rules = {
 	can_pop_group_auto_migrate = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### Checked before can_pop_auto_migrate to save performance
 	### This = colony
 	## replace_scopes = { this = colony }
@@ -1184,14 +1184,14 @@ game_rules = {
     can_scavenge_debris = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### this = country
 	### from = location (galactic_object)
 	## replace_scopes = { this = country from = galactic_object }
 	can_explore_rifts_outside_borders = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### this = country (fleet controller)
 	### from = solar_system
 	## replace_scopes = { this = country from = system }
@@ -1278,7 +1278,7 @@ game_rules = {
 
 	### this = country
 	### all countries which pass this rule only add 1 to num_fallen_empires
-	## replace_scopes = { this = countryfrom = country }
+	## replace_scopes = { this = country from = country }
 	count_as_split_fallen_empire = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -1295,7 +1295,7 @@ game_rules = {
 	}
 
 	### this = country
-	## replace_scopes = { this = country}
+	## replace_scopes = { this = country }
 	are_all_leaders_forced_immortal = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
@@ -1416,77 +1416,77 @@ game_rules = {
 	has_custom_diplomacy = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = Country
 	## replace_scopes = { this = country }
 	can_issue_contracts = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = Country
 	## replace_scopes = { this = country }
 	can_accept_contracts = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = Country
 	### From = Network Owner Country
 	## replace_scopes = { this = country from = country }
 	benefits_from_waystation_network = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = Carrier
 	## replace_scopes = { this = carrier }
 	can_toggle_encampment = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = Country
 	## replace_scopes = { this = country }
 	is_star_seeker_empire = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = Carrier
 	### From = Viewing Country
 	## replace_scopes = { this = carrier from = country }
 	can_access_decisions = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = Country
 	## replace_scopes = { this = country }
 	ai_will_join_wars = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = Country
 	## replace_scopes = { this = country }
 	ai_will_leave_wars = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = Country
 	## replace_scopes = { this = country }
 	ai_will_join_offensive_wars = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = Country
 	### From = Allied Country
 	## replace_scopes = { this = country from = country }
 	ai_will_accept_ally = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = Country
 	### From = Enemy Country
 	## replace_scopes = { this = country from = country }
 	ai_will_accept_enemy = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = country, the potential trespasser
 	### From = country, the border owner
 	### Only evaluated when This has a truce with From. Enforces closed borders even if a country would ignore borders otherwise.
@@ -1494,7 +1494,7 @@ game_rules = {
 	is_expelled_from = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
-	
+
 	### This = country
 	### If true, the country can reform government without paying unity and ignoring cooldown.
 	## replace_scopes = { this = country }
