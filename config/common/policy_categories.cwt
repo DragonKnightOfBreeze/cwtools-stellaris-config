@@ -12,7 +12,25 @@ types = {
     }
 }
 
+#### Policy categories: cosmetic groupings for the Policies UI (collapsible headers on the Policies tab
+#### and the per-category policy popup). They carry no gameplay effect.
+####
+#### Display order is alphabetical by localized category name, except "uncategorized" which is always
+#### sorted last. Policies are placed in a category via "category = <key>" in their definition, or in
+#### several at once via "category = { <key> <key> }" (the policy then appears under each listed
+#### category). Policies with no category (including unmaintained mods) fall back to "uncategorized".
+####
+#### Each category may set "icon = <sprite_key>". The icon is drawn as an inline text-icon before the
+#### category name in both the collapsible header and the per-category popup. IMPORTANT: keep the icon
+#### in this "icon" field, never baked into the localized name - the UI sorts categories alphabetically
+#### by their localized name, so an inline icon token in the loc string would sort on the sprite key
+#### instead of the visible word.
 policy_category = {
+    #TODO icon = 'key' 应可以实际匹配为GFX_text_key，故需类似<sprite>|lock,unlock的后缀写法，即GFX_text_|key，指向GFX_text_<key>这个<sprite>
+    # ## cardinality = 0..1
+    # icon = GFX_text_|key
     ## cardinality = 0..1
     icon = <sprite>
+    ## cardinality = 0..1
+    icon = icon[gfx/interface/icons/text_icons]
 }
