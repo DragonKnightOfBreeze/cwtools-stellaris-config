@@ -51,11 +51,24 @@ pop_faction = {
 	## cardinality = 0..1
 	guiding_ethic = <ethic>
 
+	### This shows what ethic icons to display in the faction view
 	## cardinality = 0..1
 	visual_ethic = localisation
 
+	### default = yes; When set, the guiding ethic is added to pop_ethics_filter
 	## cardinality = 0..1
 	use_guiding_ethic_as_pop_filter = bool
+
+	### Only pops with one of these ethics can join the faction
+	## cardinality = 0..1
+	pop_ethics_filter = {
+		## cardinality = 0..inf
+		<ethic>
+	}
+
+	### default = yes; When set, the number of pops trying to join the faction each month is influenced by the empire's ethic attraction of the guiding ethic
+	## cardinality = 0..1
+	use_guiding_ethic_as_growth_factor = bool
 
 	### UI color for candidate header
 	## cardinality = 0..1
@@ -90,6 +103,13 @@ pop_faction = {
 		alias_name[pop_pre_trigger] = alias_match_left[pop_pre_trigger]
 	}
 
+	### Listed in the faction tooltip to explain what draws pops to it
+	## cardinality = 0..inf
+	pop_attraction_tag = {
+		desc = localisation
+		trigger = single_alias_right[trigger_clause]
+	}
+
 	### Determines which pops are able to join this faction
 	## push_scope = pop_group
 	can_join_faction = single_alias_right[trigger_clause]
@@ -106,7 +126,6 @@ pop_faction = {
 	## cardinality = 0..1
 	leader = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
-
 	}
 
 	### Some effects, immediately after faction has been established.

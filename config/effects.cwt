@@ -563,8 +563,8 @@ alias[effect:set_faction_properties] = {
 	intel_effects_surveyed = bool
 }
 
-### Sets an arbitrarily-named flag on the scoped planet
-## scopes = { planet }
+### Sets an arbitrarily-named flag on the scoped planet. Also valid in colony/carrier/ship scope, where it writes the colony carrier's flags.
+## scopes = { planet ship colony }
 alias[effect:set_planet_flag] = value_set[planet_flag]
 
 ### Sets an arbitrarily-named flag on the scoped colony carrier (Note: Colony doesn't store flags. Using any of the carrier_flag effects/triggers in colony scope will access flags in the colony carrier instead.)
@@ -572,7 +572,7 @@ alias[effect:set_planet_flag] = value_set[planet_flag]
 alias[effect:set_carrier_flag] = value_set[carrier_flag]
 
 ### Sets an arbitrarily-named flag on the scoped pop_group's faction/pop_group faction
-## scopes = { pop_group pop_faction }
+## scopes = { pop_faction }
 alias[effect:set_pop_faction_flag] = value_set[pop_faction_flag]
 
 ### Sets an arbitrarily-named flag on the scoped system
@@ -656,8 +656,8 @@ alias[effect:set_agreement_flag] = value_set[agreement_flag]
 ## severity = warning
 alias[effect:remove_country_flag] = value[country_flag]
 
-### Removes a flag from the scoped planet
-## scopes = { planet }
+### Removes a flag from the scoped planet. Also valid in colony/carrier/ship scope, where it removes from the colony carrier's flags.
+## scopes = { planet ship colony }
 ## severity = warning
 alias[effect:remove_planet_flag] = value[planet_flag]
 
@@ -667,7 +667,7 @@ alias[effect:remove_planet_flag] = value[planet_flag]
 alias[effect:remove_carrier_flag] = value[carrier_flag]
 
 ### Removes a flag from the scoped pop_group's faction/pop_group faction
-## scopes = { pop_group pop_faction }
+## scopes = { pop_faction }
 ## severity = warning
 alias[effect:remove_pop_faction_flag] = value[pop_faction_flag]
 
@@ -773,15 +773,15 @@ alias[effect:set_timed_country_flag] = {
 	enum[days_months_year] = int_value_field
 }
 
-### Sets an arbitrarily-named flag on the scoped planet for a set duration
-## scopes = { planet }
+### Sets an arbitrarily-named flag on the scoped planet for a set duration. Also valid in colony/carrier/ship scope, where it writes the colony carrier's flags.
+## scopes = { planet ship colony }
 alias[effect:set_timed_planet_flag] = {
 	flag = value_set[planet_flag]
 	enum[days_months_year] = int_value_field
 }
 
 ### Sets an arbitrarily-named flag on the scoped pop_group faction for a set duration
-## scopes = { pop_group pop_faction }
+## scopes = { pop_faction }
 alias[effect:set_timed_pop_faction_flag] = {
 	flag = value_set[pop_faction_flag]
 	enum[days_months_year] = int_value_field
@@ -1840,42 +1840,54 @@ alias[effect:create_country] = {
 	## cardinality = 0..1
 	name = random
 	## cardinality = 0..1
-	alias_name[name] = alias_match_left[name]
+	name = scope_group[target_country]
+
 	## cardinality = 0..1
-	adjective = scope[any]
+	alias_name[name] = alias_match_left[name]
+
+	## cardinality = 0..1
+	adjective = scope_group[target_country]
 	## cardinality = 0..1
 	adjective = random
 	## cardinality = 0..1
+	### Sets country adjective. Allowed values are <string in localisation>/<string written in quotes e.g. "Korean">
 	adjective = localisation
+
+	## cardinality = 0..1
+	ruler = random
+	## cardinality = 0..1
+	ruler = localisation
+
 	## cardinality = 0..1
 	type = <country_type>
 	## cardinality = 0..1
 	contact_rule = enum[contact_rule]
+
 	## cardinality = 0..1
 	auto_delete = bool
+
 	## cardinality = 0..1
 	name_list = <name_list>
 	## cardinality = 0..1
 	name_list = random
 	## cardinality = 0..1
 	name_list = scope_group[target_country]
+
+	## cardinality = 0..1
+	default_ships = bool
+
 	## cardinality = 0..1
 	ship_prefix = scalar    #should be string or a scope
-	## cardinality = 0..1
-	### Sets country adjective. Allowed values are <string in localisation>/<string written in quotes e.g. "Korean">
-	adjective = localisation
+
 	## cardinality = 0..1
 	authority = random
 	## cardinality = 0..1
 	authority = <authority>
 	## cardinality = 0..1
 	authority = scope_group[target_country]
+
 	## cardinality = 0..1
 	civics = scope_group[target_country]
-	## cardinality = 0..1
-	origin = <civic_or_origin.origin>
-	## cardinality = 0..1
-	origin = scope_group[target_country]
 	## cardinality = 0..1
 	### random includes starting civics
 	civics = random
@@ -1886,18 +1898,9 @@ alias[effect:create_country] = {
 		## cardinality = 0..inf
 		civic = random
 	}
+
 	## cardinality = 0..1
-	species = random
-	## cardinality = 0..1
-	species = scope_group[target_species]
-	### default: no
-	## cardinality = 0..1
-	set_capital_from_species = bool
-	## cardinality = 0..1
-	randomize_ethos = yes
-	## cardinality = 0..1
-	### Copies friendliness and hostility data from specified country.
-	use_hostilities_from = scope_group[target_country]
+	randomize_ethos = bool
 	## cardinality = 0..1
 	ethos = random
 	## cardinality = 0..1
@@ -1911,13 +1914,32 @@ alias[effect:create_country] = {
 		## cardinality_max_define = NGameplay.ETHOS_MAX_POINTS
 		ethic = random
 	}
+
 	## cardinality = 0..1
-	## push_scope = country
-	effect = single_alias_right[effect_clause]
+	species = random
+	## cardinality = 0..1
+	species = scope_group[target_species]
+	## cardinality = 0..1
+	species = localisation
+
+	## cardinality = 0..1
+	origin = <civic_or_origin.origin>
+	## cardinality = 0..1
+	origin = scope_group[target_country]
+
+	### default: no
+	## cardinality = 0..1
+	set_capital_from_species = bool
+
+	## cardinality = 0..1
+	### Copies friendliness and hostility data from specified country.
+	use_hostilities_from = scope_group[target_country]
+
 	## cardinality = 0..1
 	graphical_culture = <graphical_culture>
 	## cardinality = 0..1
 	city_graphical_culture = <graphical_culture>
+
 	## cardinality = 0..1
 	ship_kinds = {
 		## cardinality = 0..inf
@@ -1925,15 +1947,18 @@ alias[effect:create_country] = {
 	}
 	## cardinality = 0..1
 	room = icon[gfx/portraits/city_sets]
+
 	## cardinality = 0..1
 	flag = scope_group[target_country]
 	## cardinality = 0..1
 	flag = random
 	## cardinality = 0..1
 	flag = single_alias_right[empire_flag]
+
 	## cardinality = 0..1
 	### Establishing contact on_action (on_first_contact) will not fire for any countries (ever) if this is set to no
 	day_zero_contact = bool
+
 	## cardinality = 0..1
 	### Establishing contact on_action (on_first_contact) will not fire for this country or its federation allies
 	exclude_day_zero_contact = scope_group[target_country]
@@ -1941,8 +1966,10 @@ alias[effect:create_country] = {
 	released_by_country = scope_group[target_country]    #scope
 	## cardinality = 0..1
 	released_from_country = scope_group[target_country]    #scope
+
 	## cardinality = 0..1
 	ignore_initial_colony_error = bool
+
 	## cardinality = 0..1
 	government_restrictions = {
 		alias_name[government_trigger] = alias_match_left[government_trigger]
@@ -1954,8 +1981,14 @@ alias[effect:create_country] = {
 	### default: no
 	## cardinality = 0..1
 	nomadic = scope_group[target_country]
+
 	### (default: no) drop copied civics that are not possible for the new empire
+	## cardinality = 0..1
 	remove_invalid_civics = bool
+
+	## cardinality = 0..1
+	## push_scope = country
+	effect = single_alias_right[effect_clause]
 
 }
 
@@ -3390,9 +3423,73 @@ alias[effect:repair_ship] = yes
 ## scopes = { country }
 alias[effect:reset_years_of_peace] = yes
 
-### Runs strategic data for AI
+### Recomputes ALL strategic data for AI = yes
 ## scopes = { country }
 alias[effect:run_ai_strategic_data] = yes
+
+### Sets the AI ship role overrides for the scoped country.
+## scopes = { country }
+alias[effect:set_ai_ship_roles] = {
+	## cardinality = 0..inf
+	<ship_size> = {
+		## cardinality = 0..inf
+		enum[component_tag] = int_value_field
+	}
+	## cardinality = 0..inf
+	<ship_size> = enum[component_tag]
+}
+
+### Clears all AI ship role overrides for the scoped country, reverting to personality roles.
+## scopes = { country }
+alias[effect:clear_ai_ship_roles] = yes
+
+### Sets the AI weapon preference override for the scoped country.
+## scopes = { country }
+alias[effect:set_ai_weapon_preference] = enum[component_tag]
+
+### Clears the AI weapon preference override, reverting to personality.
+## scopes = { country }
+alias[effect:clear_ai_weapon_preference] = yes
+
+### Sets the AI armor ratio override for the scoped country.
+## scopes = { country }
+alias[effect:set_ai_armor_ratio] = value_field[0.0..1.0]
+
+### Clears the AI armor ratio override, reverting to personality.
+## scopes = { country }
+alias[effect:clear_ai_armor_ratio] = yes
+
+### Sets the AI shields ratio override for the scoped country.
+## scopes = { country }
+alias[effect:set_ai_shields_ratio] = value_field[0.0..1.0]
+
+### Clears the AI shields ratio override, reverting to personality.
+## scopes = { country }
+alias[effect:clear_ai_shields_ratio] = yes
+
+### Sets the AI weapon preference override for the scoped country's auto-designed starbases.
+## scopes = { country }
+alias[effect:set_ai_starbase_weapon_preference] = enum[component_tag]
+
+### Clears the AI starbase weapon preference override, reverting to the empire-wide preference.
+## scopes = { country }
+alias[effect:clear_ai_starbase_weapon_preference] = yes
+
+### Sets the AI armor ratio override for the scoped country's auto-designed starbases.
+## scopes = { country }
+alias[effect:set_ai_starbase_armor_ratio] = value_field[0.0..1.0]
+
+### Clears the AI starbase armor ratio override, reverting to the empire-wide ratio.
+## scopes = { country }
+alias[effect:clear_ai_starbase_armor_ratio] = yes
+
+### Sets the AI shields ratio override for the scoped country's auto-designed starbases.
+## scopes = { country }
+alias[effect:set_ai_starbase_shields_ratio] = value_field[0.0..1.0]
+
+### Clears the AI starbase shields ratio override, reverting to the empire-wide ratio.
+## scopes = { country }
+alias[effect:clear_ai_starbase_shields_ratio] = yes
 
 ### Enables or disables the VIR window pop_group-in
 ## scopes = { country }
@@ -3557,9 +3654,12 @@ alias[effect:set_policy] = {
 	cooldown = bool
 }
 
-### Sets the scoped pop_group to belong to a specific pop_group faction
+### Sets a ratio of the scoped pop group to belong to a specific pop faction
 ## scopes = { pop_group }
-alias[effect:set_pop_faction] = <pop_faction>
+alias[effect:set_pop_faction] = {
+	faction = <pop_faction>
+	ratio = value_field[0.0..1.0]
+}
 
 ### Adds or removes a planetary ring around the scoped planet
 ## scopes = { planet ship carrier }
@@ -3876,6 +3976,10 @@ alias[effect:set_trade_conversions] = {
 ### Refresh ship designs that are aut-generated such as colony ships
 ## scopes = { country }
 alias[effect:refresh_auto_generated_ship_designs] = yes
+
+### Re-pick the auto-designed loadout of the country's non-designable starbases (so a changed starbase weapon/defense preference takes effect on existing stations)
+## scopes = { country }
+alias[effect:rebuild_owned_starbase_designs] = yes
 
 ### Sets the specific resource to the stockpile for the country scope:
 ## scopes = { country }
@@ -5972,8 +6076,8 @@ alias[effect:every_system_in_cluster] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
-### Iterate through all the country's pop_group factions - executes the enclosed effects on all of them for which the limit triggers return true
-## scopes = { country }
+### Iterate through all the country/pop_group's pop factions - executes the enclosed effects on all of them for which the limit triggers return true
+## scopes = { country pop_group }
 ## push_scope = pop_faction
 alias[effect:every_pop_faction] = {
 	## cardinality = 0..1
@@ -5981,8 +6085,8 @@ alias[effect:every_pop_faction] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
-### Iterate through all the country's pop_group factions - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
-## scopes = { country }
+### Iterate through all the country/pop_group's pop factions - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+## scopes = { country pop_group }
 ## push_scope = pop_faction
 alias[effect:random_pop_faction] = {
 	## cardinality = 0..1
@@ -7505,8 +7609,8 @@ alias[effect:every_owned_pop_job] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
-### Iterate through all the country's pop_group factions - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
-## scopes = { country }
+### Iterate through all the country/pop group pop factions - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
+## scopes = { country pop_group }
 ## push_scope = pop_faction
 alias[effect:ordered_pop_faction] = {
 	position = int
@@ -7977,7 +8081,7 @@ alias[effect:every_trait_of_species] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
-### Iterate through all species traits and check if scope species doesn't have this trait
+### Iterate through all available species traits and check if scope species doesn't have this trait
 ## scopes = { pop_group leader species }
 ## push_scope = trait
 alias[effect:random_trait_available_for_species] = {
@@ -7988,7 +8092,7 @@ alias[effect:random_trait_available_for_species] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
-### Iterate through all species traits and check if scope species doesn't have this trait
+### Iterate through all available species traits and check if scope species doesn't have this trait
 ## scopes = { pop_group leader species }
 ## push_scope = trait
 alias[effect:ordered_trait_available_for_species] = {
@@ -8002,7 +8106,7 @@ alias[effect:ordered_trait_available_for_species] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
-### Iterate through all species traits and check if scope species doesn't have this trait
+### Iterate through all available species traits and check if scope species doesn't have this trait
 ## scopes = { pop_group leader species }
 ## push_scope = trait
 alias[effect:every_trait_available_for_species] = {
@@ -9747,7 +9851,7 @@ alias[effect:set_timed_pop_flag] = $any
 alias[effect:pop_event] = $any
 
 ### Adds specific resources to a ship's stockpile (ship must be able to collect resources; will not add resources above capacity):
-## scopes = { ship }
+## scopes = { ship fleet }
 alias[effect:add_resource_to_local_stockpile] = {
 	## cardinality = 0..inf
 	<resource> = value_field
@@ -9934,6 +10038,52 @@ alias[effect:force_show_diplomacy] = scope[country]
 ### Forces the diplomacy view to open for the scoped country targeted at the given country, on the espionage tab. Only works inside on_custom_diplomacy events, relic activation effects, or events triggered from those. Does nothing if communications are missing or if espionage is not actionable against the target.
 ## scopes = { country }
 alias[effect:force_show_espionage] = scope[country]
+
+### Removes an amount of pops from an ethic and redistribute these to any other
+## scopes = { pop_group }
+alias[effect:pop_force_remove_ethic] = {
+	ethic = <ethic>
+	## cardinality = 0..1
+	amount = int_value_field
+	## cardinality = 0..1
+	percentage = value_field[0.0..1.0]
+	## cardinality = 0..1
+	random = int_value_field
+}
+
+### Transfers an amount of pops from an ethic to another
+## scopes = { pop_group }
+alias[effect:pop_force_transfer_ethic] = {
+	new_ethic = <ethic>
+	old_ethic = <ethic>
+	## cardinality = 0..1
+	amount = int_value_field
+	## cardinality = 0..1
+	percentage = value_field[0.0..1.0]
+	## cardinality = 0..1
+	random = int_value_field
+}
+
+### Transfers the scoped country's stockpile of each listed resource to another country:
+## scopes = { country }
+alias[effect:transfer_resources_to_empire] = {
+	target = scope[country]
+	## cardinality = 0..1
+	resources = {
+		## cardinality = 0..inf
+		<resource>
+	}
+	## cardinality = 0..1
+	percentage = value_field[0.0..1.0]
+}
+
+### Switches the scoped megastructure to an overclock mode, replacing the current one. Ignores potential, possible and cost, but starts the megastructure's overclock_cooldown unless told otherwise.
+## scopes = { megastructure }
+alias[effect:set_overclock] = {
+	overclock = <megastructure_overclock_type>
+	## cardinality = 0..1
+	cooldown = bool
+}
 
 ### Adds the specified contract to a target system.
 ## scopes = { country }
@@ -10325,6 +10475,8 @@ alias[effect:set_timed_carrier_flag] = {
 ## scopes = any
 alias[effect:spawn_random_anomaly] = {
 	target = scope[country]
+	## cardinality = 0..1
+	surveyor = scope[ship]
 }
 
 ### Steals resource output from a planet and gives it to a target empire or stockpile.

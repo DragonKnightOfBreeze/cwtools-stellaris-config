@@ -1,0 +1,10 @@
+types = {
+    type[resource_region] = {
+        path = "game/common/resource_regions"
+        path_extension = .txt
+    }
+}
+
+resource_regions = {
+    amount = int
+}

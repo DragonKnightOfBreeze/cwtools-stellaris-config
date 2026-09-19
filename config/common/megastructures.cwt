@@ -327,6 +327,16 @@ megastructure_overclock_type = {
 	## cardinality = 0..1
 	potential = single_alias_right[trigger_clause]
 
+	## replace_scopes = { this = country root = country }
+	## cardinality = 0..1
+	possible = single_alias_right[trigger_clause]
+
+	## cardinality = 0..1
+	overclock_group = value_set[overclock_group]
+
+	## cardinality = 0..1
+	overclock_group = <megastructure_overclock_type>
+
 	## cardinality = 0..inf
 	resources = {
 		## cardinality = 0..1
@@ -334,7 +344,47 @@ megastructure_overclock_type = {
 		alias_name[economic_template] = alias_match_left[economic_template]
 	}
 
+	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
-	modifier = single_alias_right[modifier_clause]
+	country_modifier = single_alias_right[modifier_clause]
+
+	### applies to the owner's planets and fleets in the solar system, like a starbase system modifier. It does not reach anything owned by another empire.
+	## cardinality = 0..1
+	## replace_scopes = { this = system root = system }
+	system_modifier = single_alias_right[modifier_clause]
+
+	### applies to the megastructure itself, so it reaches its own upkeep
+	## cardinality = 0..1
+	## replace_scopes = { this = megastructure root = megastructure }
+	megastructure_modifier = single_alias_right[modifier_clause]
+
+	### replaces the three modifier sections above wherever this mode lists its effects, so it can state them in its own words instead. This takes priority over custom_tooltip_with_modifiers.
+	## cardinality = 0..1
+	custom_tooltip = localisation
+
+	### as above, but prepended to the sections rather than replacing them.Both keys resolve on a megastructure scope.
+	## cardinality = 0..1
+	custom_tooltip_with_modifiers = localisation
+
+	### effects, scope: megastructure. Runs every time this mode becomes the active one.
+	## cardinality = 0..1
+	## replace_scopes = { this = megastructure root = megastructure }
+	on_overclock_start = single_alias_right[effect_clause]
+
+	### effects, scope: megastructure. Runs every time this mode stops being the active one.
+	## cardinality = 0..1
+	## replace_scopes = { this = megastructure root = megastructure }
+	on_overclock_end = single_alias_right[effect_clause]
+
+	### scope = megastructure, checked monthly. Also selects the starting mode: whenever no mode is stored, on creation and on reset, the highest weighted mode is picked, ties going tothe first listed. Starting-mode selection reads only the flat weight and ignores themodifier blocks, so state the intended default as a base or a plain number.
+	###
+	### A mode with no ai_weight block, or a block that states no base, weighs 100.The AI only switches to a mode weighing strictly higher than the active one, so equalweights never oscillate and giving every mode the same weight means it never switches.
+	###
+	### A megastructure with no mode set yet is the exception: anything above 0 will be picked.
+	## cardinality = 0..1
+	## replace_scopes = { this = megastructure root = megastructure }
+	ai_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
 
 }

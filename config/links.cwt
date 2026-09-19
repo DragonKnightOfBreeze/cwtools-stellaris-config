@@ -514,6 +514,13 @@ links = {
 		output_scope = carrier
 	}
 
+	#v4.5
+	### Scopes from a leader to their background planet.
+	background_colony = {
+		input_scopes = { leader }
+		output_scope = planet
+	}
+
 	# links from data
 
 	variable = {

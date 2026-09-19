@@ -86,13 +86,13 @@ alias[trigger:has_opinion_modifier] = {
 ## severity = warning
 alias[trigger:has_country_flag] = value[country_flag]
 
-### Checks if the planet has a specific flag
-## scopes = { planet }
+### Checks if the planet has a specific flag. Also valid in colony/carrier/ship scope, where it reads the colony carrier's flags (a settled colony's carrier is its planet; a Nomad Arkship's is its ship).
+## scopes = { planet ship colony }
 ## severity = warning
 alias[trigger:has_planet_flag] = value[planet_flag]
 
 ### Checks if the pop_group faction has a specific flag
-## scopes = { pop_group pop_faction }
+## scopes = { pop_faction }
 ## severity = warning
 alias[trigger:has_pop_faction_flag] = value[pop_faction_flag]
 
@@ -259,6 +259,32 @@ alias[trigger:pop_amount_percentage] = {
 	percentage == value_field[0.0..1.0]
 }
 
+### Checks the amount or percentage of pops following or not following the ethic. If used rhs this return amount of pops.
+## scopes = { country pop_group pop_faction colony }
+## push_scope = pop_group
+alias[trigger:pop_ethic_amount] = {
+	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
+	ethic = <ethic>
+	## cardinality = 0..1
+	amount == int_value_field
+	## cardinality = 0..1
+	percentage == value_field[0.0..1.0]
+}
+
+### Checks the amount or percentage of pops following or not following the ethic. If used rhs this return percentage of pops.
+## scopes = { country pop_group pop_faction colony }
+## push_scope = pop_group
+alias[trigger:pop_ethic_percentage] = {
+	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
+	ethic = <ethic>
+	## cardinality = 0..1
+	amount == int_value_field
+	## cardinality = 0..1
+	percentage == value_field[0.0..1.0]
+}
+
 #should check for <> too
 ### Checks the faction's support level
 ### support > 0.5
@@ -276,10 +302,6 @@ alias[trigger:is_country_type] = <country_type>
 ### Checks if a country has a certain ethos
 ## scopes = { country pop_group leader pop_faction dlc_recommendation }
 alias[trigger:has_ethic] = <ethic>
-
-### Checks if the pop_group has a specific ethos
-## scopes = { pop_group }
-alias[trigger:pop_group_has_ethic] = <ethic>
 
 ### Checks the country's used starbase capacity in relative terms (0.00-1.00)
 ## scopes = { country }
@@ -1077,6 +1099,22 @@ alias[trigger:custom_tooltip] = {
 	alias_name[trigger] = alias_match_left[trigger]
 }
 
+### custom_tooltip, but will always try to display the pass/fail icons, even at the root level of the trigger
+## scopes = any
+alias[trigger:custom_tooltip_icon] = {
+	## cardinality = 0..1
+	text = ""
+	## cardinality = 0..1
+	text = localisation
+	## cardinality = 0..1
+	fail_text = default
+	## cardinality = 0..1
+	fail_text = localisation
+	## cardinality = 0..1
+	success_text = localisation
+	alias_name[trigger] = alias_match_left[trigger]
+}
+
 #< >
 ### Checks the number of in-game years country has been at peace, with optional parameter to delay from start of game
 ## scopes = { country }
@@ -1185,13 +1223,13 @@ alias[trigger:host_has_dlc] = enum[dlc]
 alias[trigger:is_multiplayer] = bool
 
 
-### Checks if the pop_group belongs to any, or a specific, faction
+### Checks if the pop_group has pops belonging to any, or a specific, faction
 ## scopes = { pop_group }
 alias[trigger:member_of_faction] = bool
-### Checks if the pop_group belongs to any, or a specific, faction
+### Checks if the pop_group has pops belonging to any, or a specific, faction
 ## scopes = { pop_group }
 alias[trigger:member_of_faction] = scope[pop_faction]
-### Checks if the pop_group belongs to any, or a specific, faction
+### Checks if the pop_group has pops belonging to any, or a specific, faction
 ## scopes = { pop_group }
 alias[trigger:member_of_faction] = <pop_faction>
 
@@ -1249,13 +1287,6 @@ alias[trigger:can_declare_war] = {
 ### Checks if scoped pop_group can join a faction
 ## scopes = { pop_group }
 alias[trigger:can_join_factions] = bool
-
-### Checks if one of the faction's parameters is the same as target scope
-## scopes = { pop_faction }
-alias[trigger:check_pop_faction_parameter] = {
-	which = enum[pop_faction_parameter]
-	value = scope[any]
-}
 
 ### Checks the country's command limit
 ## scopes = { country }
@@ -1509,8 +1540,12 @@ alias[trigger:has_presence] = bool
 ## scopes = { planet ship carrier }
 alias[trigger:has_research_station] = bool
 
-### Checks if a country has the same ethos (complete set of ethics) as a country or pop_group
+### Checks if a country or a pop group ethos contains all ethics of the other target ethos
 ## scopes = { country pop_group }
+alias[trigger:has_ethos] = scope_group[target_country]
+
+### Checks if a country has the same ethos (complete set of ethics) as a country or pop_group
+## scopes = { country }
 alias[trigger:has_same_ethos] = scope_group[target_country]
 
 ### Checks the scoped country has ever encountered a bypass of a given type before
@@ -1683,8 +1718,11 @@ alias[trigger:is_overlord_to] = scope_group[target_country]
 ### Checks if the planet/country/ship/system/ambient object has a specific point of interest for a specific event chain for a specific country
 ## scopes = { country galactic_object ambient_object planet ship carrier }
 alias[trigger:is_point_of_interest] = {
+	## cardinality = 0..1
 	id = value[point_of_interest]
+	## cardinality = 0..1
 	event_chain = <event_chain>
+
 	owner = scope_group[target_country]
 }
 
@@ -1910,7 +1948,7 @@ alias[trigger:num_traits] == int_value_field
 alias[trigger:num_unique_species] == int_value_field
 
 ### Checks how far removed the country/pop_group's ethos is from target's
-## scopes = { country pop_group }
+## scopes = { country }
 alias[trigger:opposing_ethics_divergence] = {
 	steps == int_value_field
 	who = scope_group[target_country]
@@ -3575,6 +3613,15 @@ alias[trigger:num_candidate_supported] == value_field
 ## scopes = { country }
 alias[trigger:council_agenda_progress_percent] == value_field
 
+### Checks whether the scoped country may assign a ship role to a ship size.Returns true if the role is among the configured roles for that size, including every entry of a weighted role block.
+## scopes = { country }
+alias[trigger:is_ai_ship_role] = {
+	## cardinality = 1..1
+	ship_size = <ship_size>
+	## cardinality = 1..1
+	role = enum[component_tag]
+}
+
 ### Checks if the country has a specific Council Agenda selected, or any at all
 ## scopes = { country }
 alias[trigger:has_agenda_selected] = enum[any_or_none_or_bool]
@@ -3938,6 +3985,14 @@ alias[trigger:any_owned_species] = single_alias_right[trigger_clause]
 ## scopes = { country colony planet ship carrier }
 ## push_scope = species
 alias[trigger:any_enslaved_species] = single_alias_right[trigger_clause]
+
+###  Checks which overclock mode the scoped megastructure is currently using.
+## scopes = { country no_scope }
+alias[trigger:has_overclock] = <megastructure_overclock_type>
+
+### Checks whether the scoped megastructure is still inside its overclock_cooldown and so cannot change mode yet.
+## scopes = { country no_scope }
+alias[trigger:has_overclock_cooldown] = bool
 
 ### Iterate through each agreement - checks whether the enclosed triggers return true for any of them
 ## scopes = { country no_scope }
@@ -4641,12 +4696,12 @@ alias[trigger:count_owned_workforce] = {
 }
 
 ### Iterate through all the country's pop_group factions - checks whether the enclosed triggers return true for any of them
-## scopes = { country }
+## scopes = { country pop_group }
 ## push_scope = pop_faction
 alias[trigger:any_pop_faction] = single_alias_right[trigger_clause]
 
 ### Iterate through all the country's pop_group factions - checks whether the enclosed triggers return true for X/all of them
-## scopes = { country }
+## scopes = { country pop_group }
 alias[trigger:count_pop_faction] = {
 	## cardinality = 0..1
 	## push_scope = pop_faction
@@ -4845,12 +4900,12 @@ alias[trigger:count_trait_of_species] = {
 	count = all
 }
 
-### Iterate through all species traits and check if scope species doesn't have this trait. checks whether the enclosed triggers return true for any of them
+### Iterate through all available species traits and check if scope species doesn't have this trait. checks whether the enclosed triggers return true for any of them
 ## scopes = { pop_group leader species }
 ## push_scope = trait
 alias[trigger:any_trait_available_for_species] = single_alias_right[trigger_clause]
 
-### Iterate through all species traits and check if scope species doesn't have this trait. checks whether the enclosed triggers return true for X/all of them
+### Iterate through all available species traits and check if scope species doesn't have this trait. checks whether the enclosed triggers return true for X/all of them
 ## scopes = { pop_group leader species }
 alias[trigger:count_trait_available_for_species] = {
 	## cardinality = 0..1
@@ -6026,6 +6081,31 @@ alias[trigger:is_nomadic] = bool
 ### Checks Fallen / Awakened Empire strength scaling in game setup
 ## scopes = { any }
 alias[trigger:fallen_empire_strength_scale] == value_field
+
+### Checks whether a random anomaly could spawn on the planet for the given surveyor ship or fleet
+## scopes = { planet }
+alias[trigger:can_spawn_random_anomaly] = bool
+
+### Checks whether a random archaeological site could spawn on the scoped planet
+## scopes = { planet }
+alias[trigger:can_spawn_random_archaeological_site] = bool
+
+### Checks whether a random non-blocker deposit could be added to the scoped planet
+## scopes = { planet }
+alias[trigger:can_add_random_non_blocker_deposit] = bool
+
+### Checks if the country's AI prefers this weapon type for starbases (falls back to the empire-wide weapon preference when unset)
+## scopes = { country }
+alias[trigger:is_preferred_starbase_weapons] = enum[component_tag]
+
+### Returns the negotiated value (0 to 1) of a trade action in a trade deal with the specified empire.
+## scopes = { country }
+alias[trigger:trade_action_value] = {
+	action = <tradable_action>
+	with_country = scope_group[target_country]
+	with_country = any
+	value == value_field
+}
 
 ### Checks if the scoped fleet/carrier is locked in its current system.
 ## scopes = { fleet colony planet ship carrier }

@@ -10,7 +10,6 @@ localisation_promotions = {
     Sector = { planet system colony }
     Fleet = { ship starbase archaeological_site }
     Planet = { archaeological_site deposit megastructure colony }
-    Faction = { pop_group }
     Leader = { fleet army federation first_contact espionage_operation spy_network }
     MainDefender = { war }
     MainAttacker = { war }
@@ -186,6 +185,8 @@ localisation_commands = {
     GetPreCommunicationName = { any }
     GetOrigin = { specimen }
     GetOriginalOwner = { specimen }
+
+    GetPopsGuidingEthic = { pop_faction }
 	# missing commands in localizations.log
 
 	GetIcon = { pop_job }

@@ -280,6 +280,9 @@ single_alias[empire_flag] = {
         ## cardinality = 0..4
         "null"
     }
+    ### default no. When yes, slot 3 swatch ship= value is used for ships Slot 3 must be a real swatch.
+    ## cardinality = 0..1
+    use_ship_color = yes/no
 }
 
 single_alias[complex_file_path:flag] = {

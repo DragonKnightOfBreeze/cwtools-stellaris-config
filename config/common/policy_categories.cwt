@@ -1,0 +1,18 @@
+types = {
+    type[policy_category] = {
+        path = "game/common/policy_categories"
+        path_extension = .txt
+        localisation = {
+            name = "policy_category_$"
+            desc = "policy_category_$_desc"
+        }
+        images = {
+            icon = icon
+        }
+    }
+}
+
+policy_category = {
+    ## cardinality = 0..1
+    icon = <sprite>
+}
