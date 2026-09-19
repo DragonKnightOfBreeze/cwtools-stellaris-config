@@ -186,7 +186,6 @@ localisation_commands = {
     GetOrigin = { specimen }
     GetOriginalOwner = { specimen }
 
-
     GetPopsGuidingEthic = { pop_faction }
 	# missing commands in localizations.log
 
