@@ -2909,11 +2909,6 @@ alias[effect:create_fleet] = {
 	set_take_point = bool
 	## cardinality = 0..inf
 	settings = single_alias_right[fleet_settings]
-
-	###If no,skip fleet cache recalculation on each individual ship being added. Effect create_fleet will recalculate everything once after all the ships are in.
-	## cardinality = 0..1
-	fleet_cache_recalc = bool
-
 	### Must include set_owner, set_location and create_ship (here or in last_created_country). Todo: Check this somehow
 	## cardinality = 0..1
 	## push_scope = fleet
@@ -3130,6 +3125,9 @@ alias[effect:create_saved_leader] = {
 ### Creates a new ship
 ## scopes = { fleet starbase }
 alias[effect:create_ship] = {
+	###If no,skip fleet cache recalculation on each individual ship being added. Effect create_fleet will recalculate everything once after all the ships are in.
+	## cardinality = 0..1
+	fleet_cache_recalc = bool
 	## cardinality = 0..1
 	alias_name[name] = alias_match_left[name]
 	## cardinality = 0..1
