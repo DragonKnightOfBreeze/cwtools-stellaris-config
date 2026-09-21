@@ -8702,6 +8702,7 @@ alias[effect:set_emergency_fund_active] = bool
 ### Applies Cosmic Storm Aftermath Modifiers. You can specify up to a max of 10 Severities and each one will be chosen based on it's chance.
 ## scopes = any
 alias[effect:storm_apply_aftermath_modifier] = {
+    ## cardinality = 1..inf
 	severity = {
 		## cardinality = 1..1
 		modifier = <static_modifier>
