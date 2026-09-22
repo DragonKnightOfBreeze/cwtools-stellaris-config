@@ -518,7 +518,7 @@ trait = {
 
 		## cardinality = 0..1
 		slave_cost = {
-			trade = int
+            <resource> = int
 		}
 
 		### if it returns true, then the trait is valid, even if it's for a species with a different species class. if empty or returning false, then the species_class limitations are respected normally.
