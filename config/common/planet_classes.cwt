@@ -47,6 +47,9 @@ types = {
 #TODO Confirm
 #TODO Expand to add colonizable subtype
 planet_class = {
+	### Default: yes. If no, this planet class can never become an empire's capital (automatic reassignment, the player move-capital action, and the set_capital/set_sector_capital effects all respect it)
+	## cardinality = 0..1
+	can_be_capital = bool
 	## cardinality = 0..1
 	atmosphere_color = colour[hsv]
 	## cardinality = 0..1
