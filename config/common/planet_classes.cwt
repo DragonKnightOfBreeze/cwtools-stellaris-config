@@ -258,6 +258,9 @@ planet_class = {
 	### default = yes; Can be used to block all other additions of max building and district modifiers except the planet class specific ones.
 	## cardinality = 0..1
 	inherit_country_building_modifiers = bool
+	### default = yes; Can be used to block all general max district modifiers, add and mult, artificial and non artificial. The planet class specific add modifier still applies.
+	## cardinality = 0..1
+	inherit_country_district_modifiers = bool
 
 	#### Default: no. If yes, merges all build queues from the colony and carrier into a single one
 	####
