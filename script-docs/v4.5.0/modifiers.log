@@ -1,4 +1,4 @@
-[23:19:51][modifier.cpp:2274]: 
+[18:14:24][modifier.cpp:2274]: 
  == MODIFIER DOCUMENTATION ==
 Note on Modifier Categories:
 -- These are used internally as a tag to suggest where they are intended to be used, but exact behavior depends upon individual implementation.

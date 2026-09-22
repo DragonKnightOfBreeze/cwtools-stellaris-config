@@ -449,7 +449,7 @@ alias[trigger:is_controlled_by] = scope_group[target_country]
 ## scopes = { country fleet galactic_object colony planet ship carrier }
 alias[trigger:is_neighbor_of] = scope_group[target_country]
 
-### Checks if the target country is the planet's original owner
+### Checks if the target country is the colony carrier's original owner
 ## scopes = { colony planet ship carrier }
 alias[trigger:is_original_owner] = scope_group[target_country]
 
@@ -903,7 +903,7 @@ alias[trigger:graphical_culture] = <graphical_culture>
 ## scopes = { megastructure country ship species }
 alias[trigger:graphical_culture] = scope_group[target_graphical_culture]
 
-### Checks if the planet is still owned by its first colonizer
+### Checks if the colony carrier is still owned by its first colonizer
 ## scopes = { colony planet ship carrier }
 alias[trigger:original_owner] = bool
 

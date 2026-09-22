@@ -1,4 +1,4 @@
-[23:19:55][game_application.cpp:1435]: 
+[18:14:28][game_application.cpp:1454]: 
 == LOCALIZATION DOCUMENTATION ==
 This is a list of all hardcoded scoped localization commands in the game. It does not include scripted locs (see game/customizable_localization).
 In most cases, it is also possible to get the value of variables with '[Scope.my_variable]' and saved dates with '[Scope.my_date_flag]'.

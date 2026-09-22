@@ -1,4 +1,4 @@
-[23:19:55][game_application.cpp:1400]: 
+[18:14:28][game_application.cpp:1419]: 
 == TRIGGER DOCUMENTATION ==
 text - For 'desc={trigger={' use. Shows custom text
 text = <text>
@@ -292,7 +292,7 @@ last_increased_tech - Checks if the country's last researched technology was a s
 last_increased_tech = tech_gene_expressions
 Supported Scopes: country
 
-original_owner - Checks if the planet is still owned by its first colonizer
+original_owner - Checks if the colony carrier is still owned by its first colonizer
 original_owner = yes
 Supported Scopes: planet ship colony
 
@@ -1972,7 +1972,7 @@ has_association_status - Check if the country has federation association status 
 has_association_status = <target>
 Supported Scopes: country
 
-is_original_owner - Checks if the target country is the planet's original owner
+is_original_owner - Checks if the target country is the colony carrier's original owner
 is_original_owner = <target>
 Supported Scopes: planet ship colony
 
