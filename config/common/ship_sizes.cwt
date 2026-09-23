@@ -529,6 +529,11 @@ ship_size = {
 		## cardinality = 0..1
 		bioship_growth_progress_required = int
 	}
+
+	#### default: no.If yes, a fleet containing a single ship of this size will be able to command fleet armadas
+	## cardinality = 0..1
+	can_lead_armada = bool
+
 }
 
 enums = {
