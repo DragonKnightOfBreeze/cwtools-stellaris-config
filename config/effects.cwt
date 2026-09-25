@@ -9059,7 +9059,7 @@ alias[effect:repair_shield_percentage] = value_field[0.0..1.0]
 
 ### Restores a certain amount of hull points to the scoped ship or fleet
 ## scopes = { ship fleet }
-alias[effect:repair_amount] = value_field[0.0..1.0]
+alias[effect:repair_amount] = int_value_field
 
 ### Restores a certain amount of armor points to the scoped ship or fleet
 ## scopes = { ship fleet }
