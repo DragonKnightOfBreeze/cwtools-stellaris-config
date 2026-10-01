@@ -167,6 +167,7 @@ ship_size = {
 	## cardinality = 0..1
 	is_orbital_ring = bool
 
+	#### now only used for starbases. Value of 2 or more means it shows up on the galaxy map, 1-5 denote which icon it uses on starbase sprite sheets (e.g. gfx/interface/icons/starbase_ship_sizes.dds)
 	## cardinality = 0..1
 	icon_frame = int
 	## cardinality = 0..1
@@ -219,6 +220,7 @@ ship_size = {
 	## cardinality = 0..1
 	auto_upgrade = bool
 
+	#### Determines which frame on the ship class sprite sheets this ship uses (e.g. gfx/interface/icons/ship_classes.dds). Only shown for non-mobile fleets by default.
 	## cardinality = 0..1
 	ship_class_icon_frame = int
 	### If yes, the ship_class_icon_frame icon is shown on the galactic map even when the fleet is mobile.

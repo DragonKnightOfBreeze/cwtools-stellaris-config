@@ -347,7 +347,7 @@ scripted_action = {
         ####
         #### if not specified, action is always considered possible
         ## cardinality = 0..1
-        ## replace_scopes = { this = self from = fleet }
+        ## replace_scopes = { this = fleet from = fleet }
         possible = single_alias_right[trigger_clause]
 
         #### scope: target self
@@ -358,7 +358,7 @@ scripted_action = {
         ####
         #### if not specified, action is always considered finished as soon as it is started
         ## cardinality = 0..1
-        ## replace_scopes = { this = self from = fleet }
+        ## replace_scopes = { this = fleet from = fleet }
         finished = single_alias_right[trigger_clause]
 
         #### scope: target self
@@ -370,7 +370,7 @@ scripted_action = {
         #### if not specified, action will always be shown if button is visible
         ####
         ## cardinality = 0..1
-        ## replace_scopes = { this = self from = fleet }
+        ## replace_scopes = { this = fleet from = fleet }
         hide_from_context_menu = single_alias_right[trigger_clause]
     }
 
@@ -491,7 +491,7 @@ scripted_action = {
         ####
         #### if not specified, action is always considered possible
         ## cardinality = 0..1
-        ## replace_scopes = { this = self from = megastructure }
+        ## replace_scopes = { this = megastructure from = megastructure }
         possible = single_alias_right[trigger_clause]
 
         #### scope: target self
@@ -502,7 +502,7 @@ scripted_action = {
         ####
         #### if not specified, action is always considered finished as soon as it is started
         ## cardinality = 0..1
-        ## replace_scopes = { this = self from = megastructure }
+        ## replace_scopes = { this = megastructure from = megastructure }
         finished = single_alias_right[trigger_clause]
 
         #### scope: target self
@@ -514,7 +514,7 @@ scripted_action = {
         #### if not specified, action will always be shown if button is visible
         ####
         ## cardinality = 0..1
-        ## replace_scopes = { this = self from = megastructure }
+        ## replace_scopes = { this = megastructure from = megastructure }
         hide_from_context_menu = single_alias_right[trigger_clause]
     }
 
@@ -653,7 +653,7 @@ scripted_action = {
             ####
             #### from: triggering fleet
             ## cardinality = 0..1
-            ## replace_scopes = { this = self from = fleet }
+            ## replace_scopes = { this = fleet from = fleet }
             weight = {
                 alias_name[modifier_rule] = alias_match_left[modifier_rule]
             }
@@ -705,7 +705,7 @@ scripted_action = {
             ####
             #### from: triggering megastructure
             ## cardinality = 0..1
-            ## replace_scopes = { this = self from = megastructure }
+            ## replace_scopes = { this = megastructure from = megastructure }
             weight = {
                 alias_name[modifier_rule] = alias_match_left[modifier_rule]
             }
