@@ -4,133 +4,100 @@
 # Only game-specific entries are listed here; unmatched paths default to `lios`.
 #
 # Game-specific sources:
-# - Stellaris Wiki "file overwrite list" (translated by pdxdoc / Stellaris Mod Group):
-#   https://main--pdxdoc-next.netlify.app/guides/other/overwrite/
+# - Official Stellaris Wiki, "Modding" > "Overwriting specific elements" > "Common folder":
+#   https://stellaris.paradoxwikis.com/Modding
 # - IronyModManager (IMM):
 #   - FIOS paths: src/IronyModManager.IO/Mods/InfoProviders/StellarisDefinitionInfoProvider.cs
 #   - Parser map: References/CopyAll/Maps/StellarisParserMap.json
 #   - Extraction script: scripts/util/fetch_override_strategies.py
-# - Official wiki: https://stellaris.paradoxwikis.com/Stellaris_Wiki
-#
-# Note: `lenient dupl` means the engine actually requires a whole-file override (dupl), but this
-# config relaxes it to `lios` to avoid an overly strict same-path requirement. IMM whole-text and
-# overwritten-object handling are implementation choices and are not necessarily the engine behavior.
 #
 # See: docs/en/ref-config-format.md#config-override
 # Version: 3.0.4-dev
 # Date: 2026-10-02
 
 overrides = {
-    # [medium] Lenient dupl: a partial override breaks auto-generated modifiers (wiki); IMM treats
-    # it as an overwritten object.
+    # [high] Wiki: LIOS since v3.3 (pre-v3.3 broke auto-generated modifiers); IMM: overwritten object.
     "common/buildings" = lios
 
-    # [medium] IMM FIOSPaths.
+    # [high] Wiki: FIOS; IMM FIOSPaths.
     "common/component_sets" = fios
 
-    # [medium] IMM FIOSPaths; wiki: read once.
+    # [high] Wiki: FIOS; IMM FIOSPaths.
     "common/component_templates" = fios
 
-    # [medium] Wiki: cannot be partially overridden, requires a whole-file override; IMM treats it
-    # as an overwritten object (lios).
-    "common/diplomatic_actions" = dupl
-
-    # [medium] Lenient dupl: a partial override breaks auto-generated modifiers (wiki); IMM treats
-    # it as an overwritten object.
+    # [high] Wiki: LIOS since v3.3 (pre-v3.3 broke auto-generated modifiers).
     "common/districts" = lios
 
-    # [medium] Lenient dupl: wiki says last-in override but recommends a whole-file override; IMM
-    # treats it as an overwritten single-file object (dupl).
+    # [high] Wiki: LIOS; an entire-file overwrite is suggested.
     "common/ethics" = lios
 
-    # [high] IMM FIOSPaths; wiki: read once.
+    # [high] Wiki: FIOS; IMM FIOSPaths.
     "common/event_chains" = fios
 
-    # [medium] IMM FIOSPaths; wiki: read once.
+    # [high] Wiki: FIOS; IMM FIOSPaths.
     "common/global_ship_designs" = fios
 
-    # [medium] Wiki: cannot be partially overridden, requires a whole-file override; IMM uses fios.
-    "common/governments/authorities" = dupl
+    # [high] Wiki: FIOS (a specific override is impossible; only entries override); IMM FIOSPaths.
+    "common/governments/authorities" = fios
 
-    # [low] IMM treats it as whole text (dupl).
+    # [medium] Wiki: DUPL (only works when the file is fully replaced).
+    "common/inline_scripts" = dupl
+
+    # [medium] Wiki: DUPL.
     "common/name_lists" = dupl
 
-    # [low] IMM parser map: default parser (lios); the previous `dupl` note is outdated; the wiki
-    # does not specify.
-    "common/observation_station_missions" = lios
+    # [medium] Wiki: DUPL/LIOS (entire-file override only).
+    "common/observation_station_missions" = dupl
 
-    # [high] Wiki: automatically merged in load order, without overriding (IMM handles it as whole
-    # text, which is an implementation shortcut).
+    # [high] Wiki: NO/MERGE (new entries are merged by name; existing entries cannot be modified).
     "common/on_actions" = ordered
 
-    # [medium] Lenient dupl: a partial override breaks the auto-generated habitability modifiers
-    # (wiki); IMM treats it as an overwritten object.
+    # [medium] Wiki: DUPL/LIOS (add_opinion_modifier is LIOS).
+    "common/opinion_modifiers" = lios
+
+    # [medium] Wiki: DUPL/LIOS (DUPL breaks habitability modifiers if individually overwritten).
     "common/planet_classes" = lios
 
-    # [medium] Lenient dupl: wiki says it cannot be partially overridden; IMM treats it as an
-    # overwritten object.
+    # [high] Wiki: LIOS since v3.3 (pre-v3.3 broke auto-generated modifiers).
     "common/pop_jobs" = lios
 
-    # [low] Wiki: cannot be overridden (approximated as fios); IMM treats it as an overwritten
-    # object (lios).
-    "common/relics" = fios
-
-    # [medium] Existing convention; IMM parser map: generic key parser (lios).
+    # [high] Wiki: FIOS (an existing object key can be overridden with `name = key`).
     "common/scripted_loc" = fios
 
-    # [high] IMM FIOSPaths; wiki: read once.
+    # [high] Wiki: FIOS; IMM FIOSPaths.
     "common/scripted_variables" = fios
 
-    # [medium] IMM FIOSPaths; wiki: read once.
+    # [medium] Wiki: NO DUPL/FIOS (existing entries cannot be overwritten); IMM FIOSPaths.
     "common/section_templates" = fios
 
-    # [medium] IMM FIOSPaths.
+    # [high] Wiki: FIOS; IMM FIOSPaths.
     "common/ship_behaviors" = fios
 
-    # [medium] IMM: overwritten single-file object; wiki: cannot be partially overridden, requires
-    # a whole-file override.
-    "common/ship_sizes" = dupl
-
-    # [medium] IMM FIOSPaths; wiki: read once.
+    # [high] Wiki: FIOS; IMM FIOSPaths.
     "common/solar_system_initializers" = fios
 
-    # [medium] IMM FIOSPaths; wiki: read once.
+    # [high] Wiki: FIOS; IMM FIOSPaths.
     "common/special_projects" = fios
 
-    # [medium] Lenient dupl: a partial override breaks auto-generated modifiers (wiki); IMM treats
-    # it as an overwritten object.
+    # [high] Wiki: LIOS since v3.3 (pre-v3.3 broke auto-generated modifiers).
     "common/species_archetypes" = lios
 
-    # [high] Wiki: read once (IMM parser map uses the default parser, an IMM limitation).
-    "common/star_classes" = fios
-
-    # [medium] IMM: overwritten single-file object; wiki: cannot be partially overridden, requires
-    # a whole-file override.
-    "common/starbase_modules" = dupl
-
-    # [medium] IMM FIOSPaths; wiki: read once.
+    # [high] Wiki: FIOS; IMM FIOSPaths.
     "common/start_screen_messages" = fios
 
-    # [high] Wiki: read once (IMM parser map uses the default parser, an IMM limitation).
-    "common/static_modifiers" = fios
+    # [high] Wiki: DUPL (must replace the whole file with the same filename); IMM FIOSPaths.
+    "common/strategic_resources" = dupl
 
-    # [medium] IMM FIOSPaths + overwritten single-file object; wiki: read once.
-    "common/strategic_resources" = fios
+    # [medium] Wiki: LIOS* (LIOS overrides mostly still work; if the overriding tech lacks a
+    # "potential" block, it inherits it).
+    "common/technology" = lios
 
-    # [medium] Wiki: cannot be partially overridden, requires copying the whole file (IMM treats it
-    # as an overwritten object).
-    "common/technology" = dupl
+    # [medium] Wiki: DUPL.
+    "common/terraform" = dupl
 
-    # [medium] IMM parser map: default parser (lios).
-    "common/technology/category" = lios
-
-    # [medium] IMM parser map: default parser (lios).
-    "common/technology/tier" = lios
-
-    # [medium] Wiki: entries may duplicate and cannot be partially overridden, requires a whole-file
-    # override (IMM uses fios).
+    # [high] Wiki: DUPL/NO (entire-file override only); IMM FIOSPaths.
     "common/traits" = dupl
 
-    # [high] IMM FIOSPaths; wiki: read once.
+    # [high] Wiki: FIOS.
     "events" = fios
 }
