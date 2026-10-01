@@ -1,6 +1,6 @@
 # see: https://main--pdxdoc-next.netlify.app/guides/other/overwrite/
 
-priorities = {
+overrides = {
 	"common/buildings" = lios # lenient dupl
 	"common/component_sets" = fios
 	"common/component_templates" = fios
