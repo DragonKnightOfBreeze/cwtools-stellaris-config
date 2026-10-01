@@ -1,37 +1,68 @@
-# see: https://main--pdxdoc-next.netlify.app/guides/other/overwrite/
+# 覆盖规则（Stellaris）
+#
+# 说明、格式、覆盖策略、可信度标注与主要来源，见 `cwt/core/00_overrides.cwt`。
+# 此处仅列出 Stellaris 特有的条目；未命中任何映射时默认使用 `lios`。
+#
+# 主要来源：
+# - Stellaris 英文百科「文件覆盖列表」（经 pdxdoc 翻译，仅供参考）：
+#   https://main--pdxdoc-next.netlify.app/guides/other/overwrite/
+# - IronyModManager (IMM)：
+#   - FIOS 路径：src/IronyModManager.IO/Mods/InfoProviders/StellarisDefinitionInfoProvider.cs
+#   - 解析器映射：References/CopyAll/Maps/StellarisParserMap.json
+#   - 复现脚本：scripts/util/fetch_override_strategies.py
+# - 官方 wiki：https://stellaris.paradoxwikis.com/Stellaris_Wiki
+#
+# 备注：
+# - `# lenient dupl`：引擎实际要求整文件覆盖（DUPL），但此处按 LIOS 宽松处理，以避免过于严格的同路径要求。
+# - IMM 的整文件（WholeText）与对象级覆盖（OverwrittenObject）处理属于其实现选择，不能直接等同于引擎行为；
+#   与百科列表冲突之处已逐条注明。
+#
+# 版本：3.0.4-dev
+# 日期：2026-10-02
 
 overrides = {
-	"common/buildings" = lios # lenient dupl
-	"common/component_sets" = fios
-	"common/component_templates" = fios
-	"common/diplomatic_actions" = dupl
-	"common/districts" = lios # lenient dupl
-	"common/ethics" = lios # lenient dupl
-	"common/event_chains" = fios
-	"common/global_ship_designs" = fios
-	"common/governments/authorities" = dupl
-	"common/name_lists" = dupl
-	"common/observation_station_missions" = dupl # from IMM, unsure
-	"common/on_actions" = ordered
-	"common/planet_classes" = lios # lenient dupl
-	"common/pop_jobs" = lios # lenient dupl
-	"common/relics" = fios # cannot override?
-	"common/scripted_loc" = fios
-	"common/scripted_variables" = fios
-	"common/section_templates" = fios
-	"common/ship_behaviors" = fios
-	"common/ship_sizes" = dupl
-	"common/solar_system_initializers" = fios
-	"common/special_projects" = fios
-	"common/species_archetypes" = lios # lenient dupl
-	"common/star_classes" = fios
-	"common/starbase_modules" = dupl
-	"common/start_screen_messages" = fios
-	"common/static_modifiers" = fios
-	"common/strategic_resources" = fios # dupl in IMM
-	"common/technology" = dupl
-	"common/technology/category" = lios
-	"common/technology/tier" = lios
-	"common/traits" = dupl
-	"events" = fios
+    # region 只读一次（fios）
+    "common/component_sets" = fios             # [中] IMM FIOSPaths
+    "common/component_templates" = fios        # [中] IMM FIOSPaths；百科：只读一次
+    "common/event_chains" = fios               # [高] IMM FIOSPaths；百科：只读一次
+    "common/global_ship_designs" = fios        # [中] IMM FIOSPaths；百科：只读一次
+    "common/section_templates" = fios          # [中] IMM FIOSPaths；百科：只读一次
+    "common/ship_behaviors" = fios             # [中] IMM FIOSPaths
+    "common/solar_system_initializers" = fios  # [中] IMM FIOSPaths；百科：只读一次
+    "common/special_projects" = fios           # [中] IMM FIOSPaths；百科：只读一次
+    "common/start_screen_messages" = fios      # [中] IMM FIOSPaths；百科：只读一次
+    "common/star_classes" = fios               # [高] 百科：只读一次（IMM 为 DefaultParser，属其局限）
+    "common/static_modifiers" = fios           # [高] 百科：只读一次（IMM 为 DefaultParser，属其局限）
+    "common/strategic_resources" = fios        # [中] IMM FIOSPaths + OverwrittenObjectSingleFile；百科：只读一次
+    "common/scripted_loc" = fios               # [中] 沿用既有约定；IMM 为 GenericKeyParser（lios）
+    "common/scripted_variables" = fios         # [高] IMM FIOSPaths；百科：只读一次
+    "common/relics" = fios                     # [低] 百科：不可覆盖（以 fios 近似）；IMM 为 OverwrittenObject（lios）
+    "events" = fios                            # [高] IMM FIOSPaths；百科：只读一次
+    # endregion
+
+    # region 顺序读取（ordered）
+    "common/on_actions" = ordered              # [高] 百科：自动整合，不覆盖（IMM 作为整文件处理，属其局限）
+    # endregion
+
+    # region 整文件覆盖（dupl）
+    "common/diplomatic_actions" = dupl         # [中] 百科：不能局部覆盖，必须整文件覆盖；IMM 为 OverwrittenObject（lios）
+    "common/governments/authorities" = dupl    # [中] 百科：不能局部覆盖，必须整文件覆盖；IMM 为 fios
+    "common/name_lists" = dupl                 # [低] IMM：WholeText
+    "common/ship_sizes" = dupl                 # [中] IMM：OverwrittenObjectSingleFile；百科：不能局部覆盖，必须整文件覆盖
+    "common/starbase_modules" = dupl           # [中] IMM：OverwrittenObjectSingleFile；百科：不能局部覆盖，必须整文件覆盖
+    "common/technology" = dupl                 # [中] 百科：不能局部覆盖，必须复制整个文件覆盖（IMM 为 OverwrittenObject）
+    "common/traits" = dupl                     # [中] 百科：内容重复/不可局部覆盖，必须整文件覆盖（IMM 为 fios）
+    # endregion
+
+    # region 后读覆盖 / 宽松整文件覆盖（lios）
+    "common/buildings" = lios                  # lenient dupl；[中] IMM：OverwrittenObject；百科：局部覆盖会损毁自动生成的修正
+    "common/districts" = lios                  # lenient dupl；[中] 同上
+    "common/ethics" = lios                     # lenient dupl；[中] 百科：后读覆盖但建议整文件；IMM 为 OverwrittenObjectSingleFile（dupl）
+    "common/planet_classes" = lios             # lenient dupl；[中] 百科：局部覆盖会损毁自动生成的宜居度修正
+    "common/pop_jobs" = lios                   # lenient dupl；[中] 百科：不可局部覆盖
+    "common/species_archetypes" = lios         # lenient dupl；[中] IMM：OverwrittenObject；百科：局部覆盖会损毁自动生成的修正
+    "common/technology/category" = lios        # [中] IMM：DefaultParser
+    "common/technology/tier" = lios            # [中] IMM：DefaultParser
+    "common/observation_station_missions" = lios # [低] IMM：DefaultParser（旧注释为 dupl，已更新）；百科未明确
+    # endregion
 }
