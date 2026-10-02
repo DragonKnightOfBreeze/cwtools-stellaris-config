@@ -88,9 +88,12 @@ overrides = {
     # [high] Wiki: DUPL (must replace the whole file with the same filename); IMM FIOSPaths.
     "common/strategic_resources" = dupl
 
-    # [medium] Wiki: LIOS* (LIOS overrides mostly still work; if the overriding tech lacks a
-    # "potential" block, it inherits it).
+    # [medium] Wiki: LIOS* (LIOS overrides mostly still work; if the overriding tech lacks a "potential" block, it inherits it).
     "common/technology" = lios
+
+    # [high] Default.
+    "common/technology/category" = lios
+    "common/technology/tier" = lios
 
     # [medium] Wiki: DUPL.
     "common/terraform" = dupl
