@@ -29,11 +29,9 @@ policy_category = {
     # snippet-matching, since chronicle v3.0.4
     # see: https://windea.icu/Paradox-Language-Support/ref-config-format.md#faq-snippet-matching
     ## cardinality = 0..1
-    icon = <sprite>|GFX_text_$ # snippet-match, since chronicle v3.0.4
-
+    icon = <sprite>|GFX_text_$
     ## cardinality = 0..1
     icon = <sprite>
-
     ## cardinality = 0..1
     icon = icon[gfx/interface/icons/text_icons]
 }

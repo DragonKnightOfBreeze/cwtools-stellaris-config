@@ -42,13 +42,13 @@ global_ship_design = {
 				slot = enum[section_slot] # this is connected to ship_sizes and section templates!
 				## cardinality = 0..inf
 				component = {
-					# one slot, of one type! so one of the these two varients- and these need to match the component template as it is defined!
+					# one slot, of one type! so one of the these two variants- and these need to match the component template as it is defined!
 					## cardinality = 0..1
 					slot = enum[component_slot]
 					## cardinality = 0..1
 					slot = enum[utility_component_slot]
 					## cardinality = 0..1
-					template = <component_template>
+					template = union[component_template_base] # `<component_template>` is not enough here
 				}
 			}
 			## cardinality = 0..inf
@@ -81,13 +81,13 @@ global_ship_design = {
 		slot = enum[section_slot] # this is connected to ship_sizes and section templates!
 		## cardinality = 0..inf
 		component = {
-			# one slot, of one type! so one of the these two varients- and these need to match the component template as it is defined!
+			# one slot, of one type! so one of the these two variants- and these need to match the component template as it is defined!
 			## cardinality = 0..1
 			slot = enum[component_slot]
 			## cardinality = 0..1
 			slot = enum[utility_component_slot]
 			## cardinality = 0..1
-			template = <component_template>
+			template = union[component_template_base] # `<component_template>` is not enough here
 		}
 	}
 	## cardinality = 0..inf

@@ -180,8 +180,10 @@ patron_type = {
     passive_accord = {
         name = localisation
 
+        # snippet-matching, since chronicle v3.0.4
+        # see: https://windea.icu/Paradox-Language-Support/ref-config-format.md#faq-snippet-matching
         ## cardinality = 0..1
-        icon = <sprite>|_locked,_unlocked
+        icon = <sprite>|$_locked,$_unlocked
 
         ## cardinality = 0..inf
         ## replace_scopes = { root = country this = country }
