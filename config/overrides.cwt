@@ -1,37 +1,106 @@
-# see: https://main--pdxdoc-next.netlify.app/guides/other/overwrite/
+# Override Config (Stellaris)
+#
+# See `cwt/core/00_overrides.cwt` for the format, strategies, confidence labels and sources.
+# Only game-specific entries are listed here; unmatched paths default to `lios`.
+#
+# Game-specific sources:
+# - Official Stellaris Wiki, "Modding" > "Overwriting specific elements" > "Common folder":
+#   https://stellaris.paradoxwikis.com/Modding
+# - IronyModManager (IMM):
+#   - FIOS paths: src/IronyModManager.IO/Mods/InfoProviders/StellarisDefinitionInfoProvider.cs
+#   - Parser map: References/CopyAll/Maps/StellarisParserMap.json
+#   - Extraction script: scripts/util/fetch_override_strategies.py
+#
+# See: docs/en/ref-config-format.md#config-override
+# Version: 3.0.4-dev
+# Date: 2026-10-02
 
-priorities = {
-	"common/buildings" = lios # lenient dupl
-	"common/component_sets" = fios
-	"common/component_templates" = fios
-	"common/diplomatic_actions" = dupl
-	"common/districts" = lios # lenient dupl
-	"common/ethics" = lios # lenient dupl
-	"common/event_chains" = fios
-	"common/global_ship_designs" = fios
-	"common/governments/authorities" = dupl
-	"common/name_lists" = dupl
-	"common/observation_station_missions" = dupl # from IMM, unsure
-	"common/on_actions" = ordered
-	"common/planet_classes" = lios # lenient dupl
-	"common/pop_jobs" = lios # lenient dupl
-	"common/relics" = fios # cannot override?
-	"common/scripted_loc" = fios
-	"common/scripted_variables" = fios
-	"common/section_templates" = fios
-	"common/ship_behaviors" = fios
-	"common/ship_sizes" = dupl
-	"common/solar_system_initializers" = fios
-	"common/special_projects" = fios
-	"common/species_archetypes" = lios # lenient dupl
-	"common/star_classes" = fios
-	"common/starbase_modules" = dupl
-	"common/start_screen_messages" = fios
-	"common/static_modifiers" = fios
-	"common/strategic_resources" = fios # dupl in IMM
-	"common/technology" = dupl
-	"common/technology/category" = lios
-	"common/technology/tier" = lios
-	"common/traits" = dupl
-	"events" = fios
+overrides = {
+    # [high] Wiki: LIOS since v3.3 (pre-v3.3 broke auto-generated modifiers); IMM: overwritten object.
+    "common/buildings" = lios
+
+    # [high] Wiki: FIOS; IMM FIOSPaths.
+    "common/component_sets" = fios
+
+    # [high] Wiki: FIOS; IMM FIOSPaths.
+    "common/component_templates" = fios
+
+    # [high] Wiki: LIOS since v3.3 (pre-v3.3 broke auto-generated modifiers).
+    "common/districts" = lios
+
+    # [high] Wiki: LIOS; an entire-file overwrite is suggested.
+    "common/ethics" = lios
+
+    # [high] Wiki: FIOS; IMM FIOSPaths.
+    "common/event_chains" = fios
+
+    # [high] Wiki: FIOS; IMM FIOSPaths.
+    "common/global_ship_designs" = fios
+
+    # [high] Wiki: FIOS (a specific override is impossible; only entries override); IMM FIOSPaths.
+    "common/governments/authorities" = fios
+
+    # [medium] Wiki: DUPL (only works when the file is fully replaced).
+    "common/inline_scripts" = dupl
+
+    # [medium] Wiki: DUPL.
+    "common/name_lists" = dupl
+
+    # [medium] Wiki: DUPL/LIOS (entire-file override only).
+    "common/observation_station_missions" = dupl
+
+    # [high] Wiki: NO/MERGE (new entries are merged by name; existing entries cannot be modified).
+    "common/on_actions" = ordered
+
+    # [medium] Wiki: DUPL/LIOS (add_opinion_modifier is LIOS).
+    "common/opinion_modifiers" = lios
+
+    # [medium] Wiki: DUPL/LIOS (DUPL breaks habitability modifiers if individually overwritten).
+    "common/planet_classes" = lios
+
+    # [high] Wiki: LIOS since v3.3 (pre-v3.3 broke auto-generated modifiers).
+    "common/pop_jobs" = lios
+
+    # [high] Wiki: FIOS (an existing object key can be overridden with `name = key`).
+    "common/scripted_loc" = fios
+
+    # [high] Wiki: FIOS; IMM FIOSPaths.
+    "common/scripted_variables" = fios
+
+    # [medium] Wiki: NO DUPL/FIOS (existing entries cannot be overwritten); IMM FIOSPaths.
+    "common/section_templates" = fios
+
+    # [high] Wiki: FIOS; IMM FIOSPaths.
+    "common/ship_behaviors" = fios
+
+    # [high] Wiki: FIOS; IMM FIOSPaths.
+    "common/solar_system_initializers" = fios
+
+    # [high] Wiki: FIOS; IMM FIOSPaths.
+    "common/special_projects" = fios
+
+    # [high] Wiki: LIOS since v3.3 (pre-v3.3 broke auto-generated modifiers).
+    "common/species_archetypes" = lios
+
+    # [high] Wiki: FIOS; IMM FIOSPaths.
+    "common/start_screen_messages" = fios
+
+    # [high] Wiki: DUPL (must replace the whole file with the same filename); IMM FIOSPaths.
+    "common/strategic_resources" = dupl
+
+    # [medium] Wiki: LIOS* (LIOS overrides mostly still work; if the overriding tech lacks a "potential" block, it inherits it).
+    "common/technology" = lios
+
+    # [high] Default.
+    "common/technology/category" = lios
+    "common/technology/tier" = lios
+
+    # [medium] Wiki: DUPL.
+    "common/terraform" = dupl
+
+    # [high] Wiki: DUPL/NO (entire-file override only); IMM FIOSPaths.
+    "common/traits" = dupl
+
+    # [high] Wiki: FIOS.
+    "events" = fios
 }

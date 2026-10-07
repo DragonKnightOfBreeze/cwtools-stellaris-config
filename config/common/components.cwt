@@ -117,7 +117,7 @@ component_template = {
 		enum[ship_class]
 	}
 	## cardinality = 0..1
-	upgrades_to = <component_template>
+	upgrades_to = union[component_template_base] # `<component_template>` is not enough here
 	### For core components, components that have the same upgrade path are shown on the same row.
 	## cardinality = 0..1
 	upgrade_path = value_set[upgrade_path]
@@ -149,7 +149,7 @@ component_template = {
 	## cardinality = 0..1
 	blocked_by = {
 		## cardinality = 0..inf
-		<component_template>
+        union[component_template_base] # `<component_template>` may be not enough here
 	}
 	## cardinality = 0..1
 	custom_tooltip = localisation
@@ -565,8 +565,7 @@ rows = {
 		path_extension = .csv
         skip_last_column = yes
 		columns = {
-            # TODO [chronicle 3.0.0+] use `<component_template>|$,BIO_$` here when location-aware data types are supported
-			key = <component_template>
+			key = union[component_template_base] # `<component_template>` is not enough here
 			cost = float
 			power = float
 			min_damage = float
@@ -679,4 +678,13 @@ enums = {
 		single
 		spread
 	}
+}
+
+unions = {
+    union[component_template_base] = {
+        # snippet-matching, since chronicle v3.0.4
+        # see: https://windea.icu/Paradox-Language-Support/ref-config-format.md#faq-snippet-matching
+        <component_template>
+        <component_set>|BIO_$
+    }
 }
