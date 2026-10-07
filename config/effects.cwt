@@ -7365,9 +7365,10 @@ alias[effect:ordered_planet_within_border] = {
 	alias_name[effect] = alias_match_left[effect]
 }
 
-### Iterate through each inhabited planet owned by the current empire - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+### Iterate through each inhabited planet owned by the current empire (Deprecated; use owned_colony instead)- executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object randomly.
+## api_status = removed
 ## scopes = { country sector }
-## push_scope = planet
+## push_scope = colony
 alias[effect:random_owned_planet] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
@@ -7377,9 +7378,10 @@ alias[effect:random_owned_planet] = {
 	weights = { alias_name[modifier_rule] = alias_match_left[modifier_rule] }
 }
 
-### Iterate through each inhabited planet owned by the current empire - executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
+### Iterate through each inhabited planet owned by the current empire (Deprecated; use owned_colony instead)- executes the enclosed effects on one of them for which the limit triggers return true. Picks the specific object according to the order specified (position 0, order_by = trigger:num_pops would run the effects on the X with the most pops)
+## api_status = removed
 ## scopes = { country sector }
-## push_scope = planet
+## push_scope = colony
 alias[effect:ordered_owned_planet] = {
 	position = int
 	order_by = value_field
@@ -7391,9 +7393,10 @@ alias[effect:ordered_owned_planet] = {
 }
 
 
-### Iterate through each inhabited planet owned by the current empire - executes the enclosed effects on all of them for which the limit triggers return true
+### Iterate through each inhabited planet owned by the current empire (Deprecated; use owned_colony instead)- executes the enclosed effects on all of them for which the limit triggers return true
+## api_status = removed
 ## scopes = { country sector }
-## push_scope = planet
+## push_scope = colony
 alias[effect:every_owned_planet] = {
 	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]

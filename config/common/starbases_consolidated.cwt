@@ -112,8 +112,21 @@ starbase_building = {
 	## cardinality = 0..1
 	abort_construction_trigger = single_alias_right[trigger_clause]
 
+	####(buildings only) directly equips the specified component to the starbase
 	## cardinality = 0..inf
 	equipped_component = <component_template>
+
+	####(buildings only) directly equips the specified component to the starbase
+	####the triggered form applies only when its potential passes, in starbase scope with from = owner
+	####either form can be repeated, and every one that applies contributes
+	## cardinality = 0..inf
+	triggered_equipped_component = {
+		## cardinality = 0..1
+		## replace_scopes = { this = starbase root = starbase from = country }
+		potential  = single_alias_right[trigger_clause]
+		## cardinality = 0..inf
+		equipped_component = <component_set>
+	}
 
 	## cardinality = 0..1
 	show_component_tooltips = bool
@@ -224,6 +237,9 @@ starbase_module = {
     	## cardinality = 0..1
     	trigger = single_alias_right[trigger_clause]
 	}
+	####(modules only) ship design section that determines hull/slot structure.
+	####When a module is installed, the corresponding section is added to the starbase's ship design.
+	####If a new module uses a different section than the one it replaces, the entire ship design is rebuilt.
 	## cardinality = 0..1
 	section = <section_template>
 	## cardinality = 0..1
@@ -375,11 +391,25 @@ starbase_module = {
 	### trigger for module construction to be automatically aborted.
 	## cardinality = 0..1
 	abort_construction_trigger = single_alias_right[trigger_clause]
-	## cardinality = 0..1
-	equipped_component = <component_template>
 
-	## cardinality = 0..1
+	####(modules only) equips the section's slots with components from this set,
+	####auto upgraded to the highest tier the owner has researched
 	component_set = <component_set>
+
+	####(modules only) equips the section's slots with components from this set,
+	####auto upgraded to the highest tier the owner has researched
+	####the triggered form applies only when its potential passes, in starbase scope with from = owner
+	####either form can be repeated, and the last one that applies is the one used,
+	####so an unconditional entry belongs first as the default
+	####when no set applies the section is filled automatically by the starbase designer
+	## cardinality = 0..inf
+	triggered_component_set = {
+		## cardinality = 0..1
+		## replace_scopes = { this = starbase root = starbase from = country }
+		potential  = single_alias_right[trigger_clause]
+		## cardinality = 0..inf
+		component_set = <component_set>
+	}
 
 	## cardinality = 0..1
 	show_component_tooltips = bool

@@ -813,7 +813,9 @@ alias[trigger:has_mission] = <observation_station_mission>
 ## scopes = any
 alias[trigger:years_passed] == int_value_field
 
-### Checks the country's or sector's number of owned planets
+### Checks the country's or sector's number of owned planets (includes both planet and ship colonies)
+### (Deprecated; use num_owned_colonies instead)
+## api_status = removed
 ## scopes = { country sector }
 alias[trigger:num_owned_planets] == int_value_field
 
@@ -4574,16 +4576,18 @@ alias[trigger:count_planet_within_border] = {
 	count = all
 }
 
-### Iterate through each inhabited planet owned by the current empire - checks whether the enclosed triggers return true for any of them
+### Iterate through each inhabited planet owned by the current empire (Deprecated; use owned_colony instead) - checks whether the enclosed triggers return true for any of them
+## api_status = removed
 ## scopes = { country sector }
-## push_scope = planet
+## push_scope = colony
 alias[trigger:any_owned_planet] = single_alias_right[trigger_clause]
 
-### Iterate through each inhabited planet owned by the current empire - checks whether the enclosed triggers return true for X/all of them
+### Iterate through each inhabited planet owned by the current empire (Deprecated; use owned_colony instead) - checks whether the enclosed triggers return true for X/all of them
+## api_status = removed
 ## scopes = { country sector }
 alias[trigger:count_owned_planet] = {
 	## cardinality = 0..1
-	## push_scope = planet
+	## push_scope = colony
 	limit = single_alias_right[trigger_clause]
 	count == int_value_field
 	count = all
