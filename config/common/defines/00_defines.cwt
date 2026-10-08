@@ -2303,10 +2303,34 @@ defines = {
         AURA_EFFECT_FALLEN_EMPIRE_OR_CRISIS_REDUCTION = float
 
         ENTROPY_COUNDUITS_TERRAFORM_SPEED = float
-        ENTROPY_COUNDUITS_TERRAFORM_PLANET_CLASS_KEY = scalar
-        ENTROPY_COUNDUITS_TERRAFORM_PLANET_CLASS = scalar
-        ENTROPY_COUNDUITS_TERRAFORM_STAR_CLASS = scalar
-        ENTROPY_COUNDUITS_STATION_SHIP = scalar
+        ENTROPY_COUNDUITS_TERRAFORM_PLANET_CLASS_KEY = <planet_class>
+        ENTROPY_COUNDUITS_TERRAFORM_PLANET_CLASS = <planet_class>
+        ENTROPY_COUNDUITS_TERRAFORM_STAR_CLASS = <star_class>
+        ENTROPY_COUNDUITS_STATION_SHIP = localisation
+
+        STOCKPILE_BEING_COLLECTED_LOCALLY_BY_ARKSHIP = scalar
+        STOCKPILE_BEING_COLLECTED_LOCALLY_BY_LOGISTIC_SHIP = scalar
+        STOCKPILE_BEING_COLLECTED_REMOTELY = scalar
+
+        #### Maximum contracts that a nomad arkhip can accept at the same time
+        MAX_CONTRACTS_PER_COLONY_CARRIER = int
+        #### Maximum total amount of contracts that can be issued in the same system
+        MAX_CONTRACTS_PER_SYSTEM_ALL = int
+        #### Maximum amount of contracts from a single issuer in a system
+        MAX_CONTRACTS_PER_SYSTEM_ISSUER = int
+
+        #### Issuers can cancel accepted contracts after this many years
+        CONTRACT_ISSUER_CANCEL_MIN_YEARS = int
+
+        #### Days to moves nomadic arkship from galaxy space
+        AI_NOMADIC_SPACE_FALLBACK_INTERVAL  = int
+
+        #### Days an idle automated fleet waits between galaxy-wide target searches after one fails to find work
+        AUTOMATE_FLEET_SEARCH_COOLDOWN_DAYS = int
+
+        #### when the AI looks for a place to build a station, it'll go at most this many jumps away from the builder being considered
+        STATION_BUILD_DISTANCE_MAX			= int
+
     }
     NSpecies = {
         MIN_ETHIC_POINTS = int
@@ -2358,6 +2382,8 @@ defines = {
 
         ### How much does weapon preference tags in the ship designer affect the weight it assigns a weapon?
         DESIGNER_WEAPON_PREF_MUL = float
+        ### How much does the weapon preference affect the weight a weapon is assigned for starbases and defense platforms?
+        DESIGNER_STARBASE_WEAPON_PREF_MUL	= float
         ### How much does weapon role tags in the ship designer affect the weight it assigns a weapon?
         DESIGNER_WEAPON_ROLE_MUL = float
         ### How much does weapon role tags in the ship designer affect the weight it assigns a utility component

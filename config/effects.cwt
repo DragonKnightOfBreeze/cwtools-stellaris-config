@@ -3494,6 +3494,30 @@ alias[effect:set_ai_starbase_shields_ratio] = value_field[0.0..1.0]
 ## scopes = { country }
 alias[effect:clear_ai_starbase_shields_ratio] = yes
 
+### Sets the AI weapon preference override for the scoped country's auto-designed defense platforms.
+## scopes = { country }
+alias[effect:set_ai_platform_weapon_preference] = enum[component_tag]
+
+### Clears the AI defense platform weapon preference override, reverting to the empire-wide preference.
+## scopes = { country }
+alias[effect:clear_ai_platform_weapon_preference] = yes
+
+### Sets the AI armor ratio override for the scoped country's auto-designed defense platforms and ion cannons.
+## scopes = { country }
+alias[effect:set_ai_platform_armor_ratio] = value_field[0.0..1.0]
+
+### Clears the AI defense platform armor ratio override, reverting to the empire-wide ratio.
+## scopes = { country }
+alias[effect:clear_ai_platform_armor_ratio] = yes
+
+### Sets the AI shields ratio override for the scoped country's auto-designed defense platforms and ion cannons.
+## scopes = { country }
+alias[effect:set_ai_platform_shields_ratio] = value_field[0.0..1.0]
+
+### Clears the AI defense platform shields ratio override, reverting to the empire-wide ratio.
+## scopes = { country }
+alias[effect:clear_ai_platform_shields_ratio] = yes
+
 ### Enables or disables the VIR window pop_group-in
 ## scopes = { country }
 alias[effect:set_advisor_active] = bool

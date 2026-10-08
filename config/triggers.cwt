@@ -6102,6 +6102,10 @@ alias[trigger:can_add_random_non_blocker_deposit] = bool
 ## scopes = { country }
 alias[trigger:is_preferred_starbase_weapons] = enum[component_tag]
 
+### Checks if the country's AI prefers this weapon type for defense platforms (falls back to the empire-wide weapon preference when unset)
+## scopes = { country }
+alias[trigger:is_preferred_platform_weapons] = enum[component_tag]
+
 ### Returns the negotiated value (0 to 1) of a trade action in a trade deal with the specified empire.
 ## scopes = { country }
 alias[trigger:trade_action_value] = {
