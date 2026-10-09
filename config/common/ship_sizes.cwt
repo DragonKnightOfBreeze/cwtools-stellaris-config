@@ -128,7 +128,7 @@ ship_size = {
 	## cardinality = 0..1
 	size_multiplier = float
 	## cardinality = 0..1
-	map_counter_icon = scalar
+	map_counter_icon = <sprite>|GFX_$
 	## cardinality = 0..1
 	hull_scale = float
 	## cardinality = 0..1
@@ -146,10 +146,10 @@ ship_size = {
 	}
 	## cardinality = 0..1
 	### Determines sprites. ship_size_military_1 is default. The following sprite keys are generated from it: GFX_text_<key>, GFX_<key>, GFX_<key>_top, GFX_<key>_top_damaged
-	icon = scalar
+	icon = <sprite>|GFX_$
 	## cardinality = 0..1
 	### Determines sprites. ship_size_military_1 is default. The following sprite keys are generated from it: GFX_text_<key>, GFX_<key>, GFX_<key>_top, GFX_<key>_top_damaged
-	icon_cloned = scalar
+	icon_cloned = <sprite>|GFX_$
 	## cardinality = 0..1
 	use_shipnames_from = <ship_size>
 	## cardinality = 0..1
