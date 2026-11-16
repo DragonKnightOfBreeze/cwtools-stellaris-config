@@ -2916,9 +2916,6 @@ alias[effect:create_fleet] = {
 	### <integer value between 1 and the amount of growth stages in the design> (optional, use the first growth stage by default)
 	## cardinality = 0..1
 	growth_stage = int
-	###(default: yes; if yes, will also create the carrier colony,only when ship_size is marked to carry a colony. WARNING: carrier ships with no colony are killed on a daily basis)
-	## cardinality = 0..1
-	create_colony = bool
 }
 
 ### Set fleet's settings, any unspecified setting will set to default value.
@@ -3181,6 +3178,9 @@ alias[effect:create_ship] = {
 	### <integer value between 1 and the amount of growth stages in the design> (optional, use the first growth stage by default)
 	## cardinality = 0..1
 	growth_stage = int
+	###(default: yes; if yes, will also create the carrier colony,only when ship_size is marked to carry a colony. WARNING: carrier ships with no colony are killed on a daily basis)
+	## cardinality = 0..1
+	create_colony = bool
 }
 
 ### Creates a new ship design for use with last_created_design target
