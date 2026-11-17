@@ -394,6 +394,7 @@ starbase_module = {
 
 	####(modules only) equips the section's slots with components from this set,
 	####auto upgraded to the highest tier the owner has researched
+	## cardinality = 0..inf
 	component_set = <component_set>
 
 	####(modules only) equips the section's slots with components from this set,
