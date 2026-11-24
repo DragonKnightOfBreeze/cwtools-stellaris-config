@@ -36,7 +36,7 @@ localisation_links = {
 		output_scope = system
 	}
 	Owner = {
-		input_scopes = { army planet system leader pop_faction fleet ship starbase first_contact sector megastructure spy_network espionage_operation colony }
+		input_scopes = { army planet system leader pop_faction fleet ship starbase first_contact sector megastructure spy_network espionage_operation colony ideology }
 		output_scope = country
 	}
 	ContactCountry = {
@@ -141,6 +141,11 @@ localisation_links = {
 	EVENT_TARGET_9 = {
 		input_scopes = any
 		output_scope = any
+	}
+
+	Ideology = {
+		input_scopes = { country pop_faction }
+		output_scope = ideology
 	}
 
 	# links from data

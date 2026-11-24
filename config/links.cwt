@@ -26,6 +26,7 @@ links = {
 			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris astral_rift
 			colony mission
 			planet ship carrier
+			ideology
 		}
 		output_scope = country
 	}
@@ -63,7 +64,7 @@ links = {
 		}
 		output_scope = galactic_object
 	}
-	### Scopes to the last fleet that was created anywhere in the game.
+	### Scopes to the last system that was created anywhere in the game.
 	last_created_system = {
 		input_scopes = { all }
 		output_scope = galactic_object
@@ -160,6 +161,7 @@ links = {
 			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris
 			colony mission
 			planet ship carrier
+			ideology
 		}
 		output_scope = species
 	}
@@ -170,6 +172,7 @@ links = {
 			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris astral_rift
 			colony mission
 			planet ship carrier
+			ideology
 		}
 		output_scope = species
 	}
@@ -214,6 +217,7 @@ links = {
 			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris astral_rift
 			colony mission
 			planet ship carrier
+			ideology
 		}
 		output_scope = leader
 	}
@@ -224,6 +228,7 @@ links = {
 			sector archaeological_site first_contact spy_network espionage_operation agreement situation debris astral_rift
 			colony mission
 			planet ship carrier
+			ideology
 		}
 		output_scope = leader
 	}
@@ -518,6 +523,25 @@ links = {
 	### Scopes from a leader to their background planet.
 	background_colony = {
 		input_scopes = { leader }
+		output_scope = planet
+	}
+
+	#v4.6
+	### Scopes to the Ideology Advocate of the scoped target.
+	advocate = {
+		input_scopes = { country }
+		output_scope = leader
+	}
+
+	### Scopes to the Ideology adopted by a country, affecting a system, a planet or a colony or associated with a federation or a faction.
+	ideology = {
+		input_scopes = { planet country galactic_object pop_faction federation colony }
+		output_scope = ideology
+	}
+
+	### Scopes from a cultural envoy fleet to the colony it is currently converting (planet or arkship).
+	cultural_envoy_target = {
+		input_scopes = { fleet }
 		output_scope = planet
 	}
 

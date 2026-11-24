@@ -87,7 +87,7 @@ alias[trigger:has_opinion_modifier] = {
 alias[trigger:has_country_flag] = value[country_flag]
 
 ### Checks if the planet has a specific flag. Also valid in colony/carrier/ship scope, where it reads the colony carrier's flags (a settled colony's carrier is its planet; a Nomad Arkship's is its ship).
-## scopes = { planet ship colony }
+## scopes = { planet ship colony carrier }
 ## severity = warning
 alias[trigger:has_planet_flag] = value[planet_flag]
 
@@ -259,7 +259,7 @@ alias[trigger:pop_amount_percentage] = {
 	percentage == value_field[0.0..1.0]
 }
 
-### Checks the amount or percentage of pops following or not following the ethic. If used rhs this return amount of pops.
+### Checks the amount or the percentage of pops with or without the ethic. If used as a value this returns the amount of pops.
 ## scopes = { country pop_group pop_faction colony }
 ## push_scope = pop_group
 alias[trigger:pop_ethic_amount] = {
@@ -272,7 +272,7 @@ alias[trigger:pop_ethic_amount] = {
 	percentage == value_field[0.0..1.0]
 }
 
-### Checks the amount or percentage of pops following or not following the ethic. If used rhs this return percentage of pops.
+### Checks the amount or the percentage of pops with or without the ethic. If used as a value this returns the percentage of pops.
 ## scopes = { country pop_group pop_faction colony }
 ## push_scope = pop_group
 alias[trigger:pop_ethic_percentage] = {
@@ -284,6 +284,17 @@ alias[trigger:pop_ethic_percentage] = {
 	## cardinality = 0..1
 	percentage == value_field[0.0..1.0]
 }
+
+### Checks the amount or the percentage of pops with or without the/any ideology. If used as a value this returns the amount of pops.
+## scopes = { country pop_group pop_faction colony }
+alias[trigger:pop_ideology_amount] = {} # TODO
+# pop_ideology_amount = {, 	amount ><= <value>/<variable> OR percentage ><= <value>/<variable>, 	ideology = <target/any> OR ideology != <target/any>, }, Supported Scopes: country pop_group pop_faction colony
+
+### Checks the amount or the percentage of pops with or without the ideology. If used as a value this returns the percentage of pops.
+## scopes = { country pop_group pop_faction colony }
+alias[trigger:pop_ideology_percentage] = {} # TODO
+# pop_ideology_percentage = {, 	amount ><= <value>/<variable> OR percentage ><= <value>/<variable>, 	ideology = <target> OR ideology != <target>, }, Supported Scopes: country pop_group pop_faction colony
+
 
 #should check for <> too
 ### Checks the faction's support level
@@ -300,7 +311,7 @@ alias[trigger:used_naval_capacity_percent] == value_field
 alias[trigger:is_country_type] = <country_type>
 
 ### Checks if a country has a certain ethos
-## scopes = { country pop_group leader pop_faction dlc_recommendation }
+## scopes = { country pop_group leader pop_faction dlc_recommendation ideology }
 alias[trigger:has_ethic] = <ethic>
 
 ### Checks the country's used starbase capacity in relative terms (0.00-1.00)
@@ -1512,6 +1523,10 @@ alias[trigger:has_notification_modifier] = <notification_modifier>
 ## scopes = { colony planet ship carrier }
 alias[trigger:has_orbital_bombardment_stance] = <bombardment_stance>
 
+### Checks which orbital bombardment stance the fleet is using
+## scopes = { fleet }
+alias[trigger:uses_orbital_bombardment_stance] = <bombardment_stance>
+
 ### Checks if the planet has any kind of orbital station
 ## scopes = { planet ship carrier }
 alias[trigger:has_orbital_station] = bool
@@ -1706,7 +1721,7 @@ alias[trigger:is_inside_border] = scope_group[target_country]
 alias[trigger:is_ironman] = bool
 
 ### Checks if the specified species is the majority species on the current planet.
-## scopes = { colony planet ship carrier }
+## scopes = { colony planet ship carrier country }
 alias[trigger:is_majority_species] = scope_group[target_species]
 
 ### Checks if the country is the overlord of any subject countries
@@ -1927,7 +1942,7 @@ alias[trigger:num_ships] == int_value_field
 alias[trigger:num_society] == int_value_field
 
 ### Checks if the number of species on a planet, in an empire or in a pop_group faction is according to the argument. Does not count genetically modified species as unique.
-## scopes = { country pop_faction colony planet ship carrier }
+## scopes = { country pop_faction colony planet ship sector carrier }
 alias[trigger:num_species] == int_value_field
 
 ### Counts the number of starbases owned by the scoped country
@@ -1946,7 +1961,7 @@ alias[trigger:num_taken_planets] = {
 alias[trigger:num_traits] == int_value_field
 
 ### Checks if the number of species on a planet, in an empire or in a pop_group faction is according to the argument. Counts genetically modified species as unique.
-## scopes = { country pop_faction colony planet ship carrier }
+## scopes = { country pop_faction colony planet ship sector carrier }
 alias[trigger:num_unique_species] == int_value_field
 
 ### Checks how far removed the country/pop_group's ethos is from target's
@@ -2145,6 +2160,10 @@ alias[trigger:days_passed] == int_value_field
 ## scopes = { colony planet ship carrier }
 alias[trigger:free_amenities] == int_value_field
 
+### Checks the planet's total amenities
+## scopes = { planet ship colony carrier }
+alias[trigger:total_amenities] == int_value_field
+
 ### Checks if the country has a deficit of the defined resource
 ## scopes = { country colony planet ship carrier }
 alias[trigger:has_deficit] = <resource>
@@ -2153,8 +2172,8 @@ alias[trigger:has_deficit] = <resource>
 ## scopes = { country }
 alias[trigger:has_commercial_pact] = scope_group[target_country]
 
-### Checks specific resource stockpile for the country scope:
-## scopes = { country ship }
+### Checks specific resource stockpile for the country/ship/fleet scope. For fleets, checks the first ship in the fleet:
+## scopes = { country ship fleet }
 alias[trigger:resource_stockpile_compare] = {
 	resource = <resource>
 	value == value_field
@@ -2297,6 +2316,14 @@ alias[trigger:num_districts] = {
 ### Only works for uncapped districts as of 2.2.4
 ## scopes = { colony planet ship carrier }
 alias[trigger:num_free_districts] = {
+	type = any
+	type = <district>
+	value == int_value_field
+}
+
+### Counts unspecialized (empty) zone slots across the colony's districts of the given type, or across all districts when type = any. Use value < 1 to assert every slot is specialized.
+## scopes = { planet ship colony carrier }
+alias[trigger:num_unspecialized_districts] = {
 	type = any
 	type = <district>
 	value == int_value_field
@@ -2989,6 +3016,10 @@ alias[trigger:has_stale_intel] = {
 	intel = enum[intel_token]
 }
 
+### Checks the country's growth_scale
+## scopes = { country }
+alias[trigger:growth_scale] = value_field[0.0..1.0]
+
 ### Checks the number of defensive pacts the current country has.
 ## scopes = { country }
 alias[trigger:num_defensive_pacts] == int_value_field
@@ -3411,6 +3442,10 @@ alias[trigger:has_design_flag] = value[design_flag]
 ### Checks if L-Gates are enabled in game setup
 ## scopes = any
 alias[trigger:lgate_enabled] = bool
+
+### Checks if ideologies are enabled in game setup
+## scopes = any
+alias[trigger:ideologies_enabled] = bool
 
 ### Checks if the leader is immortal (either by script effect or species characteristics)
 ## scopes = { leader }
@@ -5229,6 +5264,10 @@ alias[trigger:is_infertile] = bool
 ## Scopes = { galactic_object }
 alias[trigger:cosmic_storm_influence_value] == value_field
 
+### Counts the number of pops that adhere to a faction
+## scopes = { pop_faction }
+alias[trigger:num_pop_faction_members] == int_value_field
+
 ### Checks the amount of currently active cosmic storms.
 ## scopes = any
 alias[trigger:num_cosmic_storms] == int_value_field
@@ -5433,6 +5472,10 @@ alias[trigger:acquired_specimen_count] == int_value_field
 ## scopes = any
 alias[trigger:has_any_flag] = bool
 
+### Checks if the ideology has a specific flag
+## scopes = { ideology }
+alias[trigger:has_ideology_flag] = value[ideology_flag]
+
 ### Checks if the debris is set as "must scavenge"
 ## scopes = { debris }
 alias[trigger:must_scavenge] = bool
@@ -5486,7 +5529,7 @@ alias[trigger:has_max_hp] == value_field
 alias[trigger:has_max_armor_hp] == value_field
 
 ### Checks the scoped object for the remaining days left of the specified timed flag (note: one can use e.g. my_flag@from to track relationships between objects)
-## scopes = { megastructure country pop_group fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector no_scope archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift colony planet ship carrier }
+## scopes = { megastructure country pop_group fleet galactic_object leader army ambient_object species pop_faction war federation starbase deposit sector no_scope archaeological_site first_contact spy_network espionage_operation espionage_asset agreement situation astral_rift colony planet ship ideology carrier }
 alias[trigger:timed_flag_days_left] = {
 
 	flag = value[megastructure_flag]
@@ -5515,6 +5558,7 @@ alias[trigger:timed_flag_days_left] = {
 	flag = value[agreement_flag]
 	flag = value[situation_flag]
 	flag = value[astral_rift_flag]
+	flag = value[ideology_flag]
 
 	value == int_value_field
 }
@@ -5851,6 +5895,16 @@ alias[trigger:count_ship_size_in_system] = {
 	count == int_value_field
 }
 
+### Checks the sum of the ship_size's size_multiplier of every ship present in orbit of the scoped object.
+## scopes = { galactic_object }
+alias[trigger:count_ship_size_in_orbit] = {
+	## cardinality = 0..1
+	## push_scope = ship
+	limit = single_alias_right[trigger_clause]
+	count = all
+	count == int_value_field
+}
+
 ### Iterate through every exhibit - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
 ## push_scope = exhibit
@@ -5877,11 +5931,17 @@ alias[trigger:has_pop_flag] = $any
 # ================== New triggers from 4.4.1 ==================
 ### Checks the armor_ratio of the ai personality of the scoped country.
 ## scopes = { country }
-alias[trigger:ai_armor_ratio] == float
+alias[trigger:ai_armor_ratio] == value_field[0.0..1.0]
 
 ### Checks the shields_ratio of the ai personality of the scoped country.
 ## scopes = { country }
-alias[trigger:ai_shields_ratio] == float
+alias[trigger:ai_shields_ratio] == value_field[0.0..1.0]
+
+### Get experience needed for a leader to level up
+## scopes = { leader }
+alias[trigger:get_leader_exp_to_level] = {
+	target = scope[leader]
+}
 
 ### Iterate through each colony controlled by the current empire - checks whether the enclosed triggers return true for any of them
 ## scopes = { country }
@@ -6106,6 +6166,26 @@ alias[trigger:is_preferred_starbase_weapons] = enum[component_tag]
 ## scopes = { country }
 alias[trigger:is_preferred_platform_weapons] = enum[component_tag]
 
+### Check fanatic level of ethic that matches or is opposite to ideology's
+## scopes = { country pop_group ideology }
+alias[trigger:ideology_ethic_fanatic_level] = {} # TODO
+# Levels are: regular = 1, fanatic = 2, absolute = 3, ideology_ethic_fanatic_level = { ideology = <ideology> level > 1 }, Supported Scopes: country pop_group ideology
+
+### Checks if a faction is fanatic
+## scopes = { pop_faction }
+alias[trigger:is_faction_fanatic] = bool
+
+### Subtracts the encryption value of the scope object with the decryption value of the target and compares with value. Target is only used for country scope.
+## scopes = { country spy_network espionage_operation }
+alias[trigger:relative_encryption_decryption_subtract] = {
+	target = scope[country]
+	value == value_field
+}
+
+### Checks if the country's ideology is rival of target country's ideology
+## scopes = { country }
+alias[trigger:is_ideology_rival] = scope[country]
+
 ### Returns the negotiated value (0 to 1) of a trade action in a trade deal with the specified empire.
 ## scopes = { country }
 alias[trigger:trade_action_value] = {
@@ -6114,6 +6194,31 @@ alias[trigger:trade_action_value] = {
 	with_country = any
 	value == value_field
 }
+
+### Check affinity with the target empire's adopted ideology, including attitude, trust and ideological strength towards that empire. Used for AI.
+## scopes = { country }
+alias[trigger:foreign_empire_ideology_affinity] = {
+	who = scope[country]
+	value == value_field
+}
+
+### Affinity penalty from wars against the ideology's custodian and followers, decaying yearly after each war ends. Used for AI.
+## scopes = { country }
+alias[trigger:ideology_war_penalty] = {} # TODO
+# ideology_war_penalty = { ideology = <ideology> value < 0 }, Supported Scopes: country
+
+### Returns the number of tenets (from the country's adopted Ideology). Returns 0 if no ideology is adopted.
+## scopes = { country }
+alias[trigger:num_tenets] == int_value_field
+
+### Checks if scoped country has an adopted ideology with momentum pending
+## scopes = { country }
+alias[trigger:is_momentum_pending] = bool
+
+### Checks if given megastructure module is in scoped megastructure.
+## scopes = { megastructure }
+alias[trigger:has_megastructure_module] = {} # TODO
+# has_megastructure_module = <module>, Supported Scopes: megastructure
 
 ### Checks if the scoped fleet/carrier is locked in its current system.
 ## scopes = { fleet colony planet ship carrier }
@@ -6147,10 +6252,11 @@ alias[trigger:starbase_network_size] == int_value_field
 
 ### Checks the country's used starbase capacity in absolute numbers
 ## scopes = { country }
-alias[trigger:used_starbase_capacity] == int_value_field
+alias[trigger:used_starbase_capacity] == value_field
 
 ### Checks the used percentage (0.00-1.00) of the ship's or starbase's local stockpile capacity. If over capacity, returns 1.
 ### For waystations, which have a separate capacity for each resource, only checks the resource with the highest percentage.
+### For fleets, checks the first ship in the fleet.
 ## scopes = { ship starbase }
 alias[trigger:used_stockpile_capacity_percentage] == value_field
 

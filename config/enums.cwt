@@ -1,4 +1,8 @@
 enums = {
+	enum[optimisation_batch] = {
+		begin
+		end
+	}
 	enum[days_months_year] = {
 		days
 		months
@@ -198,6 +202,7 @@ enums = {
 		random
 		tech
 		fleet
+		ideology
 	}
 	enum[federation_succession_term] = {
 		status_change
@@ -236,6 +241,7 @@ enums = {
 		strengthen_imperial_authority
 		undermine_imperial_authority
         patron_attunement
+		ideology
 		none
 	}
 	enum[planet_resource_compare_type] = {
@@ -532,4 +538,14 @@ enums = {
         TYPE_HEADER_03
         TYPE_HEADER_04
     }
+	enum[keep_automodding_type] = {
+		none
+		habitability_only
+		all
+	}
+	enum[rule_subject_ideological_type] = {
+		ideological_ban
+		unified_ideology
+		ideological_freedom
+	}
 }
