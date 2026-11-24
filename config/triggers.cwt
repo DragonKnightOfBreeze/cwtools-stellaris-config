@@ -287,14 +287,25 @@ alias[trigger:pop_ethic_percentage] = {
 
 ### Checks the amount or the percentage of pops with or without the/any ideology. If used as a value this returns the amount of pops.
 ## scopes = { country pop_group pop_faction colony }
-alias[trigger:pop_ideology_amount] = {} # TODO
-# pop_ideology_amount = {, 	amount ><= <value>/<variable> OR percentage ><= <value>/<variable>, 	ideology = <target/any> OR ideology != <target/any>, }, Supported Scopes: country pop_group pop_faction colony
+alias[trigger:pop_ideology_amount] = {
+	ideology = any
+	ideology = scope[ideology]
+	## cardinality = 0..1
+	amount == int_value_field
+	## cardinality = 0..1
+	percentage == value_field[0.0..1.0]
+}
 
 ### Checks the amount or the percentage of pops with or without the ideology. If used as a value this returns the percentage of pops.
 ## scopes = { country pop_group pop_faction colony }
-alias[trigger:pop_ideology_percentage] = {} # TODO
-# pop_ideology_percentage = {, 	amount ><= <value>/<variable> OR percentage ><= <value>/<variable>, 	ideology = <target> OR ideology != <target>, }, Supported Scopes: country pop_group pop_faction colony
-
+alias[trigger:pop_ideology_percentage] = {
+	ideology = any
+	ideology = scope[ideology]
+	## cardinality = 0..1
+	amount == int_value_field
+	## cardinality = 0..1
+	percentage == value_field[0.0..1.0]
+}
 
 #should check for <> too
 ### Checks the faction's support level
@@ -6166,10 +6177,12 @@ alias[trigger:is_preferred_starbase_weapons] = enum[component_tag]
 ## scopes = { country }
 alias[trigger:is_preferred_platform_weapons] = enum[component_tag]
 
-### Check fanatic level of ethic that matches or is opposite to ideology's
+### Check fanatic level of ethic that matches or is opposite to ideology's. Levels are: regular = 1, fanatic = 2, absolute = 3
 ## scopes = { country pop_group ideology }
-alias[trigger:ideology_ethic_fanatic_level] = {} # TODO
-# Levels are: regular = 1, fanatic = 2, absolute = 3, ideology_ethic_fanatic_level = { ideology = <ideology> level > 1 }, Supported Scopes: country pop_group ideology
+alias[trigger:ideology_ethic_fanatic_level] = {
+	ideology = scope[ideology]
+	level == int
+}
 
 ### Checks if a faction is fanatic
 ## scopes = { pop_faction }
@@ -6204,8 +6217,10 @@ alias[trigger:foreign_empire_ideology_affinity] = {
 
 ### Affinity penalty from wars against the ideology's custodian and followers, decaying yearly after each war ends. Used for AI.
 ## scopes = { country }
-alias[trigger:ideology_war_penalty] = {} # TODO
-# ideology_war_penalty = { ideology = <ideology> value < 0 }, Supported Scopes: country
+alias[trigger:ideology_war_penalty] = {
+	ideology = scope[ideology]
+	value == value_field
+}
 
 ### Returns the number of tenets (from the country's adopted Ideology). Returns 0 if no ideology is adopted.
 ## scopes = { country }
@@ -6217,8 +6232,7 @@ alias[trigger:is_momentum_pending] = bool
 
 ### Checks if given megastructure module is in scoped megastructure.
 ## scopes = { megastructure }
-alias[trigger:has_megastructure_module] = {} # TODO
-# has_megastructure_module = <module>, Supported Scopes: megastructure
+alias[trigger:has_megastructure_module] = <megastructure_module>
 
 ### Checks if the scoped fleet/carrier is locked in its current system.
 ## scopes = { fleet colony planet ship carrier }

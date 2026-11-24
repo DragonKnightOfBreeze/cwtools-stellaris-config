@@ -1,0 +1,52 @@
+types = {
+    type[megastructure_module] = {
+        path = "game/common/megastructure_modules"
+        path_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+        images = {
+            ## optional
+            icon = icon
+        }
+    }
+}
+
+## push_scope = megastructure
+megastructure_module = {
+    ## cardinality = 0..1
+    icon = <sprite>
+    ## cardinality = 0..1
+    construction_days = int
+    ## cardinality = 0..1
+    is_unique = bool
+
+    ## cardinality = 0..1
+    potential = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    possible = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    resources = {
+        ## cardinality = 0..1
+        category = <economic_category>
+        alias_name[economic_template] = alias_match_left[economic_template]
+    }
+
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country root = country }
+    modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..inf
+    ## replace_scopes = { this = country root = country }
+    triggered_country_modifier = single_alias_right[triggered_modifier_by_megastructure_clause]
+
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country root = country }
+    ai_weight = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+    }
+
+}

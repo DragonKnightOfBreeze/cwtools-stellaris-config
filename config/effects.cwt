@@ -10454,8 +10454,7 @@ alias[effect:set_rule_subject_ideological_type] = enum[rule_subject_ideological_
 
 ### Forces the application of an action to a scoped faction if the potential is fullfilled and the action available
 ## scopes = { pop_faction }
-alias[effect:faction_action] = {} # TODO
-# faction_action = "action_key", Supported Scopes: pop_faction
+alias[effect:faction_action] = <ideology_action>
 
 ### Cancel and removes player's current crisis path
 ## scopes = { country }
@@ -10601,7 +10600,39 @@ alias[effect:set_faction_fanatic] = bool
 
 ### Creates an Ideology from the scoped country, associated with the given ethic. Every argument is optional.
 ## scopes = { country }
-alias[effect:create_ideology] = {} # TODO
+alias[effect:create_ideology] = {
+
+	## cardinality = 0..1
+	ethic = <ethic>
+	## cardinality = 0..1
+	faction = scope[pop_faction]
+
+	## cardinality = 0..1
+	type = <ideology>
+
+	###(country/ideology)
+	## cardinality = 0..1
+	tenets = scope[country]
+
+	###(country/ideology)
+	## cardinality = 0..1
+	tenets = scope[ideology]
+
+	## cardinality = 0..1
+	tenets = {
+		## cardinality = 0..inf
+		tent = <ideology_tenets>
+	}
+
+	### (yes by default)
+	## cardinality = 0..1
+	auto_adopt = bool
+
+	## replace_scopes = { this = ideology root = ideology }
+	## cardinality = 0..1
+	effect = single_alias_right[effect_clause]
+
+}
 
 ### Destroys scoped Ideology.
 ## scopes = { ideology }
@@ -10609,7 +10640,7 @@ alias[effect:destroy_ideology] = yes
 
 ### Adopt given Ideology.
 ## scopes = { country federation }
-alias[effect:adopt_ideology] = {} # TODO
+alias[effect:adopt_ideology] = scope[ideology]
 
 ### Abandon current Ideology.
 ## scopes = { country federation }
@@ -10617,16 +10648,31 @@ alias[effect:abandon_adopted_ideology] = bool
 
 ### Reroll tenets for scoped ideology at given tiers or at random
 ## scopes = { ideology }
-alias[effect:reroll_tenets] = {} # TODO
+alias[effect:reroll_tenets] = {
+	tier = int_value_field
+	tier = random
+}
 
 ### Tries to register scoped object as target ideology's reach emitter.
 ## scopes = any
-alias[effect:add_emitter_to_ideology] = {} # TODO
+alias[effect:add_emitter_to_ideology] = {
+
+	target = scope[ideology]
+
+	### optional
+	## cardinality = 0..1
+	owner = scope[country]
+
+	### (optional, default no)
+	## cardinality = 0..1
+	low_priority = bool
+}
 
 ### Tries to unregister scoped object from target ideology's reach emitters.
 ## scopes = any
-alias[effect:remove_emitter_from_ideology] = {} # TODO
-# remove_emitter_from_ideology = {, 	target = <ideology>, }, Supported Scopes: all
+alias[effect:remove_emitter_from_ideology] = {
+	target = scope[ideology]
+}
 
 ### Tries to unregister scoped object from every ideology's reach emitters.
 ## scopes = any
@@ -10651,8 +10697,13 @@ alias[effect:open_leader_tab] = yes
 
 ### Converts a number of pops in the scoped pop group to the given ideology's faction.
 ## scopes = { pop_group }
-alias[effect:convert_to_ideology] = {} # TODO
-# convert_to_ideology = { ideology = <ideology> amount = <amount> }, Supported Scopes: pop_group
+alias[effect:convert_to_ideology] = {
+
+	ideology = scope[ideology]
+
+	amount = int_value_field
+
+}
 
 ### Adds Ideological Strength to the adopted Ideology
 ## scopes = { country }
@@ -10660,8 +10711,7 @@ alias[effect:add_ideological_strength] = value_field
 
 ### Executes an ideology action on the scoped country, for the adopted ideology. Checks the potential but bypasses the allow of the action.
 ## scopes = { country }
-alias[effect:execute_ideology_action] = {} # TODO
-# execute_ideology_action = <key>, Supported Scopes: country
+alias[effect:execute_ideology_action] = <ideology_action>
 
 ### Sets the scoped leader's custom description.
 ## scopes = { leader }

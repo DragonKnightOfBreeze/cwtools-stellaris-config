@@ -82,7 +82,7 @@ storm_types = {
 
     ## cardinality = 0..inf
     ## replace_scopes = { this = system root = system }
-    triggered_system_modifier = single_alias_right[triggered_modifier_by_leader_clause]
+    triggered_system_modifier = single_alias_right[triggered_modifier_clause]
 
     ## replace_scopes = { root = cosmic_storm this = cosmic_storm }
     ## cardinality = 0..1

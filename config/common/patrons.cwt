@@ -335,27 +335,27 @@ psionic_aura = {
         end = int_value_field
         ## cardinality = 0..inf
         ## replace_scopes = { this = fleet root = fleet }
-        owner_fleet_modifier = single_alias_right[triggered_modifier_clause]
+        owner_fleet_modifier = single_alias_right[triggered_modifier_for_trigger_details]
 
         ## cardinality = 0..inf
         ## replace_scopes = { this = colony root = colony }
-        owner_planet_modifier = single_alias_right[triggered_modifier_clause]
+        owner_planet_modifier = single_alias_right[triggered_modifier_for_trigger_details]
 
         ## cardinality = 0..inf
         ## replace_scopes = { this = fleet root = fleet }
-        neutral_fleet_modifier = single_alias_right[triggered_modifier_clause]
+        neutral_fleet_modifier = single_alias_right[triggered_modifier_for_trigger_details]
 
         ## cardinality = 0..inf
         ## replace_scopes = { this = planet root = planet }
-        neutral_planet_modifier = single_alias_right[triggered_modifier_clause]
+        neutral_planet_modifier = single_alias_right[triggered_modifier_for_trigger_details]
 
         ## cardinality = 0..inf
         ## replace_scopes = { this = fleet root = fleet }
-        rival_fleet_modifier = single_alias_right[triggered_modifier_clause]
+        rival_fleet_modifier = single_alias_right[triggered_modifier_for_trigger_details]
 
         ## cardinality = 0..inf
         ## replace_scopes = { this = colony root = colony }
-        rival_planet_modifier = single_alias_right[triggered_modifier_clause]
+        rival_planet_modifier = single_alias_right[triggered_modifier_for_trigger_details]
 
 		## cardinality = 0..1
 		ai_weight_coefficient = float
@@ -363,27 +363,27 @@ psionic_aura = {
 
     ## cardinality = 0..inf
     ## replace_scopes = { this = fleet root = fleet }
-    owner_fleet_modifier = single_alias_right[triggered_modifier_clause]
+    owner_fleet_modifier = single_alias_right[triggered_modifier_for_trigger_details]
 
     ## cardinality = 0..inf
     ## replace_scopes = { this = colony root = colony }
-    owner_planet_modifier = single_alias_right[triggered_modifier_clause]
+    owner_planet_modifier = single_alias_right[triggered_modifier_for_trigger_details]
 
     ## cardinality = 0..inf
     ## replace_scopes = { this = fleet root = fleet }
-    neutral_fleet_modifier = single_alias_right[triggered_modifier_clause]
+    neutral_fleet_modifier = single_alias_right[triggered_modifier_for_trigger_details]
 
     ## cardinality = 0..inf
     ## replace_scopes = { this = planet root = planet }
-    neutral_planet_modifier = single_alias_right[triggered_modifier_clause]
+    neutral_planet_modifier = single_alias_right[triggered_modifier_for_trigger_details]
 
     ## cardinality = 0..inf
     ## replace_scopes = { this = fleet root = fleet }
-    rival_fleet_modifier = single_alias_right[triggered_modifier_clause]
+    rival_fleet_modifier = single_alias_right[triggered_modifier_for_trigger_details]
 
     ## cardinality = 0..inf
     ## replace_scopes = { this = colony root = colony }
-    rival_planet_modifier = single_alias_right[triggered_modifier_clause]
+    rival_planet_modifier = single_alias_right[triggered_modifier_for_trigger_details]
 
     ## cardinality = 0..1
     ## replace_scopes = { this = galactic_object root = galactic_object }
@@ -415,7 +415,7 @@ psionic_aura = {
 
     ## cardinality = 0..inf
     ## replace_scopes = { this = system root = system }
-    triggered_system_modifier = single_alias_right[triggered_modifier_clause]
+    triggered_system_modifier = single_alias_right[triggered_modifier_for_trigger_details]
 
     daily_decrease = {
         ## replace_scopes = { this = galactic_object root = galactic_object }

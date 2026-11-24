@@ -548,4 +548,9 @@ enums = {
 		unified_ideology
 		ideological_freedom
 	}
+	enum[ideology_tenet_priority] = {
+		high
+		low
+		default
+	}
 }

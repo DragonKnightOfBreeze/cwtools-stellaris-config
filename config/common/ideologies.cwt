@@ -1,0 +1,312 @@
+types = {
+    type[ideology] = {
+        path = "game/common/ideologies"
+        path_extension = .txt
+        path_strict = yes
+    }
+    type[ideology_action] = {
+        path = "game/common/ideologies/actions"
+        path_extension = .txt
+        localisation = {
+            name = "$"
+            short = "$_short"
+            desc = "$_desc"
+            confirm	 = "$_confirm"
+        }
+    }
+    type[ideology_reach] = {
+        path = "game/common/ideologies/reach_types"
+        path_extension = .txt
+    }
+    type[ideology_tenets] = {
+        path = "game/common/ideologies/tenets"
+        path_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+        images = {
+            icon = "GFX_$"
+        }
+    }
+}
+
+ideology = {
+
+    ### Key of associated ethic. Must be a fanatic ethic or gestalt
+    ## cardinality = 1..1
+    ethic = <ethic>
+
+    ### yes/no (optional: default = yes), whether the ideology can be renamed manually or not
+    ## cardinality = 0..1
+    can_rename = bool
+
+    ### Key of ideology_reach_type. Will determine how the ideology reach is calculated
+    ## cardinality = 1..1
+    reach = <reach>
+
+    ### Scriptable value to roll this type among the types of the same ethic. Base value = 1. Scope = country, From = Origin faction (if any)
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country root = country from = pop_faction }
+    weight = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+    }
+
+    ### Faction type created in an affected empire if no faction can represent the ideology
+    ## cardinality = 1..1
+    faction = <pop_faction>
+
+    ## replace_scopes = { this = pop_faction root = pop_faction from = ideology }
+    faction_weight = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+    }
+
+    ### Levels composing the Ideological Strength of the Ideology. Used to unlock tenets
+    ## cardinality = 0..inf
+    strength_level = {
+        end = int
+    }
+
+    ### Scriptable value used to increase Ideological Strength. Scope is country, From is ideology
+    ## cardinality = 0..1
+    monthly_increase = {
+        ### A named group of sources, summed on its own so a mult only scales that group
+        ## cardinality = 0..inf
+        category = {
+            ### Header shown above the group's sources in the tooltip
+            ## cardinality = 1..1
+            desc = localisation
+            ## cardinality = 0..inf
+            modifier = {
+                alias_name[modifier_rule] = alias_match_left[modifier_rule]
+            }
+        }
+        ### Ungrouped modifiers, applied on top of the summed categories
+        ## cardinality = 0..inf
+        modifier = {
+            alias_name[modifier_rule] = alias_match_left[modifier_rule]
+        }
+    }
+
+    ### Scripted effect executed when Ideological Strength gains a level.
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country root = country from = ideology }
+    on_gain_level = single_alias_right[effect_clause]
+
+    ### Scripted effect executed when Ideological Strength loses a level.
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country root = country from = ideology }
+    on_lose_level = single_alias_right[effect_clause]
+
+    ### Scripted effect executed monthly.
+    ## cardinality = 0..1
+    ## replace_scopes = { this = ideology root = ideology }
+    on_monthly = single_alias_right[effect_clause]
+
+    ### Scripted effect executed right before ideology is destroyed.
+    ## cardinality = 0..1
+    ## replace_scopes = { this = ideology root = ideology }
+    on_destroy = single_alias_right[effect_clause]
+
+    ### Modifiers applied to countries adopting the ideology.
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country root = country from = ideology }
+    triggered_country_modifier = single_alias_right[triggered_modifier_for_trigger_details]
+
+    ### Modifiers applied to systems within the ideology's reach.
+    ## cardinality = 0..1
+    ## replace_scopes = { this = system root = system from = ideology }
+    triggered_system_modifier = single_alias_right[triggered_modifier_for_trigger_details]
+
+    ### Modifiers applied to pops following their owner's ideology.
+    ## cardinality = 0..1
+    ## replace_scopes = { this = pop_group root = pop_group from = country }
+    triggered_pop_group_modifier = single_alias_right[triggered_modifier_for_trigger_details]
+
+}
+
+ideology_action = {
+
+    ### Does this action has effects after it has been executed, like an upkeep, or does it have an on_cancel? (will switch to the toggle view in the UI)
+    ## cardinality = 0..1
+    has_lasting_effect = bool
+
+    ### Show a yes/no confirmation popup when the player executes this action, instead of running it immediately
+    ## cardinality = 0..1
+    requires_confirmation = bool
+
+    ### Can the action be displayed in the view
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country root = country }
+    potential = single_alias_right[trigger_clause]
+
+    ### Can the action be executed?
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country root = country }
+    allow = single_alias_right[trigger_clause]
+
+    ### Can the action be cancelled?
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country root = country }
+    allow_cancel = single_alias_right[trigger_clause]
+
+    ### Resources block (cost, produces, upkeep)
+    ## cardinality = 0..inf
+    resources = {
+        ## cardinality = 0..1
+        category = <economic_category>
+        alias_name[economic_template] = alias_match_left[economic_template]
+    }
+
+    ### Effect when executed
+    ## cardinality = 0..1
+    ## push_scope = country
+    effect = single_alias_right[effect_clause]
+
+    ### Effect when canceled
+    ## cardinality = 0..1
+    ## push_scope = country
+    on_cancel = single_alias_right[effect_clause]
+
+    ### Effect when executed
+    ## cardinality = 0..1
+    ## push_scope = country
+    effect = single_alias_right[effect_clause]
+
+    ### AI willingness to execute this action
+    ## cardinality = 0..1
+    ai_weight = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+    }
+
+    ### AI willingness to cancel this action
+    ## cardinality = 0..1
+    cancel_ai_weight = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+    }
+
+}
+
+## replace_scopes = { this = any root = any from = ideology }
+ideology_reach = {
+    ## cardinality = 0..inf
+    value = {
+        ## cardinality = 0..1
+        possible = single_alias_right[trigger_clause]
+        ## cardinality = 0..inf
+        modifier = {
+            alias_name[modifier_rule] = alias_match_left[modifier_rule]
+        }
+    }
+    ## cardinality = 0..inf
+    weight = {
+        ## cardinality = 0..1
+        possible = single_alias_right[trigger_clause]
+        ## cardinality = 0..inf
+        modifier = {
+            alias_name[modifier_rule] = alias_match_left[modifier_rule]
+        }
+    }
+    ### Calculated per system when calculating reach propagation (used alongside ideological_push_mult modifiers)
+    ### this: System (owner is valid)
+    ### from: emitter owner
+    ## replace_scopes = { this = system root = system from = owner fromfrom = country }
+    ## cardinality = 0..inf
+    ideological_push = {
+        ## cardinality = 0..inf
+        modifier = {
+            alias_name[modifier_rule] = alias_match_left[modifier_rule]
+        }
+    }
+
+    ### Calculated per system when calculating reach propagation (used alongside ideological_resistance_mult and foreign_ideological_push_mult modifiers)
+    ### this: System
+    ### from: emitter owner
+    ### fromfrom: system owner
+    ## replace_scopes = { this = system root = system from = country fromfrom = country }
+    ## cardinality = 0..inf
+    ideological_resistance = {
+        ## cardinality = 0..inf
+        modifier = {
+            alias_name[modifier_rule] = alias_match_left[modifier_rule]
+        }
+    }
+}
+
+ideology_tenets = {
+    ### List of possible ethics an ideology should have to select this tenet. An empty list means it can be selected by any ideology
+    ## cardinality = 0..1
+    ethics = {
+        ## cardinality = 0..inf
+        <ethic>
+    }
+    ### Conditions for the tenet to apply. Scope is country, From is ideology
+    ## cardinality = 0..1
+    ## replace_scopes = { this = country root = country }
+    potential = single_alias_right[trigger_clause]
+
+    ### Determines tenet's priority during roll selection. High prio tenets are always selected, while low prio are selected only when no other tenets are available.
+    ## cardinality = 0..1
+    priority = enum[ideology_tenet_priority]
+
+    ### If set, will display the icon of this civic/origin in the tenet selection window
+    ## cardinality = 0..1
+    source_civic = <civic_or_origin>
+
+    ### The tiers of this tenet will begin at this tier (optional, default TENET_TIER_MIN)
+    ## cardinality = 0..1
+    first_tier = int
+
+    ### Effect triggered when this tenet unlocks (contains variable local_tenet_tier for the current tier for description)
+    ## cardinality = 0..inf
+    ## replace_scopes = { this = country root = country }
+    on_unlock = single_alias_right[effect_clause]
+
+    ### Effect triggered when this tenet is lost (contains variable local_tenet_tier for the current tier for description)
+    ## cardinality = 0..inf
+    ## replace_scopes = { this = country root = country }
+    on_lock = single_alias_right[effect_clause]
+
+    ### Tenet tiers (add as much as required) (every modifier contains variable local_tenet_tier for the current tier for description)
+    ## cardinality = 0..inf
+    tier = {
+        ### Modifiers applied to the adopting country when this tier is active
+        ## cardinality = 0..inf
+        ## replace_scopes = { this = country root = country }
+        triggered_country_modifier = single_alias_right[triggered_modifier_for_tenet]
+
+        ### Modifiers applied to the adopting country's colonies, inside the ideology, when this tier is active
+        ## cardinality = 0..inf
+        ## replace_scopes = { this = colony root = colony from = country }
+    	triggered_colony_modifier = single_alias_right[triggered_modifier_for_tenet]
+
+        ### Modifiers applied to the adopting country's systems, inside the ideology, when this tier is active
+        ## cardinality = 0..inf
+        ## replace_scopes = { this = system root = system from = country }
+    	triggered_system_modifier = single_alias_right[triggered_modifier_for_tenet]
+
+        ### Modifiers applied to the pop groups following the ideology, if adopted by their owner, when this tier is active
+        ## cardinality = 0..inf
+        ## replace_scopes = { this = pop_group root = pop_group from = country }
+    	triggered_pop_group_modifier = single_alias_right[triggered_modifier_for_tenet]
+    }
+
+    ### Allows for alternative visuals and localization based on given triggers. Supports name, desc and source_civic
+    swappable_data = {
+        ## cardinality = 0..inf
+        swap_type = {
+            ## cardinality = 1..1
+            ## replace_scopes = { this = country root = country }
+            trigger = single_alias_right[trigger_clause]
+
+            ## cardinality = 0..1
+            name = localisation
+
+            ## cardinality = 0..1
+            desc = localisation
+
+            ## cardinality = 0..1
+            source_civic = <civic_or_origin>
+        }
+    }
+}

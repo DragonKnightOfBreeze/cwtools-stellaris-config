@@ -94,7 +94,7 @@ resolution = {
 	modifier = single_alias_right[modifier_clause]
 	### Modifier to be applied to all community members if passed and the potential trigger is true
 	## cardinality = 0..inf
-	triggered_modifier = single_alias_right[triggered_modifier_clause]
+	triggered_modifier = single_alias_right[triggered_modifier_for_trigger_details]
 	### Effect to be applied if passed, scope is country
 	## cardinality = 0..1
 	effect = single_alias_right[effect_clause]

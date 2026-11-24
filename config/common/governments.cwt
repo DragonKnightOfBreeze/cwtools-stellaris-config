@@ -383,6 +383,16 @@ civic_or_origin = {
 	## cardinality = 0..1
 	hide_modifiers = bool
 
+	### Repeatable. Country modifier applied when the empire has this civic and the potential trigger is true. Scope: country.
+	## replace_scopes = { this = country root = country }
+	## cardinality = 0..inf
+	triggered_country_modifier = single_alias_right[triggered_modifier_for_trigger_details]
+
+	### Repeatable. Planet modifier applied to each colony of the empire, on any colony carrier, when the empire owns and controls the carrier and the potential trigger is true. Scope: colony. The civic tooltip always shows it.
+	## replace_scopes = { this = colony root = colony }
+	## cardinality = 0..inf
+	triggered_planet_modifier = single_alias_right[triggered_modifier_for_trigger_details]
+
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	multiply_by_habitability_effect_modifier = single_alias_right[modifier_clause]
@@ -523,8 +533,6 @@ civic_or_origin = {
 		blocks_random_machine_empire_generation = bool
 	}
 
-
-
 	## cardinality = 0..1
 	room = icon[gfx/portraits/city_sets]
 	## cardinality = 0..1
@@ -609,7 +617,7 @@ councilor = {
 	modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..inf
 	## replace_scopes = { root = country this = country }
-	triggered_country_modifier = single_alias_right[triggered_modifier_clause]
+	triggered_country_modifier = single_alias_right[triggered_modifier_for_trigger_details]
 	### Custom tooltip text shown instead of the auto-generated modifier tooltip text of the council position.
 	## cardinality = 0..1
 	custom_tooltip = localisation

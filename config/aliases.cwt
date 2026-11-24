@@ -67,6 +67,11 @@ triggered_modifier_clause_base = {
 	mult = value_field
 	## cardinality = 0..inf
 	multiplier = value_field
+
+	## cardinality = 0..1
+	should_mult_desc = bool
+	## cardinality = 0..1
+	fix_key = localisation
 }
 
 ## inject = aliases.cwt@triggered_modifier_clause_base/*
@@ -119,6 +124,88 @@ single_alias[triggered_modifier_by_leader_clause] = {
 	## cardinality = 0..1
 	## replace_scopes = { this = leader root = leader }
 	potential = single_alias_right[trigger_clause]
+
+	### If "possible" is true, the "possible" description and the "modifier" will be shown in the tooltip
+	## cardinality = 0..1
+	show_trigger_if_true = bool
+
+	### Localization shown instead of the "possible" description when the "possible" is true (will enable "show_trigger_if_true")
+	## cardinality = 0..1
+	trigger_true_key_override = localisation
+
+	### If "potential" is false, every modifier will still be shown in the tooltip
+	## cardinality = 0..1
+	show_if_trigger_false = bool
+
+	### If "potential" is false, the "potential" description will be shown in the tooltip
+	## cardinality = 0..1
+	show_trigger_if_false = bool
+
+	### Localization shown instead of the "possible" description when the "possible" is false (will enable "show_trigger_if_false")
+	## cardinality = 0..1
+	trigger_false_key_override = localisation
+}
+
+## inject = aliases.cwt@triggered_modifier_clause_base/*
+single_alias[triggered_modifier_by_megastructure_clause] = {
+	## cardinality = 0..1
+	## replace_scopes = { this = megastructure root = megastructure }
+	potential = single_alias_right[trigger_clause]
+}
+
+## inject = aliases.cwt@triggered_modifier_clause_base/*
+single_alias[triggered_modifier_for_trigger_details] = {
+	## cardinality = 0..1
+	potential = single_alias_right[trigger_clause]
+
+	### If "possible" is true, the "possible" description and the "modifier" will be shown in the tooltip
+	## cardinality = 0..1
+	show_trigger_if_true = bool
+
+	### Localization shown instead of the "possible" description when the "possible" is true (will enable "show_trigger_if_true")
+	## cardinality = 0..1
+	trigger_true_key_override = localisation
+
+	### If "potential" is false, every modifier will still be shown in the tooltip
+	## cardinality = 0..1
+	show_if_trigger_false = bool
+
+	### If "potential" is false, the "potential" description will be shown in the tooltip
+	## cardinality = 0..1
+	show_trigger_if_false = bool
+
+	### Localization shown instead of the "possible" description when the "possible" is false (will enable "show_trigger_if_false")
+	## cardinality = 0..1
+	trigger_false_key_override = localisation
+}
+
+## inject = aliases.cwt@triggered_modifier_clause_base/*
+single_alias[triggered_modifier_for_tenet] = {
+	## cardinality = 0..1
+	potential = single_alias_right[trigger_clause]
+
+	## cardinality = 0..1
+	possible = single_alias_right[trigger_clause]
+
+	### If "possible" is true, the "possible" description and the "modifier" will be shown in the tooltip
+	## cardinality = 0..1
+	show_trigger_if_true = bool
+
+	### Localization shown instead of the "possible" description when the "possible" is true (will enable "show_trigger_if_true")
+	## cardinality = 0..1
+	trigger_true_key_override = localisation
+
+	### If "potential" is false, every modifier will still be shown in the tooltip
+	## cardinality = 0..1
+	show_if_trigger_false = bool
+
+	### If "potential" is false, the "potential" description will be shown in the tooltip
+	## cardinality = 0..1
+	show_trigger_if_false = bool
+
+	### Localization shown instead of the "possible" description when the "possible" is false (will enable "show_trigger_if_false")
+	## cardinality = 0..1
+	trigger_false_key_override = localisation
 }
 
 # triggered desc

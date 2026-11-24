@@ -47,6 +47,7 @@ crisis_level = {
 		<menace_perk>
 	}
 
+	## cardinality = 0..inf
 	on_unlock = single_alias_right[effect_clause]
 }
 
@@ -82,7 +83,7 @@ menace_perk = {
 	## replace_scopes = { this = federation root = federation }
 	federation_modifier = single_alias_right[modifier_clause]
 
-	## cardinality = 0..1
+	## cardinality = 0..inf
 	## replace_scopes = { this = country root = country }
 	on_unlock = single_alias_right[effect_clause]
 }
