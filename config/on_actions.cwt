@@ -210,7 +210,7 @@ on_actions = {
 	### 'Attacker' is the side that "IsHostile" to the planet controller. For example: spawned monster armies are attackers, but if they win and the player attempts to retake the planet, the player is the attacker
 	## replace_scopes = { this = country root = country from = country fromfrom = planet }
 	## event_type = country
-	on_planet_attackers_win
+	on_colony_attackers_win
 
 	### Triggers country_event for the attacker upon defeat
 	### This = country, attack leader
@@ -218,7 +218,7 @@ on_actions = {
 	### FromFrom = planet
 	## replace_scopes = { this = country root = country from = country fromfrom = planet }
 	## event_type = country
-	on_planet_attackers_lose
+	on_colony_attackers_lose
 
 	### Triggers country_event for the defender upon victory
 	### Root = country, planet owner
@@ -226,7 +226,7 @@ on_actions = {
 	### FromFrom = planet
 	## replace_scopes = { this = country root = country from = country fromfrom = planet }
 	## event_type = country
-	on_planet_defenders_win
+	on_colony_defenders_win
 
 	### Triggers country_event for the defender upon defeat
 	### This = country, planet owner
@@ -234,7 +234,7 @@ on_actions = {
 	### FromFrom = planet
 	## replace_scopes = { this = country root = country from = country fromfrom = planet }
 	## event_type = country
-	on_planet_defenders_lose
+	on_colony_defenders_lose
 
 	### Fires when you first get intel (_low and up) on a new system
 	### Scope = Country
@@ -266,6 +266,13 @@ on_actions = {
 	## event_type = fleet
 	on_entering_system_fleet
 
+	### A fleet has left a system
+	### Scope = Fleet
+	### From = System
+	## replace_scopes = { this = fleet root = fleet from = system }
+	## event_type = fleet
+	on_leaving_system_fleet
+
 	### A fleet executes a move order to exit borders
 	### Scope = Fleet
 	### From = Origin System
@@ -295,6 +302,21 @@ on_actions = {
 	## replace_scopes = { this = carrier root = carrier from = country fromfrom = fleet }
 	## event_type = carrier
 	on_planet_surveyed
+
+	### A country has gained a surveyed status on an astral rift. Happens after "on_survey_astral_rift" if a science ship surveyed an astral rift. (Can also happen without a ship through changes in intel levels)
+	### Root = Astral Rift
+	### From = Country
+	### FromFrom = Fleet of the science ship that surveyed it, if any
+	## replace_scopes = { this = astral_rift root = astral_rift from = country fromfrom = fleet }
+	## event_type = astral_rift
+	on_astral_rift_surveyed
+
+	### A country has gained a surveyed status on a ship. Can happen through changes in intel levels.
+	### Root = Ship
+	### From = Country
+	## replace_scopes = { this = ship root = ship from = country}
+	## event_type = ship
+	on_ship_surveyed
 
 	### A country has gained a surveyed status on an astral rift. Happens after "on_survey_astral_rift" if a science ship surveyed an astral rift. (Can also happen without a ship through changes in intel levels)
 	### Root = Astral Rift
@@ -459,6 +481,11 @@ on_actions = {
 	## event_type = country
 	on_fleet_disbanded
 
+	### This = fleet
+	## replace_scopes = { this = fleet root = fleet }
+	## event_type = fleet
+	on_fleet_went_mia
+
 	### This = owner of ship
 	### From = disbanded ship
 	## replace_scopes = { this = country root = country from = ship }
@@ -552,7 +579,13 @@ on_actions = {
 	### From = opponent war leader
 	## replace_scopes = { this = country root = country from = country }
 	## event_type = country
-	on_entering_war
+	on_war_entered
+
+	### This = country
+	### From = opponent war leader
+	## replace_scopes = { this = country root = country from = country }
+	## event_type = country
+	on_war_exited
 
 	### This = Country
 	### From = Fleet
@@ -616,7 +649,7 @@ on_actions = {
 	## event_type = carrier
 	on_planet_bombarded
 
-	### Planet has reached 0 pops from orbital bombardment
+	### Colony has reached 0 pops from orbital bombardment
 	### This = Planet
 	### From = Bombarder
 	## replace_scopes = { this = carrier root = carrier from = country }
@@ -631,7 +664,7 @@ on_actions = {
 	## event_type = carrier
 	on_ground_combat_devastation
 
-	### Planet has reached 0 pops from collateral damage
+	### Colony has reached 0 pops from collateral damage
 	### This = Planet
 	### From = Army owner
 	## replace_scopes = { this = carrier root = carrier from = country }
@@ -642,7 +675,7 @@ on_actions = {
 	### This = Planet
 	## replace_scopes = { this = carrier root = carrier }
 	## event_type = carrier
-	on_planet_ascension_tier_increased
+	on_colony_ascension_tier_increased
 
 	### Pop Group is abducted by raiding stance
 	### This = Pop Group scope
@@ -780,6 +813,10 @@ on_actions = {
 	## replace_scopes = { this = leader root = leader }
 	## event_type = leader
 	on_leader_unassigned
+
+	## replace_scopes = { this = leader root = leader }
+	## event_type = leader
+	on_post_leader_unassigned
 
 	### Executed as new ruler has been set
 	### This = Country
@@ -1121,6 +1158,22 @@ on_actions = {
 	## event_type = country
 	on_status_quo_forced
 
+	### A trade deal to end the war has been signed
+	### Root = Main Attacker
+	### From = Main Defender
+	### FromFrom = War
+	## replace_scopes = { this = country root = country from = country fromfrom = war }
+	## event_type = country
+	on_war_end_trade_deal
+
+	### One of the allies has signed a trade deal to leave a war early
+	### Root = Main Ally
+	### From = Actor
+	### FromFrom = War
+	## replace_scopes = { this = country root = country from = country fromfrom = war }
+	## event_type = country
+	on_war_end_trade_deal
+
 	### A new species is hosted in the empire
 	### Launched when:
 	### - a pop with a new species joined our empire
@@ -1196,14 +1249,14 @@ on_actions = {
 	### FromFrom = War
 	## replace_scopes = { this = country root = country from = planet fromfrom = war }
 	## event_type = country
-	on_rebels_take_planet_owner_switched
+	on_rebels_take_colony_owner_switched
 
 	### FromFrom = Former Owner
 	### From = Country scope (new owner, so invalid)
 	### This = Planet scope
 	## replace_scopes = { this = carrier root = carrier from = country fromfrom = country }
 	## event_type = carrier
-	on_planet_ownerless
+	on_colony_ownerless
 
 	### Fired whenever a new owner is set for a planet, following a war or through trade
 	### This = Planet scope
@@ -1211,7 +1264,7 @@ on_actions = {
 	### FromFrom = Country scope (previous owner, if any)
 	## replace_scopes = { this = carrier root = carrier from = country fromfrom = country }
 	## event_type = carrier
-	on_planet_transfer
+	on_colony_transfer
 
 	### Fired whenever a new owner is set for a planet, and the planet was aggressively conquered
 	### NOTE: fired in ADDITION to on_planet_transfer
@@ -1220,7 +1273,7 @@ on_actions = {
 	### FromFrom = Former Owner
 	## replace_scopes = { this = carrier root = carrier from = country fromfrom = country }
 	## event_type = carrier
-	on_planet_conquer
+	on_colony_conquer
 
 	### You have changed the location of your capital. Also called when a country's capital is first set e.g. during galaxy creation (but then FROM is not set)
 	### this/root = new capital
@@ -1321,6 +1374,14 @@ on_actions = {
 	## replace_scopes = { this = country root = country }
 	## event_type = country
 	on_country_type_changed
+
+	### A Megastructure has started building
+	### Root = Country
+	### From = System
+	### FromFrom = Fleet
+	## replace_scopes = { this = country root = country from = system fromfrom = fleet }
+	## event_type = country
+	on_megastructure_build_start
 
 	### A Megastructure has been built
 	### Root = Country
@@ -2216,6 +2277,12 @@ on_actions = {
 	## event_type = country
 	on_starbase_occupied
 
+	### This = Starbase
+	### From = Previous Owner Country
+	## replace_scopes = { this = starbase root = starbase from = country }
+	## event_type = country
+	on_waystation_lost
+
 	### A specimen has been acquired
 	### This = country receiving the specimen
 	## replace_scopes = { this = country root = country }
@@ -2401,6 +2468,115 @@ on_actions = {
 	## replace_scopes = { this = country root = country }
 	## event_type = country
 	on_new_country_selected
+
+	### Fired when a ship goes mobile after encamping
+	### scope = carrier
+	### from = carrier owner
+	## replace_scopes = { this = ship root = ship from = country }
+	## event_type = ship
+	on_arkship_mobile
+
+	### Fired when a ship becomes encamped
+	### scope = carrier
+	### from = carrier owner
+	## replace_scopes = { this = ship root = ship from = country }
+	## event_type = ship
+	on_arkship_encamped
+
+	### Fired when a system locked (encamped) ship is killed
+	### scope = system (where ship was locked in)
+	## replace_scopes = { this = system root = system }
+	## event_type = system
+	on_system_locked_ship_killed
+
+	### Fired whenever a new faction is created
+	### From = country
+	### This = pop faction
+	## replace_scopes = { this = pop_faction root = pop_faction from = country }
+	## event_type = pop_faction
+	on_faction_created
+
+	### Fired whenever a faction turns fanatic, except for the ones that are fanatic by type
+	### This = pop faction
+	## replace_scopes = { this = pop_faction root = pop_faction }
+	## event_type = pop_faction
+	on_faction_fanaticized
+
+	### Fired when a country changes its ethos
+	### This = Country
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_country_ethos_changed
+
+	### This = New Custodian
+	### From = Previous Custodian
+	### FromFrom = Ideology
+	## replace_scopes = { this = country root = country from = country fromfrom = ideology  }
+	## event_type = country
+	on_ideology_custodian_changed
+
+	### Fired when a country adopts a foreign Ideology
+	### This = Country
+	### From = Ideology
+	## replace_scopes = { this = country root = country from = ideology }
+	## event_type = country
+	on_ideology_adopted
+
+	### This = Country
+	### From = Ideology
+	## replace_scopes = { this = country root = country from = ideology }
+	## event_type = country
+	on_ideology_abandoned
+
+	### Fired when a country discovers a foreign Ideology
+	### This = Country
+	### From = revealed Ideology
+	## replace_scopes = { this = country root = country from = ideology }
+	## event_type = country
+	on_ideology_revealed
+
+	### Fired once, when a foreign Ideology's reach first comes into sensor range, before it is discovered
+	### This = Country
+	### From = detected Ideology
+	### FromFrom = Country emitting the reach
+	## replace_scopes = { this = country root = country from = ideology fromfrom = country }
+	## event_type = country
+	on_ideology_reach_detected
+
+	### Ideology Country module update. This runs before ideological strength calculations.
+	### This = Country
+	## replace_scopes = { this = country root = country }
+	## event_type = country
+	on_ideology_country_monthly
+
+	### A Cultural Envoy has begun actively converting a colony.
+	### This = Fleet (the envoy)
+	### From = the target colony carrier
+	## replace_scopes = { this = fleet root = fleet from = planet }
+	## event_type = fleet
+	on_cultural_envoy_conversion_started
+
+	### A Cultural Envoy has stopped actively converting a colony.
+	### This = Fleet (the envoy)
+	### From = the target colony carrier
+	## replace_scopes = { this = fleet root = fleet from = planet }
+	## event_type = fleet
+	on_cultural_envoy_conversion_ended
+
+	### A system is now affected by a new ideology.
+	### This = Galactic object (the system)
+	### From = Ideology (the new ideology)
+	### FromFrom = Ideology (the old ideology, if there was one)
+	## replace_scopes = { this = system root = system from = ideology fromfrom = ideology }
+	## event_type = system
+	on_system_affected_by_ideology
+
+	### A system is now clear of any ideology.
+	### This = Galactic object (the system)
+	### From = Ideology (the old ideology)
+	## replace_scopes = { this = system root = system from = ideology }
+	## event_type = system
+	on_system_unaffected_by_ideology
 
 	# endregion
 

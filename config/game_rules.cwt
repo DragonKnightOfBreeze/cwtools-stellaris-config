@@ -1007,14 +1007,6 @@ game_rules = {
 
 	### Root/this = country
 	### From = planet OR astral_rift
-	### Checks if the country is allowed to build a military station around this planet/star/astral_rift
-	## replace_scopes = { this = country root = country from = any }
-	can_build_military_station_around = {
-		alias_name[trigger] = alias_match_left[trigger]
-	}
-
-	### Root/this = country
-	### From = planet OR astral_rift
 	### Checks if the country is allowed to build an observation station around this planet/star/astral_rift
 	## replace_scopes = { this = country root = country from = any }
 	can_build_observation_station_around = {
@@ -1502,7 +1494,189 @@ game_rules = {
 		alias_name[trigger] = alias_match_left[trigger]
 	}
 
-	# endregion
+	### This = pop_group
+	### Pops that can follow an ideology (only these are considered by the Galactic Strength)
+	### Must stay in sync with the base join conditions of the main pop faction types
+	## replace_scopes = { this = pop_group }
+	pop_group_can_follow_ideology = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### Root = current colony
+	### This = pop_group
+	### Checked after can_pop_group_auto_migrate, and only for destinations outside the pop's own empire.
+	### Pops with no say in where they live do not leave the empire on their own.
+	## replace_scopes = { root = colony this = pop_group }
+	can_pop_group_auto_migrate_abroad = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	## replace_scopes = { this = leader }
+	can_leader_bypass_councilor_conditions = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	## replace_scopes = { this = country }
+	is_heir_rolled_automatically = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### Root/This = target colony
+	### From = cultural envoy fleet
+	## replace_scopes = { this = colony from = fleet }
+	can_cultural_envoy_convert_colony = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+
+	## replace_scopes = { this = any }
+	allow_fanatic_factions = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### Scope = Country
+	## replace_scopes = { this = country }
+	has_ideologies_insights = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### Scope = Country
+	## replace_scopes = { this = country }
+	can_open_ideologies_tab = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### Scope = Country
+	### from = ideology
+	## replace_scopes = { this = country from = ideology }
+	can_jeopardize_ideology_custody = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### This = leader
+	## replace_scopes = { this = leader }
+	should_reroll_leader = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### Scope = Country
+	### This = Country
+	## replace_scopes = { this = country }
+	can_skip_galcom_harmonicism_emergency_cooldown = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	## replace_scopes = { this = country }
+	ai_check_fleet_power_to_accept_ideology = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	## replace_scopes = { this = country }
+	ai_check_economic_power_to_accept_ideology = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	## replace_scopes = { this = country }
+	ai_check_tech_power_to_accept_ideology = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### this = emitter (any scope type)
+	### from = ideology
+	## replace_scopes = { this = any from = ideology }
+	should_object_emit_reach = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+
+	### this = ideology
+	### from = country
+	## replace_scopes = { this = ideology from = country }
+	should_ideology_support_advocate = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	## replace_scopes = { this = any }
+	is_force_of_will_win = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	## replace_scopes = { this = any }
+	can_repair_fleet_without_colonies = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	## replace_scopes = { this = any }
+	allow_empire_selection = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	## replace_scopes = { this = country }
+	is_empire_genocidal = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	#  These rules lift the restriction on assigning the empire ruler to a post.
+	#  The leader class each post requires still applies on top of them.
+
+	### This = ruler, From = fleet
+	### Required leader class: Commander
+	## replace_scopes = { this = leader from = fleet }
+	ruler_can_lead_navy = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### This = ruler, From = fleet
+	### Required leader class: Commander
+	### The fleet is the transport carrying the armies, so this covers both.
+	## replace_scopes = { this = leader from = fleet }
+	ruler_can_lead_army = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### This = ruler, From = fleet
+	### Required leader class: Scientist
+	## replace_scopes = { this = leader from = fleet }
+	ruler_can_crew_science_ship = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### This = ruler, From = fleet
+	### Required leader class: Official
+	## replace_scopes = { this = leader from = fleet }
+	ruler_can_crew_cultural_envoy = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### This = ruler, From = country
+	### Required leader class: Official
+	## replace_scopes = { this = leader from = country }
+	ruler_can_be_assigned_to_galactic_community = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### This = ruler, From = federation
+	### Required leader class: Official
+	## replace_scopes = { this = leader from = federation }
+	ruler_can_be_assigned_to_federation = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### This = ruler, From = ideology
+	### Required leader class: Official
+	## replace_scopes = { this = leader from = ideology }
+	ruler_can_be_ideology_advocate = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### This = ruler, From = colony
+	### Required leader class: Official, Commander or Scientist
+	## replace_scopes = { this = leader from = colony }
+	ruler_can_govern_planet = {
+		alias_name[trigger] = alias_match_left[trigger]
+	}
+
+	### endregion
 
 	# region from 01_gui_rules.txt
 

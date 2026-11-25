@@ -1,9 +1,9 @@
 types = {
-
+	## type_key_filter = terraform_link
 	type[terraform_link] = {
 		path = "game/common/terraform"
 		path_extension = .txt
-		skip_root_key = terraform_link
+		name_field = ""
 	}
 
 }

@@ -43,9 +43,15 @@ ethic = {
 	## cardinality = 0..1
 	category_opposite = bool
 
+	### Set on the regular and fanatic tiers. If absent, the ethic is absolute.
+	## cardinality = 0..1
+	absolute_variant = <ethic>
+
+	### Set on the fanatic and absolute tiers. If absent, the ethic is regular.
 	## cardinality = 0..1
 	regular_variant = <ethic>
 
+	### Set on the regular and absolute tiers. If absent, the ethic is fanatic.
 	## cardinality = 0..1
 	fanatic_variant = <ethic>
 
