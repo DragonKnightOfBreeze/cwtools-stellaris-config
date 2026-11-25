@@ -11,6 +11,23 @@ types = {
 			election_header = election_header # <sprite>
 		}
 	}
+	## type_key_filter = swap_type
+	type[swapped_pop_faction] = {
+		base_type = pop_faction
+		path = "game/common/pop_faction_types"
+		path_extension = .txt
+		skip_root_key = { any swappable_data }
+		name_field = "key"
+		localisation = {
+			## optional
+			name = name
+			## optional
+			desc = desc
+		}
+		images = {
+			icon = icon
+		}
+	}
 }
 
 # parameters
@@ -51,9 +68,35 @@ pop_faction = {
 	## cardinality = 0..1
 	guiding_ethic = <ethic>
 
-	### This shows what ethic icons to display in the faction view
-	## cardinality = 0..1
-	visual_ethic = localisation
+	## cardinality = 1..inf
+	swappable_data = {
+		## cardinality = 1..1
+		default = {
+			## cardinality = 0..1
+			name = localisation
+			## cardinality = 0..1
+			desc = localisation
+			## cardinality = 0..1
+			icon = <sprite>
+			visual_ethic = localisation
+		}
+		## cardinality = 0..inf
+		swap_type = {
+			## cardinality = 0..1
+			trigger = single_alias_right[trigger_clause]
+			## cardinality = 0..1
+			name = localisation
+			## cardinality = 0..1
+			desc = localisation
+			## cardinality = 0..1
+			icon = <sprite>
+			## cardinality = 0..1
+			weight = int
+			## cardinality = 0..1
+			key = localisation
+			visual_ethic = localisation
+		}
+	}
 
 	### default = yes; When set, the guiding ethic is added to pop_ethics_filter
 	## cardinality = 0..1

@@ -40,6 +40,9 @@ agenda = {
 	agenda_finish_modifier_duration = int
 	## cardinality = 0..1
 	finish_modifier = <static_modifier>
+
+	## cardinality = 0..1
+	on_cancel = single_alias_right[effect_clause]
 	## cardinality = 0..1
 	effect = single_alias_right[effect_clause]
 	## cardinality = 0..1

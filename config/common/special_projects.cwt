@@ -152,18 +152,20 @@ special_project = {
 	## cardinality = 0..1
 	triggered_requirement = {
 		text = localisation
+		### optional (default 1), the number of fleets that must tick this requirement
+		## cardinality = 0..1
 		count = int
 		## replace_scopes = { this = fleet root = fleet }
 		trigger = single_alias_right[trigger_clause]
 	}
 
+	### this = country (project owner); from = event scope (planet or ship, MIGHT NOT EXIST); fromfrom = project creation scope (usually equals location)
 	## push_scope = country
 	## cardinality = 0..1
-	### this = country (project owner); from = event scope (planet or ship, MIGHT NOT EXIST); fromfrom = project creation scope (usually equals location)
 	abort_trigger = single_alias_right[trigger_clause]
 
-	## cardinality = 0..1
 	### this = event scope (ship or planet); from = project creation scope (usually equals location)
+	## cardinality = 0..1
 	on_success = single_alias_right[effect_clause]
 
 	## cardinality = 0..1

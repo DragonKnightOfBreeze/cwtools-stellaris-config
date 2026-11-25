@@ -85,15 +85,7 @@ opinion_modifier = {
 	opinion = float
 
 	subtype[!triggered_opinion_modifier] = {
-		## cardinality = 0..1
-		decay = float
-		## cardinality = 0..1
-		## replace_scopes = { this = country root = country from = country }
-		decay = {
-			### root = country with the opinion, from = country it has the opinion of
-			## cardinality = 0..inf
-			alias_name[modifier_rule] = alias_match_left[modifier_rule]
-		}
+
 		## cardinality = 0..1
 		growth = float
 		## cardinality = 0..1
@@ -104,19 +96,12 @@ opinion_modifier = {
 			alias_name[modifier_rule] = alias_match_left[modifier_rule]
 		}
 
-		## cardinality = 0..1
-		### No by default
-		accumulative = bool
 
-		## cardinality = 0..1
-		### For use with accumulative if the base is negative
-		min = int[-9999...-1]
 		## cardinality = 0..1
 		### For use with accumulative if the base is positive
 		max = int[1...999]
 
-		## cardinality = 0..1
-		unique = bool
+
 
 		##cardinality = 0..1
 		monthly = yes
@@ -124,6 +109,28 @@ opinion_modifier = {
 		##cardinality = 0..1
 		months = int
 	}
+
+	## cardinality = 0..1
+	decay = float
+	## cardinality = 0..1
+	## replace_scopes = { this = country root = country from = country }
+	decay = {
+		### root = country with the opinion, from = country it has the opinion of
+		## cardinality = 0..inf
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	## cardinality = 0..1
+	### No by default
+	accumulative = bool
+
+	## cardinality = 0..1
+	### For use with accumulative if the base is negative
+	min = int[-9999...-1]
+
+
+	## cardinality = 0..1
+	unique = bool
 
 	subtype[block_triggered] = {
 		### stops modifier from automatically triggering when trigger evaluates to true

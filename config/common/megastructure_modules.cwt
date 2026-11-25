@@ -39,12 +39,24 @@ megastructure_module = {
     ## replace_scopes = { this = country root = country }
     modifier = single_alias_right[modifier_clause]
 
+    ## cardinality = 0..1
+    ## replace_scopes = { this = colony root = colony }
+    planet_modifier = single_alias_right[modifier_clause]
+
     ## cardinality = 0..inf
     ## replace_scopes = { this = country root = country }
     triggered_country_modifier = single_alias_right[triggered_modifier_by_megastructure_clause]
 
     ## cardinality = 0..1
-    ## replace_scopes = { this = country root = country }
+    ## replace_scopes = { this = megastructure root = megastructure }
+    on_finished = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    ## replace_scopes = { this = megastructure root = megastructure }
+    on_destroyed = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    ## replace_scopes = { this = megastructure root = megastructure }
     ai_weight = {
         alias_name[modifier_rule] = alias_match_left[modifier_rule]
     }

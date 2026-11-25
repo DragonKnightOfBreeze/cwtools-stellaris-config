@@ -24,6 +24,10 @@ types = {
 ## replace_scopes = { this = carrier root = carrier from = country }
 decision = {
 	## cardinality = 0..1
+	name = localisation
+	## cardinality = 0..1
+	desc = localisation
+	## cardinality = 0..1
 	owned_planets_only = bool
 	#### default: no. Shown on top of the list and highlighted
 	####
@@ -32,6 +36,8 @@ decision = {
 	## cardinality = 0..1
 	enactment_time = int_value_field
 
+	## cardinality = 0..1
+	custom_tooltip = localisation
 	## cardinality = 0..1
 	custom_tooltip = {
 		## cardinality = 0..1

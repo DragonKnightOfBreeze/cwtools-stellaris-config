@@ -37,6 +37,7 @@ dust_clouds = {
         opacity_change_reversion = bool
     }
 
+    ## cardinality = 0..1
     ambient_object = {
         type = <ambient_object>
         scale = float

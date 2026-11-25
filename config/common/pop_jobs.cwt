@@ -34,7 +34,7 @@ types = {
 		path = "game/common/pop_jobs"
 		path_extension = .txt
 		skip_root_key = { any swappable_data }
-		name_field = name
+		name_field = "name"
 		localisation = {
 			name = "job_$"
 			## optional
@@ -111,7 +111,9 @@ job = {
 			building_icon = icon[gfx/interface/icons/buildings]
 			## cardinality = 0..1
 			condition_string = localisation
+			## cardinality = 0..1
 			weight = float
+			## cardinality = 0..1
 			weight = {
 				alias_name[modifier_rule] = alias_match_left[modifier_rule]
 			}

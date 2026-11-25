@@ -92,6 +92,9 @@ enums = {
 # Agreement terms are the different terms that can be negotiated in Agreements, such as Subject Agreements.
 # This only defines which terms can be negotiated. The different options for the terms are defined by agreement_term_values.
 agreement_term = {
+	## cardinality = 0..1
+	## replace_scopes = { this = no_scope root = no_scope }
+	potential = single_alias_right[trigger_clause]
 	## cardinality = 1..1
 	### This defines how the term will show up in the UI. If it shows up as discrete/separate buttons or if it's a scale.
 	term_type = enum[agreement_term_type]

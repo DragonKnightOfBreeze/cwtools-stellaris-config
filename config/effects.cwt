@@ -1576,6 +1576,7 @@ alias[effect:add_casus_belli] = {
 alias[effect:set_war_goal] = {
 	type = <war_goal>
 	target = scope_group[target_country]
+	## cardinality = 0..1
 	enemy = scope_group[target_country]
 }
 

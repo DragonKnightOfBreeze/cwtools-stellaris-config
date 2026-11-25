@@ -17,7 +17,7 @@ types = {
 pop_category = {
 	rank = int
 
-	Icon and description swaps, scope: colony. swap_type fields:name, trigger, weight, icon, desc.
+	### Icon and description swaps, scope: colony. swap_type fields:name, trigger, weight, icon, desc.
 	## cardinality = 0..1
 	swappable_data = {
 		## cardinality = 0..inf
@@ -25,7 +25,7 @@ pop_category = {
 			## replace_scopes = { this = colony root = colony }
 			trigger = single_alias_right[trigger_clause]
 			## cardinality = 0..1
-			name = localisation
+			name = localisation|pop_cat_$
 			## cardinality = 0..1
 			desc = localisation
 			## cardinality = 0..1
@@ -64,6 +64,9 @@ pop_category = {
 	## cardinality = 0..1
 	## replace_scopes = { this = colony root = colony }
 	planet_modifier = single_alias_right[modifier_clause]
+	## cardinality = 0..1
+	## replace_scopes = { this = country root = country }
+	country_modifier = single_alias_right[modifier_clause]
 
 	## cardinality = 0..inf
 	## replace_scopes = { this = pop_group root = pop_group }
@@ -71,6 +74,17 @@ pop_category = {
 	## cardinality = 0..inf
 	## replace_scopes = { this = colony root = colony }
 	triggered_planet_modifier = single_alias_right[triggered_modifier_by_pop_group_clause]
+	## cardinality = 0..inf
+	## replace_scopes = { this = country root = country }
+	triggered_country_modifier = single_alias_right[triggered_modifier_by_pop_group_clause]
+	### Repeatable. Pop group modifier, scope: colony.
+	## cardinality = 0..inf
+	## replace_scopes = { this = colony root = colony }
+	triggered_planet_pop_group_modifier_for_all = single_alias_right[triggered_modifier_by_pop_group_clause]
+	### Repeatable. Pop group modifier, scope: pop group.
+	## cardinality = 0..inf
+	## replace_scopes = { this = pop_group root = pop_group }
+	triggered_planet_pop_group_modifier_for_species = single_alias_right[triggered_modifier_by_pop_group_clause]
 
 	### scope: pop_group to be resettled
 	allow_resettlement = single_alias_right[trigger_clause]

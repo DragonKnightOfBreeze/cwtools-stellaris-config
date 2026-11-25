@@ -377,6 +377,8 @@ country_type = {
 		all_technology_module = {}
 		## cardinality = 0..1
 		standard_trade_routes_module = {}
+		## cardinality = 0..1
+		standard_ideology_module = {}
 	}
 	## cardinality = 0..inf
 	resources = {

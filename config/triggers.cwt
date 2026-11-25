@@ -263,6 +263,7 @@ alias[trigger:pop_amount_percentage] = {
 ## scopes = { country pop_group pop_faction colony }
 ## push_scope = pop_group
 alias[trigger:pop_ethic_amount] = {
+	## cardinality = 0..1
 	limit = single_alias_right[trigger_clause]
 	## cardinality = 0..1
 	ethic = <ethic>
@@ -877,6 +878,7 @@ alias[trigger:is_ship_class] = enum[ship_class]
 ## scopes = { country }
 alias[trigger:count_tech_options] = {
 	area = enum[research_area]
+	## cardinality = 0..1
 	count == int_value_field
 }
 
@@ -2109,6 +2111,7 @@ alias[trigger:is_researching_special_project] = <special_project>
 ### Checks the number of starbase modules that are of the specified type or not
 ## scopes = { country galactic_object starbase }
 alias[trigger:count_starbase_modules] = {
+	## cardinality = 0..1
 	count == int_value_field
 	## cardinality = 0..1
 	type = <starbase_module>
@@ -2119,6 +2122,7 @@ alias[trigger:count_starbase_modules] = {
 ### Checks the number of starbase buildings that are of the specified type or not
 ## scopes = { country galactic_object starbase }
 alias[trigger:count_starbase_buildings] = {
+	## cardinality = 0..1
 	count == int_value_field
 	## cardinality = 0..1
 	type = <starbase_building>
@@ -2129,6 +2133,7 @@ alias[trigger:count_starbase_buildings] = {
 ### Checks if the scoped country has a specified quantity of a starbase size
 ## scopes = { country }
 alias[trigger:count_starbase_sizes] = {
+	## cardinality = 0..1
 	count == int_value_field
 	starbase_size = <ship_size.starbase>
 }
@@ -3926,6 +3931,7 @@ alias[trigger:count_owned_pop_group] = {
 	## cardinality = 0..1
 	## push_scope = pop_group
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -3936,8 +3942,9 @@ alias[trigger:count_owned_pop_amount] = {
 	## cardinality = 0..1
 	## push_scope = pop_group
 	limit = single_alias_right[trigger_clause]
-	## cardinality = ~1..1
+	## cardinality = 0..1
 	count == int_value_field
+	count = all
 }
 
 ### Checks the number of deposits on the planet that meet the specified criteria
@@ -3947,6 +3954,7 @@ alias[trigger:count_deposits] = {
 	type = <deposit>
 	## cardinality = 0..1
 	category = <deposit_category>
+	## cardinality = 0..1
 	count == int_value_field
 }
 
@@ -3972,6 +3980,7 @@ alias[trigger:count_war_participants] = {
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
 	side = scope[country]
+	## cardinality = 0..1
 	count == int_value_field
 }
 
@@ -3986,6 +3995,7 @@ alias[trigger:count_potential_war_participants] = {
 	attacker = scope[country]
 	defender = scope[country]
 	side = scope[country]
+	## cardinality = 0..1
 	count == int_value_field
 }
 
@@ -4010,6 +4020,7 @@ alias[trigger:count_species] = {
 	## cardinality = 0..1
 	## push_scope = species
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4020,6 +4031,7 @@ alias[trigger:count_exact_species] = {
 	## cardinality = 0..1
 	## push_scope = species
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4230,6 +4242,7 @@ alias[trigger:count_agreement] = {
 	## cardinality = 0..1
 	## push_scope = agreement
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4240,6 +4253,7 @@ alias[trigger:count_ambient_object] = {
 	## cardinality = 0..1
 	## push_scope = ambient_object
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4250,6 +4264,7 @@ alias[trigger:count_system_ambient_object] = {
 	## cardinality = 0..1
 	## push_scope = ambient_object
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4265,6 +4280,7 @@ alias[trigger:count_archaeological_site] = {
 	## cardinality = 0..1
 	## push_scope = archaeological_site
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4280,6 +4296,7 @@ alias[trigger:count_owned_army] = {
 	## cardinality = 0..1
 	## push_scope = army
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4295,6 +4312,7 @@ alias[trigger:count_planet_army] = {
 	## cardinality = 0..1
 	## push_scope = army
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4310,6 +4328,7 @@ alias[trigger:count_ground_combat_defender] = {
 	## cardinality = 0..1
 	## push_scope = army
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4325,6 +4344,7 @@ alias[trigger:count_ground_combat_attacker] = {
 	## cardinality = 0..1
 	## push_scope = army
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4335,6 +4355,7 @@ alias[trigger:count_country] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4345,6 +4366,7 @@ alias[trigger:count_relation] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4360,6 +4382,7 @@ alias[trigger:count_neighbor_country] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4375,6 +4398,7 @@ alias[trigger:count_country_neighbor_to_system] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4390,6 +4414,7 @@ alias[trigger:count_rival_country] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4405,6 +4430,7 @@ alias[trigger:count_federation_ally] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4415,6 +4441,7 @@ alias[trigger:count_playable_country] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4425,6 +4452,7 @@ alias[trigger:count_subject] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4440,6 +4468,7 @@ alias[trigger:count_available_debris] = {
 	## cardinality = 0..1
 	## push_scope = debris
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4455,6 +4484,7 @@ alias[trigger:count_owned_design] = {
 	## cardinality = 0..1
 	## push_scope = design
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4470,6 +4500,7 @@ alias[trigger:count_spynetwork] = {
 	## cardinality = 0..1
 	## push_scope = spy_network
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4485,6 +4516,7 @@ alias[trigger:count_espionage_operation] = {
 	## cardinality = 0..1
 	## push_scope = espionage_operation
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4500,6 +4532,7 @@ alias[trigger:count_espionage_asset] = {
 	## cardinality = 0..1
 	## push_scope = espionage_asset
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4515,6 +4548,7 @@ alias[trigger:count_federation] = {
 	## cardinality = 0..1
 	## push_scope = federation
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4530,6 +4564,7 @@ alias[trigger:count_first_contact] = {
 	## cardinality = 0..1
 	## push_scope = first_contact
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4545,6 +4580,7 @@ alias[trigger:count_active_first_contact] = {
 	## cardinality = 0..1
 	## push_scope = first_contact
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4560,6 +4596,7 @@ alias[trigger:count_galaxy_fleet] = {
 	## cardinality = 0..1
 	## push_scope = fleet
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4575,6 +4612,7 @@ alias[trigger:count_combatant_fleet] = {
 	## cardinality = 0..1
 	## push_scope = fleet
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4590,6 +4628,7 @@ alias[trigger:count_fleet_in_system] = {
 	## cardinality = 0..1
 	## push_scope = fleet
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4600,6 +4639,7 @@ alias[trigger:count_owned_fleet] = {
 	## cardinality = 0..1
 	## push_scope = fleet
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4615,6 +4655,7 @@ alias[trigger:count_controlled_fleet] = {
 	## cardinality = 0..1
 	## push_scope = fleet
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4625,6 +4666,7 @@ alias[trigger:count_fleet_in_orbit] = {
 	## cardinality = 0..1
 	## push_scope = fleet
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4635,6 +4677,7 @@ alias[trigger:count_orbital_station] = {
 	## cardinality = 0..1
 	## push_scope = fleet
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4650,6 +4693,7 @@ alias[trigger:count_galcom_member] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4665,6 +4709,7 @@ alias[trigger:count_council_member] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4680,6 +4725,7 @@ alias[trigger:count_affected_country] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4695,6 +4741,7 @@ alias[trigger:count_adopting_country] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4710,6 +4757,7 @@ alias[trigger:count_ideology] = {
 	## cardinality = 0..1
 	## push_scope = ideology
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4725,6 +4773,7 @@ alias[trigger:count_revealed_ideology] = {
 	## cardinality = 0..1
 	## push_scope = ideology
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4740,6 +4789,7 @@ alias[trigger:count_system_within_reach] = {
 	## cardinality = 0..1
 	## push_scope = system
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4755,6 +4805,7 @@ alias[trigger:count_system_within_emitter_reach] = {
 	## cardinality = 0..1
 	## push_scope = system
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4770,6 +4821,7 @@ alias[trigger:count_followed_ideology] = {
 	## cardinality = 0..1
 	## push_scope = ideology
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4785,6 +4837,7 @@ alias[trigger:count_ideology_emitter_country] = {
 	## cardinality = 0..1
 	## push_scope = ideology
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4795,6 +4848,7 @@ alias[trigger:count_owned_leader] = {
 	## cardinality = 0..1
 	## push_scope = leader
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4810,6 +4864,7 @@ alias[trigger:count_pool_leader] = {
 	## cardinality = 0..1
 	## push_scope = leader
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4825,6 +4880,7 @@ alias[trigger:count_envoy] = {
 	## cardinality = 0..1
 	## push_scope = leader
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4840,6 +4896,7 @@ alias[trigger:count_leader_in_training] = {
 	## cardinality = 0..1
 	## push_scope = leader
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4855,6 +4912,7 @@ alias[trigger:count_megastructure] = {
 	## cardinality = 0..1
 	## push_scope = megastructure
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4870,6 +4928,7 @@ alias[trigger:count_owned_megastructure] = {
 	## cardinality = 0..1
 	## push_scope = megastructure
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4885,6 +4944,7 @@ alias[trigger:count_system_megastructure] = {
 	## cardinality = 0..1
 	## push_scope = megastructure
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4895,6 +4955,7 @@ alias[trigger:count_member] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4910,6 +4971,7 @@ alias[trigger:count_associate] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4920,6 +4982,7 @@ alias[trigger:count_system_planet] = {
 	## cardinality = 0..1
 	## push_scope = planet
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4930,6 +4993,7 @@ alias[trigger:count_planet_within_border] = {
 	## cardinality = 0..1
 	## push_scope = planet
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4947,6 +5011,7 @@ alias[trigger:count_owned_planet] = {
 	## cardinality = 0..1
 	## push_scope = colony
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4962,6 +5027,7 @@ alias[trigger:count_controlled_planet] = {
 	## cardinality = 0..1
 	## push_scope = planet
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4977,6 +5043,7 @@ alias[trigger:count_galaxy_planet] = {
 	## cardinality = 0..1
 	## push_scope = planet
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4987,6 +5054,7 @@ alias[trigger:count_deposit] = {
 	## cardinality = 0..1
 	## push_scope = deposit
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -4997,6 +5065,7 @@ alias[trigger:count_moon] = {
 	## cardinality = 0..1
 	## push_scope = planet
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5012,6 +5081,7 @@ alias[trigger:count_species_pop_group] = {
 	## cardinality = 0..1
 	## push_scope = pop_group
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5027,6 +5097,7 @@ alias[trigger:count_job_pop_group] = {
 	## cardinality = 0..1
 	## push_scope = pop_group
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5043,6 +5114,7 @@ alias[trigger:count_owned_pop_job] = {
 	## cardinality = 0..1
 	## push_scope = pop_job
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5053,6 +5125,7 @@ alias[trigger:count_owned_workforce] = {
 	## cardinality = 0..1
 	## push_scope = pop_job
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5068,6 +5141,7 @@ alias[trigger:count_pop_faction] = {
 	## cardinality = 0..1
 	## push_scope = pop_faction
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5083,6 +5157,7 @@ alias[trigger:count_galaxy_sector] = {
 	## cardinality = 0..1
 	## push_scope = sector
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5098,6 +5173,7 @@ alias[trigger:count_owned_sector] = {
 	## cardinality = 0..1
 	## push_scope = sector
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5108,6 +5184,7 @@ alias[trigger:count_owned_ship] = {
 	## cardinality = 0..1
 	## push_scope = ship
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5123,6 +5200,7 @@ alias[trigger:count_controlled_ship] = {
 	## cardinality = 0..1
 	## push_scope = ship
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5133,6 +5211,7 @@ alias[trigger:count_ship_in_system] = {
 	## cardinality = 0..1
 	## push_scope = ship
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5148,6 +5227,7 @@ alias[trigger:count_system_with_aura] = {
 	## cardinality = 0..1
 	## push_scope = system
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5163,6 +5243,7 @@ alias[trigger:count_situation] = {
 	## cardinality = 0..1
 	## push_scope = situation
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5178,6 +5259,7 @@ alias[trigger:count_targeting_situation] = {
 	## cardinality = 0..1
 	## push_scope = situation
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5193,6 +5275,7 @@ alias[trigger:count_owned_pop_species] = {
 	## cardinality = 0..1
 	## push_scope = species
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5208,6 +5291,7 @@ alias[trigger:count_galaxy_species] = {
 	## cardinality = 0..1
 	## push_scope = species
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5218,6 +5302,7 @@ alias[trigger:count_owned_species] = {
 	## cardinality = 0..1
 	## push_scope = species
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5228,6 +5313,7 @@ alias[trigger:count_enslaved_species] = {
 	## cardinality = 0..1
 	## push_scope = species
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5243,6 +5329,7 @@ alias[trigger:count_existing_species_traits] = {
 	## cardinality = 0..1
 	## push_scope = trait
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5258,6 +5345,7 @@ alias[trigger:count_trait_of_species] = {
 	## cardinality = 0..1
 	## push_scope = trait
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5273,6 +5361,7 @@ alias[trigger:count_trait_available_for_species] = {
 	## cardinality = 0..1
 	## push_scope = trait
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5288,6 +5377,7 @@ alias[trigger:count_owned_starbase] = {
 	## cardinality = 0..1
 	## push_scope = starbase
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5303,6 +5393,7 @@ alias[trigger:count_owned_nonprimary_starbase] = {
 	## cardinality = 0..1
 	## push_scope = starbase
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5318,6 +5409,7 @@ alias[trigger:count_starbase_in_system] = {
 	## cardinality = 0..1
 	## push_scope = starbase
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5333,6 +5425,7 @@ alias[trigger:count_system] = {
 	## cardinality = 0..1
 	## push_scope = system
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5343,6 +5436,7 @@ alias[trigger:count_rim_system] = {
 	## cardinality = 0..1
 	## push_scope = system
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5358,6 +5452,7 @@ alias[trigger:count_system_within_border] = {
 	## cardinality = 0..1
 	## push_scope = system
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5368,6 +5463,7 @@ alias[trigger:count_neighbor_system] = {
 	## cardinality = 0..1
 	## push_scope = system
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5383,6 +5479,7 @@ alias[trigger:count_neighbor_system_euclidean] = {
 	## cardinality = 0..1
 	## push_scope = system
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5398,6 +5495,7 @@ alias[trigger:count_war_participant] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5408,6 +5506,7 @@ alias[trigger:count_attacker] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5418,6 +5517,7 @@ alias[trigger:count_defender] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5428,6 +5528,7 @@ alias[trigger:count_war] = {
 	## cardinality = 0..1
 	## push_scope = war
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5443,6 +5544,7 @@ alias[trigger:count_pre_ftl_within_border] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5458,6 +5560,7 @@ alias[trigger:count_observed_pre_ftl_within_border] = {
 	## cardinality = 0..1
 	## push_scope = country
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5473,6 +5576,7 @@ alias[trigger:count_astral_rift] = {
 	## cardinality = 0..1
 	## push_scope = astral_rift
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5488,6 +5592,7 @@ alias[trigger:count_bypass] = {
 	## cardinality = 0..1
 	## push_scope = bypass
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5503,6 +5608,7 @@ alias[trigger:count_bypass_in_system] = {
 	## cardinality = 0..1
 	## push_scope = bypass
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5542,6 +5648,7 @@ alias[trigger:count_species_traits] = {
 	## cardinality = 0..1
 	cost == int
 
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5677,6 +5784,7 @@ alias[trigger:count_cosmic_storm] = {
 	## cardinality = 0..1
 	## push_scope = cosmic_storm
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5691,6 +5799,7 @@ alias[trigger:count_system_within_storm] = {
 	## cardinality = 0..1
 	## push_scope = system
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5705,6 +5814,7 @@ alias[trigger:count_cosmic_storm_start_position] = {
 	## cardinality = 0..1
 	## push_scope = system
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5719,6 +5829,7 @@ alias[trigger:count_cosmic_storm_end_position] = {
 	## cardinality = 0..1
 	## push_scope = system
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5733,6 +5844,7 @@ alias[trigger:count_system_added_to_storm] = {
 	## cardinality = 0..1
 	## push_scope = system
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5747,6 +5859,7 @@ alias[trigger:count_system_removed_from_storm] = {
 	## cardinality = 0..1
 	## push_scope = system
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5762,6 +5875,7 @@ alias[trigger:count_owned_storm_influence_field] = {
 	## cardinality = 0..1
 	## push_scope = cosmic_storm_influence_field
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5777,6 +5891,7 @@ alias[trigger:count_system_in_cosmic_storm_influence_field] = {
 	## cardinality = 0..1
 	## push_scope = system
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -5939,8 +6054,8 @@ alias[trigger:count_used_naval_cap] = {
 	## cardinality = 0..1
 	## push_scope = fleet
 	limit = single_alias_right[trigger_clause]
-	count = all
-	count == int_value_field
+	value = all
+	value == int_value_field
 }
 
 ### Checks if the specified specimen contained by the scoped exhibit is of indicated collection category
@@ -6215,6 +6330,7 @@ alias[trigger:count_ship_size_in_system] = {
 	## push_scope = ship
 	limit = single_alias_right[trigger_clause]
 	count = all
+	## cardinality = 0..1
 	count == int_value_field
 }
 
@@ -6225,6 +6341,7 @@ alias[trigger:count_ship_size_in_orbit] = {
 	## push_scope = ship
 	limit = single_alias_right[trigger_clause]
 	count = all
+	## cardinality = 0..1
 	count == int_value_field
 }
 
@@ -6239,6 +6356,7 @@ alias[trigger:count_exhibit] = {
 	## cardinality = 0..1
 	## push_scope = exhibit
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -6324,6 +6442,7 @@ alias[trigger:count_controlled_colony] = {
 	## cardinality = 0..1
 	## push_scope = colony
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -6338,6 +6457,7 @@ alias[trigger:count_issued_mission] = {
 	## cardinality = 0..1
 	## push_scope = mission
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -6348,6 +6468,7 @@ alias[trigger:count_owned_colony] = {
 	## cardinality = 0..1
 	## push_scope = colony
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -6358,6 +6479,7 @@ alias[trigger:count_owned_contract] = {
 	## cardinality = 0..1
 	## push_scope = mission
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -6368,6 +6490,7 @@ alias[trigger:count_owned_mission] = {
 	## cardinality = 0..1
 	## push_scope = mission
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -6378,6 +6501,7 @@ alias[trigger:count_starbase_in_network] = {
 	## cardinality = 0..1
 	## push_scope = starbase
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -6388,6 +6512,7 @@ alias[trigger:count_system_planet_colony] = {
 	## cardinality = 0..1
 	## push_scope = colony
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -6398,6 +6523,7 @@ alias[trigger:count_system_ship_colony] = {
 	## cardinality = 0..1
 	## push_scope = colony
 	limit = single_alias_right[trigger_clause]
+	## cardinality = 0..1
 	count == int_value_field
 	count = all
 }
@@ -6552,6 +6678,7 @@ alias[trigger:is_system_locked] = bool
 ## scopes = { country }
 alias[trigger:num_claims_on_system] = {
 	target = scope[system]
+	## cardinality = 0..1
 	count == int_value_field
 }
 

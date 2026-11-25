@@ -78,6 +78,8 @@ ascension_perk = {
 
 	## cardinality = 0..1
 	custom_tooltip = localisation
+	## cardinality = 0..1
+	custom_tooltip_with_modifiers = localisation
 
 	## cardinality = 0..inf
 	tradition_swap = {

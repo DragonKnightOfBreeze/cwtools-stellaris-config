@@ -692,6 +692,8 @@ alias[government_trigger:authority] = {
 		text = localisation
 		## cardinality = 1..inf
 		value = <authority>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOT = {
@@ -700,6 +702,8 @@ alias[government_trigger:authority] = {
 		## severity = info
 		## cardinality = 1..inf
 		value = <authority>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOR = {
@@ -707,6 +711,8 @@ alias[government_trigger:authority] = {
 		text = localisation
 		## cardinality = 1..inf
 		value = <authority>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 }
 alias[government_trigger:country_type] = {
@@ -720,12 +726,16 @@ alias[government_trigger:country_type] = {
 		## severity = info
 		## cardinality = 1..99
 		value = <country_type>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOT = {
 		## cardinality = 0..1
 		text = localisation
 		value = <country_type>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOR = {
@@ -734,6 +744,8 @@ alias[government_trigger:country_type] = {
 		## severity = info
 		## cardinality = 1..99
 		value = <country_type>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 }
 alias[government_trigger:ethics] = {
@@ -747,12 +759,16 @@ alias[government_trigger:ethics] = {
 		## severity = info
 		## cardinality = 1..99
 		value = <ethic>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOT = {
 		## cardinality = 0..1
 		text = localisation
 		value = <ethic>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOR = {
@@ -761,6 +777,8 @@ alias[government_trigger:ethics] = {
 		## severity = info
 		## cardinality = 1..99
 		value = <ethic>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 }
 alias[government_trigger:civics] = {
@@ -775,6 +793,8 @@ alias[government_trigger:civics] = {
 		## severity = info
 		## cardinality = 1..99
 		value = <civic_or_origin.civic>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOT = {
@@ -782,6 +802,8 @@ alias[government_trigger:civics] = {
 		text = localisation
 		## cardinality = 0..99
 		value = <civic_or_origin.civic>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOR = {
@@ -790,6 +812,8 @@ alias[government_trigger:civics] = {
 		## severity = info
 		## cardinality = 1..99
 		value = <civic_or_origin.civic>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 }
 alias[government_trigger:origin] = {
@@ -803,12 +827,16 @@ alias[government_trigger:origin] = {
 		## severity = info
 		## cardinality = 1..99
 		value = <civic_or_origin.origin>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOT = {
 		## cardinality = 0..1
 		text = localisation
 		value = <civic_or_origin.origin>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOR = {
@@ -817,6 +845,8 @@ alias[government_trigger:origin] = {
 		## severity = info
 		## cardinality = 1..99
 		value = <civic_or_origin.origin>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 }
 alias[government_trigger:traits] = {
@@ -830,12 +860,16 @@ alias[government_trigger:traits] = {
 		## severity = info
 		## cardinality = 1..99
 		value = <trait.species_trait>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOT = {
 		## cardinality = 0..1
 		text = localisation
 		value = <trait.species_trait>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOR = {
@@ -844,6 +878,8 @@ alias[government_trigger:traits] = {
 		## severity = info
 		## cardinality = 1..99
 		value = <trait.species_trait>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 }
 alias[government_trigger:species_class] = {
@@ -857,12 +893,16 @@ alias[government_trigger:species_class] = {
 		## severity = info
 		## cardinality = 1..99
 		value = <species_class>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOT = {
 		## cardinality = 0..1
 		text = localisation
 		value = <species_class>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOR = {
@@ -871,6 +911,8 @@ alias[government_trigger:species_class] = {
 		## severity = info
 		## cardinality = 1..99
 		value = <species_class>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 }
 alias[government_trigger:species_archetype] = {
@@ -884,12 +926,16 @@ alias[government_trigger:species_archetype] = {
 		## severity = info
 		## cardinality = 1..99
 		value = <species_archetype>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOT = {
 		## cardinality = 0..1
 		text = localisation
 		value = <species_archetype>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOR = {
@@ -898,6 +944,8 @@ alias[government_trigger:species_archetype] = {
 		## severity = info
 		## cardinality = 1..99
 		value = <species_archetype>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 }
 alias[government_trigger:preferred_planet_class] = {
@@ -911,12 +959,16 @@ alias[government_trigger:preferred_planet_class] = {
 		## severity = info
 		## cardinality = 1..99
 		value = <planet_class>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOT = {
 		## cardinality = 0..1
 		text = localisation
 		value = <planet_class>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 	## cardinality = 0..inf
 	NOR = {
@@ -925,6 +977,8 @@ alias[government_trigger:preferred_planet_class] = {
 		## severity = info
 		## cardinality = 1..99
 		value = <planet_class>
+		## cardinality = 0..1
+		show_at_empire_creation = bool
 	}
 }
 alias[government_trigger:OR] = {
@@ -977,4 +1031,3 @@ alias[government_trigger:graphical_culture] = {
 	}
 }
 alias[government_trigger:is_nomadic] = bool
-alias[government_trigger:show_at_empire_creation] = bool

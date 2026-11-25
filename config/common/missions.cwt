@@ -245,6 +245,7 @@ mission = {
     issued_abort_trigger = single_alias_right[trigger_clause]
 
     ### OPTIONAL, defaults to yes. Doesn't actually do anything.
+    ## cardinality = 0..1
     sound = bool
 
     subtype[contract] = {

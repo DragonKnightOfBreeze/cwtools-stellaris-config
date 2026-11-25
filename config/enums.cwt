@@ -213,7 +213,14 @@ enums = {
 		years_40
 	}
 	enum[federation_setting] = {
+		commercial_pact
+		waystation_pact
 		research_sharing
+		research_agreement
+		free_migration
+		allow_subjects_to_join
+		equal_voting_power
+		failed_vote_half_price
 		failed_vote_half_price
 	}
 	enum[vote_type] = {
@@ -559,7 +566,7 @@ enums = {
 		negative
 		neutral
 	}
-	eunm[modifier_display_level] = {
+	enum[modifier_display_level] = {
 		hide_desc
 		desc_only
 		default

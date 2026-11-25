@@ -269,7 +269,7 @@ single_alias[complex_localisation] = {
 }
 
 single_alias[empire_flag] = {
-    ## cardinality = 1..1
+    ## cardinality = 0..1
     icon = single_alias_right[complex_file_path:flag]
     ## cardinality = 1..1
     background = single_alias_right[complex_file_path:flag]

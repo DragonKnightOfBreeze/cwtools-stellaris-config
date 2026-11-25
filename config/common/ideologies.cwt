@@ -29,6 +29,23 @@ types = {
             icon = "GFX_$"
         }
     }
+    ## type_key_filter = swap_type
+    type[swapped_ideology_tenet] = {
+        base_type = ideology_tenet
+        path = "game/common/ideologies/tenets"
+        path_extension = .txt
+        skip_root_key = { any swappable_data }
+        name_field = "name"
+        localisation = {
+            ## optional
+            name = name
+            ## optional
+            desc = desc
+        }
+        images = {
+            source_civic = source_civic
+        }
+    }
 }
 
 ideology = {
@@ -43,7 +60,7 @@ ideology = {
 
     ### Key of ideology_reach_type. Will determine how the ideology reach is calculated
     ## cardinality = 1..1
-    reach = <reach>
+    reach = <ideology_reach>
 
     ### Scriptable value to roll this type among the types of the same ethic. Base value = 1. Scope = country, From = Origin faction (if any)
     ## cardinality = 0..1
@@ -313,9 +330,15 @@ ideology_tenet = {
         ## cardinality = 0..inf
         ## replace_scopes = { this = pop_group root = pop_group from = country }
     	triggered_pop_group_modifier = single_alias_right[triggered_modifier_for_tenet]
+
+        ### Modifiers applied to the pop groups following the ideology, if adopted by their owner, when this tier is active
+        ## cardinality = 0..inf
+        ## replace_scopes = { this = leader root = leader from = country }
+        triggered_leader_modifier = single_alias_right[triggered_modifier_for_tenet]
     }
 
     ### Allows for alternative visuals and localization based on given triggers. Supports name, desc and source_civic
+    ## cardinality = 0..1
     swappable_data = {
         ## cardinality = 0..inf
         swap_type = {

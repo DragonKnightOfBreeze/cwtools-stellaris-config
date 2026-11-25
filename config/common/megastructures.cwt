@@ -59,6 +59,8 @@ megastructure = {
 	## cardinality = 0..1
 	portrait = <sprite>
 
+	## cardinality = 0..1
+	emitter = bool
 	### If specified, fleets that can potentially build the megastructure will have a separate order button with this icon.
 	### The icon should also have a version with the "_selected" suffix.
 	### Only shown for ships that can build megastructures via construction_capabilities, not scripted actions.
@@ -70,6 +72,8 @@ megastructure = {
 	### default: yes
 	## cardinality = 0..1
 	place_entity_on_planet_plane = bool
+	## cardinality = 0..1
+	nomad_reactivatable = bool
 	## cardinality = 0..1
 	entity_offset = { x = float y = float }
 	## cardinality = 0..1
@@ -228,6 +232,24 @@ megastructure = {
 		alias_name[modifier] = alias_match_left[modifier]
 	}
 
+	## cardinality = 0..1
+	## replace_scopes = { this = ship root = ship }
+	ship_modifier = single_alias_right[modifier_clause]
+
+	## cardinality = 0..1
+	## replace_scopes = { this = megastructure root = megastructure }
+	station_modifier = single_alias_right[modifier_clause]
+
+	### applied to the planet it orbits, scope: planet
+	## cardinality = 0..inf
+	## replace_scopes = { this = ship root = ship }
+	triggered_ship_modifier = single_alias_right[triggered_modifier_by_megastructure_clause]
+
+	### applied to the planet it orbits, scope: planet
+	## cardinality = 0..inf
+	## replace_scopes = { this = megastructure root = megastructure }
+	triggered_station_modifier = single_alias_right[triggered_modifier_by_megastructure_clause]
+
 	### applied to the planet it orbits, scope: planet
 	## cardinality = 0..inf
 	## replace_scopes = { this = planet root = planet }
@@ -238,12 +260,10 @@ megastructure = {
 	triggered_country_modifier = single_alias_right[triggered_modifier_by_megastructure_clause]
 
 	## cardinality = 0..1
-	## replace_scopes = { this = ship root = ship }
-	ship_modifier = single_alias_right[modifier_clause]
+	custom_tooltip = localisation
 
 	## cardinality = 0..1
-	## replace_scopes = { this = megastructure root = megastructure }
-	station_modifier = single_alias_right[modifier_clause]
+	custom_tooltip_with_modifiers = localisation
 
 	## cardinality = 0..1
 	placement_rules = {
@@ -317,6 +337,8 @@ megastructure = {
 	### Maximum number of modules this megastructure can have
 	max_module_capacity = int
 
+	overclock_loc_key
+	overclock_cooldown
 
 	## cardinality = 0..1
 	dismantle_cost = {

@@ -31,6 +31,23 @@ types = {
 			portrait = portrait # <sprite>
 		}
 	}
+	## type_key_filter = swap_type
+	type[swapped_menace_perk] = {
+		base_type = menace_perk
+		path = "game/common/menace_perks"
+		path_extension = .txt
+		skip_root_key = { any swappable_data }
+		name_field = ""
+		localisation = {
+			## optional
+			name = name
+			## optional
+			desc = desc
+		}
+		images = {
+			portrait = portrait
+		}
+	}
 }
 
 ## replace_scopes = { this = country root = country }
