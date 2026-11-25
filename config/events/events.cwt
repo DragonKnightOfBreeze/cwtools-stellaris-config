@@ -319,15 +319,16 @@ event = {
 
 		## cardinality = 0..inf
 		option = {
-			## cardinality = 1..inf
+
+			## cardinality = 0..inf
 			name = localisation
-			## cardinality = 1..inf
+			## cardinality = 0..inf
 			name = {
 				trigger = single_alias_right[trigger_clause]
 				## cardinality = 0..1
 				text = localisation
 			}
-			## cardinality = 1..inf
+			## cardinality = 0..inf
 			name = {
 				exclusive_trigger = single_alias_right[trigger_clause]
 				## cardinality = 0..1
@@ -379,6 +380,11 @@ event = {
 			hide_option_if_not_allowed = bool
 			## cardinality = 0..1
 			default_hide_option = bool
+
+			### default no. Only use to add_random_research_option
+			## cardinality = 0..1
+			generate_name_from_effect = bool
+
 			## cardinality = 0..1
 			custom_gui = scalar #points to a gui_type, currently all are defined as aliases but this needs to be updated
 
