@@ -10,6 +10,13 @@ alias[modifier_rule:modifier] = {
 	alias_name[trigger] = alias_match_left[trigger]
 	## cardinality = 0..1
 	desc = localisation
+	## cardinality = 0..1
+	max_decimals = int
+	## cardinality = 0..1
+	polarity = enum[modifier_polarity]
+	### Options are `hide_desc` to hide the modifier's description, `desc_only` to show a modifier's description without actually applying it to the final value, and `default`.
+	## cardinality = 0..1
+	display_level = eunm[modifier_display_level]
 }
 
 alias[modifier_rule:scaled_modifier] = {

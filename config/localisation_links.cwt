@@ -179,6 +179,13 @@ localisation_links = {
 		data_source = <job>
 		output_scope = pop_job
 	}
+	pop_category = {
+		type = scope
+		from_data = yes
+		data_source = <pop_category>
+		prefix = pop_cat_
+		output_scope = pop_category
+	}
 	patron_relation = {
 		type = scope
 		from_data = yes

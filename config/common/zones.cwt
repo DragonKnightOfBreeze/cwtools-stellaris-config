@@ -76,15 +76,29 @@ zone = {
     max_buildings = int
 
     ## cardinality = 0..1
-    include = {
+    included_buildings = {
         ## cardinality = 0..1
         all
         ## cardinality = 0..inf
         <building>
     }
 
+    ## cardinality = 0..inf
+    triggered_buildings = {
+        ## cardinality = 0..1
+        ## replace_scopes = { this = colony root = colony }
+        trigger = single_alias_right[trigger_clause]
+        ## cardinality = 1..1
+        included_buildings = {
+            ## cardinality = 0..1
+            all
+            ## cardinality = 0..inf
+            <building>
+        }
+    }
+
     ## cardinality = 0..1
-    exclude = {
+    excluded_buildings = {
         ## cardinality = 0..inf
         <building>
     }

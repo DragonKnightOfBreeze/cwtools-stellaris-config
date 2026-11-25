@@ -17,6 +17,24 @@ types = {
 pop_category = {
 	rank = int
 
+	Icon and description swaps, scope: colony. swap_type fields:name, trigger, weight, icon, desc.
+	## cardinality = 0..1
+	swappable_data = {
+		## cardinality = 0..inf
+		swap_type = {
+			## replace_scopes = { this = colony root = colony }
+			trigger = single_alias_right[trigger_clause]
+			## cardinality = 0..1
+			name = localisation
+			## cardinality = 0..1
+			desc = localisation
+			## cardinality = 0..1
+			icon = <sprite>
+			## cardinality = 0..1
+			weight = int
+		}
+	}
+
 	### default: yes?
 	## cardinality = 0..1
 	can_change_category = bool
@@ -84,6 +102,39 @@ pop_category = {
 		## cardinality = 0..1
 		category = <economic_category>
 		alias_name[economic_template] = alias_match_left[economic_template]
+	}
+
+	### Applies to every leader. Scriptable value, scope: colony.
+	## cardinality = 0..1
+	leader_background_weight = value_field
+
+	### Applies to every leader. Scriptable value, scope: colony.
+	## replace_scopes = { this = colony root = colony }
+	## cardinality = 0..1
+	leader_background_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	### Applies when the leader has the class. Key: leader class key.
+	## cardinality = 0..1
+	leader_background_class_weight = {
+		## cardinality = 0..inf
+		<leader_class> = {
+			alias_name[modifier_rule] = alias_match_left[modifier_rule]
+		}
+		## cardinality = 0..inf
+		<leader_class> = value_field
+	}
+
+	### Applies when the empire holds the ethic, not the leader.
+	## cardinality = 0..1
+	leader_background_ethic_weight = {
+		## cardinality = 0..inf
+		<ethic> = {
+			alias_name[modifier_rule] = alias_match_left[modifier_rule]
+		}
+		## cardinality = 0..inf
+		<ethic> = value_field
 	}
 	
 	## cardinality = 0..1

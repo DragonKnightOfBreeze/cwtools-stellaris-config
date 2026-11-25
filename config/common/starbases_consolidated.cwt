@@ -509,6 +509,9 @@ starbase_module = {
 
 starbase_level = {
 	ship_size = <ship_size>
+	#### Use the Wayline UI for the outliner instead of the Starbase UI.
+	## cardinality = 0..1
+	is_waystation = bool
 	## cardinality = 0..1
 	next_level = <starbase_level>
 	## cardinality = 0..1
@@ -599,10 +602,6 @@ starbase_type = {
 	weight_modifier = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
 	}
-
-	#### Use the Wayline UI for the outliner instead of the Starbase UI.
-	## cardinality = 0..1
-	is_waystation = bool
 
 	## cardinality = 0..1
 	### Set it so that the AI will build defense platforms (note: it will always build them in the capital system). Default: no

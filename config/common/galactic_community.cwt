@@ -72,7 +72,7 @@ resolution_group = {
 
 ## replace_scopes = { this = country root = country from = country }
 resolution = {
-	icon = scalar #not really
+	icon = <sprite>
 	## cardinality = 0..inf
 	resources = {
 		## cardinality = 0..1
@@ -81,6 +81,9 @@ resolution = {
 	}
 	### Does the resolution require a target country?
 	target = bool
+	### if set to yes, target will be an ideology, otherwise it will be a country
+	## cardinality = 0..1
+	is_target_ideology = bool
 	## cardinality = 0..1
 	level = int
 	## cardinality = 0..1

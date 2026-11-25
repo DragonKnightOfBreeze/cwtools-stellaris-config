@@ -31,7 +31,7 @@ database_object_types = {
 	}
 	civic = {
 		type = civic_or_origin
-		swap_type = swapped_civic
+		swap_type = swapped_civic_or_origin
 	}
 	district = {
 		type = district
@@ -86,4 +86,9 @@ database_object_types = {
         # - TODO [chronicle 3.0.0+] but "type + localisation" form is not supported atm
         type = policy
     }
+
+	councilor = {
+		type = councilor
+	}
+
 }

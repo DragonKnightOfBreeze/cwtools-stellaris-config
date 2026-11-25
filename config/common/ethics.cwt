@@ -11,6 +11,9 @@ types = {
 			## required
 			icon = "gfx/interface/icons/ethics/$.dds" # inferred
 		}
+		subtype[ethic_for_pops] = {
+			use_for_pops = yes
+		}
 	}
 	type[ethic_category] = {
 		path = "game/common/ethic_categories"
@@ -45,12 +48,6 @@ ethic = {
 
 	## cardinality = 0..1
 	fanatic_variant = <ethic>
-
-	## cardinality = 0..1
-	leader_background_job_weight = {
-		## cardinality = 0..inf
-		<job> = int
-	}
 
 	### always = yes by default
 	## cardinality = 0..1

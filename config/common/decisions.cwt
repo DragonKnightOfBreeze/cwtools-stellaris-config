@@ -30,7 +30,7 @@ decision = {
 	## cardinality = 0..1
 	important = bool
 	## cardinality = 0..1
-	enactment_time = int
+	enactment_time = int_value_field
 
 	## cardinality = 0..1
 	custom_tooltip = {

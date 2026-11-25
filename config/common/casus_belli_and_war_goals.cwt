@@ -133,9 +133,15 @@ war_goal = {
 		## cardinality = 0..1
 		demand_surrender = localisation
 		## cardinality = 0..1
+		demand_surrender = ""
+		## cardinality = 0..1
 		status_quo = localisation
 		## cardinality = 0..1
+		status_quo = ""
+		## cardinality = 0..1
 		surrender = localisation
+		## cardinality = 0..1
+		surrender = ""
 	}
 
 	## cardinality = 0..1

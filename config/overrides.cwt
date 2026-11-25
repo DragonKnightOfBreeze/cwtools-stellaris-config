@@ -37,7 +37,7 @@ overrides = {
     # [high] Wiki: FIOS; IMM FIOSPaths.
     "common/global_ship_designs" = fios
 
-    # [high] Wiki: FIOS (a specific override is impossible; only entries override); IMM FIOSPaths.
+    # [high] Wiki: FIOS (a specific override is impossible; only entries override); IMM FIOSPaths. Outdated! actually lios
     "common/governments/authorities" = fios
 
     # [medium] Wiki: DUPL (only works when the file is fully replaced).

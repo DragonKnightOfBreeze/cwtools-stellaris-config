@@ -68,6 +68,10 @@ triggered_modifier_clause_base = {
 	## cardinality = 0..inf
 	multiplier = value_field
 
+	### default no
+	## cardinality = 0..1
+	show_potential_if_true = bool
+	### default yes
 	## cardinality = 0..1
 	should_mult_desc = bool
 	## cardinality = 0..1

@@ -789,7 +789,8 @@ modifiers = {
 	pop_<job>_bonus_workforce_mult = { Pops }
 
 	# ethic modifiers
-	pop_<ethic>_attraction_mult = { Pops }
+	pop_<ethic.ethic_for_pops>_attraction_add = { Pops }
+	pop_<ethic.ethic_for_pops>_attraction_mult = { Pops }
 
 	# resolution_category modifiers
 	<resolution_category>_vote_strength_mult = { Countries }
@@ -814,7 +815,7 @@ modifiers = {
 	country_<leader_class.capped>_cap_add = { Countries } # TODO [chronicle 1.2.3+]
 	<leader_class>_lifespan_add = { Leaders }
 	<leader_class>_lifespan_mult = { Leaders }
-	country_<leader_class>_pool_size_add = { Countries }
+	country_<leader_class.can_be_pool>_pool_size_add = { Countries }
 	country_<leader_class>_external_pool_size_add = { Countries }
 	<leader_class>_starting_age_add = { Leaders }
 	<leader_class>_starting_age_mult = { Leaders }

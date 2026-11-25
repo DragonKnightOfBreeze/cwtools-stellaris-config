@@ -68,22 +68,46 @@ ideology = {
     }
 
     ### Scriptable value used to increase Ideological Strength. Scope is country, From is ideology
+    ## replace_scopes = { this = country root = country from = ideology }
     ## cardinality = 0..1
     monthly_increase = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
         ### A named group of sources, summed on its own so a mult only scales that group
         ## cardinality = 0..inf
         category = {
             ### Header shown above the group's sources in the tooltip
             ## cardinality = 1..1
             desc = localisation
-            ## cardinality = 0..inf
-            modifier = {
-                alias_name[modifier_rule] = alias_match_left[modifier_rule]
-            }
+            alias_name[modifier_rule] = alias_match_left[modifier_rule]
         }
-        ### Ungrouped modifiers, applied on top of the summed categories
+    }
+
+    ###  This: country From: ideology
+    ## replace_scopes = { this = country root = country from = ideology }
+    ## cardinality = 0..1
+    intel = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+        ### A named group of sources, summed on its own so a mult only scales that group
         ## cardinality = 0..inf
-        modifier = {
+        category = {
+            ### Header shown above the group's sources in the tooltip
+            ## cardinality = 1..1
+            desc = localisation
+            alias_name[modifier_rule] = alias_match_left[modifier_rule]
+        }
+    }
+
+    ###  This: country From: ideology
+    ## replace_scopes = { this = country root = country from = ideology }
+    ## cardinality = 0..1
+    ideology_affinity = {
+        alias_name[modifier_rule] = alias_match_left[modifier_rule]
+        ### A named group of sources, summed on its own so a mult only scales that group
+        ## cardinality = 0..inf
+        category = {
+            ### Header shown above the group's sources in the tooltip
+            ## cardinality = 1..1
+            desc = localisation
             alias_name[modifier_rule] = alias_match_left[modifier_rule]
         }
     }

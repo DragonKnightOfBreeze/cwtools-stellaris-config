@@ -99,6 +99,7 @@ enums = {
 		storms
 		mission
 		colony
+		ideology
 	}
 	enum[intel_level] = {
 		none
@@ -551,6 +552,16 @@ enums = {
 	enum[ideology_tenet_priority] = {
 		high
 		low
+		default
+	}
+	enum[modifier_polarity] = {
+		positive
+		negative
+		neutral
+	}
+	eunm[modifier_display_level] = {
+		hide_desc
+		desc_only
 		default
 	}
 }

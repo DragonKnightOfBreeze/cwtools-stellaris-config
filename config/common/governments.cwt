@@ -93,8 +93,8 @@ types = {
 		}
 	}
 	## type_key_filter = swap_type
-	type[swapped_civic] = {
-		base_type = civic_or_origin.civic
+	type[swapped_civic_or_origin] = {
+		base_type = civic_or_origin
 		path = "game/common/governments/civics"
 		path_extension = .txt
 		skip_root_key = any
@@ -541,12 +541,6 @@ civic_or_origin = {
 	city_graphical_culture = <graphical_culture>
 
 	## cardinality = 0..1
-	leader_background_job_weight = {
-		## cardinality = 0..inf
-		<job> = int
-	}
-
-	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
 	random_weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
@@ -588,7 +582,9 @@ civic_or_origin = {
 }
 
 councilor = {
-	### Which leader classes can have this council position. Currently only used for the Recruit new Leader buttons. Default = none.
+	###Used to indicate if a councilor position is given by an enclave empire. default = no.
+	## cardinality = 0..1
+	is_enclave_councilor = bool
 	### Which leader classes can have this council position. Currently only used for the Recruit new Leader buttons. Default = none.
 	leader_class = {
 		## cardinality = 0..inf
@@ -611,13 +607,20 @@ councilor = {
 	### Custom text shown instead of "UNLOCK_COUNCIL_POSITION_TOOLTIP for council positions without a civic"
 	## cardinality = 0..1
 	custom_unlock_title = localisation
+
 	### Country Modifier, that is multiplied by assigned Leader's level.
 	## cardinality = 0..1
 	## replace_scopes = { this = country root = country }
+
 	modifier = single_alias_right[modifier_clause]
 	## cardinality = 0..inf
 	## replace_scopes = { root = country this = country }
 	triggered_country_modifier = single_alias_right[triggered_modifier_for_trigger_details]
+
+	## replace_scopes = { this = colony root = colony }
+	## cardinality = 0..inf
+	triggered_planet_modifier = single_alias_right[triggered_modifier_for_trigger_details]
+
 	### Custom tooltip text shown instead of the auto-generated modifier tooltip text of the council position.
 	## cardinality = 0..1
 	custom_tooltip = localisation
@@ -974,3 +977,4 @@ alias[government_trigger:graphical_culture] = {
 	}
 }
 alias[government_trigger:is_nomadic] = bool
+alias[government_trigger:show_at_empire_creation] = bool

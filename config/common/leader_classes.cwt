@@ -5,6 +5,9 @@ types = {
 		subtype[capped] = {
 			leader_capacity = int[1..inf]
 		}
+		subtype[can_be_pool] = {
+			valid_for_leader_pool = yes
+		}
 		localisation = {
 			name = name
 			## optional
@@ -32,6 +35,9 @@ leader_class = {
 	### default: no
 	## cardinality = 0..1
 	can_govern_planet = bool
+	### The leader can crew cultural envoy ships.
+	## cardinality = 0..1
+	can_crew_cultural_envoy = bool
 	### default: no
 	## cardinality = 0..1
 	can_be_envoy = bool
@@ -81,6 +87,13 @@ leader_class = {
 	## cardinality = 0..1
 	can_be_assigned_to_galactic_community = bool
 
+	### The leader can take an ideology advocate post.
+	## cardinality = 0..1
+	can_be_ideology_advocate = bool
+	### Default yes. If no, the class is not in the recruitment pool and has no pool size modifiers.
+	## cardinality = 0..1
+	valid_for_leader_pool = bool
+
 	## cardinality = 0..1
 	max_trait_points = int[0..inf]
 	## cardinality = 0..1
@@ -122,12 +135,6 @@ leader_class = {
 	default_category = <leader_class>
 	## cardinality = 0..1
 	assignment_cooldown = int[0..inf]
-
-	## cardinality = 0..1
-	leader_background_job_weight = {
-		## cardinality = 0..inf
-		<job> = int
-	}
 
 	### 1-based index in the icon file. might be replaced by an icon name later
 	## cardinality = 0..1

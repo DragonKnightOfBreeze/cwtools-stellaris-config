@@ -678,8 +678,6 @@ defines = {
 
         AUTO_MOD_BASE = int
 
-        LEADER_JOB_BACKGROUND_STRATA_WEIGHTS = single_alias_right[scalar_array]
-
         COUNCIL_RESEARCH_POSITIONS = {
             ## cardinality = 0..inf
             <councilor>

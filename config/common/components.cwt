@@ -319,7 +319,10 @@ component_template = {
 		## cardinality = 0..1
 		missile_retarget_range = int
 		## cardinality = 0..1
-		point_defence_targets = { enum[point_defence_target] }
+		point_defence_targets = {
+			## cardinality = 0..inf
+			enum[point_defence_target]
+		}
 		### apply effects to target on hit. Scope = ship (target), from = ship (shooter)
 		## replace_scopes = { this = ship from = ship }
 		## cardinality = 0..inf
@@ -390,7 +393,10 @@ component_template = {
 		## cardinality = 0..1
 		attack_range = float
 		## cardinality = 0..1
-		point_defence_targets = { enum[point_defence_target] }
+		point_defence_targets = {
+			## cardinality = 0..inf
+			enum[point_defence_target]
+		}
 	}
 
 	subtype[utility_component_template] = {

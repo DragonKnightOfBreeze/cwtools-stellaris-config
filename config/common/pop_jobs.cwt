@@ -212,6 +212,40 @@ job = {
 	## cardinality = 0..1
 	## replace_scopes = { this = system root = system }
 	triggered_system_modifier = single_alias_right[triggered_modifier_by_colony_clause]
+
+	### Applies to every leader. Scriptable value, scope: colony.
+	## cardinality = 0..1
+	leader_background_weight = value_field
+
+	### Applies to every leader. Scriptable value, scope: colony.
+	## replace_scopes = { this = colony root = colony }
+	## cardinality = 0..1
+	leader_background_weight = {
+		alias_name[modifier_rule] = alias_match_left[modifier_rule]
+	}
+
+	### Applies when the leader has the class. Key: leader class key.
+	## cardinality = 0..1
+	leader_background_class_weight = {
+		## cardinality = 0..inf
+		<leader_class> = {
+			alias_name[modifier_rule] = alias_match_left[modifier_rule]
+		}
+		## cardinality = 0..inf
+		<leader_class> = value_field
+	}
+
+	### Applies when the empire holds the ethic, not the leader.
+	## cardinality = 0..1
+	leader_background_ethic_weight = {
+		## cardinality = 0..inf
+		<ethic> = {
+			alias_name[modifier_rule] = alias_match_left[modifier_rule]
+		}
+		## cardinality = 0..inf
+		<ethic> = value_field
+	}
+
 	## cardinality = 0..1
 	weight = {
 		alias_name[modifier_rule] = alias_match_left[modifier_rule]
