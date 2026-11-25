@@ -103,7 +103,7 @@ alias[trigger:has_star_flag] = value[star_flag]
 ### Checks if the solar system has a specific flag
 ## scopes = { galactic_object dlc_recommendation }
 ## severity = warning
-alias[trigger:has_star_flag] = <precursors>
+alias[trigger:has_star_flag] = <precursor>
 
 ### Checks if the species has a specific flag
 ## scopes = { species }
@@ -4042,6 +4042,183 @@ alias[trigger:has_overclock] = <megastructure_overclock_type>
 ## scopes = { country no_scope }
 alias[trigger:has_overclock_cooldown] = bool
 
+### Checks the average ethics divergence on the planet, i.e. num of pops not of the country's ethics / total num of pops. False on a colony with no pops, whatever the comparison
+## scopes = { planet ship colony }
+alias[trigger:pop_ethics_divergence] == value_field
+
+### Checks if the war goal of the given country's side defeats a nomad empire when enemies control all its arkships
+## scopes = { war }
+alias[trigger:country_defeats_nomads_in_war] = scope[country]
+
+### Check if scoped country/pop group/ideology/leader has same ethic as target ideology
+## scopes = { country pop_group leader pop_faction ideology }
+alias[trigger:has_same_ethic_as_ideology] = scope[ideology]
+
+### Check if scoped country has same fanatic ethic as target ideology
+## scopes = { country }
+alias[trigger:has_same_fanatic_ethic_as_ideology] = scope[ideology]
+
+### Check if scoped country/pop group/ideology has opposite ethic as target ideology
+## scopes = { country pop_group ideology }
+alias[trigger:has_opposite_ethic_as_ideology] = scope[ideology]
+
+### Check affinity with a foreign ideology. Used for AI.
+## scopes = { country }
+alias[trigger:foreign_ideology_affinity] = {
+	ideology = scope[ideology]
+	value == value_field
+}
+
+### Checks the country's ideological momentum.
+## scopes = { country }
+alias[trigger:ideological_momentum] == value_field
+
+### Checks the country's ideological strength.
+## scopes = { country }
+alias[trigger:ideological_strength] == value_field
+
+### Checks the country's ideological strength as completion percentage.
+## scopes = { country }
+alias[trigger:ideological_strength_percent] == value_field[0.0..1.0]
+
+### Check the country's last ideological strength monthly increase.
+## scopes = { country }
+alias[trigger:last_ideology_increase] == value_field
+
+### Get the number of different species on council
+## scopes = { country }
+alias[trigger:count_species_on_council] = int_value_field
+
+### Checks the scoped country's adopted Ideology strength level. Returns -1 if no ideology is adopted
+## scopes = { country }
+alias[trigger:adopted_ideology_level] == value_field
+
+### Count the amount of rivalries between adopting members of the ideology and empires following different Ideologies.
+## scopes = { ideology }
+alias[trigger:count_ideology_rivalries] = int_value_field
+
+### Checks the scoped country's intel towards Ideology.
+## scopes = { country }
+alias[trigger:ideology_intel] = {
+	ideology = scope[ideology]
+	value == value_field
+}
+
+### Count the amount of Ideologies clashing with the scoped ideology. Optionally filter by whether the clashing ideology's custodian is an ideological rival of the scoped ideology's custodian.
+## scopes = { ideology }
+alias[trigger:count_clashing_ideologies] = {
+	## cardinality = 0..1
+	is_ideology_rival = bool
+	## cardinality = 0..1
+	is_ideology_rival = any
+	value == value_field
+}
+
+### Checks if a faction's approval is past a given threshold. Can be used in a scoped country, then it returns the sum of every factions' approval past the given threshold.
+## scopes = { country pop_faction }
+alias[trigger:faction_approval_above_threshold] = {
+	threshold == value_field
+	value == value_field
+}
+
+### Checks the colony's migration score
+## scopes = { planet colony }
+alias[trigger:migration_score] == value_field
+
+### Count the amount of Colonies inside of a country's ideology.
+## scopes = { country ideology }
+alias[trigger:count_colonies_in_ideology] == value_field
+
+### Checks the total intel towards countries who adopted this ideology.
+## scopes = { ideology }
+alias[trigger:total_intel_towards_adopting_countries] = {
+	who = scope[country]
+	value = value_field
+}
+
+### Checks if the country/pop group/ideology has acquired the specified tenet.
+## scopes = { country }
+alias[trigger:has_active_tenet] = <ideology_tenet>
+
+### Checks the tenet's tier (from the country's adopted Ideology). Returns 0 if the tenet isn't active or if no ideology is adopted.
+## scopes = { country }
+alias[trigger:get_tenet_tier] = {
+	tenet = <ideology_tenet>
+	value == value_field
+}
+
+### Returns the number of active tenets (from the country's adopted Ideology). Returns 0 if no ideology is adopted.
+## scopes = { country }
+alias[trigger:num_active_tenets] == value_field
+
+### Checks if given precursor is available in current galaxy
+## scopes = any
+alias[trigger:is_precursor_available] = <precursor>
+
+### Checks the ideology's followers amount
+## scopes = { ideology }
+alias[trigger:followers_amount] == value_field
+
+### Checks the ideology's galactic strength (0.0-1.0)
+## scopes = { ideology }
+alias[trigger:galactic_strength] == value_field
+
+### Checks if a leader is in training
+## scopes = { leader }
+alias[trigger:is_in_training] = bool
+
+### Checks if target country is custodian of scoped ideology.
+## scopes = { ideology }
+alias[trigger:is_ideology_custodian] = scope[country]
+
+### Checks if scoped country has an adopted ideology stagnating
+## scopes = { country }
+alias[trigger:is_ideology_stagnating] = bool
+
+### Checks if given ethic is what's scoped country is the most attracted to.
+## scopes = { country }
+alias[trigger:is_most_attracted_ethic] = <ethic>
+
+### Checks if the scoped country is affected by the target ideology, which requires having established communications with one of its adopters.
+## scopes = { country }
+alias[trigger:is_affected_by_ideology] = scope[country]
+
+### Returns the summed ideological reach of the given ideology's emitters that pass the optional limit.
+## scopes = { starbase }
+alias[trigger:combined_emitter_reach] = {
+	## cardinality = 0..1
+	## push_scope = colony
+	limit = single_alias_right[trigger_clause]
+	ideology = scope[ideology]
+	value == value_field
+}
+
+### Checks if the scoped country has detected the target ideology, which does not require having established communications with one of its adopters.
+## scopes = { country }
+alias[trigger:is_ideology_revealed] = scope[ideology]
+
+### Returns how many of the scoped country's pops follow the target Ideology, read from the Ideology's follower cache.
+## scopes = { country }
+alias[trigger:ideology_followers_amount] = {
+	ideology = scope[ideology]
+	value == int_value_field
+}
+
+### Checks if the scoped system is reached by the target Ideology's emitters, even if a stronger Ideology prevails there.
+## scopes = { galactic_object }
+alias[trigger:is_within_ideology_reach] = scope[ideology]
+
+### Returns how much reach the given Ideology's prevailing emitter has left in the scoped system, or 0 if the Ideology does not reach it.
+## scopes = { galactic_object }
+alias[trigger:ideology_reach_left] = {
+	ideology = scope[ideology]
+	value == int_value_field
+}
+
+### Checks if the country has a faction guided by the ethic (higher variants are considered)
+## scopes = { country }
+alias[trigger:has_faction_with_ethic] = <ethic>
+
 ### Iterate through each agreement - checks whether the enclosed triggers return true for any of them
 ## scopes = { country no_scope }
 ## push_scope = agreement
@@ -4492,6 +4669,126 @@ alias[trigger:count_council_member] = {
 	count = all
 }
 
+### Iterate through every country affected by the scoped Ideology - checks whether the enclosed triggers return true for any of them
+## scopes = { ideology }
+## push_scope = country
+alias[trigger:any_affected_country] = single_alias_right[trigger_clause]
+
+### Iterate through every country affected by the scoped Ideology - checks whether the enclosed triggers return true for X/all of them
+## scopes = { ideology }
+alias[trigger:count_affected_country] = {
+	## cardinality = 0..1
+	## push_scope = country
+	limit = single_alias_right[trigger_clause]
+	count == int_value_field
+	count = all
+}
+
+### Iterate through every country adopting the scoped Ideology - checks whether the enclosed triggers return true for any of them
+## scopes = { ideology }
+## push_scope = country
+alias[trigger:any_adopting_country] = single_alias_right[trigger_clause]
+
+### Iterate through every country adopting the scoped Ideology - checks whether the enclosed triggers return true for X/all of them
+## scopes = { ideology }
+alias[trigger:count_adopting_country] = {
+	## cardinality = 0..1
+	## push_scope = country
+	limit = single_alias_right[trigger_clause]
+	count == int_value_field
+	count = all
+}
+
+### Iterate through every ideology in the entire game - checks whether the enclosed triggers return true for any of them
+## scopes = any
+## push_scope = ideology
+alias[trigger:any_ideology] = single_alias_right[trigger_clause]
+
+### Iterate through every ideology in the entire game - checks whether the enclosed triggers return true for X/all of them
+## scopes = any
+alias[trigger:count_ideology] = {
+	## cardinality = 0..1
+	## push_scope = ideology
+	limit = single_alias_right[trigger_clause]
+	count == int_value_field
+	count = all
+}
+
+### Iterate through every revealed ideology for the scoped country - checks whether the enclosed triggers return true for any of them
+## scopes = { country }
+## push_scope = ideology
+alias[trigger:any_revealed_ideology] = single_alias_right[trigger_clause]
+
+### Iterate through every revealed ideology for the scoped country - checks whether the enclosed triggers return true for X/all of them
+## scopes = { country }
+alias[trigger:count_revealed_ideology] = {
+	## cardinality = 0..1
+	## push_scope = ideology
+	limit = single_alias_right[trigger_clause]
+	count == int_value_field
+	count = all
+}
+
+### Iterate through every system affected by the scoped Ideology - checks whether the enclosed triggers return true for any of them
+## scopes = { ideology }
+## push_scope = system
+alias[trigger:any_system_within_reach] = single_alias_right[trigger_clause]
+
+### Iterate through every system affected by the scoped Ideology - checks whether the enclosed triggers return true for X/all of them
+## scopes = { ideology }
+alias[trigger:count_system_within_reach] = {
+	## cardinality = 0..1
+	## push_scope = system
+	limit = single_alias_right[trigger_clause]
+	count == int_value_field
+	count = all
+}
+
+### Iterate through every system reached by the scoped Ideology's emitters, including the ones where a stronger Ideology prevails - checks whether the enclosed triggers return true for any of them
+## scopes = { ideology }
+## push_scope = system
+alias[trigger:any_system_within_emitter_reach] = single_alias_right[trigger_clause]
+
+### Iterate through every system reached by the scoped Ideology's emitters, including the ones where a stronger Ideology prevails - checks whether the enclosed triggers return true for X/all of them
+## scopes = { ideology }
+alias[trigger:count_system_within_emitter_reach] = {
+	## cardinality = 0..1
+	## push_scope = system
+	limit = single_alias_right[trigger_clause]
+	count == int_value_field
+	count = all
+}
+
+### Iterate through every followed Ideology of the scoped Pop Group - checks whether the enclosed triggers return true for any of them
+## scopes = { pop_group }
+## push_scope = ideology
+alias[trigger:any_followed_ideology] = single_alias_right[trigger_clause]
+
+### Iterate through every followed Ideology of the scoped Pop Group - checks whether the enclosed triggers return true for X/all of them
+## scopes = { pop_group }
+alias[trigger:count_followed_ideology] = {
+	## cardinality = 0..1
+	## push_scope = ideology
+	limit = single_alias_right[trigger_clause]
+	count == int_value_field
+	count = all
+}
+
+### Iterate through every country emitting an Ideology into the scoped system, including those losing the reach conflict - checks whether the enclosed triggers return true for any of them
+## scopes = { galactic_object }
+## push_scope = ideology
+alias[trigger:any_ideology_emitter_country] = single_alias_right[trigger_clause]
+
+### Iterate through every country emitting an Ideology into the scoped system, including those losing the reach conflict - checks whether the enclosed triggers return true for X/all of them
+## scopes = { galactic_object }
+alias[trigger:count_ideology_emitter_country] = {
+	## cardinality = 0..1
+	## push_scope = ideology
+	limit = single_alias_right[trigger_clause]
+	count == int_value_field
+	count = all
+}
+
 ### Iterate through each leader that is owned by the country - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 alias[trigger:count_owned_leader] = {
@@ -4525,6 +4822,21 @@ alias[trigger:any_envoy] = single_alias_right[trigger_clause]
 ### Iterate through each envoy available to the country - checks whether the enclosed triggers return true for X/all of them
 ## scopes = { country }
 alias[trigger:count_envoy] = {
+	## cardinality = 0..1
+	## push_scope = leader
+	limit = single_alias_right[trigger_clause]
+	count == int_value_field
+	count = all
+}
+
+### Iterate through each leader in training for the country - checks whether the enclosed triggers return true for any of them
+## scopes = { country }
+## push_scope = leader
+alias[trigger:any_leader_in_training] = single_alias_right[trigger_clause]
+
+### Iterate through each leader in training for the country - checks whether the enclosed triggers return true for X/all of them
+## scopes = { country }
+alias[trigger:count_leader_in_training] = {
 	## cardinality = 0..1
 	## push_scope = leader
 	limit = single_alias_right[trigger_clause]
@@ -5931,10 +6243,8 @@ alias[trigger:count_exhibit] = {
 	count = all
 }
 
-# removed effects in triggers.log
+# removed triggers in triggers.log
 
-## api_status = removed
-alias[trigger:pop_has_ethic] = $any
 ## api_status = removed
 alias[trigger:has_pop_flag] = $any
 

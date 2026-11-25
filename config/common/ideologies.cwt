@@ -18,7 +18,7 @@ types = {
         path = "game/common/ideologies/reach_types"
         path_extension = .txt
     }
-    type[ideology_tenets] = {
+    type[ideology_tenet] = {
         path = "game/common/ideologies/tenets"
         path_extension = .txt
         localisation = {
@@ -257,7 +257,7 @@ ideology_reach = {
     }
 }
 
-ideology_tenets = {
+ideology_tenet = {
     ### List of possible ethics an ideology should have to select this tenet. An empty list means it can be selected by any ideology
     ## cardinality = 0..1
     ethics = {

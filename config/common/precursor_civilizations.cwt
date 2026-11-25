@@ -1,5 +1,5 @@
 types = {
-	type[precursors] = {
+	type[precursor] = {
 		path = "common/precursor_civilizations"
 		path_extension = .txt
 		localisation = {
@@ -13,7 +13,7 @@ types = {
 }
 
 # Sets the chance for a system getting a specific precursor and distributes star flags named after the precursor. Or something like that.
-precursors = {
+precursor = {
 	size = int
 
 	## cardinality = 0..1

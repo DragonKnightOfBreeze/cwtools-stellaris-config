@@ -10624,7 +10624,7 @@ alias[effect:create_ideology] = {
 	## cardinality = 0..1
 	tenets = {
 		## cardinality = 0..inf
-		tent = <ideology_tenets>
+		tent = <ideology_tenet>
 	}
 
 	### (yes by default)
