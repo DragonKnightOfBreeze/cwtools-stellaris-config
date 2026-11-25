@@ -16,7 +16,7 @@ alias[modifier_rule:modifier] = {
 	polarity = enum[modifier_polarity]
 	### Options are `hide_desc` to hide the modifier's description, `desc_only` to show a modifier's description without actually applying it to the final value, and `default`.
 	## cardinality = 0..1
-	display_level = eunm[modifier_display_level]
+	display_level = enum[modifier_display_level]
 }
 
 alias[modifier_rule:scaled_modifier] = {
