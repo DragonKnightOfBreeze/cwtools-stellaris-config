@@ -554,6 +554,7 @@ enums = {
         shipclass_military_special
         shipclass_gravity_snare
         shipclass_entropy_conduit
+		shipclass_cultural_envoy
     }
 	complex_enum[section_slot] = {
 		path = "game/common/ship_sizes"
