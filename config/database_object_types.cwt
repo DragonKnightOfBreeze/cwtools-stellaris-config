@@ -87,8 +87,4 @@ database_object_types = {
         type = policy
     }
 
-	councilor = {
-		type = councilor
-	}
-
 }
