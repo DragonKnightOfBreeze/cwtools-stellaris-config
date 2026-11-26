@@ -337,8 +337,22 @@ megastructure = {
 	### Maximum number of modules this megastructure can have
 	max_module_capacity = int
 
-	overclock_loc_key
-	overclock_cooldown
+	### optional. Renames the word "Overclocking" throughout the tab for this megastructure only, so an Arc Furnace can talk about Smelting instead. The key is substituted into each of the seven strings below.
+	### Every string is looked up individually, and any key that is not localized falls back to the shared one, so a megastructure can rename only the strings it cares about. Omitting overclock_loc_key entirely uses the shared string everywhere.
+	### composed key (SMELTING)					shared fallback									where it appears
+	### MEGASTRUCTURE_SMELTING_TAB				MEGASTRUCTURE_OVERCLOCKING_TAB					tab button
+	### MEGASTRUCTURE_SMELTING_DESC				MEGASTRUCTURE_OVERCLOCKING_DESC					blurb along the bottom of the tab
+	### MEGASTRUCTURE_NO_SMELTING				MEGASTRUCTURE_NO_OVERCLOCKING					header while no mode is active
+	### MEGASTRUCTURE_SMELTING_ENABLED			MEGASTRUCTURE_OVERCLOCKING_ENABLED				on the mode that is already active
+	### MEGASTRUCTURE_CLICK_TO_ENABLE_SMELTING	MEGASTRUCTURE_CLICK_TO_ENABLE_OVERCLOCK			mode button call to action
+	### MEGASTRUCTURE_TOOLTIP_SMELTING_COST_HEADER	MEGASTRUCTURE_TOOLTIP_OVERCLOCK_COST_HEADER	mode button cost header
+	### MEGASTRUCTURE_SMELTING_TOOLTIP_DESC		MEGASTRUCTURE_OVERCLOCK_TOOLTIP_DESC			mode button flavor styling
+	## cardinality = 0..1
+	overclock_loc_key = scalar
+
+	### optional, default 0. Days the megastructure is locked out of switching mode after a switch, shared by every mode rather than tracked per mode. Accepts a plain number,an @scripted_variable, or value:my_script_value / trigger: / modifier: / var: forms, evaluated in megastructure scope.
+	## cardinality = 0..1
+	overclock_cooldown = int_value_field
 
 	## cardinality = 0..1
 	dismantle_cost = {
