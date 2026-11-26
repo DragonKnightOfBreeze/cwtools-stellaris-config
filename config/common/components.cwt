@@ -444,6 +444,11 @@ component_template = {
 		## cardinality = 0..1
 		jumpdrive = bool
 		## cardinality = 0..1
+		ftl_magnet = bool
+		## cardinality = 0..1
+		military_power = float
+
+		## cardinality = 0..1
 		ship_behavior = <ship_behavior>
 		## cardinality = 0..1
 		sensor_range = int
