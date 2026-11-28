@@ -98,7 +98,7 @@ overrides = {
     # [medium] Wiki: DUPL.
     "common/terraform" = dupl
 
-    # [high] Wiki: DUPL/NO (entire-file override only); IMM FIOSPaths.
+    # [high] Wiki: DUPL/NO (entire-file override only); IMM FIOSPaths. Changed in 4.6.0,the override of the traits(include species and leader) is lios now
     "common/traits" = lios
 
     # [high] Wiki: FIOS.
