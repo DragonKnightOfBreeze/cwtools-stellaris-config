@@ -99,7 +99,7 @@ overrides = {
     "common/terraform" = dupl
 
     # [high] Wiki: DUPL/NO (entire-file override only); IMM FIOSPaths.
-    "common/traits" = dupl
+    "common/traits" = lios
 
     # [high] Wiki: FIOS.
     "events" = fios
